@@ -347,7 +347,7 @@ I don't want to risk overwriting a known-good archive of a page with a copy that
 
 
 [link rot]: https://en.wikipedia.org/wiki/Link_rot
-[til]: /til/2024/how-to-do-exclusive-file-write-in-swift/
+[til]: /notes/2024/how-to-do-exclusive-file-write-in-swift/
 
 
 

@@ -15,9 +15,3 @@ Sub-topics:
   </li>
   {%- endfor -%}
 </ul>
-
-## Notes about {{ page.title }}
-
-{% with articles = site.notes|filter_for_topic(topic_name=page.title) %}
-{% include "partials/article_links.html" %}
-{% endwith %}

@@ -3,6 +3,9 @@ layout: page
 title: About the site
 summary: How I build the site, the tech underneath it, and my history of questionable design decisions.
 date_updated: 2025-06-13 22:01:39 +01:00
+colors:
+  css_light: "#118207"
+  css_dark:  "#5ff042"
 ---
 I bought the domain name `alexwlchan.net` on 8th November 2012, and I've been writing here ever since.
 

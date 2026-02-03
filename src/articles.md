@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Articles
-nav_section: articles
+colors:
+  css_light: "#115bda"
+  css_dark:  "#40c3ff"
 ---
 
 <style type="x-text/scss">

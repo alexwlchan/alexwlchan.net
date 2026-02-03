@@ -78,15 +78,10 @@ This page is where I keep notes on all the books I've read:
 </style>
 
 {% from "partials/star_rating.html" import star_rating %}
-{% from "partials/topic_entries.html" import topic_section %}
-{% set featured = site.articles
-  | selectattr("template_name", "eq", "post.html")
-  | selectattr("is_featured")
-  | selectattr("topic", "eq", "Books I've read")
-  | sort(attribute="date", reverse=True) %}
+{% from "partials/topic_entries.html" import featured_articles %}
 
 <div id="topic_entries">
-  {{ topic_section(featured, "article_cards") }}
+  {{ featured_articles(topic_name="Books I've read") }}
 
   {% set per_year_reviews =
       site.book_reviews

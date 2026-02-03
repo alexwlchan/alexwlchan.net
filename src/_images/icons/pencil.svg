@@ -1,0 +1,75 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      path, circle, line, rect.border {
+        stroke: currentColor;
+        stroke-width: 1.25;
+        stroke-linecap: round;
+        fill: none;
+      }
+
+      .border {
+        stroke-width: 2;
+      }
+
+      rect.border {
+        fill: none;
+      }
+
+      .wire {
+        stroke-width: 0.75;
+      }
+    </style>
+  </defs>
+
+  <!--<rect width="24" height="24" fill="yellow" stroke-width="0"/>-->
+
+  <!--[[[cog
+  import cog
+  import math
+
+  WIDTH = HEIGHT = 24
+
+  pencil_width = 6
+  pencil_height = 15
+  pencil_x = (WIDTH - pencil_width) / 2
+  pencil_y = (HEIGHT - pencil_height) / 2 - 2
+  pencil_r = 2
+
+  cog.outl(f'''
+  <defs>
+  <mask id="pencilMask">
+  <rect width="36" height="36" fill="white"/>
+  <path style="stroke: black; stroke-width: 5; fill: black;" d="M {pencil_x} {pencil_y + pencil_height} v -{pencil_height - pencil_r} a {pencil_r} {pencil_r} 0 0 1 {pencil_r} -{pencil_r} h {pencil_width - pencil_r * 2} a {pencil_r} {pencil_r} 0 0 1 {pencil_r} {pencil_r} v{pencil_height - pencil_r} l {-pencil_width / 2} {pencil_width/2 * 3/2} l {-pencil_width / 2} {-pencil_width/2*3/2}"/>
+  </mask>
+
+  <g id="pencil">
+  <path class="border" d="M {pencil_x} {pencil_y + pencil_height} v -{pencil_height - pencil_r} a {pencil_r} {pencil_r} 0 0 1 {pencil_r} -{pencil_r} h {pencil_width - pencil_r * 2} a {pencil_r} {pencil_r} 0 0 1 {pencil_r} {pencil_r} v{pencil_height - pencil_r} l {-pencil_width / 2} {pencil_width/2 * 3/2} l {-pencil_width / 2} {-pencil_width/2*3/2}"/>
+  ''')
+  cog.outl(f'<path class="wire" d="M {pencil_x + pencil_width / 3} {pencil_y + pencil_height - pencil_r * 2/3} v{-pencil_height + pencil_r*2}"/>')
+  cog.outl(f'<path class="wire" d="M {pencil_x + 2*pencil_width / 3*0.95} {pencil_y + pencil_height - pencil_r * 2/3} v{-pencil_height + pencil_r*2}"/>')
+  cog.outl(f'<path class="border" d="M {pencil_x} {pencil_y + pencil_height} m {pencil_width/2} {pencil_width/2*3/2} l 36 -{36*math.tan(math.pi/6)}" mask="url(#pencilMask)"/>')
+  cog.outl('</g></defs>')
+  cog.outl('<g transform="rotate(30 12 12)">')
+  cog.outl('<use xlink:href="#pencil"/>')
+  cog.outl('</g>')
+  ]]] -->
+
+  <defs>
+  <mask id="pencilMask">
+  <rect width="36" height="36" fill="white"/>
+  <path style="stroke: black; stroke-width: 5; fill: black;" d="M 9.0 17.5 v -13 a 2 2 0 0 1 2 -2 h 2 a 2 2 0 0 1 2 2 v13 l -3.0 4.5 l -3.0 -4.5"/>
+  </mask>
+
+  <g id="pencil">
+  <path class="border" d="M 9.0 17.5 v -13 a 2 2 0 0 1 2 -2 h 2 a 2 2 0 0 1 2 2 v13 l -3.0 4.5 l -3.0 -4.5"/>
+
+  <path class="wire" d="M 11.0 16.166666666666668 v-11"/>
+  <path class="wire" d="M 12.8 16.166666666666668 v-11"/>
+  <path class="border" d="M 9.0 17.5 m 3.0 4.5 l 36 -20.78460969082652" mask="url(#pencilMask)"/>
+  </g></defs>
+  <g transform="rotate(30 12 12) translate(0 -0.5)">
+  <use xlink:href="#pencil"/>
+  </g>
+  <!-- [[[end]]] -->
+</svg>

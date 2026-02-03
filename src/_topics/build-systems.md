@@ -8,9 +8,3 @@ This includes local tools (like [Make][wiki-make]) and hosted services for conti
 [buildkite]: https://buildkite.com/
 [gh-actions]: https://github.com/features/actions
 [wiki-make]: https://en.wikipedia.org/wiki/Make_(software)
-
-## Notes about {{ page.title }}
-
-{% with articles = site.notes | selectattr("topic", "eq", page.title) %}
-{% include "partials/article_links.html" %}
-{% endwith %}

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/>   -->
+  
+  <!--[[[cog
+  import cog
+  
+  WIDTH = HEIGHT = 24
+  
+  width = 16
+  height = 8
+  
+  incr = 4.5
+  
+  x = (WIDTH - width) / 2
+  y = 7.5
+  
+  cog.outl(f'''<path class="border" d="M {x} {y} l {width / 2} {height / 2} l {width / 2} {-height/2} l {-width/2} {-height/2} Z"/>''')
+  
+  cog.outl(f'''<path class="border" d="M {x} {y + incr} l {width / 2} {height / 2}  l {width / 2} {-height/2}"/>''')
+  
+  cog.outl(f'''<path class="border" d="M {x} {y + 2 * incr} l {width / 2} {height / 2}  l {width / 2} {-height/2}"/>''')
+  
+  ]]]-->
+  <path class="border" d="M 4.0 7.5 l 8.0 4.0 l 8.0 -4.0 l -8.0 -4.0 Z"/>
+  <path class="border" d="M 4.0 12.0 l 8.0 4.0  l 8.0 -4.0"/>
+  <path class="border" d="M 4.0 16.5 l 8.0 4.0  l 8.0 -4.0"/>
+  <!-- [[[end]]] -->
+</svg>

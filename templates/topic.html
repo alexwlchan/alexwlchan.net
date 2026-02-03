@@ -2,9 +2,17 @@
 
 {% block content %}
   <style>
+    #topic_entries {
+      margin-top: 1.5em;
+    }
+    
     section {    
       h2 {
         margin-top: 0;
+      }
+      
+      .alinks:last-child {
+        margin-bottom: 0;
       }
     }
     
@@ -56,5 +64,10 @@
     </hgroup>
 
     {{ content | cleanup_text }}
+    
+    {%- if page.title != "Books I've read" -%}
+      {%- from "partials/topic_entries.html" import topic_entries -%}
+      {{- topic_entries(topic_name=page.title) -}}
+    {%- endif -%}
   </article>
 {% endblock %}

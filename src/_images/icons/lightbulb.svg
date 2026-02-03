@@ -1,0 +1,40 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <!--<rect width="24" height="24" fill="yellow" stroke-width="0"/>-->
+
+  <!--[[[cog
+  import cog
+  import math
+
+  WIDTH = HEIGHT = 24
+
+  stem_x = 9
+  stem_y = 16
+
+  stem_width = WIDTH - stem_x * 2
+  stem_height = 4
+
+  wire_x = stem_x + 2.75
+  wire_y = stem_y + 1.55
+  wr = 3
+  wl = 5.5
+
+  big_r = 7
+
+  stem_r = 1.5
+
+  cog.outl(f'''<path class="border" d="M {stem_x} {stem_y} v {stem_height -1 } a {stem_r} {stem_r} 0 0 0 {stem_r} {stem_r} h {stem_width-2*stem_r} a {stem_r} {stem_r} 0 0 0 {stem_r} -{stem_r} v{-stem_height+1}
+          A {big_r} {big_r} 0 1 0 {stem_x} {stem_y}
+          "/>''')
+
+  cog.outl(f'<path d="M{stem_x} {stem_y + 2*stem_height/5} h {stem_width}"/>')
+  cog.outl(f'<path d="M{stem_x + stem_width / 2} {stem_y + 2*stem_height/5} v-6 l -{wr} -{wr} l {wr} {wr} l {wr} -{wr} l -{wr} {wr}"/>')
+
+
+  ]]]-->
+  <path class="border" d="M 9 16 v 3 a 1.5 1.5 0 0 0 1.5 1.5 h 3.0 a 1.5 1.5 0 0 0 1.5 -1.5 v-3
+          A 7 7 0 1 0 9 16
+          "/>
+  <path d="M9 17.6 h 6"/>
+  <path d="M12.0 17.6 v-6 l -3 -3 l 3 3 l 3 -3 l -3 3"/>
+  <!-- [[[end]]] -->
+</svg>

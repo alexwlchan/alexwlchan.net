@@ -272,7 +272,7 @@ This worked when I wrote it as a standalone snippet, and then I deployed it on t
 
 (The photo I used in the examples is from [Viktorya Sergeeva on Pexels](https://www.pexels.com/photo/a-person-using-an-old-computer-9140591/).)
 
-[til]: /til/2024/diagonal-new-banner/
+[til]: /notes/2024/diagonal-new-banner/
 
 
 

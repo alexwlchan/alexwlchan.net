@@ -1,6 +1,9 @@
 ---
 layout: topic
 title: Notes
+colors:
+  css_light: "#115bda"
+  css_dark:  "#40c3ff"
 ---
 
 Notes are snippets of information that I find useful and wanted to write down, but aren't long or original enough to be articles.

@@ -2,8 +2,8 @@
 layout: page
 title: ""
 colors:
-  css_light: "#17823e"
-  css_dark:  "#26d967"
+  css_light: "#118207"
+  css_dark:  "#5ff042"
 ---
 
 <style type="x-text/scss">
@@ -73,211 +73,290 @@ I'm queer and trans, and my pronouns are "they" or "she".
 
 I hope you like it!
 
-<!--
-
-<blockquote class="table_of_contents">
-  <ul>
-    <li>
-      <a href="/articles/">Writing</a>
-      <ul>
-        <li><a href="/programming/">Programming</a></li>
-        <li><a href="/digital-preservation/">Digital preservation</a></li>
-        <li><a href="/personal/">Personal thoughts</a></li>
-        <li><a href="/world/">The world at large</a></li>
-      </ul>
-    </li>
-    <li><a href="/fun-stuff/">Fun stuff</a></li>
-    <li><a href="/book-reviews/">Books I’ve read</a></li>
-    <li><a href="/notes/">Notes</a></li>
-    <li><a href="/say-thanks/">Say thanks</a></li>
-  </ul>
-</blockquote>
-
--->
-
-
----
-
-
-
-{% set featured_articles = site.articles | selectattr("is_featured") | list %}
-{% set new_articles = featured_articles  | selectattr("is_new" )     | list %}
-
-{% set new_count = new_articles | count %}
-{% set sample_of_articles = featured_articles | sample(6 - new_count) %}
-
-## Favourite articles
-
-Here are some of my favourite things [that I've written](/articles/):
-
-<ul class="acards" id="featured_articles">
-  {% for article in new_articles %}
-    {% include "partials/article_card.html" %}
-  {% endfor %}
-  {% for article in sample_of_articles %}
-    {% include "partials/article_card.html" %}
-  {% endfor %}
-</ul>
-
-Here are some of the topics I write about:
-
-<ul class="dot_list" id="popular_tags">
-  {% for tag_name in site.data['popular_tags'] | sort %}
-    <li>{% include "partials/tag_link.html" %}</li>
-  {% endfor %}
-</ul>
+<br/>
 
 <style>
-  #popular_tags a:visited {
-    color: var(--link-color);
+  #homepage_cards {
+    list-style-type: "";
+    padding: 0;
+    margin: 0;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
   }
+  
+  @media screen and (max-width: 450px) {
+    #homepage_cards {
+      grid-template-columns: auto;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #homepage_cards {
+      --grid-columns: repeat(3, minmax(0, 1fr));
+      margin-left:  -100px;
+      margin-right: -100px;
+
+      /* In Safari 18.2, the <ul> won't automatically expand to the width
+       * just because the margin is there -- we have to tell it to expand */
+  
+      /* Why 199px and not 200px? To work around a subpixel bug in WebKit,
+       * where I get a hairline crack on the right-hand side of my cards
+       * in the three column view. :( */
+      width: calc(100% + 199px);
+    }
+  }
+  
+  .card {
+    border: var(--border-width) var(--border-style) var(--primary-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    
+    h2 {
+      margin: 0;
+      padding: 10px;
+      background: var(--card-bg);
+      background-size: auto 125%;
+      color: white;
+      text-align: center;
+      border-radius: calc(var(--border-radius) - 3px) calc(var(--border-radius) - 3px) 0 0;
+    }
+    
+    ul {
+      list-style-type: "";
+      padding: var(--default-padding);
+      margin-top: 0;
+      margin-left: 0;
+    
+      li {
+        text-wrap: balance;
+        display: grid;
+        grid-template-columns: 24px auto;
+        gap: 7px;
+        margin-top: 6px;
+      }
+      
+      a {
+        color: var(--primary-color);
+      }
+      
+      svg {
+        margin-top: 2px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+  }
+  
+  #writing {
+    --primary-color: var(--red);
+    --card-bg:       url('/h/d01c11.png');
+  }
+  
+  #life {
+    --primary-color: var(--green);
+    --card-bg:       url('/h/118207.png');
+  }
+  
+  #archives {
+    --primary-color: var(--blue);
+    --card-bg:       url('/h/115bda.png');
+  }
+  
+  @media screen and (prefers-color-scheme: dark) {
+    #homepage_cards h2 {
+      color: black;
+    }
+    
+    #writing {
+      --card-bg: url('/h/ff4a4a.png');
+    }
+  
+    #life {
+      --card-bg: url('/h/5ff042.png');
+    }
+  
+    #archives {
+      --card-bg: url('/h/40c3ff.png');
+    }
+  }
+  </style>
+  
+  <style>
+    path, ellipse {
+      stroke: currentColor;
+      stroke-linecap: round;
+      fill: none;
+    }
+    
+    .border {
+      stroke-width: 2;
+    }
+    
+    circle.dot {
+      fill: currentColor;
+      stroke: none;
+    }
+    
+    g[data-value="1"] {
+      .upper, .lower, .mid { display: none; }
+      .mid.center { display: block; }
+    }
+
+    g[data-value="2"][data-alt="false"] {
+      .upper, .lower, .mid { display: none; }
+      .upper.left, .lower.right { display: block; }
+    }
+    g[data-value="2"][data-alt="true"] {
+      .upper, .lower, .mid { display: none; }
+      .upper.right, .lower.left { display: block; }
+    }
+    
+    g[data-value="3"][data-alt="false"] {
+      .upper, .lower, .mid { display: none; }
+      .upper.right, .mid.center, .lower.left { display: block; }
+    }
+    g[data-value="3"][data-alt="true"] {
+      .upper, .lower, .mid { display: none; }
+      .upper.left, .mid.center, .lower.right { display: block; }
+    }
+
+    g[data-value="4"] {
+      .center, .mid { display: none; }
+    }
+
+    g[data-value="5"] {
+      .center, .mid { display: none; }
+      .mid.center { display: block; }
+    }
+
+    g[data-value="6"][data-alt="false"] {
+      .center { display: none; }
+    }
+    g[data-value="6"][data-alt="true"] {
+      .mid { display: none; }
+    }
+
+    .dot {
+      stroke: none;
+      fill: currentColor;
+    }
+    
+    #die_outline {
+      stroke: currentColor;
+      stroke-linecap: round;
+      fill: none;
+    }
+  </style>
 </style>
 
-
-
----
-
-{% include "partials/newsletter.html" %}
-
-
-
-
-{#
-  This component shows 6 featured articles.
-
-  To keep things somewhat interesting, I have more than 6 such articles
-  and I display a random selection.
-
-  - The Jekyll build will pick a sample of 6 every time it's built
-  - JavaScript on the page will shuffle the list on page reloads
-
-  New articles always appear in the top left, but other articles can
-  rotate around them.
-
-#}
+<ul id="homepage_cards">
+  <li id="writing" class="card">
+    <h2>My writing</h2>
+    <ul>
+      <li>
+        {% inline_svg filename="icons/programming.svg" class="dark_aware" %}
+        <span>
+          <a href="/programming/">Programming</a> and <a href="/computers/">computers</a>
+        </span>
+      </li>
+      <li>
+        {% inline_svg filename="icons/floppy_disk.svg" class="dark_aware" %}
+        <span>
+          <a href="/digital-preservation/">Digital preservation</a> and <a href="/digital-preservation/tiny-archives/">Tiny archives</a>
+        </span>
+      </li>
+      <li>
+        {% inline_svg filename="icons/lightbulb.svg" class="dark_aware" %}
+        <a href="/personal-thoughts/">Personal thoughts</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/pencil.svg" class="dark_aware" %}
+        <a href="/drawing-things/">Drawing things</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/map_pin.svg" class="dark_aware" %}
+        <a href="/world/">The world around us</a>
+      </li>
+    </ul>
+  </li>
+  <li id="life" class="card">
+    <h2>My life</h2>
+    <ul>
+      <li>
+        {% inline_svg filename="icons/id_card.svg" class="dark_aware" %}
+        <a href="/about-me/">About me</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/layers.svg" class="dark_aware" %}
+        <a href="/about-the-site/">About the site</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/office.svg" class="dark_aware" %}
+        <a href="/day-job/">My day job</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/branch.svg" class="dark_aware" %}
+        <a href="/license/">Using my code</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/heart.svg" class="dark_aware" %}
+        <a href="/say-thanks/">Say thanks</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/envelope.svg" class="dark_aware" %}
+        <a href="/contact/">Contact me</a>
+      </li>
+    </ul>
+  </li>
+  <li id="archives" class="card">
+    <h2>My archives</h2>
+    <ul>
+      <li>
+        {% inline_svg filename="icons/microphone.svg" class="dark_aware" %}
+        <a href="/talks/">Talks I’ve given</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/book.svg" class="dark_aware" %}
+        <a href="/book-reviews/">Books I’ve read</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/dice.svg" class="dark_aware" %}
+        <a href="/fun-stuff/">Fun stuff I’ve made</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/paperplane.svg" class="dark_aware" %}
+        <a href="https://buttondown.com/alexwlchan">Newsletter</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/newspaper.svg" class="dark_aware" %}
+        <a href="/articles/">Articles</a>
+      </li>
+      <li>
+        {% inline_svg filename="icons/note.svg" class="dark_aware" %}
+        <a href="/notes/">Notes</a>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <script>
-  function CardImage(card) {
-    const yr = card.y;
-
-    const suffix = card.fm === 0 ? '.jpg' : '.png';
-    const mimeType = card.fm === 0 ? 'image/jpg' : 'image/png';
-
-    const imPrefix = `/c/${yr}/${card.cs}`;
-
-    /* Some cards are too small to appear at 3× size, so just mark them
-     * as only being available at 1×. New cards always have enough sizes. */
-    const ws = (card.s === 'snapped-elastic' ||
-                card.s === 'kempisbot' ||
-                card.s === 'using-dynamodb-as-a-calculator' ||
-                card.s === 'digital-verification' ||
-                card.s === 'kempisbot' ||
-                card.s === 'finding-tint-colours-with-k-means')
-      ? [1]
-      : [1, 2, 3];
+  function randomiseDieValue(selector, choices) {
+    const elem = document.querySelector(selector);
+    const chosenIndex = Math.floor(Math.random() * choices.length);
+    elem.setAttribute("data-value", choices[chosenIndex]);
     
-    const avif    = ws.map(s => `${imPrefix}_${s}x.avif ${s * 450}w`).join(", ");
-    const webp    = ws.map(s => `${imPrefix}_${s}x.webp ${s * 450}w`).join(", ");
-    const primary = ws.map(s => `${imPrefix}_${s}x${suffix} ${s * 450}w`).join(", ");
+    const isAlternative =
+      (choices[chosenIndex] === "2" && selector === "#lowerDie") ? false
+      : Math.random() < 0.5;
 
-    // See comment in `article_card.html`
-    const sizes = "(max-width: 450px) 100vw,450px";
-
-    return `
-      <div class="c_im${card.n ? ' n' : ''}">
-        <picture>
-          <source srcset="${avif}"    sizes="${sizes}" type="image/avif">
-          <source srcset="${webp}"    sizes="${sizes}" type="image/webp">
-          <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
-          <img src="/c/${yr}/${card.p}_1x.${suffix}" alt="" loading="lazy">
-        </picture>
-        ${card.n ? '<div class="new_banner">NEW</div>' : ''}
-      </div>
-    `;
+    elem.setAttribute("data-alt", isAlternative);
   }
-
-  function ArticleCard(card) {
-    return `
-      <li
-        style="
-          ${card.cl ? `--lt: #${card.cl}` : ''};
-          ${card.cd ? `--dk: #${card.cd}` : ''};
-        "
-      >
-        <a href="/${card.y + 2000}/${card.s}/">
-          ${CardImage(card)}
-          <div class="c_meta">
-            <p class="c_t">${card.t}</p>
-            ${typeof card.d !== 'undefined' ? `<p class="c_d">${card.d}</p>` : ''}
-          </div>
-        </a>
-      </li>
-    `;
-  }
-
-  {#
-    cl = color light
-    cd = color dark
-    n = is new?
-    t = title
-    y = year - 2000
-    s = slug
-    cs = card short name
-    fm = image format (0 = JPEG, 1 = PNG)
-    d = description
-  #}
-  const keys = ["cl","cd","n","t","y","s","cs","fm","d"];
-
-  {%- set featuredArticlesJson -%}
-    [
-      {% for article in featured_articles %}
-        [
-          {% if article.colors %}
-            {{ article.colors.index_light | replace("#", "") | jsonify }},
-            {{ article.colors.index_dark  | replace("#", "") | jsonify }},
-          {% else %}
-            "", "",
-          {% endif %}
-          {% if article.is_new %}1{% else %}0{% endif %},
-          {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
-          {{ article.date.year - 2000 }},
-          {{ article.slug | jsonify }},
-          {{ article.card_short_name | jsonify }},
-          {% if article.card_path.suffix == ".jpg" %}
-            0
-          {% else %}
-            1
-          {% endif %},
-          {% if article.summary %}
-            {{ article.summary | markdownify_oneline | cleanup_text | replace(' class="language-plaintext highlighter-rouge"', "") | jsonify }}
-          {% else %}
-            ""
-          {% endif %}
-        ]
-        {% if not loop.last %},{% endif %}
-      {% endfor %}
-    ]
-  {%- endset -%}
-
-  const featuredArticlesList = {{ featuredArticlesJson | minify_json }};
-
-  const featuredArticles = featuredArticlesList.map(values =>
-    keys.reduce((obj, key, index) => ({ ...obj, [key]: values[index] }), {})
-  );
-
-  window.addEventListener("DOMContentLoaded", function() {
-    const newArticles = featuredArticles
-      .filter(art => art.n === 1);
-
-    const randomArticles = featuredArticles
-      .filter(art => !newArticles.includes(art))
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 6);
-
-    document.querySelector("#featured_articles").innerHTML =
-      newArticles.concat(randomArticles)
-        .slice(0, 6)
-        .map(ArticleCard)
-        .join("");
-  });
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    randomiseDieValue("#lowerDie", ["2", "3", "4", "5", "6"]);
+    randomiseDieValue("#upperDie", ["1", "2", "3", "4", "5", "6"]);
+  })
 </script>
+  

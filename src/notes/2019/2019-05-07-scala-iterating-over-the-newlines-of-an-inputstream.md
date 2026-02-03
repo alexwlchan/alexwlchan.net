@@ -1,0 +1,19 @@
+---
+layout: note
+title: "How to iterate over the lines of an InputStream in Scala"
+date: 2019-05-07 17:38:01 +01:00
+topic: Scala
+---
+
+```scala {"names":{"1":"java","2":"io","3":"BufferedReader","4":"InputStream","5":"InputStreamReader","6":"is","8":"bufferedReader","19":"line"}}
+import java.io.{BufferedReader, InputStream, InputStreamReader}
+
+val is = new InputStream(…)
+
+val bufferedReader = new BufferedReader(new InputStreamReader(is))
+
+Iterator
+  .continually(bufferedReader.readLine())
+  .takeWhile { _ != null }
+  .foreach { line => println(line) }
+```

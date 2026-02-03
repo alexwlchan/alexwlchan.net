@@ -161,9 +161,6 @@
   "/2015/operation-fortitude/": [
     "/2015/11/operation-fortitude/"
   ],
-  "/2015/persistent-ipython-notebooks/": [
-    "/2015/06/persistent-ipython-notebooks/"
-  ],
   "/2015/pretty-print/": [
     "/2015/12/pretty-print/"
   ],
@@ -455,9 +452,6 @@
   ],
   "/2018/error-logging-in-lambdas/": [
     "/2018/09/error-logging-in-lambdas/"
-  ],
-  "/2018/finatra-404/": [
-    "/2018/10/finatra-404/"
   ],
   "/2018/finding-slow-builds-in-travis/": [
     "/2018/08/finding-slow-builds-in-travis/"
@@ -2564,7 +2558,616 @@
     "/images/pyconuk-speaking.jpg"
   ],
   "/notes/": [
+    "/notes/2013/",
+    "/notes/2015/",
+    "/notes/2016/",
+    "/notes/2018/",
+    "/notes/2019/",
+    "/notes/2020/",
+    "/notes/2021/",
+    "/notes/2022/",
+    "/notes/2023/",
+    "/notes/2024/",
+    "/notes/2025/",
     "/notes/2026/"
+  ],
+  "/notes/2013/rss-podcasts-tumblr/": [
+    "/til/2013/rss-podcasts-tumblr/",
+    "/2013/rss-podcasts-tumblr/",
+    "/2013/05/rss-podcasts-tumblr/"
+  ],
+  "/notes/2015/persistent-ipython-notebooks/": [
+    "/2015/persistent-ipython-notebooks/",
+    "/2015/06/persistent-ipython-notebooks/"
+  ],
+  "/notes/2016/german-telephone-numbers/": [
+    "/til/2016/german-telephone-numbers/"
+  ],
+  "/notes/2016/rust-safe-macro-expansion/": [
+    "/til/2016/rust-safe-macro-expansion/"
+  ],
+  "/notes/2016/shutil-which/": [
+    "/til/2016/shutil-which/"
+  ],
+  "/notes/2016/why-does-hypothesis-try-the-same-example-three-times/": [
+    "/til/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing/"
+  ],
+  "/notes/2018/create-compact-json-with-python/": [
+    "/til/2018/create-compact-json-with-python/"
+  ],
+  "/notes/2018/finatra-404/": [
+    "/til/2018/finatra-404/",
+    "/2018/finatra-404/",
+    "/2018/10/finatra-404/"
+  ],
+  "/notes/2018/list-all-git-object-ids-and-their-type/": [
+    "/til/2018/list-all-git-object-ids-and-their-type/"
+  ],
+  "/notes/2018/non-str-repr-is-typeerror/": [
+    "/til/2018/non-str-repr-is-typeerror/"
+  ],
+  "/notes/2018/skip-installing-rdoc/": [
+    "/til/2018/2018-11-26-how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/"
+  ],
+  "/notes/2018/using-force-with-lease/": [
+    "/til/2018/using-force-with-lease/"
+  ],
+  "/notes/2018/xargs-for-parallel-processing/": [
+    "/til/2018/xargs-for-parallel-processing/"
+  ],
+  "/notes/2019/github-set-co-commit-credit-with-co-authored-by/": [
+    "/til/2019/github-set-co-commit-credit-with-co-authored-by/"
+  ],
+  "/notes/2019/installing-mimetype-on-alpine-linux/": [
+    "/til/2019/installing-mimetype-on-alpine-linux/"
+  ],
+  "/notes/2019/javascript-manipulating-url-query-parameters/": [
+    "/til/2019/javascript-manipulating-url-query-parameters/"
+  ],
+  "/notes/2019/scala-iterating-over-the-newlines-of-an-inputstream/": [
+    "/til/2019/scala-iterating-over-the-newlines-of-an-inputstream/"
+  ],
+  "/notes/2019/scanamo-conditional-updates-on-nested-fields/": [
+    "/til/2019/scanamo-conditional-updates-on-nested-fields/"
+  ],
+  "/notes/2019/transportapi/": [
+    "/til/2019/transportapi/"
+  ],
+  "/notes/2020/using-git-check-ignore-to-debug-your-gitignore/": [
+    "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",
+    "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
+    "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
+  ],
+  "/notes/2021/calliope-syndrome/": [
+    "/til/2021/calliope-syndrome/"
+  ],
+  "/notes/2022/how-to-use-hex-colours-with-the-palette-crate/": [
+    "/til/2022/how-to-use-hex-colours-with-the-palette-crate/"
+  ],
+  "/notes/2022/print-sbt/": [
+    "/til/2022/print-sbt/",
+    "/2022/print-sbt/",
+    "/2022/12/print-sbt/"
+  ],
+  "/notes/2023/buildkite-concurrency-gates/": [
+    "/til/2023/buildkite-concurrency-gates/"
+  ],
+  "/notes/2023/canonical-mastodon-posts/": [
+    "/til/2023/canonical-mastodon-posts/"
+  ],
+  "/notes/2023/how-to-do-resumable-downloads/": [
+    "/til/2023/how-to-do-resumable-downloads/"
+  ],
+  "/notes/2023/mechanize-ssl/": [
+    "/til/2023/mechanize-ssl/",
+    "/2023/mechanize-ssl/"
+  ],
+  "/notes/2023/profiling-swift/": [
+    "/til/2023/profiling-swift/"
+  ],
+  "/notes/2023/use-unicode-property-escapes-to-find-emoji/": [
+    "/til/2023/use-unicode-property-escapes-to-find-emoji/"
+  ],
+  "/notes/2023/woe-means-where-on-earth/": [
+    "/til/2023/woe-means-where-on-earth/"
+  ],
+  "/notes/2024/animate-svg-elements-with-animate/": [
+    "/til/2024/animate-svg-elements-with-animate/"
+  ],
+  "/notes/2024/applescript-do-javascript/": [
+    "/til/2024/applescript-do-javascript/"
+  ],
+  "/notes/2024/beware-of-test-n-with-command-expansion/": [
+    "/til/2024/beware-of-test-n-with-command-expansion/"
+  ],
+  "/notes/2024/build-query-string-with-curl/": [
+    "/til/2024/build-query-string-with-curl/"
+  ],
+  "/notes/2024/close-responses-to-close-send-file/": [
+    "/til/2024/close-responses-to-close-send-file/"
+  ],
+  "/notes/2024/count-discord-messages/": [
+    "/til/2024/count-discord-messages/"
+  ],
+  "/notes/2024/count-only-counts-non-null-values/": [
+    "/til/2024/count-only-counts-non-null-values/"
+  ],
+  "/notes/2024/create-a-directory-first/": [
+    "/til/2024/create-a-directory-first/"
+  ],
+  "/notes/2024/create-a-sticky-bottom-footer/": [
+    "/til/2024/create-a-sticky-bottom-footer/"
+  ],
+  "/notes/2024/create-flag-emojis-for-countries/": [
+    "/til/2024/create-flag-emojis-for-countries/"
+  ],
+  "/notes/2024/create-image-placeholders/": [
+    "/til/2024/create-image-placeholders/"
+  ],
+  "/notes/2024/curl-redirect-target/": [
+    "/til/2024/curl-redirect-target/"
+  ],
+  "/notes/2024/current-user-equals-none/": [
+    "/til/2024/current-user-equals-none/"
+  ],
+  "/notes/2024/custom-error-pages-in-flask/": [
+    "/til/2024/custom-error-pages-in-flask/"
+  ],
+  "/notes/2024/debugging-find-and-xargs/": [
+    "/til/2024/debugging-find-and-xargs/"
+  ],
+  "/notes/2024/detect-tty-in-rust/": [
+    "/til/2024/detect-tty-in-rust/"
+  ],
+  "/notes/2024/diagonal-new-banner/": [
+    "/til/2024/diagonal-new-banner/"
+  ],
+  "/notes/2024/dollar-underscore-bash/": [
+    "/til/2024/dollar-underscore-bash/"
+  ],
+  "/notes/2024/editing-filename-in-finder-converts-to-nfd/": [
+    "/til/2024/editing-filename-in-finder-converts-to-nfd/"
+  ],
+  "/notes/2024/errexit-and-arithmetic-expressions/": [
+    "/til/2024/errexit-and-arithmetic-expressions/"
+  ],
+  "/notes/2024/exclude-files-from-time-machine-with-tmutil/": [
+    "/til/2024/exclude-files-from-time-machine-with-tmutil/"
+  ],
+  "/notes/2024/expiry-date-of-https-certificate-ruby/": [
+    "/til/2024/expiry-date-of-https-certificate-ruby/"
+  ],
+  "/notes/2024/expiry-date-of-https-certificate/": [
+    "/til/2024/expiry-date-of-https-certificate/"
+  ],
+  "/notes/2024/find-apple-system-icons/": [
+    "/til/2024/find-apple-system-icons/"
+  ],
+  "/notes/2024/find-biggest-backblaze-files/": [
+    "/til/2024/find-biggest-backblaze-files/"
+  ],
+  "/notes/2024/find-shortest-prefix-ruby/": [
+    "/til/2024/find-shortest-prefix-ruby/"
+  ],
+  "/notes/2024/flickr-tag-name/": [
+    "/til/2024/flickr-tag-name/"
+  ],
+  "/notes/2024/flickr-user-email-address/": [
+    "/til/2024/flickr-user-email-address/"
+  ],
+  "/notes/2024/flickr-visibility-flags/": [
+    "/til/2024/flickr-visibility-flags/"
+  ],
+  "/notes/2024/get-a-list-of-captures-from-the-wayback-machine/": [
+    "/til/2024/get-a-list-of-captures-from-the-wayback-machine/"
+  ],
+  "/notes/2024/get-a-tally-of-tally-counts/": [
+    "/til/2024/get-a-tally-of-tally-counts/"
+  ],
+  "/notes/2024/get-boto3-session/": [
+    "/til/2024/get-boto3-session/"
+  ],
+  "/notes/2024/get-hex-colour-as-clap-argument/": [
+    "/til/2024/get-hex-colour-as-clap-argument/"
+  ],
+  "/notes/2024/get-info-about-curl-download/": [
+    "/til/2024/get-info-about-curl-download/"
+  ],
+  "/notes/2024/get-netlify-usage-from-api/": [
+    "/til/2024/get-netlify-usage-from-api/"
+  ],
+  "/notes/2024/get-selected-finder-items/": [
+    "/til/2024/get-selected-finder-items/"
+  ],
+  "/notes/2024/get-tailscale-ip/": [
+    "/til/2024/get-tailscale-ip/"
+  ],
+  "/notes/2024/gracefully-restart-a-gunicorn-app/": [
+    "/til/2024/gracefully-restart-a-gunicorn-app/"
+  ],
+  "/notes/2024/how-to-check-the-quality-of-a-network-connection/": [
+    "/til/2024/how-to-check-the-quality-of-a-network-connection/"
+  ],
+  "/notes/2024/how-to-check-when-a-cert-expires/": [
+    "/til/2024/how-to-check-when-a-cert-expires/"
+  ],
+  "/notes/2024/how-to-do-exclusive-file-write-in-swift/": [
+    "/til/2024/how-to-do-exclusive-file-write-in-swift/"
+  ],
+  "/notes/2024/how-to-highlight-python-console-in-jekyll/": [
+    "/til/2024/how-to-highlight-python-console-in-jekyll/"
+  ],
+  "/notes/2024/how-to-open-twitter-webarchive-files/": [
+    "/til/2024/how-to-open-twitter-webarchive-files/"
+  ],
+  "/notes/2024/how-to-parse-urls-with-jxa/": [
+    "/til/2024/how-to-parse-urls-with-jxa/"
+  ],
+  "/notes/2024/how-to-render-svgs-on-github/": [
+    "/til/2024/how-to-render-svgs-on-github/"
+  ],
+  "/notes/2024/html-equivalent/": [
+    "/til/2024/html-equivalent/"
+  ],
+  "/notes/2024/hyperlink-errors/": [
+    "/til/2024/hyperlink-errors/"
+  ],
+  "/notes/2024/image-function-to-insert-images/": [
+    "/til/2024/image-function-to-insert-images/"
+  ],
+  "/notes/2024/inline-svg-in-css/": [
+    "/til/2024/inline-svg-in-css/"
+  ],
+  "/notes/2024/insomnolent/": [
+    "/til/2024/insomnolent/"
+  ],
+  "/notes/2024/install-from-github-releases/": [
+    "/til/2024/install-from-github-releases/"
+  ],
+  "/notes/2024/limits-on-visited-styles/": [
+    "/til/2024/limits-on-visited-styles/"
+  ],
+  "/notes/2024/longest-common-suffix/": [
+    "/til/2024/longest-common-suffix/"
+  ],
+  "/notes/2024/manage-mp3-metadata-with-eyed3/": [
+    "/til/2024/manage-mp3-metadata-with-eyed3/"
+  ],
+  "/notes/2024/mastodon-retrying/": [
+    "/til/2024/mastodon-retrying/"
+  ],
+  "/notes/2024/minutes-in-a-year/": [
+    "/til/2024/minutes-in-a-year/"
+  ],
+  "/notes/2024/not-all-coal-is-the-same/": [
+    "/til/2024/not-all-coal-is-the-same/"
+  ],
+  "/notes/2024/offline-geo-lookups-of-ip-addresses/": [
+    "/til/2024/offline-geo-lookups-of-ip-addresses/"
+  ],
+  "/notes/2024/open-can-ask-questions/": [
+    "/til/2024/open-can-ask-questions/"
+  ],
+  "/notes/2024/pausing-svg-animation-varies-across-browsers/": [
+    "/til/2024/pausing-svg-animation-varies-across-browsers/"
+  ],
+  "/notes/2024/regex-library-for-unicode-property-escapes/": [
+    "/til/2024/regex-library-for-unicode-property-escapes/"
+  ],
+  "/notes/2024/reset-match-anchor-in-ruby/": [
+    "/til/2024/reset-match-anchor-in-ruby/"
+  ],
+  "/notes/2024/reverse-proxy-caddy/": [
+    "/til/2024/reverse-proxy-caddy/"
+  ],
+  "/notes/2024/run-random-subset-of-tests-in-pytest/": [
+    "/til/2024/run-random-subset-of-tests-in-pytest/"
+  ],
+  "/notes/2024/running-the-netlify-cli-in-github-actions/": [
+    "/til/2024/running-the-netlify-cli-in-github-actions/"
+  ],
+  "/notes/2024/shuffle-an-array-in-jekyll/": [
+    "/til/2024/shuffle-an-array-in-jekyll/"
+  ],
+  "/notes/2024/simulate-a-readerror-54-connection-reset/": [
+    "/til/2024/simulate-a-readerror-54-connection-reset/"
+  ],
+  "/notes/2024/simulate-pipes-with-subprocess/": [
+    "/til/2024/simulate-pipes-with-subprocess/"
+  ],
+  "/notes/2024/sort-dom-elements-with-appendchild/": [
+    "/til/2024/sort-dom-elements-with-appendchild/"
+  ],
+  "/notes/2024/sqlite-to-csv-tally/": [
+    "/til/2024/sqlite-to-csv-tally/"
+  ],
+  "/notes/2024/sqlite3-context-manager-doesnt-close-connections/": [
+    "/til/2024/sqlite3-context-manager-doesnt-close-connections/"
+  ],
+  "/notes/2024/style-a-details-element/": [
+    "/til/2024/style-a-details-element/"
+  ],
+  "/notes/2024/tables-and-links-in-obsidian/": [
+    "/til/2024/tables-and-links-in-obsidian/"
+  ],
+  "/notes/2024/take-a-wayback-machine-screenshot/": [
+    "/til/2024/take-a-wayback-machine-screenshot/"
+  ],
+  "/notes/2024/tally-combinations-of-columns/": [
+    "/til/2024/tally-combinations-of-columns/"
+  ],
+  "/notes/2024/under-construction/": [
+    "/til/2024/under-construction/"
+  ],
+  "/notes/2024/use-launchagent-for-scheduled-script/": [
+    "/til/2024/use-launchagent-for-scheduled-script/"
+  ],
+  "/notes/2024/use-n-to-avoid-overwriting/": [
+    "/til/2024/use-n-to-avoid-overwriting/"
+  ],
+  "/notes/2024/use-rsync-and-passwordless-sudo/": [
+    "/til/2024/use-rsync-and-passwordless-sudo/"
+  ],
+  "/notes/2024/use-shlex-split-to-parse-nginx-logs/": [
+    "/til/2024/use-shlex-split-to-parse-nginx-logs/"
+  ],
+  "/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/": [
+    "/til/2024/use-sqlite-utils-to-convert-csv-to-sqlite/"
+  ],
+  "/notes/2024/use-the-capture-tag-for-complex-strings/": [
+    "/til/2024/use-the-capture-tag-for-complex-strings/"
+  ],
+  "/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/": [
+    "/til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/"
+  ],
+  "/notes/2024/verbose-deletions-with-rm/": [
+    "/til/2024/verbose-deletions-with-rm/"
+  ],
+  "/notes/2024/what-happens-when-you-replace-a-photo/": [
+    "/til/2024/what-happens-when-you-replace-a-photo/"
+  ],
+  "/notes/2024/whats-inside-safari-webarchive/": [
+    "/til/2024/whats-inside-safari-webarchive/"
+  ],
+  "/notes/2024/why-cant-i-eject-a-disk/": [
+    "/til/2024/why-cant-i-eject-a-disk/"
+  ],
+  "/notes/2024/write-to-middle-of-file-with-python/": [
+    "/til/2024/write-to-middle-of-file-with-python/"
+  ],
+  "/notes/2024/youtube-dl-options/": [
+    "/til/2024/youtube-dl-options/"
+  ],
+  "/notes/2025/access-nested-fields-in-typeddict/": [
+    "/til/2025/access-nested-fields-in-typeddict/"
+  ],
+  "/notes/2025/add-str-to-tarfile/": [
+    "/til/2025/add-str-to-tarfile/"
+  ],
+  "/notes/2025/airdrop-location/": [
+    "/til/2025/airdrop-location/"
+  ],
+  "/notes/2025/arobase-in-morse-code/": [
+    "/til/2025/arobase-in-morse-code/"
+  ],
+  "/notes/2025/aspect-ratio-slash-is-numeric/": [
+    "/til/2025/aspect-ratio-slash-is-numeric/"
+  ],
+  "/notes/2025/basic-socket-server-in-ruby/": [
+    "/til/2025/basic-socket-server-in-ruby/"
+  ],
+  "/notes/2025/bfpo/": [
+    "/til/2025/bfpo/"
+  ],
+  "/notes/2025/bitly-deletes-inactive-accounts/": [
+    "/til/2025/bitly-deletes-inactive-accounts/"
+  ],
+  "/notes/2025/block-by-ip-address-caddy/": [
+    "/til/2025/block-by-ip-address-caddy/"
+  ],
+  "/notes/2025/bluesky-avatar-url/": [
+    "/til/2025/bluesky-avatar-url/"
+  ],
+  "/notes/2025/bluesky-post-info/": [
+    "/til/2025/bluesky-post-info/"
+  ],
+  "/notes/2025/caddy-disable-basic-auth/": [
+    "/til/2025/caddy-disable-basic-auth/"
+  ],
+  "/notes/2025/check-tailscale-is-running/": [
+    "/til/2025/check-tailscale-is-running/"
+  ],
+  "/notes/2025/collapsing-whitespace-in-liquid/": [
+    "/til/2025/collapsing-whitespace-in-liquid/"
+  ],
+  "/notes/2025/collect-pytest-markers-from-failing-tests/": [
+    "/til/2025/collect-pytest-markers-from-failing-tests/"
+  ],
+  "/notes/2025/combine-arrows-mermaid/": [
+    "/til/2025/combine-arrows-mermaid/"
+  ],
+  "/notes/2025/compare-two-files-bash/": [
+    "/til/2025/compare-two-files-bash/"
+  ],
+  "/notes/2025/console-log-is-asynchronous-ish/": [
+    "/til/2025/console-log-is-asynchronous-ish/"
+  ],
+  "/notes/2025/css-tab-size/": [
+    "/til/2025/css-tab-size/"
+  ],
+  "/notes/2025/delete-where-doesnt-delete/": [
+    "/til/2025/delete-where-doesnt-delete/"
+  ],
+  "/notes/2025/disable-handoff-icons-in-dock/": [
+    "/til/2025/disable-handoff-icons-in-dock/"
+  ],
+  "/notes/2025/disable-javascript-in-iframe/": [
+    "/til/2025/disable-javascript-in-iframe/"
+  ],
+  "/notes/2025/discard-in-js-spread/": [
+    "/til/2025/discard-in-js-spread/"
+  ],
+  "/notes/2025/download-tumblr-avatars/": [
+    "/til/2025/download-tumblr-avatars/"
+  ],
+  "/notes/2025/exclusive-write-in-go/": [
+    "/til/2025/exclusive-write-in-go/"
+  ],
+  "/notes/2025/exiftool-in-github-actions/": [
+    "/til/2025/exiftool-in-github-actions/"
+  ],
+  "/notes/2025/f-string-equals/": [
+    "/til/2025/f-string-equals/"
+  ],
+  "/notes/2025/flickr-license-history/": [
+    "/til/2025/flickr-license-history/"
+  ],
+  "/notes/2025/flickr-photosof/": [
+    "/til/2025/flickr-photosof/"
+  ],
+  "/notes/2025/flickr-video-sizes/": [
+    "/til/2025/flickr-video-sizes/"
+  ],
+  "/notes/2025/ftfy-fix-and-explain/": [
+    "/til/2025/ftfy-fix-and-explain/"
+  ],
+  "/notes/2025/get-folder-icon/": [
+    "/til/2025/get-folder-icon/"
+  ],
+  "/notes/2025/get-jq-values-in-array/": [
+    "/til/2025/get-jq-values-in-array/"
+  ],
+  "/notes/2025/get-python-traceback-as-string/": [
+    "/til/2025/get-python-traceback-as-string/"
+  ],
+  "/notes/2025/go-compiler-spots-division-by-zero/": [
+    "/til/2025/go-compiler-spots-division-by-zero/"
+  ],
+  "/notes/2025/go-stress/": [
+    "/til/2025/go-stress/"
+  ],
+  "/notes/2025/go-test-verbose/": [
+    "/til/2025/go-test-verbose/"
+  ],
+  "/notes/2025/google-deletes-inactive-accounts/": [
+    "/til/2025/google-deletes-inactive-accounts/"
+  ],
+  "/notes/2025/gubernatorial/": [
+    "/til/2025/gubernatorial/"
+  ],
+  "/notes/2025/gunicorn-redactions/": [
+    "/til/2025/gunicorn-redactions/"
+  ],
+  "/notes/2025/ignore-ai-scaled-videos/": [
+    "/til/2025/ignore-ai-scaled-videos/"
+  ],
+  "/notes/2025/instagram-avatar-url/": [
+    "/til/2025/instagram-avatar-url/"
+  ],
+  "/notes/2025/json-with-required-field-in-go/": [
+    "/til/2025/json-with-required-field-in-go/"
+  ],
+  "/notes/2025/linode-with-boto3/": [
+    "/til/2025/linode-with-boto3/"
+  ],
+  "/notes/2025/list-of-tickboxes-in-wtforms/": [
+    "/til/2025/list-of-tickboxes-in-wtforms/"
+  ],
+  "/notes/2025/list-test-names-in-go/": [
+    "/til/2025/list-test-names-in-go/"
+  ],
+  "/notes/2025/loading-animation/": [
+    "/til/2025/loading-animation/"
+  ],
+  "/notes/2025/macos-launchagent-examples/": [
+    "/til/2025/macos-launchagent-examples/"
+  ],
+  "/notes/2025/mcp-in-archivematica/": [
+    "/til/2025/mcp-in-archivematica/"
+  ],
+  "/notes/2025/mermaid-box-in-flowchart/": [
+    "/til/2025/mermaid-box-in-flowchart/"
+  ],
+  "/notes/2025/no-aggregated-item/": [
+    "/til/2025/no-aggregated-item/"
+  ],
+  "/notes/2025/platform-specific-dirs/": [
+    "/til/2025/platform-specific-dirs/"
+  ],
+  "/notes/2025/poison-centers/": [
+    "/til/2025/poison-centers/"
+  ],
+  "/notes/2025/pygments-html-classes/": [
+    "/til/2025/pygments-html-classes/"
+  ],
+  "/notes/2025/python-3-14/": [
+    "/til/2025/python-3-14/"
+  ],
+  "/notes/2025/python-and-rot13/": [
+    "/til/2025/python-and-rot13/"
+  ],
+  "/notes/2025/python-comma-n/": [
+    "/til/2025/python-comma-n/"
+  ],
+  "/notes/2025/python-smartypants/": [
+    "/til/2025/python-smartypants/"
+  ],
+  "/notes/2025/python3-13-sqlite-warnings/": [
+    "/til/2025/python3-13-sqlite-warnings/"
+  ],
+  "/notes/2025/remove-microsecond-precision-in-python/": [
+    "/til/2025/remove-microsecond-precision-in-python/"
+  ],
+  "/notes/2025/rm-verbose/": [
+    "/til/2025/rm-verbose/"
+  ],
+  "/notes/2025/ruby-range/": [
+    "/til/2025/ruby-range/"
+  ],
+  "/notes/2025/s3-multipart-upload-date/": [
+    "/til/2025/s3-multipart-upload-date/"
+  ],
+  "/notes/2025/see-tailscale-node-keys/": [
+    "/til/2025/see-tailscale-node-keys/"
+  ],
+  "/notes/2025/semaphore-frogs/": [
+    "/til/2025/semaphore-frogs/"
+  ],
+  "/notes/2025/set-tqdm-total-later/": [
+    "/til/2025/set-tqdm-total-later/"
+  ],
+  "/notes/2025/shutil-copy-files-without-overwriting/": [
+    "/til/2025/shutil-copy-files-without-overwriting/"
+  ],
+  "/notes/2025/sqlite-functions/": [
+    "/til/2025/sqlite-functions/"
+  ],
+  "/notes/2025/sqlite-output-modes/": [
+    "/til/2025/sqlite-output-modes/"
+  ],
+  "/notes/2025/sqlite-tally-for-big-values/": [
+    "/til/2025/sqlite-tally-for-big-values/"
+  ],
+  "/notes/2025/sqlite-tallying-top-n/": [
+    "/til/2025/sqlite-tallying-top-n/"
+  ],
+  "/notes/2025/subprocess-line-by-line/": [
+    "/til/2025/subprocess-line-by-line/"
+  ],
+  "/notes/2025/subprocess-text-true/": [
+    "/til/2025/subprocess-text-true/"
+  ],
+  "/notes/2025/timelord-at-cam/": [
+    "/til/2025/timelord-at-cam/"
+  ],
+  "/notes/2025/tumblr-api-sans-auth/": [
+    "/til/2025/tumblr-api-sans-auth/"
+  ],
+  "/notes/2025/typing-getargs/": [
+    "/til/2025/typing-getargs/"
+  ],
+  "/notes/2025/zipstream-to-boto3/": [
+    "/til/2025/zipstream-to-boto3/"
   ],
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"
@@ -2576,8 +3179,8 @@
   "/tags/aws/amazon-s3/": [
     "/tags/amazon-s3/"
   ],
-  "/tags/talks/": [
-    "/talks"
+  "/talks/": [
+    "/tags/talks/"
   ],
   "/til/": [
     "/til/2026/",
@@ -2591,10 +3194,6 @@
     "/til/2018/",
     "/til/2016/",
     "/til/2013/"
-  ],
-  "/til/2013/rss-podcasts-tumblr/": [
-    "/2013/rss-podcasts-tumblr/",
-    "/2013/05/rss-podcasts-tumblr/"
   ],
   "/til/2016/tricity-sie454-clock/": [
     "/2016/tricity-sie454-clock/",
@@ -2611,16 +3210,5 @@
   "/til/2018/horstmann-electric-7/": [
     "/2018/horstmann-electric-7/",
     "/2018/10/horstmann-electric-7/"
-  ],
-  "/til/2020/using-git-check-ignore-to-debug-your-gitignore/": [
-    "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
-    "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
-  ],
-  "/til/2022/print-sbt/": [
-    "/2022/print-sbt/",
-    "/2022/12/print-sbt/"
-  ],
-  "/til/2023/mechanize-ssl/": [
-    "/2023/mechanize-ssl/"
   ]
 }

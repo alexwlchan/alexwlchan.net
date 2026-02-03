@@ -9,6 +9,11 @@
     "parent": "Programming"
   },
   {
+    "name": "JavaScript",
+    "href": "/programming/javascript/",
+    "parent": "Programming"
+  },
+  {
     "name": "Python",
     "href": "/programming/python/",
     "parent": "Programming"
@@ -19,8 +24,63 @@
     "parent": "Programming"
   },
   {
+    "name": "AWS",
+    "href": "/programming/aws/",
+    "parent": "Programming"
+  },
+  {
+    "name": "SQLite",
+    "href": "/programming/sqlite/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Ruby",
+    "href": "/programming/ruby/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Rust",
+    "href": "/programming/rust/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Scala",
+    "href": "/programming/scala/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Go",
+    "href": "/programming/go/",
+    "parent": "Programming"
+  },
+  {
+    "name": "CSS",
+    "href": "/programming/css/",
+    "parent": "Programming"
+  },
+  {
     "name": "Shell scripting",
     "href": "/programming/shell-scripting/",
+    "parent": "Programming"
+  },
+  {
+    "name": "AppleScript",
+    "href": "/programming/applescript/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Swift",
+    "href": "/programming/swift/",
+    "parent": "Programming"
+  },
+  {
+    "name": "HTML",
+    "href": "/programming/html/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Docker",
+    "href": "/programming/docker/",
     "parent": "Programming"
   },
   {
@@ -34,5 +94,59 @@
   {
     "name": "Notes",
     "href": "/notes/"
+  },
+  {
+    "name": "Digital preservation",
+    "href": "/digital-preservation/"
+  },
+  {
+    "name": "Preserving social media",
+    "href": "/digital-preservation/social-media/",
+    "parent": "Digital preservation"
+  },
+  {
+    "name": "Web archiving",
+    "href": "/digital-preservation/web-archiving/",
+    "parent": "Digital preservation"
+  },
+  {
+    "name": "Computers",
+    "href": "/computers/"
+  },
+  {
+    "name": "macOS",
+    "href": "/computers/macos/",
+    "parent": "Computers"
+  },
+  {
+    "name": "Tailscale",
+    "href": "/computers/tailscale/",
+    "parent": "Computers"
+  },
+  {
+    "name": "The world around us",
+    "href": "/world/"
+  },
+  {
+    "name": "Interesting words",
+    "href": "/world/words/",
+    "parent": "The world around us"
+  },
+  {
+    "name": "Drawing things",
+    "href": "/drawing-things/"
+  },
+  {
+    "name": "SVG",
+    "href": "/drawing-things/svg/",
+    "parent": "Drawing things"
+  },
+  {
+    "name": "Personal thoughts",
+    "href": "/personal-thoughts/"
+  },
+  {
+    "name": "Talks I've given",
+    "href": "/talks/"
   }
 ]

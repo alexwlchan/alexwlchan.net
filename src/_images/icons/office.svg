@@ -1,0 +1,25 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <path class="border" d="M 3 20 h 18"/>
+  <path class="border" d="M 10 20 v -14 a 2 2 0 0 1 2 -2 h 5 a 2 2 0 0 1 2 2 v 14"/>
+  <path class="border" d="M 5 20 v -6 a 2 2 0 0 1 2 -2 h 2"/>
+  
+  <!-- <path class="wire" d="M 7.5 17.5 v -2.5"/> -->
+
+<!--  <path d="M 12.5 17.5 v -2.25"/>
+  <path d="M 14.5 17.5 v -2.25"/>
+  <path d="M 16.5 17.5 v -2.25"/> -->
+  
+  <path d="M 13 19 v -4.5 a 1 1 0 0 1 1 -1 h 1 a 1 1 0 0 1 1 1 v 4.5"/>
+  
+  <!-- <path class="wire" d="M 12.5 13.25 v -2.25"/> -->
+  <!-- <path class="wire" d="M 14.5 13.25 v -2.25"/> -->
+  <!-- <path class="wire" d="M 16.5 13.25 v -2.25"/> -->
+  
+  <path d="M 13.25 8 v -1"/>
+  <path d="M 15.75 8 v -1"/>
+  
+  <path d="M 13.25 11.25 v -1"/>
+  <path d="M 15.75 11.25 v -1"/>
+</svg>

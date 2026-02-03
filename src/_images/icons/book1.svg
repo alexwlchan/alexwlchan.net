@@ -1,0 +1,31 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      path, ellipse {
+            stroke: currentColor;
+            stroke-linecap: round;
+            fill: none;
+          }
+    
+          .border {
+            stroke-width: 2;
+          }
+        </style>
+      </defs>
+  <rect width="24" height="24" fill="yellow"/>
+  
+  <!-- <path class="border" d="M4 20 h 16"/> -->
+  <path class="border" d="M12 20.5
+        a 10 10 0 0 1 9 -3
+        v -13
+        a 10 10 0 0 0 -9 3
+        v 13 v -13
+        a 10 10 0 0 0 -9 -3
+        v 13
+        a 10 10 0 0 1 9 3"/>
+  
+  <path d="M14 16 a 7 7 0 0 1 5 -1.5"/>
+  <path d="M14 13.5 a 7 7 0 0 1 5 -1.5"/>
+  <path d="M14 11 a 7 7 0 0 1 5 -1.5"/>
+  <path d="M14 8.5 a 7 7 0 0 1 5 -1.5"/>
+</svg>

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <!--[[[cog
+  import cog
+  
+  WIDTH = HEIGHT = 24
+  
+  circ_r = 2.25
+  
+  width = 9
+  height = 13
+  
+  branch_r = 4
+  v_offset = (height - 2 * circ_r - 2 * branch_r) / 2
+  
+  x = (WIDTH - width) / 2
+  y = (HEIGHT - height) / 2
+  
+  cog.outl(f'''
+    <circle cx="{x}" cy="{y}" class="border" r="{circ_r}"/>
+    <circle cx="{x + width}" cy="{y}" class="border" r="{circ_r}"/>
+    <circle cx="{x}" cy="{y + height}" class="border" r="{circ_r}"/>
+    <path class="border" d="M {x} {y+circ_r} v{height - circ_r*2}"/>
+    <path class="border" d="M {x} {y+height-circ_r} v {-v_offset*2} a{branch_r} {branch_r} 0 0 1 {branch_r} {-branch_r} h {width - branch_r * 2} a {branch_r} {branch_r} 0 0 0 {branch_r} -{branch_r}"/>
+  
+  ''')
+  
+  ]]]-->
+
+  <circle cx="7.5" cy="5.5" class="border" r="2.25"/>
+  <circle cx="16.5" cy="5.5" class="border" r="2.25"/>
+  <circle cx="7.5" cy="18.5" class="border" r="2.25"/>
+  <path class="border" d="M 7.5 7.75 v8.5"/>
+  <path class="border" d="M 7.5 16.25 v -0.5 a4 4 0 0 1 4 -4 h 1 a 4 4 0 0 0 4 -4"/>
+
+
+  <!-- [[[end]]] -->
+</svg>
