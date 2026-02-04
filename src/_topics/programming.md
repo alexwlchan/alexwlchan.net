@@ -9,7 +9,7 @@ This blog started as a way for me to share code snippets, and writing about my c
 Sub-topics:
 
 <ul>
-  {%- for c in topics[page.title].children | sort(attribute="name") -%}
+  {%- for c in get_topic_by_name(page.title).children | sort(attribute="name") -%}
   <li>
     <a href="{{ c.href }}">{{ c.name }}</a>
   </li>

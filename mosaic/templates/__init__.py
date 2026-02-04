@@ -19,7 +19,7 @@ from mosaic.text import (
     smartify,
     strip_html,
 )
-from mosaic.topics import TOPICS_BY_NAME
+from mosaic.topics import get_topic_by_name
 
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
@@ -79,7 +79,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
         }
     )
     env.globals.update(
-        {"src_dir": src_dir, "out_dir": out_dir, "topics": TOPICS_BY_NAME}
+        {"src_dir": src_dir, "out_dir": out_dir, "get_topic_by_name": get_topic_by_name}
     )
 
     return env

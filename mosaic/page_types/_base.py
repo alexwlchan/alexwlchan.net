@@ -15,7 +15,7 @@ from pydantic import BaseModel, Field, model_validator
 from mosaic.fs import find_paths_under
 from mosaic.tint_colours import TintColours
 from mosaic.text import markdownify
-from mosaic.topics import TOPICS_BY_NAME
+from mosaic.topics import get_topic_by_name
 
 
 class IndexInfo(BaseModel):
@@ -84,7 +84,7 @@ class BaseHtmlPage(ABC, BaseModel):
         else:
             return any(
                 self.belongs_to_topic(topic_name=c.name)
-                for c in TOPICS_BY_NAME[topic_name].children
+                for c in get_topic_by_name(topic_name).children
             )
 
     # The source directory to the Markdown source file.
