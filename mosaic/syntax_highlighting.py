@@ -23,6 +23,9 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
 
+__all__ = ["apply_syntax_highlighting"]
+
+
 def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     """
     Apply syntax highlighting fixes that go beyond Pygments, based on
@@ -102,7 +105,16 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="p">#!/usr/bin/env python3</span>',
         )
 
+    # Whitespace: delete it unless we're in console or irb snippets,
+    # where we use it as part of disabling selection.
+    if lang not in {"console", "irb"}:
+        highlighted_code = WHITESPACE_RE.sub(r"\g<space>", highlighted_code)
+
     return highlighted_code
+
+
+# Matches whitespace tokens, e.g. <span class="w"> </span>
+WHITESPACE_RE = re.compile(r'<span class="w">(?P<space>[\s]+)</span>')
 
 
 def apply_syntax_highlighting(

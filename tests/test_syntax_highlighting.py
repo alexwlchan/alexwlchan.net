@@ -30,10 +30,8 @@ def test_syntax_highlighting() -> None:
         # This is some text
         "<p>This is some text</p>\n"
         '<pre class="lng-python"><code>'
-        # def
-        '<span class="k">def</span><span class="w"> </span>'
-        # greeting
-        "greeting"
+        # def greeting
+        '<span class="k">def</span> greeting'
         # (name
         '<span class="p">(</span>name'
         # : str)
@@ -57,7 +55,7 @@ def test_syntax_highlighting() -> None:
         "<p>This is a bulleted list</p>\n"
         '<pre class="lng-python"><code>'
         # def
-        '<span class="k">def</span><span class="w"> </span>'
+        '<span class="k">def</span> '
         # add(
         'add<span class="p">(</span>'
         # x: int
@@ -157,14 +155,14 @@ def test_syntax_highlighting_with_indent() -> None:
         "<p>This is some text</p>\n"
         '<pre class="lng-python"><code>'
         # def add(x, y):
-        '<span class="k">def</span><span class="w"> </span>add'
+        '<span class="k">def</span> add'
         '<span class="p">(</span>x<span class="p">,</span> '
         'y<span class="p">):</span>\n'
         # return x + y
         '    <span class="k">return</span> x <span class="o">+</span> y\n'
         "\n"
         # def greeting(name)
-        '<span class="k">def</span><span class="w"> </span>'
+        '<span class="k">def</span> '
         'greeting<span class="p">(</span>'
         'name<span class="p">)</span>\n'
         # print(f"Hello {name}!")
@@ -179,14 +177,14 @@ def test_syntax_highlighting_with_indent() -> None:
         '<pre class="lng-python"><code>'
         # Notice this second block uses <br/> instead of \n
         # def add(x, y):
-        '<span class="k">def</span><span class="w"> </span>add'
+        '<span class="k">def</span> add'
         '<span class="p">(</span>x<span class="p">,</span> '
         'y<span class="p">)</span>\n'
         # return x + y
         '    <span class="k">return</span> x <span class="o">+</span> y\n'
         "\n"
         # def greeting(name):
-        '<span class="k">def</span><span class="w"> </span>'
+        '<span class="k">def</span> '
         'greeting<span class="p">(</span>'
         'name<span class="p">)</span>\n'
         # print(f"Hello {name}!")
@@ -225,6 +223,39 @@ def test_highlighting_name() -> None:
     )
 
 
+@pytest.mark.parametrize(
+    "src, names, must_include",
+    [
+        # Class and ID selectors include the leading octothorpe/dot
+        ("#fires { color: red; }", {1: "#fires"}, '<span class="n">#fires</span>'),
+        (".forest { color: green; }", {1: ".forest"}, '<span class="n">.forest</span>'),
+        #
+        # Nested selectors should be highlighted properly
+        (
+            "figure { .nested { color: pink; } }",
+            {1: "figure", 2: ".nested"},
+            '<span class="n">.nested</span>',
+        ),
+        (
+            ".nested { a, img { color: yellow; } }",
+            {1: ".nested", 2: "a", 3: "img"},
+            '<span class="n">a</span><span class="o">,</span> '
+            '<span class="n">img</span>',
+        ),
+        #
+        # Units should be highlighted as part of a number.
+        ("p { margin: 5px; }", {}, '<span class="mi">5px</span>'),
+    ],
+)
+def test_css_highlighting(src: str, names: dict[int, str], must_include: str) -> None:
+    """
+    Test the manual fixes for CSS highlighting.
+    """
+    html = apply_syntax_highlighting(src, lang="css", names=names)
+    assert must_include in html
+    assert '<span class="err">' not in html
+
+
 def test_swift_shebang_is_not_highlighted() -> None:
     """
     The shebang at the start of a Swift script is punctuation.
@@ -235,3 +266,11 @@ def test_swift_shebang_is_not_highlighted() -> None:
     assert html.startswith(
         '<pre class="lng-swift"><code><span class="p">#!/usr/bin/env swift</span>'
     )
+
+
+def test_console_preserves_whitespace() -> None:
+    """
+    Whitespace tokens are preserved in console snippets.
+    """
+    html = apply_syntax_highlighting(src='$ echo "hello world"', lang="console")
+    assert '<span class="gp">$ </span>echo<span class="w"> </span>' in html
