@@ -75,6 +75,13 @@ def test_book_review_properties(src_dir: Path) -> None:
             ],
             "by Faye N. Dom",
         ),
+        (
+            [
+                BookContributor(name="Mr Milkshake", role="retold by"),
+                BookContributor(name="Anne Onymous", role="illustrator"),
+            ],
+            "retold by Mr Milkshake",
+        ),
     ],
 )
 def test_attribution_line(

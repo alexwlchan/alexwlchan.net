@@ -10,6 +10,7 @@ import pytest
 
 from mosaic.linters import (
     check_all_urls_are_hackable,
+    check_images_have_alt_text,
     check_links_are_consistent,
     check_no_broken_html,
     check_no_localhost_links,
@@ -35,7 +36,7 @@ class TestCheckNoBrokenHtml:
     @pytest.mark.parametrize("html", ["<p><em>", "<p>Abc"])
     def test_allows_inline_tag_after_p(self, html: str) -> None:
         """
-        The lint catches a <p> tag followed by a block element.
+        The lint ignores examples of valid HTML.
         """
         assert check_no_broken_html(html) == []
 
@@ -76,6 +77,38 @@ class TestCheckNoLocalhostLinks:
         """
         soup = BeautifulSoup(html, "html.parser")
         assert check_no_localhost_links(soup) == []
+
+
+class TestCheckImagesHaveAltText:
+    """
+    Tests for `check_images_have_alt_text`.
+    """
+
+    @pytest.mark.parametrize(
+        "html",
+        ["<img src='cat.jpg'>", "<img alt='dog' src='dog.png'><img src='fish.gif'>"],
+    )
+    def test_spots_bad_tag_after_p(self, html: str) -> None:
+        """
+        Images without alt text are blocked.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        assert check_images_have_alt_text(soup)
+
+    @pytest.mark.parametrize(
+        "html",
+        [
+            "<p></p>",
+            "<img alt='ocelot' src='ocelot.png'>",
+            "<img data-proofer-ignore src='hippo.tif'>",
+        ],
+    )
+    def test_allows_inline_tag_after_p(self, html: str) -> None:
+        """
+        No images or images with alt text are allowed.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        assert check_images_have_alt_text(soup) == []
 
 
 @pytest.fixture

@@ -5,7 +5,6 @@ Tests for `mosaic.page_types.notes`.
 from datetime import datetime
 from pathlib import Path
 
-
 from mosaic.page_types import BreadcrumbEntry, Note
 
 
