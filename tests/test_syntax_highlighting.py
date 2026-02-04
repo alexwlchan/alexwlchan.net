@@ -274,3 +274,13 @@ def test_console_preserves_whitespace() -> None:
     """
     html = apply_syntax_highlighting(src='$ echo "hello world"', lang="console")
     assert '<span class="gp">$ </span>echo<span class="w"> </span>' in html
+
+
+def test_console_does_not_highlight_hash_in_output() -> None:
+    """
+    The console language only highlights $ as the prompt, not #.
+    """
+    html = apply_syntax_highlighting(
+        src='$ echo "# hello world"\n# hello world', lang="console"
+    )
+    assert '<span class="gp"># </span>' not in html

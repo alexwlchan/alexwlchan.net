@@ -134,6 +134,22 @@ def apply_syntax_highlighting(
     lexer = get_lexer_by_name(lang)
     formatter = HtmlFormatter()
 
+    # In console snippets, the only prompt character I use is a dollar ($),
+    # but the lexer allows # and %.
+    #
+    # This branch removes those two characters from the regex.  To detect
+    # unrelated changes to the regex that I should incorporate, assert the
+    # current value of the regex first.
+    if lang == "console":
+        assert lexer._ps1rgx == re.compile(  # type: ignore
+            r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
+            r"?|\[\S+[@:][^\n]+\].+))\s*[$#%]\s*)(.*\n?)"
+        ), "outdated console lexer regex"
+        lexer._ps1rgx = re.compile(  # type: ignore
+            r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
+            r"?|\[\S+[@:][^\n]+\].+))\s*[$]\s*)(.*\n?)"
+        )
+
     html = highlight(src, lexer, formatter)
     html = apply_manual_fixes(html, lang)
 
