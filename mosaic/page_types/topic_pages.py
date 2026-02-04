@@ -4,7 +4,7 @@ Models for a topic page.
 
 from pathlib import Path
 
-from mosaic.topics import TOPICS_BY_NAME
+from mosaic.topics import get_topic_by_name
 
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
@@ -31,7 +31,7 @@ class TopicPage(BaseHtmlPage):
         """
         The output URL of this page.
         """
-        return TOPICS_BY_NAME[self.title].href
+        return get_topic_by_name(self.title).href
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
@@ -40,5 +40,5 @@ class TopicPage(BaseHtmlPage):
         """
         return [
             BreadcrumbEntry(label=t.name, href=t.href)
-            for t in TOPICS_BY_NAME[self.title].breadcrumb[:-1]
+            for t in get_topic_by_name(self.title).breadcrumb[:-1]
         ]

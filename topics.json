@@ -14,6 +14,11 @@
     "parent": "Programming"
   },
   {
+    "name": "Builds and CI",
+    "href": "/programming/build-systems/",
+    "parent": "Programming"
+  },
+  {
     "name": "Books I've read",
     "href": "/book-reviews/"
   },

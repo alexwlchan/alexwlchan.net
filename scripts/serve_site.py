@@ -37,5 +37,6 @@ if __name__ == "__main__":
     server.watch("mosaic/", build_and_reload)
     server.watch("src/", build_and_reload)
     server.watch("templates/", build_and_reload)
+    server.watch("topics.json", build_and_reload)
 
     server.serve(root=SITE.out_dir, port=5757, restart_delay=0)
