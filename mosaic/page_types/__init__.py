@@ -31,7 +31,7 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
     layout = front_matter.pop("layout")
 
     match layout:
-        case "post":
+        case "post" | "article":
             return Article(
                 src_dir=src_dir, md_path=md_path, content=content, **front_matter
             )
