@@ -225,6 +225,39 @@ def test_highlighting_name() -> None:
     )
 
 
+@pytest.mark.parametrize(
+    "src, names, must_include",
+    [
+        # Class and ID selectors include the leading octothorpe/dot
+        ("#fires { color: red; }", {1: "#fires"}, '<span class="n">#fires</span>'),
+        (".forest { color: green; }", {1: ".forest"}, '<span class="n">.forest</span>'),
+        #
+        # Nested selectors should be highlighted properly
+        (
+            "figure { .nested { color: pink; } }",
+            {1: "figure", 2: ".nested"},
+            '<span class="n">.nested</span>',
+        ),
+        (
+            ".nested { a, img { color: yellow; } }",
+            {1: ".nested", 2: "a", 3: "img"},
+            '<span class="n">a</span><span class="o">,</span><span class="w"> </span>'
+            '<span class="n">img</span>',
+        ),
+        #
+        # Units should be highlighted as part of a number.
+        ("p { margin: 5px; }", {}, '<span class="mi">5px</span>'),
+    ],
+)
+def test_css_highlighting(src: str, names: dict[int, str], must_include: str) -> None:
+    """
+    Test the manual fixes for CSS highlighting.
+    """
+    html = apply_syntax_highlighting(src, lang="css", names=names)
+    assert must_include in html
+    assert '<span class="err">' not in html
+
+
 def test_swift_shebang_is_not_highlighted() -> None:
     """
     The shebang at the start of a Swift script is punctuation.

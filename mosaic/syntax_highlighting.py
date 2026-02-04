@@ -23,6 +23,9 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
 
+__all__ = ["apply_syntax_highlighting"]
+
+
 def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     """
     Apply syntax highlighting fixes that go beyond Pygments, based on
