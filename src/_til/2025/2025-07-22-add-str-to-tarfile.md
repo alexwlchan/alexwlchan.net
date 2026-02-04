@@ -3,8 +3,7 @@ layout: til
 title: Adding a string to a tarfile in Python
 summary: Wrap the string in an `io.BytesIO` first, then create a `TarInfo` object and pass them both to `addfile()` to add the string to your tarfile.
 date: 2025-07-22 17:35:06 +01:00
-tags:
-  - python
+topic: Python
 ---
 I was writing some Python to write data to a tarfile, and I couldn't find an obvious way to write a string to a tarfile.
 If it's a zip file, you can use [`ZipFile.writestr()`](https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.writestr), but there isn't an equivalent method on `TarFile`.
@@ -13,7 +12,7 @@ Fortunately, it wasn't difficult to work out -- I can turn my string into a file
 
 Here's a simple example:
 
-{% code lang="python" names="0:io 1:tarfile 2:message 3:filename 6:tf 7:msg_as_bytes 10:buffer 14:info" %}
+```python {"names":{"1":"io","2":"tarfile","3":"message","4":"filename","7":"tf","8":"msg_as_bytes","11":"buffer","15":"info"}}
 import io
 import tarfile
 
@@ -30,4 +29,4 @@ with tarfile.TarFile("example.tar.gz", "w") as tf:
     info.size = len(msg_as_bytes)
 
     tf.addfile(tarinfo=info, fileobj=buffer)
-{% endcode %}
+```
