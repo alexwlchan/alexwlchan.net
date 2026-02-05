@@ -3,6 +3,7 @@ Run linting on the rendered site.
 """
 
 import collections
+import json
 from pathlib import Path
 import sys
 
@@ -29,6 +30,28 @@ def read_single_html_file(p: Path) -> BeautifulSoup:
     Parse a single HTML file with beautifulsoup.
     """
     return BeautifulSoup(p.read_text(), "html.parser")
+
+
+def check_http_410_gone(out_dir: Path) -> list[str]:
+    """
+    Look at the list of pages that return HTTP 410 Gone and make sure
+    none of them exist.
+    """
+    errors = []
+
+    with open("caddy/gone.json") as in_file:
+        gone = json.load(in_file)
+
+    for path in gone:
+        if path.endswith("/"):
+            expected_path = out_dir / path.lstrip("/") / "index.html"
+        else:
+            expected_path = out_dir / path.lstrip("/")
+
+        if expected_path.exists():
+            errors.append(f"returning HTTP 410 for page that exists: {path}")
+
+    return errors
 
 
 if __name__ == "__main__":
@@ -61,6 +84,12 @@ if __name__ == "__main__":
 
     redirects_path = Path("caddy/redirects.Caddyfile")
     all_errors[redirects_path] += check_redirects(redirects_path, out_dir)
+
+    book_redirects_path = Path("caddy/book_redirects.Caddyfile")
+    all_errors[book_redirects_path] += check_redirects(book_redirects_path, out_dir)
+
+    gone_path = Path("caddy/gone.Caddyfile")
+    all_errors[gone_path] = check_http_410_gone(out_dir)
 
     all_errors["*"] += check_all_urls_are_hackable(redirects_path, out_dir)
 

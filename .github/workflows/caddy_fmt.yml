@@ -51,6 +51,7 @@ jobs:
       - name: Run Cog on the book redirects
         run: |
           cog -c --check caddy/book_redirects.Caddyfile
+          cog -c --check caddy/gone.Caddyfile
           cog -c --check caddy/redirects.Caddyfile
 
       - name: Format my Caddyfiles

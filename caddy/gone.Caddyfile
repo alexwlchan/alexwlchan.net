@@ -1,8 +1,71 @@
+#[[[cog
+# import cog
+# import json
+# 
+# with open("caddy/gone.json") as in_file:
+#     gone = json.load(in_file)
+# 
+# for path in gone:
+#     cog.outl(f"handle {path} {{\n\terror 410\n}}\n")
+# 
+#]]]
+handle /2014/12/war-on-christmas/ {
+	error 410
+}
+
+handle /2014/war-on-christmas/ {
+	error 410
+}
+
+handle /2015/01/bbfc-podcast/ {
+	error 410
+}
+
+handle /2015/01/govuk/ {
+	error 410
+}
+
+handle /2015/01/kings-cross-problems/ {
+	error 410
+}
+
+handle /2015/bbfc-podcast/ {
+	error 410
+}
+
+handle /2015/govuk/ {
+	error 410
+}
+
+handle /2015/kings-cross-problems/ {
+	error 410
+}
+
+handle /2019/08/removing-the-drm-from-my-kindle-books/ {
+	error 410
+}
+
+handle /2019/removing-the-drm-from-my-kindle-books/ {
+	error 410
+}
+
 handle /analytics/a.js {
 	error 410
 }
 
-handle /theme/style-sample {
+handle /files/boiler_instructions.pdf {
+	error 410
+}
+
+handle /files/colossus.pdf {
+	error 410
+}
+
+handle /files/ga-privacy.txt {
+	error 410
+}
+
+handle /files/rock-crushers.txt {
 	error 410
 }
 
@@ -22,69 +85,6 @@ handle /projects/ {
 	error 410
 }
 
-# == Posts which I've removed == #
-
-# I took this post down in June 2023
-handle /2019/removing-the-drm-from-my-kindle-books/ {
-	error 410
-}
-
-handle /2019/08/removing-the-drm-from-my-kindle-books/ {
-	error 410
-}
-
-# I removed these posts because they were short link posts of minimal value
-
-handle /2014/12/war-on-christmas/ {
-	error 410
-}
-
-handle /2014/war-on-christmas/ {
-	error 410
-}
-
-handle /2015/01/bbfc-podcast/ {
-	error 410
-}
-
-handle /2015/bbfc-podcast/ {
-	error 410
-}
-
-handle /2015/01/govuk/ {
-	error 410
-}
-
-handle /2015/govuk/ {
-	error 410
-}
-
-handle /2015/01/kings-cross-problems/ {
-	error 410
-}
-
-handle /2015/kings-cross-problems/ {
-	error 410
-}
-
-# == Files which I've removed == #
-
-handle /files/boiler_instructions.pdf {
-	error 410
-}
-
-handle /files/colossus.pdf {
-	error 410
-}
-
-handle /files/ga-privacy.txt {
-	error 410
-}
-
-handle /files/rock-crushers.txt {
-	error 410
-}
-
 handle /talks/campug_git.pdf {
 	error 410
 }
@@ -101,4 +101,8 @@ handle /talks/pyconuk2016_cover.png {
 	error 410
 }
 
-# == #
+handle /theme/style-sample {
+	error 410
+}
+
+#[[[end]]] (sum: m6IsYVHOXe)
