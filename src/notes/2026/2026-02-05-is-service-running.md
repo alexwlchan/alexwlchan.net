@@ -47,4 +47,9 @@ fi
 
 I'm using this in some scripts to ensure they don't run while the service is running -- I can check for `is-active`, and block further execution until the service is stopped.
 
+References:
+
+*   [Stephen Kitt's answer on Unix Stack Exchange](https://unix.stackexchange.com/a/396638)
+*   [systemctl manpage](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html)
+
 [systemctl-is-active]: https://www.freedesktop.org/software/systemd/man/latest/systemctl.html#is-active%20PATTERN%E2%80%A6
