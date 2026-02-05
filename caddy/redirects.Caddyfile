@@ -1161,36 +1161,25 @@ redir /2022/print-sbt/                /til/2022/print-sbt/
 
 
 
-
-# == Redirects for reshuffling in April 2024 == #
-#
-# In April 2024 I moved some of my old posts into the TIL section, so
-# their URLs changed.  Make sure they get redirected!
-#
-# I also removed some old posts which I didn't think were worth keeping
-# around, and want them to get a 410 Gone.
-
-redir /2013/rss-podcasts-tumblr/                                      /til/2013/rss-podcasts-tumblr/ permanent
-
-redir /exams/                                                         /2015/technical-exams/ permanent
-
-redir /2023/mechanize-ssl/                                            /til/2023/mechanize-ssl/ permanent
-redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/       /til/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
-redir /2018/horstmann-electric-7/                                     /til/2018/horstmann-electric-7/ permanent
-redir /2016/worcester-28cdi-clock/                                    /til/2016/worcester-28cdi-clock/ permanent
-redir /2016/tricity-sie454-clock/                                     /til/2016/tricity-sie454-clock/ permanent
-
-# === #
-
-
-
-
-# == Redirects for reshuffling in October 2024 == #
-#
-# In October 2024 I rejigged stuff as part of redoing the tag pages, including
-# changing some tag names.  They aren't super commonly uses, but I did find
-# a few broken links in Google to fix.
-
-redir /tags/amazon-s3/                                                /tags/aws/amazon-s3/ permanent
-
-# === #
+#[[[cog
+# import cog
+# import json
+# 
+# with open("caddy/page_redirects.json") as in_file:
+#     redirects = json.load(in_file)
+# 
+# for new_path, all_old_paths in redirects.items():
+#     for old_path in all_old_paths:
+#         cog.outl(f"redir {old_path} {new_path} permanent")
+# 
+#]]]
+redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
+redir /tags/amazon-s3/ /tags/aws/amazon-s3/ permanent
+redir /2013/rss-podcasts-tumblr/ /til/2013/rss-podcasts-tumblr/ permanent
+redir /exams/ /2015/technical-exams/ permanent
+redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
+redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /til/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
+redir /2016/worcester-28cdi-clock/ /til/2016/worcester-28cdi-clock/ permanent
+redir /2016/tricity-sie454-clock/ /til/2016/tricity-sie454-clock/ permanent
+#[[[end]]] (sum: YEgZXjcZ5J)
