@@ -5,6 +5,8 @@ Models for articles.
 from datetime import datetime, timezone
 from pathlib import Path
 
+from mosaic.topics import get_topic_by_name
+
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
@@ -53,8 +55,11 @@ class Article(BaseHtmlPage):
         """
         The breadcrumb trail for this page.
         """
-        if self.topic == "Books I've read":
-            return [BreadcrumbEntry(label="books I've read", href="/book-reviews/")]
+        if self.topic:
+            return [
+                BreadcrumbEntry(label=t.name, href=t.href)
+                for t in get_topic_by_name(self.topic).breadcrumb
+            ]
         else:
             return [BreadcrumbEntry(label="articles", href="/articles/")]
 
