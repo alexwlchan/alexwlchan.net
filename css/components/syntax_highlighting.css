@@ -125,3 +125,9 @@ pre {
   .gd { color: var(--red);   }  /* Generic.Deleted  */
   .gi { color: var(--green); }  /* Generic.Inserted */
 }
+
+.lng-pycon {
+  .gr, .gt { /* Generic.{Error,Traceback} */
+    color: var(--punctuation);
+  }
+}
