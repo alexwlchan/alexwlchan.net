@@ -284,3 +284,20 @@ def test_console_does_not_highlight_hash_in_output() -> None:
         src='$ echo "# hello world"\n# hello world', lang="console"
     )
     assert '<span class="gp"># </span>' not in html
+
+
+def test_pycon_traceback() -> None:
+    """
+    In a traceback in the Python console, the error message is included
+    in the traceback.
+    """
+    src = (
+        '>>> raise ValueError("BOOM!")\n'
+        "Traceback (most recent call last):\n"
+        "[…]\n"
+        "ValueError: BOOM!\n"
+        ">>> 1 + 2\n"
+        "3"
+    )
+    html = apply_syntax_highlighting(src, lang="pycon")
+    assert '<span class="gr">ValueError: BOOM!</span>' in html

@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2025-05-04 15:17:01 +00:00
 title: Handling JSON objects with duplicate names in Python
 summary: It's possible, although uncommon, for a JSON object to contain the same name multiple times. Here are some ways to handle that in Python.
-tags:
-  - python
-  - json
+topic: Python
 ---
 
 Consider the following JSON object:
@@ -71,11 +69,11 @@ I'm sure there was a good reason for it being allowed by the spec, but I can't t
 Most JSON parsers -- including jq, JavaScript, and Python -- will silently discard all but the last instance of a duplicate name.
 Here's an example in Python:
 
-{% code lang="pycon" names="0:json" %}
+```pycon {"names":{"1":"json"}}
 >>> import json
 >>> json.loads('{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}')
 {'colour': 'blue', 'sides': 5}
-{% endcode %}
+```
 
 What if I wanted to decode the whole object, or throw an exception if I see duplicate names?
 
@@ -102,14 +100,14 @@ When Python decodes a JSON object, it first parses the object as a list of name/
 We can see this by looking at the [JSONObject function][JSONObject] in the CPython source code: it builds a list `pairs`, and at the end of the function, it calls `dict(pairs)` to turn the list into a dictionary.
 This relies on the fact that `dict()` can take an iterable of key/value tuples and create a dictionary:
 
-```python
+```pycon
 >>> dict([('sides', 4), ('colour', 'red')])
 {'colour': 'red', 'sides': 4}
 ```
 
 The docs for `dict()` tell us that it will [discard duplicate keys](https://docs.python.org/3/library/stdtypes.html#dict): "if a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary".
 
-```python
+```pycon
 >>> dict([('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')])
 {'colour': 'blue', 'sides': 5}
 ```
@@ -120,7 +118,7 @@ This allows us to parse objects in a different way.
 
 For example, we can just return the literal list of name/value pairs:
 
-{% code lang="pycon" names="0:json 4:pairs" %}
+```pycon {"names":{"1":"json","5":"pairs"}}
 >>> import json
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}',
@@ -128,12 +126,12 @@ For example, we can just return the literal list of name/value pairs:
 ... )
 ...
 [('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')]
-{% endcode %}
+```
 
 We could also use the [multidict library][multidict] to get a dict-like data structure which supports multiple values per key.
 This is based on HTTP headers and URL query strings, two environments where it's common to have multiple values for a single key:
 
-{% code lang="pycon" names="0:multidict 1:MultiDict 2:md 6:pairs" %}
+```pycon {"names":{"1":"multidict","2":"MultiDict","3":"md","7":"pairs"}}
 >>> from multidict import MultiDict
 >>> md = json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}',
@@ -146,7 +144,7 @@ This is based on HTTP headers and URL query strings, two environments where it's
 4
 >>> md.getall('sides')
 [4, 5]
-{% endcode %}
+```
 
 
 
@@ -155,7 +153,7 @@ This is based on HTTP headers and URL query strings, two environments where it's
 If we want to throw an exception when we see duplicate names, we need a longer function.
 Here's the code I wrote:
 
-{% code lang="python" names="0:collections 1:typing 2:dict_with_unique_names 3:pairs 13:pairs_as_dict 21:name_tally 28:repeated_names"%}
+```python {"names":{"1":"collections","2":"typing","3":"dict_with_unique_names","4":"pairs","14":"pairs_as_dict","22":"name_tally","29":"repeated_names","31":"n","32":"count"}}
 import collections
 import typing
 
@@ -188,26 +186,27 @@ def dict_with_unique_names(pairs: list[tuple[str, typing.Any]]) -> dict[str, typ
         raise ValueError(
             f"Found repeated names in JSON object: {', '.join(repeated_names)}"
         )
-{% endcode %}
+```
 
 If I use this as my `object_pairs_hook` when parsing an object which has all unique names, it returns the normal `dict` I'd expect:
 
-{% code lang="pycon" %}
+```pycon
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red"}',
 ...     object_pairs_hook=dict_with_unique_names
 ... )
 ...
 {'colour': 'red', 'sides': 4}
-{% endcode %}
+```
 
 But if I'm parsing an object with one or more repeated names, the parsing fails and throws a `ValueError`:
 
-{% code lang="pycon" %}
+```pycon {"debug": true}
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5}',
 ...      object_pairs_hook=dict_with_unique_names
 ... )
+...
 Traceback (most recent call last):
 […]
 ValueError: Found repeated name in JSON object: sides
@@ -216,10 +215,11 @@ ValueError: Found repeated name in JSON object: sides
 ...     '{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}',
 ...     object_pairs_hook=dict_with_unique_names
 ... )
+...
 Traceback (most recent call last):
 […]
 ValueError: Found repeated names in JSON object: sides, colour
-{% endcode %}
+```
 
 This is precisely the behaviour I want -- throwing an exception, not silently dropping data.
 
@@ -235,7 +235,7 @@ It's hard to think of a use case, but this post feels incomplete without at leas
 If you want to encode custom data structures with Python's JSON library, you can subclass [`JSONEncoder`][JSONEncoder] and define how those structures should be serialised.
 Here's a rudimentary attempt at doing that for a `MultiDict`:
 
-{% code lang="python" names="0:MultiDictEncoder 3:encode 5:o 12:name_value_pairs" %}
+```python {"names":{"1":"MultiDictEncoder","4":"encode","5":"o","12":"name_value_pairs","19":"name","20":"value"}}
 class MultiDictEncoder(json.JSONEncoder):
 
     def encode(self, o: typing.Any) -> str:
@@ -251,15 +251,15 @@ class MultiDictEncoder(json.JSONEncoder):
             return '{' + ', '.join(name_value_pairs) + '}'
 
         return super().encode(o)
-{% endcode %}
+```
 
 and here's how you use it:
 
-{% code lang="pycon" names="0:md" %}
+```pycon {"names":{"1":"md"}}
 >>> md = MultiDict([('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')])
 >>> json.dumps(md, cls=MultiDictEncoder)
 {"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}
-{% endcode %}
+```
 
 This is rough code, and you shouldn't use it -- it's only an example.
 I'm constructing the JSON string manually, so it doesn't handle edge cases like indentation or special characters.

@@ -105,6 +105,15 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="p">#!/usr/bin/env python3</span>',
         )
 
+    # Python console: expand gr (Generic.Error) snippets to include
+    # the entire line.
+    if lang == "pycon":
+        highlighted_code = re.sub(
+            r'<span class="gr">(?P<error>[^<]+)</span>: <span class="n">',
+            r'<span class="gr">\g<error>: ',
+            highlighted_code,
+        )
+
     # Whitespace: delete it unless we're in console or irb snippets,
     # where we use it as part of disabling selection.
     if lang not in {"console", "irb"}:
