@@ -4,21 +4,38 @@ Tests for `mosaic.caddy`.
 
 from pathlib import Path
 
-from mosaic.caddy import parse_caddy_redirects
+import pytest
+
+from mosaic.caddy import parse_caddy_redirects, Redirect
 
 
-def test_parse_caddy_redirects() -> None:
+@pytest.mark.parametrize(
+    "line, redirect",
+    [
+        (
+            "redir /old-path/ /new-path/",
+            Redirect(lineno=1, source="/old-path/", target="/new-path/"),
+        ),
+        (
+            "  redir /old-path/ /new-path/",
+            Redirect(lineno=1, source="/old-path/", target="/new-path/"),
+        ),
+        (
+            "\tredir /old-path/ /new-path/",
+            Redirect(lineno=1, source="/old-path/", target="/new-path/"),
+        ),
+        (
+            "\tredir /old-path/ https://alexwlchan.net/new-path/",
+            Redirect(lineno=1, source="/old-path/", target="/new-path/"),
+        ),
+    ],
+)
+def test_parse_ignores_whitespace(
+    tmp_path: Path, line: str, redirect: Redirect
+) -> None:
     """
-    parse_caddy_redirects reads my redirects file.
+    The parser ignores lines that start with whitespace.
     """
-    redir_path = Path("caddy/redirects.Caddyfile")
-    redirects = parse_caddy_redirects(redir_path)
-
-    assert redirects[0].source == "/.well-known/host-meta*"
-    assert redirects[0].target == "https://social.alexwlchan.net/.well-known/host-meta"
-
-    assert any(
-        r.source == "/blog/2012/12/hypercritical/"
-        and r.target == "/2012/hypercritical/"
-        for r in redirects
-    )
+    redir_path = tmp_path / "redirects.Caddyfile"
+    redir_path.write_text(line)
+    assert parse_caddy_redirects(redir_path) == [redirect]
