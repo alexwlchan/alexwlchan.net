@@ -19,6 +19,11 @@
     "parent": "Programming"
   },
   {
+    "name": "Shell scripting",
+    "href": "/programming/shell-scripting/",
+    "parent": "Programming"
+  },
+  {
     "name": "Books I've read",
     "href": "/book-reviews/"
   },

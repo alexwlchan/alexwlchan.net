@@ -49,6 +49,7 @@ nav, nav a, nav a:visited, nav a:hover {
 
 nav h1 a:hover {
   text-decoration: underline;
+  text-decoration-thickness: 4px;
 }
 
 /* Add an extra thick underline so you know which part of the site
