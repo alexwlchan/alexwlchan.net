@@ -9,7 +9,11 @@
   <published>{{ post.date.isoformat() }}</published>
   <updated>{{ (post.date_updated or post.date).isoformat() }}</updated>
 
+  {% if (post.template_name == "note.html" or post.template_name == "til.html") and post.date.strftime('%Y-%m-%d') < '2026-01-30' %}
+  <id>https://alexwlchan.net/til/{{ post.date.year }}/{{ post.slug }}/</id>
+  {% else %}
   <id>{{ post.url | absolute_url | xml_escape }}</id>
+  {% endif %}
 
   <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
     <![CDATA[

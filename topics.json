@@ -9,6 +9,11 @@
     "parent": "Programming"
   },
   {
+    "name": "JavaScript",
+    "href": "/programming/javascript/",
+    "parent": "Programming"
+  },
+  {
     "name": "Python",
     "href": "/programming/python/",
     "parent": "Programming"

@@ -1,4 +1,10 @@
 {
+  "/notes/2025/discard-in-js-spread/": [
+    "/til/2025/discard-in-js-spread/"
+  ],
+  "/notes/2016/shutil-which/": [
+    "/til/2016/shutil-which/"
+  ],
   "/": [
     "/about",
     "/about/"
@@ -2564,6 +2570,8 @@
     "/images/pyconuk-speaking.jpg"
   ],
   "/notes/": [
+    "/notes/2016/",
+    "/notes/2025/",
     "/notes/2026/"
   ],
   "/notes/2026/who-is-bufo/": [
