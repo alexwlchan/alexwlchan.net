@@ -315,19 +315,6 @@ class Site(BaseModel):
             if src_p.suffix == ".md" and "_files" not in src_p.parts:
                 continue
 
-            if any(
-                p in src_p.parts
-                for p in (
-                    "_data",
-                    "_includes",
-                    "_layouts",
-                    "_plugin_tests",
-                    "_plugins",
-                    "_scss",
-                )
-            ):
-                continue
-
             if src_p.is_relative_to(self.src_dir / "_images"):
                 static_files.append(
                     (
