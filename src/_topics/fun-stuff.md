@@ -12,9 +12,3 @@ This is silly stuff I've made and put on the Internet.
 * [Rainbow hearts](/fun-stuff/rainbow-hearts/)
 * [Rainbow valknuts](/fun-stuff/rainbow-valknuts/)
 * [UK stations map](/fun-stuff/uk-stations-map/)
-
-## Notes about {{ page.title }}
-
-{% with articles = site.notes | selectattr("topic", "eq", page.title) %}
-{% include "partials/article_links.html" %}
-{% endwith %}

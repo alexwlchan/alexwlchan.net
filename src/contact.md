@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Contact
-nav_section: contact
+colors:
+  css_light: "#118207"
+  css_dark:  "#5ff042"
 ---
 I love it when people tell me they enjoyed something I made.
 A nice message can make my day!

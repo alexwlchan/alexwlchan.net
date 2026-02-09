@@ -3,9 +3,9 @@ layout: post
 date: 2025-03-28 08:43:57 +00:00
 title: "What I've Learned by Building to Last"
 summary: There are patterns in what lasts; people skills matter more than technical skills; long-lasting systems cannot grow forever.
-tags:
-  - talks
-  - digital preservation
+topics:
+  - Digital preservation
+  - Talks I've given
 index:
   feature: true
 colors:

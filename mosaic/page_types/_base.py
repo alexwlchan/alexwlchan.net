@@ -77,9 +77,9 @@ class BaseHtmlPage(ABC, BaseModel):
         """
         Checks whether this post is part of a topic.
         """
-        if self.topic is None:
+        if not self.topics:
             return False
-        elif self.topic == topic_name:
+        elif topic_name in self.topics:
             return True
         else:
             return any(
@@ -155,7 +155,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
     # The single topic where this page is saved, which will be used
     # to construct the breadcrumb.
-    topic: str | None = None
+    topics: list[str] = Field(default_factory=lambda: list())
 
     def __repr__(self) -> str:  # pragma: no cover
         """
@@ -165,6 +165,15 @@ class BaseHtmlPage(ABC, BaseModel):
             return f"<{type(self).__name__} md_path={self.md_path!r}>"
         else:
             return f"<{type(self).__name__} url={self.url!r}>"
+
+    @property
+    def sort_date(self) -> datetime:
+        """
+        Returns the sort date for this item.
+        """
+        d = self.date_updated or self.date
+        assert d is not None
+        return d
 
     def out_path(self, out_dir: Path) -> Path:
         """

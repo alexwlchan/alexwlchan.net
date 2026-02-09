@@ -55,10 +55,10 @@ class Article(BaseHtmlPage):
         """
         The breadcrumb trail for this page.
         """
-        if self.topic:
+        if self.topics:
             return [
                 BreadcrumbEntry(label=t.name, href=t.href)
-                for t in get_topic_by_name(self.topic).breadcrumb
+                for t in get_topic_by_name(self.topics[0]).breadcrumb
             ]
         else:
             return [BreadcrumbEntry(label="articles", href="/articles/")]

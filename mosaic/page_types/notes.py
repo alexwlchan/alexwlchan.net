@@ -21,7 +21,6 @@ class Note(BaseHtmlPage):
     md_path: Path
     src_dir: Path
     date: datetime
-    topic: str
 
     @property
     def template_name(self) -> str:
@@ -44,9 +43,11 @@ class Note(BaseHtmlPage):
         """
         The breadcrumb trail for this page.
         """
+        if not self.topics:
+            raise ValueError(f"no topics in {self.md_path}")
         return [
             BreadcrumbEntry(label=t.name, href=t.href)
-            for t in get_topic_by_name(self.topic).breadcrumb
+            for t in get_topic_by_name(self.topics[0]).breadcrumb
         ]
 
 

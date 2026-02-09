@@ -1,27 +1,87 @@
 [
   {
-    "name": "Programming",
-    "href": "/programming/"
+    "name": "Systems and software",
+    "href": "/systems/"
   },
   {
     "name": "Git",
-    "href": "/programming/git/",
-    "parent": "Programming"
+    "href": "/systems/git/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "JavaScript",
+    "href": "/systems/javascript/",
+    "parent": "Systems and software"
   },
   {
     "name": "Python",
-    "href": "/programming/python/",
-    "parent": "Programming"
+    "href": "/systems/python/",
+    "parent": "Systems and software"
   },
   {
     "name": "Builds and CI",
-    "href": "/programming/build-systems/",
-    "parent": "Programming"
+    "href": "/systems/build-systems/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "AWS",
+    "href": "/systems/aws/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "SQLite",
+    "href": "/systems/sqlite/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Ruby",
+    "href": "/systems/ruby/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Rust",
+    "href": "/systems/rust/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Scala",
+    "href": "/systems/scala/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Go",
+    "href": "/systems/go/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "CSS",
+    "href": "/systems/css/",
+    "parent": "Systems and software"
   },
   {
     "name": "Shell scripting",
-    "href": "/programming/shell-scripting/",
-    "parent": "Programming"
+    "href": "/systems/shell-scripting/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "AppleScript",
+    "href": "/systems/applescript/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Swift",
+    "href": "/systems/swift/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "HTML",
+    "href": "/systems/html/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Docker",
+    "href": "/systems/docker/",
+    "parent": "Systems and software"
   },
   {
     "name": "Books I've read",
@@ -34,5 +94,68 @@
   {
     "name": "Notes",
     "href": "/notes/"
+  },
+  {
+    "name": "Digital preservation",
+    "href": "/digital-preservation/"
+  },
+  {
+    "name": "Tiny archives",
+    "href": "/digital-preservation/tiny-archives/"
+  },
+  {
+    "name": "Preserving social media",
+    "href": "/digital-preservation/social-media/",
+    "parent": "Digital preservation"
+  },
+  {
+    "name": "Web archiving",
+    "href": "/digital-preservation/web-archiving/",
+    "parent": "Digital preservation"
+  },
+  {
+    "name": "Computers",
+    "href": "/computers/"
+  },
+  {
+    "name": "macOS",
+    "href": "/computers/macos/",
+    "parent": "Computers"
+  },
+  {
+    "name": "Tailscale",
+    "href": "/computers/tailscale/",
+    "parent": "Computers"
+  },
+  {
+    "name": "The world around us",
+    "href": "/world/"
+  },
+  {
+    "name": "Interesting words",
+    "href": "/world/words/",
+    "parent": "The world around us"
+  },
+  {
+    "name": "Art and creativity",
+    "href": "/art/"
+  },
+  {
+    "name": "Drawing things",
+    "href": "/art/drawing-things/",
+    "parent": "Art and creativity"
+  },
+  {
+    "name": "SVG",
+    "href": "/art/svg/",
+    "parent": "Art and creativity"
+  },
+  {
+    "name": "Personal thoughts",
+    "href": "/personal-thoughts/"
+  },
+  {
+    "name": "Talks I've given",
+    "href": "/talks/"
   }
 ]

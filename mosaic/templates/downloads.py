@@ -62,7 +62,7 @@ def render_download(context: Context, filename: str, caller: Any) -> str:
         "</style>\n"
         f'<a href="/files/{year}/{filename}" class="download">'
         + picture_html
-        + f" {filename}</a>"
+        + f" {filename}</a>\n\n"
     )
 
 
