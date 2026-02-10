@@ -1,11 +1,10 @@
 ---
-layout: til
+layout: note
 title: Don't show Dock icons from apps on another device
 summary: |
   The name of this feature is "Handoff", and that's where you'll find the setting for it.
 date: 2025-10-07 08:33:37 +01:00
-tags:
-  - macos
+topic: macOS
 colors:
   css_light: "#1a6cce"
   css_dark:  "#3aa5eb"
