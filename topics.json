@@ -155,6 +155,11 @@
     "href": "/personal-thoughts/"
   },
   {
+    "name": "Blogging about blogging",
+    "href": "/personal-thoughts/blogging/",
+    "parent": "Personal thoughts"
+  },
+  {
     "name": "Talks I've given",
     "href": "/talks/"
   }
