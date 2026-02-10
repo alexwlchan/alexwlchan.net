@@ -1016,6 +1016,7 @@ redir /images/2022/guest_headers_card.png /images/cards/2022/no-cute.png permane
 redir /images/2022/screenshot_card.png /images/cards/2022/screenshots.png permanent
 redir /images/2022/10-of-cards.jpg /images/cards/2022/tin-anniversary.jpg permanent
 redir /images/pyconuk-speaking.jpg /images/projects/pyconuk-speaking.jpg permanent
+redir /notes/2025/ /notes/ permanent
 redir /notes/2026/ /notes/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /tag /tags/ permanent
@@ -1049,4 +1050,4 @@ redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /til/2020/usi
 redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: qBG9yuRNgo)
+#[[[end]]] (sum: I41ysuJxce)

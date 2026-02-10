@@ -124,8 +124,8 @@
   },
   {
     "name": "Tailscale",
-    "href": "/computers/tailscale/",
-    "parent": "Computers"
+    "href": "/systems/tailscale/",
+    "parent": "Systems and software"
   },
   {
     "name": "The world around us",
