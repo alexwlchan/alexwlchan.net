@@ -29,13 +29,15 @@
   </li>
   {%- endif -%}
 
+  {%- if page.date -%}
+    {%- with date = page.date -%}
+      <li>Posted {% include "partials/timestamp.html" -%}</li>
+    {%- endwith -%}
+  {%- endif -%}
+
   {%- if page.date_updated -%}
     {%- with date = page.date_updated -%}
       <li>Updated {% include "partials/timestamp.html" -%}</li>
-    {%- endwith -%}
-  {%- elif page.date -%}
-    {%- with date = page.date -%}
-      <li>Posted {% include "partials/timestamp.html" -%}</li>
     {%- endwith -%}
   {%- endif -%}
 
