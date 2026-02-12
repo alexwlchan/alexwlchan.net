@@ -1,7 +1,7 @@
 <nav>
   <h1>
     <a href="/">alexwlchan</a>
-    {% for entry in page.breadcrumb %}
+    {% for entry in page.breadcrumb() %}
       » <a href="{{ entry.href }}" class="breadcrumb">{{ entry.label|smartify }}</a>
     {% endfor %}
   </h1>
