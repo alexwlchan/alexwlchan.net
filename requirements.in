@@ -2,6 +2,7 @@
 
 beautifulsoup4
 httpx
+inquirerpy
 jinja2
 lightningcss
 livereload
@@ -15,6 +16,7 @@ PyYAML
 smartypants
 termcolor
 tqdm
+unidecode
 
 # For Mosaic tests
 hypothesis
