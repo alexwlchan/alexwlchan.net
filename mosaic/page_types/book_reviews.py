@@ -82,7 +82,6 @@ class BookReview(BaseHtmlPage):
         """
         return f"/book-reviews/{self.slug}/"
 
-    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.

@@ -66,7 +66,6 @@ class BaseHtmlPage(ABC, BaseModel):
         The output URL of this page.
         """
 
-    @property
     @abstractmethod
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """

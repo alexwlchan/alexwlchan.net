@@ -33,7 +33,6 @@ class TopicPage(BaseHtmlPage):
         """
         return get_topic_by_name(self.title).href
 
-    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.

@@ -38,7 +38,6 @@ class Note(BaseHtmlPage):
         relative_dir = self.md_path.parent.relative_to(self.src_dir)
         return f"/{relative_dir}/{self.slug}/".replace("./", "")
 
-    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.
@@ -79,7 +78,6 @@ class TodayILearned(BaseHtmlPage):
         """
         return f"/til/{self.date.year}/{self.slug}/"
 
-    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.
