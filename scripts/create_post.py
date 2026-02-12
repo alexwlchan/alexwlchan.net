@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """
 Create a new post.
 """
@@ -10,6 +9,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+from typing import Any
 
 import httpx
 from InquirerPy import inquirer
@@ -19,8 +19,7 @@ import yaml
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from mosaic import Site
-from mosaic.html_page import BookReview
+from mosaic.page_types import BookReview, read_markdown_files
 
 
 def slugify(u: str) -> str:
@@ -54,32 +53,46 @@ def get_tint_colour(path: str | Path, *, background: str) -> str:
     return result.strip()
 
 
+def ask_for_choice(message: str, choices: list[str]) -> str:
+    """
+    Ask the user to select a choice from a predefined list.
+    """
+    return inquirer.select(message=message, choices=choices).execute()  # type: ignore
+
+
+def ask_for_text(message: str, **kwargs: Any) -> str:
+    """
+    Ask the user to enter a free-form text answer.
+    """
+    return inquirer.text(message=message, **kwargs).execute()  # type: ignore
+
+
 if __name__ == "__main__":
-    post_type = inquirer.select(
+    post_type = ask_for_choice(
         message="What type of post are you writing?",
         choices=["article", "note", "book review"],
-    ).execute()
+    )
 
     now = datetime.now(tz=timezone.utc)
     year = str(now.year)
 
     if post_type == "book review":
-        title = inquirer.text(message="Title:".ljust(9, " ")).execute()
-        slug = inquirer.text(message="URL slug:", default=slugify(title)).execute()
-        author = inquirer.text(message="Author:".ljust(9, " ")).execute()
-        isbn13 = inquirer.text(message="ISBN13:".ljust(9, " ")).execute()
-        publication_year = inquirer.text(message="Publication year:").execute()
+        title = ask_for_text(message="Title:".ljust(9, " "))
+        slug = ask_for_text(message="URL slug:", default=slugify(title))
+        author = ask_for_text(message="Author:".ljust(9, " "))
+        isbn13 = ask_for_text(message="ISBN13:".ljust(9, " "))
+        publication_year = ask_for_text(message="Publication year:")
 
-        site = Site()
         existing_reviews = [
-            p for p in site.read_markdown_source_files() if isinstance(p, BookReview)
+            p
+            for p in read_markdown_files(src_dir=Path("src/book-reviews"))
+            if isinstance(p, BookReview)
         ]
 
         all_genres = set()
-        for p in site.read_markdown_source_files():
-            if isinstance(p, BookReview):
-                for g in p.book.genres:
-                    all_genres.add(g)
+        for p in existing_reviews:
+            for g in p.book.genres:
+                all_genres.add(g)
 
         ADD_NEW = "[add new…]"
 
@@ -93,18 +106,13 @@ if __name__ == "__main__":
             if ADD_NEW in result:
                 result.remove(ADD_NEW)
                 result.extend(
-                    [
-                        gn.strip()
-                        for gn in inquirer.text(message="New genres:")
-                        .execute()
-                        .split(",")
-                    ]
+                    [gn.strip() for gn in ask_for_text("New genres:").split(",")]
                 )
                 return result
             else:
                 return result
 
-        genres = inquirer.fuzzy(
+        genres = inquirer.fuzzy(  # type: ignore
             message="Genres:",
             choices=sorted(all_genres) + [ADD_NEW],
             multiselect=True,
@@ -113,23 +121,19 @@ if __name__ == "__main__":
 
         # TODO: If the hour is before a certain time, default to
         # the previous day?
-        date_read = inquirer.text(
+        date_read = ask_for_text(
             "Date read:", default=datetime.now().strftime("%Y-%m-%d (today)")
-        ).execute()
+        )
         date_read = date_read.replace(" (today)", "")
 
-        book_format = inquirer.select(
+        book_format = ask_for_choice(
             message="Book format:", choices=["paperback", "hardback", "ebook"]
-        ).execute()
-
-        rating = (
-            inquirer.select(
-                message="Rating:", choices=["★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"]
-            )
-            .execute()
-            .count("★")
         )
-        cover_url = inquirer.text("Cover URL:").execute()
+
+        rating = ask_for_choice(
+            message="Rating:", choices=["★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"]
+        ).count("★")
+        cover_url = ask_for_text("Cover URL:")
 
         cover_path = (Path("src/_images") / year / slug).with_suffix(
             os.path.splitext(cover_url)[-1]
@@ -139,8 +143,8 @@ if __name__ == "__main__":
         try:
             resp = httpx.get(cover_url)
             resp.raise_for_status()
-            with open(cover_path, "xb") as out_file:
-                out_file.write(resp.content)
+            with open(cover_path, "xb") as out_cover:
+                out_cover.write(resp.content)
 
             css_light = get_tint_colour(cover_path, background="white")
             css_dark = get_tint_colour(cover_path, background="black")
@@ -162,7 +166,7 @@ if __name__ == "__main__":
 
         md_path = Path("src/book-reviews") / year / f"{slug}.md"
         md_path.parent.mkdir(exist_ok=True)
-        with open(md_path, "w") as out_file:
+        with open(md_path, "x") as out_file:
             out_file.write(
                 "---\n"
                 "layout: book_review\n"
