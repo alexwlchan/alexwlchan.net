@@ -1,12 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2025-04-29 21:47:09 +00:00
 title: A faster way to copy SQLite databases between computers
 summary:
   Dumping a SQLite database to a text file can make it much smaller, which means you can download it faster.
-tags:
-  - sqlite
-old_syntax_highlighting: true
+topic: SQLite
 ---
 I store a lot of data in SQLite databases on remote servers, and I often want to copy them to my local machine for analysis or backup.
 
@@ -80,45 +78,30 @@ $ sqlite3 explorer.db .dump | gzip -c > explorer.db.txt.gz
 To give you an idea of the potential savings, here's the relative disk size for one of my databases.
 
 <style>
-  table#sizes {
-    width: 100%;
-    border: var(--border-width) var(--border-style) var(--block-border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--block-background);
-    padding: var(--default-padding);
-  }
-
-  table#sizes tr:not(:last-of-type) > th,
-  table#sizes tr:not(:last-of-type) > td {
-    border-bottom: 2px solid var(--block-border-color);
-  }
-
-  table#sizes td:not(:first-child) {
-    text-align: center;
-  }
-
-  table#sizes tr > td:nth-child(2) {
-    padding-left: 1em;
-  }
+  @use "components/tables";
 </style>
 
-<table id="sizes">
-  <tr>
-    <th>File</th>
-    <th>Size on disk</th>
-  </tr>
-  <tr>
-    <td>original SQLite database</td>
-    <td title="7,081,912 bytes">3.4 GB</td>
-  </tr>
-  <tr>
-    <td>text file (<code>sqlite3 my_database.db .dump</code>)</td>
-    <td title="2,785,408 bytes">1.3 GB</td>
-  </tr>
-  <tr>
-    <td>gzip-compressed text (<code>sqlite3 my_database.db .dump | gzip -c</code>)</td>
-    <td title="491,904 bytes">240 MB</td>
-  </tr>
+<table class="block">
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Size on disk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>original SQLite database</td>
+      <td title="7,081,912 bytes">3.4 GB</td>
+    </tr>
+    <tr>
+      <td>text file (<code>sqlite3 my_database.db .dump</code>)</td>
+      <td title="2,785,408 bytes">1.3 GB</td>
+    </tr>
+    <tr>
+      <td>gzip-compressed text (<code>sqlite3 my_database.db .dump | gzip -c</code>)</td>
+      <td title="491,904 bytes">240 MB</td>
+    </tr>
+  </tbody>
 </table>
 
 The gzip-compressed text file is 14× smaller than the original SQLite database -- that makes downloading the database much faster.

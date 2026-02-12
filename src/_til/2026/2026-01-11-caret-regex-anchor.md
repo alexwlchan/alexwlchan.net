@@ -22,13 +22,13 @@ Today I learnt another difference!
 </style>
 
 <table class="block">
-  <tbody>
+  <thead>
     <tr>
       <th style="width: 60px; text-align: center; padding: 0 0.5em;">Anchor</th>
       <th>Python (<code>re</code>)</th>
       <th>Ruby</th>
     </tr>
-  </tbody>
+  </thead>
   <tbody>  
     <tr>
       <td style="text-align: center;"><code>^</code></td>
