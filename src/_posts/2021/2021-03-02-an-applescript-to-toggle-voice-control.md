@@ -11,6 +11,7 @@ colors:
   index_light: "#595c80"
   index_dark:  "#797da7"
 card_attribution: https://support.apple.com/en-gb/HT210539
+old_syntax_highlighting: true
 ---
 
 On my Mac, I do a lot of writing using speech-to-text dictation.

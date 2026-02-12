@@ -22,6 +22,7 @@ colors:
    css_light: '#0673cc'
    css_dark:  '#1184ee'
 
+old_syntax_highlighting: true
 ---
 A sapphic retelling of the Trojan War, in which Cassandra's curse is cast by a petty Apollo who wants sex, and an enemies-to-lovers romance between Cassandra and Helen.
 

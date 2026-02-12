@@ -7,6 +7,7 @@ tags:
   - aws:amazon s3
   - aws
   - path-problems
+old_syntax_highlighting: true
 ---
 
 I didn't expect to be writing another post about S3 keys so soon, but life comes at you fast.

@@ -22,6 +22,7 @@ colors:
    css_light: '#bb2f37'
    css_dark:  '#e69e36'
 
+old_syntax_highlighting: true
 ---
 
 I enjoyed this both for the gender shenanigans, and for reading an older version of some of the fairy tales I'm used to.

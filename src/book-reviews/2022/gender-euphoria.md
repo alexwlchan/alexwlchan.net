@@ -23,6 +23,7 @@ colors:
    css_light: '#90617e'
    css_dark:  '#58d3fd'
 
+old_syntax_highlighting: true
 ---
 
 This is an anthology of essays about different people's experiences of gender, focusing on a sense of joy rather than despair.

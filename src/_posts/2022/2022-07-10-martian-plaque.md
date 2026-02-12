@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#495652"
   css_dark:  "#aab6b2"
+old_syntax_highlighting: true
 ---
 
 *Spoilers for <em>For All Mankind</em> season 3, up to s03e05.*

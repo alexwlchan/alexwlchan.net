@@ -6,6 +6,7 @@ date: 2025-07-16 11:14:50 +01:00
 tags:
   - python
   - python:pytest
+old_syntax_highlighting: true
 ---
 I'm using pytest to monitor some of my websites, and when the tests fail, I want to produce a human-friendly report that describes which pages are down.
 Each test is checking a single website, and a single website may be checked by multiple tests.

@@ -24,6 +24,7 @@ colors:
    css_light: '#bd1c3b'
    css_dark:  '#eddde3'
 
+old_syntax_highlighting: true
 ---
 
 Another "pop sci" book about the history of mathematics.

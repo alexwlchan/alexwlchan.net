@@ -10,6 +10,7 @@ colors:
   css_light: "#d0395a"
   css_dark:  "#DBD4D3"
 link: https://commons.flickr.org/
+old_syntax_highlighting: true
 ---
 One of the things I've been working on at the Flickr Foundation is a new "Commons Explorer", a way to browse the photos in the Flickr Commons.
 

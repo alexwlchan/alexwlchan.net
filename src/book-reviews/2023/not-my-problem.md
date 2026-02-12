@@ -22,6 +22,7 @@ colors:
    css_light: '#316880'
    css_dark:  '#e8dc36'
 
+old_syntax_highlighting: true
 ---
 
 Quick, easy fiction read.

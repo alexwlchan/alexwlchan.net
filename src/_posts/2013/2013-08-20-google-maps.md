@@ -7,6 +7,7 @@ tags:
 title: Cleaning up Google Maps
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Earlier this morning, Fraser Speirs was bemoaning the design of the new Google&nbsp;Maps:

@@ -22,6 +22,7 @@ colors:
    css_light: '#9b4e2d'
    css_dark:  '#e0c049'
 
+old_syntax_highlighting: true
 ---
 
 A fun collection of Chinese fairy tales, translated into English and with some context added at the start/end of each story.

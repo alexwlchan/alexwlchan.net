@@ -4,6 +4,7 @@ date: 2024-03-16 08:39:19 +00:00
 title: How much will Mastodon instances try to re-send messages?
 tags:
   - mastodon
+old_syntax_highlighting: true
 ---
 Simon Willison had some DNS issues which meant his personal Mastodon instance (which is similar to my Masto.host setup) was knocked offline for a day or so.
 He was [wondering whether](https://fedi.simonwillison.net/@simon/112100279854237102) this would cause a flood of traffic when it came back online:

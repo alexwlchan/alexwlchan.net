@@ -5,6 +5,7 @@ date_updated: 2024-06-25 23:32:55 +01:00
 title: What happens when you replace a photo on Flickr?
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 You can [replace a photo on Flickr][replace].
 

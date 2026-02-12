@@ -8,6 +8,7 @@ tags:
   - aws:amazon dynamodb
   - scala
   - scala:scanamo
+old_syntax_highlighting: true
 ---
 
 I always struggle with the ConditionalUpdate syntax for DynamoDB, so here's a snippet for the Java SDK that works (with a bit of Scanamo magic to turn case class instances into instances of `AttributeValue`):

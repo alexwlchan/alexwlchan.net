@@ -11,6 +11,7 @@ tags:
 colors:
   css_light: "#b26036"
   css_dark:  "#f59a53"
+old_syntax_highlighting: true
 ---
 Yesterday there were local elections in the UK, and this morning I've been catching up on the news.
 As I was reading Yohannes Lowe's live coverage in the Guardian, I [spotted a word I didn't recognise][guardian] (emphasis mine):

@@ -5,6 +5,7 @@ summary: Use `subprocess.Popen()` with `bufsize=1` and `text=True`, then you can
 date: 2025-05-17 14:50:11 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I was writing a Python script that shells out to external tool which prints output line-by-line to stdout.
 I wanted my script to read those lines, and then do some follow-up work for each line.

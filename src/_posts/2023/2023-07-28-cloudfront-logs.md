@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#673ABB"
   css_dark:  "#C9ABFF"
+old_syntax_highlighting: true
 ---
 
 I've been doing work recently to analyse some [CloudFront access logs][logs].

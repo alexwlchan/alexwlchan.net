@@ -5,6 +5,7 @@ title: The passwords I actually memorise
 summary: Password managers promise you only need to remember one password, but I keep eight of them in my head to avoid a single point of failure.
 tags:
   - infosec
+old_syntax_highlighting: true
 ---
 The promise of a [password manager][wiki-password-manager] is that it remembers and autofills all of your passwords, so you only have to remember one -- the password that unlocks your password manager.
 

@@ -7,6 +7,7 @@ tags:
   - drawing things
   - wellcome collection
 canonical_url: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
+old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

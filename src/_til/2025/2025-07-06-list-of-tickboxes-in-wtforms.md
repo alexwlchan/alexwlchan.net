@@ -5,6 +5,7 @@ summary: Subclass `SelectMultipleField` and override the `widget` and `option_wi
 date: 2025-07-06 17:55:56 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I was working on a Flask app, which had a [web form](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms) using WTForms.
 I wanted one of the form fields to be a list of items, from which the user could select one or more.

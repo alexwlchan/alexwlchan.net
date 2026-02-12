@@ -10,6 +10,7 @@ colors:
   index_dark:  "#4fd6ca"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 <!-- Card image: https://wellcomecollection.org/works/r8t5urwh, public domain -->

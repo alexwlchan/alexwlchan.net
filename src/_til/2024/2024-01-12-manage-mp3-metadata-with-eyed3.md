@@ -6,6 +6,7 @@ tags:
   - python
   - macos
   - python:eyeD3
+old_syntax_highlighting: true
 ---
 I have a couple of scripts that manipulate metadata in my iTunes library with the [eyed3 library][eyed3].
 The library isn't particularly well-documented; these are some notes on how iTunes features map into eyed3.

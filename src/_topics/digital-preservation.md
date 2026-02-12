@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: Digital preservation
+old_syntax_highlighting: true
 ---
 
 Digital preservation is about protecting digital information to ensure it's available for a long time into the future.

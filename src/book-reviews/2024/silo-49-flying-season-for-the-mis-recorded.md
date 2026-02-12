@@ -22,6 +22,7 @@ colors:
    css_light: '#0e0e11'
    css_dark:  '#dcd9d7'
 
+old_syntax_highlighting: true
 ---
 Easy high point of the *Silo 49* series.
 

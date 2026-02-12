@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#34827e"
   css_dark:  "#9dd2d6"
+old_syntax_highlighting: true
 ---
 Two weeks ago, I was at Queer Craft -- a fortnightly meet-up at [Slipstitch], a haberdashery and yarn shop near Alexandra Palace.
 I was working on a cross stitch piece of a train in a snowy landscape, chatting to my friends, admiring their creations, and gently snacking on a variety of baked goods.

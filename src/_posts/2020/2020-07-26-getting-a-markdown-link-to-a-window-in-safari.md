@@ -6,6 +6,7 @@ tags:
   - macos
   - applescript
   - macos:safari
+old_syntax_highlighting: true
 ---
 
 Here's an AppleScript I wrote today, which gets a Markdown-formatted link to whatever's in my frontmost Safari window:

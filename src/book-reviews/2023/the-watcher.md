@@ -21,6 +21,7 @@ colors:
    css_light: '#8c6918'
    css_dark:  '#bf8f20'
 
+old_syntax_highlighting: true
 ---
 
 A satisfying conclusion to the "Silo Submerged" trilogy.

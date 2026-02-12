@@ -22,6 +22,7 @@ colors:
    css_light: '#916540'
    css_dark:  '#b6723b'
 
+old_syntax_highlighting: true
 ---
 
 This is a weird but delightful book.

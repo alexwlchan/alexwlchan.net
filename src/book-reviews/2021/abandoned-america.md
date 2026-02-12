@@ -20,6 +20,7 @@ colors:
    css_light: '#726c66'
    css_dark:  '#eeefec'
 
+old_syntax_highlighting: true
 ---
 
 This is one of several photo books by the same author, which I saw [from their Twitter feed](https://twitter.com/abandonedameric/).

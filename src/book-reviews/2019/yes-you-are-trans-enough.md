@@ -23,6 +23,7 @@ colors:
    css_light: '#427590'
    css_dark:  '#7cf7f0'
 
+old_syntax_highlighting: true
 ---
 
 Mia’s account of growing up as a trans person who didn’t realise trans was a thing you could be, the sense of “not fitting in” with the other boys, and the slow and rocky road to transition. Life definitely improves for her, but it’s not without ups and downs, and I couldn’t read more than a few chapters at once (especially the beginning) without having to put it down – it’s quite sobering.

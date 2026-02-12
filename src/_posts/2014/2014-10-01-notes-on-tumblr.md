@@ -4,6 +4,7 @@ date: 2014-10-01 18:34:00 +00:00
 tags:
   - tumblr
 title: Notes on Tumblr
+old_syntax_highlighting: true
 ---
 
 The most popular thing I've ever written is my site for [finding untagged Tumblr posts][futp]. I have a few small changes, a new way to filter posts, and some other thoughts on using Tumblr.

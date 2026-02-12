@@ -7,6 +7,7 @@ tags:
   - css
   - svg
   - drawing things
+old_syntax_highlighting: true
 ---
 I enjoy adding [`:hover` styles][mdn] to my websites.
 A good hover style reminds me of how fast and responsive our computers can be, if we let them.

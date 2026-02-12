@@ -7,6 +7,7 @@ summary: |
 tags:
   - safari
   - digital preservation
+old_syntax_highlighting: true
 ---
 I've been doing a bit of poking around in the Safari [webarchive file format][wiki], and one of the things I wanted to check is that the data isn't stored in some sort of proprietary, impossible-to-read format.
 I haven't written a complete piece of code to get the data out, but I've done enough to satisfy myself that if Safari somehow disappears, I could still read it.

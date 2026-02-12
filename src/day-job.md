@@ -5,6 +5,7 @@ date_updated: 2026-02-08 19:06:09 +00:00
 colors:
   css_light: "#118207"
   css_dark:  "#5ff042"
+old_syntax_highlighting: true
 ---
 Since August 2025, I've been employed at [Tailscale][tailscale] as a software developer.
 Tailscale is a mesh VPN service that creates private, secure connections between your devices.

@@ -11,6 +11,7 @@ link: https://alexwlchan.net/fun-stuff/rainbow-hearts/
 colors:
   index_light: "#870788"
   index_dark:  "#a86da8"
+old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

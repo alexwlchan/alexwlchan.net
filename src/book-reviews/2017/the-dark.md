@@ -20,6 +20,7 @@ colors:
    css_light: '#000000'
    css_dark:  '#fbfde5'
 
+old_syntax_highlighting: true
 ---
 
 This is only short, but it’s quite a sweet and different take on the dark. Lovely illustrations and a good concept.

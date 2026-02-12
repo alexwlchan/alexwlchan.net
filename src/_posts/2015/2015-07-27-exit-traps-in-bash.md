@@ -5,6 +5,7 @@ link: http://redsymbol.net/articles/bash-exit-traps/
 tags:
   - shell scripting
 title: 'Useful Bash features: exit traps'
+old_syntax_highlighting: true
 ---
 
 I recently discovered exit traps, and I think they're a really neat feature of Bash.

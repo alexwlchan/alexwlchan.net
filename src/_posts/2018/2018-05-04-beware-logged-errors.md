@@ -8,6 +8,7 @@ tags:
   - infosec
   - python:subprocess
 title: Beware of logged errors from subprocess
+old_syntax_highlighting: true
 ---
 
 Yesterday, Twitter [wrote a blog post][twitter] about a recent security bug:

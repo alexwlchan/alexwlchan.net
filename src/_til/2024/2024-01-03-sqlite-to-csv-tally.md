@@ -5,6 +5,7 @@ title: Getting a tally of SQLite values as a CSV
 tags:
   - sqlite
   - csv
+old_syntax_highlighting: true
 ---
 
 I often find myself looking for unique values in a SQLite column.

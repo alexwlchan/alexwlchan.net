@@ -5,6 +5,7 @@ title: Maths is about facing ambiguity, not avoiding it
 summary: School tells us that “Maths always has one right answer!”, which is a convenient but unhelpful lie.
 tags:
   - maths
+old_syntax_highlighting: true
 ---
 
 Every so often, an expression like this goes viral on Twitter:

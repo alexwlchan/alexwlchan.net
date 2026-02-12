@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#7b650e"
   css_dark:  "#efb41f"
+old_syntax_highlighting: true
 ---
 
 *Note: mild spoilers for For All Mankind S3E3 "All In".*

@@ -21,6 +21,7 @@ colors:
    css_light: '#873222'
    css_dark:  '#d0d78f'
 
+old_syntax_highlighting: true
 ---
 
 This was a gift from Mum, and comes recommended from her.

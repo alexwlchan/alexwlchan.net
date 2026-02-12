@@ -6,6 +6,7 @@ tags:
   - python
   - terminal tricks
   - colour
+old_syntax_highlighting: true
 ---
 
 Last night, I [posted a tweet][tweet] wondering about the different colours of the ["spool of thread" emoji][emoji], and I made an illustration to show the variety:

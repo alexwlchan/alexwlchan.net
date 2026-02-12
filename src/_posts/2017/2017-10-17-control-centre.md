@@ -8,6 +8,7 @@ tags:
   - frustrations
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I'm not much of an iOS power user, and these days, most new features go straight over my head.

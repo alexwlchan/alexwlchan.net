@@ -7,6 +7,7 @@ tags:
   - applescript
   - acorn
   - images
+old_syntax_highlighting: true
 ---
 
 I've just finished creating some images for a new post, and I drew them all in the macOS image editor [Acorn].

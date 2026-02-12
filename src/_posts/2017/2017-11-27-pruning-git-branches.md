@@ -6,6 +6,7 @@ summary: 'Two commands for managing Git branches: one for deleting branches whic
 tags:
   - git
 title: Pruning old Git branches
+old_syntax_highlighting: true
 ---
 
 Here's a quick tip for Git users: if you want to delete every local branch that's already been merged into master, you can run this command:

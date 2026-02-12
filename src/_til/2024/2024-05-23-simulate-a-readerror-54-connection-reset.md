@@ -8,6 +8,7 @@ tags:
   - python
   - python:httpx
   - python:pytest
+old_syntax_highlighting: true
 ---
 I was making some requests with httpx, and one of them failed with an exception:
 

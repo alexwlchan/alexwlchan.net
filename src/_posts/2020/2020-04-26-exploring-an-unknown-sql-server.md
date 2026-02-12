@@ -5,6 +5,7 @@ title: Exploring an unknown SQL server
 summary: You're handed a SQL server which has some data, but you don't know anything about the schema. What do you do?
 tags:
   - mysql
+old_syntax_highlighting: true
 ---
 
 I've been helping to decommission an old application at work recently, and part of that process was verifying we'd got all the important data out.

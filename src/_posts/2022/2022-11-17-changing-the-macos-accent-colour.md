@@ -7,6 +7,7 @@ tags:
   - macos
   - swift
   - colour
+old_syntax_highlighting: true
 ---
 
 In System Preferences, you can change the accent colour of your Mac:

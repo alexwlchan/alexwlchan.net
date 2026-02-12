@@ -22,6 +22,7 @@ colors:
    css_light: '#8b421b'
    css_dark:  '#bf6124'
 
+old_syntax_highlighting: true
 ---
 
 Best read on a packed commuter train.

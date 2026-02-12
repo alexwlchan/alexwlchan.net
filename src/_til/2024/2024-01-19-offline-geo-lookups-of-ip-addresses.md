@@ -7,6 +7,7 @@ date: 2024-01-19 10:25:34 +00:00
 tags:
   - python
   - networking
+old_syntax_highlighting: true
 ---
 I was experimenting with web analytics, and I wanted a way to look up the country for an IP address -- in a privacy-preserving way.
 

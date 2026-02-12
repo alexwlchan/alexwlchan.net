@@ -6,6 +6,7 @@ summary: A few suggestions for "low tech devices" that aid in the process of gen
 tags:
   - productivity
 title: Some low-tech ways to get more ideas
+old_syntax_highlighting: true
 ---
 
 So on Tuesday, I saw [this tweet](https://twitter.com/DRMacIver/status/803223621439102976) from David MacIver:

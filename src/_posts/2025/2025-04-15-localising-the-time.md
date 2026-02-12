@@ -7,6 +7,7 @@ summary:
 tags:
   - javascript
   - datetime shenanigans
+old_syntax_highlighting: true
 ---
 I've been writing some internal dashboards recently, and one hard part is displaying timestamps.
 Our server does everything in UTC, but the team is split across four different timezones, so the server timestamps aren't always easy to read. 

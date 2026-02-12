@@ -5,6 +5,7 @@ date: 2025-08-29 09:09:11 +01:00
 tags:
   - naming things
   - datetime shenanigans
+old_syntax_highlighting: true
 ---
 NTP is the Network Time Protocol, used to share accurate time information with computers in a network.
 The University of Cambridge runs four of them, and if you have questions about it, you'd contact [a delightful email address](https://help.uis.cam.ac.uk/service/network-services/network-time-protocol-ntp/details-of-the-network-time-protocol-service):

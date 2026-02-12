@@ -7,6 +7,7 @@ tags:
   - obsidian
   - taking notes
 card_attribution: https://www.pexels.com/photo/close-up-of-obsidian-in-rock-4775418/
+old_syntax_highlighting: true
 ---
 
 Obsidian still feels like my "new" app for managing my notes, but according to my daily journal I've been using it for nearly three years.

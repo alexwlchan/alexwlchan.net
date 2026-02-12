@@ -24,6 +24,7 @@ colors:
    css_light: '#384f31'
    css_dark:  '#83b24b'
 
+old_syntax_highlighting: true
 ---
 This book is a puzzle.
 

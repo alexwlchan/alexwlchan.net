@@ -5,6 +5,7 @@ summary: My first bit of socket programming is a Ruby server that reads lines fr
 date: 2025-02-06 09:13:10 +00:00
 tags:
   - ruby
+old_syntax_highlighting: true
 ---
 I'm working on a new project that involves sockets, and I decided to try writing a basic socket server in Ruby.
 Here's the code I wrote:

@@ -7,6 +7,7 @@ summary: |
 tags:
   - jekyll
   - liquid
+old_syntax_highlighting: true
 ---
 As part of the site rebuild, I wanted a way to shuffle a list of selected articles at build time.
 This order will get "baked in" to the rendered output, but it still introduces *an* element of randomness and I rebuild the site once a day anyway.

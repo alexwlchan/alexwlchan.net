@@ -8,6 +8,7 @@ title: Getting plaintext LaTeX from Wolfram Alpha
 colors:
   index_light: "#f35716"
   index_dark:  "#ffc433"
+old_syntax_highlighting: true
 ---
 
 Although I don't write numerical equations very often, I couldn't help but smile at [this post by Dr. Drang][drang].

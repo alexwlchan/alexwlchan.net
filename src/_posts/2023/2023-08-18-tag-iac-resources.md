@@ -12,6 +12,7 @@ colors:
   css_light: "#016d01"
   css_dark:  "#88a284"
 card_attribution: https://www.pexels.com/photo/blank-white-tags-with-blue-ribbon-8058551/
+old_syntax_highlighting: true
 ---
 
 The aspiration of [infrastructure-as-code tools][iac] is that you use them to manage *everything*.

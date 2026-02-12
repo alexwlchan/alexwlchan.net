@@ -7,6 +7,7 @@ summary: |
 tags:
   - sqlite
   - python
+old_syntax_highlighting: true
 ---
 
 In the past I've written Python scripts that use the `csv` and `sqlite3` modules to convert CSV data into SQLite, but while reading [a Datasette tutorial][tutorial], I discovered that there's a CLI tool called `sqlite-utils` that makes this much easier.

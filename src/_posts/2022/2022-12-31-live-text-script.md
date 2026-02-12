@@ -6,6 +6,7 @@ summary: Using Apple's built-in tools to get OCR text from an image, but without
 tags:
   - images
   - swift
+old_syntax_highlighting: true
 ---
 
 One of my favourite new features on Apple's OSes in the last few years is Live Text, which is an [optical character recognition][ocr] tool that lets you select text in images.

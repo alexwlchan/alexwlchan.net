@@ -5,6 +5,7 @@ title: Finding the CPU and memory bottlenecks in an ECS cluster
 tags:
   - aws
   - aws:amazon ecs
+old_syntax_highlighting: true
 ---
 
 At work, we use Amazon's EC2 Container Service (ECS) to run some of our applications.

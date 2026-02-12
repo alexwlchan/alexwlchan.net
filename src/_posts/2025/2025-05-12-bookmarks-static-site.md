@@ -12,6 +12,7 @@ index:
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
+old_syntax_highlighting: true
 ---
 I'm storing more and more of my data [as static websites][static_sites], and about a year ago I switched to using a local, static site to manage my bookmarks.
 It's replaced [Pinboard] as the way I track interesting links and cool web pages.

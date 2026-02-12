@@ -5,6 +5,7 @@ summary: Filter for formats that don't include `-sr` ("super resolution") in the
 date: 2025-12-24 15:16:54 +00:00
 tags:
   - yt-dlp
+old_syntax_highlighting: true
 ---
 <!-- Card image based on https://www.pexels.com/photo/close-up-of-multi-colored-tulips-250716/ -->
 

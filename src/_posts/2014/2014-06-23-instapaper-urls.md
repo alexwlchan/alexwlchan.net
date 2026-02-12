@@ -7,6 +7,7 @@ tags:
 title: Catching instapaper:// URLs from ReadKit
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I use [ReadKit][rk] to manage my Instapaper queue on my Mac.

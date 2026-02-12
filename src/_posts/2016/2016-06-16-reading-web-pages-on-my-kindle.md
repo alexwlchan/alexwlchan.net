@@ -10,6 +10,7 @@ tags:
 title: Reading web pages on my Kindle
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Of everything I've tried, my favourite device for reading is still my e-ink Kindle.

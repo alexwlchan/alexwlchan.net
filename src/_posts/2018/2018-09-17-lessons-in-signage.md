@@ -7,6 +7,7 @@ tags:
   - pyconuk
   - conferences
   - graphic design
+old_syntax_highlighting: true
 ---
 
 One of the changes at this year's PyCon UK was that I printed a bunch of signs for the venue.

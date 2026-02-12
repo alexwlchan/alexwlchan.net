@@ -10,6 +10,7 @@ colors:
   index_light: "#c85b05"
   index_dark:  "#ff9306"
 card_attribution: https://pixabay.com/photos/veil-tail-fish-goldfish-swim-11453/
+old_syntax_highlighting: true
 ---
 
 For quite a few years, I've been using fish (<https://fishshell.com/>) as my shell.

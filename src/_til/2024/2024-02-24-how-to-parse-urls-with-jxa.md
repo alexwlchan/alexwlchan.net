@@ -4,6 +4,7 @@ date: 2024-02-24 06:55:47 +00:00
 title: How to parse URLs in JXA
 tags:
   - jxa
+old_syntax_highlighting: true
 ---
 Whenever I want to do AppleScript-like automation which involves string manipulation, I reach for JXA instead.
 

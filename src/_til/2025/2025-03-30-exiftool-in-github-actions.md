@@ -4,6 +4,7 @@ title: How to install exiftool in GitHub Actions
 date: 2025-03-30 23:02:55 +01:00
 tags:
   - swift
+old_syntax_highlighting: true
 ---
 I wanted to run some tests in GitHub Actions that used [exiftool](https://exiftool.org).
 

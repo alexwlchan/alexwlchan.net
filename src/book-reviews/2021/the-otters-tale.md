@@ -20,6 +20,7 @@ colors:
    css_light: '#164060'
    css_dark:  '#fcfcf3'
 
+old_syntax_highlighting: true
 ---
 
 This book tells the life of the British otter through the lens of a single female otter: Kuschta.

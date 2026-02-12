@@ -22,6 +22,7 @@ colors:
   css_light: "#805c8f"
   css_dark:  "#f8c07b"
 
+old_syntax_highlighting: true
 ---
 
 ## Plot summary

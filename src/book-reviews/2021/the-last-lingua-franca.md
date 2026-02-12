@@ -21,6 +21,7 @@ colors:
    css_light: '#787266'
    css_dark:  '#f6f1e2'
 
+old_syntax_highlighting: true
 ---
 
 This seems like a well-researched and detailed book, but after two chapters it wasn't grabbing me.

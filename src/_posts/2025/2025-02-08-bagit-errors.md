@@ -12,6 +12,7 @@ index:
 colors:
   index_light: "#8b623b"
   index_dark:  "#f0d0af"
+old_syntax_highlighting: true
 ---
 Last week, James Truitt asked a question on Mastodon:
 

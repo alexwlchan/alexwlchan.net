@@ -14,6 +14,7 @@ link_direct: true
 colors:
   index_dark:  "#e4d186"
   index_light: "#c55c75"
+old_syntax_highlighting: true
 ---
 I've written a post on [the Flickr Foundation blog](https://www.flickr.org/improving-millions-of-files-on-wikimedia-commons-with-flickypedia-backfillr-bot/) about Flickypedia Backfillr Bot, a new bot I built last year and which has been running ever since:
 

@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#ff0000"
   index_dark:  "#ff4242"
+old_syntax_highlighting: true
 ---
 I used to have two YouTube accounts, and I wanted to consolidate them into one.
 

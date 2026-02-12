@@ -7,6 +7,7 @@ summary: |
 tags:
   - jekyll
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 
 <!-- Card image: https://www.pexels.com/photo/laboratory-test-tubes-2280549/ -->

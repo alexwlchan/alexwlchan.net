@@ -8,6 +8,7 @@ tags:
 summary: Late night musings on an unscrupulous time traveller who wants to cheat at archeology.
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 As part of an upcoming blog post, I've been trawling the Internet for information about Elizabethan coins.

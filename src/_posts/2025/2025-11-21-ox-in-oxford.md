@@ -5,6 +5,7 @@ title: Can you take an ox to Oxford?
 summary: Let's work out exactly when you need to pay Oxford's new congestion charge.
 tags:
   - transport
+old_syntax_highlighting: true
 ---
 <!--
   Social media image: https://www.pexels.com/photo/simmental-cattles-pulling-a-cart-of-hays-11334719/

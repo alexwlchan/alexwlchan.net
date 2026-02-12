@@ -22,6 +22,7 @@ colors:
    css_light: '#3c7499'
    css_dark:  '#f6e52d'
 
+old_syntax_highlighting: true
 ---
 
 This book really didn't land with me.

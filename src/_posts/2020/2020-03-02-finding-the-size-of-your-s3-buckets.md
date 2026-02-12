@@ -9,6 +9,7 @@ tags:
   - aws:amazon s3
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 {% update date="2021-08-22" %}

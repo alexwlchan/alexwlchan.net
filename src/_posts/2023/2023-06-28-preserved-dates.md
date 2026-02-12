@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#662c29"
   css_dark:  "#bda9a1"
+old_syntax_highlighting: true
 ---
 
 For my sins, I've spent a lot of the last year dealing with datetime-related bugs.

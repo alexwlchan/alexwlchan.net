@@ -2,6 +2,7 @@
 layout: page
 title: Subscribe!
 nav_section: subscribe
+old_syntax_highlighting: true
 ---
 <style>
   h1 + h2 {

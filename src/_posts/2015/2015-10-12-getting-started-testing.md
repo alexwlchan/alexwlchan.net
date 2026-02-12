@@ -8,6 +8,7 @@ title: Getting Started Testing, by Ned Batchelder
 
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 This PyCon talk is a great introduction to unit tests and mocking.

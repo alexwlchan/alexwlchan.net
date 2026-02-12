@@ -8,6 +8,7 @@ tags:
   - accessibility
   - inclusion
 title: Accessibility at AlterConf
+old_syntax_highlighting: true
 ---
 
 On Saturday, I was at [AlterConf London][ldn], a conference about diversity in the tech and gaming industries. If you follow me on Twitter, you'll have seen that I was tweeting pretty effusively about it throughout the day. It was one of the friendliest, nicest conferences I've ever been to, with a cracking set of speakers to boot.

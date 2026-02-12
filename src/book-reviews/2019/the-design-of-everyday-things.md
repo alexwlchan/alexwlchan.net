@@ -20,6 +20,7 @@ colors:
    css_light: '#456b5c'
    css_dark:  '#eabc2d'
 
+old_syntax_highlighting: true
 ---
 
 Some interesting ideas about design, but fairly wordy, and nothing new to me.

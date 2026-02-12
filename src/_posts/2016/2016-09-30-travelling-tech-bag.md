@@ -2,6 +2,7 @@
 layout: post
 date: 2016-09-30 08:04:00 +00:00
 title: My travelling tech bag
+old_syntax_highlighting: true
 ---
 
 I have a small bag I carry whenever I'm travelling and taking my laptop or phone with me.

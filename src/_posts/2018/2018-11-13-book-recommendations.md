@@ -5,6 +5,7 @@ title: Keeping track of my book recommendations
 summary: The three lists I use to manage my book recommendations.
 tags:
   - books
+old_syntax_highlighting: true
 ---
 
 I have a text file where I write down every book recommendation I receive.

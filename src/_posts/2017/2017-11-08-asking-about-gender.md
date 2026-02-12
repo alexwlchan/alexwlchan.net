@@ -7,6 +7,7 @@ tags:
   - gender
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Another week, another disappointing survey that asks _"What is your gender? Female/Male."_

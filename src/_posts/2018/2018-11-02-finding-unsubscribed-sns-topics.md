@@ -8,6 +8,7 @@ tags:
   - aws
   - aws:amazon-sns
 title: Finding SNS topics without any subscriptions
+old_syntax_highlighting: true
 ---
 
 I make regular use of [Amazon SNS][sns] when working with message queues in AWS.

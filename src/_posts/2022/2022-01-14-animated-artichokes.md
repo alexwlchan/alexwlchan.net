@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#5c5a30"
   index_dark:  "#cdca78"
+old_syntax_highlighting: true
 ---
 
 A couple of years ago, I wrote a blog post about [looking through MRI scans of fruit and veg][stacks].

@@ -23,6 +23,7 @@ colors:
    css_light: '#914648'
    css_dark:  '#ec0d9c'
 
+old_syntax_highlighting: true
 ---
 A young adult novel about Kam, a gay Iranian boy whose first love Ash disappeared in the Joshua Tree desert two years ago.
 The book cuts back and forth between his relationship with Ash and his present-day life, when he's still mourning and grieving.

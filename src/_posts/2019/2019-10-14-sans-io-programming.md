@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#008921"
   css_dark:  "#54c552"
+old_syntax_highlighting: true
 ---
 
 Last month I gave a talk about PyCon UK about "sans I/O programming".

@@ -8,6 +8,7 @@ tags:
   - netlify
   - ruby
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 I've changed the URL design on this website a couple of times.
 The current structure seems to be working fairly well, but I made some dubious decisions when I started out that really didn't scale.

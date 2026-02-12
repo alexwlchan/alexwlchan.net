@@ -6,6 +6,7 @@ summary: Lots of programming languages have a function called main() where code 
 tags:
   - programming
   - history
+old_syntax_highlighting: true
 ---
 
 <style>

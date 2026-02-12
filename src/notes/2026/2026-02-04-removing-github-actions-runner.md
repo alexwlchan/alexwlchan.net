@@ -3,6 +3,7 @@ layout: note
 title: Removing a self-hosted runner from GitHub Actions
 date: 2026-02-04 10:00:27 +00:00
 topic: Builds and CI
+old_syntax_highlighting: true
 ---
 My old book tracker was `books.alexwlchan.net`, which was built and published by a self-hosted GitHub Actions runner on my web server.
 I wanted to remove the old runner when I deleted that site, so I went to **Settings** > **Actions** > **Runners** in the repository settings, which gave me a one-line command to run on my web server:

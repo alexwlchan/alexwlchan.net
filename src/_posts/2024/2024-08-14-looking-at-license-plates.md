@@ -13,6 +13,7 @@ colors:
 index:
   feature: true
 card_attribution: https://www.pexels.com/photo/wall-of-car-plate-12953608/
+old_syntax_highlighting: true
 ---
 
 I was recently visiting Vermont for a work trip -- my first time in the USA since I was a child.

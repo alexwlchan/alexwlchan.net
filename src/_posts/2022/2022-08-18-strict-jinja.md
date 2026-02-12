@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#470906"
   index_dark:  "#FF4242"
+old_syntax_highlighting: true
 ---
 
 I was doing some work with the templating library [Jinja] recently, and I was confused by some misbehaving code.

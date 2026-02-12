@@ -20,6 +20,7 @@ colors:
    css_light: '#172e36'
    css_dark:  '#f1a166'
 
+old_syntax_highlighting: true
 ---
 
 This is the prequel to [*The Hate U Give*](/book-reviews/the-hate-u-give/); it takes us back to Garden Heights seventeen years earlier to meet a young Maverick.

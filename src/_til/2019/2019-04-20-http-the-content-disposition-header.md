@@ -4,6 +4,7 @@ title: "The Content-Disposition header can be used to name a downloaded file"
 date: 2019-04-20 21:24:30 +01:00
 tags:
   - http
+old_syntax_highlighting: true
 ---
 
 The `Content-Disposition` header can be used to tell a browser the filename of an HTTP response.

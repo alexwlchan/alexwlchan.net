@@ -8,6 +8,7 @@ tags:
 title: A script for backing up your Instapaper bookmarks
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 About three days ago, there was [an extended outage][outage] at Instapaper.

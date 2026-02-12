@@ -21,6 +21,7 @@ colors:
    css_light: '#2d588c'
    css_dark:  '#eed348'
 
+old_syntax_highlighting: true
 ---
 
 As recommended repeatedly by David MacIver.

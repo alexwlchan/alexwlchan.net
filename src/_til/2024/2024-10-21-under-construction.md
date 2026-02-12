@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#806c00"
   css_dark:  "#ffd700"
+old_syntax_highlighting: true
 ---
 I was building a prototype app today, and I wanted a way to add "notes" to the design -- a way to tell people I knew something was broken or unfinished, and give some idea of what it would look like in the final version.
 

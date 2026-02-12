@@ -21,6 +21,7 @@ colors:
    css_light: '#6f6f6f'
    css_dark:  '#ffffff'
 
+old_syntax_highlighting: true
 ---
 
 Bought as part of prep for my Monki Gras 2019 talk.

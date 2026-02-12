@@ -24,6 +24,7 @@ colors:
    css_light: '#933a20'
    css_dark:  '#fbd425'
 
+old_syntax_highlighting: true
 ---
 Historical fiction which is loosely based on the Hongwu Emperor, with some light fantasy thrown in.
 In this retelling, the emperor is actually a young girl from a peasant family, who poses as her brother after the rest of her family are killed following a bandit attack.

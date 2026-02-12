@@ -7,6 +7,7 @@ tags:
   - domestic
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Yesterday was the roughly sexennial ritual of replacing all my carbon monoxide detectors.

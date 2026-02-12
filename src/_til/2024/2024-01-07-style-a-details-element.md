@@ -4,6 +4,7 @@ title: "How to style a `<details>` element differently depending on whether itâ€
 date: 2024-01-07 22:46:43 +00:00
 tags:
   - css
+old_syntax_highlighting: true
 ---
 If you want to style a `<details>` element which is open, use the `details[open]` selector ([MDN link](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#customizing_the_appearance)):
 

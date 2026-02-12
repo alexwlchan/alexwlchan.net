@@ -6,6 +6,7 @@ summary: I made some simple map visualisations by downloading tiles from OpenStr
 tags:
   - maps
   - python
+old_syntax_highlighting: true
 ---
 I've been working on a project where I need to plot points on a map.
 I don’t need an interactive or dynamic visualisation -- just a static map with coloured dots for each coordinate.

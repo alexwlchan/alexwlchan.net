@@ -21,6 +21,7 @@ colors:
    css_light: '#945b9a'
    css_dark:  '#ee2a71'
 
+old_syntax_highlighting: true
 ---
 
 I found this book [in a tweet by Anwen](https://twitter.com/Kyatic/status/1297550029809385472), and Ed gave me a copy for Christmas 2020.

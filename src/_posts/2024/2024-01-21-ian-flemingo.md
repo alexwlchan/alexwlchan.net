@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#464646"
   css_dark:  "#adadad"
+old_syntax_highlighting: true
 ---
 On Monday evening, about two hundred Mincefluencers descended on the Fortune Theatre for "Operation Human Thermos", a fan gathering to celebrate *Operation Mincemeat*, [a musical] that gives us all the warm and fuzzies.
 A lot of people dressed in cosplay to mark the occasion, and I joined in the fun.

@@ -8,6 +8,7 @@ tags:
   - slack
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I've just pushed a small tool to PyPI for backing up message history from Slack.

@@ -6,6 +6,7 @@ tags:
 title: A TextExpander snippet for Amazon affiliate links
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Earlier this evening, Casey Liss [tweeted a link][tweet] to a post by

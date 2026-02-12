@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#7b674a"
   index_dark:  "#e1b234"
+old_syntax_highlighting: true
 ---
 
 <!-- Card image: https://wellcomecollection.org/works/j27anec2/images?id=pm5929er -->

@@ -20,6 +20,7 @@ colors:
    css_light: '#d91949'
    css_dark:  '#fcad3b'
 
+old_syntax_highlighting: true
 ---
 
 This is a story about Meg, a woman who gets comeuppance against people who've transgressed social norms -- cheaters, clingy friends, annoying co-workers.

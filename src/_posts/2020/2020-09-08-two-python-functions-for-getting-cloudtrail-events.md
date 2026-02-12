@@ -6,6 +6,7 @@ tags:
   - aws
   - aws:aws-cloudtrail
   - python
+old_syntax_highlighting: true
 ---
 
 Last week I was trying to debug an anomaly in the AWS account at work -- it looked like we were making tens of millions of GetObject API calls, when we expected our code to make a fraction of that number.

@@ -6,6 +6,7 @@ summary: |
 date: 2018-10-24 09:20:00 +00:00
 tags:
   - git
+old_syntax_highlighting: true
 ---
 
 When doing a `git push`, if there are different commits in the remote, your push is rejected.

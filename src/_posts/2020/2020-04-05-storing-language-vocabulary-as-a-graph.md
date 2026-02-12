@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#946800"
   index_dark:  "#ffb300"
+old_syntax_highlighting: true
 ---
 
 If you've ever tried to learn a foreign language, you've probably encountered a *vocabulary list*.

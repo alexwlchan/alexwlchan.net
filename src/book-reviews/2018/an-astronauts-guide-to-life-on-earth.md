@@ -22,6 +22,7 @@ colors:
    css_light: '#306089'
    css_dark:  '#c7ab41'
 
+old_syntax_highlighting: true
 ---
 
 Read the day after wrapping up PyCon UK.

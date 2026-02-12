@@ -6,6 +6,7 @@ tags:
   - macos
 summary:
   You need to look for files named `*.icns` inside any subdirectory of `CoreTypes.bundle`.
+old_syntax_highlighting: true
 ---
 Apple ships a bunch of high-quality icons of Mac hardware as part of macOS.
 For a long time you could find all these icons in:

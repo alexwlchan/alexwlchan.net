@@ -21,6 +21,7 @@ colors:
    css_light: '#0967b2'
    css_dark:  '#fee50d'
 
+old_syntax_highlighting: true
 ---
 
 I borrowed this audiobook from the library because it looked intriguing.

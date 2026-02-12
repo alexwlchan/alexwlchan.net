@@ -24,6 +24,7 @@ colors:
    css_light: '#5773ac'
    css_dark:  '#d74249'
 
+old_syntax_highlighting: true
 ---
 Luckily not something I have direct need of right now, but I made an impromptu visit to a launch event in New York and met some lovely people.
 The advice is good and the illustrations are rich; I didn't get any new advice from it but reading it reminded me of my evening out in Brooklyn.

@@ -25,6 +25,7 @@ colors:
    css_light: '#384cd3'
    css_dark:  '#f05120'
 
+old_syntax_highlighting: true
 ---
 
 This is the sequel to [*Before the Coffee Gets Cold*](/book-reviews/before-the-coffee-gets-cold/) and [*Tales from the Café*](/book-reviews/before-the-coffee-gets-cold-tales-from-the-cafe/).

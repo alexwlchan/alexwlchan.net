@@ -5,6 +5,7 @@ title: Finding the original page for a post on Mastodon
 summary: Following the logged-out 302 Redirect takes you to the original post.
 tags:
   - mastodon
+old_syntax_highlighting: true
 ---
 Let's suppose I'm browsing my Mastodon timeline.
 Every post has a permalink to the copy of the post on my server.

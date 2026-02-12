@@ -10,6 +10,7 @@ colors:
   index_dark:  "#fbfafa"
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Last night, I updated the archive pages for my blog.

@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: SVG
+old_syntax_highlighting: true
 ---
 SVG is a vector image format that I use a lot for diagrams and computer-based art.
 

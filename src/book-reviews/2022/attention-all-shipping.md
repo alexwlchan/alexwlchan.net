@@ -22,6 +22,7 @@ colors:
    css_light: '#09296e'
    css_dark:  '#e3f4fb'
 
+old_syntax_highlighting: true
 ---
 
 This has an interesting premise – somebody trying to visit the location of everywhere mentioned in the shipping forecast – but despite two attempts, it hasn't quite held my attention.

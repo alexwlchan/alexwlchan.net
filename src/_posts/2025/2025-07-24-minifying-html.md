@@ -7,6 +7,7 @@ tags:
   - html
   - blogging about blogging
   - jekyll
+old_syntax_highlighting: true
 ---
 I minify all the HTML on this website -- removing unnecessary whitespace, tidying up attributes, optimising HTML entities, and so on.
 This makes each page smaller, and theoretically the website should be slightly faster.

@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#B0084D"
   index_dark:  "#f97bb0"
+old_syntax_highlighting: true
 ---
 
 At work, we use a lot of [CloudWatch Alarms][alarms].

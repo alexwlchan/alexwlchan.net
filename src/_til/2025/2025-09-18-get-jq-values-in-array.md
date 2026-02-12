@@ -5,6 +5,7 @@ summary: The equivalent to Python's `dict.values()` is `jq '[.[]]'`.
 date: 2025-09-18 13:51:08 +01:00
 tags:
   - jq
+old_syntax_highlighting: true
 ---
 Here's an example:
 

@@ -4,6 +4,7 @@ title: How to move files when you need sudo on the remote server
 date: 2024-01-17 10:54:23 +00:00
 tags:
   - rsync
+old_syntax_highlighting: true
 ---
 I wanted to upload some files to an EC2 instance.
 

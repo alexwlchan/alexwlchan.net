@@ -6,6 +6,7 @@ summary: I wrote a Python test to find videos that are encoded with AV1, so I ca
 tags:
   - video
   - python
+old_syntax_highlighting: true
 ---
 In [my previous post][av1-on-iphone], I wrote about how I've saved some AV1-encoded videos that I can't play on my iPhone.
 Eventually, I'll upgrade to a new iPhone which supports AV1, but in the meantime, I want to convert all of those videos to an older codec.

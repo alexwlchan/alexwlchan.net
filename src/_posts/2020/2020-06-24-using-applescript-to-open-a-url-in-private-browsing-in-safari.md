@@ -7,6 +7,7 @@ tags:
   - macos
   - macos:safari
 
+old_syntax_highlighting: true
 ---
 
 I have a bunch of automations that open URLs.

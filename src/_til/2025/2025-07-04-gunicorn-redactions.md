@@ -6,6 +6,7 @@ summary: Create a subclass of `gunicorn.glogging.Logger`, and redact information
 tags:
   - python
   - python:gunicorn
+old_syntax_highlighting: true
 ---
 I'm working on a Python web app that's running with gunicorn, and I'm writing access logs to a file.
 By default, these logs include the full URL requested by the user, with any query parameters.

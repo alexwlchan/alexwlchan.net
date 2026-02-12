@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#073551"
   index_dark:  "#0ad1d1"
+old_syntax_highlighting: true
 ---
 
 I've been rejigging some stuff on the site recently -- moving the hosting, turning off my old web server, updating DNS records -- and I wanted a quick way to check I hadn't broken anything.

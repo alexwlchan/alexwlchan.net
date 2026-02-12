@@ -8,6 +8,7 @@ tags:
 link: https://munchies.vice.com/en_uk/article/j5bbyg/the-118-year-old-deli-where-no-sandwich-is-too-weird
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Late last year, I wanted to find a jar of loganberry jelly as a Christmas present for my granddad.

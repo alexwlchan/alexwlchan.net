@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
+old_syntax_highlighting: true
 ---
 Over the last three weeks, I've been writing about how I manage my bookmarks.
 how I [use a static site to store them](/2025/bookmarks-static-site/), how I [built a personal web archive by hand](/2025/personal-archive-of-the-web/), and [what I learnt about web development along the way](/2025/learning-how-to-make-websites/).

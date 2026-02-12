@@ -7,6 +7,7 @@ tags:
 colors:
   index_light: "#022833"
   index_dark:  "#a7b3b4"
+old_syntax_highlighting: true
 ---
 
 At this month's [WriteTheDocs London](https://www.meetup.com/Write-The-Docs-London/), there was a discussion of "docs-as-code".

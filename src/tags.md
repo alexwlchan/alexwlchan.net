@@ -2,6 +2,7 @@
 layout: page
 title: Tags
 nav_section: tags
+old_syntax_highlighting: true
 ---
 {% set visible_tags = site.data['tag_tally'].items()|sort %}
 

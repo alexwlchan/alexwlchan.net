@@ -5,6 +5,7 @@ date: 2025-04-26 08:29:22 +01:00
 tags:
   - python
   - unicode
+old_syntax_highlighting: true
 ---
 I was writing some code that was pulling in text from a third-party API, and the API was returning [Mojibake] -- text with an obviously mangled encoding.
 I wanted to fix the mangled encoding before I showed the text in my app.

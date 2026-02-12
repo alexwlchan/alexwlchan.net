@@ -22,6 +22,7 @@ colors:
    css_light: '#c4196d'
    css_dark:  '#cbced0'
 
+old_syntax_highlighting: true
 ---
 
 This was a fun and quick read: Alice and Lottie are students at a newly-reopened school famous for a string of mysterious deaths.

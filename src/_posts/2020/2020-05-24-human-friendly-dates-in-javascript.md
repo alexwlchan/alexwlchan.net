@@ -7,6 +7,7 @@ tags:
   - javascript
   - datetime shenanigans
   - web development
+old_syntax_highlighting: true
 ---
 
 At work, we have an API for tracking the state of ingests in [our digital archive].

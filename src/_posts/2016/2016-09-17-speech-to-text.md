@@ -12,6 +12,7 @@ title: Live captioning at conferences
 colors:
   index_light: "#141213"
   index_dark:  "#bdc2b1"
+old_syntax_highlighting: true
 ---
 
 This weekend, I've been attending [PyCon UK](http://2016.pyconuk.org) in Cardiff.

@@ -21,6 +21,7 @@ colors:
    css_light: '#d24066'
    css_dark:  '#e95463'
 
+old_syntax_highlighting: true
 ---
 
 My head hurts.

@@ -22,6 +22,7 @@ colors:
    css_light: '#4c5393'
    css_dark:  '#d3bc9d'
 
+old_syntax_highlighting: true
 ---
 
 An elongated museum guide that I bought over a decade ago when I visited Greece.

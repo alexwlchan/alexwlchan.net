@@ -6,6 +6,7 @@ summary: Why I use Sessions in boto3, and the Python function I use to create th
 tags:
   - python
   - aws
+old_syntax_highlighting: true
 ---
 When I worked at Wellcome, I was doing a lot of work with AWS, and I was a frequent user of boto3, the Python SDK for AWS.
 There were a lot of IAM roles, spread across multiple accounts, and I was writing Python scripts that would work with specific roles.

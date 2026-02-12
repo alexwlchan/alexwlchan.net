@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#1d9bf0"
   index_dark:  "#77c8fe"
+old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

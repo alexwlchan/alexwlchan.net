@@ -12,6 +12,7 @@ colors:
   index_dark:  "#629de4"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 While clearing out some boxes recently, I found a leaflet from an old holiday.

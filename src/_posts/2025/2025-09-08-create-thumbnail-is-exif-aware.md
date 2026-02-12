@@ -7,6 +7,7 @@ tags:
   - rust
   - my tools
   - images
+old_syntax_highlighting: true
 ---
 Resizing an image is one of those programming tasks that seems simple, but has some rough edges.
 One common mistake is forgetting to handle the EXIF orientation, which can make resized images look very different from the original.

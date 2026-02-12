@@ -22,6 +22,7 @@ colors:
    css_light: '#975b29'
    css_dark:  '#e0a241'
 
+old_syntax_highlighting: true
 ---
 
 I picked up this audiobook after hearing it discussed on [The&nbsp;Incomparable #600](https://www.theincomparable.com/theincomparable/600/).

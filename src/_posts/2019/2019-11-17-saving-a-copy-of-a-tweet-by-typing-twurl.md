@@ -5,6 +5,7 @@ title: Saving a copy of a tweet by typing ;twurl
 tags:
   - twitter
   - python
+old_syntax_highlighting: true
 ---
 
 For years, I've been using a [Keyboard Maestro][km] snippet for getting the front URL from my running web browser.

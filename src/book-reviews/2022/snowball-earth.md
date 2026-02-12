@@ -23,6 +23,7 @@ colors:
    css_light: '#4b7382'
    css_dark:  '#d5e8f4'
 
+old_syntax_highlighting: true
 ---
 
 Interesting book about [a theory](https://en.wikipedia.org/wiki/Snowball_Earth) that at one point the Earth was entirely covered in ice, and the aftermath led to the rapid growth of complex life as we know it today.

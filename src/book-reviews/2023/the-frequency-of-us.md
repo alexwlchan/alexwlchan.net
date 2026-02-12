@@ -22,6 +22,7 @@ colors:
    css_light: '#bb3b32'
    css_dark:  '#0fcebc'
 
+old_syntax_highlighting: true
 ---
 
 A gorgeous romance/mystery about Will, a man whose partner Elsa vanished in the midst of a World War II bombing, and who nobody else remembers.

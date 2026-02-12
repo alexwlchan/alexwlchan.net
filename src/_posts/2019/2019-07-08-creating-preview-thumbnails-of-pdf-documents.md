@@ -4,6 +4,7 @@ layout: post
 title: Creating preview thumbnails of PDF documents
 tags:
   - pdf
+old_syntax_highlighting: true
 ---
 
 Whenever I get an important document, I scan it or save it as a PDF.

@@ -24,6 +24,7 @@ colors:
    css_light: '#3f2c87'
    css_dark:  '#f266c4'
 
+old_syntax_highlighting: true
 ---
 A charming fake dating romcom set in a fancy house in the Cotswolds after a meet-cute in a bookshop at a London station; it's like this was written for me.
 A fun and easy romance, and aside from a bit of second-hand embarrassment when Haf is first meeting Christopher and Kit's family, I really enjoyed this.

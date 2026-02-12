@@ -22,6 +22,7 @@ colors:
    css_light: '#914335'
    css_dark:  '#f0e5c7'
 
+old_syntax_highlighting: true
 ---
 
 A collection of stories about working on the railways; a lot of it about day-to-day life and work, rather than headline events.

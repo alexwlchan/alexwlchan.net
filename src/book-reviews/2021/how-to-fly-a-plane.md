@@ -20,6 +20,7 @@ colors:
    css_light: '#547290'
    css_dark:  '#7a99c4'
 
+old_syntax_highlighting: true
 ---
 
 I don't remember where I got this book from -- it's been on my shelf for years.

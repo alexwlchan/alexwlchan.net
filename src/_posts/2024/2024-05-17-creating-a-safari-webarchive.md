@@ -11,6 +11,7 @@ colors:
   index_dark:  "#e9eaec"
   index_light: "#2076cc"
 card_attribution: https://pixabay.com/photos/compass-orientation-map-address-5261062/
+old_syntax_highlighting: true
 ---
 
 Recently I've been trying to create a local archive of my bookmarked web pages.

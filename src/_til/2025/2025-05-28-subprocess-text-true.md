@@ -4,6 +4,7 @@ title: Use `text=true` with `subprocess` functions to get stdout/stderr as str, 
 date: 2025-05-28 20:12:29 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I often use the [`subprocess` module][subprocess] to capture the output of external processes in Python, for example:
 

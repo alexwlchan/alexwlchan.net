@@ -21,6 +21,7 @@ colors:
    css_light: '#69686f'
    css_dark:  '#e1e1e3'
 
+old_syntax_highlighting: true
 ---
 
 I really wanted to like this book, but I found it hard-going.

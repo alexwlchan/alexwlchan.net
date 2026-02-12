@@ -10,6 +10,7 @@ colors:
   index_light: "#B0084D"
   index_dark:  "#FF4F8B"
 card_attribution: https://www.pexels.com/photo/rainforest-surrounded-by-fog-975771/
+old_syntax_highlighting: true
 ---
 
 At work, we use Amazon SNS as the trigger for a lot of our data pipelines.

@@ -5,6 +5,7 @@ title: Quick-and-dirty print debugging in Go
 summary: I wrote a Go module to help with my print debugging, which logs expressions and values to a separate file.
 tags:
   - golang
+old_syntax_highlighting: true
 ---
 I've been writing a lot of Go in my new job, and trying to understand a new codebase.
 

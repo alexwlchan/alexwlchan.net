@@ -24,6 +24,7 @@ colors:
    css_light: '#06628e'
    css_dark:  '#03b8de'
 
+old_syntax_highlighting: true
 ---
 
 A nice rom-com about a woman in a strained engagement (Edi and Rowan), who emerges from her shell when her fiancé suggests a break.

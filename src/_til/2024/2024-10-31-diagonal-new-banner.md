@@ -4,6 +4,7 @@ title: Drawing a diagonal banner over the corner of an image
 date: 2024-10-31 15:26:21 +00:00
 tags:
   - css
+old_syntax_highlighting: true
 ---
 I wanted to draw a diagonal banner over the corner of an image, to show the word "new".
 I've seen this in other places (like Apple's online store) but I hadn't made my own version of this effect.

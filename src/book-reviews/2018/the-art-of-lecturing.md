@@ -20,6 +20,7 @@ colors:
    css_light: '#011015'
    css_dark:  '#c6d5d5'
 
+old_syntax_highlighting: true
 ---
 
 This book covers some general advice for lecturing, both in academic and non-academic contexts.

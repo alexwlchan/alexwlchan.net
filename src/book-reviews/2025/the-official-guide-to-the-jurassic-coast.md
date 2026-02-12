@@ -23,6 +23,7 @@ colors:
    css_light: '#1d6b97'
    css_dark:  '#87a1bd'
 
+old_syntax_highlighting: true
 ---
 Some geology and history about Dorset and East Devon, two places I have a vague family connection to.
 I was pleasantly surprised by the detail; I thought it would be more of a light-touch tourist guide, but it does describe the area in depth.

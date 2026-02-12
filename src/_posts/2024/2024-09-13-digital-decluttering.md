@@ -12,6 +12,7 @@ colors:
 index:
   feature: true
 card_attribution: https://www.pexels.com/photo/gray-and-yellow-gravel-stones-997704/
+old_syntax_highlighting: true
 ---
 
 I spent a lot of my formative Internet years in online fandom.

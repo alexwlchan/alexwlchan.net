@@ -21,6 +21,7 @@ colors:
    css_light: '#094685'
    css_dark:  '#d567a0'
 
+old_syntax_highlighting: true
 ---
 
 A fun collection of trivia, sort of like a Wikipedia rabbit hole in book form.

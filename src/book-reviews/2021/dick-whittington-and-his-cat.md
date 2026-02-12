@@ -22,6 +22,7 @@ colors:
    css_light: '#a2665e'
    css_dark:  '#9ad5f5'
 
+old_syntax_highlighting: true
 ---
 
 I found a copy of this in an Oxfam store; I picked it up because we'd just done Dick Whittington for the office panto.

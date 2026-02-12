@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#bf4646"
   index_dark:  "#ebb3af"
+old_syntax_highlighting: true
 ---
 
 <!-- Card: https://wellcomecollection.org/works/y2x7xgwb/images?id=we6tgrdp -->

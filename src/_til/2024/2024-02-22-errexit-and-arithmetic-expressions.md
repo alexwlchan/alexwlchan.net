@@ -5,6 +5,7 @@ title: Using `errexit` and arithmetic expressions in bash
 tags:
   - bash
   - shell scripting
+old_syntax_highlighting: true
 ---
 I was having some issues with a Bash script that used `set -o errexit` and arithmetic expressions to increment a value:
 

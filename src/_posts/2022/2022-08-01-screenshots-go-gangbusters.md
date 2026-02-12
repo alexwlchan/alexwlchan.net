@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#ff6602"
   index_dark:  "#fe6600"
+old_syntax_highlighting: true
 ---
 
 My previous post [about taking more screenshots][screenshots] has resonated with a lot of people.

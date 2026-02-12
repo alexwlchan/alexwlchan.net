@@ -7,6 +7,7 @@ summary: |
 date: 2019-05-11 23:26:38 +01:00
 tags:
   - dreamwidth
+old_syntax_highlighting: true
 ---
 
 Dreamwidth IDs (posts, comments) don't increment one-by-one, but via algebraic manipulations. Comments don't go 1, 2, 3, they go 256, 540, 721, whatever.

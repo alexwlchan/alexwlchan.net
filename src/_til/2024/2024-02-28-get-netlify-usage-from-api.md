@@ -5,6 +5,7 @@ date_updated: 2024-06-12 10:58:07 +01:00
 title: Get my Netlify bandwidth usage from the API
 tags:
   - netlify
+old_syntax_highlighting: true
 ---
 I wanted to add a little graph showing my Netlify usage to my analytics dashboard.
 You can see this in the Netlify dashboard, but I log in to that rarely so it's not helpful:

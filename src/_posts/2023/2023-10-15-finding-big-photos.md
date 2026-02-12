@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#816958"
   index_dark:  "#b2978a"
+old_syntax_highlighting: true
 ---
 
 {#

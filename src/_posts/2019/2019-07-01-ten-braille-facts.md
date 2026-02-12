@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#514d45"
   index_dark:  "#b3b5b0"
+old_syntax_highlighting: true
 ---
 
 One of the fun things about working at Wellcome is that there are lots of unusual things in the collection.

@@ -25,6 +25,7 @@ colors:
    css_light: '#86654b'
    css_dark:  '#edc870'
 
+old_syntax_highlighting: true
 ---
 
 This is a charming little book about a café in which you can travel in time.

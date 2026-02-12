@@ -21,6 +21,7 @@ colors:
    css_light: '#2772b7'
    css_dark:  '#e8da5d'
 
+old_syntax_highlighting: true
 ---
 
 Clear overview of some engineering fundamentals, excellent illustrations, lots of LEGO history and knowledge

@@ -7,6 +7,7 @@ tags:
   - python
   - unicode
 title: Notes on reading a UTF-8 encoded CSV in Python
+old_syntax_highlighting: true
 ---
 
 Here's a problem I solved today: I have a CSV file to parse which contained UTF-8 strings, and I want to parse it using Python.

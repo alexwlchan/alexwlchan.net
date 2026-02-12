@@ -23,6 +23,7 @@ colors:
    css_light: '#827469'
    css_dark:  '#f1e5c6'
 
+old_syntax_highlighting: true
 ---
 
 This was [recommended by Samathy](https://twitter.com/Samathy_Barratt/status/1184033320851640320), who gave me a copy at the end of 2019.

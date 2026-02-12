@@ -22,6 +22,7 @@ colors:
    css_light: '#3a4479'
    css_dark:  '#edd135'
 
+old_syntax_highlighting: true
 ---
 This is a comic book story told in prose form, about a genius who creates superweapons, genetically enhanced dinosaurs, and other such fanciful inventions and strafes at the oversight of superheroes and world governments.
 They sometimes work alongside the heroes, and are sometimes branded as a villain by the world.

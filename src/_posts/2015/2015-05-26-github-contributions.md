@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#4a35a5"
   index_dark:  "#79d9e9"
+old_syntax_highlighting: true
 ---
 
 I'm a total sucker for gamification[^1]. If you put a pretty chart in front of me to measure my progress, I fall for it every time. One place I've noticed this recently is with the Contributions graph on my user page on GitHub. This is a year-long calendar that shows a heatmap of all your activity. Here's what mine looks like:

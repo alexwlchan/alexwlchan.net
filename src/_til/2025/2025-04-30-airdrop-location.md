@@ -5,6 +5,7 @@ summary: Look in `/private/tmp`.
 date: 2025-04-30 07:17:20 +01:00
 tags:
   - macos
+old_syntax_highlighting: true
 ---
 I have mixed reliability with AirDrop -- the sending machine is usually able to send all the bits, but the receiving machine doesn't always put the file somewhere I can find it, say my Downloads folder.
 

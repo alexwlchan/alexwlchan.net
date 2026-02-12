@@ -8,6 +8,7 @@ tags:
   - rust
   - rust:palette
   - colour
+old_syntax_highlighting: true
 ---
 I'm using the [Palette crate](https://docs.rs/palette/latest/palette/index.html) to do some colour work, and I want a way to take a CSS hex colour and turn it into a nicely-typed Palette colour.
 I could tell that Palette is able to do this, but it took me a while to figure out how.

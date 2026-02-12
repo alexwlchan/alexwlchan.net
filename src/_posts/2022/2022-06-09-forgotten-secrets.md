@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#c5121f"
   index_dark:  "#ef5258"
+old_syntax_highlighting: true
 ---
 
 Recently I wanted to clean up our secrets in AWS Secrets Manager.

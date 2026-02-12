@@ -7,6 +7,7 @@ tags:
   - builds and ci
   - infosec
 summary: A cautionary tale of a daft incident where I leaked a set of SSH keys to GitHub.
+old_syntax_highlighting: true
 ---
 
 A coworker was reviewing one of my pull requests yesterday, when she pointed at the screen and asked, *"Is that meant to be there?"*

@@ -9,6 +9,7 @@ tags:
   - python
   - markdown
 title: A few examples of extensions in Python-Markdown
+old_syntax_highlighting: true
 ---
 
 I write a lot of content in Markdown (including all the posts on this site), and I use [Python-Markdown][pypi] to render it as HTML.

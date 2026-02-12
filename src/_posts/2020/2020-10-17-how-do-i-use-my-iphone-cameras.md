@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#353335"
   index_dark:  "#a2a09e"
+old_syntax_highlighting: true
 ---
 
 On [this week's episode of ATP](https://atp.fm/400), they were talking about how much they use the different cameras on their iPhones.

@@ -22,6 +22,7 @@ colors:
    css_light: '#51708e'
    css_dark:  '#fdfcf1'
 
+old_syntax_highlighting: true
 ---
 
 Pleasant little romance about a single mum with two kids, who meets a guy while riding the Central Line.

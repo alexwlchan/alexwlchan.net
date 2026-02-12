@@ -8,6 +8,7 @@ tags:
   - aws:aws iam
 link: https://github.com/alexwlchan/iam-policy-document-tester
 summary: Create short-lived, temporary roles for experimenting with AWS IAM policy documents
+old_syntax_highlighting: true
 ---
 
 As part of some recent work, I was experimenting with IAM roles in AWS, and I came up with a way to create short-lived, temporary IAM roles that use a particular IAM policy document.

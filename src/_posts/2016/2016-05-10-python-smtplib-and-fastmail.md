@@ -6,6 +6,7 @@ summary: A quick python-smtplib wrapper for sending emails through Fastmail.
 tags:
   - python
   - fastmail
+old_syntax_highlighting: true
 ---
 
 Sometimes I want to send email from a Python script on my Mac.

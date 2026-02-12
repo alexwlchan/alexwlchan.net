@@ -7,6 +7,7 @@ tags:
 summary: Why guns make me jumpy, how armed police don't reassure me, and why you need to be careful about the images you use in tweets.
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 **Content warning:** discussion of guns, police violence, and images of armed police.

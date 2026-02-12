@@ -22,6 +22,7 @@ colors:
    css_light: '#187a99'
    css_dark:  '#0794c2'
 
+old_syntax_highlighting: true
 ---
 I bailed on this book after five chapters, because I'm just not interested or invested in the main characters.
 Ally has just been broken up with by her girlfriend Emily, in what seems like a classic r/aita scenario of "Everybody Sucks Here".

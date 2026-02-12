@@ -9,6 +9,7 @@ colors:
   index_light: "#16282d"
   index_dark:  "#c98a6c"
 card_attribution: https://www.pexels.com/photo/pair-of-black-lace-up-boots-on-area-rug-1467574/
+old_syntax_highlighting: true
 ---
 
 Although I've never read any Terry Pratchett, one idea from his writing that's penetrated my consciousness is the Vimes "Boots" theory of socioeconomic unfairness.

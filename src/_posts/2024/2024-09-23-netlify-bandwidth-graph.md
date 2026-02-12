@@ -11,6 +11,7 @@ colors:
   index_light: "#464d3e"
   index_dark:  "#d9d9b9"
 card_attribution: https://www.pexels.com/photo/a-close-up-of-a-water-gauge-4744721/
+old_syntax_highlighting: true
 ---
 
 I currently host this site on Netlify's Starter plan, which means I can serve 100GB of bandwidth per month.

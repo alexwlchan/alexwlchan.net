@@ -7,6 +7,7 @@ tags:
   - python
   - apache
 title: Finding 404s and broken pages in my Apache logs
+old_syntax_highlighting: true
 ---
 
 Sometime earlier this year, I broke the Piwik server-side analytics that I'd been using to count hits to the site.

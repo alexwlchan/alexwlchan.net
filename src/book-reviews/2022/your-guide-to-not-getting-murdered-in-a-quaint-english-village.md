@@ -23,6 +23,7 @@ colors:
    css_light: '#c60017'
    css_dark:  '#bcbdbf'
 
+old_syntax_highlighting: true
 ---
 
 A fun book about terrible things that happen in English villages.

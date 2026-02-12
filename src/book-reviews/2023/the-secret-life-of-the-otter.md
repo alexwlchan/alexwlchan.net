@@ -23,6 +23,7 @@ colors:
    css_light: '#655e3f'
    css_dark:  '#e2d0be'
 
+old_syntax_highlighting: true
 ---
 
 Some gorgeous pictures of otters, interspersed with some interesting otter facts and stories about how the photos were taken.

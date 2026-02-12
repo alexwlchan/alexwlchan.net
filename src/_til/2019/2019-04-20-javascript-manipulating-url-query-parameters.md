@@ -4,6 +4,7 @@ title: "Manipulating URL query parameters in JavaScript"
 date: 2019-04-20 21:24:30 +01:00
 tags:
   - javascript
+old_syntax_highlighting: true
 ---
 
 Last time I did this, I had to use some moderately fiddly code from Stack Overflow.

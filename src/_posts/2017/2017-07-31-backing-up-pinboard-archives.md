@@ -6,6 +6,7 @@ tags:
   - rust
   - pinboard
 title: Backing up full-page archives from Pinboard
+old_syntax_highlighting: true
 ---
 
 Several years ago, I blogged about [a Python script][python] I'd written to back up my Pinboard bookmarks.

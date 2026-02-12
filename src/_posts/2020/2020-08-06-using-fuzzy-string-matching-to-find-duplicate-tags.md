@@ -4,6 +4,7 @@ date: 2020-08-06 11:14:20 +00:00
 title: Using fuzzy string matching to find duplicate tags
 tags:
   - python
+old_syntax_highlighting: true
 ---
 
 I'm a big fan of [keyword tagging](https://en.wikipedia.org/wiki/Tag_(metadata)) as a way to organise my digital data.

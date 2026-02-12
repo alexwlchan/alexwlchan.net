@@ -8,6 +8,7 @@ tags:
   - safari
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Apple released Safari 15 today, a release which has had a pretty controversial beta cycle.

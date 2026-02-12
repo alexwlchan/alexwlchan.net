@@ -5,6 +5,7 @@ title: Find files that use a particular SDC field
 tags:
   - wikimedia commons
   - sparql
+old_syntax_highlighting: true
 ---
 ## Using Special:MediaSearch
 

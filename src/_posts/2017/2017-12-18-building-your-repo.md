@@ -7,6 +7,7 @@ tags:
   - docker
   - builds and ci
 summary: Making your repo easy to clone and build is very important. This post explains why, and how I'm using Make and Docker to achieve that goal.
+old_syntax_highlighting: true
 ---
 
 Whenever I look at a new repository, I have a simple smell test: *how long does it take me to clone, build and get the code running?*

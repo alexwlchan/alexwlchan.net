@@ -7,6 +7,7 @@ tags:
   - blogging about blogging
   - javascript
   - bookmarklets
+old_syntax_highlighting: true
 ---
 
 I recently wrote a small bookmarklet that gives me an editing toolbar for this site:

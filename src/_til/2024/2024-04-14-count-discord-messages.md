@@ -6,6 +6,7 @@ summary: |
   Using the `During` filter gives me a count of how many messages were being sent.
 tags:
   - discord
+old_syntax_highlighting: true
 ---
 On a particular chatty evening in the Mincemeat Discord (Oliviers 2024), I was idly curious how many messages were being sent.
 I worked out a way to do this with Discord's search: use [the `During:` filter](https://support.discord.com/hc/en-us/articles/115000468588-Using-Search) and look at the result count:

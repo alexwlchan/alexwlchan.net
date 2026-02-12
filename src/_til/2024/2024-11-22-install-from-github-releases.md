@@ -7,6 +7,7 @@ tags:
   - github actions
 summary:
   Use `gh release download`, which includes a pattern matcher if you want to pick a specific asset.
+old_syntax_highlighting: true
 ---
 I wanted to install Caddy in GitHub Actions, and one of the ways [to install it](https://caddyserver.com/docs/install#static-binaries) is by downloading static binaries from their GitHub releases.
 

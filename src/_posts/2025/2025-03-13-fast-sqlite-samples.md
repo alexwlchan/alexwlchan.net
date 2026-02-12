@@ -5,6 +5,7 @@ title: Fast and random sampling in SQLite
 summary: I tested four approaches, from `ORDER BY RANDOM()` to picking random `rowid` values in Python, and found one that's both fast and diverse.
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 <style>
   pre {

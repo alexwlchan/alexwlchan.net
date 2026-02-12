@@ -22,6 +22,7 @@ colors:
    css_light: '#883638'
    css_dark:  '#4f7baf'
 
+old_syntax_highlighting: true
 ---
 
 A detailed, informative account of Turing’s life.

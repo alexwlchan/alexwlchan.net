@@ -10,6 +10,7 @@ title: Treat regular expressions as code, not magic
 colors:
   index_light: "#000000"
   index_dark:  "#bbbbbb"
+old_syntax_highlighting: true
 ---
 
 Regular expressions (or *regexes*) have a reputation for being unreadable.

@@ -23,6 +23,7 @@ colors:
    css_light: '#807153'
    css_dark:  '#b19d70'
 
+old_syntax_highlighting: true
 ---
 A delightful book about finding Hester Leggatt, a story I watched from the sidelines and now get to learn about in more detail.
 

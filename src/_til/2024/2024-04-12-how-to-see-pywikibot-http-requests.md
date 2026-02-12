@@ -8,6 +8,7 @@ tags:
   - python
   - python:requests
   - python:pywikibot
+old_syntax_highlighting: true
 ---
 I was trying to debug an issue in some code for interacting with Wikimedia Commons (see [village pump discussion][vpump]).
 I had my broken code using httpx, and another Wikimedian had given me working code with pywikibot.

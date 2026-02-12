@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#653415"
   index_dark:  "#f1ba62"
+old_syntax_highlighting: true
 ---
 
 *Content warning: discussion of fat shaming. I'm not going to spoil the plot of <em>The Good Place</em>, but I might spoil your enjoyment.*

@@ -7,6 +7,7 @@ tags:
   - python
   - error messages
 card_attribution: https://www.pexels.com/photo/close-up-of-keys-333837/
+old_syntax_highlighting: true
 ---
 
 I'm a big fan of [keyring][pypi], a Python module made by [Jason R. Coombs][jaraco] for storing secrets in the system keyring.

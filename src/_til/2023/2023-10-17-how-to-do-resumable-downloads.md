@@ -4,6 +4,7 @@ title: How to do resumable downloads with curl
 date: 2023-10-17 20:10:10 +00:00
 tags:
   - curl
+old_syntax_highlighting: true
 ---
 The flag you want is [`--continue-at -`](https://curl.se/docs/manpage.html#-C), which will resume the transfer from the size of the already-downloaded file.
 

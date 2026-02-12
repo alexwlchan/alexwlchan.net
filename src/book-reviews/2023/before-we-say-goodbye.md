@@ -25,6 +25,7 @@ colors:
    css_light: '#ac2e34'
    css_dark:  '#ea7089'
 
+old_syntax_highlighting: true
 ---
 
 Another gorgeous book by Toshikazu Kawaguchi.

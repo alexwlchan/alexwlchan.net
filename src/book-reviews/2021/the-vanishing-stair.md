@@ -22,6 +22,7 @@ colors:
    css_light: '#933026'
    css_dark:  '#e06552'
 
+old_syntax_highlighting: true
 ---
 
 The sequel to [*Truly Devious*](/book-reviews/truly-devious/).

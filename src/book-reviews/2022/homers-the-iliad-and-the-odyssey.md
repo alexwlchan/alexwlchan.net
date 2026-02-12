@@ -21,6 +21,7 @@ colors:
    css_light: '#587c1d'
    css_dark:  '#5c851f'
 
+old_syntax_highlighting: true
 ---
 
 This book seems fine, but I was a quarter-way through and it hadn't grabbed me, so I'm returning it to the shelf.

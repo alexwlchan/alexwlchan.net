@@ -22,6 +22,7 @@ colors:
    css_light: '#667794'
    css_dark:  '#8a9ab7'
 
+old_syntax_highlighting: true
 ---
 
 Another first-person YA novel, the sequel to *Ultraviolet*, this time told by one of the supporting characters of the first book.

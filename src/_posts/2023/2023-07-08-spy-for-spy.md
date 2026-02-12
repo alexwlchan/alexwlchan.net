@@ -11,6 +11,7 @@ colors:
   index_dark:  "#86a4c2"
   css_light:   "#214781"
   css_dark:    "#86a4c2"
+old_syntax_highlighting: true
 ---
 
 *[If you think you've already seen a post about this play: no, you aren't imagining things, I have written about it twice. I wrote my original post after the second preview; then updated it after the run had ended. You can read the original post [on the Internet Archive](https://web.archive.org/web/20230618163735/https://alexwlchan.net/2023/spy-for-spy/).]*

@@ -5,6 +5,7 @@ summary: Slides and links for my PyCon UK 2017 talks/workshops.
 title: PyCon UK 2017 resources
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 This post is a signpost to useful resources for my PyCon UK talks/workshops.

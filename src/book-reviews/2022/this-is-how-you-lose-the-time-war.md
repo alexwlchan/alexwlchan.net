@@ -24,6 +24,7 @@ colors:
    css_light: '#164684'
    css_dark:  '#c1e3e7'
 
+old_syntax_highlighting: true
 ---
 
 This is the story of two time-travellers -- Red and Blue -- who fight on opposing sides of a war to influence the fate of the universe.

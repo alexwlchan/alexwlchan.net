@@ -21,6 +21,7 @@ colors:
    css_light: '#0a657c'
    css_dark:  '#288fb4'
 
+old_syntax_highlighting: true
 ---
 
 A rather charming little romance about Vinnie and Ellen – a taxi driver raising two kids as a single father, and a former doctor who has mental and physical scarring after an accident.

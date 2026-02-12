@@ -11,6 +11,7 @@ colors:
   css_dark:  "#b7834f"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 <style>

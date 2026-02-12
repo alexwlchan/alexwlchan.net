@@ -22,6 +22,7 @@ colors:
    css_light: '#3c3c3c'
    css_dark:  '#fed118'
 
+old_syntax_highlighting: true
 ---
 Concise account of aspects of the transmasculine experience, including the degree of transphobia in the UK (which almost seems mild compares to 2025), why they chose to hide their transness for many years, and the importance of finding joy in being trans.
 

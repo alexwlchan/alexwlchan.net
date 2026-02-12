@@ -6,6 +6,7 @@ date: 2025-08-10 22:53:18 +01:00
 tags:
   - bluesky
   - python
+old_syntax_highlighting: true
 ---
 I wanted to use the [Bluesky API][api] to get some basic information about posts.
 It wasn't difficult, but there were a couple of non-obvious steps I wanted to note.

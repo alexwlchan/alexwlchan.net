@@ -21,6 +21,7 @@ colors:
    css_light: '#0b486c'
    css_dark:  '#ed6245'
 
+old_syntax_highlighting: true
 ---
 
 A fun, gripping novel about a seaside mystery.

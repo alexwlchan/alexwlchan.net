@@ -5,6 +5,7 @@ date: 2025-07-06 19:54:31 +01:00
 tags:
   - mermaid
   - drawing things
+old_syntax_highlighting: true
 ---
 I was drawing a flowchart with [Mermaid][mermaid], and I wanted to draw a box around several items to group them together.
 

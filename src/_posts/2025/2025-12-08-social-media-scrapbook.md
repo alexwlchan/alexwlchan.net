@@ -11,6 +11,7 @@ index:
 colors:
   css_light: "#366fa5"
   css_dark:  "#41a5ed"
+old_syntax_highlighting: true
 ---
 I grew up alongside social media, as it was changing from nerd curiosity to mainstream culture.
 I joined Twitter and Tumblr in the early 2010s, and I stayed there for over a decade.

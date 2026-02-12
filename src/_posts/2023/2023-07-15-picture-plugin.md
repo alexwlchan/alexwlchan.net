@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#df1b4a"
   css_dark:  "#fd96af"
+old_syntax_highlighting: true
 ---
 
 About seven months ago, I did a complete rewrite of how I handle images on this site.

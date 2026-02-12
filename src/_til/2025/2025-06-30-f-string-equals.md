@@ -5,6 +5,7 @@ date: 2025-06-30 15:52:12 +01:00
 summary: The f-string `f"{x=}"` expands to `f"x={x}"`.
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I was reading [PEP 736](https://peps.python.org/pep-0736/#prior-art), a rejected proposal for a shorthand syntax for keyword arguments, and it mentioned a new-to-me bit of prior art:
 

@@ -7,6 +7,7 @@ tags:
   - python
   - datetime shenanigans
   - json
+old_syntax_highlighting: true
 ---
 I've been cleaning up some messy data, and it includes timestamps written by a variety of humans and machines, which don't use a consistent format.
 

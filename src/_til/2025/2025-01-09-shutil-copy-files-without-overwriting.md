@@ -4,6 +4,7 @@ title: Use `shutil.copyfileobj` and `xb` to avoid overwriting files when copying
 date: 2025-01-09 16:30:03 +00:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 If you want to copy a file but be sure you're never going to overwrite an existing file at the destination, use [`shutil.copyfileobj(src, dst)`](https://docs.python.org/3/library/shutil.html#shutil.copyfileobj).
 This function requires you to pass file-like objects, so you can open the destination file with exclusive creation mode&nbsp;`x`.

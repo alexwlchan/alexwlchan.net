@@ -6,6 +6,7 @@ title: "Get and manipulate the contents of a page in Safari with `\"do JavaScrip
 tags:
   - safari
   - applescript
+old_syntax_highlighting: true
 ---
 Here's an AppleScript which runs `document.querySelector` in a Safari tab and returns the matching HTML:
 

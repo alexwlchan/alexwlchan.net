@@ -6,6 +6,7 @@ summary: |
 date: 2018-04-08 16:15:31 +00:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 Here's an example of an object with a non-string `__repr__`:
 

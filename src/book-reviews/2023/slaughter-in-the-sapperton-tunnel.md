@@ -22,6 +22,7 @@ colors:
    css_light: '#714518'
    css_dark:  '#f5de9e'
 
+old_syntax_highlighting: true
 ---
 
 <!--series: "The Railway Detective #18" -->

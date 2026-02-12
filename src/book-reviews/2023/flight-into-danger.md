@@ -20,6 +20,7 @@ colors:
    css_light: '#9f43a8'
    css_dark:  '#e5e24a'
 
+old_syntax_highlighting: true
 ---
 
 I've almost certainly read this before (I think I've had this copy for over a decade, judging by the school library stamp in the cover), but I'd forgotten how it goes.

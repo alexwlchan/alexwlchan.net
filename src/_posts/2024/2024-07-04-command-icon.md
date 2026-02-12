@@ -12,6 +12,7 @@ colors:
   css_dark:  "#67a7ff"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 The command key (⌘) has been a ubiquitious part of the Mac for [over forty years][folklore].
 It was chosen by legendary icon designer Susan Kare, who picked it from a symbol dictionary -- this shape was already being used in Sweden to highlight an interesting feature on a map.

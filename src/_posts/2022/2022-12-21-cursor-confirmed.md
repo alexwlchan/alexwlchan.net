@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#0e558b"
   css_dark:  "#55acee"
+old_syntax_highlighting: true
 ---
 
 <style>

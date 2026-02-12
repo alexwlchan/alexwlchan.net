@@ -7,6 +7,7 @@ summary: |
 tags:
   - liquid
   - jekyll
+old_syntax_highlighting: true
 ---
 This is a problem I had when trying to write my TIL about [the `{% raw %}{% capture %}{% endraw %}` tag](/til/2024/use-the-capture-tag-for-complex-strings/).
 I'd written an example in my Markdown source code:

@@ -5,6 +5,7 @@ title: Avoiding the automatic redirect on Tumblr posts
 tags:
   - tumblr
 summary: I see an intermittent 303 Redirect when trying to navigate to a Tumblr 'permalink'; changing the User-Agent seems to fix it.
+old_syntax_highlighting: true
 ---
 
 Recently I've noticed Tumblr being much more aggressive about redirecting me to the dashboard.

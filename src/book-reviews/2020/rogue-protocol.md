@@ -21,6 +21,7 @@ colors:
    css_light: '#686d72'
    css_dark:  '#dce3e1'
 
+old_syntax_highlighting: true
 ---
 
 My favourite of the Murderbot books so far.

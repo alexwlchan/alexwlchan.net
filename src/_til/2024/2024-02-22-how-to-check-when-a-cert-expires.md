@@ -5,6 +5,7 @@ title: How to check when an HTTPS certificate expires
 tags:
   - http
   - curl
+old_syntax_highlighting: true
 ---
 You can check whether a certificate is about to expire using the following `openssl` command:
 

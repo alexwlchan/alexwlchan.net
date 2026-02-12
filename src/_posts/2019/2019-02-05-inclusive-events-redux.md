@@ -9,6 +9,7 @@ tags:
   - inclusion
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Last year, I wrote [a blog post](/2018/inclusive-conferences/) with my ideas for running inclusive conferences.

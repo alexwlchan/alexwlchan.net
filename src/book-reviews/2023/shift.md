@@ -21,6 +21,7 @@ colors:
    css_light: '#0d5a9a'
    css_dark:  '#90c9ed'
 
+old_syntax_highlighting: true
 ---
 
 A sequel to [*Wool*](/book-reviews/wool/).

@@ -20,6 +20,7 @@ colors:
    css_light: '#1f558a'
    css_dark:  '#c26b57'
 
+old_syntax_highlighting: true
 ---
 Twenty-four hours in the life of six astronauts and cosmonauts on a space station; more than a dozen orbits around the earth.
 We see their emotions, their hopes and dreams, how they feel about space and space exploration.

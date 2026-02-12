@@ -6,6 +6,7 @@ date: 2024-09-03 10:23:25 +01:00
 tags:
   - python
   - flask
+old_syntax_highlighting: true
 ---
 I was writing some code that uses Flask-Login, and I wanted to test the scenario where a user wasn't logged in.
 

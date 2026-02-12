@@ -22,6 +22,7 @@ colors:
    css_light: '#464349'
    css_dark:  '#e77f72'
 
+old_syntax_highlighting: true
 ---
 
 This is the story of Nick and Anna, two teenagers who meet while working a summer job together, and then their lives drift apart.

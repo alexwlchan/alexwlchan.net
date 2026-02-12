@@ -5,6 +5,7 @@ date: 2025-10-07 21:52:13 +01:00
 tags:
   - python
   - python:typing
+old_syntax_highlighting: true
 ---
 Here's a TypedDict from my code:
 

@@ -6,6 +6,7 @@ summary: Getting a more descriptive build label than 'Deployment'.
 tags:
   - builds and ci
   - buildkite
+old_syntax_highlighting: true
 ---
 
 At work, we use [Buildkite] for all our continuous testing and deployment, including the Wellcome Collection website.

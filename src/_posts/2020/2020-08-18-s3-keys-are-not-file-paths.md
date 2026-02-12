@@ -7,6 +7,7 @@ tags:
   - aws:amazon s3
   - aws
   - path-problems
+old_syntax_highlighting: true
 ---
 
 If you look at an S3 bucket, you could be forgiven for thinking it behaves like a hierarchical filesystem, with everything organised as files and folders.

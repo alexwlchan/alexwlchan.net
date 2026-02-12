@@ -6,6 +6,7 @@ tags:
   - python
   - books
 title: 'Review: Effective Python'
+old_syntax_highlighting: true
 ---
 
 <style>

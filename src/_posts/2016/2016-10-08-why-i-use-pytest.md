@@ -6,6 +6,7 @@ tags:
   - python
   - python:pytest
 title: Why I use py.test
+old_syntax_highlighting: true
 ---
 
 A question came up in Slack at work recently: _"What's your favorite/recommended unit test framework [for Python]?"_

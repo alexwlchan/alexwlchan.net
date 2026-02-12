@@ -7,6 +7,7 @@ date: 2025-10-19 10:16:27 +01:00
 tags:
   - python
   - datetime shenanigans
+old_syntax_highlighting: true
 ---
 If you print the current date as an ISO timestamp in Python, by default it includes microsecond precision (in this case, `.499258`):
 

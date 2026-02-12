@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#333333"
   css_dark:  "#cccccc"
+old_syntax_highlighting: true
 ---
 
 One of the things I did over my Christmas break was redo all the image handling on this site.

@@ -4,6 +4,7 @@ title: Go's compiler is smart enough to spot division by zero errors
 date: 2025-06-12 17:18:46 +01:00
 tags:
   - golang
+old_syntax_highlighting: true
 ---
 I've been doing a couple of Go experiments, and I wanted to test if Go has lazy evaluation of `if` conditions.
 

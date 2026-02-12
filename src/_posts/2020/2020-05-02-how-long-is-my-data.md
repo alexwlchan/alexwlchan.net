@@ -13,6 +13,7 @@ colors:
   index_dark:  "#fbabfa"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 Yesterday, Stuart Lewis posted a photo of his [latest hardware](https://twitter.com/stuartlewis/status/1255825450485628928):

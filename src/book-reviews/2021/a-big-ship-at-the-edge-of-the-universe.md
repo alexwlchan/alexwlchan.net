@@ -22,6 +22,7 @@ colors:
    css_light: '#090a1d'
    css_dark:  '#afb5b9'
 
+old_syntax_highlighting: true
 ---
 
 This should be up my street: a space opera in which most people have magical powers, and a ragtag crew are looking for a warship that's long since vanished.

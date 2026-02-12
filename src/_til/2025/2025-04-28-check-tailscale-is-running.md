@@ -6,6 +6,7 @@ summary:
 date: 2025-04-28 11:38:50 +01:00
 tags:
   - tailscale
+old_syntax_highlighting: true
 ---
 I have some scripts that talk to nodes in my Tailscale network, but they can only connect if Tailscale is running on my Mac.
 I wanted a way for my scripts to check if Tailscale is running, and prompt me to start it if not.

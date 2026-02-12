@@ -8,6 +8,7 @@ summary: |
 tags:
   - shell scripting
   - macos
+old_syntax_highlighting: true
 ---
 This is something I discovered by accident -- I had a shell script that called `open *.mp3`, and it offered me a selection prompt rather than just opening the file.
 

@@ -9,6 +9,7 @@ colors:
   index_dark:  "#7e9327"
   index_light: "#4f5f10"
 card_attribution: https://www.pexels.com/photo/photo-of-pathway-surrounded-by-fir-trees-1578750/
+old_syntax_highlighting: true
 ---
 
 I write a lot of one-use Python scripts for quick analysis or cleaning something up on my disk, and they often involve iterating over a folder full of files.

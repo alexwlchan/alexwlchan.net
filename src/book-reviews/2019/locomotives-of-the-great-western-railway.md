@@ -21,6 +21,7 @@ colors:
    css_light: '#a75f5e'
    css_dark:  '#b4d9ee'
 
+old_syntax_highlighting: true
 ---
 
 Some wonderful photos!

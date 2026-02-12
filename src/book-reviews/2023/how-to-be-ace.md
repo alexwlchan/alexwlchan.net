@@ -24,6 +24,7 @@ colors:
    css_light: '#523d8b'
    css_dark:  '#e89573'
 
+old_syntax_highlighting: true
 ---
 
 A graphic novel about being asexual; it's a story I find pretty familiar.

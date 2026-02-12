@@ -11,6 +11,7 @@ tags:
 colors:
   index_light: "#98291d"
   index_dark:  "#ffd20b"
+old_syntax_highlighting: true
 ---
 
 In my [last post](/2016/tiling-the-plane-with-pillow/), I explained how I'd been using Pillow to draw regular tilings of the plane.

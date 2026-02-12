@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: Go
+old_syntax_highlighting: true
 ---
 Go is a programming language designed at Google with a particular focus on concurrency.
 Apps written in Go include [Docker][wiki-docker], [Kubernetes][wiki-kubernetes], and [Caddy][wiki-caddy] (the web server that runs this blog).

@@ -6,6 +6,7 @@ summary: |
 date: 2024-10-24 10:00:15 +01:00
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 When you look up a photo with the `flickr.photos.getInfo` API, you get a list of tags on the photo, including the NSID and "authorname" of the Flickr member who added the tag.
 

@@ -6,6 +6,7 @@ summary: |
 date: 2024-10-23 09:29:15 +01:00
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 Flickr members can control who can see their email address in the "Who can see what" part of the [Privacy & Permissions](https://www.flickr.com/account/privacy) settings.
 The default is "nobody".

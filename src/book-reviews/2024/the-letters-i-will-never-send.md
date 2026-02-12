@@ -20,6 +20,7 @@ colors:
    css_light: '#4e402d'
    css_dark:  '#f5e8ae'
 
+old_syntax_highlighting: true
 ---
 Some lovely and lyrical poetry.
 I'd happily read this again (or more poems from this author) -- too many nice fragments to pick out any parts in particular.

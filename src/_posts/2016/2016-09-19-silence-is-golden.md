@@ -7,6 +7,7 @@ tags:
   - pyconuk
   - conferences
   - inclusion
+old_syntax_highlighting: true
 ---
 
 As I write this, it's the last day of [PyCon UK](http://2016.pyconuk.org/).

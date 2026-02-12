@@ -7,6 +7,7 @@ tags:
 title: Hypercritical
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 This November, I was sad to hear that my all-time favourite podcast, [Hypercritical][1], would [be ending at episode #100][2]. In the last week or so, I've read (and heard) many tributes from other fans of the podcast, and with [the last episode][6] fresh in my mind, I wanted to say a few words myself.

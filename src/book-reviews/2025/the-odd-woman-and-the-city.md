@@ -21,6 +21,7 @@ colors:
    css_light: '#090c0b'
    css_dark:  '#e74f0e'
 
+old_syntax_highlighting: true
 ---
 An oddball memoir of life and loneliness in New York, of being the "odd woman" who doesn't have friendships or romance in the conventional sense.
 I feel like this should appeal to me, but it didn't really land, and I finished it more out of obligation than engagement.

@@ -20,6 +20,7 @@ colors:
    css_light: '#276560'
    css_dark:  '#c8b36d'
 
+old_syntax_highlighting: true
 ---
 
 Historical fiction about a young boy living in the Saltee Islands, off the coast of Ireland.

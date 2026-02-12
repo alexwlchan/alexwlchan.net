@@ -22,6 +22,7 @@ colors:
    css_light: '#74767e'
    css_dark:  '#f5f6f7'
 
+old_syntax_highlighting: true
 ---
 
 A fun story an America in which fantasy and magic are real and somewhat commonplace, including vampires, ghosts, and evil scarecrows.

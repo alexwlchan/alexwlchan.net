@@ -20,6 +20,7 @@ colors:
    css_light: '#6d6a67'
    css_dark:  '#e1d8ca'
 
+old_syntax_highlighting: true
 ---
 
 I wanted to like this book, but it didn’t grab me. :-/

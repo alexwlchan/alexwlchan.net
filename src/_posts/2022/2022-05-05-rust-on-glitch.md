@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#ff386a"
   index_dark:  "#5e76fd"
+old_syntax_highlighting: true
 ---
 
 Earlier today I was trying to run a Rust app in [Glitch].

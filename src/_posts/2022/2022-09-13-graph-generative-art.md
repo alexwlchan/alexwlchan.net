@@ -8,6 +8,7 @@ tags:
   - drawing things
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

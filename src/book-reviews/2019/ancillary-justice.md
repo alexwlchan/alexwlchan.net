@@ -21,6 +21,7 @@ colors:
    css_light: '#b7162d'
    css_dark:  '#b2ac41'
 
+old_syntax_highlighting: true
 ---
 I finished <em>Ancillary Justice</em>! I'm definitely not as into it as some people, but I did enjoy it. More spoilers below the cut.
 

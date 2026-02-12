@@ -6,6 +6,7 @@ summary: I already have a new job lined up, but I'm taking a bit of a break firs
 tags:
   - personal
   - flickr foundation
+old_syntax_highlighting: true
 ---
 Today was my last day at the [Flickr Foundation](https://www.flickr.org).
 At 5pm I closed my laptop, left the office for the last time, and took a quiet walk along Regent's Canal.

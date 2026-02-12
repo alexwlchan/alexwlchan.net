@@ -20,5 +20,6 @@ colors:
    css_light: '#bf3b1b'
    css_dark:  '#ef4a22'
 
+old_syntax_highlighting: true
 ---
 Short and sweet argument about the value of children's literature -- how their books can contain complexity and depth, and aren't something for adults to look down upon or dismiss.

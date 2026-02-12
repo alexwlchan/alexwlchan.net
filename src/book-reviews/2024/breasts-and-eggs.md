@@ -23,6 +23,7 @@ colors:
    css_light: '#59432e'
    css_dark:  '#d99a98'
 
+old_syntax_highlighting: true
 ---
 
 This book failed to grab me.

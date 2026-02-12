@@ -8,6 +8,7 @@ tags:
   - screenshots
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 I've been using computers for about two decades.

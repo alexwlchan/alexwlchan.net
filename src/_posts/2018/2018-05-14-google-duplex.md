@@ -9,6 +9,7 @@ tags:
   - inclusion
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Last week was Google I/O, and there was a lot of discussion around one of their keynote demos: Google Duplex.

@@ -7,6 +7,7 @@ tags:
   - drawing things
   - generative art
   - svg
+old_syntax_highlighting: true
 ---
 <style>
   :root {

@@ -22,6 +22,7 @@ colors:
    css_light: '#4f7333'
    css_dark:  '#ccd87d'
 
+old_syntax_highlighting: true
 ---
 I adore Toshikazu Kawaguchi's books so it's no surprise that I liked this one too, and cried multiple times.
 

@@ -6,6 +6,7 @@ tags:
   - pinboard
   - python
 title: Automatic Pinboard backups
+old_syntax_highlighting: true
 ---
 
 I've been using [**Pinboard**](http://pinboard.in) to store my bookmarks for nearly two years, and it's a wonderful site.

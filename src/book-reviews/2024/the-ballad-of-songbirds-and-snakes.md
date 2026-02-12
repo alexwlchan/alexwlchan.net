@@ -21,6 +21,7 @@ colors:
    css_light: '#254c2b'
    css_dark:  '#e6b52a'
 
+old_syntax_highlighting: true
 ---
 A pleasant enough prequel to the Hunger Games trilogy.
 I wasn't much of a fan of the Coriolanus/Lucy Gray romance -- but I enjoyed the explorations of the true purpose of the games and the nature of evil, which reminded me of *Andor*.

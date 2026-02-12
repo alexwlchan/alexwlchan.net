@@ -22,6 +22,7 @@ colors:
    css_light: '#40853b'
    css_dark:  '#cd5273'
 
+old_syntax_highlighting: true
 ---
 A sci-fi mystery set in the small town of Muddy Gap, where Denver Bryant reviews pies for their online blog -- until green lights appear in the sky, people act strangely and disappear, and the local geometry goes very wonky.
 

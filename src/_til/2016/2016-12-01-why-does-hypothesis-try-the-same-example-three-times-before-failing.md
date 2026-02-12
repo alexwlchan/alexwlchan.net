@@ -5,6 +5,7 @@ date: 2016-12-01 21:50:00 +00:00
 tags:
   - python
   - python:hypothesis
+old_syntax_highlighting: true
 ---
 
 From the #hypothesis IRC channel:

@@ -13,6 +13,7 @@ colors:
   index_dark:  "#f7c057"
   css_light:   "#cd4506"
   css_dark:    "#f7c057"
+old_syntax_highlighting: true
 ---
 Last week, the Swift.org website [got a redesign][redesign].
 I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH COOL BIRD!

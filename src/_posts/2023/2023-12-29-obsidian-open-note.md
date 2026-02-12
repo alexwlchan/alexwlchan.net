@@ -6,6 +6,7 @@ summary: Although Obsidian doesn’t support AppleScript, I can use System Event
 tags:
   - obsidian
   - applescript
+old_syntax_highlighting: true
 ---
 I have a bunch of Python scripts I use to clean up text files, and I call them by passing the path to the text file as an argument, for example:
 

@@ -6,6 +6,7 @@ summary: "A few tools and utilities I\u2019ve been using to help clear disk spac
 tags:
   - macos
 title: Clearing disk space on OS X
+old_syntax_highlighting: true
 ---
 
 Over the weekend, I've been trying to clear some disk space on my Mac.

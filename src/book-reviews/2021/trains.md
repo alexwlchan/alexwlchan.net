@@ -22,6 +22,7 @@ colors:
    css_light: '#b82b1d'
    css_dark:  '#cdaf6e'
 
+old_syntax_highlighting: true
 ---
 
 This is a children's book that I picked up from an Oxfam store; although it's very simple it is an interesting view into British railways of the 1970s.

@@ -9,6 +9,7 @@ tags:
 title: Debugging a stuck Terraform plan
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 While working on some Terraform today, I had a problem that it would hang in the `plan` stage.

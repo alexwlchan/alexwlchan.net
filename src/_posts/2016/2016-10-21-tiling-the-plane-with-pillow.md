@@ -12,6 +12,7 @@ title: Tiling the plane with Pillow
 colors:
   index_light: "#444444"
   index_dark:  "#9e9e9e"
+old_syntax_highlighting: true
 ---
 
 On a recent yak-shaving exercise, I've been playing with [Pillow][pillow], an imaging library for Python.

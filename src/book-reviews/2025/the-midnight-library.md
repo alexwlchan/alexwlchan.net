@@ -20,6 +20,7 @@ colors:
    css_light: '#202c51'
    css_dark:  '#f7ec60'
 
+old_syntax_highlighting: true
 ---
 A fun take on the "what if" genre -- after committing suicide, Nora is invited to try lives where she made different decisions.
 What if she became a pop singer?

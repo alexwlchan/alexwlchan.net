@@ -12,6 +12,7 @@ index:
 colors:
   css_light: "#ab5326"
   css_dark:  "#f49d61"
+old_syntax_highlighting: true
 ---
 Testing code that makes HTTP requests can be difficult.
 Real requests are slow, flaky, and hard to control.

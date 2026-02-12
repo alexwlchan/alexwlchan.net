@@ -10,6 +10,7 @@ title: Drawing ASCII bar charts
 colors:
   index_light: "#000000"
   index_dark:  "#cccccc"
+old_syntax_highlighting: true
 ---
 
 When I'm writing scripts, I often have some tabular data that I need to present.

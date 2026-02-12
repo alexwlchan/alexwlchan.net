@@ -5,6 +5,7 @@ title: Doing my own syntax highlighting (finally)
 summary: I've redesigned my syntax highlighting scheme to use a smaller colour palette. Here's what I've changed, how it works, and why I think it's better.
 tags:
     - blogging about blogging
+old_syntax_highlighting: true
 ---
 I had syntax highlighting in the very first version of this blog, and I never really thought about that decision.
 I was writing a programming blog, and I was including snippets of code, so *obviously* I should have syntax highlighting.

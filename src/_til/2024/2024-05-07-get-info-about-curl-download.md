@@ -6,6 +6,7 @@ summary: |
   You can do some fun stuff with the `--write-out` flag and variables.
 tags:
   - curl
+old_syntax_highlighting: true
 ---
 I was doing some stuff with curl, and I found some uses for the `--write-out` flag (which Daniel Stenberg has described as [“one of \[his\] personal favorites”](https://daniel.haxx.se/blog/2023/08/01/curl-write-out-to-files/)).
 

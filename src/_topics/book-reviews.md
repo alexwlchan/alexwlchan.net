@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: Books I've read
+old_syntax_highlighting: true
 ---
 I love reading!
 I always have a book on the go, and I can often be found between the shelves of my local library.

@@ -4,6 +4,7 @@ title: Getting and setting the cover image from an EPUB file
 date: 2025-01-25 23:23:52 +00:00
 tags:
   - epub
+old_syntax_highlighting: true
 ---
 I've only done this with a small number of EPUB files, but it seems to work so far.
 

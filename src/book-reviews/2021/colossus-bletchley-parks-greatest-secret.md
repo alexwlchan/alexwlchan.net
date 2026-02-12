@@ -23,6 +23,7 @@ colors:
    css_light: '#cf2c4e'
    css_dark:  '#ce8d98'
 
+old_syntax_highlighting: true
 ---
 
 This is a detailed account of the work done to build Colossus at Bletchley Park during WWII.

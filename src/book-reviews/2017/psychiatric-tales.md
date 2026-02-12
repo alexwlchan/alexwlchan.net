@@ -22,6 +22,7 @@ colors:
    css_light: '#686868'
    css_dark:  '#ffffff'
 
+old_syntax_highlighting: true
 ---
 
 This is a short read – maybe half an hour or so – and reads more like a textbook than anything else. Anecdotes are fairly brief, most is an explanation in the form of a graphic novel. Fine, but somewhat lacking in depth – although I don’t feel like I know much about mental health, I also didn’t feel like I picked up much from this book.

@@ -6,6 +6,7 @@ summary: Digitising and pruning my boxes of paper from school. In which I have n
 tags:
   - personal
   - digital preservation
+old_syntax_highlighting: true
 ---
 
 I left school in 2011, and I graduated from university in 2014.

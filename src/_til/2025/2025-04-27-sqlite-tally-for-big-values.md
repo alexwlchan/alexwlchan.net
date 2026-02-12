@@ -6,6 +6,7 @@ summary:
 date: 2025-04-27 21:13:50 +01:00
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 I was using SQLite to tally some values in a table, which I've done a bunch of times:
 

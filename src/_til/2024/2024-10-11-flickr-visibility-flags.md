@@ -4,6 +4,7 @@ title: How do the `ispublic`, `isfriend` and `isfamily` flags work in the Flickr
 date: 2024-10-11 13:14:21 +01:00
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 When you look up a photo in the Flickr API, you get a `visibility` object with three booleans.
 For example, this is from a `flickr.photos.getInfo` response:

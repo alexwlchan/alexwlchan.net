@@ -19,6 +19,7 @@ colors:
    css_light: '#1d588e'
    css_dark:  '#5483a1'
 
+old_syntax_highlighting: true
 ---
 
 A fun collection of little mysteries from the town of Stain'd-by-the-Sea.

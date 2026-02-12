@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#19177C"
   index_dark:  "#514ff3"
+old_syntax_highlighting: true
 ---
 
 <!-- https://twitter.com/jpwarren/status/1440152993693777924 -->

@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#8f743d"
   index_dark:  "#c5a96e"
+old_syntax_highlighting: true
 ---
 
 With apologies to [Patrick McKenzie].

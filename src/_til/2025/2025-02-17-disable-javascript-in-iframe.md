@@ -4,6 +4,7 @@ title: Disable JavaScript in an `<iframe>` by setting the `sandbox` attribute
 date: 2025-02-17 19:03:33 -05:00
 tags:
   - javascript
+old_syntax_highlighting: true
 ---
 I was loading a web page in an iframe, and I wanted to make sure it couldn't run any JavaScript.
 

@@ -12,6 +12,7 @@ index:
 colors:
   index_light: "#4d3c1b"
   index_dark:  "#b7b0a4"
+old_syntax_highlighting: true
 ---
 I got a new Mac mini this weekend, to replace my aging Intel iMac.
 I've already done most of the setup, and this blog post is one of the first things I'll make with it.

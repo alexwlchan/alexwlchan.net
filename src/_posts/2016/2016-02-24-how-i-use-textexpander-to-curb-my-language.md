@@ -8,6 +8,7 @@ tags:
   - writethedocs
   - inclusion
 title: How I use TextExpander to curb my language
+old_syntax_highlighting: true
 ---
 
 I saw a tweet yesterday that I really liked:

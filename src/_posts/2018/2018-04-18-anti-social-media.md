@@ -6,6 +6,7 @@ tags:
   - talks
   - trust and safety
 summary: Slides and notes for a talk about online harassment, and why you should always design with an abusive ex in mind.
+old_syntax_highlighting: true
 ---
 
 This is a talk I gave today for students on Bournemouth University's Cyber Security Management course.

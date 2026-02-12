@@ -9,6 +9,7 @@ tags:
 title: Apple quietly adopts HTTP/2
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Amongst all the new features in iOS 9, I spotted one on Twitter that I hadn't seen before:

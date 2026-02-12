@@ -8,6 +8,7 @@ tags:
   - http
   - python
   - python:httpx
+old_syntax_highlighting: true
 ---
 I was writing a small crawler for my RSS feed, and I know my RSS feed doesn't change that often, so I was looking for a way to speed up fetches when nothing has changed.
 

@@ -8,6 +8,7 @@ tags:
 colors:
   css_light: "#88632e"
   css_dark:  "#b38d42"
+old_syntax_highlighting: true
 ---
 
 I've recently completed another cross-stitch piece, which is now hanging on my wall.

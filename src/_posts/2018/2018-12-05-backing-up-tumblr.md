@@ -6,6 +6,7 @@ summary: Since Tumblr users are going on a mass deletion spree (helped by the Tu
 tags:
   - tumblr
 link: https://github.com/alexwlchan/backup_tumblr
+old_syntax_highlighting: true
 ---
 
 A few days ago, Tumblr announced some new content moderation policies that include the mass deletion of any posts deemed to contain "adult content".

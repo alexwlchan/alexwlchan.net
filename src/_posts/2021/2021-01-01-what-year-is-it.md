@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#b17474"
   index_dark:  "#c28786"
+old_syntax_highlighting: true
 ---
 
 Happy (Gregorian) new year!

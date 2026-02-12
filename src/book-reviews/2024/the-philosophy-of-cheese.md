@@ -21,6 +21,7 @@ colors:
    css_light: '#996d15'
    css_dark:  '#f7b022'
 
+old_syntax_highlighting: true
 ---
 A short book about the history of cheese, spending a few pages to focus on about a dozen different cheeses.
 It's not a comprehensive history, but enough to be interesting for 100 or so pages.

@@ -7,6 +7,7 @@ tags:
   - linode
   - python
   - python:boto3
+old_syntax_highlighting: true
 ---
 I'm using [Linode object storage](https://www.linode.com/products/object-storage/), which has an S3-compatible API, so it should work with any existing AWS libraries.
 In particular, I'm [using boto3](https://techdocs.akamai.com/cloud-computing/docs/using-the-aws-sdk-for-python-boto3-with-object-storage).

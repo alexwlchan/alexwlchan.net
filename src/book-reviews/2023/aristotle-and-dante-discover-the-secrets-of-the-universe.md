@@ -23,6 +23,7 @@ colors:
    css_light: '#120908'
    css_dark:  '#a97f21'
 
+old_syntax_highlighting: true
 ---
 
 A sweet little queer romance.

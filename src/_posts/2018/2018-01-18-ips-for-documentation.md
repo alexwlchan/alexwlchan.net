@@ -5,6 +5,7 @@ date: 2018-01-18 23:26:28 +00:00
 summary: If you're writing technical docs and need placeholder IP addresses or DNS hostnames, there are some special values just for you!
 tags:
   - documentation
+old_syntax_highlighting: true
 ---
 
 If you're writing documentation that includes IP addresses, you may want to check out [RFC 5737][rfc5737] and [RFC 3849][rfc3849], which specify IPv4 and IPv6 addresses for use in documentation.

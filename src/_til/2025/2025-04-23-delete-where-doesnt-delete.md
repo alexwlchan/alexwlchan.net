@@ -8,6 +8,7 @@ tags:
   - python
   - sqlite
   - python:sqlite-utils
+old_syntax_highlighting: true
 ---
 I was writing some code using `sqlite-utils`, and I was confused about why rows weren't being deleted when I called `delete_where()`.
 Here's an example:

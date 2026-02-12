@@ -23,6 +23,7 @@ colors:
    css_light: '#866599'
    css_dark:  '#fac53e'
 
+old_syntax_highlighting: true
 ---
 
 A non-fiction book discussing a bunch of aspects of asexuality.

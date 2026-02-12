@@ -7,6 +7,7 @@ tags:
   - spreadsheets
   - images
   - photo management
+old_syntax_highlighting: true
 ---
 I’ve had a couple of projects recently where I needed to work with a list that involved images.
 For example, choosing a series of photos to print, or making an inventory of Lego parts.

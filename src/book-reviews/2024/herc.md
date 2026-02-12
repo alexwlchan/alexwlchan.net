@@ -21,6 +21,7 @@ colors:
    css_light: '#1d5a87'
    css_dark:  '#2f8abc'
 
+old_syntax_highlighting: true
 ---
 A really fun retelling of the myth of Hercules.
 It's told entirely in the first person, with the perspective shifting each chapter -- we hear from all the people who've run into him, wreaking havoc in their lives before moving on somewhere else.

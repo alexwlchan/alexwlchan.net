@@ -9,6 +9,7 @@ tags:
 title: A script for exporting from iMessage
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I have a bit of a love-hate relationship with iMessage. It's the main way I talk to my long-distance girlfriend (along with Skype and FaceTime), but it's also pretty buggy. Messages arrive multiple times, out-of-order, or not at all. But it's convenient, so I keep using it.

@@ -21,6 +21,7 @@ colors:
    css_light: '#334066'
    css_dark:  '#cbddec'
 
+old_syntax_highlighting: true
 ---
 A fun little murder mystery with a lot of layers and twists -- I figured out a few of the things that were sketchy pretty quick, but was completely off on several guesses.
 Switching between three different perspectives was a good way to keep things moving, and I got through it quickly.

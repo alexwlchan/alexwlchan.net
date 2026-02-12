@@ -21,6 +21,7 @@ colors:
    css_light: '#7f6634'
    css_dark:  '#d93c32'
 
+old_syntax_highlighting: true
 ---
 
 This seems like an interesting reference book, or as something to dip into on occasion -- but it couldn't hold my attention read cover-to-cover, and I only got about a third of the way through.

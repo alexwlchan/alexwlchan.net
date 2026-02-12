@@ -13,6 +13,7 @@ colors:
   index_dark:  "#a9c1ca"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 <!-- Social sharing image from https://pixabay.com/photos/iceberg-antarctica-cold-arctic-5163649/ -->
 

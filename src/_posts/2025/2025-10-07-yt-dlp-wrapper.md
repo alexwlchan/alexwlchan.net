@@ -6,6 +6,7 @@ summary: I've written a new script which calls yt-dlp with my preferred options,
 tags:
   - yt-dlp
   - my tools
+old_syntax_highlighting: true
 ---
 I download a lot of videos from YouTube, and [yt-dlp] is my tool of choice.
 Sometimes I download videos as a one-off, but more often I'm downloading videos in a project -- my bookmarks, my collection of TV clips, or my social media scrapbook.

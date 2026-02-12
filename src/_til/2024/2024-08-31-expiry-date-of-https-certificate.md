@@ -5,6 +5,7 @@ date: 2024-08-31 18:27:49 +01:00
 tags:
   - python
 summary: Connect to the domain using the `socket` module, then use the `getpeercert()` method on the connection to get information about the HTTPS certificate.
+old_syntax_highlighting: true
 ---
 
 I was tinkering with some HTTPS certificates, and I wanted to write a scheduled test that would check the certificates weren't about to expire.

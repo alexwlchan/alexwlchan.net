@@ -7,6 +7,7 @@ tags:
   - security
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Last month, Monzo published [a blog post][monzo] about how they hire product designers.

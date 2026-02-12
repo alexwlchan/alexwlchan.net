@@ -6,6 +6,7 @@ summary: We all have bodies, and I've been trying to become more self-aware and 
 tags:
   - personal
   - gender
+old_syntax_highlighting: true
 ---
 
 If you've follow me on Twitter, you might have seen some vague tweets about embodiment recently.

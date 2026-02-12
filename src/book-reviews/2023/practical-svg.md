@@ -21,6 +21,7 @@ colors:
    css_light: '#4772cc'
    css_dark:  '#5884de'
 
+old_syntax_highlighting: true
 ---
 
 A compact collection of useful information about working with SVG.

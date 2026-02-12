@@ -5,6 +5,7 @@ date: 2024-01-04 22:07:01 +00:00
 tags:
   - svg
   - github
+old_syntax_highlighting: true
 ---
 I was trying to write a Markdown file to render on GitHub, and include an SVG file.
 

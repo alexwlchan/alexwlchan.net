@@ -4,6 +4,7 @@ date: 2024-02-06 20:17:11 +00:00
 title: Exclude files from Time Machine with `tmutil addexclusion`
 tags:
   - macos
+old_syntax_highlighting: true
 ---
 If you want to programatically exclude files from Time Machine backups, you can use the [`tmutil` command-line tool](https://ss64.com/mac/tmutil.html).
 

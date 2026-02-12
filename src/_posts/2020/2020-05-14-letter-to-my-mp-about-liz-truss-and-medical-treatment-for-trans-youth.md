@@ -7,6 +7,7 @@ tags:
   - gender
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 About three weeks ago, Liz Truss gave a speech [to the Women and Equalities Select Committee](https://www.gov.uk/government/speeches/minister-for-women-and-equalities-liz-truss-sets-out-priorities-to-women-and-equalities-select-committee), which included discussion of the Gender Recognition Act, and potentially restricting access to medical care for trans youth:

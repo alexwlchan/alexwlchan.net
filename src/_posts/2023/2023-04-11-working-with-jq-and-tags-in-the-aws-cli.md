@@ -9,6 +9,7 @@ colors:
   index_dark:  "#d4d1c0"
   index_light: "#46362e"
 card_attribution: https://www.pexels.com/photo/brown-paper-tag-lot-1111315/
+old_syntax_highlighting: true
 ---
 
 Recently I was writing a shell script to deal with the AWS CLI, and I wanted to filter the list of results [using jq][jq].

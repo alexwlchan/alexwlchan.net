@@ -21,6 +21,7 @@ colors:
    css_light: '#754928'
    css_dark:  '#d89f5f'
 
+old_syntax_highlighting: true
 ---
 The sequel to [*Going Dark*](/book-reviews/silo-49-going-dark/), where Silo 49 has survived but with a warped knowledge of its own history.
 We follow Marina, a historian, who tries to understand what happened in the past.

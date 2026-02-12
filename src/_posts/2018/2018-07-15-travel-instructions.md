@@ -7,6 +7,7 @@ tags:
   - misc
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Given how many people use their smartphones for maps, here's a suggestion for writing travel instructions:

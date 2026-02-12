@@ -6,6 +6,7 @@ title: Why the term "snak" keeps appearing in the Wikidata API
 tags:
   - wikimedia commons
   - naming things
+old_syntax_highlighting: true
 ---
 This is one of those terms I kept seeing in API responses and documentation, but it wasn't immediately obvious to me what it means.
 I found an explanation in the [Wikibase/DataModel](https://www.mediawiki.org/wiki/Wikibase/DataModel#Overview_of_the_data_model) docs:

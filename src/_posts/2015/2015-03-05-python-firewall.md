@@ -8,6 +8,7 @@ tags:
 title: Adding Python to the OS X firewall
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 If you ever get the warning *"Do you want the application "python" to accept incoming connections?"* on OS X, then somebody on Stack Overflow has helpfully written some instructions to keep it quiet.

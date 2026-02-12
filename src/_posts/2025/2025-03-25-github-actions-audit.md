@@ -6,6 +6,7 @@ summary: I wanted to know what third-party code I was using in my GitHub Actions
 tags:
   - shell scripting
   - github
+old_syntax_highlighting: true
 ---
 A week ago, somebody added malicious code [to the tj-actions/changed-files GitHub Action][compromise].
 If you used the compromised action, it would leak secrets to your build log.

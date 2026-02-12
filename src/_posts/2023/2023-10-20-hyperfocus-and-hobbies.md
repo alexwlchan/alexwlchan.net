@@ -13,6 +13,7 @@ colors:
   index_dark:  "#d7a102"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 One of the last things I did at Wellcome Collection was writing a story about hyperfocus and how it affects my cross-stitch.

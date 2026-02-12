@@ -8,6 +8,7 @@ tags:
   - screenshots
   - playwright
   - wayback machine
+old_syntax_highlighting: true
 ---
 As part of my [daily screenshots project][daily_screenshots], I wanted to get screenshots of all the versions of my site that are saved in the Wayback Machine.
 

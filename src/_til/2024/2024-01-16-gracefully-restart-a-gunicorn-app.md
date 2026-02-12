@@ -5,6 +5,7 @@ date: 2024-01-16 14:11:51 +00:00
 tags:
   - python
   - python:gunicorn
+old_syntax_highlighting: true
 ---
 Suppose I have a Flask app:
 

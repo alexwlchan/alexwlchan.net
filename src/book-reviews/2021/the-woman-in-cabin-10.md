@@ -22,6 +22,7 @@ colors:
    css_light: '#12555a'
    css_dark:  '#07cedc'
 
+old_syntax_highlighting: true
 ---
 
 I picked this up on a whim from the iBooks Store, after being intrigued by the description and a reviewer saying it had an unpredictable ending.

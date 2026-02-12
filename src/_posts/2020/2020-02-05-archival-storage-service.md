@@ -13,6 +13,7 @@ tags:
   - wellcome collection
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

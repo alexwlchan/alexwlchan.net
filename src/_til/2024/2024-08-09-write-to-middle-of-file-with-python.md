@@ -5,6 +5,7 @@ date: 2024-08-09 00:42:31 +01:00
 summary: Open the file with mode `r+` to be able to seek around the file and write to it.
 tags:
   - python
+old_syntax_highlighting: true
 ---
 When you open a file in Python, you can use mode `+` to open the file for updating -- you can move around the file and write to parts of it selectively, without having to rewrite the entire file.
 This allows you to make changes in the middle of a file.

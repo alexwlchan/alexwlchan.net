@@ -5,6 +5,7 @@ title: The Oboe of Optozorax, and Other Objects
 summary: A collection of small worldbuilding ideas about magical objects.
 tags:
   - fiction
+old_syntax_highlighting: true
 ---
 
 *Last week, [waffle] was asking a grammar question in a Discord server:*

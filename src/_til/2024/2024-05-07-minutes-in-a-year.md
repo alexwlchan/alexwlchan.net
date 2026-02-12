@@ -7,6 +7,7 @@ summary: |
 tags:
   - theatre
   - datetime shenanigans
+old_syntax_highlighting: true
 ---
 I was doing some [date calculations](https://www.wolframalpha.com/input?i=12+million+%2F+%2834000+per+day%29) in Wolfram Alpha, and I was rather tickled by the comparison as time it suggested:
 

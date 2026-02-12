@@ -6,6 +6,7 @@ summary: If your Python script creates a file that you don't want to track in Gi
 tags:
   - git
   - python
+old_syntax_highlighting: true
 ---
 
 One of the things I work on is [a Catalogue API](https://developers.wellcomecollection.org/catalogue) for searching Wellcome Collection's collections.

@@ -11,6 +11,7 @@ tags:
 colors:
   index_light: "#6d5506"
   index_dark:  "#ddce74"
+old_syntax_highlighting: true
 ---
 
 <!-- Image card: https://www.pexels.com/photo/low-angle-photography-of-american-flag-774316/ -->

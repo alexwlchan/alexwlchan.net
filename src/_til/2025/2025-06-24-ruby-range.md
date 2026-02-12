@@ -5,6 +5,7 @@ date: 2025-06-24 04:50:58 +01:00
 summary: You can iterate over a range between two `String` values, because Ruby's `String` does intelligent increments of alphanumeric strings.
 tags:
   - ruby
+old_syntax_highlighting: true
 ---
 I was writing some Ruby code recently, and in particular I wanted to write some [ranges](https://ruby-doc.org/core-2.5.1/Range.html).
 The basic usage is pretty simple, and matches what I'm used to from other programming languages -- iterate between two numbers:

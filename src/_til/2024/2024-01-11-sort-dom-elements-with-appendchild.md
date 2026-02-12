@@ -4,6 +4,7 @@ title: Sort a list of DOM elements by sorting and calling `appendChild()`
 date: 2024-01-11 21:52:57 +00:00
 tags:
   - javascript
+old_syntax_highlighting: true
 ---
 From [an answer by ahuigo][ahuigo] on Stack Overflow, here's a snippet to sort DOM elements:
 

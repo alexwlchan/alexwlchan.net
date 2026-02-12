@@ -5,6 +5,7 @@ title: Where I store my multi-factor recovery codes
 summary: Most services give you MFA recovery codes but don't tell you where to store them. I use an encrypted disk image and a simple HTML file.
 tags:
   - infosec
+old_syntax_highlighting: true
 ---
 When I read advice about passwords and online accounts, it usually goes something like this:
 

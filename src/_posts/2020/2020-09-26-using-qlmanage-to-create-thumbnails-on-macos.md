@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#4b6ca1"
   index_dark:  "#d69e6d"
+old_syntax_highlighting: true
 ---
 
 macOS has a feature called [Quick Look](https://en.wikipedia.org/wiki/Quick_Look), which lets you preview files.

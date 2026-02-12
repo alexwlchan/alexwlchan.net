@@ -10,6 +10,7 @@ canonical_url: https://stacks.wellcomecollection.org/building-our-new-unified-co
 colors:
   index_light: "#63605f"
   index_dark:  "#d4d2cc"
+old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

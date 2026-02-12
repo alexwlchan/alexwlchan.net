@@ -22,6 +22,7 @@ colors:
    css_light: '#0a090d'
    css_dark:  '#e95e12'
 
+old_syntax_highlighting: true
 ---
 
 Reading a collection of Greta Thunberg's speeches in the midst of a UK heatwave whose effect has almost certainly been exacerbated by climate change is… well, it's something.

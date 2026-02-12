@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#273d5d"
   index_dark:  "#5fa0c1"
+old_syntax_highlighting: true
 ---
 
 If you post a link on Twitter, it goes through Twitter's [t.co link-shortening service][tco].

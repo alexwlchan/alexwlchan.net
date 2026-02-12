@@ -5,6 +5,7 @@ title: Beware of incomplete PDF redactions
 summary: If you're not careful when redacting PDFs, it's possible to share more information than you intended.
 tags:
   - infosec
+old_syntax_highlighting: true
 ---
 
 A while back I was reviewing some legal documents.

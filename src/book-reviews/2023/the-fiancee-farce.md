@@ -20,6 +20,7 @@ colors:
    css_light: '#9a2b4c'
    css_dark:  '#cf7f82'
 
+old_syntax_highlighting: true
 ---
 
 Fake dating!

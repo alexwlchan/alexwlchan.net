@@ -8,6 +8,7 @@ tags:
   - aws
   - aws:amazon s3
 title: Working with really large objects in S3
+old_syntax_highlighting: true
 ---
 
 One of our current work projects involves working with large ZIP files stored in S3.

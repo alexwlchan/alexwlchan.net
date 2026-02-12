@@ -20,6 +20,7 @@ colors:
    css_light: '#175848'
    css_dark:  '#8de5eb'
 
+old_syntax_highlighting: true
 ---
 A cool set of sci-fi stories! I'd read several of them before so it wasn't entirely new to me, but good to fill in the gaps.
 

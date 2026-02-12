@@ -20,6 +20,7 @@ colors:
    css_light: '#5f706d'
    css_dark:  '#eb9179'
 
+old_syntax_highlighting: true
 ---
 
 I first learnt of this book from [Meg Fee's newsletter](http://www.megfee.com/megfee/2018/3/14/3rsk88y6acek8ihbe17np64cboawd4) and [a blog post she wrote](http://www.megfee.com/megfee/2018/5/4/places-i-stopped).

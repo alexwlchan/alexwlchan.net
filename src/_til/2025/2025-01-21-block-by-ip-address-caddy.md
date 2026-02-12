@@ -4,6 +4,7 @@ title: Restricting routes to pre-approved IP addresses in Caddy
 date: 2025-01-21 14:28:43 +00:00
 tags:
   - caddy
+old_syntax_highlighting: true
 ---
 I wanted to limit access to a WordPress login page to a pre-approved list of IP addresses, and provide instructions for anybody trying to log in.
 

@@ -5,6 +5,7 @@ summary: Look in the codecs module.
 date: 2025-11-01 20:15:28 +00:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I was reminded of this while looking at some old tweets; the [codecs module](https://docs.python.org/3/library/codecs.html#module-codecs) knows how to do rot13, hex, or even zip files:
 

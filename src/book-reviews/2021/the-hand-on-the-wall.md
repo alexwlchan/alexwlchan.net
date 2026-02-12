@@ -22,6 +22,7 @@ colors:
    css_light: '#0f6144'
    css_dark:  '#12b26c'
 
+old_syntax_highlighting: true
 ---
 
 The sequel to [*Truly Devious*](/book-reviews/truly-devious/) and [*The Vanishing Stair*](/book-reviews/the-vanishing-stair/).

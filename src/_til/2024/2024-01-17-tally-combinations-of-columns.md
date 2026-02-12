@@ -4,6 +4,7 @@ date: 2024-01-17 13:09:57 +00:00
 title: How to tally combinations of values across multiple columns
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 Recently I've been doing a lot of tallying of values within a single column, so I remember this structure of query quite well:
 

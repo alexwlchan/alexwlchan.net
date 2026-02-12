@@ -7,6 +7,7 @@ tags:
   - terraform
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I've mentioned before that we use [Terraform][tf] to manage our infrastructure at Wellcome.

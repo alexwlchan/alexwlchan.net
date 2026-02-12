@@ -6,6 +6,7 @@ summary: I've written a bookmarklet that helps me link to specific text on a web
 tags:
   - javascript
   - bookmarklets
+old_syntax_highlighting: true
 ---
 One of my favourite features added to web browsers in the last few years is [text fragments].
 

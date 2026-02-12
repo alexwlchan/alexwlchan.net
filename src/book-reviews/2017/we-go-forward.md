@@ -22,6 +22,7 @@ colors:
    css_light: '#4d7790'
    css_dark:  '#fc9e3c'
 
+old_syntax_highlighting: true
 ---
 
 Two girls from Melbourne go travelling in Europe, end up crossing paths in Berlin, and continue their travels together. One bi, one ace-are. The story itself is really charming, and doesn’t fall into the usual trap of an unexpected romance – just two people who become good friends.

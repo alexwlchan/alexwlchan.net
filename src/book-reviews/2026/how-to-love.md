@@ -21,6 +21,7 @@ colors:
   css_light: "#b24b7b"
   css_dark:  "#e5bac9"
 
+old_syntax_highlighting: true
 ---
 
 This book covers a range of topics, from being single to falling in love, to a happily ever after or dealing with a breakup.

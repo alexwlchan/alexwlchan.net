@@ -6,6 +6,7 @@ summary: At WWDC, I was disappointed to see Apple pitch period tracking exclusiv
 tags:
   - gender
   - inclusion
+old_syntax_highlighting: true
 ---
 
 One of the announcements at WWDC on Monday was new cycle tracking features in Apple's Health app.

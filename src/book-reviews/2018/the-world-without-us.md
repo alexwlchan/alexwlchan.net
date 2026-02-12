@@ -21,6 +21,7 @@ colors:
    css_light: '#486469'
    css_dark:  '#1f8ac7'
 
+old_syntax_highlighting: true
 ---
 
 I first tried to read this a couple of years ago; both times it hasn’t stuck. I found the first few chapters quite dense – some interesting ideas, but not enough to compel me to keep reading.

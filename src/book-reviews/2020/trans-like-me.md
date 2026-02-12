@@ -22,6 +22,7 @@ colors:
    css_light: '#d92839'
    css_dark:  '#fcf9ed'
 
+old_syntax_highlighting: true
 ---
 
 I put off reading this for ages, but I’m glad I finally got to reading it.

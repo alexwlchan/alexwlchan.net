@@ -12,6 +12,7 @@ colors:
   index_light: "#367a92"
   index_dark:  "#99c7cf"
 card_attribution: https://www.pexels.com/photo/close-up-photo-of-blue-background-2441454/
+old_syntax_highlighting: true
 ---
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.

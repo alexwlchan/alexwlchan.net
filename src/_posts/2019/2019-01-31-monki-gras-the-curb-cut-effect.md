@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#531b93"
   css_dark:  "#b7a2d7"
+old_syntax_highlighting: true
 ---
 
 Earlier today I did a talk at [Monki Gras 2019](https://monkigras.com/).

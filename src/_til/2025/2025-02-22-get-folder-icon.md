@@ -6,6 +6,7 @@ summary:
 date: 2025-02-22 00:10:03 +00:00
 tags:
   - swift
+old_syntax_highlighting: true
 ---
 I was working on a project where I needed the icons of a list of folders on macOS.
 I wanted to see if I could automate this process.

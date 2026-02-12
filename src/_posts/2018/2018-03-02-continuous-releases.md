@@ -10,6 +10,7 @@ summary: How we do continuous releases of hypothesis-python, and why.
 colors:
   index_light: "#006dad"
   index_dark:  "#2975bc"
+old_syntax_highlighting: true
 ---
 
 About a year ago, David built a powerful continuous release system for the hypothesis-python repo.

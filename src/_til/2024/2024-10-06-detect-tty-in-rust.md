@@ -5,6 +5,7 @@ summary: This allows me to suppress ANSI escape codes if the output is going som
 date: 2024-10-06 10:58:31 +01:00
 tags:
   - rust
+old_syntax_highlighting: true
 ---
 In my [`dominant_colours` tool](https://github.com/alexwlchan/dominant_colours), I use ANSI escape sequences to print coloured text to the console.
 I to detect if my code was running in the terminal, or if it was running in a non-terminal environment where those escape codes would be unhelpful (e.g. being redirected to a file).

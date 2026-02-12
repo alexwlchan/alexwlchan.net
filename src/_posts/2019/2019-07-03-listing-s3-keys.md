@@ -7,6 +7,7 @@ tags:
   - python
   - aws:amazon s3
   - aws
+old_syntax_highlighting: true
 ---
 
 Two years ago, I wrote a Python function for [listing keys in an S3 bucket](/2017/listing-s3-keys/).

@@ -22,6 +22,7 @@ colors:
    css_light: '#206BB8'
    css_dark:  '#bee3fd'
 
+old_syntax_highlighting: true
 ---
 The third and final book in the Bright Falls trilogy – fake dating with a side order of theatre kids.
 Iris and Stevie learning to be able to love somebody else.

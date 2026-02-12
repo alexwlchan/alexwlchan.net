@@ -5,6 +5,7 @@ title: A cautionary tale about Fusion Drive repairs
 summary: If you send a Mac with a Fusion Drive to get repaired to the Apple Store, make sure it comes back in one piece.
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 In September, my iMac became pretty sluggish.

@@ -21,6 +21,7 @@ colors:
    css_light: '#297199'
    css_dark:  '#efbd3b'
 
+old_syntax_highlighting: true
 ---
 This is the story of the planes that arrived in Gander, Newfoundland in the immediate aftermath of 9/11, a story I first learnt from the musical *Come From Away*.
 It describes events in a lot more detail than the musical – many more people, stories, places.

@@ -6,6 +6,7 @@ date: 2025-10-05 14:53:42 +01:00
 tags:
   - gallery-dl
   - instagram
+old_syntax_highlighting: true
 ---
 I wanted a programmatic way to get avatar URLs for Instagram pages, and it turns out this is supported in gallery-dl.
 The trick is to add `/avatar` to the end of the URL -- this doesn't resolve on `instagram.com`, but it tells gallery-dl that you want the avatar URL.
