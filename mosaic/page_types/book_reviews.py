@@ -43,6 +43,7 @@ class ReviewInfo(BaseModel):
     rating: int = 0
     summary: str = ""
     did_not_finish: bool = False
+    from_the_library: bool = False
 
 
 class BookReview(BaseHtmlPage):
