@@ -268,6 +268,32 @@ def test_swift_shebang_is_not_highlighted() -> None:
     )
 
 
+def test_bash_shebang_is_not_highlighted() -> None:
+    """
+    The shebang at the start of a bash script is punctuation.
+    """
+    html = apply_syntax_highlighting(
+        src='#!/usr/bin/env bash\n\necho "Hello world"', lang="bash"
+    )
+    assert html.startswith(
+        '<pre class="lng-bash"><code><span class="p">#!/usr/bin/env bash</span>'
+    )
+
+
+def test_bash_functions_are_highlighted() -> None:
+    """
+    The shebang at the start of a bash script is punctuation.
+    """
+    html = apply_syntax_highlighting(
+        src='print_hello() {\n  echo "hello"\n}\n\n'
+        'print_goodbye() {\n  echo "goodbye"\n}\n',
+        lang="bash",
+        names={1: "print_hello", 3: "print_goodbye"},
+    )
+    assert '<span class="n">print_hello</span><span class="o">()</span>' in html
+    assert '<span class="n">print_goodbye</span><span class="o">()</span>' in html
+
+
 def test_console_preserves_whitespace() -> None:
     """
     Whitespace tokens are preserved in console snippets.

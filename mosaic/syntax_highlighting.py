@@ -34,6 +34,9 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     This is hacky and manual, but it should be fine because I'm always
     going to review the output manually.
     """
+    # Remove empty spans
+    highlighted_code = highlighted_code.replace("<span></span>", "")
+
     # Nested CSS: fix the highlighting of nested elements.
     #
     # This isn't as good as proper support for nesting in Pygments, but
@@ -96,6 +99,22 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="n">env</span><span class="w"> </span>'
             '<span class="n">swift</span>\n',
             '<span class="p">#!/usr/bin/env swift</span>\n',
+        )
+
+    # Bash: the shebang at the start is punctuation.
+    if lang == "bash":
+        highlighted_code = highlighted_code.replace(
+            '<span class="ch">#!/usr/bin/env bash</span>',
+            '<span class="p">#!/usr/bin/env bash</span>',
+        )
+
+    # Bash: highlight functions as potential names
+    if lang == "bash":
+        highlighted_code = re.sub(
+            r'(<pre>|\n)(?P<function_name>[a-z_]+)(<span class="o">\(\)</span>)',
+            r'\1<span class="n">\g<function_name></span>\3',
+            highlighted_code,
+            flags=re.MULTILINE,
         )
 
     # Python: the shebang at the start is punctuation.
@@ -265,7 +284,7 @@ def apply_syntax_highlighting(
                 document.querySelectorAll("input.codeName")
                   .forEach(checkbox => {
                     if (checkbox.checked) {
-                      selectedNames[checkbox.getAttribute('data-idx')] = 
+                      selectedNames[checkbox.getAttribute('data-idx')] =
                         checkbox.getAttribute('data-varname');
                     }
                   });

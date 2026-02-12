@@ -2,7 +2,7 @@
 layout: page
 title: ""
 colors:
-  css_light: "#118207"
+  css_light: "#098a07"
   css_dark:  "#5ff042"
 old_syntax_highlighting: true
 ---

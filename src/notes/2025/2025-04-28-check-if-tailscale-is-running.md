@@ -1,12 +1,9 @@
 ---
-layout: til
-title: How to check if Tailscale is running
-summary:
-  Use `tailscale status` and look for the `BackendState` key.
+layout: note
 date: 2025-04-28 11:38:50 +01:00
-tags:
-  - tailscale
-old_syntax_highlighting: true
+title: How to check if Tailscale is running
+summary: Use `tailscale status` and look for the `BackendState` key.
+topic: Tailscale
 ---
 I have some scripts that talk to nodes in my Tailscale network, but they can only connect if Tailscale is running on my Mac.
 I wanted a way for my scripts to check if Tailscale is running, and prompt me to start it if not.
@@ -14,7 +11,7 @@ I wanted a way for my scripts to check if Tailscale is running, and prompt me to
 You can get the state of Tailscale using the CLI, for example:
 
 ```console
-$ /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json
+$ tailscale status --json
 {
   "Version": "1.82.5-tdec88625e-gec2eb9730",
   "TUN": true,
@@ -33,7 +30,7 @@ I've wrapped this in a script `ensure_tailscale_running.sh` which I can call fro
 
 Because I write all my scripts with `set -o errexit`, this means the other scripts will fail if I'm not connected to Tailscale.
 
-{% code lang="bash" names="4:print_info 8:print_error 12:print_warning 16:backend_state" %}
+```bash {"names":{"3":"print_info","6":"print_error","9":"print_warning","12":"backend_state"}}
 #!/usr/bin/env bash
 # Check if Tailscale is running, and prompt you to start it if not.
 
@@ -81,4 +78,4 @@ else
   print_warning "Unexpected BackendState from Tailscale CLI: $backend_state"
   exit 2
 fi
-{% endcode %}
+```
