@@ -21,6 +21,7 @@ colors:
    css_light: '#555ca1'
    css_dark:  '#f892c2'
 
+old_syntax_highlighting: true
 ---
 Short and sweet sequel to [*Looking for Emily*](/book-reviews/looking-for-emily/), set in the same town of Edge but featuring separate characters.
 (Or if there are characters from the first book, I'd forgotten them.)

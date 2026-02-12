@@ -21,6 +21,7 @@ colors:
    css_light: '#736954'
    css_dark:  '#bdbd6d'
 
+old_syntax_highlighting: true
 ---
 
 Fun to read a book about Welwyn's railways that's now over 30 years old.

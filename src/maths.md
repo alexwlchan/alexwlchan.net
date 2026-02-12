@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Maths
+old_syntax_highlighting: true
 ---
 
 Between September 2011 and June 2014, I was a maths student at Queens' College, Cambridge.

@@ -6,6 +6,7 @@ tags:
   - shell scripting
   - screenshots
 title: Finding the latest screenshot in macOS Mojave
+old_syntax_highlighting: true
 ---
 
 One of the things that changed in macOS Mojave was the format of screenshot filenames.

@@ -22,6 +22,7 @@ colors:
    css_light: '#475a86'
    css_dark:  '#d0ab36'
 
+old_syntax_highlighting: true
 ---
 A romance in which Zach (a new ghost) and Cara (a ghost speaker) travel to a magical realm where they have to face various challenges to try to resurrect him.
 

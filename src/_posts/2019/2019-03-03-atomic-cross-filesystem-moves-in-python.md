@@ -6,6 +6,7 @@ summary: Explaining some code for moving files around in a way that's atomic and
 tags:
   - python
 title: Atomic, cross-filesystem moves in Python
+old_syntax_highlighting: true
 ---
 
 If you want to move a file around in Python, the standard library gives you at least two options: [os.rename()](https://docs.python.org/3/library/os.html#os.rename) or [shutil.move()](https://docs.python.org/3/library/shutil.html#shutil.move).

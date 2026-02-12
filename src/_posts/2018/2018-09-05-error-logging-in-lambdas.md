@@ -8,6 +8,7 @@ tags:
   - python
   - aws:aws-lambda
 title: A basic error logger for Python Lambdas
+old_syntax_highlighting: true
 ---
 
 At work, we use [AWS Lambda][lambda] functions for a bunch of "glue" pieces between different services.

@@ -4,6 +4,7 @@ title: The LastModified date of an S3 multipart upload is when the upload starte
 date: 2025-11-27 21:59:35 +00:00
 tags:
   - aws:amazon s3
+old_syntax_highlighting: true
 ---
 When you upload a large file to Amazon S3 (more than 5GB), you need to use a [multipart upload][s3-multipart-upload].
 This takes three steps:

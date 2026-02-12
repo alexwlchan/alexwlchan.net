@@ -22,6 +22,7 @@ colors:
    css_light: '#386f82'
    css_dark:  '#eb9f81'
 
+old_syntax_highlighting: true
 ---
 
 This is the sequel to [*Written in the Stars*](/book-reviews/written-in-the-stars/) and [*Hang the Moon*](/book-reviews/hang-the-moon/), in a way that presumably ties off the trilogy -- all the main characters are now paired off and have their happily ever after.

@@ -7,6 +7,7 @@ tags:
   - rust
   - generative art
   - drawing things
+old_syntax_highlighting: true
 ---
 
 In my [last post], I mentioned I have a mini-site where I track the books I've been reading ([books.alexwlchan.net]).

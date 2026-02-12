@@ -23,6 +23,7 @@ colors:
    css_light: '#7a493a'
    css_dark:  '#db8840'
 
+old_syntax_highlighting: true
 ---
 
 Another library book which I thought would be another light, fluffy romance, but is quite a bit deeper.

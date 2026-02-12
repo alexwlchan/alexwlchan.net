@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: HTML
+old_syntax_highlighting: true
 ---
 
 HyperText Markup Language (HTML) is the markup language used to create web pages.

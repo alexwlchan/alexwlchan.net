@@ -21,6 +21,7 @@ colors:
    css_light: '#667849'
    css_dark:  '#689b39'
 
+old_syntax_highlighting: true
 ---
 
 A quick and easy read, funny in parts, but mostly just a series of complaints. I enjoyed it, but it was hard to shake the feeling that it’s a bit like the Buzzfeed articles it’s trying to poke fun at.

@@ -20,6 +20,7 @@ colors:
    css_light: '#636874'
    css_dark:  '#b2b6bd'
 
+old_syntax_highlighting: true
 ---
 
 I read this for a book club. My response is basically “Meh”.

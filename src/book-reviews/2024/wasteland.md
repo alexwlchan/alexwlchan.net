@@ -23,6 +23,7 @@ colors:
    css_light: '#d6191e'
    css_dark:  '#62bed2'
 
+old_syntax_highlighting: true
 ---
 Really interesting book about waste – where it goes, how it's processed, what _really_ happens when you put something in the recycling bin.
 The author visited waste management sites all over the world, including tip sites in India, toxic mine spoil in the US, and nuclear waste storage in the UK.

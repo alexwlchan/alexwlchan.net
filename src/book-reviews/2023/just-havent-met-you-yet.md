@@ -22,6 +22,7 @@ colors:
    css_light: '#333156'
    css_dark:  '#c18e67'
 
+old_syntax_highlighting: true
 ---
 
 Another romcom which was basically fine.

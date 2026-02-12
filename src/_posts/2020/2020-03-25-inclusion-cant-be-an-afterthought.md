@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#20883f"
   css_dark:  "#2fc65d"
+old_syntax_highlighting: true
 ---
 
 Earlier today, I gave a talk for [the Open Life Science Program][openlife] about designing with inclusion in mind.

@@ -5,6 +5,7 @@ summary: This is useful for checking if something's installed.
 date: 2016-08-25 05:49:52 +00:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 [`shutil.which()`](https://docs.python.org/3/library/shutil.html#shutil.which) returns the path to the executable, or `None` if you don't have it installed:
 

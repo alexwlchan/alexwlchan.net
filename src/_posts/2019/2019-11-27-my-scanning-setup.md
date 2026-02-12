@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#302d2b"
   index_dark:  "#c2904f"
+old_syntax_highlighting: true
 ---
 
 I get a lot of documents as paper, which I scan and store as PDFs files.

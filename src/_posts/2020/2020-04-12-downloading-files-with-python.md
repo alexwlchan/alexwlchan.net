@@ -4,6 +4,7 @@ date: 2020-04-12 14:27:01 +00:00
 title: A snippet for downloading files with Python
 tags:
   - python
+old_syntax_highlighting: true
 ---
 
 Back in February, I wrote about the [new storage service][storage] I've been helping to build at Wellcome.

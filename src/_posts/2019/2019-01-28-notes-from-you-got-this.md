@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#640b0f"
   index_dark:  "#e1f0f6"
+old_syntax_highlighting: true
 ---
 
 <!-- "in the taylor series of philosophy, it's a very good first term" -->

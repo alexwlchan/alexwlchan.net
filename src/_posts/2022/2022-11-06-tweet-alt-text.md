@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#235f88"
   index_dark:  "#5298c7"
+old_syntax_highlighting: true
 ---
 
 <!-- Card from https://wellcomecollection.org/works/yghm43ap/items, public domain -->

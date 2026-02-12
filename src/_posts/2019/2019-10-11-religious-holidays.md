@@ -5,6 +5,7 @@ title: Adding religious holidays to my calendar
 tags:
   - inclusion
   - religion
+old_syntax_highlighting: true
 ---
 
 I made a small tweak to my calendar recently, so it shows me religious holidays -- or at least, Christian, Jewish and Muslim holidays:

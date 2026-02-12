@@ -5,6 +5,7 @@ summary: You can get information from `https://{username}.tumblr.com/api/read`.
 date: 2025-10-04 06:46:34 +01:00
 tags:
   - tumblr
+old_syntax_highlighting: true
 ---
 I'm working on a project to get some data from Tumblr, and I wanted to use the Tumblr API.
 

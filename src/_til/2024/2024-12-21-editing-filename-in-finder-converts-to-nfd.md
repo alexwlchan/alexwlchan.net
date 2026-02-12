@@ -7,6 +7,7 @@ tags:
   - unicode shenanigans
 summary: |
   Even if the filename looks the same, it may be invisibly converted to a different sequence of bytes.
+old_syntax_highlighting: true
 ---
 I noticed this while working on a file called `Besźel.jpg`.
 

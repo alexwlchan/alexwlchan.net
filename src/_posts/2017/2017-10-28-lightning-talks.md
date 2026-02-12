@@ -9,6 +9,7 @@ summary: Why I like the lottery system used to select lightning talks at PyCon U
 colors:
   index_light: "#174346"
   index_dark:  "#e0b411"
+old_syntax_highlighting: true
 ---
 
 A constant highlight of PyCon UK is the lighting talks session.

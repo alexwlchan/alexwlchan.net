@@ -23,6 +23,7 @@ colors:
    css_light: '#767676'
    css_dark:  '#54a27b'
 
+old_syntax_highlighting: true
 ---
 
 Light read about the history of cryptography – mostly stories about the people involved, interspersed with explanations of the mathematics.

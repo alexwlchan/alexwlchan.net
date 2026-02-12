@@ -4,6 +4,7 @@ date: 2024-02-26 10:15:24 +00:00
 title: How to restrict a page to specific IP addresses
 tags:
   - nginx
+old_syntax_highlighting: true
 ---
 I had a login page which I wanted to restrict to an approved list of IP addresses, primarily to reduce spam.
 You still had to login with a username/password if your IP address was approved, but it was harder for spambots to hammer the login form.

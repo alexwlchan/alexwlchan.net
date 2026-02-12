@@ -24,6 +24,7 @@ colors:
    css_light: '#2f3d71'
    css_dark:  '#f95044'
 
+old_syntax_highlighting: true
 ---
 Thriller about two Black students who find themselves the target of a smear campaign in their otherwise-White school.
 It's a fun little mystery, and it kept me guessing about who might be behind it.

@@ -11,6 +11,7 @@ colors:
   index_dark:  "#e7a355"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 I make a lot of box-and-arrow diagrams, and I typically make them as [SVGs].

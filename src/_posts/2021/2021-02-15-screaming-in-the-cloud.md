@@ -10,6 +10,7 @@ link: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-clo
 colors:
   index_light: "#4497b4"
   index_dark:  "#4597b4"
+old_syntax_highlighting: true
 ---
 
 Early last year, in a fit of lockdown-induced ridiculousness, I wrote some [code that turned DynamoDB into a calculator](/2020/using-dynamodb-as-a-calculator/).

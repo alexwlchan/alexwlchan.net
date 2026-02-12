@@ -11,6 +11,7 @@ link: https://github.com/alexwlchan/lorenz-wheels
 colors:
   index_light: "#423f3a"
   index_dark:  "#a9a69a"
+old_syntax_highlighting: true
 ---
 
 Yesterday I found a set of old illustrations I'd made for the wheels of a [Lorenz cipher machine], which was a machine used by the German Army during World War II.

@@ -22,6 +22,7 @@ colors:
    css_light: '#e10518'
    css_dark:  '#fdf9e6'
 
+old_syntax_highlighting: true
 ---
 
 Fun little book of trivia about the London Underground. Good flow, interesting facts, lots of stuff about the history of the Underground I didn’t know before.

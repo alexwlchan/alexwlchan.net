@@ -20,6 +20,7 @@ colors:
    css_light: '#9c161e'
    css_dark:  '#5099a7'
 
+old_syntax_highlighting: true
 ---
 
 Well-written, an easy read.

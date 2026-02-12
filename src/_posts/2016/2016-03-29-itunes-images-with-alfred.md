@@ -10,6 +10,7 @@ title: Get images from the iTunes/App/Mac App Stores with Alfred
 colors:
   index_light: "#333333"
   index_dark:  "#a1a5b1"
+old_syntax_highlighting: true
 ---
 
 Several weeks ago, Dr. Drang posted a [Python script](http://leancrew.com/all-this/2016/03/images-from-the-itunes-app-mac-app-stores/) for getting artwork from the iTunes Store.

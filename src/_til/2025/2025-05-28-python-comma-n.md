@@ -5,6 +5,7 @@ summary: You can use `{num:,}` to insert a comma every three digits, `{num:_}` t
 date: 2025-05-28 17:39:19 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 ## Insert a comma every three digits
 

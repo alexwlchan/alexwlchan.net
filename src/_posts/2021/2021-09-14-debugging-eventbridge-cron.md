@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#565b62"
   index_dark:  "#bfc3c5"
+old_syntax_highlighting: true
 ---
 
 Within AWS, you can use [EventBridge rules] to run something on a schedule.

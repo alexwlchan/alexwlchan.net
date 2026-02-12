@@ -4,6 +4,7 @@ title: Use `rm -v` to see which files are being removed
 date: 2025-05-18 18:52:40 +01:00
 tags:
   - shell scripting
+old_syntax_highlighting: true
 ---
 I made a typo today that revealed an interesting flag in `rm`: if you pass `-v`/`--verbose`, it prints the name of every file it's deleting.
 

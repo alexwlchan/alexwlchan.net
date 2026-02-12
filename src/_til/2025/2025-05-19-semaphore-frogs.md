@@ -4,6 +4,7 @@ title: The Panamanian Golden Frog communicates by semaphore
 date: 2025-05-19 22:37:00 +01:00
 tags:
   - animals
+old_syntax_highlighting: true
 ---
 Here's another quote from *A Libertarian Walks Into a Bear*:
 

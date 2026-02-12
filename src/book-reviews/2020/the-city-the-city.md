@@ -21,6 +21,7 @@ colors:
    css_light: '#3c4387'
    css_dark:  '#9395a8'
 
+old_syntax_highlighting: true
 ---
 
 This was a gift from Mum; bought on the recommendation of [Rae](https://twitter.com/RaeKnowler) and [David](https://twitter.com/zarkonnen_com).

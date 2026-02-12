@@ -2,6 +2,7 @@
 layout: til
 title: Google will delete your account if you don't use it for two years
 date: 2025-01-23 20:03:37 +00:00
+old_syntax_highlighting: true
 ---
 I have a couple of spare Google accounts I used for old testing, and I've been getting emails recently threatening to delete them if I don't log in.
 (It's fine; they were throwaway accounts that have nothing I care about in them.)

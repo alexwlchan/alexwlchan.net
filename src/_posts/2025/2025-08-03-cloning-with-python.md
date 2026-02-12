@@ -5,6 +5,7 @@ title: Create space-saving clones on macOS with Python
 summary: You can shell out to `cp -c` using `subprocess`, or you can make a `clonefile()` syscall using the `ctypes` library.
 topic: Python
 card_attribution: https://pixabay.com/photos/stormtrooper-star-wars-lego-storm-1343772/
+old_syntax_highlighting: true
 ---
 
 The standard Mac filesystem, <a href="https://en.wikipedia.org/wiki/Apple_File_System"><abbr title="Apple File System">APFS</abbr></a>, has a feature called *space-saving clones*.

@@ -24,6 +24,7 @@ colors:
    css_light: '#c94076'
    css_dark:  '#de8fae'
 
+old_syntax_highlighting: true
 ---
 
 A powerful, gripping book about Kayleigh, a content moderator for an unnamed social media site.

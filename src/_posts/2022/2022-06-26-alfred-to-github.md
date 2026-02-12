@@ -10,6 +10,7 @@ link: https://github.com/alexwlchan/github_alfred_shortcuts
 colors:
   index_light: "#1c1c1c"
   index_dark:  "#898f93"
+old_syntax_highlighting: true
 ---
 
 I've written a script which lets me build an [Alfred workflow] to open GitHub repositories quickly.

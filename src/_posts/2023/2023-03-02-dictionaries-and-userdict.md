@@ -9,6 +9,7 @@ colors:
   index_light: "#035e96"
   index_dark:  "#6fd0fd"
 card_attribution: Cover image is CC0, by stevepb, from https://pixabay.com/photos/dictionary-reference-book-learning-1619740/
+old_syntax_highlighting: true
 ---
 
 In [my previous post][groups], I was creating groups of students, and I wanted to track how many times students had worked together.

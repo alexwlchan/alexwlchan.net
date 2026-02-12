@@ -22,6 +22,7 @@ colors:
    css_light: '#2b7aa6'
    css_dark:  '#699cc7'
 
+old_syntax_highlighting: true
 ---
 The key thesis is that cows are individuals, even if their individuality looks different from what it looks like for humans.
 Evidence comes in the form of a fun collection of stories about cows and other farm animals; this was an easy and enjoyable read.

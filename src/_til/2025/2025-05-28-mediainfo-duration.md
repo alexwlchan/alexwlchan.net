@@ -5,6 +5,7 @@ summary: Use `mediainfo --Inform='Video;%Duration%' [VIDEO_FILE]`.
 date: 2025-05-28 19:24:07 +01:00
 tags:
   - video
+old_syntax_highlighting: true
 ---
 Here's an example:
 

@@ -21,6 +21,7 @@ colors:
    css_light: '#406a82'
    css_dark:  '#a4dad3'
 
+old_syntax_highlighting: true
 ---
 
 I continue my quest to read the Moomin books in completely the wrong order.

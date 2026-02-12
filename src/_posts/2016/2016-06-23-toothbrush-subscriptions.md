@@ -5,6 +5,7 @@ link: https://www.amazon.co.uk/Subscribe-Save-Health-Beauty-Grocery/b?ie=UTF8&no
 title: A subscription for my toothbrush
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Last weekend, I had my annual dental check-up.

@@ -4,6 +4,7 @@ date: 2025-05-04 15:17:01 +00:00
 title: Handling JSON objects with duplicate names in Python
 summary: It's possible, although uncommon, for a JSON object to contain the same name multiple times. Here are some ways to handle that in Python.
 topic: Python
+old_syntax_highlighting: true
 ---
 
 Consider the following JSON object:

@@ -6,6 +6,7 @@ summary: |
   Two Python libraries for this task are appdirs and platformdirs, which tell you the location of the platform-specific cache directory and other similar directories.
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I was writing a Python library that might need to cache some results.
 On macOS, that sort of app or library-specific cache should be written to `~/Library/Caches`, but that path will be different on other operating systems.

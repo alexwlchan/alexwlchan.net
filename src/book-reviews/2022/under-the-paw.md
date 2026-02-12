@@ -22,6 +22,7 @@ colors:
    css_light: '#c03c39'
    css_dark:  '#b8d2c0'
 
+old_syntax_highlighting: true
 ---
 
 A charming little book about a man who has six cats, plus a seventh at his parents, and his relationships with all of them.

@@ -21,6 +21,7 @@ colors:
    css_light: '#2b6183'
    css_dark:  '#c05a09'
 
+old_syntax_highlighting: true
 ---
 
 This is a book covering a variety of British railway disasters, and putting them in the context of broader railway history.

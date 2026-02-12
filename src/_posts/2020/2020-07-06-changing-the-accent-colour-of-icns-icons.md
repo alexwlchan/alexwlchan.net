@@ -7,6 +7,7 @@ tags:
   - macos
   - colour
   - fun stuff
+old_syntax_highlighting: true
 ---
 
 One of my key tools is [nvALT], a notetaking app for macOS.

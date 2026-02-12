@@ -20,6 +20,7 @@ colors:
    css_light: '#171716'
    css_dark:  '#fcea17'
 
+old_syntax_highlighting: true
 ---
 This is a good discussion of the ubiquity of PowerPoint -- not just tips for designing slides, but an explanation of its history, how it came to be so popular, and why it's still scorned by journalists and politicians.
 It talks about what it's good for (and what it's not), and how to lean into it as a way to collect and share ideas.

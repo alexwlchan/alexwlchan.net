@@ -9,6 +9,7 @@ tags:
   - ipad
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 When I'm taking a photo, I like to take several shots every time.

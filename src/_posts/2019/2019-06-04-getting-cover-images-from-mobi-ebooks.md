@@ -5,6 +5,7 @@ link: https://github.com/alexwlchan/get-mobi-cover-image
 title: A script for getting cover images from mobi ebooks
 tags:
   - ebooks
+old_syntax_highlighting: true
 ---
 
 As part of a recent project, I've been writing code to get thumbnails for a bunch of different file formats.

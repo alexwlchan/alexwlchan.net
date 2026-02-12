@@ -21,6 +21,7 @@ colors:
    css_light: '#c72c2d'
    css_dark:  '#c2c3c5'
 
+old_syntax_highlighting: true
 ---
 A perfectly pleasant murder mystery about an author who disappeared in Thailand about 20 years ago, then reappears at his own memorial service.
 Is this the real man, or is this an impostor capitalising on the attention?

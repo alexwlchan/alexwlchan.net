@@ -9,6 +9,7 @@ tags:
   - rust:clap
   - rust:palette
   - colour
+old_syntax_highlighting: true
 ---
 I was writing a command-line tool using the [Clap crate](https://docs.rs/clap/latest/clap/index.html), and I wanted to be able to pass a hexadecimal string as an argument and have it be parsed as a [Palette colour](https://docs.rs/palette/latest/palette/).
 Some of this work might be reusable if I ever want to parse different types with Clap.

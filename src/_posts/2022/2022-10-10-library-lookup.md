@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#527345"
   index_dark:  "#97b18a"
+old_syntax_highlighting: true
 ---
 
 <!-- Cover image from https://wellcomecollection.org/works/u7xetmy2/images?id=mbrj8865, Public Domain -->

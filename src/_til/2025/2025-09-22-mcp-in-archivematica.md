@@ -7,6 +7,7 @@ tags:
   - digital preservation
   - archivematica
   - naming things
+old_syntax_highlighting: true
 ---
 The acronym "MCP" has been used a lot recently in the context of Large Language Models.
 It stands for ["Model Context Protocol"][mcp_ai], and it's a way for generative AI to communicate with external systems.

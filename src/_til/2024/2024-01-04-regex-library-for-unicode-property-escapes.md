@@ -5,6 +5,7 @@ date: 2024-01-04 23:47:49 +00:00
 tags:
   - python
   - unicode
+old_syntax_highlighting: true
 ---
 I was writing some code to detect and replace emoji.
 

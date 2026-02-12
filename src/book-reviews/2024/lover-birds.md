@@ -23,6 +23,7 @@ colors:
    css_light: '#315a95'
    css_dark:  '#f7d51a'
 
+old_syntax_highlighting: true
 ---
 A feel-good YA romance that was exactly the sort of light-hearted, fun read I needed to break my cold spell.
 It hits all of my favourite tropes: enemies-to-lovers, oblivious lesbians, girls standing up for each other, showing somebody the place where you live.

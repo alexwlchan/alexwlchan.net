@@ -11,6 +11,7 @@ index:
 colors:
   css_light: "#5366ac"
   css_dark:  "#607db9"
+old_syntax_highlighting: true
 ---
 <!-- Social media card image: martin-fisher-5577331_1920.jpg -->
 

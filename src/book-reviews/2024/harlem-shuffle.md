@@ -22,6 +22,7 @@ colors:
    css_light: '#d6311e'
    css_dark:  '#f9cb25'
 
+old_syntax_highlighting: true
 ---
 Ray Carney is a furniture salesman in Harlem, looking to provide for his family and move to a nicer neighbourhood, and sometimes crossing the line into criminal dealings.
 He falls in deeper than expected when his cousin Freddie names him as the fence in a major jewellery heist.

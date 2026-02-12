@@ -5,6 +5,7 @@ date: 2024-07-24 22:39:41 +01:00
 tags:
   - images
   - css
+old_syntax_highlighting: true
 ---
 A fairly common pattern I use in my web pages is to have a solid colour placeholder that shows where the image will appear, and which is replaced by the image when it loads.
 

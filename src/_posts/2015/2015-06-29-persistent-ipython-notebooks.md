@@ -8,6 +8,7 @@ tags:
   - windows
   - python:ipython
 title: Persistent IPython notebooks in Windows
+old_syntax_highlighting: true
 ---
 
 I've been using [IPython][ipy] for about six months, and I've grown to love the [web-based notebook interface][notebook]. It's became my go-to environment when I want to do simple calculations, or test a new idea in Python. It's also a lovely environment for [literate programming][litprog], and I wish I'd had it for my university coursework.[^1]

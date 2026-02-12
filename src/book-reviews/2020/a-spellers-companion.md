@@ -22,6 +22,7 @@ colors:
    css_light: '#42342f'
    css_dark:  '#fefef7'
 
+old_syntax_highlighting: true
 ---
 
 Short, useful history of English and why its spelling is the way it is.

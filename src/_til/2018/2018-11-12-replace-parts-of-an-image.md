@@ -4,6 +4,7 @@ title: "Replace black/white parts of an image with ImageMagick"
 date: 2018-11-12 09:09:23 +00:00
 tags:
   - imagemagick
+old_syntax_highlighting: true
 ---
 
 Replace white sections of an image with transparency:

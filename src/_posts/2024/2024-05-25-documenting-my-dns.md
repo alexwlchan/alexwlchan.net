@@ -12,6 +12,7 @@ colors:
   index_light: "#c53f70"
   index_dark:  "#bbc660"
 card_attribution: https://www.pexels.com/photo/close-up-shot-of-a-hummingbird-4838540/
+old_syntax_highlighting: true
 ---
 
 I had to change some of my DNS records recently, a phrase which strikes fear into the heart of sysadmins everywhere.

@@ -5,6 +5,7 @@ summary: A quick Python function to follow a redirect to its eventual conclusion
 tags:
   - python
 title: 'Python snippets: Chasing redirects and URL shorteners'
+old_syntax_highlighting: true
 ---
 
 Quick post today.

@@ -6,6 +6,7 @@ tags:
   - privacy
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 This ship has long since sailed, but yesterday I found another reason to be a bit sad that TfL has phased out cash as a payment mechanism.

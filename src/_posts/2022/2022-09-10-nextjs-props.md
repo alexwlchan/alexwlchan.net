@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#AE160E"
   index_dark:  "#f15850"
+old_syntax_highlighting: true
 ---
 
 At work, we use the [Next.js framework][nextjs] to build our website.

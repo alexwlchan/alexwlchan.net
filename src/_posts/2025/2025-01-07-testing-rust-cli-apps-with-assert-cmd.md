@@ -6,6 +6,7 @@ summary: Some practical examples of how this handy crate lets me write clear, re
 tags:
   - rust
   - software testing
+old_syntax_highlighting: true
 ---
 Rust has become my go-to language for my personal toolbox -- small, standalone utilities like [create_thumbnail], [emptydir], and [dominant_colours].
 There's no place for Rust in my day job, so having some self-contained hobby projects means I can still have fun playing with it.

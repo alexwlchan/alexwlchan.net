@@ -23,6 +23,7 @@ colors:
    css_light: '#914690'
    css_dark:  '#d063d0'
 
+old_syntax_highlighting: true
 ---
 
 This is a novel about a girl who goes off to university looking for her "one true love", how she comes to realise that she's actually ace-aro, and finds a different sort of love.

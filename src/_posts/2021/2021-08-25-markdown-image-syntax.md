@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#4B5259"
   index_dark:  "#a6adb5"
+old_syntax_highlighting: true
 ---
 
 I was using Markdown to write a README the other night, and I noticed something rather nice about the [syntax for images][img_syntax].

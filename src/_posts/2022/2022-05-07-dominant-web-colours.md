@@ -12,6 +12,7 @@ link: https://dominant-colours.glitch.me/
 colors:
   index_light: "#1b3055"
   index_dark:  "#bdbdc2"
+old_syntax_highlighting: true
 ---
 
 Last year, I created [a CLI tool][cli] for finding the dominant colours in an image.

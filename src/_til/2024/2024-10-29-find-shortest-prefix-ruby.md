@@ -7,6 +7,7 @@ summary: |
 tags:
   - ruby
   - string processing
+old_syntax_highlighting: true
 ---
 I had a list of strings, and I wanted to find the shortest prefix that would unambiguously identify each string.
 

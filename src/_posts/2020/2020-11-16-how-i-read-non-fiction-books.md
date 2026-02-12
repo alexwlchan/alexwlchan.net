@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#4f391d"
   index_dark:  "#c1ae97"
+old_syntax_highlighting: true
 ---
 
 I've spent a lot of this year reading books.

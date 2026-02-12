@@ -8,6 +8,7 @@ tags:
   - python
   - aws:amazon cloudwatch
 title: Downloading logs from Amazon CloudWatch
+old_syntax_highlighting: true
 ---
 
 At work, we use [Amazon CloudWatch][cloudwatch] for logging in our applications.

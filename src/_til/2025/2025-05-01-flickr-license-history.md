@@ -4,6 +4,7 @@ title: How does Flickr's getLicenseHistory handle photos with no license changes
 date: 2025-05-01 11:32:47 +01:00
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 I'm using the Flickr's [getLicenseHistory API][api], which returns the license history for a photo.
 

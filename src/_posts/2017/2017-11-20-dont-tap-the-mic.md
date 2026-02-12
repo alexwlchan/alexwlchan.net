@@ -9,6 +9,7 @@ colors:
   index_dark:  "#d5d6d5"
 tags:
   - conferences
+old_syntax_highlighting: true
 ---
 
 When I was in college, I did a bit of work in the college theatre as a backstage technician.

@@ -20,6 +20,7 @@ colors:
    css_light: '#b64725'
    css_dark:  '#fef5bc'
 
+old_syntax_highlighting: true
 ---
 
 I didn't quite read this to completion (I skimmed the last three chapters), but I got through a decent amount.

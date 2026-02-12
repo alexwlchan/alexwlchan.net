@@ -22,6 +22,7 @@ colors:
    css_light: '#2b8093'
    css_dark:  '#e6f6f4'
 
+old_syntax_highlighting: true
 ---
 
 Good book, covers various aspects of water – chemical, physical, political – in lots of detail. There are plenty of diversions into related topics where helpful; water is just the framing.

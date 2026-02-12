@@ -8,6 +8,7 @@ tags:
   - infosec
   - python:keyring
 title: Use keyring to store your credentials
+old_syntax_highlighting: true
 ---
 
 I write a lot of Python scripts that interact with online services, which usually means requires my passwords and API keys.

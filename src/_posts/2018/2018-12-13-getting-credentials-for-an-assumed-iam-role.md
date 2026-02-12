@@ -8,6 +8,7 @@ tags:
   - aws
   - aws:aws iam
 title: Getting credentials for an assumed IAM Role
+old_syntax_highlighting: true
 ---
 
 In AWS, everybody has a user account, and you can give each user very granular permissions.

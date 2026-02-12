@@ -9,6 +9,7 @@ tags:
   - git
   - workshops
 title: Notes on <em>A Plumber's Guide to Git</em>
+old_syntax_highlighting: true
 ---
 
 On Tuesday, I ran my workshop *A Plumber's Guide to Git* for [the Cambridge Python User Group][meetup].

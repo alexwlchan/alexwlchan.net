@@ -6,6 +6,7 @@ summary: |
   Adding `.withoutOverwriting` to your `write()` call will prevent you from overwriting a file that already exists.
 tags:
   - swift
+old_syntax_highlighting: true
 ---
 In Python I'm fairly used to the idea of using file mode `x` to do an "exclusive" file open.
 This allows you to write to a file, but only if it doesn't already exist.

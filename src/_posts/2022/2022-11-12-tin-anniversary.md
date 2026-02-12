@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#50833a"
   index_dark:  "#7bc05d"
+old_syntax_highlighting: true
 ---
 
 <!-- Summary card based on https://pixabay.com/photos/card-game-cards-ten-heart-813/ -->

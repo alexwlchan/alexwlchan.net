@@ -22,6 +22,7 @@ colors:
    css_light: '#5f2055'
    css_dark:  '#d08f29'
 
+old_syntax_highlighting: true
 ---
 A prequel to the Hunger Games series about Haymitch Abernathy, the District 12 victor from the second Quarter Quell.
 

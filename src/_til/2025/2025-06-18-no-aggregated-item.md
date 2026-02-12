@@ -7,6 +7,7 @@ date: 2025-06-18 07:42:59 +01:00
 tags:
   - python
   - python:jinja
+old_syntax_highlighting: true
 ---
 I was debugging a Python app recently, and I saw an error message in my logs that I didn't recognise:
 

@@ -23,6 +23,7 @@ colors:
    css_light: '#8f2041'
    css_dark:  '#f1db27'
 
+old_syntax_highlighting: true
 ---
 A fun and intriguing royal mystery – James is the first Black heir to the British throne, and somebody inside the Palace is leaking secrets to discredit and undermine him.
 

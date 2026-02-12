@@ -5,6 +5,7 @@ link: https://github.com/alexwlchan/github-code-search
 title: 'Experiment: GitHub code search with de-duplication'
 tags:
   - github
+old_syntax_highlighting: true
 ---
 
 When I'm trying to learn a new library or function, I often [search for code that uses it on GitHub](https://help.github.com/en/articles/searching-code).

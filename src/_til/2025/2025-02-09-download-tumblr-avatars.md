@@ -7,6 +7,7 @@ summary: |
   There's an API endpoint that lets you download avatars in a variety of sizes.
 tags:
   - tumblr
+old_syntax_highlighting: true
 ---
 <style>
   blockquote > pre {

@@ -5,6 +5,7 @@ date: 2025-07-06 09:37:21 +01:00
 tags:
   - mermaid
   - drawing things
+old_syntax_highlighting: true
 ---
 <style>
   @media screen and (min-width: 500px) {

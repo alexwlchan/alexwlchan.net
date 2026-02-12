@@ -13,6 +13,7 @@ tags:
 colors:
   index_light: "#e31b85"
   index_dark:  "#c8c8c8"
+old_syntax_highlighting: true
 ---
 
 You might remember a couple of months back, I was playing with [alternative coordinate systems in SVG](/2019/triangular-coordinates-in-svg/).

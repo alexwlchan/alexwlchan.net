@@ -6,6 +6,7 @@ date: 2025-08-28 22:48:59 +01:00
 tags:
   - history
   - naming things
+old_syntax_highlighting: true
 ---
 At the weekend, a friend spotted a "fun fact" at a café: that the @ symbol was added to Morse code in 2009, and was the first new addition since World War II.
 This fact goes around the Internet periodically, but it's only half-right.

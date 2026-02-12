@@ -8,6 +8,7 @@ date_updated: 2024-11-27 11:24:15 +00:00
 tags:
   - python
   - python:hyperlink
+old_syntax_highlighting: true
 ---
 I write a lot of code that uses [`hyperlink.parse`](https://pypi.org/project/hyperlink/).
 I want to make sure my code can handle all the exceptions which are thrown by hyperlink, and react accordingly.

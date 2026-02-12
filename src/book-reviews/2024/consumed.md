@@ -22,6 +22,7 @@ colors:
    css_light: '#1d1e19'
    css_dark:  '#f9e74f'
 
+old_syntax_highlighting: true
 ---
 Interesting book about the problems of fast fashion and exploitation in the garment industry; its history and how it's tied to colonialism; steps we can take to be more conscientious consumers and push back on these issues.
 It discusses racism and intersectionality, and how it affects people beyond the pieces of fabric.

@@ -6,6 +6,7 @@ summary:
   Dumping a SQLite database to a text file can make it much smaller, which means you can download it faster.
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 I store a lot of data in SQLite databases on remote servers, and I often want to copy them to my local machine for analysis or backup.
 

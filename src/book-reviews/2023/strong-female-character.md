@@ -23,6 +23,7 @@ colors:
    css_light: '#d93325'
    css_dark:  '#ef6349'
 
+old_syntax_highlighting: true
 ---
 
 This was a great memoir about autism and sexuality.

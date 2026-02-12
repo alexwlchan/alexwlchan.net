@@ -21,6 +21,7 @@ colors:
    css_light: '#3b535e'
    css_dark:  '#bed627'
 
+old_syntax_highlighting: true
 ---
 The revised version of *Antimemetics Division*, which I originally read [in March 2022](/book-reviews/there-is-no-antimemetics-division/).
 

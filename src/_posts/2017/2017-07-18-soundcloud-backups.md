@@ -4,6 +4,7 @@ date: 2017-07-18 09:30:00 +00:00
 title: Backing up content from SoundCloud
 tags:
   - soundcloud
+old_syntax_highlighting: true
 ---
 
 In the last week or so, SoundCloud have been [looking pretty fragile][layoffs].

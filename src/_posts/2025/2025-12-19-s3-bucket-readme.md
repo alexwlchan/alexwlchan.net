@@ -10,6 +10,7 @@ tags:
 colors:
   css_light: "#18860e"
   css_dark:  "#5ff042"
+old_syntax_highlighting: true
 ---
 I was creating a new S3 bucket today, and I had an idea -- what if I add a README?
 

@@ -21,6 +21,7 @@ colors:
    css_light: '#67636d'
    css_dark:  '#eb3c40'
 
+old_syntax_highlighting: true
 ---
 An interesting book about the history of fire brigades in Britain, and the buildings they used, starting from insurance fire brigades in 1666 and through to the modern day.
 There are lots of photos alongside the text.

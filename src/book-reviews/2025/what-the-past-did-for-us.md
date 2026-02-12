@@ -21,6 +21,7 @@ colors:
    css_light: '#526fa2'
    css_dark:  '#cf8864'
 
+old_syntax_highlighting: true
 ---
 A pleasant enough history of major civilisations and their key inventions, with some stories I hadn't heard before.
 This has been on my TBR pile for over two decades, so I'm glad to finally have read it.

@@ -7,6 +7,7 @@ summary: |
 tags:
   - mastodon
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 In [my previous post][bagit], there was a first for this site: I embedded a post from Mastodon.
 

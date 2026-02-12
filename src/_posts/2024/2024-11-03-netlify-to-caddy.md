@@ -8,6 +8,7 @@ tags:
   - blogging about blogging
   - caddy
   - netlify
+old_syntax_highlighting: true
 ---
 I had a long train journey on Tuesday, and I spent the time moving this website from Netlify to a Linux server running [Caddy].
 (Yes, the Wi-Fi on European trains is reliable enough to make that possible, even pleasant.)

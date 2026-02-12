@@ -10,6 +10,7 @@ colors:
   css_light: "#13772f"
   css_dark:  "#b4c492"
 card_attribution: https://www.parliament.uk/globalassets/house-of-commons/hoc-digital/news-story-images/dsc_6286.jpg
+old_syntax_highlighting: true
 ---
 
 Last week, fourteen years of Tory government came to an end with a Labour landslide.

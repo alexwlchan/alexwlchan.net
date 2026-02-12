@@ -7,6 +7,7 @@ tags:
   - markdown
   - css
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 
 My posts often include some commands to be run at a console, for example:

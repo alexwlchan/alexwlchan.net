@@ -7,6 +7,7 @@ tags:
 title: One-step paste in the iOS Simulator
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 On the [latest episode of *The Talk Show*][tts], John Gruber lamented the two-step paste process into the iOS Simulator (about fifteen minutes in). It goes like this:

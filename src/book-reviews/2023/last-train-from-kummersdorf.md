@@ -23,6 +23,7 @@ colors:
    css_light: '#d93438'
    css_dark:  '#ee9b16'
 
+old_syntax_highlighting: true
 ---
 
 A story about two children, Hanno and Effi, who are fleeing war-torn Germany, and neither trusts the other.

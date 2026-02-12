@@ -4,6 +4,7 @@ date: 2024-02-05 13:44:19 +00:00
 title: You need to call `resp.close()` to close the file opened by `send_file()`
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I had a basic Flask app using `send_file()`, which I was testing with pytest:
 

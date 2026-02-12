@@ -6,6 +6,7 @@ date: 2025-07-24 11:42:15 +01:00
 tags:
   - python
   - python:boto3
+old_syntax_highlighting: true
 ---
 I'm writing some code to build large ZIP files and store them in [S3-compatible object storage](/til/2025/linode-with-boto3/).
 

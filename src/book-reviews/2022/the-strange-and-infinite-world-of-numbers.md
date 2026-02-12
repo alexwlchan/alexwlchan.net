@@ -21,6 +21,7 @@ colors:
    css_light: '#1b5465'
    css_dark:  '#5a8293'
 
+old_syntax_highlighting: true
 ---
 
 This was a cast-off from Granddad.

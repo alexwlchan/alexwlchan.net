@@ -4,6 +4,7 @@ date: 2024-01-25 12:34:09 +00:00
 title: What characters are allowed in titles on Wikimedia Commons?
 tags:
   - wikimedia commons
+old_syntax_highlighting: true
 ---
 When you upload a file to Wikimedia Commons with the Upload Wizard, you sometimes get an error about invalid titles:
 

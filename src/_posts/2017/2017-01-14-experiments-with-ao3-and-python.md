@@ -8,6 +8,7 @@ tags:
   - python
   - ao3
 title: A Python interface to AO3
+old_syntax_highlighting: true
 ---
 
 In [my last post][previous], I talked about some work I'd been doing to scrape data from AO3 using Python.

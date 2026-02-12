@@ -21,6 +21,7 @@ colors:
    css_light: '#c8481a'
    css_dark:  '#fdf6e3'
 
+old_syntax_highlighting: true
 ---
 
 I enjoyed this (I’ve enjoyed all of Becky Chambers’ books), but for a short book it was surprisingly tricky to read.

@@ -8,6 +8,7 @@ tags:
   - python
   - aws:amazon sqs
 title: Getting every message in an SQS queue
+old_syntax_highlighting: true
 ---
 
 At work, we make heavy use of [Amazon SQS][sqs] message queues.

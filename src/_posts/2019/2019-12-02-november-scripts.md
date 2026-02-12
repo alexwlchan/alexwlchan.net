@@ -5,6 +5,7 @@ title: "November 2019 scripts: downloading podcasts, retrying flaky errors, Azur
 tags:
   - python
   - aws
+old_syntax_highlighting: true
 ---
 
 I do a lot of automation, and I write plenty of scripts.

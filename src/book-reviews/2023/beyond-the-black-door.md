@@ -22,6 +22,7 @@ colors:
    css_light: '#255161'
    css_dark:  '#edbaaf'
 
+old_syntax_highlighting: true
 ---
 
 A fantasy story in a world with high religion and the ability to enter other people's souls when they're sleeping.

@@ -5,6 +5,7 @@ date: 2025-06-25 14:20:15 +01:00
 tags:
   - python
   - python:typing
+old_syntax_highlighting: true
 ---
 Here's a [handy little function](https://docs.python.org/3/library/typing.html#typing.get_args) I discovered while reading the docs for the `typing` module:
 

@@ -12,6 +12,7 @@ tags:
   - javascript
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 Last year I wrote about [using static websites for tiny archives][static_sites].
 The idea is that I create tiny websites to store and describe my digital collections.

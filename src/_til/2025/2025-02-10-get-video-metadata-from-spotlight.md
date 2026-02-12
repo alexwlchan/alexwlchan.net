@@ -9,6 +9,7 @@ tags:
   - video
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 You can look up Spotlight metadata attributes with the [`mdls` command][mdls], which allows you to get the dimensions of video files:
 

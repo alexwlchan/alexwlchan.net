@@ -12,6 +12,7 @@ colors:
   index_light: "#b24c0e"
   index_dark:  "#e7862a"
 card_attribution: https://pixabay.com/photos/light-bulb-incandescent-smoke-crack-503881/
+old_syntax_highlighting: true
 ---
 
 At work, we use [Amazon ECS] to run some of our Docker-based services.

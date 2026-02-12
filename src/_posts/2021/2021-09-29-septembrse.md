@@ -5,6 +5,7 @@ title: "SeptembRSE: Missing narratives in discussions around diversity and inclu
 tags:
   - talks
   - inclusion
+old_syntax_highlighting: true
 ---
 
 Yesterday I was part of a panel on [missing narratives around diversity inclusion][panel_link] as part of SeptembRSE, a conference for Research Software Engineers.

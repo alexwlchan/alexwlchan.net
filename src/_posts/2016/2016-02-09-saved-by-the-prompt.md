@@ -7,6 +7,7 @@ tags:
 title: Saved by the Prompt
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 One of the most-used apps on my iPhone is [Prompt][prompt], an SSH client by [Panic][panic].

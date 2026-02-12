@@ -10,6 +10,7 @@ summary: Pictures from my trip to the waterfalls and former tin plating works at
 colors:
   index_light: "#74844e"
   index_dark:  "#9bb06c"
+old_syntax_highlighting: true
 ---
 
 In September, I was in Cardiff to help organise [PyCon UK][pyconuk].

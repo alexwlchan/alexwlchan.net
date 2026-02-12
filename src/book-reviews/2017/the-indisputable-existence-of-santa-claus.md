@@ -21,6 +21,7 @@ colors:
    css_light: '#010101'
    css_dark:  '#eeedeb'
 
+old_syntax_highlighting: true
 ---
 
 This is a fun little book: presenting some well-trodden mathematical concepts in a somewhat different setting. I was already familiar with most of the maths in the book, but that didn’t stop me being entertained and amused as I read it.

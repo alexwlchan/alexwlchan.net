@@ -8,6 +8,7 @@ tags:
 # I'd like to feature this when it has a better card image!
 # index:
 #   feature: true
+old_syntax_highlighting: true
 ---
 
 Last week, the UK government came under fire for suspected [poor use of Excel](https://www.engadget.com/microsoft-excel-england-covid-19-delay-114634846.html), which led to an undercounting of COVID-19 cases.

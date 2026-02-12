@@ -4,6 +4,7 @@ title: How to find the `content.opf` in an EPUB file
 date: 2025-01-25 23:21:22 +00:00
 tags:
   - epub
+old_syntax_highlighting: true
 ---
 The `content.opf` file within an EPUB contains metadata about the book -- like the title, the author, and the subject.
 

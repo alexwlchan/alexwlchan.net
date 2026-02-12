@@ -22,6 +22,7 @@ colors:
    css_light: '#000000'
    css_dark:  '#d6bb5e'
 
+old_syntax_highlighting: true
 ---
 
 This is a collection of oral histories from 9/11: the book is almost entirely made of quotes from different people's accounts – and the quotes are carefully combined to form a coherent narrative.

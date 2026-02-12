@@ -8,6 +8,7 @@ tags:
 title: "What does \u201CSpotlight Suggestions\u201D turn off?"
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 <style>

@@ -7,6 +7,7 @@ tags:
   - unicode
   - python:hypothesis
   - python
+old_syntax_highlighting: true
 ---
 
 Here's a programming assumption I used to make, that until today I'd never really thought about: *changing the case of a string won't change its length*.

@@ -6,6 +6,7 @@ summary: I want to assign a bunch of variables to True, but I don't know how man
 tags:
   - python
   - code crimes
+old_syntax_highlighting: true
 ---
 
 A week ago, I posted [a snippet of code on Twitter](https://twitter.com/alexwlchan/status/1258147811851460608) that has upset people:

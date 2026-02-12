@@ -21,6 +21,7 @@ colors:
    css_light: '#404e46'
    css_dark:  '#d08165'
 
+old_syntax_highlighting: true
 ---
 
 Another Moomin book read out of order; it didn't grab me, but maybe I was in the wrong mood for it.

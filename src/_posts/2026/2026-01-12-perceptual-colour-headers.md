@@ -6,6 +6,7 @@ summary: I started picking colours for my site headers with a more perceptually 
 tags:
   - colour
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 For nearly a decade, the header of this website has been decorated with a mosaic-like pattern of coloured squares.
 I can choose a colour for individual posts or pages, and that tints the title, the links, and the header.

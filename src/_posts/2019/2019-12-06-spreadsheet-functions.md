@@ -4,6 +4,7 @@ date: 2019-12-06 09:02:20 +00:00
 title: "Some useful spreadsheet functions: FORMULATEXT, MATCH, CONCATENATE and INDIRECT"
 tags:
   - spreadsheets
+old_syntax_highlighting: true
 ---
 
 I've been doing some work in spreadsheets recently, and I stumbled upon a couple of functions that let me do some neat things.

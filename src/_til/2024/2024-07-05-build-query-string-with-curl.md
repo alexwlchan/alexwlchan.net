@@ -6,6 +6,7 @@ summary: |
   A combination of `--get` and `--data`/`--data-urlencode` allows you to write curl commands which are readable and expressive.
 tags:
   - curl
+old_syntax_highlighting: true
 ---
 I want to write an HTTP GET in curl which:
 

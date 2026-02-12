@@ -7,6 +7,7 @@ tags:
   - backups
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 By now, you've probably read about the [KeRanger ransomware](http://arstechnica.co.uk/security/2016/03/first-mac-targeting-ransomware-hits-transmission-users-researchers-say/).

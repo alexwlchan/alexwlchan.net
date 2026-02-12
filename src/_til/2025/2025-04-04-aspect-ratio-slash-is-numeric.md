@@ -5,6 +5,7 @@ summary: When you define an aspect ratio as `x/y`, you can only use numbers for 
 date: 2025-04-04 06:57:36 +01:00
 tags:
   - css
+old_syntax_highlighting: true
 ---
 I've been using the [`aspect-ratio` CSS property][aspect-ratio], and I often use it with `--width` and `--height` properties that I define based on the dimensions of the image I'm displayed, but I've been a bit confused about when I need to use `calc()` to compute the ratio.
 

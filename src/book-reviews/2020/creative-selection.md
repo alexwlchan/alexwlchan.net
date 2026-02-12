@@ -20,6 +20,7 @@ colors:
    css_light: '#0772b8'
    css_dark:  '#e9305d'
 
+old_syntax_highlighting: true
 ---
 
 This was a gift from Coco for my 27th birthday.

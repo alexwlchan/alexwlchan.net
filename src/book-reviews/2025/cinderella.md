@@ -24,6 +24,7 @@ colors:
    css_light: '#1f73af'
    css_dark:  '#63a7d7'
 
+old_syntax_highlighting: true
 ---
 I've followed Maxine Vee for years, so it was cool to see her illustrations in a proper book.
 This is a 75th anniversary edition for Disney; a pretty object but unremarkable story.

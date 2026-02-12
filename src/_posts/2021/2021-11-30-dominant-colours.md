@@ -13,6 +13,7 @@ colors:
   index_dark:  "#88a7d3"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 At the weekend, I published [dominant_colours], a command-line tool for finding the dominant colours of an image.

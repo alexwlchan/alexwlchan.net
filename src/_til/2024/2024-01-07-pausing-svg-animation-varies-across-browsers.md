@@ -4,6 +4,7 @@ title: "Pausing the animation of &lt;svg&gt; elements can affect child &lt;svg&g
 date: 2024-01-07 20:49:46 +00:00
 tags:
   - svg
+old_syntax_highlighting: true
 ---
 Consider the following SVG, which contains two animated rectangles:
 

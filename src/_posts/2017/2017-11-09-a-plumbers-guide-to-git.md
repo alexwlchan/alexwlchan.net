@@ -9,6 +9,7 @@ title: A plumber's guide to Git
 colors:
   index_light: "#d32a1d"
   index_dark:  "#eae7e8"
+old_syntax_highlighting: true
 ---
 
 Git is a very common tool in modern development workflows.

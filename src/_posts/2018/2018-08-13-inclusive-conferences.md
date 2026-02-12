@@ -10,6 +10,7 @@ summary: A collection of ideas and suggestions for running conferences which are
 colors:
   index_light: "#533f2b"
   index_dark:  "#d89c35"
+old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

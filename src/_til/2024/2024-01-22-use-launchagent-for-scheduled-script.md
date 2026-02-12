@@ -4,6 +4,7 @@ title: Run a script on macOS on a schedule using a LaunchAgent
 date: 2024-01-22 11:54:52 +00:00
 tags:
   - macos
+old_syntax_highlighting: true
 ---
 I was setting up a script to run on a nightly schedule.
 Based on a combination of bits I found on Google, I created the following plist file which I saved in `~/Library/LaunchAgents/net.alexwlchan.run_scheduled_task.plist`:

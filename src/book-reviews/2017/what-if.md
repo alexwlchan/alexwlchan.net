@@ -22,6 +22,7 @@ colors:
    css_light: '#c3363c'
    css_dark:  '#958b95'
 
+old_syntax_highlighting: true
 ---
 
 Funny and interesting. The style is very similar to the “What If” essays on the XKCD website – a mixture of scientific fact, acerbic wit and cartoonish humour. (Indeed, several of the chapters seem to be lifted directly from the original articles.)

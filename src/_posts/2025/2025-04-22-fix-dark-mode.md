@@ -6,6 +6,7 @@ summary: If you're using an image as your background, remember to set a fallback
 tags:
   - css
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 I support dark mode on this site, and as part of the dark theme, I have a colour-inverted copy of the default background texture.
 I like giving my website a subtle bit of texture, which I think makes it stand out from a web which is mostly solid-colour backgrounds.

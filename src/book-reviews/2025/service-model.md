@@ -22,6 +22,7 @@ colors:
    css_light: '#304570'
    css_dark:  '#a6a4a2'
 
+old_syntax_highlighting: true
 ---
 Charles is a robot butler who needs to find a job, and takes a journey through an apocalyptic wasteland to find it.
 It's a dark and absurd journey, and I very much enjoyed it.

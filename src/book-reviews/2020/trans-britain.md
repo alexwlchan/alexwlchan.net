@@ -22,6 +22,7 @@ colors:
    css_light: '#955594'
    css_dark:  '#f9eb2e'
 
+old_syntax_highlighting: true
 ---
 
 Each chapter covers a different aspect of trans history, and is written by a different author. You get a variety of perspectives – some trans, some not – and it has a lot of previously unknown-to-me information about the history of trans people.

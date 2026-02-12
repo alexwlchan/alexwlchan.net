@@ -21,6 +21,7 @@ colors:
    css_light: '#8f560e'
    css_dark:  '#d5821b'
 
+old_syntax_highlighting: true
 ---
 
 This was a recommendation from kaberett, and a gift from Ed.

@@ -8,6 +8,7 @@ colors:
   index_dark:  "#c4c4c4"
 tags:
   - languages
+old_syntax_highlighting: true
 ---
 
 <style>

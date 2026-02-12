@@ -20,5 +20,6 @@ colors:
    css_light: '#2e5d8b'
    css_dark:  '#f1d829'
 
+old_syntax_highlighting: true
 ---
 Fun little prequel to [*Service Model*](/book-reviews/service-model/) about the last employee of a Human Resources department whose sole responsibility is to fire all the humans whose jobs have been replaced by automation and robots.

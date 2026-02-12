@@ -4,6 +4,7 @@ title: How to create a footer that’s always at the bottom of the page
 date: 2024-01-12 10:36:02 +00:00
 tags:
   - css
+old_syntax_highlighting: true
 ---
 I use a pretty standard structure for laying out basic web pages:
 

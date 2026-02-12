@@ -5,6 +5,7 @@ date: 2024-01-10 10:31:11 +00:00
 tags:
   - python
   - unicode
+old_syntax_highlighting: true
 ---
 ## Flags for countries with 2-character codes
 

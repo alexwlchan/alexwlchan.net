@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#3164ce"
   index_dark:  "#dbe3e9"
+old_syntax_highlighting: true
 ---
 
 When I give conference talks, my talks are often videoed and shared on YouTube.

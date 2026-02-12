@@ -7,6 +7,7 @@ tags:
 title: Simpler syndication, by Dr. Drang
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 A fortnight ago, Dr. Drang wrote about his new RSS service: a Python script that polls his subscriptions once every five minutes, and renders the output as a static HTML page.

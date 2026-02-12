@@ -5,6 +5,7 @@ title: Opening all the files that have been modified in a Git branch
 summary: You can use Git to find where a branch diverged from `main`, what files have changed, then open those files in your editor.
 tags:
   - git
+old_syntax_highlighting: true
 ---
 Today a colleague asked for a way to open all the files that have changed in a particular Git branch.
 They were reviewing a large pull request, and sometimes it's easier to review files in your local editor than in GitHub's code review interface.

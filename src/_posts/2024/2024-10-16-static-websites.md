@@ -14,6 +14,7 @@ colors:
   index_light: "#51514c"
   index_dark:  "#cecfc9"
 card_attribution: https://www.pexels.com/search/archive%20boxes/
+old_syntax_highlighting: true
 ---
 
 In [my previous post][decluttering], I talked about how I'm trying to be more intentional and deliberate with my digital data.

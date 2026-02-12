@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#00A000"
   index_dark:  "#61ff61"
+old_syntax_highlighting: true
 ---
 
 If you delete a secret from AWS Secrets Manager, it isn't deleted immediately -- instead, it gets scheduled for deletion.

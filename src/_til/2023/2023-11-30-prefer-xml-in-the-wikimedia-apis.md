@@ -6,6 +6,7 @@ summary: |
   The XML-to-JSON conversion leads to some inconsistent behaviour, especially in corner cases of the API.
 tags:
   - wikimedia commons
+old_syntax_highlighting: true
 ---
 The Wikimedia APIs I've used can return results in three formats: HTML, JSON, and XML.
 Initially I was using the JSON APIs because JSON is easy, it's familiar, there are built-in methods for it my HTTP client libraries.

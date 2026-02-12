@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Elsewhere
+old_syntax_highlighting: true
 ---
 
 This is a list of articles I've written, talks I've given, and podcasts I've been a guest on.

@@ -6,6 +6,7 @@ tags:
   - docker
   - shell scripting
 title: Quick shell access for Docker containers
+old_syntax_highlighting: true
 ---
 
 In the last few weeks, I've been spending a lot of time working with Docker containers.

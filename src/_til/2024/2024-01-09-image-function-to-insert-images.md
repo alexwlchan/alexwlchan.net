@@ -4,6 +4,7 @@ title: Use the IMAGE function to insert an image into a spreadsheet
 date: 2024-01-09 12:17:28 +00:00
 tags:
   - spreadsheets
+old_syntax_highlighting: true
 ---
 There's an `IMAGE` function in both [Google Sheets] and [Microsoft Excel] that you can use to insert images into cells, in particular from URLs:
 

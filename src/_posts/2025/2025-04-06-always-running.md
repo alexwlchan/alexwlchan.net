@@ -9,6 +9,7 @@ index:
 colors:
   css_light: "#05802e"
   css_dark:  "#9aff91"
+old_syntax_highlighting: true
 ---
 *I'm trying something a bit different today -- fiction. I had an idea for a short story the other evening, and I fleshed it out into a proper piece. I want to get better at writing fiction, and the only way to do that is with practice. I hope you like what I've written!*
 

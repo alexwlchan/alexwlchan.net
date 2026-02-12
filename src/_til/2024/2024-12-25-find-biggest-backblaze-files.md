@@ -6,6 +6,7 @@ tags:
   - backblaze
 summary: |
   Look at the file <code>/Library<wbr>/Backblaze.bzpkg<wbr>/bzdata<wbr>/bzfilelists<wbr>/bigfilelist.dat</code>.
+old_syntax_highlighting: true
 ---
 This is something I stumbled across in [a Reddit comment](https://www.reddit.com/r/backblaze/comments/gjah54/comment/fqlkoih/) by Brian Wilson, who was a co-founder and CTO at Backblaze.
 He shared some useful advice about debugging a backup:

@@ -25,6 +25,7 @@ colors:
    css_light: '#65443f'
    css_dark:  '#fcf7f2'
 
+old_syntax_highlighting: true
 ---
 
 This is the prequel to [*Tales from the Café*](/book-reviews/before-the-coffee-gets-cold-tales-from-the-cafe/), with four different stories from the café where you can travel in time:

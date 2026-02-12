@@ -22,6 +22,7 @@ colors:
    css_light: '#bf4f5d'
    css_dark:  '#eb6374'
 
+old_syntax_highlighting: true
 ---
 I confess, this book didn't quite land with me -- the early years in particular are very fragmented, and I struggled to piece it together.
 I enjoyed some of the later years more, and there's definitely _something_ in here, but on my first reading I didn't connect with it properly.

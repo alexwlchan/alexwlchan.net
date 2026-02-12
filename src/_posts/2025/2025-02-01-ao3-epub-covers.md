@@ -7,6 +7,7 @@ tags:
   - ao3
   - epub
   - my tools
+old_syntax_highlighting: true
 ---
 I was chatting with a friend recently, and she mentioned an annoyance when reading fanfiction on her iPad.
 She [downloads fic from AO3][ao3_downloads] as EPUB files, and reads it in the Kindle app -- but the files don't have a cover image, and so the preview thumbnails aren't very readable:

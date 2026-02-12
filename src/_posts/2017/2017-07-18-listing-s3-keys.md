@@ -7,6 +7,7 @@ tags:
   - python
   - aws:amazon s3
 title: Listing keys in an S3 bucket with Python
+old_syntax_highlighting: true
 ---
 
 {% update date="2019-07-03" %}

@@ -8,6 +8,7 @@ title: Creating a locking service in a Scala type class
 colors:
   index_light: "#276b44"
   index_dark:  "#4dc194"
+old_syntax_highlighting: true
 ---
 
 <!-- Cover image: https://www.pexels.com/photo/brass-colored-metal-padlock-with-chain-4291/ -->

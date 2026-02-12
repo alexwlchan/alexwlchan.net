@@ -21,6 +21,7 @@ colors:
    css_light: '#1e1e1e'
    css_dark:  '#e42425'
 
+old_syntax_highlighting: true
 ---
 
 A Cold War spy thriller crossed with a murder mystery – an Apollo 18 mission intended to spy on the Soviets, which ends up going very wrong.

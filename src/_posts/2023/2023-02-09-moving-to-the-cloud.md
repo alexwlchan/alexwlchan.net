@@ -10,6 +10,7 @@ canonical_url: https://stacks.wellcomecollection.org/how-moving-to-the-cloud-too
 colors:
   css_light: "#563e23"
   css_dark:  "#bf8c4f"
+old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/how-moving-to-the-cloud-took-our-digital-collections-to-new-heights-2dc5a896f0be) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

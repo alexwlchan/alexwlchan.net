@@ -21,6 +21,7 @@ colors:
    css_light: '#862a20'
    css_dark:  '#f7f4e8'
 
+old_syntax_highlighting: true
 ---
 
 This is a book about the changing nature of friendships and relationships between adults.

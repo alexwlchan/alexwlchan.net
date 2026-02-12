@@ -6,6 +6,7 @@ tags:
   - video
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 Here are two examples:
 

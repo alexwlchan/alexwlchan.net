@@ -6,6 +6,7 @@ summary: Images can have orientation specified in their EXIF metadata, which isn
 tags:
   - images
   - python
+old_syntax_highlighting: true
 ---
 I was [having an issue][issue] where an image I'd exported from my Photos Library was being rotated when I opened and saved it:
 

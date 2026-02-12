@@ -7,6 +7,7 @@ summary: |
   Use the CDX Server API to get a list of captures for a particular URL.
 tags:
   - wayback machine
+old_syntax_highlighting: true
 ---
 As part of my [daily screenshots project][daily_screenshots], I wanted to get a list of all the versions of my sites that are saved in the Wayback Machine.
 

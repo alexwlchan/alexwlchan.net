@@ -8,6 +8,7 @@ tags:
   - backblaze
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 One of the services I rely on is [Backblaze].

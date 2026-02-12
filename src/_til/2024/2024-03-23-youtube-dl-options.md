@@ -5,6 +5,7 @@ title: My config for running youtube-dl
 summary: The flags and arguments I find useful when I’m using youtube-dl.
 tags:
   - yt-dlp
+old_syntax_highlighting: true
 ---
 
 youtube-dl has a lot of options, and I only use a small subset of them.

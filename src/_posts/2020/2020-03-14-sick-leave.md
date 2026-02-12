@@ -5,6 +5,7 @@ title: Sick leave while working from home
 summary: It's okay to take sick leave if you're working from home.
 tags:
   - work
+old_syntax_highlighting: true
 ---
 
 In the current pandemic, many of us are about to start working from home full-time.

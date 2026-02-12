@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#8b5023"
   index_dark:  "#f6d05b"
+old_syntax_highlighting: true
 ---
 
 This is a talk I gave on Saturday as the opening keynote of [PyCon UK 2018][pyconuk].

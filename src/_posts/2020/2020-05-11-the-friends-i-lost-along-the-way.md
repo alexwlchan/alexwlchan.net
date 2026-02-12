@@ -6,6 +6,7 @@ tags:
   - personal
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I've lived a lot of my life on the internet.

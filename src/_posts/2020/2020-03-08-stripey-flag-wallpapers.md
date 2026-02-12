@@ -6,6 +6,7 @@ tags:
   - python
   - drawing things
   - python:pillow
+old_syntax_highlighting: true
 ---
 
 <style>

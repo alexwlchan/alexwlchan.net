@@ -6,6 +6,7 @@ tags:
   - python
   - ao3
 title: Experiments with AO3 and Python
+old_syntax_highlighting: true
 ---
 
 <style>

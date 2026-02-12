@@ -21,6 +21,7 @@ colors:
    css_light: '#4c7987'
    css_dark:  '#567e89'
 
+old_syntax_highlighting: true
 ---
 
 A gripping thriller about the crushing weight of grief and unexplained deaths in a small town.

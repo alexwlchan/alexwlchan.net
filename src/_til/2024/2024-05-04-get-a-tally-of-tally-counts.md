@@ -6,6 +6,7 @@ summary: |
   Using a nested query allows me to perform a two-level aggregation of the values in a column – how many values appear once, how many twice, and so on.
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 I was poking through my [analytics data](https://github.com/alexwlchan/analytics.alexwlchan.net) and I was curious how many pages people are looking at.
 I track hits in a SQLite database, with a table called `events` and a column `session_id` which contains an anonymous ID to track visitors across multiple pages.

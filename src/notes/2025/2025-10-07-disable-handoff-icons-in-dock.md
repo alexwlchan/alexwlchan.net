@@ -8,6 +8,7 @@ topic: macOS
 colors:
   css_light: "#1a6cce"
   css_dark:  "#3aa5eb"
+old_syntax_highlighting: true
 ---
 Every so often, an icon appears in my Dock offering to bring across windows or documents I have open on another Mac:
 

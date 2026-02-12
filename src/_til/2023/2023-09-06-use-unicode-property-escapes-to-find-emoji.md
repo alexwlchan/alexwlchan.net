@@ -5,6 +5,7 @@ date: 2023-09-06 23:46:15 +00:00
 tags:
   - javascript
   - unicode
+old_syntax_highlighting: true
 ---
 From [how to detect emoji using JavaScript](https://stackoverflow.com/a/64007175/1558022) on Stack Overflow:
 

@@ -8,6 +8,7 @@ tags:
   - ios
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Here's a screen I encounter while driving in Apple Maps, with worrying regularity:

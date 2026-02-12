@@ -5,6 +5,7 @@ summary: This is a safety feature that prevents macros expanding in an unexpecte
 date: 2016-10-29 08:22:54 +00:00
 tags:
   - rust
+old_syntax_highlighting: true
 ---
 ## The footgun in C macros
 

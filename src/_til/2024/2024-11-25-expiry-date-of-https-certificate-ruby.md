@@ -5,6 +5,7 @@ date: 2024-11-25 10:26:42 +00:00
 tags:
   - ruby
 summary: Connect to the domain using `net/http`, then you can inspect the `peer_cert`/`not_after` property on the response.
+old_syntax_highlighting: true
 ---
 I was tinkering with some HTTPS certificates, and I wanted to write a scheduled test that would check the certifcates weren't about to expire.
 This is the sort of thing that should be handled by a good certificate provider -- for example, Let's Encrypt sends me emails when my certificates are close to expiry -- but another check is a good belt-and-braces measure.

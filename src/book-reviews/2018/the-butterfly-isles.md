@@ -21,6 +21,7 @@ colors:
    css_light: '#896229'
    css_dark:  '#d4e7f4'
 
+old_syntax_highlighting: true
 ---
 
 Patrick Barkham’s account of his attempt to find all 59 species of British butterflies in the summer of 2009. It struck a good balance of detail – I know very little about butterflies, but I was able to follow along, and learnt a fair amount along the way. It’s a lovely account, and gets the happy ending I was hoping for.

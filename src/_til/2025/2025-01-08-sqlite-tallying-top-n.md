@@ -6,6 +6,7 @@ tags:
   - sqlite
 summary: |
   Use a `WITH` clause to do a nested query for the top N rows in the table, then do a tally over that result.
+old_syntax_highlighting: true
 ---
 There's a `photos` table in the Flickr Commons Explorer database that has two columns: `owner_id` and `count_views`.
 I wanted to get the 10,000 photos with the most views, and then see who owned each of those photos.

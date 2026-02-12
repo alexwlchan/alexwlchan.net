@@ -23,6 +23,7 @@ colors:
    css_light: '#0f7d99'
    css_dark:  '#1dabd2'
 
+old_syntax_highlighting: true
 ---
 A charming sapphic romance.
 It's been too long since I read one of these, and I really enjoyed it.

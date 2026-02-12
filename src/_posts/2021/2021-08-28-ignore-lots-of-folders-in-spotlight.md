@@ -6,6 +6,7 @@ summary: A script that allows me to ignore folders like "target" and "node_modul
 tags:
   - macos
   - python
+old_syntax_highlighting: true
 ---
 
 I searched my Mac recently, and my results were cluttered with files from `node_modules` folders:

@@ -12,6 +12,7 @@ colors:
   css_dark:    "#fcb905"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 I've always been a cat person, and my favourite species of cat (aside from the cats I've actually lived with) is the cheetah.

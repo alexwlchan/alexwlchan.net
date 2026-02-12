@@ -21,6 +21,7 @@ colors:
    css_light: '#30678f'
    css_dark:  '#dfd556'
 
+old_syntax_highlighting: true
 ---
 
 I'm not sure how I feel about this book.

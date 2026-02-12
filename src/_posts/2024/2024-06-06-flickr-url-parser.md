@@ -12,6 +12,7 @@ colors:
   index_light: "#785a28"
   index_dark:  "#cdae58"
 card_attribution: https://www.flickr.com/photos/usnationalarchives/4727552068/
+old_syntax_highlighting: true
 ---
 
 As part of my work at the Flickr Foundation, I wrote a little Python library that can be used to parse Flickr URLs.

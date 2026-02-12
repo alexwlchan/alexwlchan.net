@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: Builds and CI
+old_syntax_highlighting: true
 ---
 This topic is about tools used to automate building software.
 This includes local tools (like [Make][wiki-make]) and hosted services for continuous integration and deployment (like [Buildkite][buildkite] or [GitHub Actions][gh-actions]).

@@ -8,6 +8,7 @@ tags:
 title: A script for backing up your Goodreads reviews
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Last year, I started using Goodreads to track my reading.

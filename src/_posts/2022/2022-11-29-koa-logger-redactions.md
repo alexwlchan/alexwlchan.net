@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#054f17"
   index_dark:  "#08af2f"
+old_syntax_highlighting: true
 ---
 
 <!-- Card image based on https://www.pexels.com/photo/photo-of-green-fern-leaves-1687341/ and Wikipedia article -->

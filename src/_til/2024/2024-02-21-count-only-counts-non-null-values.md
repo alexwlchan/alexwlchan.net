@@ -4,6 +4,7 @@ date: 2024-02-21 16:00:27 +00:00
 title: The COUNT(X) function only counts non-null values
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 I was running a tally in a `photos` table with a text column `photos`, and I got a surprising result:
 

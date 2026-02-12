@@ -23,6 +23,7 @@ colors:
    css_light: '#617684'
    css_dark:  '#dbb952'
 
+old_syntax_highlighting: true
 ---
 
 This was a gift from Ed for my 28th birthday.

@@ -22,6 +22,7 @@ colors:
    css_light: '#605242'
    css_dark:  '#d8c6b0'
 
+old_syntax_highlighting: true
 ---
 
 A detailed book about the history of the alphabet that didn't especially hold my attention or interest.

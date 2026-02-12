@@ -22,6 +22,7 @@ colors:
    css_light: '#0a0b0c'
    css_dark:  '#ce7826'
 
+old_syntax_highlighting: true
 ---
 
 This is a heartwarming story about a black furball who had his eyes removed two weeks after birth, and how he made his way in life as a blind cat.

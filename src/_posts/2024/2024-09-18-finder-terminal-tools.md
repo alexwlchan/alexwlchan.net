@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#565656"
   index_dark:  "#dbe3e9"
+old_syntax_highlighting: true
 ---
 Earlier this week, Dr. Drang [wrote a post][drang] about a few automations he uses to go between the Terminal's command line and the Finder's GUI.
 He has some neat ideas, and I particularly like his AppleScript `sel` for selecting multiple items in Finder.

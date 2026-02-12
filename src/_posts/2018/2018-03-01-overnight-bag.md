@@ -5,6 +5,7 @@ title: Keep an overnight bag in the office
 tags:
   - work
 summary: Although hopefully never needed, I think it's worth keeping an overnight bag in your workplace.
+old_syntax_highlighting: true
 ---
 
 For the last few days, there's been a lot of bad weather across the UK.

@@ -21,6 +21,7 @@ colors:
    css_light: '#805385'
    css_dark:  '#f3f2e8'
 
+old_syntax_highlighting: true
 ---
 
 Mum gave this to me for Christmas 2020.

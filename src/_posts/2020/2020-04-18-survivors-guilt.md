@@ -6,6 +6,7 @@ tags:
   - pandemic
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 *Content note: discussion of the current pandemic.*

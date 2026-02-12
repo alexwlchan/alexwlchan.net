@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: Computers
+old_syntax_highlighting: true
 ---
 Computers are cool.
 You're probably reading this page on one!

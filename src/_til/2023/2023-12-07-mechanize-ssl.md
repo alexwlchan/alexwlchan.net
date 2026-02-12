@@ -11,6 +11,7 @@ tags:
   - "python:mechanize"
   - "python:certifi"
 card_attribution: Cover image from https://www.pexels.com/photo/gray-and-gold-steel-gears-159275/
+old_syntax_highlighting: true
 ---
 
 I was doing some work on [my library lookup tool] recently, and I ran into an issue with [mechanize], the Python library I use to simulate a web browser.

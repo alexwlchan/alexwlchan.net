@@ -22,6 +22,7 @@ colors:
    css_light: '#307e8b'
    css_dark:  '#8cd3cd'
 
+old_syntax_highlighting: true
 ---
 
 I was sent a signed copy of this by <a href="https://www.goodreads.com/user/show/14438165-sass" rel="nofollow">Sass</a> last year.

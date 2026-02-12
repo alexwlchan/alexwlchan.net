@@ -20,6 +20,7 @@ colors:
    css_light: '#947100'
    css_dark:  '#927003'
 
+old_syntax_highlighting: true
 ---
 
 Hannah gave this to me for my birthday in 2012, after we watched [The Lizzie Bennet Diaries](https://en.wikipedia.org/wiki/The_Lizzie_Bennet_Diaries) together.

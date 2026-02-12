@@ -21,6 +21,7 @@ colors:
    css_light: '#a42d42'
    css_dark:  '#8b88c4'
 
+old_syntax_highlighting: true
 ---
 
 Three hour-long stories with a full cast, plus another hour of commentary on the end.

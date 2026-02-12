@@ -4,6 +4,7 @@ title: "Installing mimetype on Alpine Linux"
 date: 2019-08-28 13:49:55 +01:00
 tags:
   - alpine
+old_syntax_highlighting: true
 ---
 
 I needed to install [mimetype(1)] in Alpine because it's used by the [preview-generator] library.

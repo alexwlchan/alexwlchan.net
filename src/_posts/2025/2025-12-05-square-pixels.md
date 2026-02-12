@@ -5,6 +5,7 @@ title: When square pixels aren't square
 summary: "When you want to get the dimensions of a video file, you probably want the display aspect ratio. Using the dimensions of a stored frame may result in a stretched or squashed video."
 tags:
   - video
+old_syntax_highlighting: true
 ---
 When I embed videos in web pages, I specify an [aspect ratio][mdn-aspect-ratio].
 For example, if my video is 1920×1080 pixels, I'd write:

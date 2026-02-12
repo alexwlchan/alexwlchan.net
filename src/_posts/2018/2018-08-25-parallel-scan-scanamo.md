@@ -11,6 +11,7 @@ title: Implementing parallel scan in DynamoDB with Scanamo
 colors:
   index_light: "#2E27AD"
   index_dark:  "#66d3fa"
+old_syntax_highlighting: true
 ---
 
 At work, we use DynamoDB for storing large collections of records -- these get processed by the [catalogue pipeline][pipeline] that feeds our API, which ultimately powers search on the new Wellcome Collection website.

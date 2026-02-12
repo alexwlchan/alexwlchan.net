@@ -22,6 +22,7 @@ colors:
    css_light: '#b15d66'
    css_dark:  '#c6868d'
 
+old_syntax_highlighting: true
 ---
 
 Short and sweet book about being a manager.

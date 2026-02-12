@@ -12,6 +12,7 @@ colors:
   index_dark:  "#f5db6e"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 I'm sitting in a small coffee shop in Brooklyn.
 I have a warm drink, and it's just started to snow outside.

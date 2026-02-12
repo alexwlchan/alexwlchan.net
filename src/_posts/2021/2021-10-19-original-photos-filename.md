@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#1582c6"
   index_dark:  "#8fcff4"
+old_syntax_highlighting: true
 ---
 
 I was doing some poking around in the Photos Library recently, and found something that might be useful to other people.

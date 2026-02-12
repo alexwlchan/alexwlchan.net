@@ -8,6 +8,7 @@ tags:
   - jekyll
   - ruby:rouge
   - python
+old_syntax_highlighting: true
 ---
 I was writing another article for this site, and I created a code block with backticks and the language identifier `pycon`, for a Python console session:
 

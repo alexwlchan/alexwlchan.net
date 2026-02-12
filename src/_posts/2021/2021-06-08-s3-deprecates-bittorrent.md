@@ -7,6 +7,7 @@ tags:
   - aws:amazon s3
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 Did you know S3 supported BitTorrent for downloads?

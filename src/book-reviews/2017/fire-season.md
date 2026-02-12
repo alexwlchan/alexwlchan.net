@@ -20,6 +20,7 @@ colors:
    css_light: '#854f26'
    css_dark:  '#6bc4e8'
 
+old_syntax_highlighting: true
 ---
 
 Fire spotters are a rare breed, and becoming rarer still. I’ve always found the idea appealing (even if I’m not sure I’d enjoy it in practice) – I suspect that’s why I enjoyed the book so much.

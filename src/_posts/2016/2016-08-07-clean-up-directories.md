@@ -5,6 +5,7 @@ title: 'Python snippets: Cleaning up empty/nearly empty directories'
 summary: A pair of Python scripts I've been using to clean up my mess of directories.
 tags:
   - python
+old_syntax_highlighting: true
 ---
 
 Last month, I wrote about [some tools](/2016/clearing-disk-space-on-os-x/) I'd been using to clear disk space on my Mac.

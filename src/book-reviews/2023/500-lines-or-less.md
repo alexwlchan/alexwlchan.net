@@ -22,6 +22,7 @@ colors:
    css_light: '#5c606f'
    css_dark:  '#c8c3b8'
 
+old_syntax_highlighting: true
 ---
 
 There's a lot of good information in here, detailed chapters and a variety of projects, but I just don't think I enjoy reading dense technical information for the sake of reading.

@@ -10,6 +10,7 @@ title: Introduction to property-based testing
 index:
   exclude: true
 
+old_syntax_highlighting: true
 ---
 
 On Tuesday night, I was talking about testing techniques at the [Cambridge Python User Group][meetup] (CamPUG for short).

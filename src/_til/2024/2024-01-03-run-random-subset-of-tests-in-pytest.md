@@ -7,6 +7,7 @@ summary: |
 tags:
   - python
   - python:pytest
+old_syntax_highlighting: true
 ---
 This is a question asked [by Ned Batchelder][nedbat] on Mastodon.
 

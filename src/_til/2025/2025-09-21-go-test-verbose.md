@@ -6,6 +6,7 @@ date: 2025-09-21 22:23:42 +01:00
 tags:
   - golang
   - software testing
+old_syntax_highlighting: true
 ---
 I had a Go test which was timing out, and I wanted to see the log messages being written by `t.Log` and `t.Logf` to find out where it was getting stuck.
 Normally these messages are only written if the test fails, to help you with debugging.

@@ -4,6 +4,7 @@ title: "Beware of using `test -n` with command expansion"
 date: 2024-01-22 10:16:06 +00:00
 tags:
   - fish shell
+old_syntax_highlighting: true
 ---
 I'd written a fish script that used `test -n` (check for an empty string) and a command substitution, but I was seeing unexpected results:
 

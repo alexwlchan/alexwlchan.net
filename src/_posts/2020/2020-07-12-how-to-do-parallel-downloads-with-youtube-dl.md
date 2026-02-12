@@ -5,6 +5,7 @@ title: How to do parallel downloads with youtube-dl
 tags:
   - shell scripting
   - youtube
+old_syntax_highlighting: true
 ---
 
 I'm a regular user of [youtube-dl](http://ytdl-org.github.io/youtube-dl/), a command-line program for downloading videos from YouTube (and other sites).

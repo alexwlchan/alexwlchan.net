@@ -7,6 +7,7 @@ summary: |
 tags:
   - ffmpeg
   - python:eyeD3
+old_syntax_highlighting: true
 ---
 I had a collection of MP3 files from podcasts, and the MP3s had the show cover art embedded in the files.
 I wanted to extract the cover art as standalone images.

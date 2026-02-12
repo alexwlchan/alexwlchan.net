@@ -25,6 +25,7 @@ colors:
    css_light: '#685f86'
    css_dark:  '#6c7d91'
 
+old_syntax_highlighting: true
 ---
 A great set of fairy tales which are loosely inspired by some classics, but with some diverse and inclusive perspectives.
 This is where the anthology format really shines -- you get a lot of different perspectives and takes in a short number of pages.

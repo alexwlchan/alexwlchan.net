@@ -5,6 +5,7 @@ summary: Update the `.total` attribute, then call `.refresh()`.
 date: 2025-05-17 16:00:18 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I use the [`tqdm` library][tqdm] to create progress bars in my terminal.
 

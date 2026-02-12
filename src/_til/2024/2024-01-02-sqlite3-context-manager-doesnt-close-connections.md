@@ -7,6 +7,7 @@ summary: |
 tags:
   - python
   - sqlite
+old_syntax_highlighting: true
 ---
 I was working on an app that started failing in prod with an error “too many open files”, and I think it was because I wasn't closing SQLite database connections properly.
 

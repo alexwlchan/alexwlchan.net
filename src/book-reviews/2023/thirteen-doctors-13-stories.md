@@ -22,6 +22,7 @@ colors:
    css_light: '#394580'
    css_dark:  '#f9e8cf'
 
+old_syntax_highlighting: true
 ---
 
 A collection of Doctor Who short stories, one per Doctor.

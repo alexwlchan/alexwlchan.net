@@ -23,6 +23,7 @@ colors:
    css_light: '#6a704a'
    css_dark:  '#df6829'
 
+old_syntax_highlighting: true
 ---
 
 Some interesting history of Kew Gardens and a variety of Underground and other travel posters that showed Kew.

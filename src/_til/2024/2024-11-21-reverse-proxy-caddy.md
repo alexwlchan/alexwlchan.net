@@ -6,6 +6,7 @@ tags:
   - caddy
 summary:
   You need to add Host headers and HTTPS configuration to your `reverse_proxy` block.
+old_syntax_highlighting: true
 ---
 I was setting up Caddy to run as a reverse proxy in front of the `www.flickr.org` WordPress site, which is currently hosted on WordPress VIP.
 Here's the config I needed:

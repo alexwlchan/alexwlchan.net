@@ -7,6 +7,7 @@ tags:
   - aws
   - aws:amazon s3
 title: Two shortcuts for using S3 in the shell
+old_syntax_highlighting: true
 ---
 
 I often find myself needing to edit or inspect the contents of a text file stored in S3.

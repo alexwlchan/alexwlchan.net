@@ -22,6 +22,7 @@ colors:
    css_light: '#792266'
    css_dark:  '#e3a68a'
 
+old_syntax_highlighting: true
 ---
 A fun prequel to [*Astrid Parker Doesn’t Fall*](/book-reviews/astrid-parker-doesnt-fail/).
 Although I knew where Astrid was going because I read the series in the wrong order, it didn't bother me at all.

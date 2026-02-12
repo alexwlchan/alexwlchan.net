@@ -6,6 +6,7 @@ summary: |
   If you want to get a string that's semi-complicated to construct, you can put a "mini-template" in the `{% capture %}` tag to build it over multiple lines.
 tags:
   - liquid
+old_syntax_highlighting: true
 ---
 You can use the [capture tag] to create a new variable:
 

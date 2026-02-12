@@ -24,6 +24,7 @@ colors:
    css_light: '#856a55'
    css_dark:  '#edd8bb'
 
+old_syntax_highlighting: true
 ---
 Quite a brutal and graphic book, but one I enjoyed.
 Miles Abernathy is a young trans, autistic man who lives in rural Virginia, and his family is part of a blood feud with the local sheriff.

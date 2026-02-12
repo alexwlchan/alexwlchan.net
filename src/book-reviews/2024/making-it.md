@@ -22,6 +22,7 @@ colors:
    css_light: '#d5182b'
    css_dark:  '#fc83ba'
 
+old_syntax_highlighting: true
 ---
 This is a romance novel about a woman having her lesbian awakening while dealing with severe depression and mental health issues.
 

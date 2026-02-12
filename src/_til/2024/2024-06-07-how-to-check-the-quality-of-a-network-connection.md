@@ -7,6 +7,7 @@ summary: |
 tags:
   - swift
   - networking
+old_syntax_highlighting: true
 ---
 A couple of times I've been listening to [ATP](https://atp.fm/) and Marco has mentioned there are APIs an app can use to check the quality of your network connection -- for example, an app might choose to download podcasts over Wi-Fi but not cellular.
 These APIs have been present on iOS for a long time, but they're also available on macOS.

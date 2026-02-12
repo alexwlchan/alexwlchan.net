@@ -21,6 +21,7 @@ colors:
    css_light: '#974450'
    css_dark:  '#c29960'
 
+old_syntax_highlighting: true
 ---
 
 This book gives one theory for why humans can do maths. The central idea is that mathematical ability is an offshoot of language, and so a lot of the book is spent discussing linguistics and theories about the evolution of language. It was somewhat interesting, but not really what I was expecting.

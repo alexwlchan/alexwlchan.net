@@ -2,6 +2,7 @@
 layout: page
 summary: A chart to track the progress of the Incomparable's Skeletor clip loop.
 title: Skeletor
+old_syntax_highlighting: true
 ---
 
 This is a page to track the latest version of my [recursive clip loop chart](/2014/skeletor/) for *The Incomparable* podcast.

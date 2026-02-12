@@ -6,6 +6,7 @@ tags:
   - macos
 summary: |
   Use `sudo lsof` and grep for the name of the disk you're trying to eject.
+old_syntax_highlighting: true
 ---
 Sometimes when I go to eject a disk on macOS, I can't and the computer won't tell me why:
 

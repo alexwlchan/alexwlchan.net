@@ -21,6 +21,7 @@ colors:
    css_light: '#0c7e72'
    css_dark:  '#f4866b'
 
+old_syntax_highlighting: true
 ---
 
 Read on [the suggestion of Jonn Elledge](https://twitter.com/JonnElledge/status/1294943819625005056).

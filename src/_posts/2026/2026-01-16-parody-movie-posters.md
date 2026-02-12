@@ -6,6 +6,7 @@ summary: I rented movies from Blockbuster, HBO Max-Width and Netflex.
 tags:
   - blogging about blogging
   - fun stuff
+old_syntax_highlighting: true
 ---
 In [my previous post][good-bad-gutters], I needed a collection of movies to show off my CSS grid layout.
 The easy thing to do would be to use real movie posters, but I decided to have some fun and get a custom collection.

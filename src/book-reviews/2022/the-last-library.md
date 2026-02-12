@@ -19,6 +19,7 @@ colors:
    css_light: '#566798'
    css_dark:  '#fc7c55'
 
+old_syntax_highlighting: true
 ---
 
 A pleasant book about a village library assistant who faces the prospect of her library closing, which forces her to get out of the rut her life has fallen into.

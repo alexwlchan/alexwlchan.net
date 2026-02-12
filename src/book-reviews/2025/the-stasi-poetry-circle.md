@@ -22,6 +22,7 @@ colors:
    css_light: '#c6240d'
    css_dark:  '#f9a809'
 
+old_syntax_highlighting: true
 ---
 An intriguing premise -- the Stasi were convinced that writers were including subversive messages in their writing, so they created their own group of trained poets to counter this new threat.
 Sadly the book failed to capture the intrigue, and I got three chapters in before I gave up out of boredom.

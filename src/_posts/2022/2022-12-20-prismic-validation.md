@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#1d1d25"
   index_dark:  "#a1a1b5"
+old_syntax_highlighting: true
 ---
 
 <!-- Cover image: https://commons.wikimedia.org/wiki/File:Prism_flat_rainbow.jpg, CC0 -->

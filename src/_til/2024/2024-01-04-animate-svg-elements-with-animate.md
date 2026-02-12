@@ -4,6 +4,7 @@ date: 2024-01-04 21:53:05 +00:00
 title: "Animate an attribute of an element with &lt;animate&gt;"
 tags:
   - svg
+old_syntax_highlighting: true
 ---
 
 You can animate an attribute of an SVG element using the [`<animate>` element][mdn].

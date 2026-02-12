@@ -7,6 +7,7 @@ tags:
   - aws
   - aws:amazon s3
   - scala
+old_syntax_highlighting: true
 ---
 
 In [my last post](/2019/unpacking-compressed-archives-in-scala/), I talked about how to take a Java `InputStream` for a tar.gz file, and get an iterator of `(ArchiveEntry, InputStream)`.

@@ -4,6 +4,7 @@ date: 2014-06-13 00:03:00 +00:00
 title: Some site updates
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 If you visit the site regularly, you'll have noticed that things have changed quite a lot recently.

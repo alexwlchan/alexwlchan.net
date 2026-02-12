@@ -24,6 +24,7 @@ colors:
   css_light: '#3d7675'
   css_dark:  '#22ac3e'
 
+old_syntax_highlighting: true
 ---
 
 This is a classic example of Japanese short stories: five people are struggling in life, they meet a mysterious and enigmatic stranger, and their life changes for the better.

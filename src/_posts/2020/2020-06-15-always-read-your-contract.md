@@ -7,6 +7,7 @@ tags:
   - personal
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 The contract for my rented flat expires on Thursday, so I've been talking to my estate agent to sort out a new contract.

@@ -8,6 +8,7 @@ tags:
 colors:
   index_light: "#e94cf2"
   index_dark:  "#fe4afa"
+old_syntax_highlighting: true
 ---
 
 I try to write a daily journal, and I find it useful when I do, but I've been struggling to sustain the habit.

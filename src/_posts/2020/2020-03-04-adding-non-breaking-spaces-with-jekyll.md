@@ -6,6 +6,7 @@ summary: A way to avoid awkward line breaks in the middle of phrases.
 tags:
   - jekyll
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 
 I've been using [Jekyll] to build this blog for about two and a half years.

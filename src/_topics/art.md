@@ -1,6 +1,7 @@
 ---
 layout: topic
 title: Art and creativity
+old_syntax_highlighting: true
 ---
 
 These entries show off my more creative side: my illustrations, my cross-stitch, my fiction.

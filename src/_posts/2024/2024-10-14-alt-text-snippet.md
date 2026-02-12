@@ -8,6 +8,7 @@ tags:
   - blogging about blogging
   - accessibility
   - javascript
+old_syntax_highlighting: true
 ---
 I add alt text to every image on this site.
 I have an automated check to remind me to add alt text before I publish the site, but that means alt text has often been an afterthought -- something I'd dash out at the very end of writing a post.

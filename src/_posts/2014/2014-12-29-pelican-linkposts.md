@@ -7,6 +7,7 @@ tags:
 title: RSS linkposts in Pelican
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 You may have noticed that linkposts have started appearing on the blog. This is, of course, [not an original idea][df].

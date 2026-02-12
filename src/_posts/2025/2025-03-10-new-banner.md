@@ -6,6 +6,7 @@ summary: While trying to add some simple overlay labels, I stumbled into a sharp
 tags:
   - css
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 I've made another small tweak to the site -- I've added "new" banners to articles I've written recently, and any post marked as "new" will be pinned to the homepage.
 Previously, the homepage was just a random selection of six articles I'd written at any time.

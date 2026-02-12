@@ -24,5 +24,6 @@ colors:
    css_light: '#425487'
    css_dark:  '#e4e1db'
 
+old_syntax_highlighting: true
 ---
 I was intrigued by the blurb but the book itself didn't really grab me, so I returned it to the library.

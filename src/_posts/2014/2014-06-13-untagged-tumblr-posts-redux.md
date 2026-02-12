@@ -4,6 +4,7 @@ date: 2014-06-13 07:50:00 +00:00
 tags:
   - tumblr
 title: Finding untagged posts on Tumblr, redux
+old_syntax_highlighting: true
 ---
 
 One of the most popular posts on this site is [Finding untagged posts on Tumblr][original_post], but it's not exactly... friendly.

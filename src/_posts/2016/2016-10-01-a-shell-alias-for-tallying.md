@@ -5,6 +5,7 @@ tags:
   - shell scripting
 title: A shell alias for tallying data
 summary: A way to count records on the command-line.
+old_syntax_highlighting: true
 ---
 
 Here's a tiny shell alias that I find useful when going through data on the command line.

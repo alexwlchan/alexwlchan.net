@@ -7,6 +7,7 @@ summary: |
 tags:
   - css
   - svg
+old_syntax_highlighting: true
 ---
 As part of redesigning this site, I was moving some of my small SVGs out of external files and inlining them in CSS rules.
 In my head, the way you do this is by base64-encoding the SVG and shoving it in a `url()` function, for example:

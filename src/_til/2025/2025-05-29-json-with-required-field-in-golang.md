@@ -5,6 +5,7 @@ date: 2025-05-29 17:14:31 +01:00
 tags:
   - golang
   - json
+old_syntax_highlighting: true
 ---
 I've been doing a bit of work with Go recently, in particular writing some code to parse JSON.
 Here's an example program that demonstrates what I learnt, where I'm parsing a JSON string as an instance of a Go struct:

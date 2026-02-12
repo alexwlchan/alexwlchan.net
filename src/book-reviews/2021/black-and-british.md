@@ -23,6 +23,7 @@ colors:
    css_light: '#166e7e'
    css_dark:  '#15b8d4'
 
+old_syntax_highlighting: true
 ---
 
 I borrowed a copy of this from the library; it's been on my reading list for a while.

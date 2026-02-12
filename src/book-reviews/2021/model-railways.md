@@ -21,6 +21,7 @@ colors:
    css_light: '#bf3016'
    css_dark:  '#cc551b'
 
+old_syntax_highlighting: true
 ---
 
 Am I ever going to build a model railway?

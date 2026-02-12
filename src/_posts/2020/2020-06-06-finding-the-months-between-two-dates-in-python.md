@@ -5,6 +5,7 @@ title: Finding the months between two dates in Python
 tags:
   - python
   - datetime shenanigans
+old_syntax_highlighting: true
 ---
 
 Here's a function extracted from a recent project that I'm likely to reuse elsewhere: finding all the months between two dates in Python.

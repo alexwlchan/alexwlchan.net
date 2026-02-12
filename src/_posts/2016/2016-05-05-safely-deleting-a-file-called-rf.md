@@ -6,6 +6,7 @@ tags:
   - shell scripting
   - code crimes
 title: Safely deleting a file called ‘-rf *’
+old_syntax_highlighting: true
 ---
 
 Odd thing that happened at work today: we accidentally created a file called `-rf *` on one of our dev boxes.

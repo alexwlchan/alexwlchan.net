@@ -22,6 +22,7 @@ colors:
    css_light: '#5e62a7'
    css_dark:  '#d4ae35'
 
+old_syntax_highlighting: true
 ---
 
 Apparently this was recommended by Emily Meredith, but I'm sure she's not the only one -- people have been suggesting Pratchett to me for years.

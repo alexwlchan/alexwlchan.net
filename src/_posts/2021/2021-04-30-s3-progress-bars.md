@@ -8,6 +8,7 @@ tags:
   - aws
   - python
   - terminal tricks
+old_syntax_highlighting: true
 ---
 
 I write a lot of scripts to move files in and out of S3, and when I'm dealing with larger files, I find it useful to get an idea of how long the transfer will take.

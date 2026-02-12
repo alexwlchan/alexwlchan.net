@@ -6,6 +6,7 @@ summary: An improvement to Rust's error handling that I almost reported, until I
 tags:
   - rust
   - error messages
+old_syntax_highlighting: true
 ---
 
 In [my last-but-one post](/2021/dominant-colours/), I mentioned the quality of Rust's compiler errors.

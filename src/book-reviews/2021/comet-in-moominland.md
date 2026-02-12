@@ -21,6 +21,7 @@ colors:
    css_light: '#2d5980'
    css_dark:  '#f2d146'
 
+old_syntax_highlighting: true
 ---
 
 This is another one of the Moomin books I got from Oxfam; in hindsight, I should have read this before [*Finn Family Moomintroll*](/book-reviews/finn-family-moomintroll/), because this book is earlier in the series, and introduces a bunch of the characters (Snufkin, the Hemulen, the Snork Maiden) rather than assume you already know them.

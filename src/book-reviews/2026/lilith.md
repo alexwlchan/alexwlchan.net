@@ -20,6 +20,7 @@ colors:
   css_light: "#bf1a17"
   css_dark:  "#e3cb8a"
 
+old_syntax_highlighting: true
 ---
 
 In this story, the mother god Asherah is quickly subdued by Yahweh, a patriarchal god who wants to subjugate women, acts as the only god, and teaches Adam to be ambitious and dominant. The story weaves across millennia as Lilith tries to rescue Asherah and her lessons of motherhood and caring.

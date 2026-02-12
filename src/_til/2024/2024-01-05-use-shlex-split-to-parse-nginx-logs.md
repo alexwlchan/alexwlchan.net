@@ -5,6 +5,7 @@ date: 2024-01-05 12:09:22 +00:00
 tags:
   - python
   - nginx
+old_syntax_highlighting: true
 ---
 I wanted to parse some nginx log files, and I know I've done something like this in the past (possibly with Apache logs) – but I remember that involved quite a complicated regex for extracting all the components.
 

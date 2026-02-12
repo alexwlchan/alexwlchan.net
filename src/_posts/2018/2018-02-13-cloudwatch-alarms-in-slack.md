@@ -7,6 +7,7 @@ canonical_url: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-
 tags:
   - wellcome collection
   - slack
+old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

@@ -8,6 +8,7 @@ tags:
   - docker
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 These days, I do less and less writing that needs to be printed, but when I do, my tool of choice is still LaTeX.

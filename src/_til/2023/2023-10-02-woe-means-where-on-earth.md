@@ -5,6 +5,7 @@ date: 2023-10-02 17:29:30 +00:00
 tags:
   - flickr
   - naming things
+old_syntax_highlighting: true
 ---
 For example, the parameter in the [flickr.places.placesForContacts API][api]:
 

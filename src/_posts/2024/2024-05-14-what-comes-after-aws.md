@@ -10,6 +10,7 @@ colors:
   index_dark:  "#80a737"
   index_light: "#3c5a32"
 card_attribution: https://www.pexels.com/photo/green-forest-2739664/
+old_syntax_highlighting: true
 ---
 
 James Governor posed some interesting questions yesterday:

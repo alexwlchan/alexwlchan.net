@@ -10,6 +10,7 @@ title: Using hooks for custom behaviour in requests
 colors:
   index_light: "#79451e"
   index_dark:  "#b3814e"
+old_syntax_highlighting: true
 ---
 
 <!-- Index image from https://pixnio.com/objects/screw/wood-screw-hooks-white-metal-steel# -->

@@ -12,6 +12,7 @@ index:
 colors:
   css_light: "#6c006c"
   css_dark:  "#cb52ff"
+old_syntax_highlighting: true
 ---
 
 Today is a more personal post: I want to talk about asexuality.

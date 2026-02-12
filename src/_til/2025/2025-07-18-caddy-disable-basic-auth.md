@@ -5,6 +5,7 @@ summary: Define a matcher that negates the routes you want to be public, then us
 date: 2025-07-18 10:20:52 +01:00
 tags:
   - caddy
+old_syntax_highlighting: true
 ---
 Suppose I have a web server using Caddy, and I'm protecting it with HTTP Basic Authentication using the [`basic_auth` directive](https://caddyserver.com/docs/caddyfile/directives/basic_auth).
 

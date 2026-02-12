@@ -6,6 +6,7 @@ summary: You can send messages to a DLQ if they fail processing. What if you fix
 tags:
   - aws
   - aws:amazon sqs
+old_syntax_highlighting: true
 ---
 
 At work, we make heavy use of [Amazon SQS](https://en.wikipedia.org/wiki/Amazon_Simple_Queue_Service) for message queues.

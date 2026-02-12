@@ -7,6 +7,7 @@ summary:
   You can use `app.error_handler` to add custom responses for HTTP status codes, so the errors match the look and feel of the rest of the site.
 tags:
   - python
+old_syntax_highlighting: true
 ---
 You can customise the error pages by adding a few instances of `app.error_handler`, for example:
 

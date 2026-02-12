@@ -22,6 +22,7 @@ colors:
    css_light: '#083f61'
    css_dark:  '#1386cc'
 
+old_syntax_highlighting: true
 ---
 This book had an intriguing premise: a woman wakes up on a moving train, with no memory of who she is or how she got there.
 As she explores the train, she meets other people who've lost their memories.

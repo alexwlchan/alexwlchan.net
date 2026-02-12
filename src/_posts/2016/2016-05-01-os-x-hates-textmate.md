@@ -8,6 +8,7 @@ tags:
   - textmate
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I try not to make unreasonable complaints about the quality of software.

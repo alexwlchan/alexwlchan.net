@@ -4,6 +4,7 @@ title: You can set an output mode for SQLite
 date: 2025-04-04 06:57:36 +01:00
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 Via a [toot from Ian Jackson](https://tech.lgbt/@Diziet/114010058212633945), I learnt that SQLite supports [different output formats](https://sqlite.org/cli.html#changing_output_formats):
 

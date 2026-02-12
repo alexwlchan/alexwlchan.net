@@ -21,6 +21,7 @@ colors:
    css_light: '#344f36'
    css_dark:  '#e12b73'
 
+old_syntax_highlighting: true
 ---
 A fun murder mystery, split across past and present.
 

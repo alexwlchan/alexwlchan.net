@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#1b1e21"
   index_dark:  "#e6f2fb"
+old_syntax_highlighting: true
 ---
 
 [GitHub Actions][actions] is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers inside GitHub's infrastructure, so there’s a lot of flexibility in what you can do.

@@ -7,6 +7,7 @@ date: 2018-10-24 08:18:00 +00:00
 tags:
   - python
   - json
+old_syntax_highlighting: true
 ---
 
 To create compact JSON in Python:

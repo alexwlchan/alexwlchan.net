@@ -6,6 +6,7 @@ summary: How I get a Cost Explorer graph for the last 30 days of spending, broke
 tags:
   - aws
   - aws:aws-billing
+old_syntax_highlighting: true
 ---
 
 If you use AWS, it's always a good idea to keep an eye on your costs.

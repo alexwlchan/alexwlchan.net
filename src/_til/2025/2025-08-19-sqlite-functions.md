@@ -5,6 +5,7 @@ summary: You can run a `SELECT function(…);` query without any tables.
 date: 2025-08-19 18:56:33 +01:00
 tags:
   - sqlite
+old_syntax_highlighting: true
 ---
 SQLite includes a bunch of [core functions](https://sqlite.org/lang_corefunc.html) like `lower(X)`, `round(X)` and `unicode(X)`.
 I wanted to test how these functions work in my local instance of SQLite, but I didn't have a database handy.

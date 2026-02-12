@@ -6,6 +6,7 @@ tags:
   - applescript
   - macos
   - macos:safari
+old_syntax_highlighting: true
 ---
 
 Last year, I wrote an AppleScript function that [opens a URL in a Private Browsing window in Safari](/2020/using-applescript-to-open-a-url-in-private-browsing-in-safari/).

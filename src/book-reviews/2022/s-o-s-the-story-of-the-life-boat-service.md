@@ -22,6 +22,7 @@ colors:
    css_light: '#2d2659'
    css_dark:  '#dc8d5b'
 
+old_syntax_highlighting: true
 ---
 
 Interesting book about the history of the RNLI, set before a lot of modern developments -- motorised lifeboats are still a curiosity, plastic isn't really a thing yet, radios are just starting to appear.

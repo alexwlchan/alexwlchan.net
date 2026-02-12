@@ -5,6 +5,7 @@ summary: When you view an array/object with `console.log()`, you see the content
 date: 2025-04-18 10:34:25 +01:00
 tags:
   - javascript
+old_syntax_highlighting: true
 ---
 I was having a weird issue with some JavaScript.
 I was loading a JSON object and logging it to the console in my browser dev tools, but it didn't match the object that was defined in my code.

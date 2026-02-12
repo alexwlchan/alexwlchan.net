@@ -20,6 +20,7 @@ colors:
    css_light: '#767078'
    css_dark:  '#da3a62'
 
+old_syntax_highlighting: true
 ---
 
 This is a very character-driven book. It switches between the seven characters, with each chapter told from a different person’s perspective. Everyone has a strong arc, a lesson they learn during the book. I found all of the main characters compelling, and I wanted to learn more – and it didn’t feel like it was too crowded. Although it jumps around, I never found myself lost or unsure of what was happening.

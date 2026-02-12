@@ -5,5 +5,6 @@ summary: This allows you to write commands like `mkdir myfolder && cd $_` or `gi
 date: 2024-09-04 07:13:21 +01:00
 tags:
   - shell scripting
+old_syntax_highlighting: true
 ---
 (Not more to it than the summary.)

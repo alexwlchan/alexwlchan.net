@@ -6,6 +6,7 @@ summary: A snippet for iterating over an arbitrary iterable in chunks, and retur
 tags:
   - python
 title: Iterating in fixed-size chunks in Python
+old_syntax_highlighting: true
 ---
 
 Here's a fairly common problem I have: I have an iterable, and I want to go through it in "chunks".

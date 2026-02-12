@@ -23,6 +23,7 @@ colors:
    css_light: '#5a7743'
    css_dark:  '#cc9c31'
 
+old_syntax_highlighting: true
 ---
 
 An interesting memoir about somebody's experience of gender.

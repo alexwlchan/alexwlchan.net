@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#336EAF"
   index_dark:  "#fac126"
+old_syntax_highlighting: true
 ---
 
 We've just published [the venue information][venue] for this year's PyCon UK.

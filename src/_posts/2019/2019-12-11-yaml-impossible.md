@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#527ab2"
   index_dark:  "#8ebaec"
+old_syntax_highlighting: true
 ---
 
 If you know the *Mission: Impossible* films (or before that, the 1966 TV series), you've surely heard the famous phrase, "This tape will self-destruct in five seconds. Good luck, Jim."

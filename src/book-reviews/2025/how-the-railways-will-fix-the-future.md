@@ -21,6 +21,7 @@ colors:
    css_light: '#a81613'
    css_dark:  '#efc9bc'
 
+old_syntax_highlighting: true
 ---
 This book is about persuading us of the potential of railways, and how to unlock it -- how trains can solve the climate crisis in a way that planes and cars are unable to.
 

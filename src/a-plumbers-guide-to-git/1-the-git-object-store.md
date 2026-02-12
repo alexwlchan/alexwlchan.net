@@ -5,6 +5,7 @@ title: "Part 1: The Git object store"
 part_of:
   url: /a-plumbers-guide-to-git/
   label: "A Plumber's Guide to Git"
+old_syntax_highlighting: true
 ---
 
 We'll start by working with single files.

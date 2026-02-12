@@ -22,6 +22,7 @@ colors:
    css_light: '#c14d4b'
    css_dark:  '#e8e5e4'
 
+old_syntax_highlighting: true
 ---
 
 I really wanted to enjoy this book. It’s clear a lot of work went into the research, talking to people who did it – this isn’t a light piece of work. And this is right in my wheelhouse – WWII espionage, underground techie stuff, and the like.

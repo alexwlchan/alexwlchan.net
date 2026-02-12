@@ -8,6 +8,7 @@ tags:
   - blogging about blogging
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 For a while I've wanted to see how much I'm writing -- not for anything in particular, just idle curiosity.

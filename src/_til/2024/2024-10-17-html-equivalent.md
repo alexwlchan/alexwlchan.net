@@ -6,6 +6,7 @@ summary: |
 date: 2024-10-17 09:54:59 +01:00
 tags:
   - html
+old_syntax_highlighting: true
 ---
 I was working on some HTML templates, and I wanted to test they were creating the right HTML.
 In particular, I wanted to write an assertion that the actual HTML and the expected HTML were the same.

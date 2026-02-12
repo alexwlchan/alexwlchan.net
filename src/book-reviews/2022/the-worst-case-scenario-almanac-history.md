@@ -21,6 +21,7 @@ colors:
    css_light: '#906a47'
    css_dark:  '#fdb825'
 
+old_syntax_highlighting: true
 ---
 
 Fun little history book, presented as how-to guides and advice mixed with tables of facts and figures.

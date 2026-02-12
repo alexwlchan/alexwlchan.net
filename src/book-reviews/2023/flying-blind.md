@@ -23,6 +23,7 @@ colors:
    css_light: '#d93127'
    css_dark:  '#fc362c'
 
+old_syntax_highlighting: true
 ---
 
 I had high hopes for this book, but it fell short.

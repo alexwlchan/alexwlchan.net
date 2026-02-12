@@ -4,6 +4,7 @@ title: Get a string representation of a Python traceback with `traceback.format_
 date: 2025-06-13 09:05:29 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 Here's a simple example:
 

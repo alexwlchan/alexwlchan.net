@@ -21,6 +21,7 @@ colors:
    css_light: '#6e4d31'
    css_dark:  '#fcf8f3'
 
+old_syntax_highlighting: true
 ---
 
 Lots of railways, interesting context and historical details, some nice photographs.

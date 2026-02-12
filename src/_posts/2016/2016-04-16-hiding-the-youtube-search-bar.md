@@ -8,6 +8,7 @@ tags:
 title: Hiding the YouTube search bar
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 This morning, I got an email from Sam, asking if I had a way to cover up the persistent YouTube search bar:

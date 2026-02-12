@@ -21,6 +21,7 @@ colors:
    css_light: '#72695f'
    css_dark:  '#f3f5ef'
 
+old_syntax_highlighting: true
 ---
 
 Good mixture of the mathematical bits and history of the relevant people. Covers a lot of ideas in a fairly compact way.

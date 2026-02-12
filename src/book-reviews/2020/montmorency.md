@@ -20,6 +20,7 @@ colors:
    css_light: '#72577c'
    css_dark:  '#dcd7da'
 
+old_syntax_highlighting: true
 ---
 
 Victorian fiction -- a thief who gets out of prison and creates a new life for himself, funded by a series of burglaries accessed through the sewers.

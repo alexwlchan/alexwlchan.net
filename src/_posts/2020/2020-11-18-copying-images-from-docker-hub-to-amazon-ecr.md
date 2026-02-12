@@ -7,6 +7,7 @@ tags:
   - aws:amazon-ecr
   - aws
 link: https://github.com/wellcomecollection/platform-infrastructure/blob/4b16beef44efbe8faa9a62f5459ab6f706e07032/builds/copy_docker_images_to_ecr.py
+old_syntax_highlighting: true
 ---
 
 In August, Docker announced they were going to start [rate limiting for Docker image pulls](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) from Docker Hub.

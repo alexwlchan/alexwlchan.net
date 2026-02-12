@@ -9,6 +9,7 @@ tags:
   - colour
   - drawing things
 summary: Adjusting the hue to get different colour variants of the same image.
+old_syntax_highlighting: true
 ---
 
 A week ago, I was at a "book dash" (a collaborative writing event) for [the Turing Way][turing], a book about reproducible data science.

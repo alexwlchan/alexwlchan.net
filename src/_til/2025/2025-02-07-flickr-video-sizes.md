@@ -6,6 +6,7 @@ summary: |
   The video's owner will get the URL to the original video file as "Video Original", otherwise you should look for the largest video size.
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 Flickr's help page about [downloading content][help] mentions some limitations on downloading video:
 

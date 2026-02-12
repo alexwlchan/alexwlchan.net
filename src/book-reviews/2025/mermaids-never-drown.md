@@ -23,6 +23,7 @@ colors:
    css_light: '#4c418a'
    css_dark:  '#e494c3'
 
+old_syntax_highlighting: true
 ---
 A collection of short stories about mermaids, sirens, and other creatures that live under the sea.
 I bought this primarily because I like Darcie Little Badger's writing; it turns out that I'm not that interested in stories about mermaids.

@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#0a5b8a"
   index_dark:  "#54b8f2"
+old_syntax_highlighting: true
 ---
 
 If you listen to some of my friends, they'll say that I'm a spy.

@@ -5,6 +5,7 @@ summary: "`smartypants.smartypants(…, Attr.default | Attr.u)`"
 date: 2025-08-15 09:43:00 +01:00
 tags:
   - python
+old_syntax_highlighting: true
 ---
 I wanted to add curly quotes and dashes to some text in Python, so I looked at the [smartypants library](https://smartypants.readthedocs.io/en/latest/introduction.html).
 This is the code I used:

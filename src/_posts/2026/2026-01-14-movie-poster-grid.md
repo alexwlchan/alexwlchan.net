@@ -9,6 +9,7 @@ index:
 colors:
   css_light: "#911e31"
   css_dark:  "#d64f71"
+old_syntax_highlighting: true
 ---
 I've been organising my local movie collection recently, and converting it into [a static site][static-sites].
 I want the homepage to be a scrolling grid of movie posters, where I can click on any poster and start watching the movie.

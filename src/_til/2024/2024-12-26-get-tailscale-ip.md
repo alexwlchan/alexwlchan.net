@@ -7,6 +7,7 @@ tags:
   - jq
 summary: |
   Use `tailscale status --json` and filter the output using `jq`.
+old_syntax_highlighting: true
 ---
 I'm using Tailscale to connect my personal devices, and I wanted a way to get the IP address of my home desktop from the command line.
 

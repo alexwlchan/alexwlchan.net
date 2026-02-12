@@ -4,6 +4,7 @@ date: 2015-11-14 22:02:00 +00:00
 title: Email with a purpose
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 I've just finished reading [*Operation Fortitude*][az], by Joshua Levine.

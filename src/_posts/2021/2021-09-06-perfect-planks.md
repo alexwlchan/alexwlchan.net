@@ -10,6 +10,7 @@ tags:
 colors:
   index_light: "#5c422e"
   index_dark:  "#e5bd9e"
+old_syntax_highlighting: true
 ---
 
 <!-- Index image from https://pixabay.com/photos/board-boards-material-pile-plank-2941888/; CC0 -->

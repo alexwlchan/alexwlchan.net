@@ -20,6 +20,7 @@ colors:
    css_light: '#000000'
    css_dark:  '#ccebf1'
 
+old_syntax_highlighting: true
 ---
 
 Originally sought out after a [recommendation from Hillel](https://twitter.com/Hillelogram/status/1017788075555065858):

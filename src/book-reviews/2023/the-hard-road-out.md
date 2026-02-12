@@ -23,6 +23,7 @@ colors:
    css_light: '#cc382d'
    css_dark:  '#e23d31'
 
+old_syntax_highlighting: true
 ---
 
 A gripping and horrifying story of growing up in North Korea.

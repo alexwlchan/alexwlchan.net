@@ -21,6 +21,7 @@ colors:
    css_light: '#646357'
    css_dark:  '#b38a55'
 
+old_syntax_highlighting: true
 ---
 
 A detailed history of British signals intelligence, which eventually leads to GCHQ, although the book starts in the First World War (before even Bletchley Park).

@@ -6,6 +6,7 @@ summary: The answer involves the AV1 video codec, Apple's chips, and several new
 tags:
   - web development
   - video
+old_syntax_highlighting: true
 ---
 I [download a lot of videos][downloads], but recently I discovered that some of those videos won't play on my iPhone.
 If I try to open the videos or embed them in a webpage, I get a broken video player:

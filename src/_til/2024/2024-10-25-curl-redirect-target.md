@@ -4,6 +4,7 @@ title: How to get the target of an HTTP redirect with curl
 date: 2024-10-25 07:39:04 +01:00
 tags:
   - curl
+old_syntax_highlighting: true
 ---
 I wanted to check where an HTTP URL redirects using curl.
 

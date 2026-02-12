@@ -7,6 +7,7 @@ tags:
   - jxa
   - macos:safari
   - macos
+old_syntax_highlighting: true
 ---
 
 I have a lot of browser tabs.

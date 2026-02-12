@@ -7,6 +7,7 @@ title: Finding divisors of a number with Python
 tags:
   - python
   - maths
+old_syntax_highlighting: true
 ---
 
 Here's a problem I was trying to solve recently: given an integer *n*, what are all the divisors of *n*?

@@ -6,6 +6,7 @@ summary: |
 date: 2025-05-06 10:29:43 +01:00
 tags:
   - flickr
+old_syntax_highlighting: true
 ---
 I'm using the [flickr.photos.people.getList API][api] to get a list of people in a given photo, and I wanted some photos to test with.
 I wasn't sure how to find photos which have people tagged, but I was able to work it out.

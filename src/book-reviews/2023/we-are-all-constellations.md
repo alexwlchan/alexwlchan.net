@@ -23,6 +23,7 @@ colors:
    css_light: '#6a3693'
    css_dark:  '#d059a4'
 
+old_syntax_highlighting: true
 ---
 
 A story about Iris, a young woman who's struggling to come to terms with her mum's death – it happened seven years ago, but she's only just learning the truth about what really happened.

@@ -23,6 +23,7 @@ colors:
    css_light: '#845657'
    css_dark:  '#c79176'
 
+old_syntax_highlighting: true
 ---
 
 This is an alternate history about a heavy topic: the slave trade in America.

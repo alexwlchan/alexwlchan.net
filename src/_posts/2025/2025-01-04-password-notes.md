@@ -8,6 +8,7 @@ summary: |
 tags:
   - infosec
   - taking notes
+old_syntax_highlighting: true
 ---
 I use 1Password to store the passwords for my online accounts, and I've been reviewing it as a [new year cleanup task](/2015/1password/).
 I've been deleting unused accounts, changing old passwords which were weak, and making sure I've enabled multi-factor authentication for key accounts.

@@ -9,6 +9,7 @@ title: Python and the BBC micro:bit
 colors:
   index_light: "#18ab6d"
   index_dark:  "#18ab6d"
+old_syntax_highlighting: true
 ---
 
 The BBC micro:bit is a tiny computer, intended for Year&nbsp;7 students to use to learn about programming (being distributed free to schools next spring).

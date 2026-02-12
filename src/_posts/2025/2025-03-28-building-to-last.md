@@ -11,6 +11,7 @@ index:
 colors:
   css_light: "#408074"
   css_dark:  "#7CF6DF"
+old_syntax_highlighting: true
 ---
 Yesterday I gave a talk at [Monki Gras 2025](https://monkigras.com/).
 This year, the theme is *Sustaining Software Development Craft*, and here's the description from the conference website:

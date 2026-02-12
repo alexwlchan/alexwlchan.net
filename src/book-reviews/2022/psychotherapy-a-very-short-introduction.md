@@ -21,6 +21,7 @@ colors:
    css_light: '#231962'
    css_dark:  '#ebeac7'
 
+old_syntax_highlighting: true
 ---
 
 I think I picked up this book when I was wondering if I wanted to go into psychotherapy.

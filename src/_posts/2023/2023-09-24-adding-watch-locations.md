@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#5b3527"
   index_dark:  "#f8e0bf"
+old_syntax_highlighting: true
 ---
 
 A week or so ago, I was hiking around [Lake Bohinj], a gorgeous Alpine lake in northwest Slovenia.

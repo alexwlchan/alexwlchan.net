@@ -21,6 +21,7 @@ colors:
    css_light: '#c14327'
    css_dark:  '#f04b27'
 
+old_syntax_highlighting: true
 ---
 
 This is a sort of sci-fi dystopia novel.

@@ -6,6 +6,7 @@ summary: The Docker folder on your computer can quickly fill up space. Don't for
 tags:
   - docker
 title: Backups and Docker
+old_syntax_highlighting: true
 ---
 
 I've spent a lot of time recently playing with [Docker](http://www.docker.com/).

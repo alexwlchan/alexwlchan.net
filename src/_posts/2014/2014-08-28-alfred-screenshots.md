@@ -5,6 +5,7 @@ tags:
   - alfred
   - applescript
 title: A quick Alfred workflow for opening recent screenshots
+old_syntax_highlighting: true
 ---
 
 I'm a big fan of the productivity app [Alfred][alf]. It's one of the

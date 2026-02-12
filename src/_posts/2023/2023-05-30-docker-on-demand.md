@@ -12,6 +12,7 @@ colors:
   css_light:   "#3a5781"
   css_dark:    "#cfe7f7"
 card_attribution: by Todd Cravens, https://unsplash.com/photos/QnBrjY-nFUs
+old_syntax_highlighting: true
 ---
 
 Although I use Docker a lot, I don't leave it running all the time -- it can be quite a resource hog, and even if it's doing nothing it can make my laptop feel sluggish.

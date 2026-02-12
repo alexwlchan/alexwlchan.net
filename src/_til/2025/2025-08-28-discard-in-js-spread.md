@@ -4,6 +4,7 @@ title: Discard a variable in a JavaScript object spread by assigning it to `_`
 date: 2025-08-28 10:55:29 +01:00
 tags:
   - javascript
+old_syntax_highlighting: true
 ---
 I had some code with [spread syntax] where some variables were being captured and used, and others were being saved into a catchall `props` variable.
 

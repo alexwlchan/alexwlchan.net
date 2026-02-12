@@ -11,6 +11,7 @@ colors:
   css_dark:  "#238fd1"
 index:
   feature: true
+old_syntax_highlighting: true
 ---
 
 <!-- https://twitter.com/alexwlchan/status/1448052181886722053 -->

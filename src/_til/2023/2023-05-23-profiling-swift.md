@@ -4,6 +4,7 @@ date: 2023-05-23 21:05:27 +00:00
 title: How to profile Swift code
 tags:
   - swift
+old_syntax_highlighting: true
 ---
 [Stack Overflow coughed up a snippet which I've adapted](https://stackoverflow.com/a/24755958/1558022):
 

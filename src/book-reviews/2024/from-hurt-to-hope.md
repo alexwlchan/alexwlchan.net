@@ -24,6 +24,7 @@ colors:
    css_light: '#150b0a'
    css_dark:  '#e98b20'
 
+old_syntax_highlighting: true
 ---
 A collection of essays about autism and mental health.
 

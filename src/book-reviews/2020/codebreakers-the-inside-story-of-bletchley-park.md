@@ -23,6 +23,7 @@ colors:
    css_light: '#bb0a0a'
    css_dark:  '#a5aea3'
 
+old_syntax_highlighting: true
 ---
 
 A series of first-hand accounts from people who worked at or with Bletchley Park.

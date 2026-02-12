@@ -11,6 +11,7 @@ colors:
   index_light: "#117A06"
   index_dark:  "#4cdf0a"
 card_attribution: https://unsplash.com/photos/ND-5eIFKeiM
+old_syntax_highlighting: true
 ---
 
 For a couple of our S3 buckets at work, we use [S3 Bucket Inventory][awsdocs] to track their contents.

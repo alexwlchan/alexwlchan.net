@@ -22,6 +22,7 @@ colors:
    css_light: '#220f13'
    css_dark:  '#f3e7a9'
 
+old_syntax_highlighting: true
 ---
 
 A bit of a coffee-table book, it's a large tome runs through a bunch of ideas in roughly chronological order.

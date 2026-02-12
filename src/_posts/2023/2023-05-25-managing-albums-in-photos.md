@@ -11,6 +11,7 @@ tags:
 colors:
   index_light: "#4f4f4f"
   index_dark:  "#9da3a8"
+old_syntax_highlighting: true
 ---
 
 Recently I've been building some tools to help me manage my photo collection, and part of that involves moving photos in and out of albums.

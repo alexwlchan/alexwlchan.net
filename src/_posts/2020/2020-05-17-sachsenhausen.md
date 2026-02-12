@@ -5,6 +5,7 @@ title: The Sachsenhausen concentration camp
 summary: Feeling the weight of death in a former concentration camp.
 tags:
   - history
+old_syntax_highlighting: true
 ---
 
 *Content warning: Nazis, Holocaust, murder, graphic descriptions of death.*

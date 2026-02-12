@@ -7,6 +7,7 @@ summary: |
 tags:
   - safari
   - digital preservation
+old_syntax_highlighting: true
 ---
 Suppose you save a Safari webarchive from Twitter/X.
 When you try to open it, the scripts on the page will detect that you're not logged in, and try to redirect you back to `twitter.com`/`x.com`.

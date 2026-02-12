@@ -9,6 +9,7 @@ tags:
 colors:
   css_light: "#7d6534"
   css_dark:  "#c3ab74"
+old_syntax_highlighting: true
 ---
 A while ago I was looking for a palm tree emoji, and the macOS Character Viewer suggested a variety of other characters I didn't recognise:
 

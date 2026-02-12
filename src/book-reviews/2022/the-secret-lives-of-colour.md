@@ -21,6 +21,7 @@ colors:
    css_light: '#5a6c72'
    css_dark:  '#d6be3d'
 
+old_syntax_highlighting: true
 ---
 
 This is a really fun book about colour – there's a brief intro about colour in general, then a variety of shades each get a page or two describing their history, manufacture, cultural attitudes, and more.

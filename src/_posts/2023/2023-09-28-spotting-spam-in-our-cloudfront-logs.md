@@ -11,6 +11,7 @@ colors:
   index_dark:  "#2f90ff"
   css_light:   "#236abc"
   css_dark:    "#2f90ff"
+old_syntax_highlighting: true
 ---
 
 About two months ago, I wrote about some [Python code I'd written to parse CloudFront logs][python].

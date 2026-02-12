@@ -21,6 +21,7 @@ colors:
    css_light: '#6c6f84'
    css_dark:  '#cec1b3'
 
+old_syntax_highlighting: true
 ---
 
 I picked up this book on the recommendation of a friend, but otherwise I knew nothing about it. Turns out that’s a really good way to read it.

@@ -9,6 +9,7 @@ tags:
 colors:
   index_light: "#8c3526"
   index_dark:  "#d7a59d"
+old_syntax_highlighting: true
 ---
 
 Earlier this week, my mum sent me an interesting problem.

@@ -5,6 +5,7 @@ date: 2025-07-08 19:50:29 +01:00
 tags:
   - css
   - golang
+old_syntax_highlighting: true
 ---
 I'm going to be writing more Go soon, and that means I'll want to write posts about Go.
 I'll want to include snippets of Go code, and my Go code will probably be [indented with tabs][tabs].

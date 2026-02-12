@@ -22,6 +22,7 @@ colors:
    css_light: '#c3363c'
    css_dark:  '#958b95'
 
+old_syntax_highlighting: true
 ---
 I re-read this as a palate cleanser while visiting my parents; they had a copy on the shelf.
 Fun and interesting, but I've read enough of this that's been syndicated elsewhere that I remembered a lot of the material.

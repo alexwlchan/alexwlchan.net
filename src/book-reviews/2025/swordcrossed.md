@@ -21,6 +21,7 @@ colors:
    css_light: '#0c803f'
    css_dark:  '#e18caa'
 
+old_syntax_highlighting: true
 ---
 I read this for a book club at *The Ripped Bodice* in New York.
 

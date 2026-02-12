@@ -9,6 +9,7 @@ tags:
 colors:
   css_dark:  "#88FA4E"
   css_light: "#008500"
+old_syntax_highlighting: true
 ---
 Yesterday I gave a talk at [Monki Gras 2024](https://monkigras.com/).
 This year, the theme is *"Prompting Craft: examining and discussing the art of the prompt in code and cultural creation"*.

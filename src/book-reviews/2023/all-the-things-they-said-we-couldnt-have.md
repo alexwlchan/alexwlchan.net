@@ -22,6 +22,7 @@ colors:
    css_light: '#227da6'
    css_dark:  '#059dcd'
 
+old_syntax_highlighting: true
 ---
 
 Some nice moments of trans joy, which is always nice but didn't make much of an impact on me.

@@ -6,6 +6,7 @@ tags:
   - git
   - builds and ci
 title: Some useful Git commands for CI
+old_syntax_highlighting: true
 ---
 
 I spend a lot of time writing build scripts for interacting with Git repos.

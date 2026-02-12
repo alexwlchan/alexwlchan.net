@@ -10,6 +10,7 @@ date: 2017-09-11 12:01:13 +01:00
 colors:
   css_light: "#008000"
   css_dark:  "#00b300"
+old_syntax_highlighting: true
 ---
 
 Every week, we have an hour of developer learning at work -- maybe a talk, a workshop, or some other session about of topic of interest to developers.

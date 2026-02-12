@@ -6,6 +6,7 @@ summary: The original Markdown implementation would do randomised hex/decimal en
 tags:
   - jekyll
   - blogging about blogging
+old_syntax_highlighting: true
 ---
 
 Like many people, I use [Markdown] to write a lot of text.

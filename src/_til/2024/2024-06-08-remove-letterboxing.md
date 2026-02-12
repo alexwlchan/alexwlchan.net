@@ -6,6 +6,7 @@ summary: |
   Using `-trim` will remove the black portions and leave you the unletterboxed image.
 tags:
   - imagemagick
+old_syntax_highlighting: true
 ---
 I was doing some work today with screenshots of a video that had [black "letterboxing" bars](https://en.wikipedia.org/wiki/Letterboxing_%28filming%29) around it.
 If you use `convert [input] -trim [output]`, you can remove this with ImageMagick.

@@ -6,6 +6,7 @@ summary: I've moved almost all of my Glitch apps to websites running on my own w
 tags:
   - glitch
   - fun stuff
+old_syntax_highlighting: true
 ---
 About six weeks ago, Glitch [announced that they're shutting down][sunset].
 Glitch was a platform where you could make websites and web apps, with a heavy emphasis on creativity and sharing.

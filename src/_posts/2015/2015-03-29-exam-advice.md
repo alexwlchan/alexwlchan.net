@@ -6,6 +6,7 @@ summary: Some advice for students sitting technical exams
 tags:
   - maths
 title: Some exam advice
+old_syntax_highlighting: true
 ---
 
 As the exam season approaches, I see a gentle trickle of hits to my [exam advice](/2014/part-ia-exams/) for first-year maths students. It's been a year since I wrote it, and I still agree with almost all of it.

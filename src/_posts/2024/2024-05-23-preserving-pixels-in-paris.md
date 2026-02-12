@@ -11,6 +11,7 @@ tags:
 colors:
   index_light: "#7d5628"
   index_dark:  "#cba369"
+old_syntax_highlighting: true
 ---
 Last month, I was in Paris for the [IIPC Web Archiving Conference][conf], a two-day event to discuss the preservation of websites and social media.
 It was my first time attending, and I was there with both a [professional](https://www.flickr.org/) and a [personal](/tags/digital-preservation/) interest.

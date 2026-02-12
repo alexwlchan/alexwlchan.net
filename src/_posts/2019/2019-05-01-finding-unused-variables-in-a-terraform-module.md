@@ -6,6 +6,7 @@ tags:
   - terraform
 index:
   exclude: true
+old_syntax_highlighting: true
 ---
 
 {% update date="2023-08-17" %}

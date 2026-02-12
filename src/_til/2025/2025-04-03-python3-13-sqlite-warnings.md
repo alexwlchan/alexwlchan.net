@@ -5,6 +5,7 @@ date: 2025-04-03 21:37:24 +01:00
 tags:
   - sqlite
   - python
+old_syntax_highlighting: true
 ---
 I was debugging some tests with a colleague today, and they were getting three test failures that I couldn't reproduce locally or in GitHub Actions:
 

@@ -22,6 +22,7 @@ colors:
    css_light: '#393977'
    css_dark:  '#d36838'
 
+old_syntax_highlighting: true
 ---
 
 A fun murder mystery that I borrowed from the library.

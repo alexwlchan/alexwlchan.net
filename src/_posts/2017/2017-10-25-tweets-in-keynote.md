@@ -9,6 +9,7 @@ summary: Slides for showing tweets that look like tweets on slides in Keynote an
 colors:
   index_light: "#3F6989"
   index_dark:  "#a4aaab"
+old_syntax_highlighting: true
 ---
 
 Every so often, I want to use a tweet in some slides I'm making (I have three in my PyCon UK slides for Friday).

@@ -7,6 +7,7 @@ tags:
   - blogging about blogging
   - images
   - web development
+old_syntax_highlighting: true
 ---
 
 I've had a lot of fun fiddling with the images on this blog recently, and I think they're better than when I started.

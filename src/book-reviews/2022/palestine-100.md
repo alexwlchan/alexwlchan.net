@@ -23,6 +23,7 @@ colors:
    css_light: '#b05f40'
    css_dark:  '#f5daa9'
 
+old_syntax_highlighting: true
 ---
 
 A dozen short stories from Palestinian writers imagining life a century after [the Nakba](https://en.wikipedia.org/wiki/Nakba), an event in 1948 that saw the destruction of Palestine and displacement of most Palestian Arabs.

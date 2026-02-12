@@ -20,5 +20,6 @@ colors:
    css_light: '#52514c'
    css_dark:  '#f0e8c9'
 
+old_syntax_highlighting: true
 ---
 Both an impressive bit of technical construction and a pretty good story!

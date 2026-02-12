@@ -25,6 +25,7 @@ colors:
    css_light: '#be292a'
    css_dark:  '#f2cd47'
 
+old_syntax_highlighting: true
 ---
 
 A brutal but necessary account of abuse, neglect, and death of Indigenous students in Canada's school systems.

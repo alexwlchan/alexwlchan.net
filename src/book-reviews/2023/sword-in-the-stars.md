@@ -22,6 +22,7 @@ colors:
    css_light: '#6564a9'
    css_dark:  '#b29066'
 
+old_syntax_highlighting: true
 ---
 
 This is the sequel to [*Once & Future*](/book-reviews/once-future/).

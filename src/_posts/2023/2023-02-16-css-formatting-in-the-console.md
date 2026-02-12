@@ -6,6 +6,7 @@ summary: Did you know you can use `%c` to format your `console.log` messages?
 tags:
   - web development
   - javascript
+old_syntax_highlighting: true
 ---
 
 I was poking around in Google Lens recently (which is Google's magical [reverse image lookup service][bulb]) and I was mildly surprised by what I saw in the developer tools console:

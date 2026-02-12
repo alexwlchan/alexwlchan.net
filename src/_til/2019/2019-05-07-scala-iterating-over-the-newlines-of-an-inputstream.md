@@ -4,6 +4,7 @@ title: "How to iterate over the lines of an InputStream in Scala"
 date: 2019-05-07 17:38:01 +01:00
 tags:
   - scala
+old_syntax_highlighting: true
 ---
 
 ```scala
