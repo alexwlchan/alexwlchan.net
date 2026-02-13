@@ -1020,6 +1020,7 @@ redir /notes/2025/ /notes/ permanent
 redir /notes/2026/ /notes/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
+redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /tag /tags/ permanent
 redir /tag/ /tags/ permanent
@@ -1052,4 +1053,4 @@ redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /til/2020/usi
 redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: QLb8J8NFS3)
+#[[[end]]] (sum: nFPv9Xbu30)
