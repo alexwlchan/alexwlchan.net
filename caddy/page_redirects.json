@@ -1,6 +1,5 @@
 {
   "/": [
-    "/about",
     "/about/"
   ],
   "/2012/hypercritical/": [
@@ -44,7 +43,6 @@
   ],
   "/2014/custom-css-resophnotes/": [
     "/2014/11/custom-css-resophnotes/",
-    "/notes/custom-css-resophnotes",
     "/notes/custom-css-resophnotes/"
   ],
   "/2014/golems/": [
@@ -271,8 +269,7 @@
   ],
   "/2016/safely-deleting-a-file-called-rf/": [
     "/2016/05/safely-deleting-a-file-called-rf/",
-    "/2016/05/safely-deleting-a-file-called-rf-/",
-    "/2016/05/safely-deleting-a-file-called-rf-"
+    "/2016/05/safely-deleting-a-file-called-rf-/"
   ],
   "/2016/saved-by-the-prompt/": [
     "/2016/02/saved-by-the-prompt/"
@@ -345,7 +342,6 @@
   ],
   "/2017/experiments-with-ao3-and-python/": [
     "/2017/01/experiments-with-ao3-and-python/",
-    "/2017/01/a-python-interface-to-ao3",
     "/2017/01/a-python-interface-to-ao3/"
   ],
   "/2017/extensions-in-python-markdown/": [
@@ -365,7 +361,6 @@
   ],
   "/2017/lessons-from-alterconf/": [
     "/2017/04/lessons-from-alterconf/",
-    "/2017/04/accessibility-at-alterconf",
     "/2017/04/accessibility-at-alterconf/"
   ],
   "/2017/lightning-talks/": [
@@ -1149,19 +1144,15 @@
     "/2018/03/plumbers-guide-intro/"
   ],
   "/a-plumbers-guide-to-git/1-the-git-object-store/": [
-    "/a-plumbers-guide-to-git/1",
     "/a-plumbers-guide-to-git/1/"
   ],
   "/a-plumbers-guide-to-git/2-blobs-and-trees/": [
-    "/a-plumbers-guide-to-git/2",
     "/a-plumbers-guide-to-git/2/"
   ],
   "/a-plumbers-guide-to-git/3-context-from-commits/": [
-    "/a-plumbers-guide-to-git/3",
     "/a-plumbers-guide-to-git/3/"
   ],
   "/a-plumbers-guide-to-git/4-refs-and-branches/": [
-    "/a-plumbers-guide-to-git/4",
     "/a-plumbers-guide-to-git/4/"
   ],
   "/articles/": [
@@ -1286,13 +1277,10 @@
     "/2024/",
     "/2025/",
     "/2026/",
-    "/archives",
     "/archives/",
-    "/archive",
     "/archive/",
     "/all-posts-by-tag/",
     "/all-posts/",
-    "/all-posts",
     "/posts/",
     "/writing/"
   ],
@@ -1404,8 +1392,7 @@
   ],
   "/fun-stuff/looped-squares/": [
     "/files/2024/looped_squares.html",
-    "/files/2024/looped_squares/",
-    "/files/2024/looped_squares"
+    "/files/2024/looped_squares/"
   ],
   "/images/2014/P8050559.jpg": [
     "/images/2014/standing_desk.jpg"
@@ -2583,7 +2570,6 @@
     "/entertainment/who-is-bufo/"
   ],
   "/tags/": [
-    "/tag",
     "/tag/"
   ],
   "/tags/aws/amazon-s3/": [
@@ -2609,13 +2595,11 @@
   "/til/2016/tricity-sie454-clock/": [
     "/2016/tricity-sie454-clock/",
     "/2016/10/tricity-sie454-clock/",
-    "/notes/tricity-sie454-clock",
     "/notes/tricity-sie454-clock/"
   ],
   "/til/2016/worcester-28cdi-clock/": [
     "/2016/worcester-28cdi-clock/",
     "/2016/10/worcester-28cdi-clock/",
-    "/notes/worcester-28cdi-clock",
     "/notes/worcester-28cdi-clock/"
   ],
   "/til/2018/horstmann-electric-7/": [
