@@ -1,10 +1,9 @@
 ---
+layout: article
 date: 2015-06-22 23:20:00 +00:00
-layout: post
-summary: A Python script for non-destructive file copying/moving.
-tags:
-  - python
 title: Safer file copying in Python
+summary: A Python script for non-destructive file copying/moving.
+topic: Python
 old_syntax_highlighting: true
 ---
 
@@ -13,7 +12,7 @@ Using scripting and the command line can be a two-edged sword. They're very powe
 An example I often run in to is moving or copying files. If you try to copy over an existing file, these tools will often scribble over the old file without any warning. For example, here's [the description](https://docs.python.org/3.5/library/shutil.html#shutil.copyfile) for `shutil.copyfile`:
 
 > <code>shutil.<strong>copyfile</strong>(<em>src</em>, <em>dst</em>, *, <em>follow_symlinks=True</em>)</code>
-
+>
 > Copy the contents of the file named *src* to a file named *dst* and return *dst*. […] If *dst* already exists, it will be replaced.
 
 The user is responsible for checking that the command won't be destructive, not the utility.
@@ -36,11 +35,11 @@ I came up with a few rules for my "safe"[^1] move/copy function:
 
     This is an enhancement over "Keep Both" in the Finder. If you try to copy the same file repeatedly and use "Keep Both", Finder will create multiple copies. That's not so bad (better too many than too few copies), but it would be nice to avoid that.
 
-I've uploaded my script [as a Gist](https://gist.github.com/alexwlchan/c2adbb8ee782f460e5ec). It provides two functions: `move()` and `copyfile()`, which mimic the shutil equivalents and return the name of the actual destination.
+I've uploaded [my script `safeutil.py`](/files/2015/safeutil.py). It provides two functions: `move()` and `copyfile()`, which mimic the shutil equivalents and return the name of the actual destination.
 
 Here's how I import it:
 
-```python
+```python {"names":{"1":"safeutil","2":"move","3":"copyfile","5":"shutil","6":"move","7":"copyfile"}}
 try:
     from safeutil import move, copyfile
 except ImportError:

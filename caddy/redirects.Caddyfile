@@ -120,8 +120,6 @@ redir /2014/06/skeletor/ /2014/skeletor/ permanent
 redir /2014/06/skeletor /2014/skeletor/ permanent
 redir /2014/12/skeletors-all-the-way-down/ /2014/skeletors-all-the-way-down/ permanent
 redir /2014/12/skeletors-all-the-way-down /2014/skeletors-all-the-way-down/ permanent
-redir /2014/08/textexpander-amazon-affiliates/ /2014/textexpander-amazon-affiliates/ permanent
-redir /2014/08/textexpander-amazon-affiliates /2014/textexpander-amazon-affiliates/ permanent
 redir /2014/06/untagged-tumblr-posts-redux/ /2014/untagged-tumblr-posts-redux/ permanent
 redir /2014/06/untagged-tumblr-posts-redux /2014/untagged-tumblr-posts-redux/ permanent
 redir /2014/08/untagged-tumblr-updates/ /2014/untagged-tumblr-updates/ permanent
@@ -1527,6 +1525,8 @@ redir /images/2022/10-of-cards.jpg /images/cards/2022/tin-anniversary.jpg perman
 redir /images/pyconuk-speaking.jpg /images/projects/pyconuk-speaking.jpg permanent
 redir /notes/2016/ /notes/ permanent
 redir /notes/2016 /notes/ permanent
+redir /notes/2018/ /notes/ permanent
+redir /notes/2018 /notes/ permanent
 redir /notes/2020/ /notes/ permanent
 redir /notes/2020 /notes/ permanent
 redir /notes/2025/ /notes/ permanent
@@ -1535,6 +1535,8 @@ redir /notes/2026/ /notes/ permanent
 redir /notes/2026 /notes/ permanent
 redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
 redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
+redir /til/2018/list-all-git-object-ids-and-their-type/ /notes/2018/list-all-git-object-ids-and-their-type/ permanent
+redir /til/2018/list-all-git-object-ids-and-their-type /notes/2018/list-all-git-object-ids-and-their-type/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
@@ -1603,4 +1605,4 @@ redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: +tstPJDqOx)
+#[[[end]]] (sum: mRR3lPz5bN)

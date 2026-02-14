@@ -93,9 +93,6 @@
   "/2014/skeletors-all-the-way-down/": [
     "/2014/12/skeletors-all-the-way-down/"
   ],
-  "/2014/textexpander-amazon-affiliates/": [
-    "/2014/08/textexpander-amazon-affiliates/"
-  ],
   "/2014/untagged-tumblr-posts-redux/": [
     "/2014/06/untagged-tumblr-posts-redux/"
   ],
@@ -2552,12 +2549,16 @@
   ],
   "/notes/": [
     "/notes/2016/",
+    "/notes/2018/",
     "/notes/2020/",
     "/notes/2025/",
     "/notes/2026/"
   ],
   "/notes/2016/shutil-which/": [
     "/til/2016/shutil-which/"
+  ],
+  "/notes/2018/list-all-git-object-ids-and-their-type/": [
+    "/til/2018/list-all-git-object-ids-and-their-type/"
   ],
   "/notes/2020/using-git-check-ignore-to-debug-your-gitignore/": [
     "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",

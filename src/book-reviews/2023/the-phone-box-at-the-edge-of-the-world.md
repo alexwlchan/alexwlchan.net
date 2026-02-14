@@ -24,7 +24,6 @@ colors:
    css_light: '#3d6e73'
    css_dark:  '#6be6ee'
 
-old_syntax_highlighting: true
 ---
 
 A gorgeous story about grief and heartbreak, and two people learning to find love again after great tragedy.

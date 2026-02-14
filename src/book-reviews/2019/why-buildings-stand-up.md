@@ -22,7 +22,6 @@ colors:
    css_light: '#764145'
    css_dark:  '#98a5ca'
 
-old_syntax_highlighting: true
 ---
 
 An easy read which gives an overview of some common ideas in architecture – materials, structures, shapes, and so on.

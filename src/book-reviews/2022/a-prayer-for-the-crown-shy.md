@@ -20,7 +20,6 @@ colors:
    css_light: '#457f55'
    css_dark:  '#daad43'
 
-old_syntax_highlighting: true
 ---
 
 This is the sequel to [*A Psalm for the Wild-Built*](/book-reviews/a-psalm-for-the-wild-built/).

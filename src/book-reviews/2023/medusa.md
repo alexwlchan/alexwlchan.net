@@ -22,7 +22,6 @@ colors:
    css_light: '#358038'
    css_dark:  '#e1eab2'
 
-old_syntax_highlighting: true
 ---
 
 A modern retelling of Medusa's story -- sharing her life with Perseus, as they talk from either side of the rock.

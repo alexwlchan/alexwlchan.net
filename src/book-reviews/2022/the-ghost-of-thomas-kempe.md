@@ -21,7 +21,6 @@ colors:
    css_light: '#247257'
    css_dark:  '#cf8e33'
 
-old_syntax_highlighting: true
 ---
 
 A pleasant if unremarkable ghost story.

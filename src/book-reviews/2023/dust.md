@@ -21,7 +21,6 @@ colors:
    css_light: '#af4916'
    css_dark:  '#cb7311'
 
-old_syntax_highlighting: true
 ---
 
 A sequel to [*Wool*](/book-reviews/wool/) and [*Shift*](/book-reviews/shift/).

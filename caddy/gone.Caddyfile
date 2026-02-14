@@ -13,6 +13,14 @@ handle /2014/12/war-on-christmas/ {
 	error 410
 }
 
+handle /2014/textexpander-amazon-affiliates/ {
+	error 410
+}
+
+handle /2014/08/textexpander-amazon-affiliates/ {
+	error 410
+}
+
 handle /2014/war-on-christmas/ {
 	error 410
 }
@@ -105,4 +113,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: m6IsYVHOXe)
+#[[[end]]] (sum: hpLbhh2pYB)
