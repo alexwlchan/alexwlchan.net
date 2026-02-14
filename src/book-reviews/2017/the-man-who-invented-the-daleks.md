@@ -22,7 +22,6 @@ colors:
    css_light: '#804034'
    css_dark:  '#f04a2e'
 
-old_syntax_highlighting: true
 ---
 
 This is a detailed account of Terry Nation’s work – from his upbringing in Wales, through to his BBC breakout shows and flight to Hollywood.

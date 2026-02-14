@@ -1,12 +1,10 @@
 ---
+layout: article
 date: 2019-09-05 23:16:04 +00:00
-layout: post
 summary: Code to turn an InputStream into an Iterator of entries from a tar.gz file
   or similar compressed archive in Java/Scala.
 title: Iterating over the entries of a compressed archive (tar.gz) in Scala
-tags:
-  - scala
-old_syntax_highlighting: true
+topic: Scala
 ---
 
 Six months ago, I wrote a post about [working with large S3 objects in Python][s3_python].

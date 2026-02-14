@@ -4,11 +4,7 @@ date: 2024-04-17 22:43:30 +01:00
 title: How to take a screenshot of a page in the Wayback Machine
 summary: |
   Using Playwright to take screenshots and adding some custom styles gets a screenshot of a page without the Wayback Machine overlay.
-tags:
-  - screenshots
-  - playwright
-  - wayback machine
-old_syntax_highlighting: true
+topic: Web archiving
 ---
 As part of my [daily screenshots project][daily_screenshots], I wanted to get screenshots of all the versions of my site that are saved in the Wayback Machine.
 

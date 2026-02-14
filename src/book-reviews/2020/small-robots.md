@@ -23,7 +23,6 @@ colors:
    css_light: '#68565e'
    css_dark:  '#fbf33a'
 
-old_syntax_highlighting: true
 ---
 
 The long form version of the @smolrobots Twitter account.

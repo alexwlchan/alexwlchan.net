@@ -2560,6 +2560,9 @@
   "/notes/2018/list-all-git-object-ids-and-their-type/": [
     "/til/2018/list-all-git-object-ids-and-their-type/"
   ],
+  "/notes/2018/xargs-for-parallel-processing/": [
+    "/til/2018/xargs-for-parallel-processing/"
+  ],
   "/notes/2020/using-git-check-ignore-to-debug-your-gitignore/": [
     "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
@@ -2573,6 +2576,9 @@
   ],
   "/notes/2025/disable-handoff-icons-in-dock/": [
     "/til/2025/disable-handoff-icons-in-dock/"
+  ],
+  "/notes/2025/download-tumblr-avatars/": [
+    "/til/2025/download-tumblr-avatars/"
   ],
   "/notes/2025/google-deletes-inactive-accounts/": [
     "/til/2025/google-deletes-inactive-accounts/"

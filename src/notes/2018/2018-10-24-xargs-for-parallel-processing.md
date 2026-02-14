@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: How to use xargs for parallel processing
 date: 2018-10-24 08:55:00 +00:00
-tags:
-  - shell scripting
-old_syntax_highlighting: true
+topic: Shell scripting
 ---
 If you have a file full of arguments (`inputs.txt`), and a script that takes a single ID as an argument (`process_single_id.py`), you can run the script in parallel with `xargs`:
 

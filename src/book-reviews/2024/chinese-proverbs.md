@@ -24,6 +24,5 @@ colors:
    css_light: '#423537'
    css_dark:  '#c18579'
 
-old_syntax_highlighting: true
 ---
 Some lovely illustrations and proverbs; not a long read.

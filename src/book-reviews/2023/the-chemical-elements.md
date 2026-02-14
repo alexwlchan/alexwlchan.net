@@ -23,7 +23,6 @@ colors:
    css_light: '#382d27'
    css_dark:  '#bb7b63'
 
-old_syntax_highlighting: true
 ---
 
 A history of the discovery of elements, focusing on the scientists who discovered them.

@@ -1537,6 +1537,8 @@ redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
 redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type/ /notes/2018/list-all-git-object-ids-and-their-type/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type /notes/2018/list-all-git-object-ids-and-their-type/ permanent
+redir /til/2018/xargs-for-parallel-processing/ /notes/2018/xargs-for-parallel-processing/ permanent
+redir /til/2018/xargs-for-parallel-processing /notes/2018/xargs-for-parallel-processing/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
@@ -1549,6 +1551,8 @@ redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-ru
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-handoff-icons-in-dock /notes/2025/disable-handoff-icons-in-dock/ permanent
+redir /til/2025/download-tumblr-avatars/ /notes/2025/download-tumblr-avatars/ permanent
+redir /til/2025/download-tumblr-avatars /notes/2025/download-tumblr-avatars/ permanent
 redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
@@ -1605,4 +1609,4 @@ redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: mRR3lPz5bN)
+#[[[end]]] (sum: HfoDMB7NdC)

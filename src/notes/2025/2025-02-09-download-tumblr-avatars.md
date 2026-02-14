@@ -1,13 +1,10 @@
 ---
-layout: til
+layout: note
 title: Downloading avatars from Tumblr
 date: 2025-02-09 22:19:32 +00:00
 date_updated: 2025-08-18 21:25:55 +01:00
-summary: |
-  There's an API endpoint that lets you download avatars in a variety of sizes.
-tags:
-  - tumblr
-old_syntax_highlighting: true
+summary: There's an API endpoint that lets you download avatars in a variety of sizes.
+topic: Preserving social media
 ---
 <style>
   blockquote > pre {
@@ -36,7 +33,7 @@ Most avatars are PNG, but I've seen a handful of avatars in other formats.
 
 Here's a Python snippet I wrote which will download the avatars to a filename with the appropriate extension:
 
-```python
+```python {"names":{"1":"pathlib","2":"Path","3":"httpx","4":"download_tumblr_avatar","5":"blog_identifier","8":"resp","15":"content_type","18":"ext_mapping","19":"ext","25":"dl_path","30":"out_file"}}
 from pathlib import Path
 
 import httpx
