@@ -4,7 +4,6 @@ date: 2025-05-04 15:17:01 +00:00
 title: Handling JSON objects with duplicate names in Python
 summary: It's possible, although uncommon, for a JSON object to contain the same name multiple times. Here are some ways to handle that in Python.
 topic: Python
-old_syntax_highlighting: true
 ---
 
 Consider the following JSON object:
@@ -202,7 +201,7 @@ If I use this as my `object_pairs_hook` when parsing an object which has all uni
 
 But if I'm parsing an object with one or more repeated names, the parsing fails and throws a `ValueError`:
 
-```pycon {"debug": true}
+```pycon
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5}',
 ...      object_pairs_hook=dict_with_unique_names

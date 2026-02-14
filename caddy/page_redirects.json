@@ -2551,8 +2551,18 @@
     "/images/pyconuk-speaking.jpg"
   ],
   "/notes/": [
+    "/notes/2016/",
+    "/notes/2020/",
     "/notes/2025/",
     "/notes/2026/"
+  ],
+  "/notes/2016/shutil-which/": [
+    "/til/2016/shutil-which/"
+  ],
+  "/notes/2020/using-git-check-ignore-to-debug-your-gitignore/": [
+    "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",
+    "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
+    "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
@@ -2605,10 +2615,6 @@
   "/til/2018/horstmann-electric-7/": [
     "/2018/horstmann-electric-7/",
     "/2018/10/horstmann-electric-7/"
-  ],
-  "/til/2020/using-git-check-ignore-to-debug-your-gitignore/": [
-    "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
-    "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
   ],
   "/til/2022/print-sbt/": [
     "/2022/print-sbt/",
