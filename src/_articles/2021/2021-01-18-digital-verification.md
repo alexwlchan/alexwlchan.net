@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2021-01-18T12:13:03.538Z
 title: Wellcome Collection's approach to digital verification
 summary: How we ensure the safety, security and integrity of the files in Wellcome's digital collections.
-tags:
-  - digital preservation
-  - wellcome collection
+topics:
+  - Digital preservation
+  - Wellcome Collection
 canonical_url: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
 colors:
   index_light: "#4c4c4c"

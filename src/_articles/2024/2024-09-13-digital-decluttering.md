@@ -1,18 +1,17 @@
 ---
-layout: post
+layout: article
 date: 2024-09-13 17:38:59 +00:00
 title: Digital decluttering
 summary: I'm resisting my temptation towards digital hoarding and "save everything", and trying to be more selective about the data I'm keeping.
-tags:
-  - personal
-  - digital preservation
+topics:
+  - Personal thoughts
+  - Digital preservation
 colors:
   css_dark:  "#8ec0e6"
   css_light: "#3351a3"
 index:
   feature: true
 card_attribution: https://www.pexels.com/photo/gray-and-yellow-gravel-stones-997704/
-old_syntax_highlighting: true
 ---
 
 I spent a lot of my formative Internet years in online fandom.

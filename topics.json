@@ -114,6 +114,11 @@
     "parent": "Digital preservation"
   },
   {
+    "name": "Wellcome Collection",
+    "href": "/digital-preservation/wellcome-collection/",
+    "parent": "Digital preservation"
+  },
+  {
     "name": "Computers",
     "href": "/computers/"
   },

@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2020-10-30 18:25:23 +00:00
 title: 'Use `git check-ignore` to debug your `.gitignore`'
 summary: |
   Running `git check-ignore --verbose <PATH>` will tell you which rule applies to a given path, and where that rule is defined.
-tags:
-  - git
-old_syntax_highlighting: true
+topic: Git
 ---
 
 Here's a useful thing I learnt today: you can use [`git check-ignore`](https://git-scm.com/docs/git-check-ignore) to debug your gitignore rules and find out why a particular file is (or isn't) being ignored.

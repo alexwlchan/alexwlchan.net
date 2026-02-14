@@ -1,15 +1,13 @@
 ---
-layout: til
+layout: note
 title: You can use `shutil.which` to check if an executable is in your PATH
 summary: This is useful for checking if something's installed.
 date: 2016-08-25 05:49:52 +00:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 [`shutil.which()`](https://docs.python.org/3/library/shutil.html#shutil.which) returns the path to the executable, or `None` if you don't have it installed:
 
-```pycon
+```pycon {"names":{"1":"shutil"}}
 >>> import shutil
 >>> shutil.which('python3')
 '/opt/homebrew/bin/python3'

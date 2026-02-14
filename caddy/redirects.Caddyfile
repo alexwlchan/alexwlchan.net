@@ -1525,10 +1525,22 @@ redir /images/2022/guest_headers_card.png /images/cards/2022/no-cute.png permane
 redir /images/2022/screenshot_card.png /images/cards/2022/screenshots.png permanent
 redir /images/2022/10-of-cards.jpg /images/cards/2022/tin-anniversary.jpg permanent
 redir /images/pyconuk-speaking.jpg /images/projects/pyconuk-speaking.jpg permanent
+redir /notes/2016/ /notes/ permanent
+redir /notes/2016 /notes/ permanent
+redir /notes/2020/ /notes/ permanent
+redir /notes/2020 /notes/ permanent
 redir /notes/2025/ /notes/ permanent
 redir /notes/2025 /notes/ permanent
 redir /notes/2026/ /notes/ permanent
 redir /notes/2026 /notes/ permanent
+redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
+redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
+redir /til/2020/using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /til/2020/using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /2020/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1585,14 +1597,10 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /til/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
-redir /2020/til-using-git-check-ignore-to-debug-your-gitignore /til/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
-redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /til/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
-redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore /til/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: kCAq8VsAE3)
+#[[[end]]] (sum: +tstPJDqOx)

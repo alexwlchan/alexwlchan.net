@@ -15,6 +15,7 @@
 {%- if
       page.date or
       (page.tags|count > 0) or
+      (page.topics|count > 1) or
       page.part_of or
       page.date_updated or
       page.link -%}
@@ -39,6 +40,13 @@
     {%- with date = page.date_updated -%}
       <li>Updated {% include "partials/timestamp.html" -%}</li>
     {%- endwith -%}
+  {%- endif -%}
+  
+  {%- if page.topics|count > 1 -%}
+    <li>Also filed in {% for t in page.topics[1:] -%}
+      {%- set t = get_topic_by_name(t) -%}
+      <a href="{{ t.href }}">{{ t.name }}</a>{% if not loop.last %}, {% endif -%}
+    {%- endfor -%}</li>
   {%- endif -%}
 
   {%- if page.part_of -%}
