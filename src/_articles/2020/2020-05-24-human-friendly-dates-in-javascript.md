@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2020-05-24 11:08:57 +00:00
 title: Showing human-friendly dates in JavaScript
 summary: What's a nicer way to show a date than an ISO 8601 timestamp?
-tags:
-  - javascript
-  - datetime shenanigans
-  - web development
-old_syntax_highlighting: true
+topics:
+  - JavaScript
+  - Datetime shenanigans
 ---
 
 At work, we have an API for tracking the state of ingests in [our digital archive].
@@ -46,9 +44,9 @@ That means things like:
 I'm sure there are JavaScript libraries that can do this, but in the dashboard I'm just using vanilla JS, so I wrote my own function.
 It's short, it does the job, and it's already reduced confusion between UTC and BST.
 
-If you want to use it yourself, you can [download the file](/files/2020/human_friendly_dates.js), or read my code below:
+If you want to use it yourself, you can read my code below:
 
-```javascript
+```javascript {"names":{"1":"dateFormatter","4":"timeFormatter","7":"getHumanFriendlyDateString","8":"iso8601_date_string","9":"date","14":"today","16":"yesterday","45":"getHumanFriendlyDelta","46":"iso8601_date_string","47":"date","52":"now","54":"deltaMilliseconds","57":"deltaSeconds","61":"deltaMinutes","65":"deltaHours"}}
 // Renders a date in the local timezone, including day of the week.
 // e.g. "Fri, 22 May 2020"
 const dateFormatter = new Intl.DateTimeFormat(

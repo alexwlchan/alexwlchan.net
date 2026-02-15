@@ -69,6 +69,11 @@
     "parent": "Systems and software"
   },
   {
+    "name": "Datetime shenanigans",
+    "href": "/systems/datetime-shenanigans/",
+    "parent": "Systems and software"
+  },
+  {
     "name": "Shell scripting",
     "href": "/systems/shell-scripting/",
     "parent": "Systems and software"

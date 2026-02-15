@@ -88,6 +88,17 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             highlighted_code,
         )
 
+    # Python: dotted imports should be replaced with names split by
+    # namespace. nn = Name.Namespace
+    if lang == "python":
+        for import_name in ["concurrent.futures", "urllib.error", "urllib.request"]:
+            parts = import_name.split(".")
+            dot = '<span class="p">.</span>'
+            highlighted_code = highlighted_code.replace(
+                f'<span class="nn">{import_name}</span>',
+                dot.join(f'<span class="n">{name}</span>' for name in parts),
+            )
+
     # Swift: the opening hashbang should be a Comment.Hashbang.
     if lang == "swift":
         highlighted_code = highlighted_code.replace(

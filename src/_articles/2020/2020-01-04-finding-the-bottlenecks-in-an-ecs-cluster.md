@@ -1,11 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2020-01-04 10:03:53 +00:00
 title: Finding the CPU and memory bottlenecks in an ECS cluster
-tags:
-  - aws
-  - aws:amazon ecs
-old_syntax_highlighting: true
+topic: AWS
 ---
 
 At work, we use Amazon's EC2 Container Service (ECS) to run some of our applications.
@@ -58,7 +55,7 @@ If you click the title of the graph, you're taken to the CloudWatch console, whe
 This gives us the clues we need to look up these values programatically.
 The [GetMetricStatistics API][GetMetricStatistics] takes a handful of parameters, which we can match to the parameters in this screenshot:
 
-```python
+```python {"names":{"1":"datetime","2":"boto3","3":"cloudwatch","6":"data"}}
 import datetime
 
 import boto3
@@ -100,7 +97,7 @@ Here's what the result looks like:
 
 We can look up the maximum value over the 24 hour period like so:
 
-```python
+```python {"names":{"1":"max_value"}}
 max_value = max(dp["Maximum"] for dp in resp["Datapoints"])
 ```
 
@@ -108,7 +105,7 @@ Occasionally this might throw a ValueError "max() arg is an empty sequence", if 
 Some of our apps stop running if they don't have any work to do, so you won't get any CPU utilisation statistics.
 We can handle that case as so:
 
-```python
+```python {"names":{"1":"max_value","4":"dp","7":"max_value"}}
 try:
     max_value = max(dp["Maximum"] for dp in resp["Datapoints"])
 except ValueError:
@@ -117,7 +114,7 @@ except ValueError:
 
 Let's put this all into a reusable function:
 
-```python
+```python {"names":{"1":"datetime","2":"boto3","3":"cloudwatch","6":"_get_max_metric_value","7":"metric_name","8":"cluster_name","9":"service_name","10":"start_time","11":"end_time","12":"resp","29":"dp","32":"get_max_cpu_utilisation","33":"kwargs","37":"get_max_memory_utilisation","38":"kwargs"}}
 import datetime
 
 import boto3
@@ -172,7 +169,7 @@ For example, we have separate clusters for our live and our staging apps.
 
 The [ListServices API][ListServices] lets us get a list of the ARNs (Amazon Resource Names -- the IDs of AWS) for every service in a cluster, like so:
 
-```python
+```python {"names":{"1":"ecs","4":"resp"}}
 ecs = boto3.client("ecs")
 
 resp = ecs.list_services(cluster="archivematica-prod")
@@ -183,7 +180,7 @@ print(resp["serviceArns"])
 However, this API is paginated -- if we have lots of services, it only returns the first 10.
 If we want to get the full set, it's safer to use a boto3 paginator:
 
-```python
+```python {"names":{"1":"list_services","2":"cluster","3":"paginator","6":"page"}}
 def list_services(cluster):
     """Generates the ARN of every service in an ECS cluster."""
     paginator = ecs.get_paginator("list_services")
@@ -209,7 +206,7 @@ We've already seen we can query the ECS API for a list of services: how about qu
 Similar to ListServices, the ECS API has a [ListClusters API][ListClusters] that lets us look up all the ECS clusters in an account.
 We can write a function that gets us all the cluster ARNs, just like the one in the previous section:
 
-```python
+```python {"names":{"1":"list_clusters","2":"paginator","5":"page"}}
 def list_clusters():
     """Generates the ARN of every ECS cluster in an account."""
     paginator = ecs.get_paginator("list_clusters")
@@ -221,7 +218,7 @@ def list_clusters():
 This gives us a list of cluster ARNs -- but how do we pick?
 We can knock out two cases pretty easily: if there's only one cluster, we use that one, and if there aren't any, we throw an error.
 
-```python
+```python {"names":{"1":"choose_cluster","2":"all_clusters"}}
 def choose_cluster():
     all_clusters = list(list_clusters())
 
@@ -241,7 +238,7 @@ In particular, it can show the user a list of choices, and ask them to select on
 
 Here's the code for that `else:` branch:
 
-```python
+```python {"names":{"1":"clusters","5":"cluster_arn","7":"question","15":"answers","19":"cluster_name"}}
     else:
         # AWS cluster ARNs are of the form
         #
@@ -268,7 +265,10 @@ Here's the code for that `else:` branch:
 
 This is what the interface looks like:
 
-<img src="/images/2020/inquirer_choice.png" style="size: 728px; border: 1px solid #ccc;" alt="A list of three options, with one highlighted in blue.">
+<pre><code>[<span style="color: var(--yellow)">?</span>] Which cluster do you want to inspect?: archivematica-staging
+   archivematica-prod
+ <span style="color: var(--blue);">&gt; archivematica-staging</span>
+   workflow</code></pre>
 
 You can use arrow keys to move up and down and select an option, then press "enter" to accept it.
 It's less typing, and less risk of a typo messing up your selection.
@@ -293,7 +293,7 @@ I'm not going to go through it again, just note a couple of tweaks I've made to 
 
 Here's what the revised bar chart function looks like:
 
-```python
+```python {"names":{"1":"os","2":"termcolor","3":"draw_bar_chart","4":"data","5":"common_label_prefix","10":"label","13":"data","20":"label","21":"value","23":"max_value","24":"increment","26":"longest_label_length","37":"bar_chunks","38":"remainder","43":"bar","52":"line"}}
 import os
 
 import termcolor
@@ -354,7 +354,7 @@ def draw_bar_chart(data):
 
 If we combine all the functions above, and put them into a single script, here's what we come up with:
 
-```python
+```python {"names":{"1":"datetime","2":"os","3":"boto3","4":"inquirer","5":"termcolor","6":"cloudwatch","9":"ecs","12":"_get_max_metric_value","13":"metric_name","14":"cluster_name","15":"service_name","16":"start_time","17":"end_time","18":"resp","35":"dp","38":"get_max_cpu_utilisation","39":"kwargs","43":"get_max_memory_utilisation","44":"kwargs","48":"list_services","49":"cluster","50":"paginator","53":"page","59":"list_clusters","60":"paginator","63":"page","67":"choose_cluster","68":"all_clusters","77":"clusters","81":"cluster_arn","83":"question","91":"answers","95":"cluster_name","99":"draw_bar_chart","100":"data","101":"common_label_prefix","106":"label","109":"data","116":"label","117":"value","119":"max_value","120":"increment","122":"longest_label_length","129":"label","130":"count","133":"bar_chunks","134":"remainder","139":"bar","148":"line","161":"cluster_arn","163":"cpu_stats","164":"memory_stats","165":"cluster_name","168":"now","172":"start_time","177":"service_arn","181":"service_name","184":"max_cpu","198":"max_memory"}}
 #!/usr/bin/env python
 """
 Find the CPU/memory bottlenecks in an ECS cluster.

@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-04-16 11:50:48 +00:00
 title: Adventures in euphoria and embodiment
 summary: We all have bodies, and I've been trying to become more self-aware and connected with mine.
-tags:
-  - personal
-  - gender
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 If you've follow me on Twitter, you might have seen some vague tweets about embodiment recently.
@@ -70,5 +67,3 @@ It's a skill you can practice and refine and feel good about.
 What works for me may not work for you, especially if gender isn't an issue, but there are definitely things you can try.
 
 I hope this overview of my thoughts around embodiment was interesting -- and maybe even persuaded you to try your experiments!
-
-If you want to chat about any of this stuff, hit me up [on Twitter](https://twitter.com/alexwlchan).

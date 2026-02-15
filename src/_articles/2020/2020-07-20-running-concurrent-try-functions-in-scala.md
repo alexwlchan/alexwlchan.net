@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-07-20 09:06:38 +00:00
 title: Running concurrent Try functions in Scala
 summary: If you have a function that returns Try[_], how do you call it more than once at the same time?
-tags:
-  - scala
+topic: Scala
 old_syntax_highlighting: true
 ---
 
@@ -18,7 +17,7 @@ I wanted to test it by calling multiple instances of the function, and checking 
 If you have a function that returns a Future, you can call it multiple times in a sequence and collect the results:
 
 
-```scala
+```scala {"names":{"1":"greetF","2":"name","13":"futures"}}
 def greetF(name: String): Future[_] = Future {
   Thread.sleep(Random.nextInt(1000))
   println(s"Hello $name")
@@ -33,7 +32,7 @@ Each instance of `greet` is running concurrently, so the `sleep`s are all counti
 
 What if we take this code, and replace `Future` with `Try`?
 
-```scala
+```scala {"names":{"1":"greetT","2":"name","13":"tries"}}
 def greetT(name: String): Try[_] = Try {
   Thread.sleep(Random.nextInt(1000))
   println(s"Hello $name")
@@ -49,7 +48,7 @@ That's not what we want!
 
 My first thought was to try wrapping my `Try` calls in [`Future.fromTry`]:
 
-```scala
+```scala {"names":{"1":"futures","7":"name"}}
 val futures: Seq[Future[_]] =
   Seq("alice", "bob", "carol", "dave", "erin")
     .map { name => Future.fromTry(greetT(name)) }
@@ -59,7 +58,7 @@ But this still prints the names in the same order -- because `Future.fromTry` wr
 
 The solution I found was to initiate a new `Future`, then flatmap over that to use the `Future.fromTry`:
 
-```scala
+```scala {"names":{"1":"futures","7":"name"}}
 val futures: Seq[Future[_]] =
   Seq("alice", "bob", "carol", "dave", "erin")
     .map { name =>

@@ -359,3 +359,17 @@ def test_fish_variables(src: str) -> None:
     """
     html = apply_syntax_highlighting(src, lang="fish", names={1: "location"})
     assert '<span class="n">location</span>' in html
+
+
+def test_concurrent_futures() -> None:
+    """
+    The Python highlighter switches `concurrent.futures` into separate names,
+    to match the behaviour of other lexers.
+    """
+    html = apply_syntax_highlighting(
+        "import concurrent.futures\n",
+        lang="python",
+        names={1: "concurrent", 2: "futures"},
+    )
+    assert '<span class="n">concurrent</span>' in html
+    assert '<span class="n">futures</span>' in html

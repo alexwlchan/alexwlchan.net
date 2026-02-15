@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-05-13 20:29:24 +00:00
 title: Social media as a growth culture for opinions
 summary: Using social media can lead us to have more opinions than we really need. Can we fix that?
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 Back in March, David wrote about [the art of not having opinions](https://notebook.drmaciver.com/posts/2020-03-09-11:13.html).

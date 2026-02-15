@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2020-11-24 11:53:34 +00:00
 title: “Non-technical users”
-tags:
-  - writing
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 I was talking about some of my work tonight, and some of the writing I've done to make my work comprehensible to colleagues who aren't software developers.

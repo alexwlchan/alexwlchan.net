@@ -2,14 +2,12 @@
 layout: post
 date: 2020-07-13 22:20:06 +00:00
 title: What does \d match in a regex?
-tags:
-  - regex
+topic: Regular expressions
 summary: It's more complicated than I thought.
 colors:
   index_light: "#6d5537"
   index_dark:  "#feebac"
 card_attribution: https://wellcomecollection.org/works/s5t86we5/images?id=at4afn8j
-old_syntax_highlighting: true
 ---
 
 [Earlier tonight](https://twitter.com/alexwlchan/status/1282771306824511488), I was playing with Hypothesis's [from_regex strategy](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.from_regex).

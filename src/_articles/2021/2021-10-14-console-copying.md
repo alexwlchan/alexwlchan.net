@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2021-10-14 18:09:09 +00:00
 title: Prevent accidentally copying the prompt character in console code snippets
 summary: When I include console commands in a blog post, I don't want somebody to accidentally copy the command prompt. CSS lets me avoid that.
-tags:
-  - markdown
-  - css
-  - blogging about blogging
-old_syntax_highlighting: true
+topics:
+  - Blogging about blogging
+  - CSS
 ---
 
 My posts often include some commands to be run at a console, for example:
@@ -55,7 +53,7 @@ The two tokens I'm interested in are the `gp` (Generic.Prompt) and `w` (Text.Whi
 
 The following CSS will prevent either of those tokens being selected:
 
-```css
+```css {"names":{"1":".language-console","2":".gp","3":".language-console","4":".gp","5":".w"}}
 .language-console .gp, .language-console .gp + .w {
   /* Disable text selection highlighting
    * https://stackoverflow.com/a/4407335/1558022 */

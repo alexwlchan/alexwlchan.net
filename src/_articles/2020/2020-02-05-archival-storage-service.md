@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2020-02-05T22:07:39Z
 title: Building Wellcome Collection’s new archival storage service
 summary: How we built the new cloud-based storage system for holding an ever-growing digital archive.
@@ -7,13 +7,11 @@ canonical_url: https://stacks.wellcomecollection.org/building-wellcome-collectio
 colors:
   css_light: "#223395"
   css_dark:  "#5c90f0"
-tags:
-  - bagit
-  - digital preservation
-  - wellcome collection
+topics:
+  - Wellcome Collection
+  - Digital preservation
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

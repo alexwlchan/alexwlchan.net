@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: note
 date: 2020-11-01 09:13:27 +00:00
 title: A Python function to ignore a path with .git/info/exclude
 summary: If your Python script creates a file that you don't want to track in Git, here's how you can ignore it.
-tags:
-  - git
-  - python
-old_syntax_highlighting: true
+topics:
+  - Git
+  - Python
 ---
 
 One of the things I work on is [a Catalogue API](https://developers.wellcomecollection.org/catalogue) for searching Wellcome Collection's collections.
@@ -31,7 +30,7 @@ If I ignore the downloaded images in this file, they won't show up in `git statu
 I could add images to `.git/info/exclude` by hand, but I'm already running a script, so I extended the script to ignore these files automatically.
 I wrote a Python function that appends a path to `.git/info/exclude`:
 
-```python
+```python {"names":{"1":"os","2":"subprocess","3":"ignore_path_locally","4":"path","5":"repo_root","10":"path_to_ignore","17":"git_info_exclude_path","24":"exclude_file"}}
 import os
 import subprocess
 

@@ -1,13 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2021-09-28 19:23:39 +00:00
 title: An editing toolbar for alexwlchan.net
 summary: A bookmarklet that gives me a just-for-me toolbar to make changes to this site.
-tags:
-  - blogging about blogging
-  - javascript
-  - bookmarklets
-old_syntax_highlighting: true
+topic: Blogging about blogging
 ---
 
 I recently wrote a small bookmarklet that gives me an editing toolbar for this site:
@@ -29,9 +25,11 @@ I can't imagine anybody else wants this particular bookmarklet, but I'll explain
 
 First, I added the following HTML to one of my templates:
 
+{% raw %}
 ```html
-{% raw %}<meta name="page-source-path" content="{{ page.path }}">{% endraw %}
+<meta name="page-source-path" content="{{ page.path }}">
 ```
+{% endraw %}
 
 This is a <a href="https://jekyllrb.com/docs/variables/#page-variables">Jekyll page variable</a> that contains the path to the source code for a page.
 For example, on this page this renders as:
@@ -46,7 +44,7 @@ Adding it to the template means it gets baked into every page, and I can read th
 
 Then I have some JavaScript which reads the value, and uses it to insert the appropriate blob of HTML at the top of the page:
 
-```javascript
+```javascript {"names":{"1":"sourcePath","10":"altEnvironment","11":"altUrl","16":"altEnvironment","17":"altUrl","22":"iOS"}}
 var sourcePath = document.querySelector("meta[name=page-source-path]").attributes["content"].value;
 
 /* I run the site on http://localhost:5757 when working locally, so that's

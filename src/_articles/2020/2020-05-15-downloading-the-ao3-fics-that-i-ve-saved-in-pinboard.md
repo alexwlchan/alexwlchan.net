@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2020-05-15 18:59:26 +00:00
 title: Downloading the AO3 fics that I've saved in Pinboard
 summary: A script that downloads the nicely formatted AO3 downloads for everything I've saved in Pinboard.
-tags:
-  - python
-  - pinboard
-  - ao3
-old_syntax_highlighting: true
+topics: 
+  - Preserving social media
+  - Web archiving
 ---
 
 A couple of days ago, I tweeted about one of my scripts:
@@ -56,7 +54,9 @@ I've made a couple of changes based on feedback from Twitter and Dreamwidth:
 
 <details>
 <summary>download_ao3_bookmarks_from_pinboard.py</summary>
-{% code lang="python" %}
+
+{% set md %}
+```python {"names":{"1":"__future__","2":"print_function","3":"cgi","4":"errno","5":"getpass","6":"json","7":"os","8":"re","9":"sys","10":"urllib","11":"error","12":"HTTPError","13":"urllib","14":"request","15":"urlretrieve","17":"urllib","18":"urlretrieve","19":"urllib2","20":"HTTPError","21":"input","24":"get_bookmarks","25":"api_token","26":"filter_tag","30":"url","35":"local_filename","43":"get_ao3_identifiers","44":"bookmarks","45":"saved_urls","47":"bk","49":"AO3_LINK_RE","52":"ao3_identifiers","54":"saved_bookmark","56":"url","58":"match","68":"mkdir_p","69":"path","74":"exc","83":"download_work_exports","84":"ao3_id","85":"download_formats","86":"filename","87":"headers","91":"err","98":"content_disposition_header","101":"params","108":"azw3_file","116":"title","122":"dirname","130":"extension","132":"out_path","148":"api_token","152":"action","156":"filter_tag","157":"description","159":"filter_tag","162":"description","167":"available_formats","169":"action","175":"download_formats","178":"selected_format","187":"download_formats","195":"bookmarks","201":"ao3_identifiers","205":"ao3_id"}}
 #!/usr/bin/env python
 """
 Download all the fic you've saved in Pinboard.
@@ -273,5 +273,7 @@ if __name__ == "__main__":
 
     for ao3_id in sorted(ao3_identifiers):
         download_work_exports(ao3_id=ao3_id, download_formats=download_formats)
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </details>

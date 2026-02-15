@@ -1,17 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2020-01-22 07:50:23 +00:00
 title: An interactive map of British railway stations 🚂
 summary: A map I use to plot which railway stations I've visited.
 link: https://alexwlchan.net/fun-stuff/uk-stations-map/
-tags:
-  - glitch
-  - trains
-  - fun stuff
+topic: Fun stuff
 colors:
   index_light: "#0b9e00"
   index_dark:  "#0b9e00"
-old_syntax_highlighting: true
 ---
 
 Here's another fun project I've been working on: a map that you can use to plot which railway stations you've visited.

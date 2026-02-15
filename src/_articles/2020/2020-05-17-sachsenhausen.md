@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-05-17 13:13:12 +00:00
 title: The Sachsenhausen concentration camp
 summary: Feeling the weight of death in a former concentration camp.
-tags:
-  - history
-old_syntax_highlighting: true
+topic: The world around us
 ---
 
 *Content warning: Nazis, Holocaust, murder, graphic descriptions of death.*

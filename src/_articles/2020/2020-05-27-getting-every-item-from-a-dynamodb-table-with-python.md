@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2020-05-27 09:26:13 +00:00
 title: Getting every item from a DynamoDB table with Python
 summary: A Python function that generates every item in a DynamoDB table.
 tags:
-  - aws
-  - aws:amazon dynamodb
-  - python
+  - AWS
+  - Python
 colors:
   index_light: "#4b5254"
   index_dark:  "#91c6fb"
@@ -42,7 +41,7 @@ By yielding the items immediately, it avoids holding too much of the table in me
 
 If I want to use an extra parameter like FilterExpression, I can pass that into the function and it gets passed to the Scan.
 
-```python
+```python {"names":{"1":"boto3","2":"scan_table","3":"dynamo_client","4":"TableName","5":"kwargs","6":"paginator","9":"page","16":"dynamo_client","19":"item"}}
 import boto3
 
 
@@ -94,7 +93,7 @@ It keeps doing this until it's read the entire table.
 
 Depending on how much parallelism I have available, this can be many times faster than scanning in serial.
 
-```python
+```python {"names":{"1":"concurrent","2":"futures","3":"itertools","4":"boto3","5":"parallel_scan_table","6":"dynamo_client","7":"TableName","8":"kwargs","9":"total_segments","10":"max_scans_in_parallel","11":"tasks_to_do","16":"segment","19":"scans_to_run","25":"executor","26":"futures","33":"scan_params","38":"futures","39":"done","49":"fut","53":"scan_params","64":"scan_params","77":"dynamo_client","82":"item"}}
 import concurrent.futures
 import itertools
 

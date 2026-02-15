@@ -667,9 +667,6 @@
   "/2020/a-new-readme-for-docstore/": [
     "/2020/10/a-new-readme-for-docstore/"
   ],
-  "/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/": [
-    "/2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/"
-  ],
   "/2020/a-remote-controlled-oven-is-a-safety-nightmare/": [
     "/2020/02/a-remote-controlled-oven-is-a-safety-nightmare/"
   ],
@@ -2583,6 +2580,10 @@
   ],
   "/notes/2019/github-set-co-commit-credit-with-co-authored-by/": [
     "/til/2019/github-set-co-commit-credit-with-co-authored-by/"
+  ],
+  "/notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/": [
+    "/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/",
+    "/2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/"
   ],
   "/notes/2020/using-git-check-ignore-to-debug-your-gitignore/": [
     "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",

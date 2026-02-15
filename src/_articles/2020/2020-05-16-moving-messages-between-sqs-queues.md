@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-05-16 09:43:00 +00:00
 title: Moving messages between SQS queues
 summary: You can send messages to a DLQ if they fail processing. What if you fix the bug, and you want to resend the failed messages?
-tags:
-  - aws
-  - aws:amazon sqs
-old_syntax_highlighting: true
+topic: AWS
 ---
 
 At work, we make heavy use of [Amazon SQS](https://en.wikipedia.org/wiki/Amazon_Simple_Queue_Service) for message queues.
@@ -49,7 +46,7 @@ As with most of my scripts, this is written in Python.
 You can [download the file](/files/2020/redrive_sqs_queue.py), or copy/paste the source code below.
 Run it by passing the URL of the source and destination queue as arguments:
 
-```
+```shell
 python3 redrive_sqs_queue.py \
     --src-url=https://sqs.amazonaws.com/123456789/my-queue-dlq \
     --dst-url=https://sqs.amazonaws.com/123456789/my-queue
@@ -57,7 +54,7 @@ python3 redrive_sqs_queue.py \
 
 Here's the code:
 
-```python
+```python {"names":{"1":"argparse","2":"sys","3":"boto3","4":"parse_args","5":"parser","19":"get_messages_from_queue","20":"sqs_client","21":"queue_url","22":"resp","31":"entries","34":"msg","36":"resp","50":"args","52":"src_queue_url","55":"dst_queue_url","62":"sqs_client","65":"message"}}
 #!/usr/bin/env python
 """
 Move all the messages from one SQS queue to another.

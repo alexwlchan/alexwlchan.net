@@ -510,8 +510,6 @@ redir /2019/12/yaml-impossible/ /2019/yaml-impossible/ permanent
 redir /2019/12/yaml-impossible /2019/yaml-impossible/ permanent
 redir /2020/10/a-new-readme-for-docstore/ /2020/a-new-readme-for-docstore/ permanent
 redir /2020/10/a-new-readme-for-docstore /2020/a-new-readme-for-docstore/ permanent
-redir /2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/ /2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
-redir /2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude /2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
 redir /2020/02/a-remote-controlled-oven-is-a-safety-nightmare/ /2020/a-remote-controlled-oven-is-a-safety-nightmare/ permanent
 redir /2020/02/a-remote-controlled-oven-is-a-safety-nightmare /2020/a-remote-controlled-oven-is-a-safety-nightmare/ permanent
 redir /2020/10/a-sprinkling-of-azure/ /2020/a-sprinkling-of-azure/ permanent
@@ -1561,6 +1559,10 @@ redir /til/2018/xargs-for-parallel-processing/ /notes/2018/xargs-for-parallel-pr
 redir /til/2018/xargs-for-parallel-processing /notes/2018/xargs-for-parallel-processing/ permanent
 redir /til/2019/github-set-co-commit-credit-with-co-authored-by/ /notes/2019/github-set-co-commit-credit-with-co-authored-by/ permanent
 redir /til/2019/github-set-co-commit-credit-with-co-authored-by /notes/2019/github-set-co-commit-credit-with-co-authored-by/ permanent
+redir /2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
+redir /2020/a-python-function-to-ignore-a-path-with-git-info-exclude /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
+redir /2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/ /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
+redir /2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
@@ -1697,4 +1699,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: TliUovGjqG)
+#[[[end]]] (sum: wuQtiij/d0)

@@ -1,13 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-08-18 15:19:20 +00:00
 title: S3 keys are not file paths
 summary: Although an S3 key looks a lot like a file path, they aren't always the same, and the distinction can trip you up.
-tags:
-  - aws:amazon s3
-  - aws
-  - path-problems
-old_syntax_highlighting: true
+topic: AWS
 ---
 
 If you look at an S3 bucket, you could be forgiven for thinking it behaves like a hierarchical filesystem, with everything organised as files and folders.
@@ -60,7 +56,7 @@ Eek!
 Most languages include a function to *normalise* a path -- to remove redundant path entries and collapse parent directories.
 For example, in Python, we can use [Path.resolve](https://docs.python.org/3/library/pathlib.html#pathlib.Path.resolve):
 
-```pycon
+```pycon {"names":{"1":"normalise","2":"p"}}
 >>> def normalise(p):
 ...     return str(pathlib.PosixPath(p).resolve(strict=False)).encode().decode()
 ...
@@ -76,7 +72,7 @@ For example, in Python, we can use [Path.resolve](https://docs.python.org/3/libr
 
 You can in turn create a function that tells you whether a path is normalised:
 
-```python
+```python {"names":{"1":"is_normalised","2":"path"}}
 def is_normalised(path):
     return path == normalise(path)
 ```
@@ -105,8 +101,8 @@ Here are a few examples:
 
 <style>
   table { margin-left: auto; margin-right: auto; }
-  .tick { text-align: center; color: #11b01c; }
-  .cross { text-align: center; color: #d01c11; }
+  .tick  { text-align: center; color: var(--green); }
+  .cross { text-align: center; color: var(--red); }
 </style>
 
 <table>

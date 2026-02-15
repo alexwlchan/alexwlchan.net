@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-05-10 09:11:55 +00:00
 title: Make it safe to admit mistakes
 summary: You can't stop people making mistakes, but you can make it more likely that they'll admit their next mistake to you.
-tags:
-  - interpersonal skills
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 Most software developers have stories about how they broke their production environment.
