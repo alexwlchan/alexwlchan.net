@@ -1539,6 +1539,8 @@ redir /2014/11/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ perma
 redir /2014/11/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
 redir /notes/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ permanent
 redir /notes/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
+redir /til/2016/rust-safe-macro-expansion/ /notes/2016/rust-safe-macro-expansion/ permanent
+redir /til/2016/rust-safe-macro-expansion /notes/2016/rust-safe-macro-expansion/ permanent
 redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
 redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type/ /notes/2018/list-all-git-object-ids-and-their-type/ permanent
@@ -1555,6 +1557,8 @@ redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ 
 redir /til/2024/limits-on-visited-styles /notes/2024/limits-on-visited-styles/ permanent
 redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/not-all-coal-is-the-same /notes/2024/not-all-coal-is-the-same/ permanent
+redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-library-for-unicode-property-escapes/ permanent
+redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1625,4 +1629,4 @@ redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: LCFzKzWA36)
+#[[[end]]] (sum: EFZGGrDKpT)

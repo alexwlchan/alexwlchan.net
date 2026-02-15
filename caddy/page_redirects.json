@@ -2557,6 +2557,9 @@
     "/2014/11/custom-css-resophnotes/",
     "/notes/custom-css-resophnotes/"
   ],
+  "/notes/2016/rust-safe-macro-expansion/": [
+    "/til/2016/rust-safe-macro-expansion/"
+  ],
   "/notes/2016/shutil-which/": [
     "/til/2016/shutil-which/"
   ],
@@ -2576,6 +2579,9 @@
   ],
   "/notes/2024/not-all-coal-is-the-same/": [
     "/til/2024/not-all-coal-is-the-same/"
+  ],
+  "/notes/2024/regex-library-for-unicode-property-escapes/": [
+    "/til/2024/regex-library-for-unicode-property-escapes/"
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"

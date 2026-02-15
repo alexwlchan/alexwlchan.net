@@ -22,7 +22,6 @@ colors:
    css_light: '#545743'
    css_dark:  '#bf7153'
 
-old_syntax_highlighting: true
 ---
 
 Interesting account of the global shipping industry, including a trip on the *Maersk Kendal* and an anti-piracy warship.

@@ -133,6 +133,16 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             highlighted_code,
         )
 
+    # C: highlight macro names as variable names
+    # cp = Comment.Preproc
+    if lang == "c":
+        highlighted_code = re.sub(
+            r'<span class="cp">#define (?P<name>[A-Z_]+)\((?P<args>[^\)]+)\)',
+            r'#define <span class="n">\g<name></span>'
+            r'<span class="p">(</span>\g<args><span class="p">)</span>',
+            highlighted_code,
+        )
+
     # Whitespace: delete it unless we're in console or irb snippets,
     # where we use it as part of disabling selection.
     if lang not in {"console", "irb"}:
@@ -186,7 +196,7 @@ def apply_syntax_highlighting(
 
     # Find all the names which are highlighted as part of this code.
     name_matches = re.finditer(
-        r'<span class="n[a-z0]?">(?P<varname>[^<]+)</span>', html
+        r'<span class="(n[a-z0]?|cp)">(?P<varname>[^<]+)</span>', html
     )
 
     # Un-highlight any names that aren't explicitly labelled as worth

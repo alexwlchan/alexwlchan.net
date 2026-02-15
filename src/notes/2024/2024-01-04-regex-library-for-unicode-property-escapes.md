@@ -1,11 +1,8 @@
 ---
-layout: til
+layout: note
 title: Use the regex library to get Unicode property escapes in Python
 date: 2024-01-04 23:47:49 +00:00
-tags:
-  - python
-  - unicode
-old_syntax_highlighting: true
+topic: Python
 ---
 I was writing some code to detect and replace emoji.
 
@@ -16,7 +13,7 @@ You can use those with the [`regex` library][regex], which is a dropin replaceme
 
 Here's the set of examples from JavaScript: note the difference between `Emoji` and `Extended_Pictographic`.
 
-```pycon
+```pycon {"names":{"1":"regex"}}
 >>> import regex
 
 >>> regex.search(r'\p{Emoji}', 'flowers')

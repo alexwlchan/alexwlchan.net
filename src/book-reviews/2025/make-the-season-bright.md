@@ -23,7 +23,6 @@ colors:
    css_light: '#0b5a36'
    css_dark:  '#e69d84'
 
-old_syntax_highlighting: true
 ---
 A cute little romance set at Christmas.
 Charlotte and Brighton are musicians who were engaged until it all fell apart on their wedding day; they haven't talked to each other until they end up at the same Christmas event.

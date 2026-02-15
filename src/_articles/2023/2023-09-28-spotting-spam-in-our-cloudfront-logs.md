@@ -1,17 +1,16 @@
 ---
-layout: post
+layout: article
 date: 2023-09-28 01:21:05 +00:00
 title: Spotting spam in our CloudFront logs
 summary: Looking for search queries that came from robots, not real people.
-tags: 
-  - python
-  - aws:amazon cloudfront
+topics:
+  - AWS
+  - Python
 colors:
   index_light: "#236abc"
   index_dark:  "#2f90ff"
   css_light:   "#236abc"
   css_dark:    "#2f90ff"
-old_syntax_highlighting: true
 ---
 
 About two months ago, I wrote about some [Python code I'd written to parse CloudFront logs][python].
@@ -41,7 +40,7 @@ It was usually "obvious" if you read the queries as a human, but how could we te
 
 I started by using the code from my last post to get all the CloudFront logs for our catalogue search:
 
-```python
+```python {"names":{"1":"datetime","2":"json","3":"DatetimeEncoder","6":"default","7":"obj","14":"log_entries","16":"sess","20":"out_file","21":"entry"}}
 import datetime
 import json
 
@@ -67,7 +66,7 @@ with open("search_log_entries.json", "w") as out_file:
 That gave me about 7 million log entries that I could analyse.
 Then I started developing my spam heuristic, which had a single Python function as its interface:
 
-```python
+```python {"names":{"1":"is_spam","2":"log_entry"}}
 def is_spam(log_entry) -> bool:
     return False
 ```
@@ -75,7 +74,7 @@ def is_spam(log_entry) -> bool:
 To develop the heuristic, I wrote a bunch of versions of this function, trying various techniques to look at different fields in the log entry and decide if a particular request was spam.
 To help me evaluate the different versions, I wrote a test script I could run repeatedly as I tweaked the function:
 
-```python
+```python {"names":{"1":"random","2":"time","3":"humanize","4":"termcolor","5":"spam","6":"legit","7":"log_entries","11":"line","13":"time_start","16":"log_entry","26":"time_end","46":"elapsed","54":"log_entry","67":"log_entry"}}
 import random
 import time
 
@@ -90,7 +89,7 @@ legit = []
 #
 # This will load them into a single list, which uses a lot of memory.
 # It is possible to do this in a more memory-efficient way using a
-# generator, but I had memory to spare and I didn't want
+# generator, but I had memory to spare.
 log_entries = [json.loads(line) for line in open("log_entries.json")]
 
 # Go through all the log entries and classify them as spam/not spam

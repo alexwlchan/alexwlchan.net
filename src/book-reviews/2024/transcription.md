@@ -21,7 +21,6 @@ colors:
    css_light: '#3a707c'
    css_dark:  '#dc3c37'
 
-old_syntax_highlighting: true
 ---
 Juliet Armstrong is working for MI5 during the Second World War, transcribing the conversations of Nazi sympathisers in the hope of neutralising them as a threat -- if they're speaking to MI5, they aren't speaking to the Germans.
 (How much value this provides is unclear.)

@@ -21,7 +21,6 @@ colors:
    css_light: '#736c43'
    css_dark:  '#e6bb3c'
 
-old_syntax_highlighting: true
 ---
 
 This is a book about the fleet of measuring and testing trains that are used across the British rail network.

@@ -21,10 +21,9 @@ colors:
    css_light: '#2772b7'
    css_dark:  '#e8da5d'
 
-old_syntax_highlighting: true
 ---
 
-Clear overview of some engineering fundamentals, excellent illustrations, lots of LEGO history and knowledge
+Clear overview of some engineering fundamentals, excellent illustrations, lots of LEGO history and knowledge.
 
 This book explains how to reproduce a whole variety of engineering systems in LEGO. I especially appreciate that it doesn’t assume much prior knowledge – e.g. it explains what a transmission is, and why it’s important, before showing how to build it. I only have a vague grasp of vehicle machines, so that was useful to me. The illustrations are great as well; clear and thoughtfully coloured. Going back to transmissions: having the input/output axles and selected gears highlighted in different colours made it easy to follow.
 

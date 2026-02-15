@@ -20,7 +20,6 @@ colors:
    css_light: '#9a6130'
    css_dark:  '#fa0b87'
 
-old_syntax_highlighting: true
 ---
 I read the first six chapters but I wasn't excited to keep reading about any of the characters, so I put it down.
 

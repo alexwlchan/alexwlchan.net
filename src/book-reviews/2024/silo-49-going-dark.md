@@ -21,6 +21,5 @@ colors:
    css_light: '#19348c'
    css_dark:  '#c7c4d1'
 
-old_syntax_highlighting: true
 ---
 A fun addition to the Silo universe, where we see a Silo which is close to failing -- the population is ill and declining, and the mayor Graham is determined to create a better future for his people even if Silo One have written them off.

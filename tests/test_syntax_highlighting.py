@@ -327,3 +327,20 @@ def test_pycon_traceback() -> None:
     )
     html = apply_syntax_highlighting(src, lang="pycon")
     assert '<span class="gr">ValueError: BOOM!</span>' in html
+
+
+def test_c_highlights_macros() -> None:
+    """
+    The console language only highlights $ as the prompt, not #.
+    """
+    html = apply_syntax_highlighting(
+        src="#define ADD_ONE(X) X + 1\nADD_ONE(9) * 2", lang="c", names={1: "ADD_ONE"}
+    )
+    assert html == (
+        '<pre class="lng-c"><code>'
+        '#define <span class="n">ADD_ONE</span><span class="p">'
+        '(</span>X<span class="p">)</span> X + 1</span>\n'
+        'ADD_ONE<span class="p">(</span><span class="mi">9</span>'
+        '<span class="p">)</span> <span class="o">*</span> '
+        '<span class="mi">2</span></code></pre>\n'
+    )

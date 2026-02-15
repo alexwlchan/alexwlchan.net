@@ -23,7 +23,6 @@ colors:
    css_light: '#135d36'
    css_dark:  '#f4bcc8'
 
-old_syntax_highlighting: true
 ---
 A fun friends-to-lovers romance -- El has a crush on her best friend Jay, but isn't sure if Jay reciprocates her feelings, and is stewing in the misery of unrequited love.
 

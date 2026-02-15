@@ -1,10 +1,9 @@
 ---
-layout: til
+layout: note
 title: Rust macros are smarter than just text substitution
 summary: This is a safety feature that prevents macros expanding in an unexpected way.
 date: 2016-10-29 08:22:54 +00:00
-tags:
-  - rust
+topic: Rust
 old_syntax_highlighting: true
 ---
 ## The footgun in C macros
@@ -15,7 +14,7 @@ You can get unexpected results if the expression with substitutions doesn't have
 
 Here's a trivial example of a C macro that gets this wrong:
 
-```c
+```c {"names":{"1":"ADD_ONE"}}
 #define ADD_ONE(X) X + 1
 ADD_ONE(9) * 2
 ```
@@ -25,15 +24,15 @@ What's the result?
 A human might read `ADD_ONE(9)` like a function call, so expect it to be evaluated before any other operators.
 They'd thus expect the result::
 
-<pre><code>ADD_ONE(9) * 2 = 10 * 2 = <strong>20</strong></code></pre>
+<pre><code>ADD_ONE(9) * 2 = 10 * 2 = <mark>20</mark></code></pre>
 
 But the C compiler just substitutes the text into the code, and then applies operator precedence, so it goes:
 
-<pre><code>ADD_ONE(9) * 2 = 9 + 1 * 2 = <strong>11</strong></code></pre>
+<pre><code>ADD_ONE(9) * 2 = 9 + 1 * 2 = <mark>11</mark></code></pre>
 
 The correct macro is:
 
-```c
+```c {"names":{"1":"ADD_ONE"}}
 #define ADD_ONE(X) (X + 1)
 ```
 
@@ -49,7 +48,7 @@ I suspect they're more nuanced than that, but what follows is still correct.
 If you try to write the C footgun macro in Rust, the compiler won't let you.
 For example, the following code fails to compile with the error "no rules expected this token in macro call" on the `x`:
 
-```rust
+```rust {"names":{"1":"plus_one","2":"$x"}}
 macro_rules! plus_one {
     ($x:expr) => $x + 1;
 }
@@ -57,7 +56,7 @@ macro_rules! plus_one {
 
 It won't be happy until you add the missing parentheses:
 
-```rust
+```rust {"names":{"1":"plus_one","2":"$x"}}
 macro_rules! plus_one {
     ($x:expr) => ($x + 1);
 }
