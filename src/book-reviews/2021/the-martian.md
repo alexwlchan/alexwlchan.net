@@ -23,7 +23,6 @@ colors:
    css_light: '#d73223'
    css_dark:  '#fb7a3f'
 
-old_syntax_highlighting: true
 ---
 
 I've seen the film adaptation a bunch of times and I really enjoy that, but I found this disappointing.

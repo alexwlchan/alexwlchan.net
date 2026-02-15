@@ -1,13 +1,11 @@
 ---
+layout: article
 date: 2019-07-03 19:33:55 +00:00
-layout: post
-summary: Python functions for getting a list of keys and objects in an S3 bucket.
 title: Listing even more keys in an S3 bucket with Python
-tags:
-  - python
-  - aws:amazon s3
-  - aws
-old_syntax_highlighting: true
+summary: Python functions for getting a list of keys and objects in an S3 bucket.
+topics:
+  - AWS
+  - Python
 ---
 
 Two years ago, I wrote a Python function for [listing keys in an S3 bucket](/2017/listing-s3-keys/).
@@ -23,7 +21,7 @@ Rather than doing the pagination manually, you call a paginator and it handles t
 
 Here's an example:
 
-```python
+```python {"names":{"1":"boto3","2":"client","5":"paginator","8":"page"}}
 import boto3
 
 client = boto3.client("s3")
@@ -39,7 +37,7 @@ Each `page` is the equivalent of a `resp` in the original code -- but it's a bit
 There are quite a few paginators in the boto3 SDK, and they save you having to work out how any given API implements pagination (because they're not consistent).
 So if you want to list keys in an S3 bucket with Python, this is the paginator-flavoured code that I use these days:
 
-```python
+```python {"names":{"1":"boto3","2":"get_matching_s3_objects","3":"bucket","4":"prefix","5":"suffix","6":"s3","9":"paginator","12":"kwargs","17":"prefixes","19":"prefixes","21":"key_prefix","25":"page","29":"contents","32":"obj","34":"key","40":"get_matching_s3_keys","41":"bucket","42":"prefix","43":"suffix","44":"obj"}}
 import boto3
 
 

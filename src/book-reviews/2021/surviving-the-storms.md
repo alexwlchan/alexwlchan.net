@@ -22,7 +22,6 @@ colors:
    css_light: '#0c6e79'
    css_dark:  '#bb5b40'
 
-old_syntax_highlighting: true
 ---
 
 I think the RNLI do amazing work, so it's no surprise I liked this book.

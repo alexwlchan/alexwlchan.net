@@ -1563,6 +1563,8 @@ redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inact
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
+redir /til/2025/compare-two-files-bash/ /notes/2025/compare-two-files-bash/ permanent
+redir /til/2025/compare-two-files-bash /notes/2025/compare-two-files-bash/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-handoff-icons-in-dock /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/download-tumblr-avatars/ /notes/2025/download-tumblr-avatars/ permanent
@@ -1571,6 +1573,8 @@ redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-ina
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
+redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
+redir /til/2025/poison-centers /notes/2025/poison-centers/ permanent
 redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-line-by-line /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanent
@@ -1629,4 +1633,4 @@ redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: EFZGGrDKpT)
+#[[[end]]] (sum: iA9DDQOUlS)

@@ -1,14 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2022-07-23 08:45:43 +00:00
 title: You should take more screenshots
 summary: If you do any sort of creative digital work, screenshots and screen recordings are a great way to remember it.
-tags:
-  - digital preservation
-  - screenshots
+topics:
+  - Personal thoughts
+  - Digital preservation
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 I've been using computers for about two decades.

@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: Comparing two files in a bash script
 date: 2025-06-27 14:00:21 +01:00
 summary: Inspect the exit value of `cmp --silent`.
-tags:
-  - shell scripting
-old_syntax_highlighting: true
+topic: Shell scripting
 ---
 I wanted to write a bash script that compares the contents of two files, and takes an action if the two files are different.
 I also wanted this script to be compatible with my usual bash flags -- I run usually write scripts with `errexit` and `nounset`.

@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: Some countries have "poison centers" as part of their healthcare service
 date: 2025-07-04 23:42:51 +01:00
 summary: Poison centres are specialist services offering expert medical advice when you're poisoned. They're common in countries like the US, but barely visible to the public in the UK.
-tags:
-  - healthcare
-old_syntax_highlighting: true
+topic: The world around us
 ---
 I bought new laundry pods today, and the packaging has a stern warning:
 

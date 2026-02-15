@@ -4,7 +4,6 @@ title: Contact
 colors:
   css_light: "#118207"
   css_dark:  "#5ff042"
-old_syntax_highlighting: true
 ---
 I love it when people tell me they enjoyed something I made.
 A nice message can make my day!
