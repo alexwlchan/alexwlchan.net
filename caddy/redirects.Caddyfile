@@ -1643,10 +1643,18 @@ redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagen
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/verbose-deletions-with-rm/ /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2024/verbose-deletions-with-rm /notes/2024/verbose-deletions-with-rm/ permanent
+redir /til/2025/rm-verbose/ /notes/2024/verbose-deletions-with-rm/ permanent
+redir /til/2025/rm-verbose /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2025/access-nested-fields-in-typeddict/ /notes/2025/access-nested-fields-in-typeddict/ permanent
 redir /til/2025/access-nested-fields-in-typeddict /notes/2025/access-nested-fields-in-typeddict/ permanent
+redir /til/2025/airdrop-location/ /notes/2025/airdrop-location/ permanent
+redir /til/2025/airdrop-location /notes/2025/airdrop-location/ permanent
+redir /til/2025/aspect-ratio-slash-is-numeric/ /notes/2025/aspect-ratio-slash-is-numeric/ permanent
+redir /til/2025/aspect-ratio-slash-is-numeric /notes/2025/aspect-ratio-slash-is-numeric/ permanent
+redir /til/2025/basic-socket-server-in-ruby/ /notes/2025/basic-socket-server-in-ruby/ permanent
+redir /til/2025/basic-socket-server-in-ruby /notes/2025/basic-socket-server-in-ruby/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1677,12 +1685,18 @@ redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
 redir /til/2025/poison-centers /notes/2025/poison-centers/ permanent
 redir /til/2025/pygments-html-classes/ /notes/2025/pygments-html-classes/ permanent
 redir /til/2025/pygments-html-classes /notes/2025/pygments-html-classes/ permanent
+redir /til/2025/python-3-14/ /notes/2025/python-3-14/ permanent
+redir /til/2025/python-3-14 /notes/2025/python-3-14/ permanent
 redir /til/2025/remove-microsecond-precision-in-python/ /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/remove-microsecond-precision-in-python /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting/ /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/sqlite-functions/ /notes/2025/sqlite-functions/ permanent
 redir /til/2025/sqlite-functions /notes/2025/sqlite-functions/ permanent
+redir /til/2025/sqlite-output-modes/ /notes/2025/sqlite-output-modes/ permanent
+redir /til/2025/sqlite-output-modes /notes/2025/sqlite-output-modes/ permanent
+redir /til/2025/sqlite-tally-for-big-values/ /notes/2025/sqlite-tally-for-big-values/ permanent
+redir /til/2025/sqlite-tally-for-big-values /notes/2025/sqlite-tally-for-big-values/ permanent
 redir /til/2025/sqlite-tallying-top-n/ /notes/2025/sqlite-tallying-top-n/ permanent
 redir /til/2025/sqlite-tallying-top-n /notes/2025/sqlite-tallying-top-n/ permanent
 redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ permanent
@@ -1691,6 +1705,8 @@ redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanen
 redir /til/2025/subprocess-text-true /notes/2025/subprocess-text-true/ permanent
 redir /til/2025/tumblr-api-sans-auth/ /notes/2025/tumblr-api-sans-auth/ permanent
 redir /til/2025/tumblr-api-sans-auth /notes/2025/tumblr-api-sans-auth/ permanent
+redir /til/2025/typing-getargs/ /notes/2025/typing-getargs/ permanent
+redir /til/2025/typing-getargs /notes/2025/typing-getargs/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /entertainment/who-is-bufo /notes/2026/who-is-bufo/ permanent
 redir /personal-thoughts/blogging/ /systems/ permanent
@@ -1745,4 +1761,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: jZngXtEdOu)
+#[[[end]]] (sum: DUvxGGlN8N)

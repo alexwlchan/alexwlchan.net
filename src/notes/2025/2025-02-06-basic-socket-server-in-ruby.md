@@ -1,16 +1,14 @@
 ---
-layout: til
+layout: note
 title: A basic socket server in Ruby
 summary: My first bit of socket programming is a Ruby server that reads lines from the socket, and prints them. Not useful on its own, but a stepping stone to more exciting things!
 date: 2025-02-06 09:13:10 +00:00
-tags:
-  - ruby
-old_syntax_highlighting: true
+topic: Ruby
 ---
 I'm working on a new project that involves sockets, and I decided to try writing a basic socket server in Ruby.
 Here's the code I wrote:
 
-```ruby
+```ruby {"names":{"2":"SocketServer","4":"open","5":"port","6":"server","17":"handle_client","18":"client","33":"server","34":"client","41":"line"}}
 require 'socket'
 
 class SocketServer

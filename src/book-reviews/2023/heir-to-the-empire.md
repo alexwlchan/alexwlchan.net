@@ -22,7 +22,6 @@ colors:
    css_light: '#235567'
    css_dark:  '#3ca8cf'
 
-old_syntax_highlighting: true
 ---
 
 This is the book that introduced Grand Admiral Thrawn, and it's been on my list for a while.

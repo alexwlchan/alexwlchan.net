@@ -2697,13 +2697,23 @@
     "/til/2024/use-launchagent-for-scheduled-script/"
   ],
   "/notes/2024/verbose-deletions-with-rm/": [
-    "/til/2024/verbose-deletions-with-rm/"
+    "/til/2024/verbose-deletions-with-rm/",
+    "/til/2025/rm-verbose/"
   ],
   "/notes/2024/write-to-middle-of-file-with-python/": [
     "/til/2024/write-to-middle-of-file-with-python/"
   ],
   "/notes/2025/access-nested-fields-in-typeddict/": [
     "/til/2025/access-nested-fields-in-typeddict/"
+  ],
+  "/notes/2025/airdrop-location/": [
+    "/til/2025/airdrop-location/"
+  ],
+  "/notes/2025/aspect-ratio-slash-is-numeric/": [
+    "/til/2025/aspect-ratio-slash-is-numeric/"
+  ],
+  "/notes/2025/basic-socket-server-in-ruby/": [
+    "/til/2025/basic-socket-server-in-ruby/"
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
@@ -2750,6 +2760,9 @@
   "/notes/2025/pygments-html-classes/": [
     "/til/2025/pygments-html-classes/"
   ],
+  "/notes/2025/python-3-14/": [
+    "/til/2025/python-3-14/"
+  ],
   "/notes/2025/remove-microsecond-precision-in-python/": [
     "/til/2025/remove-microsecond-precision-in-python/"
   ],
@@ -2758,6 +2771,12 @@
   ],
   "/notes/2025/sqlite-functions/": [
     "/til/2025/sqlite-functions/"
+  ],
+  "/notes/2025/sqlite-output-modes/": [
+    "/til/2025/sqlite-output-modes/"
+  ],
+  "/notes/2025/sqlite-tally-for-big-values/": [
+    "/til/2025/sqlite-tally-for-big-values/"
   ],
   "/notes/2025/sqlite-tallying-top-n/": [
     "/til/2025/sqlite-tallying-top-n/"
@@ -2770,6 +2789,9 @@
   ],
   "/notes/2025/tumblr-api-sans-auth/": [
     "/til/2025/tumblr-api-sans-auth/"
+  ],
+  "/notes/2025/typing-getargs/": [
+    "/til/2025/typing-getargs/"
   ],
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"
