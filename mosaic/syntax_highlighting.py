@@ -89,8 +89,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
                 highlighted_code,
             )
 
-    # Swift: the shebang at the start is punctuation, not a comment or
-    # a name worth highlighting.
+    # Swift: the opening hashbang should be a Comment.Hashbang.
     if lang == "swift":
         highlighted_code = highlighted_code.replace(
             '<span class="p">#</span><span class="o">!/</span>'
@@ -98,14 +97,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="n">bin</span><span class="o">/</span>'
             '<span class="n">env</span><span class="w"> </span>'
             '<span class="n">swift</span>\n',
-            '<span class="p">#!/usr/bin/env swift</span>\n',
-        )
-
-    # Bash: the shebang at the start is punctuation.
-    if lang == "bash":
-        highlighted_code = highlighted_code.replace(
-            '<span class="ch">#!/usr/bin/env bash</span>',
-            '<span class="p">#!/usr/bin/env bash</span>',
+            '<span class="ch">#!/usr/bin/env swift</span>\n',
         )
 
     # Bash: highlight functions as potential names
@@ -115,13 +107,6 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             r'\1<span class="n">\g<function_name></span>\3',
             highlighted_code,
             flags=re.MULTILINE,
-        )
-
-    # Python: the shebang at the start is punctuation.
-    if lang == "python":
-        highlighted_code = highlighted_code.replace(
-            '<span class="ch">#!/usr/bin/env python3</span>',
-            '<span class="p">#!/usr/bin/env python3</span>',
         )
 
     # Python console: expand gr (Generic.Error) snippets to include
@@ -254,7 +239,10 @@ def apply_syntax_highlighting(
     html = re.sub("</div>$", "", html)
 
     # Insert an inner <code> block inside the <pre> tag
-    html = re.sub(r"^<pre>", f'<pre class="lng-{lang}"><code>', html)
+    if wrap:
+        html = re.sub(r"^<pre>", f'<pre class="lng-{lang} wrap"><code>', html)
+    else:
+        html = re.sub(r"^<pre>", f'<pre class="lng-{lang}"><code>', html)
     html = re.sub(r"\s*</pre>$", "</code></pre>", html)
 
     html = html.replace("<span></span>", "")

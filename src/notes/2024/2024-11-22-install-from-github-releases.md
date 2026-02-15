@@ -1,13 +1,10 @@
 ---
-layout: til
+layout: note
 title: How to install an asset from a GitHub release
 date: 2024-11-22 11:35:50 +00:00
-tags:
-  - github
-  - github actions
+topic: Builds and CI
 summary:
   Use `gh release download`, which includes a pattern matcher if you want to pick a specific asset.
-old_syntax_highlighting: true
 ---
 I wanted to install Caddy in GitHub Actions, and one of the ways [to install it](https://caddyserver.com/docs/install#static-binaries) is by downloading static binaries from their GitHub releases.
 

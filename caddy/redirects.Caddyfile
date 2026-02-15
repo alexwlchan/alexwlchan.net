@@ -360,8 +360,6 @@ redir /2018/01/downloading-sqs-queues/ /2018/downloading-sqs-queues/ permanent
 redir /2018/01/downloading-sqs-queues /2018/downloading-sqs-queues/ permanent
 redir /2018/09/error-logging-in-lambdas/ /2018/error-logging-in-lambdas/ permanent
 redir /2018/09/error-logging-in-lambdas /2018/error-logging-in-lambdas/ permanent
-redir /2018/10/finatra-404/ /2018/finatra-404/ permanent
-redir /2018/10/finatra-404 /2018/finatra-404/ permanent
 redir /2018/08/finding-slow-builds-in-travis/ /2018/finding-slow-builds-in-travis/ permanent
 redir /2018/08/finding-slow-builds-in-travis /2018/finding-slow-builds-in-travis/ permanent
 redir /2018/11/finding-unsubscribed-sns-topics/ /2018/finding-unsubscribed-sns-topics/ permanent
@@ -1525,8 +1523,12 @@ redir /notes/2016/ /notes/ permanent
 redir /notes/2016 /notes/ permanent
 redir /notes/2018/ /notes/ permanent
 redir /notes/2018 /notes/ permanent
+redir /notes/2019/ /notes/ permanent
+redir /notes/2019 /notes/ permanent
 redir /notes/2020/ /notes/ permanent
 redir /notes/2020 /notes/ permanent
+redir /notes/2023/ /notes/ permanent
+redir /notes/2023 /notes/ permanent
 redir /notes/2024/ /notes/ permanent
 redir /notes/2024 /notes/ permanent
 redir /notes/2025/ /notes/ permanent
@@ -1543,16 +1545,32 @@ redir /til/2016/rust-safe-macro-expansion/ /notes/2016/rust-safe-macro-expansion
 redir /til/2016/rust-safe-macro-expansion /notes/2016/rust-safe-macro-expansion/ permanent
 redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
 redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
+redir /2018/finatra-404/ /notes/2018/finatra-404/ permanent
+redir /2018/finatra-404 /notes/2018/finatra-404/ permanent
+redir /2018/10/finatra-404/ /notes/2018/finatra-404/ permanent
+redir /2018/10/finatra-404 /notes/2018/finatra-404/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type/ /notes/2018/list-all-git-object-ids-and-their-type/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type /notes/2018/list-all-git-object-ids-and-their-type/ permanent
 redir /til/2018/xargs-for-parallel-processing/ /notes/2018/xargs-for-parallel-processing/ permanent
 redir /til/2018/xargs-for-parallel-processing /notes/2018/xargs-for-parallel-processing/ permanent
+redir /til/2019/github-set-co-commit-credit-with-co-authored-by/ /notes/2019/github-set-co-commit-credit-with-co-authored-by/ permanent
+redir /til/2019/github-set-co-commit-credit-with-co-authored-by /notes/2019/github-set-co-commit-credit-with-co-authored-by/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /til/2020/using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /til/2023/buildkite-concurrency-gates/ /notes/2023/buildkite-concurrency-gates/ permanent
+redir /til/2023/buildkite-concurrency-gates /notes/2023/buildkite-concurrency-gates/ permanent
+redir /til/2023/mechanize-ssl/ /notes/2023/mechanize-ssl/ permanent
+redir /til/2023/mechanize-ssl /notes/2023/mechanize-ssl/ permanent
+redir /2023/mechanize-ssl/ /notes/2023/mechanize-ssl/ permanent
+redir /2023/mechanize-ssl /notes/2023/mechanize-ssl/ permanent
+redir /til/2023/profiling-swift/ /notes/2023/profiling-swift/ permanent
+redir /til/2023/profiling-swift /notes/2023/profiling-swift/ permanent
+redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
+redir /til/2024/install-from-github-releases /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ permanent
 redir /til/2024/limits-on-visited-styles /notes/2024/limits-on-visited-styles/ permanent
 redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ permanent
@@ -1577,6 +1595,8 @@ redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
 redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
 redir /til/2025/poison-centers /notes/2025/poison-centers/ permanent
+redir /til/2025/pygments-html-classes/ /notes/2025/pygments-html-classes/ permanent
+redir /til/2025/pygments-html-classes /notes/2025/pygments-html-classes/ permanent
 redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-line-by-line /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanent
@@ -1633,6 +1653,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
-redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: 4Ijd8KJnRN)
+#[[[end]]] (sum: 2zz3o2ctLb)

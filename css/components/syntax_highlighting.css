@@ -13,9 +13,14 @@ pre {
     --highlight: #fffc42cc;
   }
 
-  /* Comment, Comment.{Hash, Multiline, Single, Special} */
-  .c, .ch, .cm, .c1, .cs {
+  /* Comment, Comment.{Multiline, Single, Special} */
+  .c, .cm, .c1, .cs {
     color: var(--comments);
+  }
+  
+  /* Comment.Hashbang */
+  .ch {
+    color: var(--punctuation);
   }
 
   /* Numbers and booleans:
@@ -71,6 +76,7 @@ pre {
 .lng-console .gp + .w,
 .lng-irb .gp,
 .lng-irb .gp + .w {
+  /* TODO: pycon? */
   color: var(--blue);
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

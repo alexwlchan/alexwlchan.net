@@ -256,27 +256,15 @@ def test_css_highlighting(src: str, names: dict[int, str], must_include: str) ->
     assert '<span class="err">' not in html
 
 
-def test_swift_shebang_is_not_highlighted() -> None:
+def test_swift_shebang_is_tagged_correctly() -> None:
     """
-    The shebang at the start of a Swift script is punctuation.
+    The shebang at the start of a Swift script is a Comment.Hashbang.
     """
     html = apply_syntax_highlighting(
         src='#!/usr/bin/env swift\n\nprint("Hello world")', lang="swift"
     )
     assert html.startswith(
-        '<pre class="lng-swift"><code><span class="p">#!/usr/bin/env swift</span>'
-    )
-
-
-def test_bash_shebang_is_not_highlighted() -> None:
-    """
-    The shebang at the start of a bash script is punctuation.
-    """
-    html = apply_syntax_highlighting(
-        src='#!/usr/bin/env bash\n\necho "Hello world"', lang="bash"
-    )
-    assert html.startswith(
-        '<pre class="lng-bash"><code><span class="p">#!/usr/bin/env bash</span>'
+        '<pre class="lng-swift"><code><span class="ch">#!/usr/bin/env swift</span>'
     )
 
 
@@ -344,3 +332,13 @@ def test_c_highlights_macros() -> None:
         '<span class="p">)</span> <span class="o">*</span> '
         '<span class="mi">2</span></code></pre>\n'
     )
+
+
+def test_linewrap() -> None:
+    """
+    Whitespace tokens are preserved in console snippets.
+    """
+    html = apply_syntax_highlighting(
+        src='$ echo "hello world hello world hello world"', lang="console", wrap=True
+    )
+    assert html.startswith('<pre class="lng-console wrap">')

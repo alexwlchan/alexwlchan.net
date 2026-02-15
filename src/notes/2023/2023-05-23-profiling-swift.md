@@ -1,14 +1,12 @@
 ---
-layout: til
+layout: note
 date: 2023-05-23 21:05:27 +00:00
 title: How to profile Swift code
-tags:
-  - swift
-old_syntax_highlighting: true
+topic: Swift
 ---
 [Stack Overflow coughed up a snippet which I've adapted](https://stackoverflow.com/a/24755958/1558022):
 
-```swift
+```swift {"names":{"1":"start","4":"elapsed","6":"printElapsed","7":"label","10":"now","13":"totalInterval","19":"elapsedInterval","25":"elapsed"}}
 let start = DispatchTime.now()
 var elapsed = start
 

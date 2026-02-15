@@ -82,8 +82,8 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
     for md_path in find_paths_under(src_dir, suffix=".md"):
         try:
             result.append(read_page_from_markdown(src_dir, md_path))
-        except Exception:
-            print(termcolor.colored("error reading {md_path}: {exc}", "red"))
+        except Exception as exc:
+            print(termcolor.colored(f"error reading {md_path}: {exc}", "red"))
             raise
 
     return result

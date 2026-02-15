@@ -444,9 +444,6 @@
   "/2018/error-logging-in-lambdas/": [
     "/2018/09/error-logging-in-lambdas/"
   ],
-  "/2018/finatra-404/": [
-    "/2018/10/finatra-404/"
-  ],
   "/2018/finding-slow-builds-in-travis/": [
     "/2018/08/finding-slow-builds-in-travis/"
   ],
@@ -2547,7 +2544,9 @@
     "/notes/2014/",
     "/notes/2016/",
     "/notes/2018/",
+    "/notes/2019/",
     "/notes/2020/",
+    "/notes/2023/",
     "/notes/2024/",
     "/notes/2025/",
     "/notes/2026/"
@@ -2563,16 +2562,36 @@
   "/notes/2016/shutil-which/": [
     "/til/2016/shutil-which/"
   ],
+  "/notes/2018/finatra-404/": [
+    "/2018/finatra-404/",
+    "/2018/10/finatra-404/"
+  ],
   "/notes/2018/list-all-git-object-ids-and-their-type/": [
     "/til/2018/list-all-git-object-ids-and-their-type/"
   ],
   "/notes/2018/xargs-for-parallel-processing/": [
     "/til/2018/xargs-for-parallel-processing/"
   ],
+  "/notes/2019/github-set-co-commit-credit-with-co-authored-by/": [
+    "/til/2019/github-set-co-commit-credit-with-co-authored-by/"
+  ],
   "/notes/2020/using-git-check-ignore-to-debug-your-gitignore/": [
     "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
+  ],
+  "/notes/2023/buildkite-concurrency-gates/": [
+    "/til/2023/buildkite-concurrency-gates/"
+  ],
+  "/notes/2023/mechanize-ssl/": [
+    "/til/2023/mechanize-ssl/",
+    "/2023/mechanize-ssl/"
+  ],
+  "/notes/2023/profiling-swift/": [
+    "/til/2023/profiling-swift/"
+  ],
+  "/notes/2024/install-from-github-releases/": [
+    "/til/2024/install-from-github-releases/"
   ],
   "/notes/2024/limits-on-visited-styles/": [
     "/til/2024/limits-on-visited-styles/"
@@ -2609,6 +2628,9 @@
   ],
   "/notes/2025/poison-centers/": [
     "/til/2025/poison-centers/"
+  ],
+  "/notes/2025/pygments-html-classes/": [
+    "/til/2025/pygments-html-classes/"
   ],
   "/notes/2025/subprocess-line-by-line/": [
     "/til/2025/subprocess-line-by-line/"
@@ -2659,8 +2681,5 @@
   "/til/2022/print-sbt/": [
     "/2022/print-sbt/",
     "/2022/12/print-sbt/"
-  ],
-  "/til/2023/mechanize-ssl/": [
-    "/2023/mechanize-ssl/"
   ]
 }

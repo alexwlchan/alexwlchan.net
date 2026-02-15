@@ -1,14 +1,12 @@
 ---
+layout: article
 date: 2018-01-25 21:56:15 +00:00
-layout: post
+title: Getting every message in an SQS queue
 summary: Code for saving every message from an SQS queue, and then saving the messages
   to a file, or resending them to another queue.
-tags:
-  - aws
-  - python
-  - aws:amazon sqs
-title: Getting every message in an SQS queue
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Python
 ---
 
 At work, we make heavy use of [Amazon SQS][sqs] message queues.
@@ -50,7 +48,7 @@ I've written a Python function to do just that, and in this post, I'll walk thro
 We start with the [`receive_message()` method][rmessages] in the boto3 SDK.
 This allows us to download our first batch of messages:
 
-{% code lang="python" names="0:boto3 1:sqs_client 4:resp" %}
+```python {"names":{"1":"boto3","2":"sqs_client","5":"resp"}}
 import boto3
 
 sqs_client = boto3.client('sqs')
@@ -59,7 +57,7 @@ resp = sqs_client.receive_message(
     AttributeNames=['All'],
     MaxNumberOfMessages=10
 )
-{% endcode %}
+```
 
 We pass the URL of our DLQ as a parameter.
 The "AttributeNames = All" means we get as much information as possible about queue messages, because it might be useful later.
@@ -69,13 +67,13 @@ The docs tell us the response is a dict with a single key, "Messages", which con
 If the queue is empty, so is the response.
 So we can extract the individual messages like this:
 
-{% code lang="python" names="0:messages 4:messages" %}
+```python {"names":{"1":"messages","5":"messages"}}
 try:
     messages = resp['Messages']
 except KeyError:
     print('No messages on the queue!')
     messages = []
-{% endcode %}
+```
 
 So once we have the first ten messages, we want to get the next ten messages.
 How do we do that?
@@ -92,25 +90,25 @@ So we need to mark our messages as "done", or we might get duplicate messages fr
 Each message includes a `ReceiptHandle` that we send back to SQS via the [`delete_message_batch()` API][delete].
 We need to pass it a list of dicts, each containing an ID (that we generate) and a receipt handle.
 
-{% code lang="python" names="0:entries 3:msg 5:resp" %}
+```python {"names":{"1":"entries","4":"msg","6":"resp"}}
 entries = [
     {'Id': msg['MessageId'], 'ReceiptHandle': msg['ReceiptHandle']}
     for msg in resp['Messages']
 ]
 
 resp = sqs_client.delete_message_batch(QueueUrl=queue_url, Entries=entries)
-{% endcode %}
+```
 
 The response tells us whether it successfully deleted all the messages, and if not, which failed to delete.
 That's what the IDs are for -- we can work out which deletes failed, if any.
 We could use the IDs to retry any failed deletes, but in practice, I've never had an issue with message deletions, so I'll just raise an error if that ever occurs:
 
-{% code lang="python" %}
+```python
 if len(resp['Successful']) != len(entries):
     raise RuntimeError(
         f"Failed to delete messages: entries={entries!r} resp={resp!r}"
     )
-{% endcode %}
+```
 
 (Note use of [f-strings][pep498], which have me a total convert to Python 3.)
 
@@ -119,7 +117,7 @@ Then we can run this repeatedly until the queue runs out of messages.
 Rather than printing when we get the KeyError, we break out of the loop.
 And then let's wrap the code in a function:
 
-{% code lang="python" names="0:boto3 1:get_messages_from_queue 2:queue_url 3:sqs_client 6:messages 7:resp 18:entries 21:msg" %}
+```python {"names":{"1":"boto3","2":"get_messages_from_queue","3":"queue_url","4":"sqs_client","7":"messages","8":"resp","19":"entries","22":"msg"}}
 import boto3
 
 
@@ -155,7 +153,7 @@ def get_messages_from_queue(queue_url):
             )
 
     return messages
-{% endcode %}
+```
 
 This isn't ideal, because we're accumulating all the messages in a list -- if our queue is large, this spends a lot of memory.
 We might run out of memory entirely, and lose all the messages!
@@ -164,7 +162,7 @@ If we do that, the code becomes cleaner and more efficient.
 
 Add a docstring, and we have the final version of the function:
 
-{% code lang="python" names="0:boto3 1:get_messages_from_queue 2:queue_url 3:sqs_client 6:resp 15:entries 18:msg" %}
+```python {"names":{"1":"boto3","2":"get_messages_from_queue","3":"queue_url","4":"sqs_client","7":"resp","16":"entries","19":"msg"}}
 import boto3
 
 
@@ -204,7 +202,7 @@ def get_messages_from_queue(queue_url):
             raise RuntimeError(
                 f"Failed to delete messages: entries={entries!r} resp={resp!r}"
             )
-{% endcode %}
+```
 
 If you want to use this code, just copy-and-paste it into your project, ideally with a link back to this post.
 
@@ -216,7 +214,7 @@ This means I can start to unpick it with tools like [jq][jq] and [grep][grep], a
 Having a generator of messages means I can print them one-by-one, redirect to a file, and I don't need to keep them in memory.
 Throw in docopt for some argument parsing, and I've got a complete script:
 
-{% code lang="python" names="0:json 1:boto3 2:docopt 3:get_messages_from_queue 4:queue_url 6:args 10:queue_url 12:message" %}
+```python {"names":{"1":"json","2":"boto3","3":"docopt","4":"get_messages_from_queue","5":"queue_url","6":"args","9":"queue_url","11":"message"}}
 #!/usr/bin/env python
 """
 Usage: get_sqs_messages.py <QUEUE_URL>
@@ -239,7 +237,7 @@ if __name__ == '__main__':
 
     for message in get_messages_from_queue(queue_url):
         print(json.dumps(message))
-{% endcode %}
+```
 
 I run the script as follows:
 
@@ -260,7 +258,7 @@ As well as `receive_message()`, boto3 also has a [`send_message()` API][sendmsg]
 We need to pass it the queue URL, and the message body -- and we have the latter from the original message.
 So once again adding some docopt for dressing:
 
-{% code lang="python" names="0:boto3 1:docopt 2:get_messages_from_queue 3:queue_url 5:args 9:src_queue_url 11:dst_queue_url 13:sqs_client 16:message" %}
+```python {"names":{"1":"boto3","2":"docopt","3":"get_messages_from_queue","4":"queue_url","5":"args","8":"src_queue_url","10":"dst_queue_url","12":"sqs_client","15":"message"}}
 #!/usr/bin/env python
 """
 Usage: sqs_redrive.py --src=<QUEUE_URL> --dst=<QUEUE_URL>
@@ -287,7 +285,7 @@ if __name__ == '__main__':
             QueueUrl=dst_queue_url,
             Body=message['Body']
         )
-{% endcode %}
+```
 
 and you run this script as follows:
 

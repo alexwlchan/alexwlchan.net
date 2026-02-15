@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Use concurrency gates to prevent concurrent deployments
 date: 2023-06-01 20:37:05 +00:00
-tags:
-  - buildkite
-old_syntax_highlighting: true
+topic: Builds and CI
 ---
 Concurrency gates are a Buildkite feature you can use to "lock" certain tasks, e.g. ensure that you're only deploying one copy of an app at a time.
 The pattern is described [in a Buildkite blog post](https://buildkite.com/blog/concurrency-gates), but it took actually implementing it [in Wellcome's front-end builds](https://github.com/wellcomecollection/wellcomecollection.org/pull/9884) to wrap my head around it.

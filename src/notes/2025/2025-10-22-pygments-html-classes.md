@@ -1,10 +1,10 @@
 ---
-layout: til
+layout: note
 title: How to find the Pygments token type for a short name
 summary: Look at the source code of `pygments.token`.
 date: 2025-10-22 19:37:54 +01:00
+date_updated: 2026-02-15 15:27:25 +00:00
 topic: Python
-old_syntax_highlighting: true
 ---
 When I use Pygments or Rouge to apply syntax highlighting to some code, for example this Python snippet:
 
@@ -14,13 +14,13 @@ print("hello world")
 
 they produce some HTML where each token type is identified by a short name, like `nf` or `p` or `sh`:
 
-{% code lang="html" wrap="true" %}
+```html {"wrap":true}
 <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">hello world</span><span class="sh">"</span><span class="p">)</span>
-{% endcode %}
+```
 
-If I find a short name I don't recognise, I can look it up in the [`pygments.token` source code](https://pygments-doc.readthedocs.io/en/latest/_modules/pygments/token.html), which includes the mapping from tokens to short names:
+If I find a short name I don't recognise, I can look it up in the [`pygments.token` source code](https://github.com/pygments/pygments/blob/master/pygments/token.py), which includes the mapping from tokens to short names:
 
-{% code lang="python" %}
+```python {"names":{"1":"STANDARD_TYPES"}}
 # Map standard token types to short names, used in CSS class naming.
 # If you add a new item, please be sure to run this file to perform
 # a consistency check for duplicate values.
@@ -33,4 +33,4 @@ STANDARD_TYPES = {
     Error:                         'err',
     Other:                         'x',
     …
-{% endcode %}
+```

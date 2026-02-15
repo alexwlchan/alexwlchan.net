@@ -1,17 +1,13 @@
 ---
-layout: til
+layout: note
 date: 2023-12-07 20:53:08 +00:00
 title: Telling mechanize how to find local issuer certificates
 summary: Calling `browser.set_ca_data(cafile=certifi.where())` will tell where mechanize can find some local SSL certificates.
 colors:
   index_light: "#554741"
   index_dark:  "#c3c6ca"
-tags:
-  - python
-  - "python:mechanize"
-  - "python:certifi"
+topic: Python
 card_attribution: Cover image from https://www.pexels.com/photo/gray-and-gold-steel-gears-159275/
-old_syntax_highlighting: true
 ---
 
 I was doing some work on [my library lookup tool] recently, and I ran into an issue with [mechanize], the Python library I use to simulate a web browser.
@@ -19,7 +15,7 @@ I'd upgraded my version of Python and mechanize, and now I wasn't able to connec
 
 If I tried a simple example:
 
-```python
+```python {"names":{"1":"mechanize","2":"browser"}}
 import mechanize
 
 browser = mechanize.Browser()
