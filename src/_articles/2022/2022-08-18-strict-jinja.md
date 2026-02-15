@@ -1,21 +1,18 @@
 ---
-layout: post
+layout: article
 date: 2022-08-18 07:22:44 +00:00
 title: I always want StrictUndefined in Jinja
 summary: When I'm writing templates with Jinja, strict behaviour is what I want, even if it's not the default.
-tags:
-  - python
-  - python:jinja
+topic: Python
 colors:
   index_light: "#470906"
   index_dark:  "#FF4242"
-old_syntax_highlighting: true
 ---
 
 I was doing some work with the templating library [Jinja] recently, and I was confused by some misbehaving code.
 This is a simplified version of my project:
 
-{% code lang="python" names="0:jinja2 1:t" %}
+```python {"names":{"1":"jinja2","2":"t"}}
 import jinja2
 
 t = jinja2.Template("""
@@ -25,7 +22,7 @@ t = jinja2.Template("""
 """)
 
 print(t.render(book_availability=["copy 1", "copy 2", "copy 3"]))
-{% endcode %}
+```
 
 I was expecting to see `copy 1`, `copy 2` and `copy 3` in the output -- but instead, the output was empty.
 In the real code, there were several steps to build the `book_availability` value I was passing to the template, and I spent quite a bit of time checking I wasn't passing an empty list before spotting the actual issue.
@@ -42,7 +39,7 @@ Aren't computers meant to do this for me?
 
 After a bit of reading, I found the Jinja documentation for [undefined values], which explains that if I pass `undefined=StrictUndefined`, it will warn me about any undefined template variables:
 
-{% code lang="python" names="0:jinja2 1:t" %}
+```python {"names":{"1":"jinja2","2":"t"}}
 import jinja2
 
 t = jinja2.Template("""
@@ -52,7 +49,7 @@ t = jinja2.Template("""
 """, undefined=jinja2.StrictUndefined)
 
 print(t.render(book_availability=["copy 1", "copy 2", "copy 3"]))
-{% endcode %}
+```
 
 And indeed, if I run the updated code, it highlights my typo:
 

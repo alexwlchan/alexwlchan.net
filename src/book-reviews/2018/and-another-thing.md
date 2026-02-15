@@ -21,7 +21,6 @@ colors:
    css_light: '#a53829'
    css_dark:  '#d9ae61'
 
-old_syntax_highlighting: true
 ---
 
 The sixth book in the H2G2 series, written after Douglas Adams’ death.

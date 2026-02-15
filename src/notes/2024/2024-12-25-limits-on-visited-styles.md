@@ -1,16 +1,14 @@
 ---
-layout: til
+layout: note
 title: There are limits on the styles you can apply with `:visited`
 date: 2024-12-25 20:04:39 +00:00
-tags:
-  - css
+topic: CSS
 summary: |
   Because the `:visited` selector will tell you whether somebody has been to a URL, browsers limit what styles you can apply to such links -- to prevent somebody nefarious stealing your browsing history.
-old_syntax_highlighting: true
 ---
 I was tweaking the `a:visited` style on this site, and I was confused about why this wasn't working:
 
-```
+```css
 a:visited {
   text-decoration-style: dashed;
 }

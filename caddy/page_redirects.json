@@ -2571,6 +2571,9 @@
     "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
   ],
+  "/notes/2024/limits-on-visited-styles/": [
+    "/til/2024/limits-on-visited-styles/"
+  ],
   "/notes/2024/not-all-coal-is-the-same/": [
     "/til/2024/not-all-coal-is-the-same/"
   ],
@@ -2588,6 +2591,9 @@
   ],
   "/notes/2025/google-deletes-inactive-accounts/": [
     "/til/2025/google-deletes-inactive-accounts/"
+  ],
+  "/notes/2025/go-test-verbose/": [
+    "/til/2025/go-test-verbose/"
   ],
   "/notes/2025/subprocess-line-by-line/": [
     "/til/2025/subprocess-line-by-line/"

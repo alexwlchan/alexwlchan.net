@@ -23,7 +23,6 @@ colors:
    css_light: '#2f2825'
    css_dark:  '#ec6e5f'
 
-old_syntax_highlighting: true
 ---
 A thriller with an unusual twist -- Lou was murdered by a serial killer, but then cloned and returned to her former life.
 It's an interesting reflection identity and motherhood, as the new Lou tries to find her place in a life that was lived by somebody else.

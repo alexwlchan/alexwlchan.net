@@ -1,12 +1,11 @@
 ---
-layout: til
+layout: note
 title: Use the `-v` flag to get verbose output from Go tests
 summary: This prints all `t.Log` and `t.Logf` calls, even if the test succeeds or times out.
 date: 2025-09-21 22:23:42 +01:00
-tags:
-  - golang
-  - software testing
-old_syntax_highlighting: true
+topics:
+  - Go
+  - Software testing
 ---
 I had a Go test which was timing out, and I wanted to see the log messages being written by `t.Log` and `t.Logf` to find out where it was getting stuck.
 Normally these messages are only written if the test fails, to help you with debugging.
@@ -20,7 +19,7 @@ Running `go test` with the `-v` flag (verbose) means it prints log messages imme
 
 Here's an example of a test which prints a bunch of logs, and has a long hang halfway through:
 
-{% code lang="go" names="0:chatty 1:TestChatty 2:t 7:i" %}
+```go {"names":{"1":"chatty","2":"TestChatty","3":"t","8":"i"}}
 package chatty
 
 import (
@@ -38,7 +37,7 @@ func TestChatty(t *testing.T) {
 	}
 	t.Log("finishing the test")
 }
-{% endcode %}
+```
 
 Here's the output of different `go test` commands, slightly elided for readability:
 

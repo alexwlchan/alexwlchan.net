@@ -84,6 +84,11 @@
     "parent": "Systems and software"
   },
   {
+    "name": "Software testing",
+    "href": "/systems/software-testing/",
+    "parent": "Systems and software"
+  },
+  {
     "name": "Books I've read",
     "href": "/book-reviews/"
   },

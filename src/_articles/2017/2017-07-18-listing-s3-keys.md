@@ -1,13 +1,11 @@
 ---
+layout: article
 date: 2017-07-18 08:30:00 +00:00
-layout: post
-summary: A short Python function for getting a list of keys in an S3 bucket.
-tags:
-  - aws
-  - python
-  - aws:amazon s3
 title: Listing keys in an S3 bucket with Python
-old_syntax_highlighting: true
+summary: A short Python function for getting a list of keys in an S3 bucket.
+topics:
+  - AWS
+  - Python
 ---
 
 {% update date="2019-07-03" %}
@@ -27,7 +25,7 @@ Since this function has been useful in lots of places, I thought it would be wor
 The first place to look is the [`list_objects_v2` method][list_objects] in the boto3 library.
 We call it like so:
 
-```python
+```python {"names":{"1":"boto3","2":"s3"}}
 import boto3
 
 s3 = boto3.client('s3')
@@ -38,7 +36,7 @@ The response is a dictionary with a number of fields.
 The `Contents` key contains metadata (as a dict) about each object that's returned, which in turn has a `Key` field with the object's key.
 This is easier to explain with a code example:
 
-```python
+```python {"names":{"1":"get_s3_keys","2":"bucket","3":"keys","4":"resp","9":"obj"}}
 def get_s3_keys(bucket):
     """Get a list of keys in an S3 bucket."""
     keys = []
@@ -55,7 +53,7 @@ This call only returns the first 1000&nbsp;keys.
 API responses have a `ContinuationToken` field, which can be passed to the ListObjects API to get the next page of results.
 By looking for this token, and using it to make another request, we can steadily fetch every key in the bucket:
 
-```python
+```python {"names":{"1":"get_all_s3_keys","2":"bucket","3":"keys","4":"kwargs","6":"resp","10":"obj"}}
 def get_all_s3_keys(bucket):
     """Get a list of all keys in an S3 bucket."""
     keys = []
@@ -86,7 +84,7 @@ s3.list_objects_v2(Bucket=bucket, ContinuationToken=resp['NextContinuationToken'
 Using a dict is more flexible than if we used `if … else`, because we can modify the keys however we like.
 You might have seen the reverse of this, when functions collect arbitrary keyword arguments [as follows][kwargs]:
 
-```python
+```python {"names":{"1":"foo","2":"arg1","3":"arg2","4":"kwargs"}}
 def foo(arg1, arg2, **kwargs):
     ...
 ```
@@ -105,7 +103,7 @@ This is essential for infinite iterators, or in this case, iterators that are ve
 
 Here's what the function looks like if we rewrite it as a generator:
 
-```python
+```python {"names":{"1":"get_s3_keys_as_generator","2":"bucket","3":"kwargs","5":"resp","9":"obj"}}
 def get_s3_keys_as_generator(bucket):
     """Generate all the keys in an S3 bucket."""
     kwargs = {'Bucket': bucket}
@@ -130,7 +128,7 @@ We have to filter the suffix after we have the API results, because that involve
 
 This is what the function looks like when we add prefix and suffix arguments:
 
-```python
+```python {"names":{"1":"get_matching_s3_keys","2":"bucket","3":"prefix","4":"suffix","5":"kwargs","8":"resp","12":"obj","14":"key"}}
 def get_matching_s3_keys(bucket, prefix='', suffix=''):
     """
     Generate the keys in an S3 bucket.
@@ -156,7 +154,7 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 And here's one more neat trick -- in Python, the `startswith` and `endswith` method on strings can take a string, or a tuple of strings, and in the latter case, return True if any of them match.
 For example:
 
-```python
+```pycon
 >>> 'xyz'.startswith('x')
 True
 >>> 'xyz'.startswith(('x', 'X'))
@@ -170,7 +168,7 @@ False
 We already have the suffix behaviour, and it's only a little more work to get it working for prefixes.
 This is the function I have in my codebase:
 
-```python
+```python {"names":{"1":"get_matching_s3_keys","2":"bucket","3":"prefix","4":"suffix","5":"s3","8":"kwargs","15":"resp","19":"obj","21":"key"}}
 def get_matching_s3_keys(bucket, prefix='', suffix=''):
     """
     Generate the keys in an S3 bucket.
@@ -209,14 +207,14 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 Because it's a generator, you use this function by looping over it directly.
 For example:
 
-```python
+```python {"names":{"1":"key"}}
 for key in get_matching_s3_keys(bucket='bukkit', prefix='images/', suffix='.jpg'):
     print(key)
 ```
 
 And we can also pass a tuple of prefixes or suffixes -- if, for example, the file extension isn't always the same case:
 
-```python
+```python {"names":{"1":"key"}}
 for key in get_matching_s3_keys(bucket='bukkit', suffix=('.jpg', '.JPG')):
     print(key)
 ```

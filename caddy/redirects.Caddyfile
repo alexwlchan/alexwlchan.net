@@ -1551,6 +1551,8 @@ redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/usin
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ permanent
+redir /til/2024/limits-on-visited-styles /notes/2024/limits-on-visited-styles/ permanent
 redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/not-all-coal-is-the-same /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
@@ -1563,6 +1565,8 @@ redir /til/2025/download-tumblr-avatars/ /notes/2025/download-tumblr-avatars/ pe
 redir /til/2025/download-tumblr-avatars /notes/2025/download-tumblr-avatars/ permanent
 redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
+redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
+redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
 redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-line-by-line /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanent
@@ -1621,4 +1625,4 @@ redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
 redir /2023/mechanize-ssl/ /til/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /til/2023/mechanize-ssl/ permanent
-#[[[end]]] (sum: ZLb8irVGAF)
+#[[[end]]] (sum: LCFzKzWA36)
