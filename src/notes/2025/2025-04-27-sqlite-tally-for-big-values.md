@@ -2,7 +2,7 @@
 layout: note
 title: To filter the results of a SQLite tally for values with a certain frequency, use a `HAVING` instead of a `WHERE` clause
 summary:
-  "<code>SELECT col_name, COUNT(*) <br/>FROM tbl_name <br/>GROUP BY col_name <br/>HAVING COUNT(*) > 100;</code>"
+  "<code>SELECT col_name, COUNT(&ast;) <br/>FROM tbl_name <br/>GROUP BY col_name <br/>HAVING COUNT(&ast;) > 100;</code>"
 date: 2025-04-27 21:13:50 +01:00
 topic: SQLite
 ---
