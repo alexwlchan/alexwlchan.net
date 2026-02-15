@@ -1,16 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2023-10-20 23:08:51 +00:00
 title: Making the fish shell more forgetful
 summary: A few commands that help me keep unwanted entries out of my shell’s autocomplete.
-tags:
-  - shell scripting
-  - fish shell
+topic: Shell scripting
 colors:
   index_light: "#c85b05"
   index_dark:  "#ff9306"
 card_attribution: https://pixabay.com/photos/veil-tail-fish-goldfish-swim-11453/
-old_syntax_highlighting: true
 ---
 
 For quite a few years, I've been using fish (<https://fishshell.com/>) as my shell.
@@ -61,7 +58,7 @@ To help me avoid autosuggestion in these three cases, I've added two functions t
 This function removes the last-typed command from my history, which prevents it from being suggested again.
 I run this manually, whenever I mistype a command or some other one-off thing I don't want to remember.
 
-```shell
+```fish {"names":{"1":"forget_last_command","2":"last_typed_command"}}
 function forget_last_command
     set last_typed_command (history --max 1)
     history delete --exact --case-sensitive "$last_typed_command"
@@ -94,7 +91,7 @@ It'd be annoying if I had to type `forget_last_command` every time I ran `git pu
 This function looks at my last command, and if it's dangerous, it removes it from my history.
 Crucially, this runs as part of my shell prompt, so it runs as soon as a command completes -- I don't need to remember to forget:
 
-```shell
+```fish {"names":{"1":"forget_dangerous_history_commands","2":"last_typed_command"}}
 function forget_dangerous_history_commands
     set last_typed_command (history --max 1)
 

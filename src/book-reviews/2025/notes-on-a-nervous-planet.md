@@ -23,7 +23,6 @@ colors:
    css_light: '#2e2e2e'
    css_dark:  '#e28e3e'
 
-old_syntax_highlighting: true
 ---
 Interesting and vulnerable take on why we're all so anxious, and the degree of pressure put on us by society, by companies, by social media and technology.
 It was written seven years ago and the problems it describes have only accelerated, so there wasn't a lot here that was new to me, but it was a good reminder that it's worth creating barriers and safety nets to protect myself from the mental onslaught of modern society.

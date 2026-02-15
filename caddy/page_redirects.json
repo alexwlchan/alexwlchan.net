@@ -2612,6 +2612,9 @@
   "/notes/2024/count-only-counts-non-null-values/": [
     "/til/2024/count-only-counts-non-null-values/"
   ],
+  "/notes/2024/create-a-directory-first/": [
+    "/til/2024/create-a-directory-first/"
+  ],
   "/notes/2024/custom-error-pages-in-flask/": [
     "/til/2024/custom-error-pages-in-flask/"
   ],
@@ -2675,6 +2678,9 @@
   "/notes/2024/simulate-pipes-with-subprocess/": [
     "/til/2024/simulate-pipes-with-subprocess/"
   ],
+  "/notes/2024/sqlite3-context-manager-doesnt-close-connections/": [
+    "/til/2024/sqlite3-context-manager-doesnt-close-connections/"
+  ],
   "/notes/2024/take-a-wayback-machine-screenshot/": [
     "/til/2024/take-a-wayback-machine-screenshot/"
   ],
@@ -2695,6 +2701,9 @@
   ],
   "/notes/2024/write-to-middle-of-file-with-python/": [
     "/til/2024/write-to-middle-of-file-with-python/"
+  ],
+  "/notes/2025/access-nested-fields-in-typeddict/": [
+    "/til/2025/access-nested-fields-in-typeddict/"
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
@@ -2720,8 +2729,17 @@
   "/notes/2025/google-deletes-inactive-accounts/": [
     "/til/2025/google-deletes-inactive-accounts/"
   ],
+  "/notes/2025/go-stress/": [
+    "/til/2025/go-stress/"
+  ],
   "/notes/2025/go-test-verbose/": [
     "/til/2025/go-test-verbose/"
+  ],
+  "/notes/2025/instagram-avatar-url/": [
+    "/til/2025/instagram-avatar-url/"
+  ],
+  "/notes/2025/list-test-names-in-go/": [
+    "/til/2025/list-test-names-in-go/"
   ],
   "/notes/2025/platform-specific-dirs/": [
     "/til/2025/platform-specific-dirs/"
@@ -2732,8 +2750,14 @@
   "/notes/2025/pygments-html-classes/": [
     "/til/2025/pygments-html-classes/"
   ],
+  "/notes/2025/remove-microsecond-precision-in-python/": [
+    "/til/2025/remove-microsecond-precision-in-python/"
+  ],
   "/notes/2025/shutil-copy-files-without-overwriting/": [
     "/til/2025/shutil-copy-files-without-overwriting/"
+  ],
+  "/notes/2025/sqlite-functions/": [
+    "/til/2025/sqlite-functions/"
   ],
   "/notes/2025/sqlite-tallying-top-n/": [
     "/til/2025/sqlite-tallying-top-n/"
@@ -2743,6 +2767,9 @@
   ],
   "/notes/2025/subprocess-text-true/": [
     "/til/2025/subprocess-text-true/"
+  ],
+  "/notes/2025/tumblr-api-sans-auth/": [
+    "/til/2025/tumblr-api-sans-auth/"
   ],
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"

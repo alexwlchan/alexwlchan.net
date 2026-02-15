@@ -8,7 +8,7 @@ topic: Python
 ---
 Here's an example of an object with a non-string `__repr__`:
 
-```python {"names":{"1":"BadRepr","2":"br"}}
+```python {"names":{"1":"BadRepr","2":"__repr__","3":"br"}}
 class BadRepr:
     def __repr__(self):
         return -1
@@ -30,7 +30,7 @@ TypeError: __repr__ returned non-string (type int)
 
 And similar code with a non-string `__str__`:
 
-```python {"names":{"1":"BadStr","2":"bs"}}
+```python {"names":{"1":"BadStr","2":"__str__","3":"bs"}}
 class BadStr:
     def __str__(self):
         return -1

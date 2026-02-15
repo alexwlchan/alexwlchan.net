@@ -23,7 +23,6 @@ colors:
    css_light: '#1f498e'
    css_dark:  '#d37f61'
 
-old_syntax_highlighting: true
 ---
 
 A collection of stories and anecdotes from people who've worked on the [Bure Valley Railway][bvr], going back to the creation of the line.

@@ -1,11 +1,11 @@
 ---
-layout: til
+layout: note
 title: How to list the tests that will be run by a `go test` command
 summary: "Use `go test -list={pattern}`."
 date: 2025-08-18 11:06:00 +01:00
-tags:
-  - golang
-old_syntax_highlighting: true
+topics:
+  - Go
+  - Software testing
 ---
 If you want to see what tests will run if you run `go test`, you can pass the `-list` flag with a pattern.
 Here's an example:

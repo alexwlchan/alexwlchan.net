@@ -3,8 +3,7 @@ layout: post
 date: 2023-03-02 15:51:47 +00:00
 title: Creating a Python dictionary with multiple, equivalent keys
 summary: Using collections.UserDict, we can create a dictionary where dict[key1] and dict[key2] always point to the same value.
-tags:
-  - python
+topic: Python
 colors:
   index_light: "#035e96"
   index_dark:  "#6fd0fd"
@@ -15,7 +14,7 @@ old_syntax_highlighting: true
 In [my previous post][groups], I was creating groups of students, and I wanted to track how many times students had worked together.
 I created a nested dictionary to track the pairs:
 
-```python
+```python {"names":{"1":"pairs"}}
 pairs = {
   'Alice': {'Bryony': 3, 'Caroline': 1, 'Danielle': 0, …},
   'Bryony': {'Alice': 3, 'Caroline': 2, …},
@@ -43,7 +42,7 @@ Then a caller could use both `pairs[('Alice', 'Bryony')]` and `pairs[('Bryony', 
 
 My initial plan was to subclass [MutableMapping] in the [collections.abc module][abc], something like this:
 
-```python
+```python {"names":{"1":"collections","2":"abc","3":"NormalisedKeyDictionary","7":"__init__","8":"data","9":"normalise","10":"data","12":"normalise"}}
 import collections.abc
 
 class NormalisedKeyDictionary(collections.abc.MutableMapping):
@@ -62,7 +61,7 @@ The reason is that MutableMapping and UserDict are meant to be subclassed, where
 
 When we subclass UserDict, we can intercept the get/set/del methods and make them use normalised keys, like so:
 
-```python
+```python {"names":{"1":"NormalisedKeyDictionary","4":"__init__","5":"data","6":"normalise","7":"normalise","16":"k","17":"v","20":"__getitem__","21":"key","26":"__setitem__","27":"key","28":"value","34":"__delitem__","35":"key"}}
 class NormalisedKeyDictionary(collections.UserDict):
     def __init__(self, data=None, *, normalise):
         self.normalise = normalise
@@ -83,7 +82,7 @@ class NormalisedKeyDictionary(collections.UserDict):
 
 Here's what it looks like in use:
 
-```python
+```python {"names":{"1":"pairs","4":"key","11":"key","12":"value"}}
 pairs = NormalisedKeyDictionary(
     {('Alice', 'Bryony'): 1},
     normalise=lambda key: tuple(sorted(key))
@@ -123,7 +122,7 @@ One interesting use of this approach would be to create a dictionary with unusua
 Dictionary keys need to be hashable and immutable, which rules out certain types of key -- for example, you can't use a list as a dict key.
 But you could use a list as a normalised dict key, if you convert it to an immutable tuple first:
 
-```python
+```python {"names":{"1":"regular_dict","3":"common_letters","6":"k"}}
 regular_dict = {}
 regular_dict[['one', 'two']] = 'o'  # TypeError: unhashable type: 'list'
 

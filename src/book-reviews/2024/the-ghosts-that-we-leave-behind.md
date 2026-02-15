@@ -21,7 +21,6 @@ colors:
    css_light: '#685847'
    css_dark:  '#dcbc87'
 
-old_syntax_highlighting: true
 ---
 A zine of photos from London, and the gaps left in the aftermath of the COVID-19 pandemic.
 See <https://version3point1.co.uk/portfolio/tgtwlb/>

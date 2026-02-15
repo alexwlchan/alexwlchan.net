@@ -1585,6 +1585,8 @@ redir /til/2024/close-responses-to-close-send-file/ /notes/2024/close-responses-
 redir /til/2024/close-responses-to-close-send-file /notes/2024/close-responses-to-close-send-file/ permanent
 redir /til/2024/count-only-counts-non-null-values/ /notes/2024/count-only-counts-non-null-values/ permanent
 redir /til/2024/count-only-counts-non-null-values /notes/2024/count-only-counts-non-null-values/ permanent
+redir /til/2024/create-a-directory-first/ /notes/2024/create-a-directory-first/ permanent
+redir /til/2024/create-a-directory-first /notes/2024/create-a-directory-first/ permanent
 redir /til/2024/custom-error-pages-in-flask/ /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/custom-error-pages-in-flask /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/debugging-find-and-xargs/ /notes/2024/debugging-find-and-xargs/ permanent
@@ -1627,6 +1629,8 @@ redir /til/2024/simulate-a-readerror-54-connection-reset/ /notes/2024/simulate-a
 redir /til/2024/simulate-a-readerror-54-connection-reset /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
 redir /til/2024/simulate-pipes-with-subprocess /notes/2024/simulate-pipes-with-subprocess/ permanent
+redir /til/2024/sqlite3-context-manager-doesnt-close-connections/ /notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
+redir /til/2024/sqlite3-context-manager-doesnt-close-connections /notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
 redir /til/2024/take-a-wayback-machine-screenshot/ /notes/2024/take-a-wayback-machine-screenshot/ permanent
 redir /til/2024/take-a-wayback-machine-screenshot /notes/2024/take-a-wayback-machine-screenshot/ permanent
 redir /til/2024/tally-combinations-of-columns/ /notes/2024/tally-combinations-of-columns/ permanent
@@ -1641,6 +1645,8 @@ redir /til/2024/verbose-deletions-with-rm/ /notes/2024/verbose-deletions-with-rm
 redir /til/2024/verbose-deletions-with-rm /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
+redir /til/2025/access-nested-fields-in-typeddict/ /notes/2025/access-nested-fields-in-typeddict/ permanent
+redir /til/2025/access-nested-fields-in-typeddict /notes/2025/access-nested-fields-in-typeddict/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1657,22 +1663,34 @@ redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actio
 redir /til/2025/exiftool-in-github-actions /notes/2025/exiftool-in-github-actions/ permanent
 redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
+redir /til/2025/go-stress/ /notes/2025/go-stress/ permanent
+redir /til/2025/go-stress /notes/2025/go-stress/ permanent
 redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
+redir /til/2025/instagram-avatar-url/ /notes/2025/instagram-avatar-url/ permanent
+redir /til/2025/instagram-avatar-url /notes/2025/instagram-avatar-url/ permanent
+redir /til/2025/list-test-names-in-go/ /notes/2025/list-test-names-in-go/ permanent
+redir /til/2025/list-test-names-in-go /notes/2025/list-test-names-in-go/ permanent
 redir /til/2025/platform-specific-dirs/ /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/platform-specific-dirs /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
 redir /til/2025/poison-centers /notes/2025/poison-centers/ permanent
 redir /til/2025/pygments-html-classes/ /notes/2025/pygments-html-classes/ permanent
 redir /til/2025/pygments-html-classes /notes/2025/pygments-html-classes/ permanent
+redir /til/2025/remove-microsecond-precision-in-python/ /notes/2025/remove-microsecond-precision-in-python/ permanent
+redir /til/2025/remove-microsecond-precision-in-python /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting/ /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting /notes/2025/shutil-copy-files-without-overwriting/ permanent
+redir /til/2025/sqlite-functions/ /notes/2025/sqlite-functions/ permanent
+redir /til/2025/sqlite-functions /notes/2025/sqlite-functions/ permanent
 redir /til/2025/sqlite-tallying-top-n/ /notes/2025/sqlite-tallying-top-n/ permanent
 redir /til/2025/sqlite-tallying-top-n /notes/2025/sqlite-tallying-top-n/ permanent
 redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-line-by-line /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanent
 redir /til/2025/subprocess-text-true /notes/2025/subprocess-text-true/ permanent
+redir /til/2025/tumblr-api-sans-auth/ /notes/2025/tumblr-api-sans-auth/ permanent
+redir /til/2025/tumblr-api-sans-auth /notes/2025/tumblr-api-sans-auth/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /entertainment/who-is-bufo /notes/2026/who-is-bufo/ permanent
 redir /personal-thoughts/blogging/ /systems/ permanent
@@ -1727,4 +1745,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: goIb9VAKpg)
+#[[[end]]] (sum: jZngXtEdOu)

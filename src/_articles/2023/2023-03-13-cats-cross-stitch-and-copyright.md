@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2023-03-13 13:24:57 +00:00
 title: Cats, cross-stitch, and copyright
 summary: In celebration of my favourite apex predator.
-tags:
-  - cross-stitch
+topic: Art and creativity
 colors:
   index_light: "#7c590f"
   index_dark:  "#debd4d"
@@ -12,7 +11,6 @@ colors:
   css_dark:    "#fcb905"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 I've always been a cat person, and my favourite species of cat (aside from the cats I've actually lived with) is the cheetah.

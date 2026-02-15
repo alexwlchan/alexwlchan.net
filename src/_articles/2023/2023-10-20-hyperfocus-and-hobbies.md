@@ -1,19 +1,18 @@
 ---
-layout: post
+layout: article
 date: 2023-10-20 09:16:15 +00:00
 title: Hyperfocus and hobbies
 summary: The power of ADHD-associated hyperfocus and how I’ve become wary of feeding it too often.
-tags:
-  - personal
-  - cross-stitch
-  - wellcome collection
+topics:
+  - Personal thoughts
+  - Art and creativity
+  - Wellcome Collection
 link: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 colors:
   index_light: "#9e2d2e"
   index_dark:  "#d7a102"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 One of the last things I did at Wellcome Collection was writing a story about hyperfocus and how it affects my cross-stitch.

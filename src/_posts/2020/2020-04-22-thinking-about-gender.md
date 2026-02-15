@@ -3,9 +3,7 @@ layout: post
 date: 2020-04-22 18:19:40 +00:00
 title: Thinking about your gender
 summary: Cis people are allowed to think about their gender too.
-tags:
-  - gender
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 Here's a take I see fairly regularly in online trans discourse: _"If you think a lot about your gender, you're trans"_.

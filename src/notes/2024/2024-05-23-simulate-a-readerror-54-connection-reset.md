@@ -30,7 +30,7 @@ I did some Googling and found a few useful pointers:
 
 Here's the code I ended up writing:
 
-```python {"names":{"1":"socket","2":"struct","3":"threading","4":"pytest","5":"ConnectionResetServer","6":"port","8":"port","10":"sock","22":"exc_type","23":"exc_val","24":"exc_tb","27":"listen_for_traffic","30":"connection","34":"linger_on_off","35":"linger_time","50":"connection_reset_server_url","51":"port","55":"server","56":"thread","70":"test_throws_connection_reset","71":"connection_reset_server_url","73":"httpx","78":"err"}}
+```python {"names":{"1":"socket","2":"struct","3":"threading","4":"pytest","5":"ConnectionResetServer","6":"__init__","7":"port","9":"port","11":"sock","20":"__enter__","24":"__exit__","25":"exc_type","26":"exc_val","27":"exc_tb","30":"listen_for_traffic","33":"connection","37":"linger_on_off","38":"linger_time","53":"connection_reset_server_url","54":"port","58":"server","59":"thread","73":"test_throws_connection_reset","74":"connection_reset_server_url","76":"httpx","81":"err"}}
 import socket
 import struct
 import threading

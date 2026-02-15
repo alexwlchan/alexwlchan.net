@@ -22,7 +22,6 @@ colors:
    css_light: '#3f7e70'
    css_dark:  '#fbfdeb'
 
-old_syntax_highlighting: true
 ---
 
 This is an interesting book with aspects of a "what if" story, exploring what happens to the protagonist in different universes.

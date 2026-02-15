@@ -9,7 +9,6 @@ tags:
 colors:
   index_light: "#403f40"
   index_dark:  "#d4d3d0"
-old_syntax_highlighting: true
 ---
 
 The AWS bill is everyone's most expensive horror story.

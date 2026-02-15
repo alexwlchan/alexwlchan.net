@@ -1,18 +1,16 @@
 ---
-layout: til
+layout: note
 title: How to play with SQLite functions without real data
 summary: You can run a `SELECT function(…);` query without any tables.
 date: 2025-08-19 18:56:33 +01:00
-tags:
-  - sqlite
-old_syntax_highlighting: true
+topic: SQLite
 ---
 SQLite includes a bunch of [core functions](https://sqlite.org/lang_corefunc.html) like `lower(X)`, `round(X)` and `unicode(X)`.
 I wanted to test how these functions work in my local instance of SQLite, but I didn't have a database handy.
 
 It turns out you can write a query that calls these functions on simple values, without needing to fetch that data from a table first:
 
-```sql
+```sqlite3
 sqlite> SELECT lower("A");
 a
 sqlite> SELECT round(5.5);
@@ -26,7 +24,7 @@ Without it, they only know how to change the case of ASCII letters.
 
 The version of SQLite included with macOS doesn't have the ICU extension:
 
-```sql
+```sqlite3
 sqlite> SELECT lower("A");
 a
 sqlite> SELECT lower("Á");

@@ -347,18 +347,29 @@ def test_linewrap() -> None:
 
 
 @pytest.mark.parametrize(
-    "src",
+    "src, varname",
     [
-        "set location /home/alex/readme.txt\n",
-        "set location (which keyring)\n",
+        ("set location /home/alex/readme.txt\n", "location"),
+        ("set location (which keyring)\n", "location"),
+        ("function greet\n  echo 'hello world'\nend", "greet"),
+        ("set -g -x location /home/alex/readme.txt\n", "location"),
+        ("set -g -x PIP_REQUIRE_VIRTUALENV true\n", "PIP_REQUIRE_VIRTUALENV"),
     ],
 )
-def test_fish_variables(src: str) -> None:
+def test_fish_variables(src: str, varname: str) -> None:
     """
     Variable names after a `set` are highlighted as names in fish.
     """
-    html = apply_syntax_highlighting(src, lang="fish", names={1: "location"})
-    assert '<span class="n">location</span>' in html
+    html = apply_syntax_highlighting(src, lang="fish", names={1: varname})
+    assert f'<span class="n">{varname}</span>' in html
+
+
+def test_fish_flags_in_variable_names() -> None:
+    """
+    Flags in a `set` are preserved in fish.
+    """ 
+    html = apply_syntax_highlighting("set -g -x location /home/alex/readme.txt\n", lang="fish", names={1: "location"})
+    assert "-g -x" in html
 
 
 def test_concurrent_futures() -> None:
