@@ -21,7 +21,6 @@ colors:
    css_light: '#665e57'
    css_dark:  '#fdf2e5'
 
-old_syntax_highlighting: true
 ---
 
 A light tour of 30 cities and their subterranean constructions, including transit systems, waterworks, and nuclear shelters.

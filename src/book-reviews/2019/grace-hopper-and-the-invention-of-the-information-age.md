@@ -23,7 +23,6 @@ colors:
    css_light: '#68686f'
    css_dark:  '#617ac1'
 
-old_syntax_highlighting: true
 ---
 
 Recommended by a tweet:

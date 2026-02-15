@@ -1,11 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2019-10-16 21:24:21 +00:00
 title: Adventures in Python with concurrent.futures
-summary: Some examples of how I've been using concurrent.futures to speed up my batch scripting in Python.
+summary: How I use concurrent.futures to speed up my batch scripting in Python.
 date_updated: 2020-05-02 20:29:25 +01:00
-tags:
-  - python
+topic: Python
 index:
   feature: true
 colors:
@@ -18,10 +17,10 @@ old_syntax_highlighting: true
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.
 A lot of my scripts are a variant of the following:
 
-{% code lang="python" %}
+```python
 for task in get_tasks_to_do():
     perform(task)
-{% endcode %}
+```
 
 This is a *sequential* programming pattern -- the tasks run one after another, with only one task running at a time.
 It keeps the code simple, and because it's only ever doing one task at a time, it's easy to follow the script as it's running.
@@ -75,7 +74,7 @@ The concurrency was a key part of the script, and I realised it was worth diggin
 If I have a small number of tasks, I schedule them all in one go, and wait for them all to complete.
 Here's a simple example:
 
-{% code lang="python" names="0:concurrent 1:futures 5:executor 6:futures 11:task 13:fut" %}
+```python {"debug": true}
 import concurrent.futures
 
 
@@ -86,7 +85,7 @@ with concurrent.futures.Executor() as executor:
 
     for fut in concurrent.futures.as_completed(futures):
         print(f"The outcome is {fut.result()}")
-{% endcode %}
+```
 
 We start by creating an Executor, which manages all the tasks that are running -- either in separate processes or threads.
 Using the `with` statement creates a *context manager*, which ensures any stray threads or processes get cleaned up properly when we're done.
