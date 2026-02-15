@@ -20,7 +20,6 @@ colors:
    css_light: '#ac2a2b'
    css_dark:  '#eb1c22'
 
-old_syntax_highlighting: true
 ---
 
 An interesting book about outrage on social media, and why it's more noise than doing anything useful.

@@ -21,7 +21,6 @@ colors:
    css_light: '#82723b'
    css_dark:  '#977d2e'
 
-old_syntax_highlighting: true
 ---
 
 The sequel to [*The Watchmaker of Filigree Street*](/book-reviews/the-watchmaker-of-filigree-street/).

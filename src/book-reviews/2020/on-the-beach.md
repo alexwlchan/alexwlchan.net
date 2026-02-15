@@ -22,7 +22,6 @@ colors:
    css_light: '#991b1e'
    css_dark:  '#d6cb92'
 
-old_syntax_highlighting: true
 ---
 
 What would you do if you knew you were going to die in a nuclear dust cloud?

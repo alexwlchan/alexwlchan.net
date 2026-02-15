@@ -2,10 +2,8 @@
 layout: post
 date: 2014-09-05 19:14:00 +00:00
 summary: A standing desk that I built solely from IKEA parts.
-tags:
-  - personal
+topic: Personal thoughts
 title: My new standing desk
-old_syntax_highlighting: true
 ---
 
 Inspired by [Colin Nederkoorn's $22 standing desk][colin], I decided to have a go at building my own standing desk from IKEA parts when I moved into my new flat. I've been using a standing desk for several years, but moving my old desk would have been more hassle than building this new one.

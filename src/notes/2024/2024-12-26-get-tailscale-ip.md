@@ -1,20 +1,17 @@
 ---
-layout: til
+layout: note
 title: How to get the IP address of a device in my Tailnet
 date: 2024-12-26 22:06:45 +00:00
-tags:
-  - tailscale
-  - jq
+topic: Tailscale
 summary: |
   Use `tailscale status --json` and filter the output using `jq`.
-old_syntax_highlighting: true
 ---
 I'm using Tailscale to connect my personal devices, and I wanted a way to get the IP address of my home desktop from the command line.
 
 I have the Tailscale CLI installed but it wasn't immediately obvious which subcommand I should be using -- a quick Google suggested I should be using `tailscale status --json`.
 The help text says the output format is subject to change, so for reference here's the relevant output I'm working from:
 
-```
+```json
 {
   "Version": "1.78.1-t8903926f7-gc4163954e",
   "Peer": {

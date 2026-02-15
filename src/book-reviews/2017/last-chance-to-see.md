@@ -22,7 +22,6 @@ colors:
    css_light: '#ce1c1a'
    css_dark:  '#f27a19'
 
-old_syntax_highlighting: true
 ---
 
 In this book, Douglas Adams tours the world, looking for living examples of rare and endangered species. The kakapo, the white rhino, the Yangtze dolphin – names I’d vaguely heard before, but never dug into.

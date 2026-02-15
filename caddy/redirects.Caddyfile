@@ -164,8 +164,6 @@ redir /2015/12/pretty-print/ /2015/pretty-print/ permanent
 redir /2015/12/pretty-print /2015/pretty-print/ permanent
 redir /2015/03/pygmentizr/ /2015/pygmentizr/ permanent
 redir /2015/03/pygmentizr /2015/pygmentizr/ permanent
-redir /2015/03/python-firewall/ /2015/python-firewall/ permanent
-redir /2015/03/python-firewall /2015/python-firewall/ permanent
 redir /2015/11/quick-shell-docker/ /2015/quick-shell-docker/ permanent
 redir /2015/11/quick-shell-docker /2015/quick-shell-docker/ permanent
 redir /2015/05/raft-algorithm/ /2015/raft-algorithm/ permanent
@@ -1539,6 +1537,8 @@ redir /2014/11/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ perma
 redir /2014/11/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
 redir /notes/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ permanent
 redir /notes/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
+redir /til/2016/german-telephone-numbers/ /notes/2016/german-telephone-numbers/ permanent
+redir /til/2016/german-telephone-numbers /notes/2016/german-telephone-numbers/ permanent
 redir /til/2016/rust-safe-macro-expansion/ /notes/2016/rust-safe-macro-expansion/ permanent
 redir /til/2016/rust-safe-macro-expansion /notes/2016/rust-safe-macro-expansion/ permanent
 redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
@@ -1585,6 +1585,10 @@ redir /til/2024/expiry-date-of-https-certificate-ruby/ /notes/2024/expiry-date-o
 redir /til/2024/expiry-date-of-https-certificate-ruby /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
 redir /til/2024/find-apple-system-icons/ /notes/2024/find-apple-system-icons/ permanent
 redir /til/2024/find-apple-system-icons /notes/2024/find-apple-system-icons/ permanent
+redir /til/2024/find-shortest-prefix-ruby/ /notes/2024/find-shortest-prefix-ruby/ permanent
+redir /til/2024/find-shortest-prefix-ruby /notes/2024/find-shortest-prefix-ruby/ permanent
+redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
+redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/install-from-github-releases /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ permanent
@@ -1599,10 +1603,14 @@ redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-
 redir /til/2024/simulate-pipes-with-subprocess /notes/2024/simulate-pipes-with-subprocess/ permanent
 redir /til/2024/tally-combinations-of-columns/ /notes/2024/tally-combinations-of-columns/ permanent
 redir /til/2024/tally-combinations-of-columns /notes/2024/tally-combinations-of-columns/ permanent
+redir /til/2024/under-construction/ /notes/2024/under-construction/ permanent
+redir /til/2024/under-construction /notes/2024/under-construction/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/verbose-deletions-with-rm/ /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2024/verbose-deletions-with-rm /notes/2024/verbose-deletions-with-rm/ permanent
+redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle-of-file-with-python/ permanent
+redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1681,4 +1689,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: GmWeVtx0vS)
+#[[[end]]] (sum: 5lL5n1833x)

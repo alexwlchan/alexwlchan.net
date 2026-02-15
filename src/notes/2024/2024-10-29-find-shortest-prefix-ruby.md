@@ -1,19 +1,16 @@
 ---
-layout: til
+layout: note
 title: Find the shortest prefix to identify a string in Ruby
 date: 2024-10-29 16:07:36 +01:00
 summary: |
   The built-in `Abbrev` module can calculate a set of unambiguous abbreviations for a set of strings, and then you can look for the shortest result for each string.
-tags:
-  - ruby
-  - string processing
-old_syntax_highlighting: true
+topic: Ruby
 ---
 I had a list of strings, and I wanted to find the shortest prefix that would unambiguously identify each string.
 
 For example, if this is my list:
 
-```
+```ruby {"names":{"1":"fruits"}}
 fruits = ["apple", "banana", "blueberry", "coconut"]
 ```
 
@@ -34,7 +31,7 @@ Abbrev.abbrev(fruits)
 
 We can invert this to get a list of unambiguous abbreviations for each word:
 
-```ruby
+```ruby {"names":{"6":"v"}}
 Abbrev.abbrev(fruits).group_by { |_, v| v }
 
 # {"apple"=> [["apple", "apple"], ["appl", "apple"], ["app", "apple"], ["ap", "apple"], ["a", "apple"]],
@@ -45,7 +42,7 @@ Abbrev.abbrev(fruits).group_by { |_, v| v }
 
 And finally, we can flatten the list and pick out the shortest element:
 
-```ruby
+```ruby {"names":{"6":"v"}}
 Abbrev.abbrev(fruits)
       .group_by { |_, v| v }
       .transform_values { |v| v.flatten.min_by(&:length) }

@@ -20,7 +20,6 @@ colors:
    css_light: '#81593a'
    css_dark:  '#e4a333'
 
-old_syntax_highlighting: true
 ---
 
 A period novel, a one-sided love story set in early twentieth century Cambridge.

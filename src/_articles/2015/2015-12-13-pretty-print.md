@@ -1,11 +1,8 @@
 ---
+layout: article
 date: 2015-12-13 17:15:00 +00:00
-layout: post
-tags:
-  - shell scripting
-  - macos
+topic: Shell scripting
 title: Pretty printing JSON and XML in the shell
-old_syntax_highlighting: true
 ---
 
 Last year I read Craig Hockenberry's [magnus opus](http://furbo.org/2014/09/03/the-terminal/) – a huge collection of information about the OS X Terminal and the Bash shell.

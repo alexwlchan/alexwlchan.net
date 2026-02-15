@@ -20,7 +20,6 @@ colors:
    css_light: '#c01b1b'
    css_dark:  '#da9164'
 
-old_syntax_highlighting: true
 ---
 
 I borrowed this from the library and listened to about a third of the stories.

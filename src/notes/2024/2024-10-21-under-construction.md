@@ -1,15 +1,13 @@
 ---
-layout: til
+layout: note
 title: Making an "under construction" element in pure CSS
 summary: |
   Using a `repeating-linear-gradient` as the `border` gets you something that looks a bit like hazard tape.
 date: 2024-10-21 16:38:57 +01:00
-tags:
-  - css
+topic: CSS
 colors:
   css_light: "#806c00"
   css_dark:  "#ffd700"
-old_syntax_highlighting: true
 ---
 I was building a prototype app today, and I wanted a way to add "notes" to the design -- a way to tell people I knew something was broken or unfinished, and give some idea of what it would look like in the final version.
 
@@ -17,7 +15,7 @@ I thought it'd be neat to add notes that look like the ’90s "under constructio
 
 This is what I came up with:
 
-```css
+```css {"names":{"1":".under_construction","2":"--yellow"}}
 .under_construction {
   --yellow:       255, 215, 0;  /* CSS gold */
 

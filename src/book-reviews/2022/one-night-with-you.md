@@ -21,7 +21,6 @@ colors:
    css_light: '#3553a3'
    css_dark:  '#f6e324'
 
-old_syntax_highlighting: true
 ---
 
 Another fun little romance novel I borrowed from the library.

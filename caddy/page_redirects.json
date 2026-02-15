@@ -161,9 +161,6 @@
   "/2015/pygmentizr/": [
     "/2015/03/pygmentizr/"
   ],
-  "/2015/python-firewall/": [
-    "/2015/03/python-firewall/"
-  ],
   "/2015/quick-shell-docker/": [
     "/2015/11/quick-shell-docker/"
   ],
@@ -2553,6 +2550,9 @@
     "/2014/11/custom-css-resophnotes/",
     "/notes/custom-css-resophnotes/"
   ],
+  "/notes/2016/german-telephone-numbers/": [
+    "/til/2016/german-telephone-numbers/"
+  ],
   "/notes/2016/rust-safe-macro-expansion/": [
     "/til/2016/rust-safe-macro-expansion/"
   ],
@@ -2614,6 +2614,12 @@
   "/notes/2024/find-apple-system-icons/": [
     "/til/2024/find-apple-system-icons/"
   ],
+  "/notes/2024/find-shortest-prefix-ruby/": [
+    "/til/2024/find-shortest-prefix-ruby/"
+  ],
+  "/notes/2024/get-tailscale-ip/": [
+    "/til/2024/get-tailscale-ip/"
+  ],
   "/notes/2024/install-from-github-releases/": [
     "/til/2024/install-from-github-releases/"
   ],
@@ -2635,11 +2641,17 @@
   "/notes/2024/tally-combinations-of-columns/": [
     "/til/2024/tally-combinations-of-columns/"
   ],
+  "/notes/2024/under-construction/": [
+    "/til/2024/under-construction/"
+  ],
   "/notes/2024/use-launchagent-for-scheduled-script/": [
     "/til/2024/use-launchagent-for-scheduled-script/"
   ],
   "/notes/2024/verbose-deletions-with-rm/": [
     "/til/2024/verbose-deletions-with-rm/"
+  ],
+  "/notes/2024/write-to-middle-of-file-with-python/": [
+    "/til/2024/write-to-middle-of-file-with-python/"
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
