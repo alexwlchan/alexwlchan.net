@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2025-10-22 12:55:42 +00:00
 title: Doing my own syntax highlighting (finally)
 summary: I've redesigned my syntax highlighting scheme to use a smaller colour palette. Here's what I've changed, how it works, and why I think it's better.
-tags:
-    - blogging about blogging
-old_syntax_highlighting: true
+topic: Blogging about blogging
 ---
 I had syntax highlighting in the very first version of this blog, and I never really thought about that decision.
 I was writing a programming blog, and I was including snippets of code, so *obviously* I should have syntax highlighting.
@@ -83,9 +81,9 @@ print("hello world")
 
 it produces this HTML:
 
-{% code lang="html" wrap="true" %}
+```html {"wrap":true}
 <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">hello world</span><span class="sh">"</span><span class="p">)</span>
-{% endcode %}
+```
 
 The first token is `print`, which is a function name (`Name.Function`, or `class="nf"`).
 The `(` and `)` are punctuation (`"p"`) and the string is split into quotation marks (`sh` for `String.Heredoc`) and the text (`s` for `String`).
@@ -95,7 +93,7 @@ You can see all the tokens in this short example, and all the possible token typ
 Each token has a different class in the HTML, so I can style tokens with CSS.
 For example, if I want all function names to be blue, I can target the `"nf"` class:
 
-```css
+```css {"names":{"1":".nf"}}
 .nf { color: blue; }
 ```
 

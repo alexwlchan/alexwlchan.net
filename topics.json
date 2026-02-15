@@ -54,8 +54,18 @@
     "parent": "Systems and software"
   },
   {
+    "name": "Blogging about blogging",
+    "href": "/systems/blogging/",
+    "parent": "Systems and software"
+  },
+  {
     "name": "CSS",
     "href": "/systems/css/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Regular expressions",
+    "href": "/systems/regex/",
     "parent": "Systems and software"
   },
   {
@@ -168,11 +178,6 @@
   {
     "name": "Personal thoughts",
     "href": "/personal-thoughts/"
-  },
-  {
-    "name": "Blogging about blogging",
-    "href": "/personal-thoughts/blogging/",
-    "parent": "Personal thoughts"
   },
   {
     "name": "Talks I've given",

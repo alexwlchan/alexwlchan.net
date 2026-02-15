@@ -1575,8 +1575,16 @@ redir /til/2024/count-only-counts-non-null-values/ /notes/2024/count-only-counts
 redir /til/2024/count-only-counts-non-null-values /notes/2024/count-only-counts-non-null-values/ permanent
 redir /til/2024/custom-error-pages-in-flask/ /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/custom-error-pages-in-flask /notes/2024/custom-error-pages-in-flask/ permanent
+redir /til/2024/debugging-find-and-xargs/ /notes/2024/debugging-find-and-xargs/ permanent
+redir /til/2024/debugging-find-and-xargs /notes/2024/debugging-find-and-xargs/ permanent
+redir /til/2024/diagonal-new-banner/ /notes/2024/diagonal-new-banner/ permanent
+redir /til/2024/diagonal-new-banner /notes/2024/diagonal-new-banner/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil/ /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
+redir /til/2024/expiry-date-of-https-certificate-ruby/ /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
+redir /til/2024/expiry-date-of-https-certificate-ruby /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
+redir /til/2024/find-apple-system-icons/ /notes/2024/find-apple-system-icons/ permanent
+redir /til/2024/find-apple-system-icons /notes/2024/find-apple-system-icons/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/install-from-github-releases /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ permanent
@@ -1585,6 +1593,8 @@ redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ 
 redir /til/2024/not-all-coal-is-the-same /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
+redir /til/2024/reset-match-anchor-in-ruby/ /notes/2024/reset-match-anchor-in-ruby/ permanent
+redir /til/2024/reset-match-anchor-in-ruby /notes/2024/reset-match-anchor-in-ruby/ permanent
 redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
 redir /til/2024/simulate-pipes-with-subprocess /notes/2024/simulate-pipes-with-subprocess/ permanent
 redir /til/2024/tally-combinations-of-columns/ /notes/2024/tally-combinations-of-columns/ permanent
@@ -1619,6 +1629,8 @@ redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanen
 redir /til/2025/subprocess-text-true /notes/2025/subprocess-text-true/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /entertainment/who-is-bufo /notes/2026/who-is-bufo/ permanent
+redir /personal-thoughts/blogging/ /systems/ permanent
+redir /personal-thoughts/blogging /systems/ permanent
 redir /tag/ /tags/ permanent
 redir /tag /tags/ permanent
 redir /tags/amazon-s3/ /tags/aws/amazon-s3/ permanent
@@ -1669,4 +1681,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: Dc/pel7gvt)
+#[[[end]]] (sum: GmWeVtx0vS)

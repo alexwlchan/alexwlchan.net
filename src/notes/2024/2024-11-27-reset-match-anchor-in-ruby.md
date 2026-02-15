@@ -1,13 +1,12 @@
 ---
-layout: til
+layout: note
 title: You can reset the start of a regex in Ruby
 date: 2024-11-27 11:37:36 +00:00
-tags:
-  - ruby
-  - regex
+topics:
+  - Ruby
+  - Regular expressions
 summary: |
   The `\K` escape is the "Match-Reset Anchor", which resets the start of the reported match, and skip any previously consumed characters.
-old_syntax_highlighting: true
 ---
 I wanted to write a regex which replaced characters in the middle of a matched string -- I was looking for a fixed prefix, which I wanted to leave unchanged, then modify the characters after that.
 Initially I tried to capture the prefix in a group, then use that group into the replacement string, but I was struggling to get it working.

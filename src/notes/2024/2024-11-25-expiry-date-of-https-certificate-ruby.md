@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: How to get the expiry date of an HTTPS certificate with Ruby
 date: 2024-11-25 10:26:42 +00:00
-tags:
-  - ruby
+topic: Ruby
 summary: Connect to the domain using `net/http`, then you can inspect the `peer_cert`/`not_after` property on the response.
-old_syntax_highlighting: true
 ---
 I was tinkering with some HTTPS certificates, and I wanted to write a scheduled test that would check the certifcates weren't about to expire.
 This is the sort of thing that should be handled by a good certificate provider -- for example, Let's Encrypt sends me emails when my certificates are close to expiry -- but another check is a good belt-and-braces measure.
@@ -13,7 +11,7 @@ This is the sort of thing that should be handled by a good certificate provider 
 I did this [with Python](/til/2024/expiry-date-of-https-certificate/) back in August, and I wanted to write similar checks in a codebase which is primarily Ruby.
 Fortunately Ruby's `net/http` library exposes information about the HTTPS certificate, so it's a bit simpler than in Python:
 
-```python
+```ruby {"names":{"2":"get_cert_expiry","3":"hostname","4":"uri","9":"response","17":"cert"}}
 require 'net/http'
 
 # Get the expiry date of the HTTPS certificate for this domain name

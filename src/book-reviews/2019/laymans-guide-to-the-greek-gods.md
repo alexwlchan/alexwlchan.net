@@ -22,7 +22,6 @@ colors:
    css_light: '#915e5b'
    css_dark:  '#e3a9a3'
 
-old_syntax_highlighting: true
 ---
 
 Lovely illustrations, good explanations of the stories and just the right level of detail. It’s a short and enjoyable read, not a definitive reference guide.

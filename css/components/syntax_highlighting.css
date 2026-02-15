@@ -72,7 +72,7 @@ pre {
  *
  * gp = Generic.Prompt, w = Whitespace
  */
-.lng-console, .lng-irb, .lng-sqlite3 {
+.lng-console, .lng-irb, .lng-pycon, .lng-sqlite3 {
   .gp, .gp + .w {
     color: var(--blue);
     -webkit-touch-callout: none; /* iOS Safari */

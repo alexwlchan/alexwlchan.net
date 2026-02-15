@@ -21,7 +21,6 @@ colors:
    css_light: '#8a7146'
    css_dark:  '#c39f4d'
 
-old_syntax_highlighting: true
 ---
 
 The subtitle is a "A Monk and Robot book", and that's very literal.

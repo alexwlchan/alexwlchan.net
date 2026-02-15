@@ -81,13 +81,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
         )
 
         # Reclassify units as part of numeric constants.
-        for unit in ("px", "em", "%"):
-            highlighted_code = re.sub(
-                r'<span class="mi">(?P<amount>[0-9]+)</span>'
-                + f'<span class="kt">{unit}</span>',
-                f'<span class="mi">\\g<amount>{unit}</span>',
-                highlighted_code,
-            )
+        highlighted_code = re.sub(
+            r'<span class="mi">(?P<amount>\-?[0-9]+)</span>'
+            r'<span class="kt">(?P<unit>deg|em|px|%)</span>',
+            r'<span class="mi">\g<amount>\g<unit></span>',
+            highlighted_code,
+        )
 
     # Swift: the opening hashbang should be a Comment.Hashbang.
     if lang == "swift":

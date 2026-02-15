@@ -1,13 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-08-20 06:50:04 +00:00
 title: S3 prefixes are not directories
 summary: Although an S3 prefix looks a lot like a directory path, they aren't the same. Whether or not you include a trailing slash can change the behaviour.
-tags:
-  - aws:amazon s3
-  - aws
-  - path-problems
-old_syntax_highlighting: true
+topic: AWS
 ---
 
 I didn't expect to be writing another post about S3 keys so soon, but life comes at you fast.
@@ -28,7 +24,7 @@ I've seen various arguments about whether you should include the trailing slash 
 
 If we want to list the objects under a prefix in S3 (again, all the files in v1), we can use `aws s3 ls`, which is a wrapper around the [ListObjectsV2 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html):
 
-```
+```console
 $ aws s3 ls s3://bukkit/bags/b1234/v1/
 s3://bukkit/bags/b1234/v1/bagit.txt
 s3://bukkit/bags/b1234/v1/bag-info.txt
@@ -37,7 +33,7 @@ s3://bukkit/bags/b1234/v1/bag-info.txt
 Here, the trailing slash is more significant -- when S3 asks *"does a key match a prefix"*, it's doing a simple string comparison.
 If we omit the slash, it will find other objects that we might not be expecting -- what happens if, say, we've got more than nine versions?
 
-```
+```console
 $ aws s3 ls s3://bukkit/bags/b1234/v1
 s3://bukkit/bags/b1234/v1/bagit.txt
 s3://bukkit/bags/b1234/v1/bag-info.txt

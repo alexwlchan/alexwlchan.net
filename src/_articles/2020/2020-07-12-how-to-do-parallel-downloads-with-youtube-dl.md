@@ -1,11 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2020-07-12 07:34:45 +00:00
 title: How to do parallel downloads with youtube-dl
-tags:
-  - shell scripting
-  - youtube
-old_syntax_highlighting: true
+topic: Preserving social media
 ---
 
 I'm a regular user of [youtube-dl](http://ytdl-org.github.io/youtube-dl/), a command-line program for downloading videos from YouTube (and other sites).

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2025-12-08 09:46:34 +00:00
 title: The Internet forgets, but I don't want to
 summary: I don't trust platforms to preserve my memories, so I built my own scrapbook of social media.
@@ -11,7 +11,6 @@ index:
 colors:
   css_light: "#366fa5"
   css_dark:  "#41a5ed"
-old_syntax_highlighting: true
 ---
 I grew up alongside social media, as it was changing from nerd curiosity to mainstream culture.
 I joined Twitter and Tumblr in the early 2010s, and I stayed there for over a decade.

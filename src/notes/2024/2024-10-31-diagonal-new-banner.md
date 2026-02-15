@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Drawing a diagonal banner over the corner of an image
 date: 2024-10-31 15:26:21 +00:00
-tags:
-  - css
-old_syntax_highlighting: true
+topic: CSS
 ---
 I wanted to draw a diagonal banner over the corner of an image, to show the word "new".
 I've seen this in other places (like Apple's online store) but I hadn't made my own version of this effect.
@@ -52,7 +50,7 @@ Here's the code:
 </div>
 ```
 
-```css
+```css {"names":{"1":".wrapper","2":".banner"}}
 .wrapper {
   position: relative;
   overflow: hidden;
@@ -96,7 +94,7 @@ Here's what that looks like:
 
 And here's the updated CSS:
 
-```css
+```css {"names":{"1":".wrapper"}}
 .wrapper {
   padding: 5px;
 

@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2025-03-13 20:24:51 +00:00
 title: Fast and random sampling in SQLite
 summary: I tested four approaches, from `ORDER BY RANDOM()` to picking random `rowid` values in Python, and found one that's both fast and diverse.
-tags:
-  - sqlite
-old_syntax_highlighting: true
+topic: SQLite
 ---
 <style>
   pre {
@@ -26,7 +24,7 @@ I'm happy with the code I settled on, but it took several attempts to get right.
 
 My first attempt was pretty naïve – I used an `ORDER BY RANDOM()` clause to sort the table, then limit the results:
 
-```
+```sql
 SELECT *
 FROM photos
 ORDER BY RANDOM()
@@ -41,7 +39,7 @@ SQLite is fast, but there's only so fast you can sort millions of values.
 
 I found a suggestion from [Stack Overflow user Ali][stackoverflow] to do a random sort on the `id` column first, pick my IDs from that, and only fetch the whole row for the photos I'm selecting:
 
-```
+```sql
 SELECT *
 FROM photos
 WHERE id IN (
@@ -61,7 +59,7 @@ This query was over three times faster -- about 0.15s -- but that's still slower
 
 Scrolling down the Stack Overflow page, I found [an answer by Max Shenfield][shenfield] with a different approach:
 
-```
+```sql
 SELECT * FROM photos
 WHERE rowid > (
   ABS(RANDOM()) % (SELECT max(rowid) FROM photos)
@@ -121,7 +119,7 @@ Here's the procedure I came up with:
 
 4.  Look for a row with that `rowid`:
 
-    ```
+    ```sql
     SELECT *
     FROM photos
     WHERE rowid = 196476
@@ -144,53 +142,53 @@ This is a good fit for my use case, because photos don't get removed from Flickr
 Once a row is written, it sticks around, and over 97% of the possible `rowid` values do exist.
 
 <style>
-  table#results {
-    border: var(--border-width) var(--border-style) var(--block-border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--block-background);
-    padding: var(--default-padding);
-  }
-
-  table#results tr:not(:last-of-type) > th,
-  table#results tr:not(:last-of-type) > td {
-    border-bottom: 2px solid var(--block-border-color);
-  }
-
   table#results tr > td:nth-child(2) {
     padding-left: 1em;
   }
+  
+  table#results tbody tr:not(:last-child) td {
+    padding-bottom: 10px;
+  }
+</style>
+
+<style>
+  @use "components/tables";
 </style>
 
 ## Summary
 
 Here are the four approaches I tried:
 
-<table id="results">
-  <tr>
-    <th>Approach</th>
-    <th>Performance (for 2M rows)</th>
-    <th>Notes</th>
-  </tr>
-  <tr>
-    <td><code>ORDER BY RANDOM()</code></td>
-    <td>~0.5s</td>
-    <td>Slowest, easiest to read</td>
-  </tr>
-  <tr>
-    <td><code>WHERE id IN (SELECT id …)</code></td>
-    <td>~0.15s</td>
-    <td>Faster, still fairly easy to understand</td>
-  </tr>
-  <tr>
-    <td><code>WHERE rowid > ...</code></td>
-    <td>~0.0008s</td>
-    <td>Returns clustered results</td>
-  </tr>
-  <tr>
-    <td>Random <code>rowid</code> in Python</td>
-    <td>~0.001s</td>
-    <td>Fast and returns varied results, requires code outside SQL, may be slower with sparsely populated <code>rowid</code></td>
-  </tr>
+<table class="block" id="results">
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Performance (2M rows)</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ORDER BY RANDOM()</code></td>
+      <td>~0.5s</td>
+      <td>Slowest, easiest to read</td>
+    </tr>
+    <tr>
+      <td><code>WHERE id IN (SELECT id …)</code></td>
+      <td>~0.15s</td>
+      <td>Faster, still fairly easy to understand</td>
+    </tr>
+    <tr>
+      <td><code>WHERE rowid > ...</code></td>
+      <td>~0.0008s</td>
+      <td>Returns clustered results</td>
+    </tr>
+    <tr>
+      <td>Random <code>rowid</code> in Python</td>
+      <td>~0.001s</td>
+      <td>Fast and returns varied results, requires code outside SQL, may be slower with sparsely populated <code>rowid</code></td>
+    </tr>
+  </tbody>
 </table>
 
 

@@ -21,6 +21,5 @@ colors:
    css_light: '#566293'
    css_dark:  '#dbe1ef'
 
-old_syntax_highlighting: true
 ---
 

@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: How to find all of Apple's system icons
 date: 2024-11-18 22:06:41 +00:00
-tags:
-  - macos
+topic: macOS
 summary:
   You need to look for files named `*.icns` inside any subdirectory of `CoreTypes.bundle`.
-old_syntax_highlighting: true
 ---
 Apple ships a bunch of high-quality icons of Mac hardware as part of macOS.
 For a long time you could find all these icons in:

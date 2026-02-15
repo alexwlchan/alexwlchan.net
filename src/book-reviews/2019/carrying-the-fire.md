@@ -22,7 +22,6 @@ colors:
    css_light: '#2d3a52'
    css_dark:  '#85b6ad'
 
-old_syntax_highlighting: true
 ---
 
 Quote, when describing the Apollo 13 mission:

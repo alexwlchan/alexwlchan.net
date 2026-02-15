@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-03-10 07:48:39 +00:00
 title: An unexpected lesson in CSS stacking contexts
 summary: While trying to add some simple overlay labels, I stumbled into a sharp edge of a complex CSS feature called "stacking contexts".
-tags:
-  - css
-  - blogging about blogging
-old_syntax_highlighting: true
+topics:
+  - CSS
+  - Blogging about blogging
 ---
 I've made another small tweak to the site -- I've added "new" banners to articles I've written recently, and any post marked as "new" will be pinned to the homepage.
 Previously, the homepage was just a random selection of six articles I'd written at any time.
@@ -85,10 +84,14 @@ Let's step through it in detail.
   <p>
     First, create a container that includes both the image and the banner.
   </p>
-  {% code lang="html" %}<div class="container">
+{% set md %}
+```html
+<div class="container">
   <div class="banner">NEW</div>
   <img src="computer.jpg">
-</div>{% endcode %}
+</div>
+{% endset %}
+{{ md|markdownify }}
   <p>
     Notice how the banner and image appear separately – they both have their own space in the layout.
   </p>
@@ -101,9 +104,14 @@ Let's step through it in detail.
   <p>
     I can add a CSS rule that makes the text appear on top of the image:
   </p>
-  {% code lang="css" %}.banner {
+{% set md %}
+```css {"names":{"1":".banner"}}
+.banner {
   position: absolute;
-}{% endcode %}
+}
+```
+{% endset %}
+{{ md|markdownify }}
   <p>
     This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the banner from the normal document flow and allows it to be placed anywhere on the page.
     Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for it.
@@ -117,17 +125,15 @@ Let's step through it in detail.
   <p>
     The text is in the top left corner of the image, but we can move it to the top right-hand instead:
   </p>
-  {% code lang="css" %}
-.container {
-  position: relative;
-}
-
-.banner {
-  transform: rotate(45deg);
-  right:     16px;
-  top:       20px;
-}{% endcode %}
-  </div>
+<pre class="lng-css"><code><span class="n">.container</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="w"></span>
+<span class="n">.banner</span> <span class="p">{</span>
+  <span class="k">transform</span><span class="p">:</span> rotate<span class="p">(</span><span class="mi">45deg</span><span class="p">);</span>
+  <span class="k">right</span><span class="p">:</span>     <span class="mi">16px</span><span class="p">;</span>
+  <span class="k">top</span><span class="p">:</span>       <span class="mi">20px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
   <div class="container" id="wrapper3" style="width:200px;">
     <div class="banner">NEW</div>
     <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
@@ -175,12 +181,15 @@ This is because an absolutely positioned element takes its initial position from
   <p>
     Let's apply a colour to make this banner easier to read – the text is disappearing into the image.
   </p>
-    {% code lang="css" %}
+{% set md %}
+```css {"names":{"1":".banner"}}
 .banner {
   background: red;
   color:      white;
 }
-    {% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
   <p>
     Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to make it wider, so it covers the whole corner.
   </p>
@@ -194,13 +203,16 @@ This is because an absolutely positioned element takes its initial position from
     We can make it wider by adding padding.
     Because this changes the size of the element, I had to adjust the position offsets to keep it in the right place.
   </p>
-  {% code lang="css" %}
+{% set md %}
+```css {"names":{"1":".banner"}}
 .banner {
   right:   -34px;
   top:     18px;
   padding: 2px 50px;
 }
-  {% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </div>
 <div class="container" id="wrapper4" style="width:200px;">
   <div class="banner">NEW</div>
@@ -211,11 +223,14 @@ This is because an absolutely positioned element takes its initial position from
     Now the banner is too wide, and extending off the end of the image.
     Let’s clip the edges, so it fits neatly within the square:
   </p>
-  {% code lang="css" %}
+{% set md %}
+```css {"names":{"1":".container"}}
 .container {
   overflow: hidden;
 }
-  {% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
   <p id="final_para">
     This is the banner effect I’m looking for – the text is clear and prominent on the image.
     I’ve added a <code>box-shadow</code> on my homepage to make it stand out further, but cosmetic details like that aren’t important for the rest of this post.
@@ -246,7 +261,7 @@ As a reminder, here's the HTML:
 
 and here's the complete CSS:
 
-```css
+```css {"names":{"1":".container","2":".banner"}}
 .container {
   position: relative;
   overflow: hidden;
@@ -273,7 +288,7 @@ This worked when I wrote it as a standalone snippet, and then I deployed it on t
 
 (The photo I used in the examples is from [Viktorya Sergeeva on Pexels](https://www.pexels.com/photo/a-person-using-an-old-computer-9140591/).)
 
-[til]: /til/2024/diagonal-new-banner/
+[til]: /notes/2024/diagonal-new-banner/
 
 
 
@@ -344,7 +359,7 @@ I could see the issue if I tried my code in this site, but not if I copied it to
 To find the issue, I created a local branch of the site, and I started deleting CSS until I could no longer reproduce the issue.
 I eventually tracked it down to the following rule:
 
-```css
+```css {"names":{"3":"img"}}
 @media (prefers-color-scheme: dark) {
   /* see https://web.dev/articles/prefers-color-scheme#re-colorize_and_darken_photographic_images */
   img:not([src*='.svg']):not(.dark_aware) {

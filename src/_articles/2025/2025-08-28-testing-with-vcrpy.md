@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2025-08-28 21:36:37 +00:00
 title: Using vcrpy to test HTTP interactions in Python
 summary: How I record HTTP requests to get fast, reliable, and consistent tests, and the patterns I use in a production codebase.
@@ -11,7 +11,6 @@ index:
 colors:
   css_light: "#ab5326"
   css_dark:  "#f49d61"
-old_syntax_highlighting: true
 ---
 Testing code that makes HTTP requests can be difficult.
 Real requests are slow, flaky, and hard to control.

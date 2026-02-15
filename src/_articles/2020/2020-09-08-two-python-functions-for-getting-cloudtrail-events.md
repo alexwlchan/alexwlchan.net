@@ -1,12 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2020-09-08 07:06:07 +00:00
 title: Two Python functions for getting CloudTrail events
-tags:
-  - aws
-  - aws:aws-cloudtrail
-  - python
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Python
 ---
 
 Last week I was trying to debug an anomaly in the AWS account at work -- it looked like we were making tens of millions of GetObject API calls, when we expected our code to make a fraction of that number.
@@ -22,7 +20,8 @@ Each API call is a single CloudTrail event, which includes lots of information:
 <details>
 <summary>Example CloudTrail event for a HeadObject call</summary>
 
-{% code lang="json" %}
+{% set md %}
+```json
 {
   "additionalEventData": {
     "AuthenticationMethod": "AuthHeader",
@@ -85,7 +84,8 @@ Each API call is a single CloudTrail event, which includes lots of information:
   },
   "vpcEndpointId": "vpce-0d4aa186edac65a21"
 }
-{% endcode %}
+{% endset %}
+{{ md | markdownify }}
 </details>
 
 CloudTrail events can be written to objects in an S3 bucket, and they typically appear within 15 minutes of the API call.
@@ -97,9 +97,7 @@ If I was doing full-time CloudTrail analysis, it'd be worth taking the time to l
 I wrote a couple of Python functions to parse these files, and emit individual events.
 First, a function for getting logs directly from S3:
 
-{% code lang="python" names="0:gzip 1:json 2:boto3 3:get_cloudtrail_events_from_s3 4:s3_client 5:bucket 6:prefix 11:paginator 14:page 21:list_result 23:s3_key 27:s3_obj 37:infile 38:records"
-
- %}
+```python {"names":{"1":"gzip","2":"json","3":"boto3","4":"get_cloudtrail_events_from_s3","5":"s3_client","6":"bucket","7":"prefix","12":"paginator","15":"page","22":"list_result","24":"s3_key","28":"s3_obj","38":"infile","39":"records"}}
 import gzip
 import json
 
@@ -127,14 +125,14 @@ def get_cloudtrail_events_from_s3(s3_client=None, *, bucket, prefix):
             with gzip.open(s3_obj["Body"]) as infile:
                 records = json.load(infile)
                 yield from records["Records"]
-{% endcode %}
+```
 
 This is good for doing quick experiments.
 
 To analyse the entire set, I downloaded the logs bucket to a local folder with `aws s3 sync`, and I wrote a second function that gets the events from the logs in the folder.
 This saved me having to redownload the complete log set from S3 every time.
 
-{% code lang="python" names="0:gzip 1:json 2:os 3:get_cloudtrail_events_from_fs 4:root 5:dirpath 7:filenames 11:f 16:path 25:infile 26:records" %}
+```python {"names":{"1":"gzip","2":"json","3":"os","4":"get_cloudtrail_events_from_fs","5":"root","6":"dirpath","8":"filenames","12":"f","17":"path","26":"infile","27":"records"}}
 import gzip
 import json
 import os
@@ -154,14 +152,14 @@ def get_cloudtrail_events_from_fs(root):
             with gzip.open(path) as infile:
                 records = json.load(infile)
                 yield from records["Records"]
-{% endcode %}
+```
 
 Both of these functions generate individual events, so calling code doesn't have to worry about the exact format of the log files, or the underlying 15 minute periods.
 They both worked well, and allowed me to do some analysis to find out how many GetObject calls we were actually making.
 
 For example, I was able to use the [collections module](https://docs.python.org/3/library/collections.html) to find the most common API calls on a particular day:
 
-{% code lang="python" names="0:collections 1:pprint 2:pprint 3:event_names 6:event" %}
+```python {"names":{"1":"collections","2":"pprint","3":"pprint","4":"event_names","7":"event"}}
 import collections
 from pprint import pprint
 
@@ -176,7 +174,7 @@ pprint(event_names.most_common(5))
 #  (('s3.amazonaws.com', 'GetObjectTagging'), 101949),
 #  (('s3.amazonaws.com', 'ListObjects'), 22941),
 #  (('s3.amazonaws.com', 'PutObject'), 7738)]
-{% endcode %}
+```
 
 Notice that while there are millions of GetObject API calls, there aren't tens of millions.
 

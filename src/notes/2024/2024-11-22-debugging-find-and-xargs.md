@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: Debugging some confusing behaviour with `find` and `xargs`
 date: 2024-11-22 16:35:11 +00:00
-tags:
-  - shell scripting
+topic: Shell scripting
 summary:
   Use the `--verbose` flag to see what `xargs` is doing; don't rely on `find` to return files in a consistent order.
-old_syntax_highlighting: true
 ---
 I was trying to write a GitHub Actions workflow to format my Caddyfiles.
 I'd written a command to find all the Caddyfiles in my repo, and pass them to `caddy fmt`:
