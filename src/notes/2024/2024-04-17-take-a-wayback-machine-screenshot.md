@@ -1,10 +1,12 @@
 ---
-layout: til
+layout: note
 date: 2024-04-17 22:43:30 +01:00
 title: How to take a screenshot of a page in the Wayback Machine
 summary: |
   Using Playwright to take screenshots and adding some custom styles gets a screenshot of a page without the Wayback Machine overlay.
-topic: Web archiving
+topics: 
+  - Web archiving
+  - Screenshots
 ---
 As part of my [daily screenshots project][daily_screenshots], I wanted to get screenshots of all the versions of my site that are saved in the Wayback Machine.
 
@@ -27,7 +29,7 @@ Yes!
 The [`Page.screenshot()` method][page_screenshot] takes a `style` argument, which is a stylesheet that gets applied to the page before Playwright takes a screenshot.
 By adding a rule that hides the Wayback Machine overlay, I can get a screenshot of just the original page:
 
-```python
+```python {"names":{"1":"playwright","2":"sync_api","3":"sync_playwright","5":"p","6":"browser","10":"page","13":"url"}}
 from playwright.sync_api import sync_playwright
 
 

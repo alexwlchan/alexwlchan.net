@@ -1,18 +1,16 @@
 ---
-layout: til
+layout: note
 date: 2024-05-16 14:49:57 +01:00
 title: Writing a file in Swift, but only if it doesn't already exist
 summary: |
   Adding `.withoutOverwriting` to your `write()` call will prevent you from overwriting a file that already exists.
-tags:
-  - swift
-old_syntax_highlighting: true
+topic: Swift
 ---
 In Python I'm fairly used to the idea of using file mode `x` to do an "exclusive" file open.
 This allows you to write to a file, but only if it doesn't already exist.
 In this example, if `greeting.txt` already exists, the `open()` call will throw a `FileExistsError`.
 
-```python
+```python {"names":{"2":"f"}}
 with open("greeting.txt", "x") as f:
     f.write("Hello world")
 ```
@@ -21,7 +19,7 @@ How can I do the same in Swift?
 
 Let's start with a simple Swift script that writes the current date to a file:
 
-```swift
+```swift {"names":{"1":"Foundation","2":"now","4":"data","10":"savePath"}}
 import Foundation
 
 let now = Date()

@@ -1,12 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2024-04-23 08:16:35 +00:00
 title: Taking regular screenshots of my website
 summary: |
   A screenshot a day keeps the bit rot at bay.
-tags:
-  - screenshots
-  - digital preservation
+topic: Screenshots
 colors:
   index_light: "#3d3d36"
   index_dark:  "#d4d5d2"
@@ -222,8 +220,8 @@ I'm glad these captures exist exist, but they're a bit shaky as a preservation r
 If there's a website you care about, make sure you have your own system that saves the stuff you think is important -- don’t just rely on the Wayback Machine.
 
 [from 2021]: https://web.archive.org/web/20210625222812/https://books.alexwlchan.net/
-[cdx]: /til/2024/get-a-list-of-captures-from-the-wayback-machine/
-[used Playwright]: /til/2024/take-a-wayback-machine-screenshot/
+[cdx]: /notes/2024/list-captures-in-the-wayback-machine/
+[used Playwright]: /notes/2024/take-a-wayback-machine-screenshot/
 [my book tracker]: https://books.alexwlchan.net/
 
 ---

@@ -5,7 +5,7 @@ title: You should take more screenshots
 summary: If you do any sort of creative digital work, screenshots and screen recordings are a great way to remember it.
 topics:
   - Personal thoughts
-  - Digital preservation
+  - Screenshots
 index:
   feature: true
 ---

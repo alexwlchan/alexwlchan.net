@@ -1,16 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2024-05-14 14:39:11 +00:00
 title: What comes after AWS?
 summary: |
   Whatever displaces public cloud as the default model for large-scale computing has to be more than “AWS, but 3% better”.
-tags:
-  - aws
+topic: AWS
 colors:
   index_dark:  "#80a737"
   index_light: "#3c5a32"
 card_attribution: https://www.pexels.com/photo/green-forest-2739664/
-old_syntax_highlighting: true
 ---
 
 James Governor posed some interesting questions yesterday:

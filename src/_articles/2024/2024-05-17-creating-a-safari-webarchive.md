@@ -1,17 +1,15 @@
 ---
-layout: post
+layout: article
 date: 2024-05-17 09:12:01 +00:00
 title: Creating a Safari webarchive from the command line
 summary: We can use the `createWebArchiveData` method on `WKWebView` to write a Swift script that creates Safari webarchive files.
-tags:
-  - swift
-  - digital preservation
-  - safari
+topics:
+  - Web archiving
+  - Swift
 colors:
   index_dark:  "#e9eaec"
   index_light: "#2076cc"
 card_attribution: https://pixabay.com/photos/compass-orientation-map-address-5261062/
-old_syntax_highlighting: true
 ---
 
 Recently I've been trying to create a local archive of my bookmarked web pages.
@@ -35,7 +33,7 @@ There are several reasons I find them appealing:
     (For example, I wouldn't want to save private tweets in the publicly available Wayback Machine.)
 
 *   **I can read the format without Safari.**
-    Although Safari is only maintained by Apple, the Safari webarchive format can be read by non-Apple tools -- it's a [binary property list](/til/2024/whats-inside-safari-webarchive/) that stores the raw bytes of the original files.
+    Although Safari is only maintained by Apple, the Safari webarchive format can be read by non-Apple tools -- it's a [binary property list](/notes/2024/inside-a-safari-webarchive/) that stores the raw bytes of the original files.
     I'm comfortable that I'll be able to open these archives for a while, even if Safari unexpectedly goes away.
 
 The one thing that's missing is a way to create webarchive files programatically.
@@ -78,7 +76,7 @@ If you've ever used an in-app browser, there was probably an instance of `WKWebV
 
 The session included some sample code for using this API, which I fashioned into an initial script:
 
-```swift
+```swift {"names":{"1":"WebKit","2":"url","5":"savePath","8":"webView","9":"request","19":"result","20":"data"}}
 import WebKit
 
 let url = URL(string: "https://example.com/")
@@ -134,7 +132,7 @@ I don't fully understand what I did next, but I think I've got the gist of the p
 I had another look at newzealandpaul's code, and I found [some lines](https://github.com/newzealandpaul/webarchiver/blob/4d04669a9cb3f8a7e5ab492e7c3a4175b5586ac5/KBWebArchiver.m#L214-L222) that look a bit like they're solving the same problem.
 I think the `NSRunLoop` is doing work that's on that background queue, and it's waiting until the page has finished loading:
 
-```objectivec
+```objectivec {"names":{"1":"currentRunLoop","4":"resolution","6":"isRunning","11":"next"}}
 // Wait until the site has finished loading.
 NSRunLoop *currentRunLoop = [NSRunLoop currentRunLoop];
 NSTimeInterval resolution = _localResourceLoadingOnly ? 0.1 : 0.01;
@@ -153,7 +151,7 @@ I realised that `createWebArchiveData` is also an asynchronous operation that ru
 I added these two functions to `WKWebView`.
 Here's my updated script:
 
-```swift
+```swift {"names":{"1":"WebKit","2":"urlString","3":"savePath","6":"load","7":"urlString","9":"url","13":"request","30":"saveAsWebArchive","31":"savePath","33":"isSaving","36":"result","37":"data","56":"webView"}}
 import WebKit
 
 let urlString = "https://www.example.com"
@@ -232,7 +230,7 @@ This means that 404 pages and server errors won't be automatically archived -- I
 
 Here's the delegate I wrote:
 
-```swift
+```swift {"names":{"1":"ExitOnFailureDelegate","2":"urlString","4":"urlString","8":"webView","9":"didFail","10":"withError","19":"webView","20":"didFailProvisionalNavigation","22":"error","30":"webView","32":"navigationResponse","33":"decisionHandler","36":"httpUrlResponse","50":"webView","51":"delegate"}}
 /// Print an error message and terminate the process if there are
 /// any errors while loading a page.
 class ExitOnFailureDelegate: NSObject, WKNavigationDelegate {
@@ -308,7 +306,7 @@ Failed to load web page: got status code 404
 Right now the URL string and save location are both hard-coded; I wanted to make them command-line arguments.
 I can do this by inspecting `CommandLine.arguments`:
 
-```swift
+```swift {"names":{"6":"urlString","9":"savePath"}}
 guard CommandLine.arguments.count == 3 else {
   print("Usage: \(CommandLine.arguments[0]) <URL> <OUTPUT_PATH>")
   exit(1)
@@ -348,7 +346,7 @@ I don't want to risk overwriting a known-good archive of a page with a copy that
 
 
 [link rot]: https://en.wikipedia.org/wiki/Link_rot
-[til]: /til/2024/how-to-do-exclusive-file-write-in-swift/
+[til]: /notes/2024/exclusive-file-write-in-swift/
 
 
 

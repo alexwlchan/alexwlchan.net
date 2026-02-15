@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Use `shutil.copyfileobj` and `xb` to avoid overwriting files when copying in Python
 date: 2025-01-09 16:30:03 +00:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 If you want to copy a file but be sure you're never going to overwrite an existing file at the destination, use [`shutil.copyfileobj(src, dst)`](https://docs.python.org/3/library/shutil.html#shutil.copyfileobj).
 This function requires you to pass file-like objects, so you can open the destination file with exclusive creation mode&nbsp;`x`.
@@ -69,7 +67,7 @@ FileExistsError: [Errno 17] File exists: 'dst.txt'
 A common pattern for this sort of check is to call `os.path.exists()` before doing the file copy.
 For example, here's some code that was suggested by Claude when I asked about this problem:
 
-```python
+```python {"names":{"1":"os","2":"shutil"}}
 import os
 import shutil
 

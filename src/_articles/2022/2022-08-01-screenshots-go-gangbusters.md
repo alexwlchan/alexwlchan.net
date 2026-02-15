@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2022-08-01 08:21:03 +00:00
 title: A surprise smattering of stardom
 summary: My last post was surprisingly popular; a few reflections on the experience.
-tags:
-  - blogging about blogging
+topic: Blogging about blogging
 colors:
   index_light: "#ff6602"
   index_dark:  "#fe6600"
-old_syntax_highlighting: true
 ---
 
 My previous post [about taking more screenshots][screenshots] has resonated with a lot of people.

@@ -20,7 +20,6 @@ colors:
    css_light: '#965792'
    css_dark:  '#d77e95'
 
-old_syntax_highlighting: true
 ---
 
 This is the sequel to [*Written in the Stars*](/book-reviews/written-in-the-stars/), which was one of my favourite books of 2021 -- so it's no surprise that I loved this.

@@ -4,13 +4,12 @@ date: 2025-07-30 09:26:41 +00:00
 title: Slipstitch, Queer Craft, and community spaces
 summary: Remembering Slipstitch, a queer-friendly yarn shop and the fortnightly crafting meet-ups that were a highlight of my week.
   
-tags:
-  - personal
-  - cross-stitch
+topics:
+  - Personal thoughts
+  - Art and creativity
 colors:
   css_light: "#34827e"
   css_dark:  "#9dd2d6"
-old_syntax_highlighting: true
 ---
 Two weeks ago, I was at Queer Craft -- a fortnightly meet-up at [Slipstitch], a haberdashery and yarn shop near Alexandra Palace.
 I was working on a cross stitch piece of a train in a snowy landscape, chatting to my friends, admiring their creations, and gently snacking on a variety of baked goods.

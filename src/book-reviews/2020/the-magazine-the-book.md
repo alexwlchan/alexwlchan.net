@@ -20,7 +20,6 @@ colors:
    css_light: '#677b54'
    css_dark:  '#c08f4e'
 
-old_syntax_highlighting: true
 ---
 
 A selection of articles from *The Magazine*.

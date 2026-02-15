@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: How to find platform-specific directories
 date: 2025-01-22 10:37:05 +00:00
 summary: |
   Two Python libraries for this task are appdirs and platformdirs, which tell you the location of the platform-specific cache directory and other similar directories.
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 I was writing a Python library that might need to cache some results.
 On macOS, that sort of app or library-specific cache should be written to `~/Library/Caches`, but that path will be different on other operating systems.
@@ -19,7 +17,7 @@ It tells you the directory where you should store data, config, caches and logs.
 
 Here's an example on my Mac:
 
-```pycon
+```pycon {"names":{"1":"appdirs","2":"user_cache_dir"}}
 >>> from appdirs import *
 >>> user_cache_dir(appname="My Great App", appauthor="Alex Chan")
 '/Users/alexwlchan/Library/Caches/My Great App'
@@ -27,7 +25,7 @@ Here's an example on my Mac:
 
 And the same code on my Debian web server:
 
-```pycon
+```pycon {"names":{"1":"appdirs","2":"user_cache_dir"}}
 >>> from appdirs import *
 >>> user_cache_dir(appname="My Great App", appauthor="Alex Chan")
 '/home/alexwlchan/.cache/My Great App'
@@ -47,7 +45,7 @@ It's actively maintained, and knows about a wider number of directories -- for e
 
 Here's an example on my Mac:
 
-```pycon
+```pycon {"names":{"1":"platformdirs","2":"user_downloads_dir"}}
 >>> from platformdirs import *
 >>> user_downloads_dir()
 '/Users/alexwlchan/Downloads'
@@ -55,7 +53,7 @@ Here's an example on my Mac:
 
 And my Debian web server:
 
-```pycon
+```pycon {"names":{"1":"platformdirs","2":"user_downloads_dir"}}
 >>> from platformdirs import *
 >>> user_downloads_dir()
 '/home/alexwlchan/Downloads'

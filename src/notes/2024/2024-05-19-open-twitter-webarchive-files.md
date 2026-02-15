@@ -1,13 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-05-19 22:24:10 +01:00
 title: Open a Safari webarchive from Twitter/X without being redirected
 summary: |
   Disabling JavaScript when you open the webarchive file will prevent you from redirecting you to twitter.com.
-tags:
-  - safari
-  - digital preservation
-old_syntax_highlighting: true
+topic: Preserving social media
 ---
 Suppose you save a Safari webarchive from Twitter/X.
 When you try to open it, the scripts on the page will detect that you're not logged in, and try to redirect you back to `twitter.com`/`x.com`.
@@ -19,11 +16,11 @@ Two ways to do this:
 1.  Disable JavaScript in your browser when you open the file, so none of the `<script>` tags get executed.
 
 2.  Create a modified version of the webarchive file that doesn't have any JavaScript `<script>` tags.
-    Safari webarchive files are [binary plists](/til/2024/whats-inside-safari-webarchive/), so we can open them up, modify their contents, and repack them.
+    Safari webarchive files are [binary plists](/notes/2024/inside-a-safari-webarchive/), so we can open them up, modify their contents, and repack them.
 
     Here's a Python script that does just that:
 
-    ```python
+    ```python {"names":{"1":"pathlib","2":"plistlib","3":"sys","4":"path","14":"nojs_path","21":"in_file","22":"webarchive","26":"old_html","28":"nojs_html","35":"out_file"}}
     """
     Create a copy of a Safari webarchive file that disables all the ``<script>`` tags.
     """

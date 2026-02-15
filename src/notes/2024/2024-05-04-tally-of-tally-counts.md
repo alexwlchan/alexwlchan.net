@@ -1,11 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-05-04 09:29:22 +01:00
 title: How to get a tally of tally counts in SQLite
 summary: |
   Using a nested query allows me to perform a two-level aggregation of the values in a column – how many values appear once, how many twice, and so on.
-tags:
-  - sqlite
+topic: SQLite
 old_syntax_highlighting: true
 ---
 I was poking through my [analytics data](https://github.com/alexwlchan/analytics.alexwlchan.net) and I was curious how many pages people are looking at.
@@ -13,19 +12,11 @@ I track hits in a SQLite database, with a table called `events` and a column `se
 
 I already know how to tally over that column:
 
-```sql
-SELECT
-    session_id,
-    COUNT(session_id) as count
-FROM
-    events
-GROUP BY
-    session_id
-ORDER BY
-    count DESC
-```
-
-```
+```sqlite3
+sqlite> SELECT session_id, COUNT(session_id) as count
+   ...> FROM events
+   ...> GROUP BY session_id
+   ...> ORDER BY count DESC;
 session_id                           | count
 988e1f9a-733d-4aef-a134-034ddab75354 | 568
 f4ef0793-fb47-4023-976a-05bc2595b22e | 553
@@ -39,31 +30,18 @@ c11e1ffe-d3be-48af-91a6-52a07a97c39c | 402
 But what if I want to tally over the `count` column?
 Since the session IDs are randomly generated they're not very useful; it'd be more useful to see how many people visited one page, two pages, three pages, and so on.
 
-Thanks to ChatGPT, I know that what I need to do is a "nested query" like so:
+I need to do is a "nested query" like so:
 
-```sql
-SELECT
-    count,
-    COUNT(*) as frequency
-FROM
-(
-    SELECT
-        session_id,
-        COUNT(session_id) as count
-    FROM
-        events
-    GROUP BY
-        session_id
-    ORDER BY
-        count DESC
-)
-GROUP BY
-    count
-ORDER BY
-    count
-```
-
-```
+```sqlite3
+sqlite> SELECT count, COUNT(*) as frequency
+   ...> FROM (
+   ...>     SELECT session_id, COUNT(session_id) as count
+   ...>     FROM events
+   ...>     GROUP BY session_id
+   ...>     ORDER BY count DESC
+   ...> )
+   ...> GROUP BY count
+   ...> ORDER BY count;
 count | frequency
 1     |     98297
 2     |      7899

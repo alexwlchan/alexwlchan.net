@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2024-12-27 21:11:01 +00:00
 title: I deleted all my tweets
 summary: I used TweetDeleter to delete about 35,000 tweets, and cut my remaining ties to the site formerly known as Twitter.
-tags:
-  - twitter
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 I had a complicated relationship with Twitter (now X).

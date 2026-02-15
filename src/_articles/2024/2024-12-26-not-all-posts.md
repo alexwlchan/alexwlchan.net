@@ -8,10 +8,8 @@ index:
 colors:
   css_light: "#7b4ac8"
   css_dark:  "#bd94ff"
-tags:
-  - blogging about blogging
+topic: Blogging about blogging
 card_attribution: https://pixabay.com/photos/bluebell-green-grass-purple-flower-5095581/
-old_syntax_highlighting: true
 ---
 
 For a while now, this website has been my own personal writer's block.

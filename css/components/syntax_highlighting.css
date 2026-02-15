@@ -106,6 +106,12 @@ pre {
   }
 }
 
+/* Highlight Python magic methods in blue.
+ */
+.lng-python .fm {
+  color: var(--names);
+}
+
 .lng-css {
   /* Ignore keywords like `auto` and `space`. Keyword.Constant */
   .kc {

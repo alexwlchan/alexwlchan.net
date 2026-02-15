@@ -2603,6 +2603,9 @@
   "/notes/2024/beware-of-test-n-with-command-expansion/": [
     "/til/2024/beware-of-test-n-with-command-expansion/"
   ],
+  "/notes/2024/check-the-quality-of-a-network-connection/": [
+    "/til/2024/how-to-check-the-quality-of-a-network-connection/"
+  ],
   "/notes/2024/close-responses-to-close-send-file/": [
     "/til/2024/close-responses-to-close-send-file/"
   ],
@@ -2621,6 +2624,9 @@
   "/notes/2024/exclude-files-from-time-machine-with-tmutil/": [
     "/til/2024/exclude-files-from-time-machine-with-tmutil/"
   ],
+  "/notes/2024/exclusive-file-write-in-swift/": [
+    "/til/2024/how-to-do-exclusive-file-write-in-swift/"
+  ],
   "/notes/2024/expiry-date-of-https-certificate-ruby/": [
     "/til/2024/expiry-date-of-https-certificate-ruby/"
   ],
@@ -2633,14 +2639,29 @@
   "/notes/2024/get-tailscale-ip/": [
     "/til/2024/get-tailscale-ip/"
   ],
+  "/notes/2024/inside-a-safari-webarchive/": [
+    "/til/2024/whats-inside-safari-webarchive/"
+  ],
   "/notes/2024/install-from-github-releases/": [
     "/til/2024/install-from-github-releases/"
+  ],
+  "/notes/2024/insomnolent/": [
+    "/til/2024/insomnolent/"
   ],
   "/notes/2024/limits-on-visited-styles/": [
     "/til/2024/limits-on-visited-styles/"
   ],
+  "/notes/2024/list-captures-in-the-wayback-machine/": [
+    "/til/2024/get-a-list-of-captures-from-the-wayback-machine/"
+  ],
   "/notes/2024/not-all-coal-is-the-same/": [
     "/til/2024/not-all-coal-is-the-same/"
+  ],
+  "/notes/2024/open-can-ask-questions/": [
+    "/til/2024/open-can-ask-questions/"
+  ],
+  "/notes/2024/open-twitter-webarchive-files/": [
+    "/til/2024/how-to-open-twitter-webarchive-files/"
   ],
   "/notes/2024/regex-library-for-unicode-property-escapes/": [
     "/til/2024/regex-library-for-unicode-property-escapes/"
@@ -2648,11 +2669,20 @@
   "/notes/2024/reset-match-anchor-in-ruby/": [
     "/til/2024/reset-match-anchor-in-ruby/"
   ],
+  "/notes/2024/simulate-a-readerror-54-connection-reset/": [
+    "/til/2024/simulate-a-readerror-54-connection-reset/"
+  ],
   "/notes/2024/simulate-pipes-with-subprocess/": [
     "/til/2024/simulate-pipes-with-subprocess/"
   ],
+  "/notes/2024/take-a-wayback-machine-screenshot/": [
+    "/til/2024/take-a-wayback-machine-screenshot/"
+  ],
   "/notes/2024/tally-combinations-of-columns/": [
     "/til/2024/tally-combinations-of-columns/"
+  ],
+  "/notes/2024/tally-of-tally-counts/": [
+    "/til/2024/get-a-tally-of-tally-counts/"
   ],
   "/notes/2024/under-construction/": [
     "/til/2024/under-construction/"
@@ -2678,6 +2708,9 @@
   "/notes/2025/disable-handoff-icons-in-dock/": [
     "/til/2025/disable-handoff-icons-in-dock/"
   ],
+  "/notes/2025/disable-javascript-in-iframe/": [
+    "/til/2025/disable-javascript-in-iframe/"
+  ],
   "/notes/2025/download-tumblr-avatars/": [
     "/til/2025/download-tumblr-avatars/"
   ],
@@ -2690,11 +2723,20 @@
   "/notes/2025/go-test-verbose/": [
     "/til/2025/go-test-verbose/"
   ],
+  "/notes/2025/platform-specific-dirs/": [
+    "/til/2025/platform-specific-dirs/"
+  ],
   "/notes/2025/poison-centers/": [
     "/til/2025/poison-centers/"
   ],
   "/notes/2025/pygments-html-classes/": [
     "/til/2025/pygments-html-classes/"
+  ],
+  "/notes/2025/shutil-copy-files-without-overwriting/": [
+    "/til/2025/shutil-copy-files-without-overwriting/"
+  ],
+  "/notes/2025/sqlite-tallying-top-n/": [
+    "/til/2025/sqlite-tallying-top-n/"
   ],
   "/notes/2025/subprocess-line-by-line/": [
     "/til/2025/subprocess-line-by-line/"

@@ -121,7 +121,13 @@
   },
   {
     "name": "Tiny archives",
-    "href": "/digital-preservation/tiny-archives/"
+    "href": "/digital-preservation/tiny-archives/",
+    "parent": "Digital preservation"
+  },
+  {
+    "name": "Screenshots",
+    "href": "/digital-preservation/screenshots/",
+    "parent": "Digital preservation"
   },
   {
     "name": "Preserving social media",

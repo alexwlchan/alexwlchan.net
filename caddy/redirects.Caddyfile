@@ -1579,6 +1579,8 @@ redir /til/2023/profiling-swift/ /notes/2023/profiling-swift/ permanent
 redir /til/2023/profiling-swift /notes/2023/profiling-swift/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion/ /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion /notes/2024/beware-of-test-n-with-command-expansion/ permanent
+redir /til/2024/how-to-check-the-quality-of-a-network-connection/ /notes/2024/check-the-quality-of-a-network-connection/ permanent
+redir /til/2024/how-to-check-the-quality-of-a-network-connection /notes/2024/check-the-quality-of-a-network-connection/ permanent
 redir /til/2024/close-responses-to-close-send-file/ /notes/2024/close-responses-to-close-send-file/ permanent
 redir /til/2024/close-responses-to-close-send-file /notes/2024/close-responses-to-close-send-file/ permanent
 redir /til/2024/count-only-counts-non-null-values/ /notes/2024/count-only-counts-non-null-values/ permanent
@@ -1591,6 +1593,8 @@ redir /til/2024/diagonal-new-banner/ /notes/2024/diagonal-new-banner/ permanent
 redir /til/2024/diagonal-new-banner /notes/2024/diagonal-new-banner/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil/ /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
+redir /til/2024/how-to-do-exclusive-file-write-in-swift/ /notes/2024/exclusive-file-write-in-swift/ permanent
+redir /til/2024/how-to-do-exclusive-file-write-in-swift /notes/2024/exclusive-file-write-in-swift/ permanent
 redir /til/2024/expiry-date-of-https-certificate-ruby/ /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
 redir /til/2024/expiry-date-of-https-certificate-ruby /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
 redir /til/2024/find-apple-system-icons/ /notes/2024/find-apple-system-icons/ permanent
@@ -1599,20 +1603,36 @@ redir /til/2024/find-shortest-prefix-ruby/ /notes/2024/find-shortest-prefix-ruby
 redir /til/2024/find-shortest-prefix-ruby /notes/2024/find-shortest-prefix-ruby/ permanent
 redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
+redir /til/2024/whats-inside-safari-webarchive/ /notes/2024/inside-a-safari-webarchive/ permanent
+redir /til/2024/whats-inside-safari-webarchive /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/install-from-github-releases /notes/2024/install-from-github-releases/ permanent
+redir /til/2024/insomnolent/ /notes/2024/insomnolent/ permanent
+redir /til/2024/insomnolent /notes/2024/insomnolent/ permanent
 redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ permanent
 redir /til/2024/limits-on-visited-styles /notes/2024/limits-on-visited-styles/ permanent
+redir /til/2024/get-a-list-of-captures-from-the-wayback-machine/ /notes/2024/list-captures-in-the-wayback-machine/ permanent
+redir /til/2024/get-a-list-of-captures-from-the-wayback-machine /notes/2024/list-captures-in-the-wayback-machine/ permanent
 redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/not-all-coal-is-the-same /notes/2024/not-all-coal-is-the-same/ permanent
+redir /til/2024/open-can-ask-questions/ /notes/2024/open-can-ask-questions/ permanent
+redir /til/2024/open-can-ask-questions /notes/2024/open-can-ask-questions/ permanent
+redir /til/2024/how-to-open-twitter-webarchive-files/ /notes/2024/open-twitter-webarchive-files/ permanent
+redir /til/2024/how-to-open-twitter-webarchive-files /notes/2024/open-twitter-webarchive-files/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/reset-match-anchor-in-ruby/ /notes/2024/reset-match-anchor-in-ruby/ permanent
 redir /til/2024/reset-match-anchor-in-ruby /notes/2024/reset-match-anchor-in-ruby/ permanent
+redir /til/2024/simulate-a-readerror-54-connection-reset/ /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
+redir /til/2024/simulate-a-readerror-54-connection-reset /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
 redir /til/2024/simulate-pipes-with-subprocess /notes/2024/simulate-pipes-with-subprocess/ permanent
+redir /til/2024/take-a-wayback-machine-screenshot/ /notes/2024/take-a-wayback-machine-screenshot/ permanent
+redir /til/2024/take-a-wayback-machine-screenshot /notes/2024/take-a-wayback-machine-screenshot/ permanent
 redir /til/2024/tally-combinations-of-columns/ /notes/2024/tally-combinations-of-columns/ permanent
 redir /til/2024/tally-combinations-of-columns /notes/2024/tally-combinations-of-columns/ permanent
+redir /til/2024/get-a-tally-of-tally-counts/ /notes/2024/tally-of-tally-counts/ permanent
+redir /til/2024/get-a-tally-of-tally-counts /notes/2024/tally-of-tally-counts/ permanent
 redir /til/2024/under-construction/ /notes/2024/under-construction/ permanent
 redir /til/2024/under-construction /notes/2024/under-construction/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagent-for-scheduled-script/ permanent
@@ -1629,6 +1649,8 @@ redir /til/2025/compare-two-files-bash/ /notes/2025/compare-two-files-bash/ perm
 redir /til/2025/compare-two-files-bash /notes/2025/compare-two-files-bash/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-handoff-icons-in-dock /notes/2025/disable-handoff-icons-in-dock/ permanent
+redir /til/2025/disable-javascript-in-iframe/ /notes/2025/disable-javascript-in-iframe/ permanent
+redir /til/2025/disable-javascript-in-iframe /notes/2025/disable-javascript-in-iframe/ permanent
 redir /til/2025/download-tumblr-avatars/ /notes/2025/download-tumblr-avatars/ permanent
 redir /til/2025/download-tumblr-avatars /notes/2025/download-tumblr-avatars/ permanent
 redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actions/ permanent
@@ -1637,10 +1659,16 @@ redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-ina
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
+redir /til/2025/platform-specific-dirs/ /notes/2025/platform-specific-dirs/ permanent
+redir /til/2025/platform-specific-dirs /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
 redir /til/2025/poison-centers /notes/2025/poison-centers/ permanent
 redir /til/2025/pygments-html-classes/ /notes/2025/pygments-html-classes/ permanent
 redir /til/2025/pygments-html-classes /notes/2025/pygments-html-classes/ permanent
+redir /til/2025/shutil-copy-files-without-overwriting/ /notes/2025/shutil-copy-files-without-overwriting/ permanent
+redir /til/2025/shutil-copy-files-without-overwriting /notes/2025/shutil-copy-files-without-overwriting/ permanent
+redir /til/2025/sqlite-tallying-top-n/ /notes/2025/sqlite-tallying-top-n/ permanent
+redir /til/2025/sqlite-tallying-top-n /notes/2025/sqlite-tallying-top-n/ permanent
 redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-line-by-line /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanent
@@ -1699,4 +1727,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: wuQtiij/d0)
+#[[[end]]] (sum: goIb9VAKpg)

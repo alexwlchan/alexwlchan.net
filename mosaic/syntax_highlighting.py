@@ -91,7 +91,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     # Python: dotted imports should be replaced with names split by
     # namespace. nn = Name.Namespace
     if lang == "python":
-        for import_name in ["concurrent.futures", "urllib.error", "urllib.request"]:
+        for import_name in [
+            "concurrent.futures",
+            "playwright.sync_api",
+            "urllib.error",
+            "urllib.request",
+        ]:
             parts = import_name.split(".")
             dot = '<span class="p">.</span>'
             highlighted_code = highlighted_code.replace(
@@ -148,7 +153,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
 
     # Whitespace: delete it unless we're in console or irb snippets,
     # where we use it as part of disabling selection.
-    if lang not in {"console", "irb"}:
+    if lang not in {"console", "irb", "pycon", "sqlite3"}:
         highlighted_code = WHITESPACE_RE.sub(r"\g<space>", highlighted_code)
 
     return highlighted_code

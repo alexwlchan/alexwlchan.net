@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: How to tally the attributes of the top N rows in a SQLite table
 date: 2025-01-08 10:17:07 +00:00
-tags:
-  - sqlite
+topic: SQLite
 summary: |
   Use a `WITH` clause to do a nested query for the top N rows in the table, then do a tally over that result.
-old_syntax_highlighting: true
 ---
 There's a `photos` table in the Flickr Commons Explorer database that has two columns: `owner_id` and `count_views`.
 I wanted to get the 10,000 photos with the most views, and then see who owned each of those photos.
@@ -68,4 +66,4 @@ GROUP BY member_name
 ORDER BY photos_in_top_10k DESC;
 ```
 
-After I wrote this, I was reminded I did some [very similar SQLite tallying](/til/2024/get-a-tally-of-tally-counts/) last year, where I did a nested query and tallied over the results.
+After I wrote this, I was reminded I did some [very similar SQLite tallying](/notes/2024/tally-of-tally-counts/) last year, where I did a nested query and tallied over the results.

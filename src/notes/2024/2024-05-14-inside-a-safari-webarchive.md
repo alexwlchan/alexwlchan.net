@@ -1,13 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-05-14 18:41:25 +01:00
 title: What's inside a Safari webarchive?
 summary: |
   The inside of a `.webarchive` file is a binary property list with the complete responses and some request metadata.
-tags:
-  - safari
-  - digital preservation
-old_syntax_highlighting: true
+topic: Web archiving
 ---
 I've been doing a bit of poking around in the Safari [webarchive file format][wiki], and one of the things I wanted to check is that the data isn't stored in some sort of proprietary, impossible-to-read format.
 I haven't written a complete piece of code to get the data out, but I've done enough to satisfy myself that if Safari somehow disappears, I could still read it.
@@ -81,7 +78,7 @@ Some notes:
 *   **I can open it using [plistlib] in the Python standard library.**
     I don't have to rely on Safari!
     
-    ```python
+    ```python {"names":{"1":"plistlib","3":"infile","4":"archive"}}
     import plistlib
 
     with open("example.webarchive", "rb") as infile:

@@ -1,13 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-06-07 10:26:31 +01:00
 title: How to check the quality of a network connection
 summary: |
   Using an `NWPathMonitor` and inspecting the value of `NWPath.status`, `NWPath.isExpensive` and `NWPath.isConstrained` can tell you what sort of connection you're running on.
-tags:
-  - swift
-  - networking
-old_syntax_highlighting: true
+topic: Swift
 ---
 A couple of times I've been listening to [ATP](https://atp.fm/) and Marco has mentioned there are APIs an app can use to check the quality of your network connection -- for example, an app might choose to download podcasts over Wi-Fi but not cellular.
 These APIs have been present on iOS for a long time, but they're also available on macOS.
@@ -39,7 +36,7 @@ The `NWPath` object has three attributes that are interesting:
 
 I don't have an immediate use for this API so this is mostly for idle curiosity, but I did write a small script to exercise this API – it monitors the network connection for a minute, and logs whether the network is up, and whether it's expensive/constrained.
 
-```swift
+```swift {"names":{"1":"Foundation","2":"Network","3":"NetworkStatusChecker","4":"monitor","8":"path","19":"logCurrentStatus","20":"path","28":"networkChecker"}}
 import Foundation
 import Network
 

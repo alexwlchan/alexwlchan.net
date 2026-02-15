@@ -1,13 +1,11 @@
 ---
-layout: til
+layout: note
 date: 2024-04-21 10:11:02 +01:00
 date_updated: 2025-08-11 20:07:57 +01:00
 title: How to get a list of captures from the Wayback Machine
 summary: |
   Use the CDX Server API to get a list of captures for a particular URL.
-tags:
-  - wayback machine
-old_syntax_highlighting: true
+topic: Web archiving
 ---
 As part of my [daily screenshots project][daily_screenshots], I wanted to get a list of all the versions of my sites that are saved in the Wayback Machine.
 
@@ -20,7 +18,7 @@ This is precisely the API I wanted -- you give it a URL, and it returns a list o
 
 I wrapped this API in a Python function for ease of use:
 
-```python
+```python {"names":{"1":"datetime","2":"httpx","3":"get_wayback_machine_captures","4":"url","6":"resp","16":"fields","17":"remainder","20":"row","22":"data","42":"capture"}}
 import datetime
 
 import httpx
@@ -97,7 +95,7 @@ There are things like pagination in the "Advanced Usage", which I should read mo
 When I wrote this code, I was looking at URLs which only had one or two captures, so the verbose output format wasn't a big deal.
 Here's a snippet that will save the results to a spreadsheet rather than stdout, which is easier to deal with for pages with a lot of captures:
 
-```python
+```python {"names":{"1":"csv","3":"out_file","4":"writer","11":"capture"}}
 import csv
 
 
