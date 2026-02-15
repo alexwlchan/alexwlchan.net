@@ -21,7 +21,6 @@ colors:
    css_light: '#275492'
    css_dark:  '#ede4d2'
 
-old_syntax_highlighting: true
 ---
 
 A pleasant enough set of stories from somebody who runs a second-hand bookshop; dealing with books coming in and books going out.

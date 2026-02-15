@@ -22,7 +22,6 @@ colors:
    css_light: '#6b637e'
    css_dark:  '#f7f6f9'
 
-old_syntax_highlighting: true
 ---
 
 First-person YA novel told from the point of Alison, an 18-year-old girl who experiences extreme synesthesia.
