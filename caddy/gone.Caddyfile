@@ -57,6 +57,10 @@ handle /2019/removing-the-drm-from-my-kindle-books/ {
 	error 410
 }
 
+handle /2021/safari-15-favicons/ {
+	error 410
+}
+
 handle /analytics/a.js {
 	error 410
 }
@@ -113,4 +117,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: hpLbhh2pYB)
+#[[[end]]] (sum: rK3V00XxXH)
