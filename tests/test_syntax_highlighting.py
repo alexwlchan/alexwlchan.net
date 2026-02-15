@@ -342,3 +342,18 @@ def test_linewrap() -> None:
         src='$ echo "hello world hello world hello world"', lang="console", wrap=True
     )
     assert html.startswith('<pre class="lng-console wrap">')
+
+
+@pytest.mark.parametrize(
+    "src",
+    [
+        "set location /home/alex/readme.txt\n",
+        "set location (which keyring)\n",
+    ],
+)
+def test_fish_variables(src: str) -> None:
+    """
+    Variable names after a `set` are highlighted as names in fish.
+    """
+    html = apply_syntax_highlighting(src, lang="fish", names={1: "location"})
+    assert '<span class="n">location</span>' in html

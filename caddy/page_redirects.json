@@ -2587,6 +2587,21 @@
   "/notes/2023/profiling-swift/": [
     "/til/2023/profiling-swift/"
   ],
+  "/notes/2024/beware-of-test-n-with-command-expansion/": [
+    "/til/2024/beware-of-test-n-with-command-expansion/"
+  ],
+  "/notes/2024/close-responses-to-close-send-file/": [
+    "/til/2024/close-responses-to-close-send-file/"
+  ],
+  "/notes/2024/count-only-counts-non-null-values/": [
+    "/til/2024/count-only-counts-non-null-values/"
+  ],
+  "/notes/2024/custom-error-pages-in-flask/": [
+    "/til/2024/custom-error-pages-in-flask/"
+  ],
+  "/notes/2024/exclude-files-from-time-machine-with-tmutil/": [
+    "/til/2024/exclude-files-from-time-machine-with-tmutil/"
+  ],
   "/notes/2024/install-from-github-releases/": [
     "/til/2024/install-from-github-releases/"
   ],
@@ -2598,6 +2613,18 @@
   ],
   "/notes/2024/regex-library-for-unicode-property-escapes/": [
     "/til/2024/regex-library-for-unicode-property-escapes/"
+  ],
+  "/notes/2024/simulate-pipes-with-subprocess/": [
+    "/til/2024/simulate-pipes-with-subprocess/"
+  ],
+  "/notes/2024/tally-combinations-of-columns/": [
+    "/til/2024/tally-combinations-of-columns/"
+  ],
+  "/notes/2024/use-launchagent-for-scheduled-script/": [
+    "/til/2024/use-launchagent-for-scheduled-script/"
+  ],
+  "/notes/2024/verbose-deletions-with-rm/": [
+    "/til/2024/verbose-deletions-with-rm/"
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"

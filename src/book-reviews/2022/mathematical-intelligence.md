@@ -22,7 +22,6 @@ colors:
    css_light: '#1c6012'
    css_dark:  '#88d77e'
 
-old_syntax_highlighting: true
 ---
 
 This is a book about how humans think, and in particular how we think when we're dealing with maths – which it repeatedly reminds us is different from the "calculation" of school maths.

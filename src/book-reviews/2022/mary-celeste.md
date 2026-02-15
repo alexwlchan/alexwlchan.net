@@ -22,7 +22,6 @@ colors:
    css_light: '#8c6f5f'
    css_dark:  '#bbab9d'
 
-old_syntax_highlighting: true
 ---
 
 Interesting account of the Mary Celeste mystery; both the people involved in the original incident, and all the speculation that then followed.

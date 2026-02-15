@@ -128,6 +128,14 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             highlighted_code,
         )
 
+    # Fish: highlight variable names after `set`
+    if lang == "fish":
+        highlighted_code = re.sub(
+            r'<span class="([a-z]+)">set</span> (?P<name>[a-z]+) ',
+            r'set <span class="n">\g<name></span> ',
+            highlighted_code,
+        )
+
     # Whitespace: delete it unless we're in console or irb snippets,
     # where we use it as part of disabling selection.
     if lang not in {"console", "irb"}:

@@ -24,7 +24,6 @@ colors:
    css_light: '#167dab'
    css_dark:  '#057dc1'
 
-old_syntax_highlighting: true
 ---
 
 Fun, interesting book about the history of Google Maps, from somebody who worked at the startup Keyhole, then got acquired by Google, and eventually went on to work at Niantic.

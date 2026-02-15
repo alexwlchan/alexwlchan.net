@@ -1,17 +1,15 @@
 ---
-layout: til
+layout: note
 date: 2024-01-26 15:58:51 +00:00
 date_updated: 2024-08-07 10:51:48 +01:00
 title: Custom error pages in Flask
 summary:
   You can use `app.error_handler` to add custom responses for HTTP status codes, so the errors match the look and feel of the rest of the site.
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 You can customise the error pages by adding a few instances of `app.error_handler`, for example:
 
-```python
+```python {"names":{"3":"not_found","4":"e","9":"internal_server_error","10":"e"}}
 @app.errorhandler(404)
 def not_found(e: Exception) -> str:
     return "Not found!", 404
@@ -29,7 +27,7 @@ If it can't render the custom 500 Internal Server Error page, it will return Fla
 
 I find it helpful to add a route that I can use to test the behaviour of 500 pages in the prod environment, which looks like this:
 
-```python
+```python {"names":{"3":"deliberate_error"}}
 @app.route("/500/")
 def deliberate_error() -> str:
     raise ValueError("BOOM!")
@@ -39,7 +37,7 @@ def deliberate_error() -> str:
 
 Here's a complete program to illustrate this pattern, including tests for the two custom error pages:
 
-```python
+```python {"names":{"1":"flask","2":"Flask","3":"app","7":"not_found","8":"e","13":"internal_server_error","14":"e","19":"deliberate_error","22":"test_custom_404_page","27":"client","28":"resp","35":"test_custom_500_page","40":"client","41":"resp"}}
 from flask import Flask
 
 app = Flask(__name__)

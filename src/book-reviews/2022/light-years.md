@@ -23,7 +23,6 @@ colors:
    css_light: '#10213f'
    css_dark:  '#7b7d52'
 
-old_syntax_highlighting: true
 ---
 
 This is a popular science book about the history of discoveries about light.

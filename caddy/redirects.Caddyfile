@@ -1567,6 +1567,16 @@ redir /2023/mechanize-ssl/ /notes/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /notes/2023/mechanize-ssl/ permanent
 redir /til/2023/profiling-swift/ /notes/2023/profiling-swift/ permanent
 redir /til/2023/profiling-swift /notes/2023/profiling-swift/ permanent
+redir /til/2024/beware-of-test-n-with-command-expansion/ /notes/2024/beware-of-test-n-with-command-expansion/ permanent
+redir /til/2024/beware-of-test-n-with-command-expansion /notes/2024/beware-of-test-n-with-command-expansion/ permanent
+redir /til/2024/close-responses-to-close-send-file/ /notes/2024/close-responses-to-close-send-file/ permanent
+redir /til/2024/close-responses-to-close-send-file /notes/2024/close-responses-to-close-send-file/ permanent
+redir /til/2024/count-only-counts-non-null-values/ /notes/2024/count-only-counts-non-null-values/ permanent
+redir /til/2024/count-only-counts-non-null-values /notes/2024/count-only-counts-non-null-values/ permanent
+redir /til/2024/custom-error-pages-in-flask/ /notes/2024/custom-error-pages-in-flask/ permanent
+redir /til/2024/custom-error-pages-in-flask /notes/2024/custom-error-pages-in-flask/ permanent
+redir /til/2024/exclude-files-from-time-machine-with-tmutil/ /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
+redir /til/2024/exclude-files-from-time-machine-with-tmutil /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/install-from-github-releases /notes/2024/install-from-github-releases/ permanent
 redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ permanent
@@ -1575,6 +1585,14 @@ redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ 
 redir /til/2024/not-all-coal-is-the-same /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
+redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
+redir /til/2024/simulate-pipes-with-subprocess /notes/2024/simulate-pipes-with-subprocess/ permanent
+redir /til/2024/tally-combinations-of-columns/ /notes/2024/tally-combinations-of-columns/ permanent
+redir /til/2024/tally-combinations-of-columns /notes/2024/tally-combinations-of-columns/ permanent
+redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagent-for-scheduled-script/ permanent
+redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
+redir /til/2024/verbose-deletions-with-rm/ /notes/2024/verbose-deletions-with-rm/ permanent
+redir /til/2024/verbose-deletions-with-rm /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1651,4 +1669,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: pFb+iA5Zxk)
+#[[[end]]] (sum: Dc/pel7gvt)

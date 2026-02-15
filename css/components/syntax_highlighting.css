@@ -72,19 +72,17 @@ pre {
  *
  * gp = Generic.Prompt, w = Whitespace
  */
-.lng-console .gp,
-.lng-console .gp + .w,
-.lng-irb .gp,
-.lng-irb .gp + .w {
-  /* TODO: pycon? */
-  color: var(--blue);
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+.lng-console, .lng-irb, .lng-sqlite3 {
+  .gp, .gp + .w {
+    color: var(--blue);
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
 }
 
 /* Don't highlight the XML declaration at the top of an XML snippet.

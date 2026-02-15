@@ -1,14 +1,12 @@
 ---
-layout: til
+layout: note
 date: 2024-02-21 16:00:27 +00:00
 title: The COUNT(X) function only counts non-null values
-tags:
-  - sqlite
-old_syntax_highlighting: true
+topic: SQLite
 ---
 I was running a tally in a `photos` table with a text column `photos`, and I got a surprising result:
 
-```
+```sqlite3
 sqlite> SELECT media, COUNT(media) FROM photos GROUP BY media;
 |0
 photo|1813253
@@ -22,14 +20,14 @@ The issue turned out to be a misunderstanding on my part about the COUNT(X) func
 
 I had a number of null rows in the database, but they weren't being counted:
 
-```
+```sqlite3
 sqlite> SELECT COUNT(*) FROM photos WHERE media IS NULL;
 340
 ```
 
 The tally query I actually want uses `COUNT(*)`, not `COUNT(X)`:
 
-```
+```sqlite3
 sqlite> SELECT media, COUNT(*) FROM photos GROUP BY media;
 |340
 photo|1813253
@@ -65,7 +63,7 @@ video|1131
 
     Once I'd got a small enough set, I inspected those rows manually and found the data that was causing the mysterious tally behaviour:
     
-    ```
+    ```sqlite3
     sqlite> SELECT id, media FROM photos LIMIT 5 OFFSET 54850;
     14541672258|photo
     14541680439|photo
@@ -79,7 +77,7 @@ video|1131
 *   The tally should count every row in the database.
     If I'd cross-checked the total of the tally with the number of rows in the database, I'd have noticed the missing rows:
 
-    ```
+    ```sqlite3
     sqlite> SELECT COUNT(*) FROM photos;
     1814724
     ```

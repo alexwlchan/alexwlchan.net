@@ -1,14 +1,12 @@
 ---
-layout: til
+layout: note
 title: "Beware of using `test -n` with command expansion"
 date: 2024-01-22 10:16:06 +00:00
-tags:
-  - fish shell
-old_syntax_highlighting: true
+topic: Shell scripting
 ---
 I'd written a fish script that used `test -n` (check for an empty string) and a command substitution, but I was seeing unexpected results:
 
-```shell
+```fish
 if test -n (which keyring)
     echo "I know where keyring is!"
 end
@@ -21,7 +19,7 @@ There's a long discussion of this in a GitHub ticket ["test -n not working as ex
 
 You can see this more clearly in this example:
 
-```shell
+```fish
 if test -n (printf "")
     echo "It's not empty!"
 end
@@ -30,7 +28,7 @@ end
 The fix is to assign the command substitution to a variable first, then check whether that's an empty string.
 For example:
 
-```shell
+```fish {"names":{"1":"location"}}
 set location (which keyring)
 
 if test -n "$location"
