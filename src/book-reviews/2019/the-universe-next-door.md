@@ -22,7 +22,6 @@ colors:
    css_light: '#000000'
    css_dark:  '#88ccc5'
 
-old_syntax_highlighting: true
 ---
 
 Twelve ideas from the fringe of science: hidden dimensions? Mirror matter? Alien space debris littering earth? Interesting ideas, easy to read, but not much critical analysis of the ideas. “Some person thinks this might be true”, but left open-ended. Most of them seem fairly far-fetched, so I won’t be changing my thinking for it, but fun to read.

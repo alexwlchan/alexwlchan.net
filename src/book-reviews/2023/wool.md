@@ -22,7 +22,6 @@ colors:
    css_light: '#6b7873'
    css_dark:  '#edb9a7'
 
-old_syntax_highlighting: true
 ---
 
 This is based on the Apple TV+ show "Silo", and I read it after loving the first season.

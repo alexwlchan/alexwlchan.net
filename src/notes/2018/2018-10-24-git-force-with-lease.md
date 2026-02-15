@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: Pushing with `--force-with-lease` is safer than with `--force`
 summary: |
   It checks the remote state of the origin hasn't changed since you last fetched, so you don't risk overwriting anybody else's commits.
 date: 2018-10-24 09:20:00 +00:00
-tags:
-  - git
-old_syntax_highlighting: true
+topic: Git
 ---
 
 When doing a `git push`, if there are different commits in the remote, your push is rejected.

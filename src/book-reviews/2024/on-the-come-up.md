@@ -20,7 +20,6 @@ colors:
    css_light: '#85425b'
    css_dark:  '#fcf9f0'
 
-old_syntax_highlighting: true
 ---
 The first-person story of sixteen-year old rapper Bri, who’s trying to start her rapping career and find a way to support her family.
 It touches on some heavy issues, but does so deftly, and you get enough to see both perspectives – teenage Bri and the adults around her.

@@ -25,26 +25,26 @@ I did some debugging and I worked out where it came from -- here are my notes.
 In my traceback, I could see this was coming from Jinja2's `min()` and `max()` filters.
 If you try to get the min and max of an empty list, that causes the error:
 
-{% code lang="python" names="0:jinja2 1:t" %}
+```python {"names":{"1":"jinja2","2":"t"}}
 import jinja2
 
 t = jinja2.Template("{% raw %}{{ 1 + (my_list|max) }}{% endraw %}")
 
 print(t.render(my_list=[]))
-{% endcode %}
+```
 
 Note that the `1 +` is required to cause the error -- you have to interact with the `my_list|max` value, otherwise it's undefined and gets rendered as an empty string.
 
 If I'd [enabled `StrictUndefined`][StrictUndefined], the error would be thrown even if I just rendered the value in the template, and didn't try to modify it.
 Here's another example:
 
-{% code lang="python" names="0:jinja2 1:t" %}
+```python {"names":{"1":"jinja2","2":"t"}}
 import jinja2
 
 t = jinja2.Template("{% raw %}{{ my_list|max }}{% endraw %}", undefined=jinja2.StrictUndefined)
 
 print(t.render(my_list=[]))
-{% endcode %}
+```
 
 The fix is to ensure you're not trying to get the `min()` or `max()` of an empty list -- if you're not certain the input list will be non-empty, add a check beforehand.
 

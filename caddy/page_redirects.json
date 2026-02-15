@@ -2559,12 +2559,24 @@
   "/notes/2016/shutil-which/": [
     "/til/2016/shutil-which/"
   ],
+  "/notes/2018/compact-json-with-python/": [
+    "/til/2018/create-compact-json-with-python/"
+  ],
   "/notes/2018/finatra-404/": [
     "/2018/finatra-404/",
     "/2018/10/finatra-404/"
   ],
+  "/notes/2018/suppress-rdoc-ri-docs-with-gem-install/": [
+    "/til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/"
+  ],
   "/notes/2018/list-all-git-object-ids-and-their-type/": [
     "/til/2018/list-all-git-object-ids-and-their-type/"
+  ],
+  "/notes/2018/non-str-repr-is-typeerror/": [
+    "/til/2018/non-str-repr-is-typeerror/"
+  ],
+  "/notes/2018/git-force-with-lease/": [
+    "/til/2018/using-force-with-lease/"
   ],
   "/notes/2018/xargs-for-parallel-processing/": [
     "/til/2018/xargs-for-parallel-processing/"

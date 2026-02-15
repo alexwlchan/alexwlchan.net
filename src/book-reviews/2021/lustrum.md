@@ -20,7 +20,6 @@ colors:
    css_light: '#231f20'
    css_dark:  '#dac10f'
 
-old_syntax_highlighting: true
 ---
 
 I read part of this book for a LAMDA exam -- but if I read the rest of it at the time, I've completely forgotten it.

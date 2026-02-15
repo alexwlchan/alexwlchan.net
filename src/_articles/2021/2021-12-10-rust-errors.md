@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2021-12-10 21:36:55 +00:00
 title: The ever-improving error messages of Rust
 summary: An improvement to Rust's error handling that I almost reported, until I realised it was fixed.
-tags:
-  - rust
-  - error messages
-old_syntax_highlighting: true
+topic: Rust
 ---
 
 In [my last-but-one post](/2021/dominant-colours/), I mentioned the quality of Rust's compiler errors.
@@ -16,14 +13,14 @@ Nice!
 I've been writing a lot of Scala this week, and Scala uses s-prefixed strings for [string interpolation].
 For example:
 
-```scala
+```scala {"names":{"1":"name"}}
 val name = "Alex"
 println(s"Hello, $name")  // Hello, Alex
 ```
 
 And so when I came to write some Rust, that s-prefix crept into my strings:
 
-```rust
+```rust {"names":{"1":"name"}}
 let name = "Alex";
 println!(s"Hello, {}!", name);
 ```

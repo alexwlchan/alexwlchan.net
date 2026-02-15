@@ -21,7 +21,6 @@ colors:
    css_light: '#c31413'
    css_dark:  '#bdc1c5'
 
-old_syntax_highlighting: true
 ---
 
 I very much enjoyed this book. Another thoughtfully-written story in the Wayfarers universe.

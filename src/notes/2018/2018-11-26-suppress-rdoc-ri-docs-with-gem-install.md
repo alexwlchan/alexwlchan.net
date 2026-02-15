@@ -1,11 +1,8 @@
 ---
-layout: til
+layout: note
 title: How to suppress installing rdoc/ri docs when running `gem install`
 date: 2018-11-26 10:13:25 +00:00
-tags:
-  - ruby
-  - docker
-old_syntax_highlighting: true
+topic: Ruby
 ---
 
 If you try to run `gem install` in a Docker container which only contains a Ruby package (and no rdoc or ri), you get an error:

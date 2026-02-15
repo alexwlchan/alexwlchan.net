@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2021-06-03 09:46:46 +00:00
 title: Visualising how often I write in my journal
 summary: A Python script that shows me how often I've been journalling, so I can track my progress.
-tags:
-  - python
+topic: Python
 colors:
   index_light: "#e94cf2"
   index_dark:  "#fe4afa"
-old_syntax_highlighting: true
 ---
 
 I try to write a daily journal, and I find it useful when I do, but I've been struggling to sustain the habit.
@@ -74,7 +72,7 @@ The code is pretty rough and probably won't work for anybody else's setup, but i
 -   I wanted each year to have a different colour (because pretty), but I also wanted the colours to be consistent between different runs of the script.
     I choose the colour for a year like so:
 
-    ```python
+    ```python {"names":{"1":"colorsys","2":"random","3":"rand","7":"hue","10":"r","11":"g","12":"b"}}
     import colorsys
     import random
 

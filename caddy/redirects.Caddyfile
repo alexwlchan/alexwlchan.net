@@ -1543,12 +1543,20 @@ redir /til/2016/rust-safe-macro-expansion/ /notes/2016/rust-safe-macro-expansion
 redir /til/2016/rust-safe-macro-expansion /notes/2016/rust-safe-macro-expansion/ permanent
 redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
 redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
+redir /til/2018/create-compact-json-with-python/ /notes/2018/compact-json-with-python/ permanent
+redir /til/2018/create-compact-json-with-python /notes/2018/compact-json-with-python/ permanent
 redir /2018/finatra-404/ /notes/2018/finatra-404/ permanent
 redir /2018/finatra-404 /notes/2018/finatra-404/ permanent
 redir /2018/10/finatra-404/ /notes/2018/finatra-404/ permanent
 redir /2018/10/finatra-404 /notes/2018/finatra-404/ permanent
+redir /til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/ /notes/2018/suppress-rdoc-ri-docs-with-gem-install/ permanent
+redir /til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install /notes/2018/suppress-rdoc-ri-docs-with-gem-install/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type/ /notes/2018/list-all-git-object-ids-and-their-type/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type /notes/2018/list-all-git-object-ids-and-their-type/ permanent
+redir /til/2018/non-str-repr-is-typeerror/ /notes/2018/non-str-repr-is-typeerror/ permanent
+redir /til/2018/non-str-repr-is-typeerror /notes/2018/non-str-repr-is-typeerror/ permanent
+redir /til/2018/using-force-with-lease/ /notes/2018/git-force-with-lease/ permanent
+redir /til/2018/using-force-with-lease /notes/2018/git-force-with-lease/ permanent
 redir /til/2018/xargs-for-parallel-processing/ /notes/2018/xargs-for-parallel-processing/ permanent
 redir /til/2018/xargs-for-parallel-processing /notes/2018/xargs-for-parallel-processing/ permanent
 redir /til/2019/github-set-co-commit-credit-with-co-authored-by/ /notes/2019/github-set-co-commit-credit-with-co-authored-by/ permanent
@@ -1689,4 +1697,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: 5lL5n1833x)
+#[[[end]]] (sum: TliUovGjqG)
