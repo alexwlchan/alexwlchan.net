@@ -367,8 +367,10 @@ def test_fish_variables(src: str, varname: str) -> None:
 def test_fish_flags_in_variable_names() -> None:
     """
     Flags in a `set` are preserved in fish.
-    """ 
-    html = apply_syntax_highlighting("set -g -x location /home/alex/readme.txt\n", lang="fish", names={1: "location"})
+    """
+    html = apply_syntax_highlighting(
+        "set -g -x location /home/alex/readme.txt\n", lang="fish", names={1: "location"}
+    )
     assert "-g -x" in html
 
 

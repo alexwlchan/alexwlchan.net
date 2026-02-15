@@ -104,10 +104,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
                 f'<span class="nn">{import_name}</span>',
                 dot.join(f'<span class="n">{name}</span>' for name in parts),
             )
-    
+
     # Python: magic methods should be regular names.
     if lang == "python":
-        highlighted_code = highlighted_code.replace('<span class="fm">', '<span class="n">')
+        highlighted_code = highlighted_code.replace(
+            '<span class="fm">', '<span class="n">'
+        )
 
     # Swift: the opening hashbang should be a Comment.Hashbang.
     if lang == "swift":
@@ -152,11 +154,11 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     if lang == "fish":
         highlighted_code = re.sub(
             r'<span class="([a-z]+)">(?P<keyword>set|function)</span>'
-            r'(?P<flags>(?: -g| -x)*) '
+            r"(?P<flags>(?: -g| -x)*) "
             r"(?P<name>[A-Za-z_]+)(?P<space>\s)",
             r'\g<keyword>\g<flags> <span class="n">\g<name></span>\g<space>',
             highlighted_code,
-            flags=re.MULTILINE
+            flags=re.MULTILINE,
         )
 
     # Whitespace: delete it unless we're in console or irb snippets,
