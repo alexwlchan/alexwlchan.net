@@ -117,7 +117,7 @@ I hope you like it!
     h2 {
       margin: 0;
       padding: 10px;
-      background: var(--card-bg);
+      background: var(--card-bg) var(--primary-color);
       background-size: auto 125%;
       color: white;
       text-align: center;
