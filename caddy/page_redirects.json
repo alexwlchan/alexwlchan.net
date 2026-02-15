@@ -41,10 +41,6 @@
   "/2014/alfred-screenshots/": [
     "/2014/08/alfred-screenshots/"
   ],
-  "/2014/custom-css-resophnotes/": [
-    "/2014/11/custom-css-resophnotes/",
-    "/notes/custom-css-resophnotes/"
-  ],
   "/2014/golems/": [
     "/2014/12/golems/"
   ],
@@ -2548,11 +2544,18 @@
     "/images/pyconuk-speaking.jpg"
   ],
   "/notes/": [
+    "/notes/2014/",
     "/notes/2016/",
     "/notes/2018/",
     "/notes/2020/",
+    "/notes/2024/",
     "/notes/2025/",
     "/notes/2026/"
+  ],
+  "/notes/2014/custom-css-resophnotes/": [
+    "/2014/custom-css-resophnotes/",
+    "/2014/11/custom-css-resophnotes/",
+    "/notes/custom-css-resophnotes/"
   ],
   "/notes/2016/shutil-which/": [
     "/til/2016/shutil-which/"
@@ -2568,6 +2571,9 @@
     "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
   ],
+  "/notes/2024/not-all-coal-is-the-same/": [
+    "/til/2024/not-all-coal-is-the-same/"
+  ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
   ],
@@ -2582,6 +2588,12 @@
   ],
   "/notes/2025/google-deletes-inactive-accounts/": [
     "/til/2025/google-deletes-inactive-accounts/"
+  ],
+  "/notes/2025/subprocess-line-by-line/": [
+    "/til/2025/subprocess-line-by-line/"
+  ],
+  "/notes/2025/subprocess-text-true/": [
+    "/til/2025/subprocess-text-true/"
   ],
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"

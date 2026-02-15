@@ -20,7 +20,6 @@ colors:
    css_light: '#106986'
    css_dark:  '#f6bc30'
 
-old_syntax_highlighting: true
 ---
 
 This was recommended by both Fiona and kaberett, and given to me by Mum for my 27th birthday.

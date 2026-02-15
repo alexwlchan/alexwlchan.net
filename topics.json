@@ -128,6 +128,11 @@
     "parent": "Computers"
   },
   {
+    "name": "Windows",
+    "href": "/computers/windows/",
+    "parent": "Computers"
+  },
+  {
     "name": "Tailscale",
     "href": "/systems/tailscale/",
     "parent": "Systems and software"

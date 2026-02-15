@@ -22,7 +22,6 @@ colors:
    css_light: '#60616b'
    css_dark:  '#d5b78a'
 
-old_syntax_highlighting: true
 ---
 
 Book was interesting, and I enjoyed reading it. It’s unfortunately still rare to read about notable historical women – and indeed, the text notes that Granuaile was largely erased within the annals of the Gaelic historical records. She’s a fascinating character – not just a pirate, but a strategist, politician and naval officer (of sorts).

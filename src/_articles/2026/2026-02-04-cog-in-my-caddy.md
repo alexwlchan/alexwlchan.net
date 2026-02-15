@@ -4,7 +4,6 @@ title: Creating Caddyfiles with Cog
 summary: Cog is a tool for doing in-place text generation for static files. It's useful for generating repetitive config, like my web server redirects.
 date: 2026-02-05 08:21:14 +00:00
 topic: Python
-old_syntax_highlighting: true
 ---
 I'm currently restructuring my site, and I'm going to change some of the URLs.
 I don't want to [break inbound links][wiki-link-rot] to the old URLs, so I'm creating [redirects][wiki-redirects] between old and new.

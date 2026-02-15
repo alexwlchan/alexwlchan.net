@@ -1,16 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2021-03-29T10:48:12.797Z
 title: Building Wellcome Collection's new unified catalogue search
 summary: Collaboration between our digital and collections teams helped to build a single search box for all of our catalogues.
-tags:
-  - wellcome collection
-  - search
+topic: Wellcome Collection
 canonical_url: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
 colors:
   index_light: "#63605f"
   index_dark:  "#d4d2cc"
-old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

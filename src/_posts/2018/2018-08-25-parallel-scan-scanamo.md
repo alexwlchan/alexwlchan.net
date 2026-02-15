@@ -3,10 +3,9 @@ date: 2018-08-25 08:20:24 +00:00
 layout: post
 summary: Prototype code for running a parallel scan against a DynamoDB table, and
   using Scanamo to serialise rows as Scala case classes.
-tags:
-  - aws
-  - scala
-  - aws:amazon dynamodb
+topics:
+  - AWS
+  - Scala
 title: Implementing parallel scan in DynamoDB with Scanamo
 colors:
   index_light: "#2E27AD"
@@ -64,7 +63,7 @@ We'll probably put it in production at some point, but I don't know how long tha
 
 Before we write any parallel scan code, we need an API client for working with the DynamoDB API:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"auth","4":"AWSStaticCredentialsProvider","5":"BasicAWSCredentials","6":"com","7":"amazonaws","8":"services","9":"dynamodbv2","10":"AmazonDynamoDBClientBuilder","11":"AWS_ACCESS_ID","12":"AWS_SECRET_ACCESS_KEY","13":"AWS_REGION","14":"dynamoDbClient"}}
 import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials}
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
 
@@ -157,7 +156,7 @@ You create a collection of workers, each of which makes its own Scan request wit
 
 These parameters can be passed as an instance of [ScanSpec][scanspec], so let's construct that:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"services","4":"dynamodbv2","5":"document","6":"spec","7":"ScanSpec","8":"scanSpec","11":"totalSegments","13":"segment"}}
 import com.amazonaws.services.dynamodbv2.document.spec.ScanSpec
 
 val scanSpec = new ScanSpec()
@@ -167,7 +166,7 @@ val scanSpec = new ScanSpec()
 
 Then to perform the scan itself, we use the Document API and pass this ScanSpec as a parameter:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"services","4":"dynamodbv2","5":"document","6":"DynamoDB","7":"ItemCollection","8":"ScanOutcome","9":"documentApiClient","12":"table","15":"tableName","16":"itemCollection"}}
 import com.amazonaws.services.dynamodbv2.document.{
   DynamoDB,
   ItemCollection,
@@ -186,7 +185,7 @@ If I use this in production, I'll want some tests and checks around pagination.
 
 Playing a bit in IntelliJ to see what methods I had available, I eventually stumbled across the following to turn the collection into a Scala list:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"services","4":"dynamodbv2","5":"document","6":"Item","7":"scala","8":"collection","9":"JavaConverters","11":"items"}}
 import com.amazonaws.services.dynamodbv2.document.Item
 import scala.collection.JavaConverters._
 
@@ -199,7 +198,7 @@ It's an internal DynamoDB representation of a row.
 I went poking around in Scanamo to see how they serialise an Item as a case class.
 I didn't quite find that, but looking [in ScanamoFree.scala][scanamofree], I stumbled across clues in two methods:
 
-```scala
+```scala {"names":{"1":"ScanamoFree","2":"get","3":"T","4":"tableName","6":"key","9":"ft","17":"res","33":"read","34":"T","35":"m","41":"f"}}
 object ScanamoFree {
   ...
 
@@ -221,7 +220,7 @@ The `read()` method doesn't quite take an Item, but if I can get the String/Attr
 
 I stumbled across the method I need [in a Stack Overflow post][stack_overflow]:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"services","4":"dynamodbv2","5":"document","6":"internal","7":"InternalUtils","8":"com","9":"amazonaws","10":"services","11":"dynamodbv2","12":"model","13":"AttributeValue","14":"com","15":"gu","16":"scanamo","17":"ScanamoFree","18":"com","19":"gu","20":"scanamo","21":"error","22":"DynamoReadError","23":"caseClasses","28":"items","30":"item","31":"attributeValueMap"}}
 import com.amazonaws.services.dynamodbv2.document.internal.InternalUtils
 import com.amazonaws.services.dynamodbv2.model.AttributeValue
 import com.gu.scanamo.ScanamoFree
@@ -261,7 +260,7 @@ I haven't tried running this on a really big table yet, and I'd want some tests 
 
 This combines all the snippets into a single, runnable example:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"auth","4":"AWSStaticCredentialsProvider","5":"BasicAWSCredentials","6":"com","7":"amazonaws","8":"services","9":"dynamodbv2","10":"AmazonDynamoDBClientBuilder","11":"com","12":"amazonaws","13":"services","14":"dynamodbv2","15":"document","16":"DynamoDB","17":"Item","18":"ItemCollection","19":"ScanOutcome","20":"com","21":"amazonaws","22":"services","23":"dynamodbv2","24":"document","25":"internal","26":"InternalUtils","27":"com","28":"amazonaws","29":"services","30":"dynamodbv2","31":"document","32":"spec","33":"ScanSpec","34":"com","35":"amazonaws","36":"services","37":"dynamodbv2","38":"model","39":"AttributeValue","40":"com","41":"gu","42":"scanamo","43":"DynamoFormat","44":"ScanamoFree","45":"com","46":"gu","47":"scanamo","48":"error","49":"DynamoReadError","50":"scala","51":"collection","52":"JavaConverters","54":"scala","55":"concurrent","56":"Future","57":"AWS_ACCESS_ID","58":"AWS_SECRET_ACCESS_KEY","59":"AWS_REGION","60":"dynamoDbClient","71":"parallelScan","72":"T","73":"tableName","75":"totalSegments","77":"segment","79":"ft","87":"scanSpec","93":"documentApiClient","96":"table","101":"itemCollection","107":"items","115":"item","116":"attributeValueMap"}}
 import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials}
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
 import com.amazonaws.services.dynamodbv2.document.{

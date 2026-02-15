@@ -1,10 +1,9 @@
 ---
+layout: article
 date: 2019-10-06 17:32:56 +00:00
-layout: post
-summary: The filecmp module has a confusing API, and it just caught me out.
 title: The rough edges of filecmp
-tags:
-  - python
+summary: The filecmp module has a confusing API, and it just caught me out.
+topic: Python
 old_syntax_highlighting: true
 ---
 
@@ -15,10 +14,11 @@ It's a really simple API, and I've been using it this way for years.
 As I was running my scripts, I happened to spot something that looked weird.
 The module was telling me two files were the same, even though they contained different data:
 
-```python
+```pycon {"names":{"1":"path1","2":"path2","3":"filecmp"}}
 >>> path1 = "Semaphore_Golf.svg"
 >>> path2 = "Semaphore_Lima.svg"
 
+>>> import filecmp
 >>> filecmp.cmp(path1, path2)
 True
 
@@ -30,7 +30,7 @@ I went to re-read the docs, and it turns out I'd forgotten a detail -- by defaul
 If that matches, it tells you the files are the same, regardless of the contents.
 If you want an actual byte-for-byte comparison, you need to pass `shallow=False`:
 
-```python
+```pycon
 >>> filecmp.cmp(path1, path2, shallow=False)
 False
 ```
@@ -66,7 +66,7 @@ Even if you do pass an explicit value for `shallow`, it's not so clear which com
 
 I'd prefer an API that's explicit about the comparison:
 
-```python
+```python {"names":{"1":"cmp_path_contents","2":"path1","3":"path2","4":"cmp_stat","5":"path1","6":"path2","7":"cmp_same_file","8":"path1","9":"path2"}}
 def cmp_path_contents(path1, path2):
     """
     Returns True if the files at paths ``path1`` and ``path2``

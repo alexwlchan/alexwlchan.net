@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: How to stream lines from stdout with `subprocess`
 summary: Use `subprocess.Popen()` with `bufsize=1` and `text=True`, then you can interate over the lines with `proc.stdout`.
 date: 2025-05-17 14:50:11 +01:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 I was writing a Python script that shells out to external tool which prints output line-by-line to stdout.
 I wanted my script to read those lines, and then do some follow-up work for each line.
@@ -19,7 +17,7 @@ This allows you to iterate over lines as they're written, rather than waiting fo
 
 Here's an example:
 
-```python
+```python {"names":{"1":"subprocess","2":"args","3":"proc","12":"line"}}
 import subprocess
 
 args = ["yt-dlp", "--get-id", "https://www.youtube.com/watch?list=PLCbA9r6ecYWU6SVyvb32a0YHIzpr9jxnW"]

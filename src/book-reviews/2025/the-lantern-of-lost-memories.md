@@ -24,7 +24,6 @@ colors:
    css_light: '#3c6f54'
    css_dark:  '#f9a5ac'
 
-old_syntax_highlighting: true
 ---
 A sweet little book about an afterlife in a photography studio, where you're shown photos taken from every year of your life, and have to choose one photo per year to make a lantern of your life.
 

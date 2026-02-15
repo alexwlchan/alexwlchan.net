@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 date: 2024-05-27 20:18:39 +01:00
 title: Not all coal is the same
-tags:
-  - trains
-old_syntax_highlighting: true
+topic: The world around us
 ---
 I'd never really thought about it, but it turns out that not all coal is the same.
 This is particularly important for steam locomotives, because different coals may burn differently inside the engine.

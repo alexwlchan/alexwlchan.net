@@ -21,7 +21,6 @@ colors:
    css_light: '#110e0e'
    css_dark:  '#e2474f'
 
-old_syntax_highlighting: true
 ---
 A charming book about some of the smaller, quirkier stores in NYC.
 I bought this on my trip to New York in February 2025, and it's to my shame that I only read it months later from my sofa in the UK, when I'm unable to visit any of these places.

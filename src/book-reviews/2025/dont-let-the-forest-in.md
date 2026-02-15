@@ -25,7 +25,6 @@ colors:
    css_light: '#7f6f56'
    css_dark:  '#d85d56'
 
-old_syntax_highlighting: true
 ---
 A botanical body horror thriller set in a school, with an ace protagonist who's struggling with his feelings for his best friend.
 
