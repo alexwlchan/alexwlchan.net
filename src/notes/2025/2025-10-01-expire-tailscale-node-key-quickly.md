@@ -5,7 +5,6 @@ date: 2025-09-22 09:28:04 +01:00
 date_updated: 2026-02-10 17:47:12 +00:00
 summary: Use `tailscale debug set-expire --in=<duration>`.
 topic: Tailscale
-old_syntax_highlighting: true
 ---
 In normal use, you can't set a node key to expire in less than 1 day, which is annoying if you want to test something quickly.
 (I wanted to test how the client behaves with expired node keys.)

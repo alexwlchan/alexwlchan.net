@@ -22,7 +22,6 @@ colors:
    css_light: '#383c5b'
    css_dark:  '#c6b53c'
 
-old_syntax_highlighting: true
 ---
 Stories of sea creatures and river dwellers from folklore; this book covers a variety of folklore from a wide variety of places (not just the usual Western folklore).
 

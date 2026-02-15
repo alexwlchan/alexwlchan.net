@@ -22,7 +22,6 @@ colors:
    css_light: '#465d68'
    css_dark:  '#fddb69'
 
-old_syntax_highlighting: true
 ---
 A charming queer romance set against the backdrop of a cooking show.
 It's the prequel to [*How You Get the Girl*](/book-reviews/how-you-get-the-girl/), which I read in June.
