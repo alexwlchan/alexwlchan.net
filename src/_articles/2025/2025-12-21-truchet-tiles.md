@@ -1,13 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2025-12-21 18:06:56 +00:00
 title: Drawing Truchet tiles in SVG
 summary: Using parametric templates to draw Truchet tiles, then placing them randomly to create generative patterns.
-tags:
-  - drawing things
-  - generative art
-  - svg
-old_syntax_highlighting: true
+topic: Generative art
 ---
 <style>
   :root {
@@ -814,7 +810,7 @@ Continue until the next layer is empty, or you hit the maximum number of layers 
 
 Here's an implementation of that procedure in JavaScript:
 
-{% code lang="javascript" names="0:getTilePositions 1:columns 2:rows 3:tileSize 4:maxLayers 5:subdivideChance 6:tiles 7:i 11:j 24:layer 28:previousLayer 35:layerTileSize 40:tile" %}
+```javascript {"names":{"1":"getTilePositions","2":"columns","3":"rows","4":"tileSize","5":"maxLayers","6":"subdivideChance","7":"tiles","8":"i","12":"j","25":"layer","29":"previousLayer","36":"layerTileSize","41":"tile"}}
 function getTilePositions({
   columns,
   rows,
@@ -857,14 +853,14 @@ function getTilePositions({
   
   return tiles;
 }
-{% endcode %}
+```
 
 Once we know the positions, we can lay them out in our SVG element.
 
 We need to make sure we scale down smaller tiles to fit, and adjust the position -- remember each Carlson tile only "owns" the red square in the middle, and the wings are meant to spill out of the tile area.
 Here's the code:
 
-{% code lang="javascript" names="0:drawTruchetTiles 1:svg 2:tileTypes 3:tilePositions 4:padding 8:tileName 25:scale 28:adjustment" %}
+```javascript {"names":{"1":"drawTruchetTiles","2":"svg","3":"tileTypes","4":"tilePositions","5":"padding","8":"c","9":"tileName","26":"scale","29":"adjustment"}}
 function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
   tilePositions.forEach(c => {
     // We need to invert the tiles every time we subdivide, so we use
@@ -894,7 +890,7 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
         transform="translate(${adjustment} ${adjustment}) scale(${scale})"/>`;
   });
 }
-{% endcode %}
+```
 
 <script>
   function getTilePositions({

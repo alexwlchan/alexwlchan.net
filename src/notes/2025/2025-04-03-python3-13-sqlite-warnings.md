@@ -1,11 +1,10 @@
 ---
-layout: til
+layout: note
 title: Python 3.13 throws a `ResourceWarning` for SQLite databases that aren't explicitly closed
 date: 2025-04-03 21:37:24 +01:00
-tags:
-  - sqlite
-  - python
-old_syntax_highlighting: true
+topics:
+  - Python
+  - SQLite
 ---
 I was debugging some tests with a colleague today, and they were getting three test failures that I couldn't reproduce locally or in GitHub Actions:
 

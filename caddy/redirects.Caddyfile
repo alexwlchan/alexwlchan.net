@@ -1651,6 +1651,8 @@ redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle
 redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2025/access-nested-fields-in-typeddict/ /notes/2025/access-nested-fields-in-typeddict/ permanent
 redir /til/2025/access-nested-fields-in-typeddict /notes/2025/access-nested-fields-in-typeddict/ permanent
+redir /til/2025/add-str-to-tarfile/ /notes/2025/add-str-to-tarfile/ permanent
+redir /til/2025/add-str-to-tarfile /notes/2025/add-str-to-tarfile/ permanent
 redir /til/2025/airdrop-location/ /notes/2025/airdrop-location/ permanent
 redir /til/2025/airdrop-location /notes/2025/airdrop-location/ permanent
 redir /til/2025/aspect-ratio-slash-is-numeric/ /notes/2025/aspect-ratio-slash-is-numeric/ permanent
@@ -1661,8 +1663,12 @@ redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inact
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
+redir /til/2025/collect-pytest-markers-from-failing-tests/ /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
+redir /til/2025/collect-pytest-markers-from-failing-tests /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
 redir /til/2025/compare-two-files-bash/ /notes/2025/compare-two-files-bash/ permanent
 redir /til/2025/compare-two-files-bash /notes/2025/compare-two-files-bash/ permanent
+redir /til/2025/css-tab-size/ /notes/2025/css-tab-size/ permanent
+redir /til/2025/css-tab-size /notes/2025/css-tab-size/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-handoff-icons-in-dock /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-javascript-in-iframe/ /notes/2025/disable-javascript-in-iframe/ permanent
@@ -1677,6 +1683,8 @@ redir /til/2025/go-stress/ /notes/2025/go-stress/ permanent
 redir /til/2025/go-stress /notes/2025/go-stress/ permanent
 redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
+redir /til/2025/gubernatorial/ /notes/2025/gubernatorial/ permanent
+redir /til/2025/gubernatorial /notes/2025/gubernatorial/ permanent
 redir /til/2025/instagram-avatar-url/ /notes/2025/instagram-avatar-url/ permanent
 redir /til/2025/instagram-avatar-url /notes/2025/instagram-avatar-url/ permanent
 redir /til/2025/list-test-names-in-go/ /notes/2025/list-test-names-in-go/ permanent
@@ -1687,10 +1695,16 @@ redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
 redir /til/2025/poison-centers /notes/2025/poison-centers/ permanent
 redir /til/2025/pygments-html-classes/ /notes/2025/pygments-html-classes/ permanent
 redir /til/2025/pygments-html-classes /notes/2025/pygments-html-classes/ permanent
+redir /til/2025/python3-13-sqlite-warnings/ /notes/2025/python3-13-sqlite-warnings/ permanent
+redir /til/2025/python3-13-sqlite-warnings /notes/2025/python3-13-sqlite-warnings/ permanent
 redir /til/2025/python-3-14/ /notes/2025/python-3-14/ permanent
 redir /til/2025/python-3-14 /notes/2025/python-3-14/ permanent
 redir /til/2025/remove-microsecond-precision-in-python/ /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/remove-microsecond-precision-in-python /notes/2025/remove-microsecond-precision-in-python/ permanent
+redir /til/2025/ruby-range/ /notes/2025/ruby-range/ permanent
+redir /til/2025/ruby-range /notes/2025/ruby-range/ permanent
+redir /til/2025/semaphore-frogs/ /notes/2025/semaphore-frogs/ permanent
+redir /til/2025/semaphore-frogs /notes/2025/semaphore-frogs/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting/ /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/sqlite-functions/ /notes/2025/sqlite-functions/ permanent
@@ -1763,4 +1777,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: KXjaCkPZQo)
+#[[[end]]] (sum: Wv8NfoQvXk)

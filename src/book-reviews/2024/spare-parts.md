@@ -21,7 +21,6 @@ colors:
    css_light: '#445da0'
    css_dark:  '#deebf7'
 
-old_syntax_highlighting: true
 ---
 A chilling and spooky radio drama, showing the origins of the Cybermen on Mondas.
 Even though I knew the premise going in, it was still creepy to listen to it happen -- it wasn't always obvious what was part of the Cybermen plan, and what was part of the beaten-down Mondasian society.

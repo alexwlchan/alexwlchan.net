@@ -1,17 +1,15 @@
 ---
-layout: til
+layout: note
 title: Ruby's range can iterate over more than just numbers
 date: 2025-06-24 04:50:58 +01:00
 summary: You can iterate over a range between two `String` values, because Ruby's `String` does intelligent increments of alphanumeric strings.
-tags:
-  - ruby
-old_syntax_highlighting: true
+topic: Ruby
 ---
 I was writing some Ruby code recently, and in particular I wanted to write some [ranges](https://ruby-doc.org/core-2.5.1/Range.html).
 The basic usage is pretty simple, and matches what I'm used to from other programming languages -- iterate between two numbers:
 
-```irb
-irb(main):001> (1..5).each { |i| puts i.inspect }
+```irb {"names":{"2":"i"}}
+irb(main):001:0> (1..5).each { |i| puts i.inspect }
 1
 2
 3
@@ -29,8 +27,8 @@ But then I discovered that Ruby's `Range` is more flexible than I realised.
 I was getting the start/end of my range as strings, and I thought I'd have to convert them to numbers first.
 I was surprised when my code worked first time, and didn't throw a type error -- Ruby can iterate between two strings, and give you string values between them:
 
-```irb
-irb(main):002> ("1".."5").each { |i| puts i.inspect }
+```irb {"names":{"2":"i"}}
+irb(main):002:0> ("1".."5").each { |i| puts i.inspect }
 "1"
 "2"
 "3"
@@ -41,8 +39,8 @@ irb(main):002> ("1".."5").each { |i| puts i.inspect }
 
 This is clearly something to do with string codepoints -- for example, I can iterate between two ASCII values:
 
-```irb
-irb(main):003> ("a".."e").each { |i| puts i.inspect }
+```irb {"names":{"2":"i"}}
+irb(main):003:0> ("a".."e").each { |i| puts i.inspect }
 "a"
 "b"
 "c"
@@ -53,8 +51,8 @@ irb(main):003> ("a".."e").each { |i| puts i.inspect }
 
 or two UTF-8 values:
 
-```irb
-irb(main):004> ("ç".."ë").each { |i| puts i.inspect }
+```irb {"names":{"2":"i"}}
+irb(main):004:0> ("ç".."ë").each { |i| puts i.inspect }
 "ç"
 "è"
 "é"
@@ -65,8 +63,8 @@ irb(main):004> ("ç".."ë").each { |i| puts i.inspect }
 
 Even more surprising to me, this isn't limited to single characters -- you can also iterate over numeric ranges this way.
 
-```irb
-irb(main):005> ("101".."105").each { |i| puts i.inspect }
+```irb {"names":{"2":"i"}}
+irb(main):005:0> ("101".."105").each { |i| puts i.inspect }
 "101"
 "102"
 "103"

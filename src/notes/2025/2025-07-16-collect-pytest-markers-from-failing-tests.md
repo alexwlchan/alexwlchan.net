@@ -1,12 +1,11 @@
 ---
-layout: til
+layout: note
 title: Collecting pytest markers from failing tests
 summary: You can annotate tests with markers, and using the `pytest_collection_modifyitems` and `pytest_terminal_summary` hooks you can get a list of markers for tests that failed.
 date: 2025-07-16 11:14:50 +01:00
-tags:
-  - python
-  - python:pytest
-old_syntax_highlighting: true
+topics:
+  - Python
+  - Software testing
 ---
 I'm using pytest to monitor some of my websites, and when the tests fail, I want to produce a human-friendly report that describes which pages are down.
 Each test is checking a single website, and a single website may be checked by multiple tests.
@@ -15,7 +14,7 @@ For example, I might have a test that checks a website is up, that it has the ri
 I wanted to annotate my tests [with custom markers][markers], so that I know which website is being checked by a particular test.
 For example, I could mark a test that's checking my blog:
 
-```python
+```python {"names":{"4":"test_my_blog_is_up","5":"resp"}}
 @pytest.mark.blog
 def test_my_blog_is_up():
     resp = httpx.get("https://alexwlchan.net/")
@@ -31,7 +30,7 @@ I was able to do this with a couple of hooks that run at the end of the test.
 
 Here's a simple test suite:
 
-```python
+```python {"names":{"1":"pytest","5":"test_A","9":"test_B"}}
 import pytest
 
 
@@ -57,7 +56,7 @@ markers =
 
 Then the important bit is in `conftest.py`, where I define two hooks:
 
-```python
+```python {"names":{"1":"pytest","2":"test_marks","3":"pytest_collection_modifyitems","4":"items","8":"item","18":"pytest_terminal_summary","19":"terminalreporter","22":"exitstatus","25":"config","30":"report","33":"nodeid","36":"marks"}}
 import pytest
 
 test_marks = {}

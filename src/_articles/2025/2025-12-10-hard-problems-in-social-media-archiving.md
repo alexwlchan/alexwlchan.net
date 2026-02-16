@@ -1,17 +1,15 @@
 ---
-layout: post
+layout: article
 date: 2025-12-10 11:43:25 +00:00
 title: Hard problems in social media archiving
 summary: Preserving social media is easier said than done. What makes it so difficult for institutions to back up the Internet?
 topics:
   - Preserving social media
-  - Tiny archives
 index:
   feature: true
 colors:
   css_light: "#5366ac"
   css_dark:  "#607db9"
-old_syntax_highlighting: true
 ---
 <!-- Social media card image: martin-fisher-5577331_1920.jpg -->
 

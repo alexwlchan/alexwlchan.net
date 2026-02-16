@@ -2709,6 +2709,9 @@
   "/notes/2025/access-nested-fields-in-typeddict/": [
     "/til/2025/access-nested-fields-in-typeddict/"
   ],
+  "/notes/2025/add-str-to-tarfile/": [
+    "/til/2025/add-str-to-tarfile/"
+  ],
   "/notes/2025/airdrop-location/": [
     "/til/2025/airdrop-location/"
   ],
@@ -2724,8 +2727,14 @@
   "/notes/2025/check-if-tailscale-is-running/": [
     "/til/2025/check-tailscale-is-running/"
   ],
+  "/notes/2025/collect-pytest-markers-from-failing-tests/": [
+    "/til/2025/collect-pytest-markers-from-failing-tests/"
+  ],
   "/notes/2025/compare-two-files-bash/": [
     "/til/2025/compare-two-files-bash/"
+  ],
+  "/notes/2025/css-tab-size/": [
+    "/til/2025/css-tab-size/"
   ],
   "/notes/2025/disable-handoff-icons-in-dock/": [
     "/til/2025/disable-handoff-icons-in-dock/"
@@ -2748,6 +2757,9 @@
   "/notes/2025/go-test-verbose/": [
     "/til/2025/go-test-verbose/"
   ],
+  "/notes/2025/gubernatorial/": [
+    "/til/2025/gubernatorial/"
+  ],
   "/notes/2025/instagram-avatar-url/": [
     "/til/2025/instagram-avatar-url/"
   ],
@@ -2763,11 +2775,20 @@
   "/notes/2025/pygments-html-classes/": [
     "/til/2025/pygments-html-classes/"
   ],
+  "/notes/2025/python3-13-sqlite-warnings/": [
+    "/til/2025/python3-13-sqlite-warnings/"
+  ],
   "/notes/2025/python-3-14/": [
     "/til/2025/python-3-14/"
   ],
   "/notes/2025/remove-microsecond-precision-in-python/": [
     "/til/2025/remove-microsecond-precision-in-python/"
+  ],
+  "/notes/2025/ruby-range/": [
+    "/til/2025/ruby-range/"
+  ],
+  "/notes/2025/semaphore-frogs/": [
+    "/til/2025/semaphore-frogs/"
   ],
   "/notes/2025/shutil-copy-files-without-overwriting/": [
     "/til/2025/shutil-copy-files-without-overwriting/"

@@ -21,7 +21,6 @@ colors:
    css_light: '#ab2b33'
    css_dark:  '#a19c9a'
 
-old_syntax_highlighting: true
 ---
 
 Unfortunately, this book didn’t really land. There were interesting ideas, and it’s a story in a universe I like, but neither the characters nor worldbuilding worked for me. I read the entire book in a day, but I’m not sure what happened.

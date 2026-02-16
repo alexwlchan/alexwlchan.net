@@ -21,7 +21,6 @@ colors:
    css_light: '#2d8029'
    css_dark:  '#dddcf9'
 
-old_syntax_highlighting: true
 ---
 The introduction to this book promises some good ideas about the links between queerness and colonialism, but the writing style is so dry and academic that I just bounced off.
 
