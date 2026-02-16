@@ -21,7 +21,6 @@ colors:
    css_light: '#060506'
    css_dark:  '#c6a571'
 
-old_syntax_highlighting: true
 ---
 
 I can't remember how I got this book, and I knew within a few pages it wasn't going to hook me.

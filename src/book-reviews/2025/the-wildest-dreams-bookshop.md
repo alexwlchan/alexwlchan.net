@@ -22,7 +22,6 @@ colors:
    css_light: '#1a63e0'
    css_dark:  '#a9e5fa'
 
-old_syntax_highlighting: true
 ---
 A charming and easy novel, set in a small Cornish village.
 Anna thinks her future is in tatters, and she's staying with her aunt Josie for the summer, helping to run a bookshop.

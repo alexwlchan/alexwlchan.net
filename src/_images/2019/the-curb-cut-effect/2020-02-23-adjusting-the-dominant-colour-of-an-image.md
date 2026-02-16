@@ -1,15 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2020-02-23 20:58:34 +00:00
 title: Adjusting the dominant colour of an image
-tags:
-  - acorn
-  - python
-  - images
-  - colour
-  - drawing things
+topics:
+  - Images and videos
+  - Python
 summary: Adjusting the hue to get different colour variants of the same image.
-old_syntax_highlighting: true
 ---
 
 A week ago, I was at a "book dash" (a collaborative writing event) for [the Turing Way][turing], a book about reproducible data science.
@@ -66,7 +62,8 @@ A couple of people saw me doing it on Thursday, and asked me how, so here's my t
   <details>
   <summary>adjust_hue_in_svg.py</summary>
 
-{% code lang="python" names="0:colorsys 1:functools 2:pathlib 3:re 4:sys 5:adjust_hue 6:match 7:adjustment 8:hex_color_str 12:red 15:green 18:blue 21:hue 22:saturation 23:value 46:svg_path 55:svg_text 58:out_dir 66:color_matches 71:degrees_adjustment 73:new_svg_text 75:out_path" %}
+{% set md %}
+```python {"names":{"1":"colorsys","2":"functools","3":"pathlib","4":"re","5":"sys","6":"adjust_hue","7":"match","8":"adjustment","9":"hex_color_str","14":"red","17":"green","20":"blue","23":"hue","24":"saturation","25":"value","47":"svg_path","55":"svg_text","58":"out_dir","66":"color_matches","71":"degrees_adjustment","73":"new_svg_text","75":"out_path"}}
 import colorsys
 import functools
 import pathlib
@@ -122,7 +119,9 @@ if __name__ == '__main__':
         )
 
         out_path.write_text(new_svg_text)
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
   </details>
   </li>
 </ul>
@@ -141,7 +140,7 @@ With these two tools, I can get an image in a range of different colours:
 Using the hue adjustment means I can find something in the right ballpark to match the rest of my slides.
 I might also tweak the saturation/brightness in an image editor if the shade isn't quite right -- and then I have an image to use in my slide deck.
 
-You can see another example of this technique in the slides for [my curb cut effect talk](/2019/monki-gras-the-curb-cut-effect/).
+You can see another example of this technique in the slides for [my curb cut effect talk](/2019/the-curb-cut-effect/).
 There's a picture of a handle on a purple door, but the [original image](https://pixabay.com/photos/door-handle-doorknob-lock-door-3633943/) had a red door.
 Without a side-by-side comparison, you'd never realise the image had been changed:
 

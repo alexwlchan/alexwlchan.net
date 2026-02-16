@@ -22,7 +22,6 @@ colors:
    css_light: '#a4543e'
    css_dark:  '#ec8563'
 
-old_syntax_highlighting: true
 ---
 
 Voting is a hard problem: how do you come to a group consensus between multiple options? And how do you divide representation between constituencies?

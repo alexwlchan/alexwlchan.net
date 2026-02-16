@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Discard a variable in a JavaScript object spread by assigning it to `_`
 date: 2025-08-28 10:55:29 +01:00
-tags:
-  - javascript
-old_syntax_highlighting: true
+topic: JavaScript
 ---
 I had some code with [spread syntax] where some variables were being captured and used, and others were being saved into a catchall `props` variable.
 
@@ -13,7 +11,7 @@ I could just capture it and not use it, but it might be flagged as an unused var
 
 Here's a simple example, where I capture the `name` variable and discard `lastRoll`:
 
-{% code lang="javascript" names="0:shape 5:name 6:lastRoll 8:diceProps" %}
+```javascript {"names":{"1":"shape","6":"name","7":"lastRoll","9":"diceProps"}}
 const shape = {
   name:     'd20',
   sides:    20,
@@ -28,6 +26,6 @@ console.log(name);
 
 console.log(diceProps);
 // { sides: 20, color: "red" }
-{% endcode %}
+```
 
 [spread syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax

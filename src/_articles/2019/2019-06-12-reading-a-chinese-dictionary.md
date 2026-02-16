@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2019-06-12 07:45:43 +00:00
 title: Reading a Chinese dictionary / 读一本中文字典
 summary: Although paper dictionaries are mostly a thing of the past, knowing how to use a Chinese dictionary helps me learn the rest of the language.
 colors:
   index_light: "#131313"
   index_dark:  "#c4c4c4"
-tags:
-  - languages
-old_syntax_highlighting: true
+topic: The world around us
 ---
 
 <style>

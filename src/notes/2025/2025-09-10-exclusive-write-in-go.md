@@ -1,17 +1,15 @@
 ---
-layout: til
+layout: note
 title: Using Go to write to a file, but only if it doesn't exist yet
 summary: Opening a file with `os.O_CREATE|os.O_EXCL` will ensure you only create the file if it doesn't already exist.
 date: 2025-09-10 15:40:48 +01:00
-tags:
-  - golang
-old_syntax_highlighting: true
+topic: Go
 ---
 In Go, if you want to write to a file, but only if it doesn't exist (an "exclusive write"), you can call [`os.OpenFile`](https://pkg.go.dev/os#OpenFile) with a couple of flags:
 
-{% code lang="go" names="0:f 1:err" %}
+```go {"names":{"1":"f","2":"err"}}
 f, err := os.OpenFile(fname, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0666)
-{% endcode %}
+```
 
 *   [`O_CREATE`](https://pkg.go.dev/os#O_CREATE) will create a new file if one doesn't exist already
 *   [`O_EXCL`](https://pkg.go.dev/os#O_EXCL) means the file must not exist already
@@ -19,7 +17,7 @@ f, err := os.OpenFile(fname, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0666)
 
 Here's an example program:
 
-{% code lang="go" names="0:main 1:main 2:fname 3:f 4:err 28:err" %}
+```go {"names":{"1":"main","2":"main","3":"fname","4":"f","5":"err","28":"err"}}
 package main
 
 import (
@@ -47,7 +45,7 @@ func main() {
 
 	log.Printf("Created file successfully: %s\n", fname)
 }
-{% endcode %}
+```
 
 Here's what happens when you run it:
 

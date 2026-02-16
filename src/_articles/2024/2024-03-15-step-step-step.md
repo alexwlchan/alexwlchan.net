@@ -1,15 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2024-03-15 12:56:46 +00:00
-title: "Monki Gras 2024: Step… Step… Step…"
+title: "Step… Step… Step…"
 summary: Swing dancing and prompt engineering are pretty different. But could learning one help us learn the other?
-tags:
-  - talks
-  - generative ai
+topics:
+  - Systems and software
+  - Talks I've given
 colors:
   css_dark:  "#88FA4E"
   css_light: "#008500"
-old_syntax_highlighting: true
 ---
 Yesterday I gave a talk at [Monki Gras 2024](https://monkigras.com/).
 This year, the theme is *"Prompting Craft: examining and discussing the art of the prompt in code and cultural creation"*.
@@ -32,7 +31,7 @@ This is the key message: *being a good user of AI is about both technical skills
 You need to know the mechanics of prompt engineering, what text you type in the box, yes.
 But you also need to know how much you trust the tool, and whether you can rely on its results -- if you don't, the output is useless.
 
-[curbcut]: /2019/monki-gras-the-curb-cut-effect/
+[curbcut]: /2019/the-curb-cut-effect/
 
 ## What a lovely sense of ~gender~
 

@@ -1,12 +1,10 @@
 ---
+layout: article
 date: 2019-03-03 23:48:31 +00:00
-layout: post
+title: Atomic, cross-filesystem moves in Python
 summary: Explaining some code for moving files around in a way that's atomic and works
   across filesystem boundaries.
-tags:
-  - python
-title: Atomic, cross-filesystem moves in Python
-old_syntax_highlighting: true
+topic: Python
 ---
 
 If you want to move a file around in Python, the standard library gives you at least two options: [os.rename()](https://docs.python.org/3/library/os.html#os.rename) or [shutil.move()](https://docs.python.org/3/library/shutil.html#shutil.move).
@@ -35,7 +33,7 @@ I've had to write code for this a couple of times now, so I'm writing it up here
 If we're copying within the same filesystem, os.rename() gives us everything we need.
 Let's try that first, and only do something different if we get an error:
 
-```python
+```python {"names":{"1":"os","2":"safe_move","3":"src","4":"dst"}}
 import os
 
 
@@ -52,18 +50,16 @@ We should only catch and retry the specific error that comes from copying across
 
 If you try it, this is the error you get:
 
-```pycon
->>> import os
->>> os.rename("/mnt/semele/hello.txt", "/mnt/dionysus/hello.txt")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-OSError: [Errno 18] Cross-device link: '/mnt/semele/hello.txt' -> '/mnt/dionysus/hello.txt'
-```
+<pre class="lng-pycon"><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span>os
+<span class="gp">&gt;&gt;&gt; </span>os<span class="o">.</span>rename<span class="p">(</span><span class="s2">"/mnt/semele/hello.txt"</span><span class="p">,</span> <span class="s2">"/mnt/dionysus/hello.txt"</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gt">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span>
+<span class="gr">OSError: [Errno 18] Cross-device link: '/mnt/semele/hello.txt' -&gt; '/mnt/dionysus/hello.txt'</span></code></pre>
 
 Error code 18 is what we want to retry -- this is a standard Linux error number meaning "invalid cross-device link".
 We can use the [errno library](https://docs.python.org/3/library/errno.html) to get 18 as a named variable that's a little less of a magic number, like so:
 
-```python
+```python {"names":{"1":"errno","2":"safe_move","3":"src","4":"dst","10":"err"}}
 import errno
 
 
@@ -82,7 +78,7 @@ So now we need to decide what "something else" looks like.
 To get the file onto the same filesystem, we can use shutil.move() to put it in the same directory as the intended destination, but with a different filename.
 As a first pass, we might try something like:
 
-```python
+```python {"names":{"1":"shutil","2":"safe_move","3":"src","4":"dst","5":"tmp_dst"}}
 import shutil
 
 
@@ -102,7 +98,7 @@ One process might think it's completed the copy, then rename the file as the oth
 To avoid processes treading on each other's toes, add a unique ID to each copy -- that way they can't overlap.
 Closer to:
 
-```python
+```python {"names":{"1":"uuid","2":"safe_move","3":"src","4":"dst","5":"copy_id","8":"tmp_dst"}}
 import uuid
 
 
@@ -123,7 +119,7 @@ This isn't quite the same problem as that question -- in particular, I don't car
 
 If you just want the code, here's the final version (with comments):
 
-```python
+```python {"names":{"1":"errno","2":"os","3":"shutil","4":"safe_move","5":"src","6":"dst","12":"err","17":"copy_id","20":"tmp_dst"}}
 import errno
 import os
 import shutil

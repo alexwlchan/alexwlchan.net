@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
+date: 2025-09-18 13:27:49 +01:00
 title: Seeing the public node key of a Tailscale node
 summary: Use `tailscale status --self --json` or `tailscale debug netmap`.
-date: 2025-09-18 13:27:49 +01:00
-tags:
-  - tailscale
-old_syntax_highlighting: true
+topic: Tailscale
 ---
 I've been doing some work on [Tailscale key expiry](https://tailscale.com/kb/1028/key-expiry#renewing-keys-for-an-expired-device), in particular renewing keys with `tailscale up --force-reauth`.
 As part of this work, I want to see when a node key has (or hasn't) changed.

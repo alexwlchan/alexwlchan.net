@@ -45,7 +45,7 @@ talks:
 - date: 2019-09-14
   event: PyCon UK 2019
   links:
-    notes: "/2019/monki-gras-the-curb-cut-effect/"
+    notes: "/2019/the-curb-cut-effect/"
     video: https://www.youtube.com/watch?v=-9tqCtf3T9k
   title: The Curb Cut Effect
 - date: 2019-09-13
@@ -85,7 +85,7 @@ talks:
 
   event: 'Monki Gras: Inclusive Craft'
   links:
-    notes: "/2019/monki-gras-the-curb-cut-effect/"
+    notes: "/2019/the-curb-cut-effect/"
     slides: "/files/2019/curbcut-monkigras.pdf"
     video: https://www.youtube.com/watch?v=6Yf3iukx3tQ
   title: The Curb Cut Effect
