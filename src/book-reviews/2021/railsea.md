@@ -5,7 +5,7 @@ date_updated: 2026-02-03T09:22:30.930317+00:00
 book:
   title: Railsea
   contributors:
-  - name: "China Mi\xE9ville"
+  - name: "China Miéville"
   genres:
   - fiction
   - trains
@@ -21,7 +21,6 @@ colors:
    css_light: '#8f560e'
    css_dark:  '#d5821b'
 
-old_syntax_highlighting: true
 ---
 
 This was a recommendation from kaberett, and a gift from Ed.

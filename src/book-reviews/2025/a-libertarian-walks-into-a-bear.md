@@ -21,7 +21,6 @@ colors:
    css_light: '#b74c2c'
    css_dark:  '#f2eee3'
 
-old_syntax_highlighting: true
 ---
 This is a funny and fascinating account of Grafton, a town in New Hampshire which was the site of a political experiment -- an attempt to prove the value of libertarian ideas, by cutting taxes and dismantling all local government.
 The local library, church, fire department, among others, were all slashed in name of freedom.

@@ -23,7 +23,6 @@ colors:
    css_light: '#b12b35'
    css_dark:  '#d5dcea'
 
-old_syntax_highlighting: true
 ---
 
 In-depth account of British spying activities, starting in Vienna after WWII, all the way to the war in Iraq in the early 2000s.

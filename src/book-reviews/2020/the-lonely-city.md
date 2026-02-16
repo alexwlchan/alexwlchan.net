@@ -21,7 +21,6 @@ colors:
    css_light: '#866d98'
    css_dark:  '#c887af'
 
-old_syntax_highlighting: true
 ---
 
 I forget the exact event, but I got my copy of this at a book quiz in Cambridge a couple of years back.

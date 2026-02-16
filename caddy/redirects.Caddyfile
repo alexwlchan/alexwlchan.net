@@ -1654,6 +1654,8 @@ redir /til/2024/simulate-a-readerror-54-connection-reset/ /notes/2024/simulate-a
 redir /til/2024/simulate-a-readerror-54-connection-reset /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
 redir /til/2024/simulate-pipes-with-subprocess /notes/2024/simulate-pipes-with-subprocess/ permanent
+redir /til/2024/sort-dom-elements-with-appendchild/ /notes/2024/sort-dom-elements-with-appendchild/ permanent
+redir /til/2024/sort-dom-elements-with-appendchild /notes/2024/sort-dom-elements-with-appendchild/ permanent
 redir /til/2024/sqlite3-context-manager-doesnt-close-connections/ /notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
 redir /til/2024/sqlite3-context-manager-doesnt-close-connections /notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
 redir /til/2024/take-a-wayback-machine-screenshot/ /notes/2024/take-a-wayback-machine-screenshot/ permanent
@@ -1808,4 +1810,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: hAvmqMix74)
+#[[[end]]] (sum: mCEb8srW9M)

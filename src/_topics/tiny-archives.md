@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: Tiny archives
-old_syntax_highlighting: true
 ---
 
 This is my nickname for my personal collections, from a blog post I wrote in 2024 called [Using static websites for tiny archives][tiny-archives].

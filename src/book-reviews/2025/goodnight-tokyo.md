@@ -23,7 +23,6 @@ colors:
    css_light: '#3c4970'
    css_dark:  '#d45d98'
 
-old_syntax_highlighting: true
 ---
 A collection of short stories set in Tokyo's twilight hours -- a taxi driver who runs a late service, a woman who works in a call centre, or women who run a diner for patrons in the dead of night.
 

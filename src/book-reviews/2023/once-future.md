@@ -24,7 +24,6 @@ colors:
    css_light: '#9a2765'
    css_dark:  '#d494bc'
 
-old_syntax_highlighting: true
 ---
 
 A sci-fi retelling of the Arthurian legend, which we read for ace book club because apparently there's a minor ace character.

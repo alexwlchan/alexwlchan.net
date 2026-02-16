@@ -1,13 +1,12 @@
 ---
+layout: article
 date: 2018-09-05 20:11:59 +00:00
-layout: post
+title: A basic error logger for Python Lambdas
 summary: A snippet to make it a bit easier to debug errors in AWS Lambda functions
   written in Python.
-tags:
-  - aws
-  - python
-  - aws:aws-lambda
-title: A basic error logger for Python Lambdas
+topics:
+  - AWS
+  - Python
 old_syntax_highlighting: true
 ---
 
@@ -18,7 +17,7 @@ This post has a snippet that I wrote to make it easier to debug errors.
 
 As a quick reminder, this is the basic structure of a Lambda:
 
-```python
+```python {"names":{"1":"json","2":"lambda_handler","3":"event","4":"context"}}
 import json
 
 
@@ -36,7 +35,7 @@ The [context object][context] contains some runtime information about the Lambda
 
 When I was first writing Lambdas, I'd log the event so I could see what the trigger was:
 
-```python
+```python {"names":{"1":"lambda_handler","2":"event","3":"context"}}
 def lambda_handler(event, context):
     print('event = %r' % event)
     ...
@@ -51,7 +50,7 @@ This is annoying when I'm trying to debug an error.
 
 So I wrote this snippet, which logs the event if and only if the Lambda throws an exception:
 
-```python
+```python {"names":{"1":"functools","2":"sys","3":"log_event_on_error","4":"handler","8":"wrapper","9":"event","10":"context"}}
 import functools
 import sys
 
@@ -74,7 +73,7 @@ You could also log the context here; I don't because I've yet to find anything u
 To use the decorator, I add `@log_event_on_error` to the handler function.
 Like so:
 
-```python
+```python {"names":{"1":"json","3":"lambda_handler","4":"event","5":"context"}}
 import json
 
 

@@ -21,7 +21,6 @@ colors:
    css_light: '#506840'
    css_dark:  '#faf3a4'
 
-old_syntax_highlighting: true
 ---
 
 A pleasant book of Manx fairy tales. I was vaguely familiar with some of these, and it covers a lot of material – I learnt quite a lot.

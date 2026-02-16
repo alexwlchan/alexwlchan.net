@@ -1,14 +1,12 @@
 ---
-layout: til
+layout: note
 title: Sort a list of DOM elements by sorting and calling `appendChild()`
 date: 2024-01-11 21:52:57 +00:00
-tags:
-  - javascript
-old_syntax_highlighting: true
+topic: JavaScript
 ---
 From [an answer by ahuigo][ahuigo] on Stack Overflow, here's a snippet to sort DOM elements:
 
-```javascript
+```javascript {"names":{"1":"list","7":"a","8":"b","14":"node"}}
 const list = document.querySelector('ul');
 
 [...list.children]
@@ -26,30 +24,32 @@ By calling this on every node in the list, in sorted order, the nodes get moved 
 
 Here's [a table from the MDN docs][sort_comparison] that explains what the custom sort comparison should return, which I always forget:
 
-<blockquote>
-  <table>
-    <thead>
-      <tr>
-        <th><code>compareFn(a, b)</code> return value</th>
-        <th>sort order</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>&gt; 0</td>
-        <td>sort <code>a</code> after <code>b</code>, i.e. <code>[b, a]</code></td>
-      </tr>
-      <tr>
-        <td>&lt; 0</td>
-        <td>sort <code>a</code> before <code>b</code>, i.e. <code>[a, b]</code></td>
-      </tr>
-      <tr>
-        <td>=== 0</td>
-        <td>keep original order of <code>a</code> and <code>b</code></td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<style>
+  @use "components/tables";
+</style>
+
+<table class="block">
+  <thead>
+    <tr>
+      <th><code>compareFn(a, b)</code> return value</th>
+      <th>sort order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;">&gt; 0</td>
+      <td>sort <code>a</code> after <code>b</code>, i.e. <code>[b, a]</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">&lt; 0</td>
+      <td>sort <code>a</code> before <code>b</code>, i.e. <code>[a, b]</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">0</td>
+      <td>keep original order of <code>a</code> and <code>b</code></td>
+    </tr>
+  </tbody>
+</table>
 
 [ahuigo]: https://stackoverflow.com/q/282670/1558022
 [sort_comparison]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort

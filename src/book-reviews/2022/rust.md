@@ -22,7 +22,6 @@ colors:
    css_light: '#86361f'
    css_dark:  '#e5c79f'
 
-old_syntax_highlighting: true
 ---
 
 This is a collection of stories about rust, and in particular the people who deal with it.

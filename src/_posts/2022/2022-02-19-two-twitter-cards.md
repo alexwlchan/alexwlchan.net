@@ -3,13 +3,10 @@ layout: post
 date: 2022-02-19 12:45:19 +00:00
 title: A tale of two Twitter cards
 summary: Some recent changes I've made to fix or improve my Twitter cards.
-tags:
-  - twitter
-  - blogging about blogging
+topic: Blogging about blogging
 colors:
   index_light: "#1d9bf0"
   index_dark:  "#77c8fe"
-old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

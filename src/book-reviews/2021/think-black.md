@@ -22,7 +22,6 @@ colors:
    css_light: '#353535'
    css_dark:  '#f4f4f4'
 
-old_syntax_highlighting: true
 ---
 
 I first heard of this book in a [tweet from Mar Hicks][tweet].

@@ -22,7 +22,6 @@ colors:
    css_light: '#3d74b2'
    css_dark:  '#edc23d'
 
-old_syntax_highlighting: true
 ---
 This is a gentler book about moral philosophy and ethics than most academic texts, and peppered with little jokes and references to *The Good Place*, but still not enough to hold my attention.
 I picked it up because I enjoyed the show, but it turns out I'm not quite interested enough in ethics to read a whole book about it.
