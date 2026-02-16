@@ -97,6 +97,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             "playwright.sync_api",
             "urllib.error",
             "urllib.request",
+            "werkzeug.local",
         ]:
             parts = import_name.split(".")
             dot = '<span class="p">.</span>'

@@ -1,14 +1,11 @@
 ---
-layout: til
+layout: note
 title: What errors can you get from `hyperlink.parse`?
 summary: |
   Mostly you get `hyperlink.URLParseError`, but you can occasionally get a `ValueError` as well.
 date: 2024-10-17 10:32:56 +01:00
 date_updated: 2024-11-27 11:24:15 +00:00
-tags:
-  - python
-  - python:hyperlink
-old_syntax_highlighting: true
+topic: Python
 ---
 I write a lot of code that uses [`hyperlink.parse`](https://pypi.org/project/hyperlink/).
 I want to make sure my code can handle all the exceptions which are thrown by hyperlink, and react accordingly.

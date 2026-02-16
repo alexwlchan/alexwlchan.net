@@ -1,14 +1,10 @@
 ---
-layout: page
+layout: topic
 title: Maths
-old_syntax_highlighting: true
 ---
+I enjoyed maths when I was young, I studied it at university, and at one point I thought this would primarily be a mathematical blog.
+My studies have fallen by the wayside, but the entries below share some of the maths I'm still following.
 
-Between September 2011 and June 2014, I was a maths student at Queens' College, Cambridge.
-I've enjoyed maths for years, and this site started as a place to post some of my lecture notes.
-Now I've graduated, this page serves as a collection of all my mathematical content.
-
-I was the Part II Student Rep to the [Faculty Teaching Committee][tc] for the academic year 2013&ndash;14.
 
 I've posted my [exam advice for maths students](/2015/technical-exams/) (and indeed, any other technical subject).
 
@@ -28,12 +24,6 @@ I include the compiled PDF, and a link to the source code on Github.
 <!-- ## CATAM -->
 
 <!-- My other writing about the Cambridge Maths degree can be found under the [Tripos](http://alexwlchan.net/tag/tripos/) tag. This includes some exam advice for first-year students who are new to Tripos, and for anybody looking for Part&nbsp;II lecture notes to study over the IB&ndash;II summer break. -->
-
-## Essays
-
-I've written a handful of essays on maths at different levels. They're not all online yet.
-
-* <a href="/2013/zero/"><strong>Zero</strong></a>: an essay for a Sixth Form discussion group about the historical and mathematical significance of the number zero, and why it took so long to be accepted as a "real" number.
 
 [latex]: http://www.latex-project.org/
 [groj]: https://www.dpmms.cam.ac.uk/~groj/

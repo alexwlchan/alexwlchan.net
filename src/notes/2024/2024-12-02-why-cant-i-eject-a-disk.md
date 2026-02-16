@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: How can I work out what program is keeping a disk open?
 date: 2024-12-02 08:46:34 +00:00
-tags:
-  - macos
+topic: macOS
 summary: |
   Use `sudo lsof` and grep for the name of the disk you're trying to eject.
-old_syntax_highlighting: true
 ---
 Sometimes when I go to eject a disk on macOS, I can't and the computer won't tell me why:
 

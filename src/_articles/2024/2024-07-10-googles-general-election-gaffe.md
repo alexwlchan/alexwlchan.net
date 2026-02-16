@@ -1,16 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2024-07-10 08:06:34 +00:00
 title: Google is showing outdated results from the UK's election
 summary: |
   Dozens of MPs who were re-elected to their seats are still labelled “former Member of Parliament”, days after the election results.
-tags:
-  - politics
+topic: The world around us
 colors:
   css_light: "#13772f"
   css_dark:  "#b4c492"
 card_attribution: https://www.parliament.uk/globalassets/house-of-commons/hoc-digital/news-story-images/dsc_6286.jpg
-old_syntax_highlighting: true
 ---
 
 Last week, fourteen years of Tory government came to an end with a Labour landslide.

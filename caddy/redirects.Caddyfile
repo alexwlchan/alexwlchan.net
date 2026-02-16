@@ -247,8 +247,6 @@ redir /2016/10/the-a-stands-for-asexual/ /2016/the-a-stands-for-asexual/ permane
 redir /2016/10/the-a-stands-for-asexual /2016/the-a-stands-for-asexual/ permanent
 redir /2016/10/tiling-the-plane-with-pillow/ /2016/tiling-the-plane-with-pillow/ permanent
 redir /2016/10/tiling-the-plane-with-pillow /2016/tiling-the-plane-with-pillow/ permanent
-redir /2016/06/toothbrush-subscriptions/ /2016/toothbrush-subscriptions/ permanent
-redir /2016/06/toothbrush-subscriptions /2016/toothbrush-subscriptions/ permanent
 redir /2016/09/travelling-tech-bag/ /2016/travelling-tech-bag/ permanent
 redir /2016/09/travelling-tech-bag /2016/travelling-tech-bag/ permanent
 redir /2016/10/wallpapers-with-pillow/ /2016/wallpapers-with-pillow/ permanent
@@ -265,10 +263,6 @@ redir /2017/11/asking-about-gender/ /2017/asking-about-gender/ permanent
 redir /2017/11/asking-about-gender /2017/asking-about-gender/ permanent
 redir /2017/07/backing-up-pinboard-archives/ /2017/backing-up-pinboard-archives/ permanent
 redir /2017/07/backing-up-pinboard-archives /2017/backing-up-pinboard-archives/ permanent
-redir /2017/02/backup-your-goodreads/ /2017/backup-your-goodreads/ permanent
-redir /2017/02/backup-your-goodreads /2017/backup-your-goodreads/ permanent
-redir /2017/02/backup-your-instapaper/ /2017/backup-your-instapaper/ permanent
-redir /2017/02/backup-your-instapaper /2017/backup-your-instapaper/ permanent
 redir /2017/12/building-your-repo/ /2017/building-your-repo/ permanent
 redir /2017/12/building-your-repo /2017/building-your-repo/ permanent
 redir /2017/10/control-centre/ /2017/control-centre/ permanent
@@ -506,8 +500,6 @@ redir /2019/12/yaml-impossible/ /2019/yaml-impossible/ permanent
 redir /2019/12/yaml-impossible /2019/yaml-impossible/ permanent
 redir /2020/10/a-new-readme-for-docstore/ /2020/a-new-readme-for-docstore/ permanent
 redir /2020/10/a-new-readme-for-docstore /2020/a-new-readme-for-docstore/ permanent
-redir /2020/02/a-remote-controlled-oven-is-a-safety-nightmare/ /2020/a-remote-controlled-oven-is-a-safety-nightmare/ permanent
-redir /2020/02/a-remote-controlled-oven-is-a-safety-nightmare /2020/a-remote-controlled-oven-is-a-safety-nightmare/ permanent
 redir /2020/10/a-sprinkling-of-azure/ /2020/a-sprinkling-of-azure/ permanent
 redir /2020/10/a-sprinkling-of-azure /2020/a-sprinkling-of-azure/ permanent
 redir /2020/03/adding-non-breaking-spaces-with-jekyll/ /2020/adding-non-breaking-spaces-with-jekyll/ permanent
@@ -1585,12 +1577,18 @@ redir /til/2024/create-a-directory-first/ /notes/2024/create-a-directory-first/ 
 redir /til/2024/create-a-directory-first /notes/2024/create-a-directory-first/ permanent
 redir /til/2024/create-a-sticky-bottom-footer/ /notes/2024/create-a-sticky-bottom-footer/ permanent
 redir /til/2024/create-a-sticky-bottom-footer /notes/2024/create-a-sticky-bottom-footer/ permanent
+redir /til/2024/current-user-equals-none/ /notes/2024/current-user-equals-none/ permanent
+redir /til/2024/current-user-equals-none /notes/2024/current-user-equals-none/ permanent
 redir /til/2024/custom-error-pages-in-flask/ /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/custom-error-pages-in-flask /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/debugging-find-and-xargs/ /notes/2024/debugging-find-and-xargs/ permanent
 redir /til/2024/debugging-find-and-xargs /notes/2024/debugging-find-and-xargs/ permanent
+redir /til/2024/detect-tty-in-rust/ /notes/2024/detect-tty-in-rust/ permanent
+redir /til/2024/detect-tty-in-rust /notes/2024/detect-tty-in-rust/ permanent
 redir /til/2024/diagonal-new-banner/ /notes/2024/diagonal-new-banner/ permanent
 redir /til/2024/diagonal-new-banner /notes/2024/diagonal-new-banner/ permanent
+redir /til/2024/dollar-underscore-bash/ /notes/2024/dollar-underscore-bash/ permanent
+redir /til/2024/dollar-underscore-bash /notes/2024/dollar-underscore-bash/ permanent
 redir /til/2024/errexit-and-arithmetic-expressions/ /notes/2024/errexit-and-arithmetic-expressions/ permanent
 redir /til/2024/errexit-and-arithmetic-expressions /notes/2024/errexit-and-arithmetic-expressions/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil/ /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
@@ -1607,6 +1605,8 @@ redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/gracefully-restart-a-gunicorn-app/ /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
 redir /til/2024/gracefully-restart-a-gunicorn-app /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
+redir /til/2024/hyperlink-errors/ /notes/2024/hyperlink-errors/ permanent
+redir /til/2024/hyperlink-errors /notes/2024/hyperlink-errors/ permanent
 redir /til/2024/whats-inside-safari-webarchive/ /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/whats-inside-safari-webarchive /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
@@ -1651,6 +1651,8 @@ redir /til/2024/verbose-deletions-with-rm/ /notes/2024/verbose-deletions-with-rm
 redir /til/2024/verbose-deletions-with-rm /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2025/rm-verbose/ /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2025/rm-verbose /notes/2024/verbose-deletions-with-rm/ permanent
+redir /til/2024/why-cant-i-eject-a-disk/ /notes/2024/why-cant-i-eject-a-disk/ permanent
+redir /til/2024/why-cant-i-eject-a-disk /notes/2024/why-cant-i-eject-a-disk/ permanent
 redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2025/access-nested-fields-in-typeddict/ /notes/2025/access-nested-fields-in-typeddict/ permanent
@@ -1767,4 +1769,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: HKzlRwm+ka)
+#[[[end]]] (sum: E1ki0F9Okg)

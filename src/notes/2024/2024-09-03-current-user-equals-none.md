@@ -1,18 +1,15 @@
 ---
-layout: til
+layout: note
 title: With Flask-Login, you want `current_user == None`, not `current_user is None`
 summary: "`current_user` is a proxy object that happens to be wrapping `None`, but isn't actually `None`."
 date: 2024-09-03 10:23:25 +01:00
-tags:
-  - python
-  - flask
-old_syntax_highlighting: true
+topic: Python
 ---
 I was writing some code that uses Flask-Login, and I wanted to test the scenario where a user wasn't logged in.
 
 I get the value of `current_user`, and it's `None`:
 
-```pycon
+```pycon {"names":{"1":"flask_login","2":"current_user"}}
 >>> from flask_login import current_user
 >>> current_user
 None
@@ -32,7 +29,7 @@ Hmm.
 
 If you look at [how Flask-Login works](https://github.com/maxcountryman/flask-login/blob/2ad14589b1022462db298133063b291459b71782/src/flask_login/utils.py#L23-L25), you see that `current_user` is defined as a `LocalProxy` that wraps the `_get_user()` function:
 
-```python
+```python {"names":{"1":"werkzeug","2":"local","3":"LocalProxy","4":"current_user"}}
 from werkzeug.local import LocalProxy
 
 ...
@@ -47,7 +44,7 @@ The [Werkzeug docstring](https://github.com/pallets/werkzeug/blob/5add63c955131f
 
 In particular, the wrapper is equal to `None` but not identical to it:
 
-```pycon
+```pycon {"names":{"1":"p"}}
 >>> p = LocalProxy(lambda: None)
 >>> p
 None

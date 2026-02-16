@@ -1,17 +1,15 @@
 ---
-layout: post
+layout: article
 date: 2024-08-26 10:06:14 +00:00
 title: Mountaintop moments
 summary:
   The amazing events that let us temporarily escape from our lives, and how to deal with the emotional crash that comes afterward.
-tags:
-  - personal
+topic: Personal thoughts
 colors:
   css_light: "#0c59c6"
   css_dark:  "#599dfc"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 Last weekend, I was in Edinburgh for the Fringe, and I'm so glad I went.
 I met new people, hung out with some Internet friends in-person, and saw some great theatre.

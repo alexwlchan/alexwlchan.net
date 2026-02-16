@@ -265,7 +265,13 @@ I hope you like it!
       <li>
         {% inline_svg filename="icons/floppy_disk.svg" class="dark_aware" %}
         <span>
-          <a href="/digital-preservation/">Digital preservation</a> and <a href="/digital-preservation/tiny-archives/">Tiny archives</a>
+          <a href="/digital-preservation/">Digital preservation</a>
+        </span>
+      </li>
+      <li>
+        {% inline_svg filename="icons/floppy_disk.svg" class="dark_aware" %}
+        <span>
+          <a href="/inclusion/">Inclusion and accessibility</a>
         </span>
       </li>
       <li>

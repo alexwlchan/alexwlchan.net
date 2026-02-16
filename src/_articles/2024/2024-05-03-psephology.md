@@ -1,17 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2024-05-03 09:11:21 +00:00
 title: What is psephology?
 summary: |
   It's the scientific study of elections and voting, and it comes from the Greek word for "pebble", because pebbles were used for voting in ancient Greece.
-tags:
-  - politics
-  - interesting words
-  - history
+topic: Interesting words
 colors:
   css_light: "#b26036"
   css_dark:  "#f59a53"
-old_syntax_highlighting: true
 ---
 Yesterday there were local elections in the UK, and this morning I've been catching up on the news.
 As I was reading Yohannes Lowe's live coverage in the Guardian, I [spotted a word I didn't recognise][guardian] (emphasis mine):

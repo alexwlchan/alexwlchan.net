@@ -1,19 +1,18 @@
 ---
+layout: article
 date: 2017-09-18 18:45:00 +01:00
-layout: post
 summary: A couple of Git commands that I find useful in builds and CI.
-tags:
-  - git
-  - builds and ci
+topics:
+  - Git
+  - Builds and CI
 title: Some useful Git commands for CI
-old_syntax_highlighting: true
 ---
 
 I spend a lot of time writing build scripts for interacting with Git repos.
 But Git's documentation is notoriously opaque, and a lot of my Git knowledge comes from word-of-mouth rather than reading the docs.
 In that spirit of sharing, these are few of the Git commands I find useful when writing build scripts.
 
-<br/>
+---
 
 ```console
 $ git rev-parse --show-toplevel
@@ -31,7 +30,7 @@ Some examples of how I use this:
 *   To refer to specific files in a repo within build scripts
 *   To open a repo in my text editor or Git client, but from anywhere in the tree
 
-<br/>
+---
 
 ```console
 $ git rev-parse --show-prefix
@@ -45,7 +44,7 @@ I don't have a use for this yet, but I feel like it's bound to come in handy.
 
 [grp]: https://git-scm.com/docs/git-rev-parse
 
-<br/>
+---
 
 ```console
 $ git diff --exit-code
@@ -87,7 +86,7 @@ This is a pattern I originally read in [the Hypothesis Makefile][hypmake].
 [scalafmt]: https://scalameta.org/scalafmt/
 [pyformat]: https://pypi.org/project/pyformat/
 
-<br/>
+---
 
 ```console
 $ git diff --name-only
@@ -123,7 +122,7 @@ On its own, this command isn't very useful -- it's when you wrap your own logic 
 [plat_deploy]: https://github.com/wellcometrust/platform/blob/b34d5fc1635d0471fed2244015ef0f3e4e3445ef/.travis.yml#L48
 [hyp]: https://github.com/HypothesisWorks/hypothesis-python/blob/b697947e5df52d75f78f9dc93d3f858c659b0555/scripts/check-release-file.py
 
-<br/>
+---
 
 ```console
 $ git merge-base --is-ancestor master my-branch; echo $?
@@ -165,7 +164,7 @@ This opens the door for mistakes and confusion -- so we can use `--is-ancestor` 
 
 In this case, a deployment from <em>other-branch</em> would be rejected until we'd rebased against master.
 
-<br/>
+---
 
 I use all of these commands on a regular basis, but I bet there are others I'm missing.
 What Git commands do you find indispensable?

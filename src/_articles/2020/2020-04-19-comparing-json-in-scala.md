@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-04-19 12:43:43 +00:00
 title: Comparing JSON strings when testing in Scala
 summary: There are lots of ways to format JSON. How do you know if two JSON strings have the same data, just differently formatted?
-tags:
-  - scala
-old_syntax_highlighting: true
+topic: Scala
 ---
 
 For my day job, I write APIs that return JSON responses.
@@ -35,7 +33,7 @@ This presents a problem:
 
 We've written a trait that gives us some assertion helpers for comparing JSON in tests:
 
-```scala
+```scala {"names":{"1":"io","2":"circe","3":"Json","4":"io","5":"circe","6":"parser","8":"JsonAssertions","9":"assertJsonStringsAreEqual","10":"json1","12":"json2","15":"tree1","18":"tree2","24":"assertJsonStringsDiffer","25":"json1","27":"json2","30":"tree1","33":"tree2","39":"parseOrElse","40":"jsonString","43":"json","46":"failure"}}
 import io.circe.Json
 import io.circe.parser._
 
@@ -73,7 +71,7 @@ You can find that version [in our scala-json repo](https://github.com/wellcomeco
 
 These assertions allow us to write our tests with literal JSON strings as the expected output:
 
-```scala
+```scala {"names":{"1":"Shape","2":"name","4":"sides","6":"triangle","10":"expectedJson"}}
 case class Shape(name: String, sides: Int)
 val triangle = Shape(name = "triangle", sides = 3)
 

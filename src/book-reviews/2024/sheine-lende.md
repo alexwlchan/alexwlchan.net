@@ -20,7 +20,6 @@ colors:
    css_light: '#943a33'
    css_dark:  '#f5d775'
 
-old_syntax_highlighting: true
 ---
 The prequel to [*Elatsoe*](/book-reviews/elatsoe/), which was one of my favourites last year.
 It captures all the magic of the original, with the fun new mechanic of "mimic rings".

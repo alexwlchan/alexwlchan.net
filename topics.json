@@ -145,6 +145,11 @@
     "parent": "Digital preservation"
   },
   {
+    "name": "Flickr Foundation",
+    "href": "/digital-preservation/flickr-foundation/",
+    "parent": "Digital preservation"
+  },
+  {
     "name": "Computers",
     "href": "/computers/"
   },
@@ -203,5 +208,13 @@
   {
     "name": "Talks I've given",
     "href": "/talks/"
+  },
+  {
+    "name": "Inclusion and accessibility",
+    "href": "/inclusion/"
+  },
+  {
+    "name": "Maths",
+    "href": "/maths/"
   }
 ]

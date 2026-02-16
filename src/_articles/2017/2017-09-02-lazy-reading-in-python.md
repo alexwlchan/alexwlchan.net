@@ -1,13 +1,11 @@
 ---
+layout: article
 date: 2017-09-02 17:34:00 +00:00
-layout: post
 link: https://github.com/alexwlchan/lazyreader
 summary: I wrote a small Python module for lazy file reading, ideal for efficient
   batch processing.
-tags:
-  - python
+topic: Python
 title: A Python module for lazy reading of file objects
-old_syntax_highlighting: true
 ---
 
 At work, we often pass data around via large files kept in Amazon S3 -- XML exports from legacy applications, large log files, JSON dumps of Elasticsearch indexes -- that sort of thing.
@@ -20,7 +18,7 @@ We only need to hold a single record in memory at a time, not the whole file.
 Python can do efficient line-by-line processing of local files.
 The following code only reads a line at a time:
 
-```python
+```python {"names":{"2":"f"}}
 with open('very-long-file.txt') as f:
     for line in f:
         do_stuff_with(line)
@@ -30,7 +28,7 @@ This is more efficient, and usually results in faster code -- but you can only d
 You need a different wrapper if you want to do this for files in S3, or use a different delimiter -- and that's what this module does.
 It goes like this:
 
-```python
+```python {"names":{"1":"boto3","2":"lazyreader","3":"lazyread","4":"s3","7":"s3_object","12":"body","14":"doc"}}
 import boto3
 from lazyreader import lazyread
 

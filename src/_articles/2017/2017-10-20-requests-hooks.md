@@ -1,16 +1,13 @@
 ---
+layout: article
 date: 2017-10-20 17:11:59 +00:00
-layout: post
 summary: I often have code I want to run against every HTTP response (logging, error
   checking) --- event hooks give me a nice way to do that without repetition.
-tags:
-  - python
-  - python:requests
+topic: Python
 title: Using hooks for custom behaviour in requests
 colors:
   index_light: "#79451e"
   index_dark:  "#b3814e"
-old_syntax_highlighting: true
 ---
 
 <!-- Index image from https://pixnio.com/objects/screw/wood-screw-hooks-white-metal-steel# -->
@@ -18,20 +15,20 @@ old_syntax_highlighting: true
 Recently I've been writing a lot of scripts with [python-requests][requests] to interact with a new API.
 It starts off with a simple GET request:
 
-```python
+```python {"names":{"1":"resp"}}
 resp = requests.get('http://example.com/api/v1/assets', params={...})
 ```
 
 I want to make sure that the request succeeded before I carry on, so I [throw an exception][raise_for_status] if I got an error responses:
 
-```python
+```python {"names":{"1":"resp"}}
 resp = requests.get('http://example.com/api/v1/assets', params={...})
 resp.raise_for_status()
 ```
 
 If I get an error, the server response may contain useful debugging information, so let's log that as well (and actually, logging it might be generally useful):
 
-```python
+```python {"names":{"1":"resp"}}
 resp = requests.get('http://example.com/api/v1/assets', params={...})
 
 try:
@@ -62,7 +59,7 @@ In this post, I'll show you some simple examples of hooks that I'm already using
 A hook function takes a Response object, and some number of args and kwargs.
 For example, if we wanted a hook function that called `raise_for_status` on every response, this is what we'd write:
 
-```python
+```python {"names":{"1":"check_for_errors","2":"resp","3":"args","4":"kwargs"}}
 def check_for_errors(resp, *args, **kwargs):
     resp.raise_for_status()
 ```
@@ -80,7 +77,7 @@ requests.get(
 If you want to call multiple hooks, you can also provide a list of functions.
 For example:
 
-```python
+```python {"names":{"1":"print_resp_url","2":"resp","3":"args","4":"kwargs"}}
 def print_resp_url(resp, *args, **kwargs):
     print(resp.url)
 
@@ -103,7 +100,7 @@ Using the Session API is very similar to the functional API --- you create a `Se
 (In fact, the functional API uses sessions [under the hood][hood].)
 For example:
 
-```python
+```python {"names":{"1":"sess"}}
 sess = requests.Session()
 
 sess.get(
@@ -122,7 +119,7 @@ print(sess.hooks)
 
 So instead, we add them after we've created the `Session` object:
 
-```python
+```python {"names":{"1":"sess"}}
 sess = requests.Session()
 sess.hooks['response'] = [print_resp_url, check_for_errors]
 
@@ -142,7 +139,7 @@ Win!
 
 I've already shown you two examples of hooks I've written: one to check for errors, another to log the responses.
 
-```python
+```python {"names":{"1":"check_for_error","2":"resp","3":"args","4":"kwargs","7":"log_response_text","8":"resp","9":"args","10":"kwargs"}}
 def check_for_error(resp, *args, **kwargs):
     resp.raise_for_status()
 

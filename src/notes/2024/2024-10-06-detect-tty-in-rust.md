@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: Use `std::io::IsTerminal` to detect if you're running in the terminal in Rust
 summary: This allows me to suppress ANSI escape codes if the output is going somewhere other than the terminal.
 date: 2024-10-06 10:58:31 +01:00
-tags:
-  - rust
-old_syntax_highlighting: true
+topic: Rust
 ---
 In my [`dominant_colours` tool](https://github.com/alexwlchan/dominant_colours), I use ANSI escape sequences to print coloured text to the console.
 I to detect if my code was running in the terminal, or if it was running in a non-terminal environment where those escape codes would be unhelpful (e.g. being redirected to a file).
@@ -13,7 +11,7 @@ I to detect if my code was running in the terminal, or if it was running in a no
 I found a [Stack Overflow answer](https://stackoverflow.com/a/76979724/1558022) that suggested using [`std::io::IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html), which worked perfectly.
 Here's a simple example:
 
-```rust
+```rust {"names":{"1":"std","2":"io","3":"IsTerminal","4":"main"}}
 use std::io::IsTerminal;
 
 fn main() {

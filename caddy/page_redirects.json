@@ -279,9 +279,6 @@
   "/2016/tiling-the-plane-with-pillow/": [
     "/2016/10/tiling-the-plane-with-pillow/"
   ],
-  "/2016/toothbrush-subscriptions/": [
-    "/2016/06/toothbrush-subscriptions/"
-  ],
   "/2016/travelling-tech-bag/": [
     "/2016/09/travelling-tech-bag/"
   ],
@@ -305,12 +302,6 @@
   ],
   "/2017/backing-up-pinboard-archives/": [
     "/2017/07/backing-up-pinboard-archives/"
-  ],
-  "/2017/backup-your-goodreads/": [
-    "/2017/02/backup-your-goodreads/"
-  ],
-  "/2017/backup-your-instapaper/": [
-    "/2017/02/backup-your-instapaper/"
   ],
   "/2017/building-your-repo/": [
     "/2017/12/building-your-repo/"
@@ -660,9 +651,6 @@
   ],
   "/2020/a-new-readme-for-docstore/": [
     "/2020/10/a-new-readme-for-docstore/"
-  ],
-  "/2020/a-remote-controlled-oven-is-a-safety-nightmare/": [
-    "/2020/02/a-remote-controlled-oven-is-a-safety-nightmare/"
   ],
   "/2020/a-sprinkling-of-azure/": [
     "/2020/10/a-sprinkling-of-azure/"
@@ -2612,14 +2600,23 @@
   "/notes/2024/create-a-sticky-bottom-footer/": [
     "/til/2024/create-a-sticky-bottom-footer/"
   ],
+  "/notes/2024/current-user-equals-none/": [
+    "/til/2024/current-user-equals-none/"
+  ],
   "/notes/2024/custom-error-pages-in-flask/": [
     "/til/2024/custom-error-pages-in-flask/"
   ],
   "/notes/2024/debugging-find-and-xargs/": [
     "/til/2024/debugging-find-and-xargs/"
   ],
+  "/notes/2024/detect-tty-in-rust/": [
+    "/til/2024/detect-tty-in-rust/"
+  ],
   "/notes/2024/diagonal-new-banner/": [
     "/til/2024/diagonal-new-banner/"
+  ],
+  "/notes/2024/dollar-underscore-bash/": [
+    "/til/2024/dollar-underscore-bash/"
   ],
   "/notes/2024/errexit-and-arithmetic-expressions/": [
     "/til/2024/errexit-and-arithmetic-expressions/"
@@ -2644,6 +2641,9 @@
   ],
   "/notes/2024/gracefully-restart-a-gunicorn-app/": [
     "/til/2024/gracefully-restart-a-gunicorn-app/"
+  ],
+  "/notes/2024/hyperlink-errors/": [
+    "/til/2024/hyperlink-errors/"
   ],
   "/notes/2024/inside-a-safari-webarchive/": [
     "/til/2024/whats-inside-safari-webarchive/"
@@ -2708,6 +2708,9 @@
   "/notes/2024/verbose-deletions-with-rm/": [
     "/til/2024/verbose-deletions-with-rm/",
     "/til/2025/rm-verbose/"
+  ],
+  "/notes/2024/why-cant-i-eject-a-disk/": [
+    "/til/2024/why-cant-i-eject-a-disk/"
   ],
   "/notes/2024/write-to-middle-of-file-with-python/": [
     "/til/2024/write-to-middle-of-file-with-python/"

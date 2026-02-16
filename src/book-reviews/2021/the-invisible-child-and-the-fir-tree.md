@@ -21,6 +21,5 @@ colors:
    css_light: '#bb3f40'
    css_dark:  '#fbfaed'
 
-old_syntax_highlighting: true
 ---
 

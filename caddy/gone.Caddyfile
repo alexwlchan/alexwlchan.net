@@ -73,11 +73,43 @@ handle /2015/python-firewall/ {
 	error 410
 }
 
+handle /2016/06/toothbrush-subscriptions/ {
+	error 410
+}
+
+handle /2016/toothbrush-subscriptions/ {
+	error 410
+}
+
+handle /2017/02/backup-your-goodreads/ {
+	error 410
+}
+
+handle /2017/02/backup-your-instapaper/ {
+	error 410
+}
+
+handle /2017/backup-your-goodreads/ {
+	error 410
+}
+
+handle /2017/backup-your-instapaper/ {
+	error 410
+}
+
 handle /2019/08/removing-the-drm-from-my-kindle-books/ {
 	error 410
 }
 
 handle /2019/removing-the-drm-from-my-kindle-books/ {
+	error 410
+}
+
+handle /2020/02/a-remote-controlled-oven-is-a-safety-nightmare/ {
+	error 410
+}
+
+handle /2020/a-remote-controlled-oven-is-a-safety-nightmare/ {
 	error 410
 }
 
@@ -141,4 +173,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: bvbemjjxkg)
+#[[[end]]] (sum: I8yrYv2kDK)
