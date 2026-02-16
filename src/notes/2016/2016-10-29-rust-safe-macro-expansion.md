@@ -4,7 +4,6 @@ title: Rust macros are smarter than just text substitution
 summary: This is a safety feature that prevents macros expanding in an unexpected way.
 date: 2016-10-29 08:22:54 +00:00
 topic: Rust
-old_syntax_highlighting: true
 ---
 ## The footgun in C macros
 

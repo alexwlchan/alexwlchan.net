@@ -70,8 +70,6 @@ redir /2013/03/pinboard-backups/ /2013/pinboard-backups/ permanent
 redir /2013/03/pinboard-backups /2013/pinboard-backups/ permanent
 redir /blog/2013/03/pinboard-backups/ /2013/pinboard-backups/ permanent
 redir /blog/2013/03/pinboard-backups /2013/pinboard-backups/ permanent
-redir /2013/11/textmate-quick-look/ /2013/textmate-quick-look/ permanent
-redir /2013/11/textmate-quick-look /2013/textmate-quick-look/ permanent
 redir /2013/03/timezone-bug/ /2013/timezone-bug/ permanent
 redir /2013/03/timezone-bug /2013/timezone-bug/ permanent
 redir /2013/08/untagged-tumblr-posts/ /2013/untagged-tumblr-posts/ permanent
@@ -310,8 +308,6 @@ redir /2017/10/tweets-in-keynote/ /2017/tweets-in-keynote/ permanent
 redir /2017/10/tweets-in-keynote /2017/tweets-in-keynote/ permanent
 redir /2017/09/useful-git-commands/ /2017/useful-git-commands/ permanent
 redir /2017/09/useful-git-commands /2017/useful-git-commands/ permanent
-redir /2018/04/24-hours/ /2018/24-hours/ permanent
-redir /2018/04/24-hours /2018/24-hours/ permanent
 redir /2018/03/a-plumbers-guide-to-git/ /2018/a-plumbers-guide-to-git/ permanent
 redir /2018/03/a-plumbers-guide-to-git /2018/a-plumbers-guide-to-git/ permanent
 redir /2018/11/aberdulais-waterfall/ /2018/aberdulais-waterfall/ permanent
@@ -332,8 +328,6 @@ redir /2018/09/content-warnings/ /2018/content-warnings/ permanent
 redir /2018/09/content-warnings /2018/content-warnings/ permanent
 redir /2018/03/continuous-releases/ /2018/continuous-releases/ permanent
 redir /2018/03/continuous-releases /2018/continuous-releases/ permanent
-redir /2018/08/do-not-distract-while-driving/ /2018/do-not-distract-while-driving/ permanent
-redir /2018/08/do-not-distract-while-driving /2018/do-not-distract-while-driving/ permanent
 redir /2018/01/downloading-sqs-queues/ /2018/downloading-sqs-queues/ permanent
 redir /2018/01/downloading-sqs-queues /2018/downloading-sqs-queues/ permanent
 redir /2018/09/error-logging-in-lambdas/ /2018/error-logging-in-lambdas/ permanent
@@ -1824,4 +1818,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: Jr2DFmRk/a)
+#[[[end]]] (sum: wtOAXn4Fik)

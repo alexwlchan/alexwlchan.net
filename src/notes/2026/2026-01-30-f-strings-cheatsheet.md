@@ -5,7 +5,6 @@ date: 2026-01-30 07:47:30 +00:00
 summary:
   Some Python f-string examples that I find helpful.
 topic: Python
-old_syntax_highlighting: true
 ---
 This is a collection of Python f-string (["formatted string"][pydoc-fstring]) examples that I find helpful but don't always remember.
 

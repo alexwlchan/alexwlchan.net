@@ -22,7 +22,6 @@ colors:
    css_light: '#d00d13'
    css_dark:  '#ecdfc8'
 
-old_syntax_highlighting: true
 ---
 Really interesting book about how checklists are used as a tool in various industries (construction, aviation, finance) and a surgeon attempting to get them introduced in medicine.
 

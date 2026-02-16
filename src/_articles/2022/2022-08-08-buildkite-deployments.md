@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2022-08-08 07:49:39 +00:00
 title: How to customise the title of Buildkite builds triggered from GitHub deployments
 summary: Getting a more descriptive build label than 'Deployment'.
-tags:
-  - builds and ci
-  - buildkite
-old_syntax_highlighting: true
+topic: Builds and CI
 ---
 
 At work, we use [Buildkite] for all our continuous testing and deployment, including the Wellcome Collection website.

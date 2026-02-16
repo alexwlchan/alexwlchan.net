@@ -1,17 +1,15 @@
 ---
-layout: post
+layout: article
 date: 2023-02-13 07:28:36 +00:00
 title: A Python function to iterate through an S3 Bucket Inventory
 summary: Getting something that looks more like the output of the ListObjectsV2 API.
-tags:
-  - aws:amazon s3
-  - python
-  - aws
+topics:
+  - AWS
+  - Python
 colors:
   index_light: "#117A06"
   index_dark:  "#4cdf0a"
 card_attribution: https://unsplash.com/photos/ND-5eIFKeiM
-old_syntax_highlighting: true
 ---
 
 For a couple of our S3 buckets at work, we use [S3 Bucket Inventory][awsdocs] to track their contents.
@@ -40,7 +38,7 @@ Maybe the inventory files reflect an internal sharding scheme?)
 Several times now, I've written a Python function to traverse this structure -- you give it the location of the manifest file, then it goes and pulls records from the individual inventory files.
 It allows me to iterate through the contents of the bucket in a similar way to using a `List` API:
 
-```python
+```python {"names":{"1":"pprint","2":"pprint","3":"sess","6":"s3_obj"}}
 from pprint import pprint
 
 sess = boto3.Session()
@@ -55,7 +53,7 @@ for s3_obj in list_bucket_inventory_contents(
 
 which gives a generator of Python objects like:
 
-```
+```python
 {'Bucket': 'wellcomecollection-storage-staging',
  'ETag': '0eb219d63a49891825d5f73a0062158a',
  'IsDeleteMarker': False,
@@ -73,7 +71,7 @@ It's not a complicated function, just a bit fiddly.
 To save me writing it from scratch again, I've saved it below, so I can just copy/paste it into my next project.
 If it'd be helpful to you, feel free to do the same.
 
-```python
+```python {"names":{"1":"datetime","2":"csv","3":"gzip","4":"json","5":"boto3","6":"list_bucket_inventory_contents","7":"sess","8":"bucket","9":"manifest_key","10":"s3","13":"manifest_obj","20":"manifest","26":"schema","29":"s","32":"f","34":"s3_obj","44":"infile","45":"reader","49":"row","51":"data"}}
 import datetime
 import csv
 import gzip

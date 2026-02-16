@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2023-02-20 08:28:16 +00:00
 title: Testing JavaScript without a (third-party) framework
 summary: The browser can be a pretty good place to run your JavaScript tests.
-tags:
-  - javascript
-  - web development
-old_syntax_highlighting: true
+topics:
+  - JavaScript
+  - Software testing
 ---
 
 Last week Julia Evans posted [Writing Javascript without a build system], and it resonated with my own experience.
@@ -208,7 +207,7 @@ I've also written a couple of assertion helpers, like you get in a proper test f
 
 The test results are then styled with a smidgen of CSS in `test_micro_framework.css`, which just adds a splash of colour and the tick/cross symbol:
 
-```css
+```css {"names":{"1":".test_result","2":".success","3":".failure","4":".success","6":".failure"}}
 .test_result {
   margin: 0;
 }

@@ -22,7 +22,6 @@ colors:
    css_light: '#457569'
    css_dark:  '#14907d'
 
-old_syntax_highlighting: true
 ---
 
 Possibly because I don’t get a lot of the literary allusions, I didn't really connect with this book. Towards the end, the parallel realisations of Alison and her dad got to me somewhat, but mostly it bounced off. I’m glad I’ve read it because it’s a highly-regarded queer text, but I don’t see myself reading it again.

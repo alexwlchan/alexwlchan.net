@@ -20,7 +20,6 @@ colors:
    css_light: '#bf204d'
    css_dark:  '#fce3aa'
 
-old_syntax_highlighting: true
 ---
 
 A book about having better conversations, based on the author's experience as a journalist and interviewer.

@@ -1,14 +1,10 @@
 ---
+layout: article
 date: 2018-05-04 08:28:01 +00:00
-layout: post
+title: Beware of logged errors from subprocess
 summary: If you use Python's subprocess module, be careful you don't leak sensitive
   information in your error logs.
-tags:
-  - python
-  - infosec
-  - python:subprocess
-title: Beware of logged errors from subprocess
-old_syntax_highlighting: true
+topic: Python
 ---
 
 Yesterday, Twitter [wrote a blog post][twitter] about a recent security bug:
@@ -22,7 +18,7 @@ I was a bit careless when using the [subprocess module][subprocess], and leaked 
 
 Here's a snippet from one of our CI scripts:
 
-```python
+```python {"names":{"1":"shlex","2":"subprocess","3":"ecr_login","4":"command"}}
 import shlex
 import subprocess
 
@@ -78,7 +74,7 @@ One approach is to eschew the `check_call()` and `check_output()` APIs, use lowe
 
 For example, for `check_call()`:
 
-```python
+```python {"names":{"1":"rc","4":"sensitive_command"}}
 rc = subprocess.call(sensitive_command)
 if rc != 0:
     raise RuntimeError('The sensitive command failed!')
@@ -86,9 +82,9 @@ if rc != 0:
 
 And to replicate `check_output()`:
 
-```python
+```python {"names":{"1":"proc","4":"sensitive_command","8":"stdout","9":"stderr"}}
 proc = subprocess.Popen(sensitive_command, stdout=subprocess.PIPE)
-stdout, _ = proc.communicate()
+stdout, stderr = proc.communicate()
 
 if proc.returncode != 0:
     raise RuntimeError("The sensitive command failed!")

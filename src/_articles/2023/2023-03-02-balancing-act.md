@@ -1,15 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2023-03-02 14:03:08 +00:00
 title: Splitting a class into balanced groups
 summary: How do you make sure everyone gets to work with everyone else?
-tags:
-  - combinatorics
-  - python
+topics:
+  - Maths
+  - Python
 colors:
   index_light: "#8c3526"
   index_dark:  "#d7a59d"
-old_syntax_highlighting: true
 ---
 
 Earlier this week, my mum sent me an interesting problem.
@@ -43,7 +42,7 @@ That seems much easier.
 
 I started by coming up with a list of student names.
 
-```python
+```python {"names":{"1":"students"}}
 students = {
     "Alice", "Bryony", "Caroline", "Danielle", "Emma", "Faith",
     "Gabrielle", "Helen", "Imogen", "Julia", "Katie", "Lily",
@@ -59,7 +58,7 @@ Otherwise, it's easy for me to mix them up.
 
 Then I came up with a data structure to count how many times any two students have worked together:
 
-```python
+```python {"names":{"1":"pairs","4":"other_s","8":"s"}}
 pairs = {
     s: {other_s: 0 for other_s in students if other_s != s}
     for s in students
@@ -87,7 +86,7 @@ If this was a bigger project, I might create a custom data structure to handle t
 After this, I came up with a way to assign the groups.
 This approach was my first idea, which turned out to work pretty well:
 
-```python
+```python {"names":{"1":"i","6":"group_size","9":"groups","10":"next_group","11":"remaining_students","13":"s","17":"next_student","22":"previous_pairings","30":"s","32":"next_student","48":"a","49":"b","63":"g"}}
 for i in range(1, session_count + 1):
     print(f"# Session {i}")
 
@@ -180,7 +179,7 @@ It's possible that group could be made up entirely of people who've worked toget
 
 To help me see how good a solution it had come up with, I wrote another snippet to pretty-print the contents of the `pairs` data:
 
-```python
+```python {"names":{"1":"longest_name","5":"n","9":"name","17":"s"}}
 longest_name = max(len(n) for n in students)
 
 print(' ' * longest_name + ' A B C D E F G H I J K L')

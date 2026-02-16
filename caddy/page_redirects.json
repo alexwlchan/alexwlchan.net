@@ -20,9 +20,6 @@
     "/2013/03/pinboard-backups/",
     "/blog/2013/03/pinboard-backups/"
   ],
-  "/2013/textmate-quick-look/": [
-    "/2013/11/textmate-quick-look/"
-  ],
   "/2013/timezone-bug/": [
     "/2013/03/timezone-bug/"
   ],
@@ -369,9 +366,6 @@
   "/2017/useful-git-commands/": [
     "/2017/09/useful-git-commands/"
   ],
-  "/2018/24-hours/": [
-    "/2018/04/24-hours/"
-  ],
   "/2018/a-plumbers-guide-to-git/": [
     "/2018/03/a-plumbers-guide-to-git/"
   ],
@@ -401,9 +395,6 @@
   ],
   "/2018/continuous-releases/": [
     "/2018/03/continuous-releases/"
-  ],
-  "/2018/do-not-distract-while-driving/": [
-    "/2018/08/do-not-distract-while-driving/"
   ],
   "/2018/downloading-sqs-queues/": [
     "/2018/01/downloading-sqs-queues/"

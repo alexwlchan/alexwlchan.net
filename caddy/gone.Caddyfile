@@ -9,6 +9,14 @@
 #     cog.outl(f"handle {path} {{\n\terror 410\n}}\n")
 # 
 #]]]
+handle /2013/11/textmate-quick-look/ {
+	error 410
+}
+
+handle /2013/textmate-quick-look/ {
+	error 410
+}
+
 handle /2014/04/veil/ {
 	error 410
 }
@@ -137,11 +145,27 @@ handle /2017/backup-your-instapaper/ {
 	error 410
 }
 
+handle /2018/04/24-hours/ {
+	error 410
+}
+
+handle /2018/08/do-not-distract-while-driving/ {
+	error 410
+}
+
 handle /2018/08/finding-slow-builds-in-travis/ {
 	error 410
 }
 
 handle /2018/08/selective-sudo-on-travis/ {
+	error 410
+}
+
+handle /2018/24-hours/ {
+	error 410
+}
+
+handle /2018/do-not-distract-while-driving/ {
 	error 410
 }
 
@@ -245,4 +269,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: R1RnYa4QTp)
+#[[[end]]] (sum: T/YI5qS5/C)

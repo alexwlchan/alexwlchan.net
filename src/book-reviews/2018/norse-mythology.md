@@ -21,7 +21,6 @@ colors:
    css_light: '#756861'
    css_dark:  '#cab9ac'
 
-old_syntax_highlighting: true
 ---
 
 I very much enjoyed this book.
