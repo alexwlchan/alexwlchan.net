@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-11-08 23:13:56 +00:00
 title: Detecting AV1-encoded videos with Python
 summary: I wrote a Python test to find videos that are encoded with AV1, so I can convert them to a codec my iPhone can play.
-tags:
-  - video
-  - python
-old_syntax_highlighting: true
+topics:
+  - Images and videos
+  - Python
 ---
 In [my previous post][av1-on-iphone], I wrote about how I've saved some AV1-encoded videos that I can't play on my iPhone.
 Eventually, I'll upgrade to a new iPhone which supports AV1, but in the meantime, I want to convert all of those videos to an older codec.
@@ -28,7 +27,7 @@ In this post, I'll show you two ways to check if a video is encoded using AV1, a
 In my last post, I wrote an [ffprobe] command that prints some information about a video, including the codec.
 (ffprobe is a companion tool to the popular video converter [FFmpeg].)
 
-{% code lang="console" %}
+```console
 $ ffprobe -v error -select_streams v:0 \
     -show_entries stream=codec_name,profile,level,bits_per_raw_sample \
     -of default=noprint_wrappers=1 "input.mp4"
@@ -36,11 +35,11 @@ codec_name=av1
 profile=Main
 level=8
 bits_per_raw_sample=N/A
-{% endcode %}
+```
 
 I can tweak this command to print just the codec name:
 
-```console {"debug": true}
+```console
 $ ffprobe -v error -select_streams v:0 \
     -show_entries stream=codec_name \
     -of csv=print_section=0 "input.mp4"
@@ -51,7 +50,7 @@ To run this command from Python, I call the [`check_output` function][check_outp
 This checks the command completes successfully, then returns the output as a string.
 I can check if the output is the string `av1`:
 
-{% code lang="python" names="0:subprocess 1:is_av1_video 2:path 5:output" %}
+```python {"names":{"1":"subprocess","2":"is_av1_video","3":"path","6":"output"}}
 import subprocess
 
 
@@ -79,7 +78,7 @@ def is_av1_video(path: str) -> bool:
     ], text=True)
 
     return output.strip() == "av1"
-{% endcode %}
+```
 
 Most of this function is defining the ffprobe command, which takes quite a few flags.
 Whenever I embed a shell command in another program, I always replace any flags/arguments with the long versions, and explain their purpose in a comment -- for example, I've replaced `-of` with `-output_format`.
@@ -110,18 +109,18 @@ This is a simpler command than ffprobe, but I'd still be spawning a new process 
 Fortunately, MediaInfo is also available as a library, and it has [a Python wrapper][pymediainfo].
 You can install the wrapper with `pip install pymediainfo`, then we can use the functionality of MediaInfo inside our Python process:
 
-{% code lang="pycon" names="0:pymediainfo 1:MediaInfo 2:media_info" %}
+```pycon {"names":{"1":"pymediainfo","2":"MediaInfo","3":"media_info"}}
 >>> from pymediainfo import MediaInfo
 >>> media_info = MediaInfo.parse("input.mp4")
 >>> media_info.video_tracks[0].codec_id
 'av01'
-{% endcode %}
+```
 
 This code could throw an `IndexError` if there's no video track -- if it's a `.mp4` file which only has audio data -- but that's pretty unusual, and not something I've found in any of my videos.
 
 I can write a new wrapper function:
 
-{% code lang="python" names="0:pymediainfo 1:MediaInfo 2:is_av1_video 3:path 6:media_info" %}
+```python {"names":{"1":"pymediainfo","2":"MediaInfo","3":"is_av1_video","4":"path","7":"media_info"}}
 from pymediainfo import MediaInfo
 
 
@@ -132,14 +131,14 @@ def is_av1_video(path: str) -> bool:
     media_info = MediaInfo.parse(path)
 
     return media_info.video_tracks[0].codec_id == "av01"
-{% endcode %}
+```
 
 This is shorter than the ffprobe code, and faster too -- testing locally, this is about 3.5&times; faster than spawning an ffprobe process per file.
 
 [Data Lifeboat]: https://www.flickr.org/programs/content-mobility/data-lifeboat/
 [MediaInfo]: https://mediaarea.net/en/MediaInfo
-[dimensions]: /til/2025/get-video-dimensions-with-mediainfo/
-[duration]: /til/2025/mediainfo-duration/
+[dimensions]: /notes/2025/get-video-dimensions-with-mediainfo/
+[duration]: /notes/2025/mediainfo-duration/
 [pymediainfo]: https://github.com/sbraz/pymediainfo
 
 ## Writing a test to find videos with the AV1 codec
@@ -147,7 +146,7 @@ This is shorter than the ffprobe code, and faster too -- testing locally, this i
 Now we have a function that tells us if a given video uses AV1, we want a test that checks if there are any matching files.
 This is what I wrote:
 
-{% code lang="python" names="0:glob 1:test_no_videos_are_av1 2:av1_videos 3:p" %}
+```python {"names":{"1":"glob","2":"test_no_videos_are_av1","3":"av1_videos","5":"p"}}
 import glob
 
 
@@ -167,7 +166,7 @@ def test_no_videos_are_av1():
     }
 
     assert av1_videos == set()
-{% endcode %}
+```
 
 It uses the [glob module][glob] to find `.mp4` video files anywhere in the current folder, and then filters for files which use the AV1 codec.
 The `recursive=True` argument is important, because it tells glob to search below the current directory.
@@ -188,7 +187,7 @@ You can use ffprobe or MediaInfo -- I prefer MediaInfo because it's faster and I
 Here's my final test, which uses MediaInfo to check if a video uses AV1, and scans a folder using glob.
 I've saved it as `test_no_av1_videos.py`:
 
-{% code lang="python" names="0:glob 1:pymediainfo 2:MediaInfo 3:is_av1_video 4:path 7:media_info 14:test_no_videos_are_av1 15:av1_videos" %}
+```python {"names":{"1":"glob","2":"pymediainfo","3":"MediaInfo","4":"is_av1_video","5":"path","8":"media_info","15":"test_no_videos_are_av1","18":"p"}}
 import glob
 
 from pymediainfo import MediaInfo
@@ -219,7 +218,7 @@ def test_no_videos_are_av1():
     }
 
     assert av1_videos == set()
-{% endcode %}
+```
 
 In one folder with 350 videos, this takes about 8 seconds to run.
 I could make that faster by reading the video files in parallel, or caching the results, but it's fast enough for now.

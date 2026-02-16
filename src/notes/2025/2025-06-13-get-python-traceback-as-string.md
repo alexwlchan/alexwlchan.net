@@ -1,14 +1,12 @@
 ---
-layout: til
+layout: note
 title: Get a string representation of a Python traceback with `traceback.format_exc()`
 date: 2025-06-13 09:05:29 +01:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 Here's a simple example:
 
-```python
+```python {"names":{"1":"traceback"}}
 import traceback
 
 try:
@@ -19,9 +17,10 @@ except Exception:
 
 And here's the output:
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>python3 exception.py
-<span class="go">'Traceback (most recent call last):\n  File "exception.py", line 4, in &lt;module&gt;\n    1/0\n    ~^~\nZeroDivisionError: division by zero\n'
-</span></code></pre>
+```console {"wrap":true}
+$ python3 exception.py
+'Traceback (most recent call last):\n  File "exception.py", line 4, in <module>\n    1/0\n    ~^~\nZeroDivisionError: division by zero\n'
+```
 
 It's all the text that would be printed to stderr, but now saved in a handy string I can keep for later.
 

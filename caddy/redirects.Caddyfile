@@ -1650,6 +1650,8 @@ redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-li
 redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/reset-match-anchor-in-ruby/ /notes/2024/reset-match-anchor-in-ruby/ permanent
 redir /til/2024/reset-match-anchor-in-ruby /notes/2024/reset-match-anchor-in-ruby/ permanent
+redir /til/2024/run-random-subset-of-tests-in-pytest/ /notes/2024/run-random-subset-of-tests-in-pytest/ permanent
+redir /til/2024/run-random-subset-of-tests-in-pytest /notes/2024/run-random-subset-of-tests-in-pytest/ permanent
 redir /til/2024/simulate-a-readerror-54-connection-reset/ /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-a-readerror-54-connection-reset /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
@@ -1658,6 +1660,10 @@ redir /til/2024/sort-dom-elements-with-appendchild/ /notes/2024/sort-dom-element
 redir /til/2024/sort-dom-elements-with-appendchild /notes/2024/sort-dom-elements-with-appendchild/ permanent
 redir /til/2024/sqlite3-context-manager-doesnt-close-connections/ /notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
 redir /til/2024/sqlite3-context-manager-doesnt-close-connections /notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
+redir /til/2024/sqlite-to-csv-tally/ /notes/2024/sqlite-to-csv-tally/ permanent
+redir /til/2024/sqlite-to-csv-tally /notes/2024/sqlite-to-csv-tally/ permanent
+redir /til/2024/style-a-details-element/ /notes/2024/style-a-details-element/ permanent
+redir /til/2024/style-a-details-element /notes/2024/style-a-details-element/ permanent
 redir /til/2024/take-a-wayback-machine-screenshot/ /notes/2024/take-a-wayback-machine-screenshot/ permanent
 redir /til/2024/take-a-wayback-machine-screenshot /notes/2024/take-a-wayback-machine-screenshot/ permanent
 redir /til/2024/tally-combinations-of-columns/ /notes/2024/tally-combinations-of-columns/ permanent
@@ -1668,6 +1674,10 @@ redir /til/2024/under-construction/ /notes/2024/under-construction/ permanent
 redir /til/2024/under-construction /notes/2024/under-construction/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
+redir /til/2024/use-shlex-split-to-parse-nginx-logs/ /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
+redir /til/2024/use-shlex-split-to-parse-nginx-logs /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
+redir /til/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ /notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
+redir /til/2024/use-sqlite-utils-to-convert-csv-to-sqlite /notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
 redir /til/2024/verbose-deletions-with-rm/ /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2024/verbose-deletions-with-rm /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2025/rm-verbose/ /notes/2024/verbose-deletions-with-rm/ permanent
@@ -1708,6 +1718,10 @@ redir /til/2025/exclusive-write-in-go/ /notes/2025/exclusive-write-in-go/ perman
 redir /til/2025/exclusive-write-in-go /notes/2025/exclusive-write-in-go/ permanent
 redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actions/ permanent
 redir /til/2025/exiftool-in-github-actions /notes/2025/exiftool-in-github-actions/ permanent
+redir /til/2025/get-python-traceback-as-string/ /notes/2025/get-python-traceback-as-string/ permanent
+redir /til/2025/get-python-traceback-as-string /notes/2025/get-python-traceback-as-string/ permanent
+redir /til/2025/get-video-dimensions-with-mediainfo/ /notes/2025/get-video-dimensions-with-mediainfo/ permanent
+redir /til/2025/get-video-dimensions-with-mediainfo /notes/2025/get-video-dimensions-with-mediainfo/ permanent
 redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/go-stress/ /notes/2025/go-stress/ permanent
@@ -1718,8 +1732,12 @@ redir /til/2025/gubernatorial/ /notes/2025/gubernatorial/ permanent
 redir /til/2025/gubernatorial /notes/2025/gubernatorial/ permanent
 redir /til/2025/instagram-avatar-url/ /notes/2025/instagram-avatar-url/ permanent
 redir /til/2025/instagram-avatar-url /notes/2025/instagram-avatar-url/ permanent
+redir /til/2025/json-with-required-field-in-golang/ /notes/2025/json-with-required-field-in-golang/ permanent
+redir /til/2025/json-with-required-field-in-golang /notes/2025/json-with-required-field-in-golang/ permanent
 redir /til/2025/list-test-names-in-go/ /notes/2025/list-test-names-in-go/ permanent
 redir /til/2025/list-test-names-in-go /notes/2025/list-test-names-in-go/ permanent
+redir /til/2025/mediainfo-duration/ /notes/2025/mediainfo-duration/ permanent
+redir /til/2025/mediainfo-duration /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/platform-specific-dirs/ /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/platform-specific-dirs /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
@@ -1810,4 +1828,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: mCEb8srW9M)
+#[[[end]]] (sum: uqjKNFqwAC)

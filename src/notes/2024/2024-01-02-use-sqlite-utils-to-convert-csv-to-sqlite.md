@@ -1,13 +1,12 @@
 ---
-layout: til
+layout: note
 title: Using sqlite-utils to convert a CSV into a SQLite database
 date: 2024-01-02 10:54:18 +00:00
 summary: |
   You can use sqlite-utils on the command line to create a SQLite database from a CSV file.
-tags:
-  - sqlite
-  - python
-old_syntax_highlighting: true
+topics:
+  - SQLite
+  - Python
 ---
 
 In the past I've written Python scripts that use the `csv` and `sqlite3` modules to convert CSV data into SQLite, but while reading [a Datasette tutorial][tutorial], I discovered that there's a CLI tool called `sqlite-utils` that makes this much easier.

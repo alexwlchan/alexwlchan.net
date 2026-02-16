@@ -25,6 +25,7 @@
 {%- macro remaining_articles(topic_name) -%}
   {% set articles = site.articles
     | rejectattr("is_featured")
+    | rejectattr("is_excluded")
     | filter_for_topic(topic_name)
     | sort(attribute="sort_date", reverse=True) %}
   
@@ -33,6 +34,7 @@
 
 {%- macro notes(topic_name) -%}
   {% set notes = site.notes
+    | rejectattr("is_excluded")
     | filter_for_topic(topic_name)
     | sort(attribute="sort_date", reverse=True) %}
   

@@ -1,16 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2021-09-06 05:49:09 +00:00
 title: Picking perfect planks with Python
 summary: How do you pick the right combination of planks to lay a wooden floor? Python and itertools to the rescue!
-tags:
-  - python
-  - combinatorics
-  - maths
+topics:
+  - Maths
+  - Python
 colors:
   index_light: "#5c422e"
   index_dark:  "#e5bd9e"
-old_syntax_highlighting: true
 ---
 
 <!-- Index image from https://pixabay.com/photos/board-boards-material-pile-plank-2941888/; CC0 -->
@@ -39,19 +37,19 @@ You step through the iterator to see what it contains, and for long streams this
 
 This particular problem is called ["combination with replacements"][combos], and we can use a [function of the same name][function]:
 
-```python
+```python {"names":{"1":"itertools","2":"combinations_with_replacement"}}
 from itertools import combinations_with_replacement
 ```
 
 When we call this function, we have to tell it the length of the combination.
 For example, we can find all the combinations of three boards:
 
-{% code lang="python" names="0:board_lengths 1:combo" %}
+```python {"names":{"1":"board_lengths","2":"combo"}}
 board_lengths = [40, 50, 60, 70, 75, 90, 170, 180]
 
 for combo in combinations_with_replacement(board_lengths, 3):
     print(combo)
-{% endcode %}
+```
 
 Here's a sample of the output:
 
@@ -69,13 +67,13 @@ You can see it's working through the combinations in order -- this is the sort o
 
 Then we can filter these combinations to find the ones that sum to the total we want:
 
-{% code lang="python" names="0:target_length 1:combo" %}
+```python {"names":{"1":"target_length","2":"combo"}}
 target_length = 360
 
 for combo in combinations_with_replacement(board_lengths, 3):
     if sum(combo) == target_length:
         print(combo)
-{% endcode %}
+```
 
 and we learn that there's just one combination of length 3:
 
@@ -102,13 +100,13 @@ The shortest possible total of a combination of 10 boards is 10&nbsp;×&nbsp;40&
 
 To implement this logic, we can use the [`count` function from itertools][count], which gives us an infinite counter:
 
-```python
+```python {"names":{"1":"itertools","2":"count"}}
 from itertools import count
 ```
 
 We'll keep increasing the number of boards until the shortest possible combination is too long:
 
-{% code lang="python" names="0:number_of_boards 2:shortest_possible_total 8:combo" %}
+```python {"names":{"1":"number_of_boards","3":"shortest_possible_total","9":"combo"}}
 for number_of_boards in count():
     shortest_possible_total = number_of_boards * min(board_lengths)
 
@@ -117,11 +115,13 @@ for number_of_boards in count():
 
     for combo in combinations_with_replacement(board_lengths, number_of_boards):
         ...
-{% endcode %}
+```
 
 We can put this together for our final solution:
 
-{% code lang="python" names="0:itertools 1:count 2:combinations_with_replacement 3:board_lengths 4:target_length 5:number_of_boards 7:shortest_possible_total 13:combo" %}
+```python {"names":{"1":"itertools","2":"count","3":"combinations_with_replacement","4":"board_lengths","5":"target_length","6":"number_of_boards","8":"shortest_possible_total","14":"combo"}}
+
+
 from itertools import count, combinations_with_replacement
 
 board_lengths = [40, 50, 60, 70, 75, 90, 170, 180]
@@ -135,8 +135,8 @@ for number_of_boards in count():
 
     for combo in combinations_with_replacement(board_lengths, number_of_boards):
         if sum(combo) == target_length:
-                print(combo)
-{% endcode %}
+            print(combo)
+```
 
 and we discover that there are 64 possible combinations that sum to 360.
 

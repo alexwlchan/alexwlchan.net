@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: Get the dimensions of a video file with `mediainfo`
 date: 2025-02-10 10:10:51 +00:00
-tags:
-  - video
+topic: Images and videos
 index:
   exclude: true
-old_syntax_highlighting: true
 ---
 Here are two examples:
 

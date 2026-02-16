@@ -23,7 +23,6 @@ colors:
    css_light: '#a6623d'
    css_dark:  '#f9f3e1'
 
-old_syntax_highlighting: true
 ---
 
 A pleasant book about people and their cats.

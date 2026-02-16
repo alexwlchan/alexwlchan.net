@@ -21,7 +21,6 @@ colors:
    css_light: '#c05442'
    css_dark:  '#db563f'
 
-old_syntax_highlighting: true
 ---
 
 This book seems to be an introduction to networks and graph theory, aimed at a non-mathematical reader. I read a couple of chapters and it seems fine, but I’ve done enough graph theory courses that it didn’t seem to have enough new material to be worth reading more of.

@@ -1,15 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2021-10-01 15:18:28 +00:00
 title: How do you work with non-engineers?
 summary: Building a relationship founded on trust and respect.
-tags:
-  - work
-  - interpersonal skills
+topic: Personal thoughts
 colors:
   index_light: "#bf4646"
   index_dark:  "#ebb3af"
-old_syntax_highlighting: true
 ---
 
 <!-- Card: https://wellcomecollection.org/works/y2x7xgwb/images?id=we6tgrdp -->

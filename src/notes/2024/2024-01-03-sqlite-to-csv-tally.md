@@ -1,11 +1,8 @@
 ---
-layout: til
+layout: note
 date: 2024-01-03 10:57:21 +00:00
 title: Getting a tally of SQLite values as a CSV
-tags:
-  - sqlite
-  - csv
-old_syntax_highlighting: true
+topic: SQLite
 ---
 
 I often find myself looking for unique values in a SQLite column.

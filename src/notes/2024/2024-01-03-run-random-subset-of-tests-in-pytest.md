@@ -1,13 +1,12 @@
 ---
-layout: til
+layout: note
 title: Run a randomly selected subset of tests with pytest
 date: 2024-01-03 17:22:34 +00:00
 summary: |
   By reading the code for the `pytest-random-order` plugin, I was able to write a new plugin that runs a random subset of tests.
-tags:
-  - python
-  - python:pytest
-old_syntax_highlighting: true
+topics:
+  - Python
+  - Software testing
 ---
 This is a question asked [by Ned Batchelder][nedbat] on Mastodon.
 
@@ -18,7 +17,7 @@ I was able to adapt it to run a random subset of tests.
 
 Add this to `conftest.py`:
 
-```python
+```python {"names":{"1":"random","2":"pytest_addoption","3":"parser","12":"pytest_collection_modifyitems","13":"session","14":"config","15":"items","16":"random_sample_size"}}
 import random
 
 

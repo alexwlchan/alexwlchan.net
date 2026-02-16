@@ -3,7 +3,6 @@ layout: note
 title: Place with the same name, but different etymology
 date: 2026-02-10 00:21:57 +00:00
 topic: The world around us
-old_syntax_highlighting: true
 ---
 In [Swapping gems for tiles][mosaic], I had to distinguish between two places named "Georgia":
 

@@ -23,7 +23,6 @@ colors:
    css_light: '#241e1c'
    css_dark:  '#f5f0d1'
 
-old_syntax_highlighting: true
 ---
 
 A fun heist story in which the asexuality is just one aspect of the characters, not the entire focus.

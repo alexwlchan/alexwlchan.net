@@ -21,7 +21,6 @@ colors:
    css_light: '#bd292f'
    css_dark:  '#9eaeb0'
 
-old_syntax_highlighting: true
 ---
 
 This was recommended in a talk at !!Con 2020 about [translating Chinese into Morse code](https://speakerdeck.com/franklinhu/learning-your-ai-bi-xi-s-translating-chinese-into-morse-code?slide=17), accompanied by a [Glitch app for doing the same](https://translate-chinese-into-morse-code.glitch.me/).

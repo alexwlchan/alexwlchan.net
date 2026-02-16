@@ -21,7 +21,6 @@ colors:
    css_light: '#6d675e'
    css_dark:  '#d76659'
 
-old_syntax_highlighting: true
 ---
 
 This is a pretty graphic book – reader beware, if descriptions of decomposing bodies and death rituals make you queasy, you might want to skip this.

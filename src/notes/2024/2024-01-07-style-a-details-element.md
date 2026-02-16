@@ -1,14 +1,12 @@
 ---
-layout: til
+layout: note
 title: "How to style a `<details>` element differently depending on whether it’s open or closed"
 date: 2024-01-07 22:46:43 +00:00
-tags:
-  - css
-old_syntax_highlighting: true
+topic: CSS
 ---
 If you want to style a `<details>` element which is open, use the `details[open]` selector ([MDN link](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#customizing_the_appearance)):
 
-```css
+```css {"names":{"1":"details"}}
 details[open] {
   background: green;
 }
@@ -20,7 +18,7 @@ If you want to style a `<details>` element which is closed, there are two option
 
 2.  Or if you want to make it clearer that this only applies to the closed element, you combine the [`:not()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:not) and `open`:
 
-    ```css
+    ```css {"names":{"1":"details"}}
     details:not([open]) {
       background: red;
     }

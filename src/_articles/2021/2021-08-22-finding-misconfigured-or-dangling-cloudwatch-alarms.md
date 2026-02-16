@@ -1,16 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2021-08-22 07:40:23 +00:00
 title: Finding misconfigured or dangling CloudWatch Alarms
 summary: A Python script that finds CloudWatch Alarms which are based on a now non-existent source.
-tags:
-  - aws
-  - aws:amazon cloudwatch
-  - python
+topic: AWS
 colors:
   index_light: "#B0084D"
   index_dark:  "#f97bb0"
-old_syntax_highlighting: true
 ---
 
 At work, we use a lot of [CloudWatch Alarms][alarms].
@@ -33,7 +29,7 @@ I wrote a Python script to find these dangling alarms, which you can copy/paste 
 After I ran my script, I was able to delete several hundred old alarms, three-quarters of the alarms in our account.
 I was doing it to make it easier to review the alarms we are using, rather than to save money – but a small dent in the bill never goes amiss.
 
-```python
+```python {"names":{"1":"functools","2":"boto3","3":"botocore","4":"exceptions","5":"ClientError","6":"get_metric_alarm_descriptions","7":"sess","8":"resource","11":"client","14":"alarm","18":"resp","27":"dynamodb_table_exists","28":"sess","29":"table_name","30":"client","38":"err","43":"sqs_queue_exists","44":"sess","45":"queue_name","46":"client","54":"err","59":"lambda_function_exists","60":"sess","61":"function_name","62":"client","70":"err","73":"sess","76":"alarm","79":"dimensions","82":"dim","86":"table_name","97":"queue_name","108":"function_name"}}
 #!/usr/bin/env python3
 """
 Finds CloudWatch metric alarms that are pulling from a non-existent source,

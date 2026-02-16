@@ -1,16 +1,13 @@
 ---
-layout: til
+layout: note
 title: Parsing JSON in Go with a required field
 date: 2025-05-29 17:14:31 +01:00
-tags:
-  - golang
-  - json
-old_syntax_highlighting: true
+topic: Go
 ---
 I've been doing a bit of work with Go recently, in particular writing some code to parse JSON.
 Here's an example program that demonstrates what I learnt, where I'm parsing a JSON string as an instance of a Go struct:
 
-```go
+```go {"names":{"2":"main","6":"parseJson","7":"jsonString","8":"shape","13":"err","32":"Shape","33":"Sides"}}
 package main
 
 import (
@@ -53,7 +50,7 @@ I want to know if the `number_of_sides` field is present with value `0` or missi
 
 Suppose I define my struct with an `int` field:
 
-```go
+```go {"names":{"1":"Shape","2":"Sides"}}
 type Shape struct {
 	Sides int `json:"number_of_sides"`
 }
@@ -63,7 +60,7 @@ When I parse a JSON object without `number_of_sides`, Go will create a struct `S
 
 Suppose I define my struct with a pointer to an `int`:
 
-```go
+```go {"names":{"1":"Shape","2":"Sides"}}
 type Shape struct {
 	Sides *int `json:"number_of_sides"`
 }

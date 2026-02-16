@@ -2697,6 +2697,9 @@
   "/notes/2024/reset-match-anchor-in-ruby/": [
     "/til/2024/reset-match-anchor-in-ruby/"
   ],
+  "/notes/2024/run-random-subset-of-tests-in-pytest/": [
+    "/til/2024/run-random-subset-of-tests-in-pytest/"
+  ],
   "/notes/2024/simulate-a-readerror-54-connection-reset/": [
     "/til/2024/simulate-a-readerror-54-connection-reset/"
   ],
@@ -2708,6 +2711,12 @@
   ],
   "/notes/2024/sqlite3-context-manager-doesnt-close-connections/": [
     "/til/2024/sqlite3-context-manager-doesnt-close-connections/"
+  ],
+  "/notes/2024/sqlite-to-csv-tally/": [
+    "/til/2024/sqlite-to-csv-tally/"
+  ],
+  "/notes/2024/style-a-details-element/": [
+    "/til/2024/style-a-details-element/"
   ],
   "/notes/2024/take-a-wayback-machine-screenshot/": [
     "/til/2024/take-a-wayback-machine-screenshot/"
@@ -2723,6 +2732,12 @@
   ],
   "/notes/2024/use-launchagent-for-scheduled-script/": [
     "/til/2024/use-launchagent-for-scheduled-script/"
+  ],
+  "/notes/2024/use-shlex-split-to-parse-nginx-logs/": [
+    "/til/2024/use-shlex-split-to-parse-nginx-logs/"
+  ],
+  "/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/": [
+    "/til/2024/use-sqlite-utils-to-convert-csv-to-sqlite/"
   ],
   "/notes/2024/verbose-deletions-with-rm/": [
     "/til/2024/verbose-deletions-with-rm/",
@@ -2782,6 +2797,12 @@
   "/notes/2025/exiftool-in-github-actions/": [
     "/til/2025/exiftool-in-github-actions/"
   ],
+  "/notes/2025/get-python-traceback-as-string/": [
+    "/til/2025/get-python-traceback-as-string/"
+  ],
+  "/notes/2025/get-video-dimensions-with-mediainfo/": [
+    "/til/2025/get-video-dimensions-with-mediainfo/"
+  ],
   "/notes/2025/google-deletes-inactive-accounts/": [
     "/til/2025/google-deletes-inactive-accounts/"
   ],
@@ -2797,8 +2818,14 @@
   "/notes/2025/instagram-avatar-url/": [
     "/til/2025/instagram-avatar-url/"
   ],
+  "/notes/2025/json-with-required-field-in-golang/": [
+    "/til/2025/json-with-required-field-in-golang/"
+  ],
   "/notes/2025/list-test-names-in-go/": [
     "/til/2025/list-test-names-in-go/"
+  ],
+  "/notes/2025/mediainfo-duration/": [
+    "/til/2025/mediainfo-duration/"
   ],
   "/notes/2025/platform-specific-dirs/": [
     "/til/2025/platform-specific-dirs/"

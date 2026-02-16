@@ -91,18 +91,14 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     # Python: dotted imports should be replaced with names split by
     # namespace. nn = Name.Namespace
     if lang == "python":
-        for import_name in [
-            "collections.abc",
-            "concurrent.futures",
-            "playwright.sync_api",
-            "urllib.error",
-            "urllib.request",
-            "werkzeug.local",
-        ]:
+        for m in re.finditer(
+            r'<span class="nn">(?P<name>[a-z_]+\.[a-z_\.]+)</span>', highlighted_code
+        ):
+            import_name = m.group("name")
             parts = import_name.split(".")
             dot = '<span class="p">.</span>'
             highlighted_code = highlighted_code.replace(
-                f'<span class="nn">{import_name}</span>',
+                m.group(0),
                 dot.join(f'<span class="n">{name}</span>' for name in parts),
             )
 
@@ -167,13 +163,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     if lang not in {"console", "irb", "pycon", "sqlite3"}:
         highlighted_code = WHITESPACE_RE.sub(r"\g<space>", highlighted_code)
     else:
-        
         # Ensure the space immediately after the `gp` is the whitespace
         # which will be ignored for selection, and not something in the
         # middle of the command.
         highlighted_code = highlighted_code.replace(
             '<span class="gp">$ </span>',
-            '<span class="gp">$</span><span class="w"> </span>'
+            '<span class="gp">$</span><span class="w"> </span>',
         )
 
     return highlighted_code

@@ -1,16 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2021-07-05 11:46:23 +00:00
 title: Listing deleted secrets in AWS Secrets Manager with boto3 and the AWS CLI
 summary: Diving into the internals of the AWS SDK to find deleted secrets.
-tags:
-  - python
-  - aws
-  - aws:aws-secrets-manager
+topics:
+  - AWS
+  - Python
 colors:
   index_light: "#00A000"
   index_dark:  "#61ff61"
-old_syntax_highlighting: true
 ---
 
 If you delete a secret from AWS Secrets Manager, it isn't deleted immediately -- instead, it gets scheduled for deletion.
@@ -81,7 +79,7 @@ I don't love the idea of putting a workaround for my development process in the 
 I started by looking at [the boto3 documentation for `list_secrets()`][list_secrets].
 The response schema includes a `DeletedDate` field which is only present on secrets that are scheduled for deletion, so I thought something like this would work:
 
-```python
+```python {"names":{"1":"boto3","2":"list_secrets","3":"session","4":"client","7":"page","12":"session","15":"secret"}}
 import boto3
 
 
@@ -304,7 +302,7 @@ Next time I update botocore, this change will likely be reverted.
 After digging through the botocore code some more, I discovered the idea of "loaders", which have [their own documentation][loaders].
 The loaders are classes that look for files with service models, and [make them available to the boto3 clients][client_call]:
 
-```python
+```python {"names":{"1":"_load_service_model","2":"service_name","3":"api_version","4":"json_model","10":"service_model"}}
 def _load_service_model(self, service_name, api_version=None):
     json_model = self._loader.load_service_model(service_name, 'service-2',
                                                  api_version=api_version)
@@ -395,7 +393,7 @@ First, save [the following file](/files/2021/service-2.sdk-extras.json) to `~/.a
 
 Then use the following script:
 
-```python
+```python {"names":{"1":"boto3","2":"list_secrets","3":"session","4":"kwargs","5":"client","8":"page","14":"session","17":"secret"}}
 import boto3
 
 

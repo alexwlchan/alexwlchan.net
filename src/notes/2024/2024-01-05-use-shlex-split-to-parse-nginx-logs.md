@@ -1,11 +1,8 @@
 ---
-layout: til
+layout: note
 title: Use shlex.split() to parse log files quickly
 date: 2024-01-05 12:09:22 +00:00
-tags:
-  - python
-  - nginx
-old_syntax_highlighting: true
+topic: Python
 ---
 I wanted to parse some nginx log files, and I know I've done something like this in the past (possibly with Apache logs) – but I remember that involved quite a complicated regex for extracting all the components.
 
@@ -13,7 +10,7 @@ I stumbled upon [an article by ksndeveloper][ksndeveloper] with a much simpler t
 
 Today I wanted to get a list of URLs from a set of log messages, which went as so:
 
-```pycon
+```pycon {"names":{"1":"shlex","2":"line"}}
 >>> import shlex
 >>> line = '127.0.0.1 - - [01/Dec/2023:12:08:23 +0000] "GET /page/with/error HTTP/1.0" 500 0 "-" "-"'
 
