@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-09-08 22:42:48 +00:00
 title: "Resizing images in Rust, now with EXIF orientation support"
 summary: A new version of Rust's image crate has support for EXIF orientation, which allows me to resize images without mangling their rotation.
-tags:
-  - rust
-  - my tools
-  - images
-old_syntax_highlighting: true
+topics:
+  - Images and videos
+  - Rust
 ---
 Resizing an image is one of those programming tasks that seems simple, but has some rough edges.
 One common mistake is forgetting to handle the EXIF orientation, which can make resized images look very different from the original.

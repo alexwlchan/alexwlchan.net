@@ -23,7 +23,6 @@ colors:
    css_light: '#188033'
    css_dark:  '#24bd4b'
 
-old_syntax_highlighting: true
 ---
 This is a thorough and damning indictment of the systemic failures that led to the Grenfell Tower fire. Major themes include repeated warnings about unsafe cladding, government and companies looking the other way because it's cheaper, and missed opportunities to avoid the tragedy.
 

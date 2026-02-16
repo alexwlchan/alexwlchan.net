@@ -1,13 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2017-12-18T16:52:17.162Z
 title: Using Loris for IIIF at Wellcome
 summary: How we use Loris to provide a IIIF Image API for browsing our collections at Wellcome–how it runs in AWS, store our high-resolution images, and monitor the service.
-tags:
-  - wellcome collection
-  - iiif
+topic: Wellcome Collection
 canonical_url: https://stacks.wellcomecollection.org/using-loris-for-iiif-at-wellcome-6ed1fefaf801
-old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/using-loris-for-iiif-at-wellcome-6ed1fefaf801) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

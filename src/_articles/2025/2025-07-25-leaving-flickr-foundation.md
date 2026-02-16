@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2025-07-25 20:12:14 +00:00
 title: Today was my last day at the Flickr Foundation
 summary: I already have a new job lined up, but I'm taking a bit of a break first.
-tags:
-  - personal
-  - flickr foundation
-old_syntax_highlighting: true
+topic: Flickr Foundation
 ---
 Today was my last day at the [Flickr Foundation](https://www.flickr.org).
 At 5pm I closed my laptop, left the office for the last time, and took a quiet walk along Regent's Canal.

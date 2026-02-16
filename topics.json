@@ -104,6 +104,11 @@
     "parent": "Systems and software"
   },
   {
+    "name": "Images and videos",
+    "href": "/systems/images-and-videos/",
+    "parent": "Systems and software"
+  },
+  {
     "name": "Books I've read",
     "href": "/book-reviews/"
   },

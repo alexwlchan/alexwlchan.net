@@ -1,13 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2025-02-08 22:32:46 +00:00
 title: Good embedded toots
 summary: |
   I replaced Mastodon's native post embeds with lightweight HTML and CSS snippets that are faster to load, more resilient to outages, and support dark mode -- and I had fun doing it.
-tags:
-  - mastodon
-  - blogging about blogging
-old_syntax_highlighting: true
+topic: Blogging about blogging
 ---
 In [my previous post][bagit], there was a first for this site: I embedded a post from Mastodon.
 
@@ -158,9 +155,11 @@ I used the developer tools to get key values from the native embed, like colours
 
 When I want to embed a toot now, I write a line like:
 
+{% raw %}
 ```
-{% raw %}{% mastodon https://code4lib.social/@linguistory/113924700205617006 %}{% endraw %}
+{% mastodon https://code4lib.social/@linguistory/113924700205617006 %}
 ```
+{% endraw %}
 
 This calls a [Jekyll plugin] that replaces this line with an embedded toot.
 This code is very scrappy and poorly documented, so it may not be especially easy to adapt to your own site -- if you want to do this, start from the HTML and CSS instead.

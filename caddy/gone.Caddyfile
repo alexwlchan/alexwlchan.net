@@ -9,7 +9,15 @@
 #     cog.outl(f"handle {path} {{\n\terror 410\n}}\n")
 # 
 #]]]
+handle /2014/04/veil/ {
+	error 410
+}
+
 handle /2014/08/textexpander-amazon-affiliates/ {
+	error 410
+}
+
+handle /2014/10/virtualfish/ {
 	error 410
 }
 
@@ -34,6 +42,14 @@ handle /2014/imessage-export/ {
 }
 
 handle /2014/textexpander-amazon-affiliates/ {
+	error 410
+}
+
+handle /2014/veil/ {
+	error 410
+}
+
+handle /2014/virtualfish/ {
 	error 410
 }
 
@@ -73,7 +89,15 @@ handle /2015/python-firewall/ {
 	error 410
 }
 
+handle /2016/01/harry-potter-ipod/ {
+	error 410
+}
+
 handle /2016/06/toothbrush-subscriptions/ {
+	error 410
+}
+
+handle /2016/harry-potter-ipod/ {
 	error 410
 }
 
@@ -173,4 +197,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: I8yrYv2kDK)
+#[[[end]]] (sum: WflY/qNquH)

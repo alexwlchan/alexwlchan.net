@@ -1,18 +1,17 @@
 ---
-layout: post
+layout: article
 date: 2025-02-21 13:19:30 +00:00
 title: It’s cool to care
 summary: |
   Caring deeply – about art, my friends, and shared experiences – has brought me so much joy.
-tags:
-  - personal
-  - operation mincemeat
+topics: 
+  - Personal thoughts
+  - Entertainment
 colors:
   index_light: "#594438"
   index_dark:  "#f5db6e"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 I'm sitting in a small coffee shop in Brooklyn.
 I have a warm drink, and it's just started to snow outside.

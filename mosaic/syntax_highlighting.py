@@ -166,6 +166,15 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     # where we use it as part of disabling selection.
     if lang not in {"console", "irb", "pycon", "sqlite3"}:
         highlighted_code = WHITESPACE_RE.sub(r"\g<space>", highlighted_code)
+    else:
+        
+        # Ensure the space immediately after the `gp` is the whitespace
+        # which will be ignored for selection, and not something in the
+        # middle of the command.
+        highlighted_code = highlighted_code.replace(
+            '<span class="gp">$ </span>',
+            '<span class="gp">$</span><span class="w"> </span>'
+        )
 
     return highlighted_code
 

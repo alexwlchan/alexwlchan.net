@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-01-07 21:30:31 +00:00
 title: How I test Rust command-line apps with `assert_cmd`
 summary: Some practical examples of how this handy crate lets me write clear, readable tests.
-tags:
-  - rust
-  - software testing
-old_syntax_highlighting: true
+topics:
+  - Rust
+  - Software testing
 ---
 Rust has become my go-to language for my personal toolbox -- small, standalone utilities like [create_thumbnail], [emptydir], and [dominant_colours].
 There's no place for Rust in my day job, so having some self-contained hobby projects means I can still have fun playing with it.
@@ -32,7 +31,7 @@ Here are some examples of how I'm using it in my refreshed test suites:
 
 This test calls `dominant_colours` with [a single argument][arg], then checks it succeeds and that a single line is printed to stdout:
 
-```rust
+```rust {"names":{"1":"assert_cmd","2":"Command","4":"it_prints_the_colour"}}
 use assert_cmd::Command;
 
 /// If every pixel in an image is the same colour, then the image
@@ -53,7 +52,7 @@ fn it_prints_the_colour() {
 
 If I have more than one argument or flag, I can replace `.arg` with `.args` to [pass a list][args]:
 
-```rust
+```rust {"names":{"1":"assert_cmd","2":"Command","4":"it_chooses_the_right_colour_for_a_light_background"}}
 use assert_cmd::Command;
 
 /// It picks the best colour from an image to go with a background --
@@ -83,7 +82,7 @@ Alternatively, I can omit `.arg` and `.args` if I don't need to pass any argumen
 Most of my tests are around error handling -- call the tool with bad input, and check it returns a useful error message.
 I can check that the command failed, the exit code, and the error message printed to stderr:
 
-```rust
+```rust {"names":{"1":"assert_cmd","2":"Command","4":"it_fails_if_you_pass_an_nonexistent_file"}}
 use assert_cmd::Command;
 
 /// Getting the dominant colour of a file that doesn't exist is an error.
@@ -109,7 +108,7 @@ If so, I can use the `predicate::str::is_match` predicate from the [`predicates`
 
 Here's an example where I'm checking the output contains a version number, but not what the version number is:
 
-```rust
+```rust {"names":{"1":"assert_cmd","2":"Command","3":"predicates","4":"prelude","6":"it_prints_the_version","7":"is_version_string"}}
 use assert_cmd::Command;
 use predicates::prelude::*;
 
@@ -141,7 +140,7 @@ I'm trying to avoid creating helpers for the sake of reducing repetitive code.
 
 For example, I have a helper function that passes a single invalid file to `dominant_colours` and checks the error message is what I expect:
 
-```rust
+```rust {"names":{"1":"assert_cmd","2":"Command","3":"predicates","4":"prelude","6":"it_fails_if_you_pass_an_nonexistent_file","8":"assert_file_fails_with_error","9":"path","10":"expected_stderr"}}
 use assert_cmd::Command;
 use predicates::prelude::*;
 

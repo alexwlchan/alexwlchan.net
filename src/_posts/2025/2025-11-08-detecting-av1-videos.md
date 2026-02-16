@@ -40,12 +40,12 @@ bits_per_raw_sample=N/A
 
 I can tweak this command to print just the codec name:
 
-{% code lang="console" %}
+```console {"debug": true}
 $ ffprobe -v error -select_streams v:0 \
     -show_entries stream=codec_name \
     -of csv=print_section=0 "input.mp4"
 av1
-{% endcode %}
+```
 
 To run this command from Python, I call the [`check_output` function][check_output] from the [`subprocess` module][subprocess].
 This checks the command completes successfully, then returns the output as a string.

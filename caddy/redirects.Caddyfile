@@ -116,10 +116,6 @@ redir /2014/06/untagged-tumblr-posts-redux/ /2014/untagged-tumblr-posts-redux/ p
 redir /2014/06/untagged-tumblr-posts-redux /2014/untagged-tumblr-posts-redux/ permanent
 redir /2014/08/untagged-tumblr-updates/ /2014/untagged-tumblr-updates/ permanent
 redir /2014/08/untagged-tumblr-updates /2014/untagged-tumblr-updates/ permanent
-redir /2014/04/veil/ /2014/veil/ permanent
-redir /2014/04/veil /2014/veil/ permanent
-redir /2014/10/virtualfish/ /2014/virtualfish/ permanent
-redir /2014/10/virtualfish /2014/virtualfish/ permanent
 redir /2015/02/1password/ /2015/1password/ permanent
 redir /2015/02/1password /2015/1password/ permanent
 redir /2015/11/backups-and-docker/ /2015/backups-and-docker/ permanent
@@ -194,8 +190,6 @@ redir /2016/05/finding-404s-in-apache-logs/ /2016/finding-404s-in-apache-logs/ p
 redir /2016/05/finding-404s-in-apache-logs /2016/finding-404s-in-apache-logs/ permanent
 redir /2016/01/fusion-drive/ /2016/fusion-drive/ permanent
 redir /2016/01/fusion-drive /2016/fusion-drive/ permanent
-redir /2016/01/harry-potter-ipod/ /2016/harry-potter-ipod/ permanent
-redir /2016/01/harry-potter-ipod /2016/harry-potter-ipod/ permanent
 redir /2016/04/hiding-the-youtube-search-bar/ /2016/hiding-the-youtube-search-bar/ permanent
 redir /2016/04/hiding-the-youtube-search-bar /2016/hiding-the-youtube-search-bar/ permanent
 redir /2016/02/how-i-use-textexpander-to-curb-my-language/ /2016/how-i-use-textexpander-to-curb-my-language/ permanent
@@ -1769,4 +1763,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: E1ki0F9Okg)
+#[[[end]]] (sum: KXjaCkPZQo)
