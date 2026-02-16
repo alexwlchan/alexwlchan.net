@@ -173,6 +173,11 @@
     "parent": "The world around us"
   },
   {
+    "name": "Entertainment",
+    "href": "/world/entertainment/",
+    "parent": "The world around us"
+  },
+  {
     "name": "Art and creativity",
     "href": "/art/"
   },

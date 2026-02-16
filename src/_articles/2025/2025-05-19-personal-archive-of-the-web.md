@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2025-05-19 06:51:21 +00:00
 title: Building a personal archive of the web, the&nbsp;slow&nbsp;way
 summary: |

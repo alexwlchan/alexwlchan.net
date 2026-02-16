@@ -21,7 +21,6 @@ colors:
    css_light: '#363738'
    css_dark:  '#d9ddde'
 
-old_syntax_highlighting: true
 ---
 
 I picked this up in the Barbican shop, and I was pleasantly surprised by how deep it is.

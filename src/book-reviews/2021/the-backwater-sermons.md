@@ -21,7 +21,6 @@ colors:
    css_light: '#936f4a'
    css_dark:  '#f0d030'
 
-old_syntax_highlighting: true
 ---
 
 I got a signed copy of this book at the launch event, a delightful evening full of queer people.

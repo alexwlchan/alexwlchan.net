@@ -41,12 +41,6 @@
   "/2014/alfred-screenshots/": [
     "/2014/08/alfred-screenshots/"
   ],
-  "/2014/golems/": [
-    "/2014/12/golems/"
-  ],
-  "/2014/imessage-export/": [
-    "/2014/12/imessage-export/"
-  ],
   "/2014/instapaper-urls/": [
     "/2014/06/instapaper-urls/"
   ],
@@ -2615,6 +2609,9 @@
   "/notes/2024/create-a-directory-first/": [
     "/til/2024/create-a-directory-first/"
   ],
+  "/notes/2024/create-a-sticky-bottom-footer/": [
+    "/til/2024/create-a-sticky-bottom-footer/"
+  ],
   "/notes/2024/custom-error-pages-in-flask/": [
     "/til/2024/custom-error-pages-in-flask/"
   ],
@@ -2623,6 +2620,9 @@
   ],
   "/notes/2024/diagonal-new-banner/": [
     "/til/2024/diagonal-new-banner/"
+  ],
+  "/notes/2024/errexit-and-arithmetic-expressions/": [
+    "/til/2024/errexit-and-arithmetic-expressions/"
   ],
   "/notes/2024/exclude-files-from-time-machine-with-tmutil/": [
     "/til/2024/exclude-files-from-time-machine-with-tmutil/"
@@ -2642,6 +2642,9 @@
   "/notes/2024/get-tailscale-ip/": [
     "/til/2024/get-tailscale-ip/"
   ],
+  "/notes/2024/gracefully-restart-a-gunicorn-app/": [
+    "/til/2024/gracefully-restart-a-gunicorn-app/"
+  ],
   "/notes/2024/inside-a-safari-webarchive/": [
     "/til/2024/whats-inside-safari-webarchive/"
   ],
@@ -2656,6 +2659,12 @@
   ],
   "/notes/2024/list-captures-in-the-wayback-machine/": [
     "/til/2024/get-a-list-of-captures-from-the-wayback-machine/"
+  ],
+  "/notes/2024/longest-common-suffix/": [
+    "/til/2024/longest-common-suffix/"
+  ],
+  "/notes/2024/minutes-in-a-year/": [
+    "/til/2024/minutes-in-a-year/"
   ],
   "/notes/2024/not-all-coal-is-the-same/": [
     "/til/2024/not-all-coal-is-the-same/"

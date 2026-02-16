@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: How to create a footer that’s always at the bottom of the page
 date: 2024-01-12 10:36:02 +00:00
-tags:
-  - css
-old_syntax_highlighting: true
+topic: CSS
 ---
 I use a pretty standard structure for laying out basic web pages:
 
@@ -20,7 +18,7 @@ I use a pretty standard structure for laying out basic web pages:
 
 If I want to ensure the `<footer>` is always at the bottom of the screen, even if the `<main>` doesn't fill the height, the following CSS does the trick (based on a Stack Overflow answer [by vsync][vsync])
 
-```css
+```css {"names":{"1":"body","2":"body","3":"main"}}
 body {
   min-height: 100vh;
   margin: 0;

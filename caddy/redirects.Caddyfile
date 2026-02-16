@@ -84,10 +84,6 @@ redir /2014/12/acronyms/ /2014/acronyms/ permanent
 redir /2014/12/acronyms /2014/acronyms/ permanent
 redir /2014/08/alfred-screenshots/ /2014/alfred-screenshots/ permanent
 redir /2014/08/alfred-screenshots /2014/alfred-screenshots/ permanent
-redir /2014/12/golems/ /2014/golems/ permanent
-redir /2014/12/golems /2014/golems/ permanent
-redir /2014/12/imessage-export/ /2014/imessage-export/ permanent
-redir /2014/12/imessage-export /2014/imessage-export/ permanent
 redir /2014/06/instapaper-urls/ /2014/instapaper-urls/ permanent
 redir /2014/06/instapaper-urls /2014/instapaper-urls/ permanent
 redir /2014/12/kitchen-sink-security/ /2014/kitchen-sink-security/ permanent
@@ -1587,12 +1583,16 @@ redir /til/2024/count-only-counts-non-null-values/ /notes/2024/count-only-counts
 redir /til/2024/count-only-counts-non-null-values /notes/2024/count-only-counts-non-null-values/ permanent
 redir /til/2024/create-a-directory-first/ /notes/2024/create-a-directory-first/ permanent
 redir /til/2024/create-a-directory-first /notes/2024/create-a-directory-first/ permanent
+redir /til/2024/create-a-sticky-bottom-footer/ /notes/2024/create-a-sticky-bottom-footer/ permanent
+redir /til/2024/create-a-sticky-bottom-footer /notes/2024/create-a-sticky-bottom-footer/ permanent
 redir /til/2024/custom-error-pages-in-flask/ /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/custom-error-pages-in-flask /notes/2024/custom-error-pages-in-flask/ permanent
 redir /til/2024/debugging-find-and-xargs/ /notes/2024/debugging-find-and-xargs/ permanent
 redir /til/2024/debugging-find-and-xargs /notes/2024/debugging-find-and-xargs/ permanent
 redir /til/2024/diagonal-new-banner/ /notes/2024/diagonal-new-banner/ permanent
 redir /til/2024/diagonal-new-banner /notes/2024/diagonal-new-banner/ permanent
+redir /til/2024/errexit-and-arithmetic-expressions/ /notes/2024/errexit-and-arithmetic-expressions/ permanent
+redir /til/2024/errexit-and-arithmetic-expressions /notes/2024/errexit-and-arithmetic-expressions/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil/ /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
 redir /til/2024/exclude-files-from-time-machine-with-tmutil /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
 redir /til/2024/how-to-do-exclusive-file-write-in-swift/ /notes/2024/exclusive-file-write-in-swift/ permanent
@@ -1605,6 +1605,8 @@ redir /til/2024/find-shortest-prefix-ruby/ /notes/2024/find-shortest-prefix-ruby
 redir /til/2024/find-shortest-prefix-ruby /notes/2024/find-shortest-prefix-ruby/ permanent
 redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
+redir /til/2024/gracefully-restart-a-gunicorn-app/ /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
+redir /til/2024/gracefully-restart-a-gunicorn-app /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
 redir /til/2024/whats-inside-safari-webarchive/ /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/whats-inside-safari-webarchive /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
@@ -1615,6 +1617,10 @@ redir /til/2024/limits-on-visited-styles/ /notes/2024/limits-on-visited-styles/ 
 redir /til/2024/limits-on-visited-styles /notes/2024/limits-on-visited-styles/ permanent
 redir /til/2024/get-a-list-of-captures-from-the-wayback-machine/ /notes/2024/list-captures-in-the-wayback-machine/ permanent
 redir /til/2024/get-a-list-of-captures-from-the-wayback-machine /notes/2024/list-captures-in-the-wayback-machine/ permanent
+redir /til/2024/longest-common-suffix/ /notes/2024/longest-common-suffix/ permanent
+redir /til/2024/longest-common-suffix /notes/2024/longest-common-suffix/ permanent
+redir /til/2024/minutes-in-a-year/ /notes/2024/minutes-in-a-year/ permanent
+redir /til/2024/minutes-in-a-year /notes/2024/minutes-in-a-year/ permanent
 redir /til/2024/not-all-coal-is-the-same/ /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/not-all-coal-is-the-same /notes/2024/not-all-coal-is-the-same/ permanent
 redir /til/2024/open-can-ask-questions/ /notes/2024/open-can-ask-questions/ permanent
@@ -1761,4 +1767,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: DUvxGGlN8N)
+#[[[end]]] (sum: HKzlRwm+ka)

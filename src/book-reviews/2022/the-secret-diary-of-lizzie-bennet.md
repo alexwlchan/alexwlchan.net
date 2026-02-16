@@ -19,7 +19,6 @@ colors:
    css_light: '#cf1e25'
    css_dark:  '#f7c121'
 
-old_syntax_highlighting: true
 ---
 
 This is the companion book to [*The Lizzie Bennet Diaries*](https://en.wikipedia.org/wiki/The_Lizzie_Bennet_Diaries), which retells Lizzie's story from a slightly more personal perspective.

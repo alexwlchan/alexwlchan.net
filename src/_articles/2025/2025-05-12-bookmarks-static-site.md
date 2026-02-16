@@ -1,18 +1,17 @@
 ---
-layout: post
+layout: article
 date: 2025-05-12 06:52:08 +00:00
 title: Creating a static website for all my bookmarks
 summary:
   To help me keep track of interesting links, I created a static website that keeps all my data locally. Why do I care about bookmarks, and how does my new site work?
-tags:
-  - bookmarking
-  - static sites
+topics:
+  - Web archiving
+  - Tiny archives
 index:
   feature: true
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
-old_syntax_highlighting: true
 ---
 I'm storing more and more of my data [as static websites][static_sites], and about a year ago I switched to using a local, static site to manage my bookmarks.
 It's replaced [Pinboard] as the way I track interesting links and cool web pages.

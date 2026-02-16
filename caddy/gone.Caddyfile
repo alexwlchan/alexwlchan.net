@@ -9,15 +9,31 @@
 #     cog.outl(f"handle {path} {{\n\terror 410\n}}\n")
 # 
 #]]]
+handle /2014/08/textexpander-amazon-affiliates/ {
+	error 410
+}
+
+handle /2014/12/golems/ {
+	error 410
+}
+
+handle /2014/12/imessage-export/ {
+	error 410
+}
+
 handle /2014/12/war-on-christmas/ {
 	error 410
 }
 
-handle /2014/textexpander-amazon-affiliates/ {
+handle /2014/golems/ {
 	error 410
 }
 
-handle /2014/08/textexpander-amazon-affiliates/ {
+handle /2014/imessage-export/ {
+	error 410
+}
+
+handle /2014/textexpander-amazon-affiliates/ {
 	error 410
 }
 
@@ -37,6 +53,10 @@ handle /2015/01/kings-cross-problems/ {
 	error 410
 }
 
+handle /2015/03/python-firewall/ {
+	error 410
+}
+
 handle /2015/bbfc-podcast/ {
 	error 410
 }
@@ -50,10 +70,6 @@ handle /2015/kings-cross-problems/ {
 }
 
 handle /2015/python-firewall/ {
-	error 410
-}
-
-handle /2015/03/python-firewall/ {
 	error 410
 }
 
@@ -125,4 +141,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: 04weM+7B98)
+#[[[end]]] (sum: bvbemjjxkg)

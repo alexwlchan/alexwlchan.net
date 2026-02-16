@@ -1,15 +1,12 @@
 ---
-layout: til
+layout: note
 title: How to gracefully restart a gunicorn app
 date: 2024-01-16 14:11:51 +00:00
-tags:
-  - python
-  - python:gunicorn
-old_syntax_highlighting: true
+topic: Python
 ---
 Suppose I have a Flask app:
 
-```python
+```python {"names":{"1":"flask","2":"Flask","3":"app","7":"index","8":"color"}}
 # app.py
 from flask import Flask
 

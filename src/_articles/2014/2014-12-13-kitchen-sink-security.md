@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: article
 date: 2014-12-13 07:37:00 +00:00
 title: Kitchen sink security
-old_syntax_highlighting: true
 ---
 
 I was going through some old paperwork recently, and I found some old bank cards that had expired. It's good practice [to destroy expired cards][money.se], so that the numbers on them can't be used for identity theft.

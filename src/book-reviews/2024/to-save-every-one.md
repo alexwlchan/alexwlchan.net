@@ -21,7 +21,6 @@ colors:
    css_light: '#092f65'
    css_dark:  '#d7643b'
 
-old_syntax_highlighting: true
 ---
 This reads like an extended marketing brochure for the RNLI.
 "Look at all the cool and important work we do."

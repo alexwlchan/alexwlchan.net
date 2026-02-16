@@ -83,7 +83,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
         # Reclassify units as part of numeric constants.
         highlighted_code = re.sub(
             r'<span class="mi">(?P<amount>\-?[0-9]+)</span>'
-            r'<span class="kt">(?P<unit>deg|em|px|%)</span>',
+            r'<span class="kt">(?P<unit>deg|em|px|vh|%)</span>',
             r'<span class="mi">\g<amount>\g<unit></span>',
             highlighted_code,
         )

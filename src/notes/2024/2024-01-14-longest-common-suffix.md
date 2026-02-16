@@ -1,15 +1,13 @@
 ---
-layout: til
+layout: note
 title: How to find the longest common suffix in a list of strings in Python
 date: 2024-01-14 09:27:19 +00:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 There are lots of ways to do this; this is my go-to implementation that pushes the heavy lifting off to `os.path.commonprefix`, and seems to have served me fairly well so far.
 Plus tests!
 
-```python
+```python {"names":{"11":"s","21":"hypothesis","22":"given","23":"hypothesis","24":"strategies","25":"st","26":"pytest","30":"test_get_common_suffix","31":"s1","32":"s2","33":"common_suffix","41":"test_get_common_suffix_of_single_string_is_itself","42":"s","51":"test_by_fuzzing_get_common_suffix","52":"s1","53":"s2","54":"suffix"}}
 import os
 
 

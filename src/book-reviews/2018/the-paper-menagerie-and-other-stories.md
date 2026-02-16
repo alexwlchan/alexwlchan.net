@@ -21,7 +21,6 @@ colors:
    css_light: '#a45a3f'
    css_dark:  '#ad725c'
 
-old_syntax_highlighting: true
 ---
 
 From a recommendation on Twitter: https://twitter.com/artfromafriend/status/910857338612887552

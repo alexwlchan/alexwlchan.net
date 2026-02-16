@@ -1,15 +1,12 @@
 ---
-layout: til
+layout: note
 date: 2024-02-22 18:40:37 +00:00
 title: Using `errexit` and arithmetic expressions in bash
-tags:
-  - bash
-  - shell scripting
-old_syntax_highlighting: true
+topic: Shell scripting
 ---
 I was having some issues with a Bash script that used `set -o errexit` and arithmetic expressions to increment a value:
 
-```shell
+```shell {"names":{"2":"x"}}
 set -o errexit
 
 x=0
@@ -36,7 +33,7 @@ Via a [Stack Overflow answer](https://stackoverflow.com/a/6877775/1558022), I fo
 
 I expanded my minimal example to print the return code and the current value of `x`, and I used Docker to run it on several versions of Bash (Bash 3, Bash 4, and Bash 5):
 
-```shell
+```shell {"names":{"2":"x"}}
 #!/usr/bin/env bash
 
 set -o errexit

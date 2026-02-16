@@ -23,7 +23,6 @@ colors:
    css_light: '#c75027'
    css_dark:  '#c4703c'
 
-old_syntax_highlighting: true
 ---
 
 A collection of short sci-fi stories.

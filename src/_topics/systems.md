@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: Systems and software
-old_syntax_highlighting: true
 ---
 
 I've been a professional software developer since 2014, and a hobbyist for several years before that.
