@@ -1,0 +1,69 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <!--[[[cog
+  import cog
+  
+  WIDTH = HEIGHT = 24
+  
+  outer_r = 10
+  
+  cog.outl(f'''
+    <circle cx="{WIDTH/2}" cy="{HEIGHT/2}" r="{outer_r}" class="border"/>
+  ''')
+  
+  head_y = 7
+  head_r = 0.85
+  
+  cog.outl(f'''
+    <circle cx="{WIDTH/2}" cy="{head_y}" r="{head_r}" class="border" style="fill: currentColor;"/>
+  ''')
+  
+  arm_w = 10
+  arm_y1 = 10
+  arm_r = 14
+  leg_r = 10
+  leg_x = 3
+  
+  arm_x = (WIDTH - arm_w) / 2
+  
+  cog.outl(f'''
+    <path d="
+      M {arm_x} {arm_y1}
+      A {arm_r} {arm_r} 0 0 0 {WIDTH-arm_x} {arm_y1}" class="border"/>
+  ''')
+  cog.outl(f'''
+    <path d="
+      M {WIDTH/2} {arm_y1 + 0.5}
+      a {leg_r} {arm_r} 0 0 1 {-leg_x} {7}" class="border"/>
+  ''')
+  cog.outl(f'''
+    <path d="
+      M {WIDTH/2} {arm_y1 + 0.5}
+      a {leg_r} {arm_r} 0 0 0 { leg_x} {7}" class="border"/>
+  ''')
+  
+  ]]]-->
+
+  <circle cx="12.0" cy="12.0" r="10" class="border"/>
+
+
+  <circle cx="12.0" cy="7" r="0.85" class="border" style="fill: currentColor;"/>
+
+
+  <path d="
+    M 7.0 10
+    A 14 14 0 0 0 17.0 10" class="border"/>
+
+
+  <path d="
+    M 12.0 10.5
+    a 10 14 0 0 1 -3 7" class="border"/>
+
+
+  <path d="
+    M 12.0 10.5
+    a 10 14 0 0 0 3 7" class="border"/>
+
+  <!-- [[[end]]] -->
+</svg>

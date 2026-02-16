@@ -269,7 +269,7 @@ I hope you like it!
         </span>
       </li>
       <li>
-        {% inline_svg filename="icons/floppy_disk.svg" class="dark_aware" %}
+        {% inline_svg filename="icons/accessibility.svg" class="dark_aware" %}
         <span>
           <a href="/inclusion/">Inclusion and accessibility</a>
         </span>
