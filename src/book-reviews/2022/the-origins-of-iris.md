@@ -23,7 +23,6 @@ colors:
    css_light: '#2e2b64'
    css_dark:  '#f6e868'
 
-old_syntax_highlighting: true
 ---
 
 This is a tricky book to describe.

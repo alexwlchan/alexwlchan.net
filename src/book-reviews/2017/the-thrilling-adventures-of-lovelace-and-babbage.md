@@ -23,7 +23,6 @@ colors:
    css_light: '#6d7472'
    css_dark:  '#d0d8d3'
 
-old_syntax_highlighting: true
 ---
 
 Really enjoyed it. The book is part-comic, part-footnote, with the footnote commentary providing snippets of a biography for Babbage and Lovelace.

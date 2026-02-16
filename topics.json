@@ -187,6 +187,11 @@
     "parent": "Art and creativity"
   },
   {
+    "name": "Generative art",
+    "href": "/art/generative-art/",
+    "parent": "Art and creativity"
+  },
+  {
     "name": "SVG",
     "href": "/art/svg/",
     "parent": "Art and creativity"

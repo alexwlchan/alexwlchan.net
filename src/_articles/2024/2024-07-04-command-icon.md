@@ -1,18 +1,17 @@
 ---
-layout: post
+layout: article
 date: 2024-07-04 10:23:15 +00:00
 title: Doodling with the Mac's command icon
 summary:
   Rotating a looped hook around a central point creates a surprising variety of shapes.
-tags:
-  - generative art
-  - drawing things
+topics:
+  - Generative art
+  - Drawing things
 colors:
   css_light: "#014df4"
   css_dark:  "#67a7ff"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 The command key (⌘) has been a ubiquitious part of the Mac for [over forty years][folklore].
 It was chosen by legendary icon designer Susan Kare, who picked it from a symbol dictionary -- this shape was already being used in Sweden to highlight an interesting feature on a map.
@@ -82,8 +81,8 @@ Despite this simple starting point, I was able to get quite a variety of shapes:
   @use "components/hero_grid";
 
   .hero_grid {
-    --grid-light-color: #fcdbd9;
-    --grid-dark-color:  #d01c11;
+    --grid-light-color: #a7cdfe;
+    --grid-dark-color:  #014df4;
   }
 </style>
 
@@ -288,12 +287,14 @@ $$
 
 And from this we can get the start and finish points of the circular arc:
 
+<div>
 $$
 \begin{align*}
 \text{start} &= (\text{centre of arc}_x, \text{centre of arc}_y + r) \\[2pt]
 \text{end} &= (\text{centre of arc}_x + r \sin\psi, \text{centre of arc}_y + r \cos\psi)
 \end{align*}
 $$
+</div>
 
 The SVG syntax for drawing this circular arc is then
 

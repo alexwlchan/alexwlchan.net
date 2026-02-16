@@ -120,12 +120,20 @@ def render_inline_svg(
 
         comment.extract()
 
-    # 7. Minify/Clean XML declaration
+    # 7. Minify style tags. This isn't a full minification; just removing
+    # enough that the Markdown renderer doesn't interpret this as a
+    # code block halfway through.
+    for style in soup.find_all("style"):
+        style.string.replace_with(  # type: ignore
+            "\n".join([ln.lstrip() for ln in style.text.splitlines() if ln.lstrip()])
+        )
+
+    # 8. Minify/Clean XML declaration
     # We convert to string and strip the <?xml ... ?> header
     xml_output = str(soup)
     xml_output = re.sub(r"<\?xml.*?\?>", "", xml_output).strip()
 
-    # 8. Wrap in link if necessary.
+    # 9. Wrap in link if necessary.
     if link_to == "original":
         dst_path = out_dir / "images" / str(context["page"].date.year) / filename
         dst_path.parent.mkdir(parents=True, exist_ok=True)

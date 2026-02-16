@@ -3,13 +3,10 @@ layout: post
 date: 2025-06-02 08:18:27 +00:00
 title: My favourite websites from my bookmark collection
 summary: Websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
-tags:
-  - bookmarking
-  - web development
+topic: Web archiving
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
-old_syntax_highlighting: true
 ---
 Over the last three weeks, I've been writing about how I manage my bookmarks.
 how I [use a static site to store them](/2025/bookmarks-static-site/), how I [built a personal web archive by hand](/2025/personal-archive-of-the-web/), and [what I learnt about web development along the way](/2025/learning-how-to-make-websites/).
