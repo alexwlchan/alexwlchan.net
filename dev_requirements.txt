@@ -19,7 +19,7 @@ certifi==2026.1.4
     #   httpx
 cogapp==3.6.0
     # via -r dev_requirements.in
-coverage==7.13.1
+coverage[toml]==7.13.1
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
@@ -154,7 +154,7 @@ pytest-xdist==3.8.0
     # via -r requirements.txt
 pyyaml==6.0.3
     # via -r requirements.txt
-ruff==0.15.0
+ruff==0.15.1
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
@@ -196,7 +196,6 @@ typing-extensions==4.15.0
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-    #   anyio
     #   beautifulsoup4
     #   mypy
     #   pydantic
