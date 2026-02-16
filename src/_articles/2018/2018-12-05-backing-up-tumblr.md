@@ -1,12 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2018-12-05 21:17:14 +00:00
 title: A script for backing up Tumblr posts and likes
 summary: Since Tumblr users are going on a mass deletion spree (helped by the Tumblr staff), some scripts to save content before it's too late.
-tags:
-  - tumblr
+topic: Preserving social media
 link: https://github.com/alexwlchan/backup_tumblr
-old_syntax_highlighting: true
 ---
 
 A few days ago, Tumblr announced some new content moderation policies that include the mass deletion of any posts deemed to contain "adult content".

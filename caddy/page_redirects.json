@@ -161,9 +161,6 @@
   "/2015/simpler-syndication/": [
     "/2015/12/simpler-syndication/"
   ],
-  "/2015/spotlight-suggestions/": [
-    "/2015/09/spotlight-suggestions/"
-  ],
   "/2015/swift-let/": [
     "/2015/02/swift-let/"
   ],
@@ -414,9 +411,6 @@
   "/2018/error-logging-in-lambdas/": [
     "/2018/09/error-logging-in-lambdas/"
   ],
-  "/2018/finding-slow-builds-in-travis/": [
-    "/2018/08/finding-slow-builds-in-travis/"
-  ],
   "/2018/finding-unsubscribed-sns-topics/": [
     "/2018/11/finding-unsubscribed-sns-topics/"
   ],
@@ -474,9 +468,6 @@
   "/2018/s3-shortcuts/": [
     "/2018/04/s3-shortcuts/"
   ],
-  "/2018/selective-sudo-on-travis/": [
-    "/2018/08/selective-sudo-on-travis/"
-  ],
   "/2018/suspicious-minds/": [
     "/2018/09/suspicious-minds/"
   ],
@@ -518,9 +509,6 @@
   ],
   "/2019/cycle-tracking-isn-t-just-for-women/": [
     "/2019/06/cycle-tracking-isn-t-just-for-women/"
-  ],
-  "/2019/debugging-a-stuck-terraform-plan/": [
-    "/2019/01/debugging-a-stuck-terraform-plan/"
   ],
   "/2019/digital-preservation-at-wellcome-collection/": [
     "/2019/10/digital-preservation-at-wellcome-collection/"
@@ -2575,6 +2563,15 @@
   ],
   "/notes/2019/github-set-co-commit-credit-with-co-authored-by/": [
     "/til/2019/github-set-co-commit-credit-with-co-authored-by/"
+  ],
+  "/notes/2019/installing-mimetype-on-alpine-linux/": [
+    "/til/2019/installing-mimetype-on-alpine-linux/"
+  ],
+  "/notes/2019/javascript-manipulating-url-query-parameters/": [
+    "/til/2019/javascript-manipulating-url-query-parameters/"
+  ],
+  "/notes/2019/scala-iterating-over-the-newlines-of-an-inputstream/": [
+    "/til/2019/scala-iterating-over-the-newlines-of-an-inputstream/"
   ],
   "/notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/": [
     "/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/",

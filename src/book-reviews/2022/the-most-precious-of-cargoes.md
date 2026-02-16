@@ -25,7 +25,6 @@ colors:
    css_light: '#455457'
    css_dark:  '#b3d8e7'
 
-old_syntax_highlighting: true
 ---
 
 A sort-of fairy tale from the second World War.

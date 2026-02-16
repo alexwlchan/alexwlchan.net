@@ -73,6 +73,10 @@ handle /2015/03/python-firewall/ {
 	error 410
 }
 
+handle /2015/09/spotlight-suggestions/ {
+	error 410
+}
+
 handle /2015/bbfc-podcast/ {
 	error 410
 }
@@ -86,6 +90,10 @@ handle /2015/kings-cross-problems/ {
 }
 
 handle /2015/python-firewall/ {
+	error 410
+}
+
+handle /2015/spotlight-suggestions/ {
 	error 410
 }
 
@@ -129,11 +137,35 @@ handle /2017/backup-your-instapaper/ {
 	error 410
 }
 
+handle /2018/08/finding-slow-builds-in-travis/ {
+	error 410
+}
+
+handle /2018/08/selective-sudo-on-travis/ {
+	error 410
+}
+
+handle /2018/finding-slow-builds-in-travis/ {
+	error 410
+}
+
+handle /2018/selective-sudo-on-travis/ {
+	error 410
+}
+
+handle /2019/01/debugging-a-stuck-terraform-plan/ {
+	error 410
+}
+
 handle /2019/01/oyster-tracking/ {
 	error 410
 }
 
 handle /2019/08/removing-the-drm-from-my-kindle-books/ {
+	error 410
+}
+
+handle /2019/debugging-a-stuck-terraform-plan/ {
 	error 410
 }
 
@@ -213,4 +245,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: QdHadVd5Oa)
+#[[[end]]] (sum: R1RnYa4QTp)

@@ -1,12 +1,10 @@
 ---
+layout: article
 date: 2018-12-23 22:39:38 +00:00
-layout: post
+title: Iterating in fixed-size chunks in Python
 summary: A snippet for iterating over an arbitrary iterable in chunks, and returning
   a smaller chunk if the boundaries don't line up.
-tags:
-  - python
-title: Iterating in fixed-size chunks in Python
-old_syntax_highlighting: true
+topic: Python
 ---
 
 Here's a fairly common problem I have: I have an iterable, and I want to go through it in "chunks".
@@ -16,7 +14,7 @@ For example, when I'm using the [bulk APIs](https://www.elastic.co/guide/en/elas
 
 Here's the sort of output I want:
 
-```python
+```python {"names":{"1":"c","2":"chunked_iterable"}}
 for c in chunked_iterable(range(14), size=4):
     print(c)
 
@@ -35,7 +33,7 @@ I have two requirements which are often missed in Stack Overflow answers or othe
 
 So to save me having to find it again, this is what I usually use:
 
-```python
+```python {"names":{"1":"itertools","2":"chunked_iterable","3":"iterable","4":"size","5":"it","8":"chunk"}}
 import itertools
 
 

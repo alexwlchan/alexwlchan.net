@@ -1,13 +1,10 @@
 ---
+layout: article
 date: 2018-12-27 17:38:55 +00:00
-layout: post
+title: Notes on reading a UTF-8 encoded CSV in Python
 summary: Some notes on trying to do this in a way that supports both Python 2 and
   3, and the frustration of doing so.
-tags:
-  - python
-  - unicode
-title: Notes on reading a UTF-8 encoded CSV in Python
-old_syntax_highlighting: true
+topic: Python
 ---
 
 Here's a problem I solved today: I have a CSV file to parse which contained UTF-8 strings, and I want to parse it using Python.
@@ -39,7 +36,7 @@ We want to parse this into a list of lists:
 
 The following code can read the file in Python 2.7; here we treat the file as a bag of bytes and only decode after the CSV parsing is done:
 
-```python
+```python {"names":{"1":"csv","3":"csvfile","4":"csvreader","9":"row","14":"entry"}}
 import csv
 
 with open("example.csv", "rb") as csvfile:
@@ -61,7 +58,7 @@ _csv.Error: iterator should return strings, not bytes (did you open the file in 
 
 The following code can read the file in Python 3:
 
-```python
+```python {"names":{"1":"csv","4":"csvfile","5":"csvreader","10":"row"}}
 import csv
 
 with open("example.csv", encoding="utf8") as csvfile:
@@ -86,7 +83,7 @@ This feels like it should be possible using only the standard library, but it wa
 
 I considered defining these as two separate functions, and running:
 
-```python
+```python {"names":{"1":"sys"}}
 import sys
 
 if sys.version_info[0] == 2:
@@ -101,7 +98,7 @@ Having two separate functions also introduces a source of bugs -- I might rememb
 I found [csv23](https://pypi.org/project/csv23/) on PyPI, whose description sounded similar to what I wanted.
 The following snippet does what I want:
 
-```python
+```python {"names":{"1":"csv23","4":"csvreader","5":"row"}}
 import csv23
 
 with csv23.open_reader("example.csv") as csvreader:
@@ -116,7 +113,7 @@ Having a third-party library is mildly annoying, but it's easier than trying to 
 
 Python 2 only:
 
-```python
+```python {"names":{"1":"csv","3":"csvfile","4":"csvreader","9":"row","14":"entry"}}
 import csv
 
 with open("example.csv", "rb") as csvfile:
@@ -129,7 +126,7 @@ with open("example.csv", "rb") as csvfile:
 
 Python 3 only:
 
-```python
+```python {"names":{"1":"csv","4":"csvfile","5":"csvreader","10":"row"}}
 import csv
 
 with open("example.csv", encoding="utf8") as csvfile:
@@ -141,7 +138,7 @@ with open("example.csv", encoding="utf8") as csvfile:
 
 Both Python 2 and 3:
 
-```python
+```python {"names":{"1":"csv23","4":"csvreader","5":"row"}}
 import csv23
 
 with csv23.open_reader("example.csv") as csvreader:

@@ -21,7 +21,6 @@ colors:
    css_light: '#91634f'
    css_dark:  '#a58470'
 
-old_syntax_highlighting: true
 ---
 This was my favourite book of the series so far -- we see a completely differently silo society again, where everyone is aware of the outside and the other silos.
 Maybe the details are wrong, but the broad strokes are correct and they're doing annual runs to gather information about the outside.

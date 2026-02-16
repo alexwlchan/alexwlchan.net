@@ -25,7 +25,6 @@ colors:
    css_light: '#165560'
    css_dark:  '#94cdce'
 
-old_syntax_highlighting: true
 ---
 I thought this would be a standard romance, but it actually turned out to be a gorgeous exploration of death and aging and dealing with that as part of your daily life.
 Ambroise is an embalmer for the dead; Manelle is a home help for the elderly.

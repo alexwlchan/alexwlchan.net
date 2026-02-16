@@ -23,7 +23,6 @@ colors:
    css_light: '#737270'
    css_dark:  '#f7e35f'
 
-old_syntax_highlighting: true
 ---
 
 This book is the story of Richard Hayes, a Dublin librarian who was involved in code-breaking during the World War Two.

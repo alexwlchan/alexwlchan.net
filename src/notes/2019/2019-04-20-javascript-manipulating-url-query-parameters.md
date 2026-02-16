@@ -1,16 +1,14 @@
 ---
-layout: til
+layout: note
 title: "Manipulating URL query parameters in JavaScript"
 date: 2019-04-20 21:24:30 +01:00
-tags:
-  - javascript
-old_syntax_highlighting: true
+topic: JavaScript
 ---
 
 Last time I did this, I had to use some moderately fiddly code from Stack Overflow.
 There are built-in tools for this now:
 
-```javascript
+```javascript {"names":{"1":"addQueryParameter","2":"name","3":"value","4":"url","16":"setQueryParameter","17":"name","18":"value","19":"url","31":"deleteQueryParameter","32":"name","33":"url"}}
 function addQueryParameter(name, value) {
   var url = new URL(window.location.href);
   url.searchParams.append(name, value);

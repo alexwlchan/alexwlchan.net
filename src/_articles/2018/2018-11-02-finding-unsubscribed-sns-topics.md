@@ -1,14 +1,12 @@
 ---
 date: 2018-11-02 10:42:04 +00:00
-layout: post
+layout: article
+title: Finding SNS topics without any subscriptions
 summary: I'm trying out Go, and I wrote a tool to help me find SNS topics that don't
   have any subscriptions.
-tags:
-  - golang
-  - aws
-  - aws:amazon-sns
-title: Finding SNS topics without any subscriptions
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Go
 ---
 
 I make regular use of [Amazon SNS][sns] when working with message queues in AWS.
@@ -70,7 +68,7 @@ First we need a client for interacting with the SNS API.
 I found the [docs for the SNS service][sns_service] a little unclear -- it says "use the New function to create a new service client", but I'd have preferred example code.
 I found a more instructive example in the [session package docs][session_docs], but it wasn't immediately clear that I should be looking there:
 
-```go
+```go {"names":{"1":"main","2":"sess","7":"snsClient"}}
 import (
     "github.com/aws/aws-sdk-go/aws/session"
     "github.com/aws/aws-sdk-go/service/sns"
@@ -93,16 +91,16 @@ Because I want to find the topics with zero subscriptions, I really want to trac
 Let's store the topics in a map from their ARN to subscription count.
 (An ARN is the [Amazon Resource Name][arn], a unique ID for anything created in AWS.)
 
-```go
+```go {"names":{"1":"subscriptionCountsByTopicArn"}}
 subscriptionCountsByTopicArn := make(map[string]int)
 ```
 
 And this is the code for populating the map:
 
-```go
+```go {"names":{"1":"main","2":"listTopicsParams","5":"listTopicsErr","9":"page","12":"_lastPage_","14":"topic"}}
 import "os"
 
-func main {
+func main() {
     ...
     listTopicsParams := sns.ListTopicsInput{}
     listTopicsErr := snsClient.ListTopicsPages(
@@ -157,7 +155,7 @@ map[
 
 Next, let's iterate over all the subscriptions, and tally the subscriptions associated with each topic:
 
-```go
+```go {"names":{"1":"listSubscriptionParams","4":"listSubscriptionsErr","8":"page","13":"subscription"}}
 listSubscriptionParams := sns.ListSubscriptionsInput{}
 listSubscriptionsErr := snsClient.ListSubscriptionsPages(
     &listSubscriptionParams,
@@ -186,7 +184,7 @@ In most languages, accessing a key in a map that doesn't exist is an error -- bu
 If you try to look up a key in a map that doesn't exist, Go returns the nil value (which is 0 for an int).
 And because `+= 1` is really syntactic sugar for:
 
-```go
+```go {"names":{"1":"existingValue","5":"subscriptionCountsByTopicArn"}}
 existingValue := subscriptionCountsByTopicArn[*subscription.TopicArn]
 subscriptionCountsByTopicArn[*subscription.TopicArn] = existingValue + 1
 ```
@@ -200,8 +198,8 @@ The error handling is then very similar to when I listed the topics, just with a
 Finally, let's iterate over the map and print any of the topics with no subscriptions.
 My first attempt was to write a standard Go `range` loop:
 
-```go
-def main {
+```go {"names":{"1":"main","2":"topicArn","3":"subscriptionCount"}}
+func main() {
     ...
     for topicArn, subscriptionCount := range subscriptionCountsByTopicArn {
         if subscriptionCount == 0 {
@@ -215,10 +213,10 @@ What I discovered is that iterating over a map gives a random iteration order --
 This is slightly annoying, because it's difficult to see if the output has changed over different calls of the script.
 To get around this, we build a list of the keys, sort it ourselves, then iterate over that:
 
-```go
+```go {"names":{"1":"main","2":"allTopicArns","3":"topicArn","13":"topicArn"}}
 import "sort"
 
-def main {
+func main() {
     ...
 
     var allTopicArns []string
@@ -264,7 +262,7 @@ Success!
 
 This is the final code:
 
-```go
+```go {"names":{"1":"main","2":"main","3":"sess","8":"snsClient","12":"subscriptionCountsByTopicArn","14":"listTopicsParams","17":"listTopicsErr","21":"page","26":"topic","38":"listSubscriptionParams","41":"listSubscriptionsErr","45":"page","50":"subscription","62":"allTopicArns","63":"topicArn","73":"topicArn"}}
 package main
 
 import (
