@@ -290,7 +290,10 @@ def test_console_preserves_whitespace() -> None:
     Whitespace tokens are preserved in console snippets.
     """
     html = apply_syntax_highlighting(src='$ echo "hello world"', lang="console")
-    assert '<span class="gp">$ </span>echo<span class="w"> </span>' in html
+    assert (
+        '<span class="gp">$</span><span class="w"> </span>echo<span class="w"> </span>'
+        in html
+    )
 
 
 def test_console_does_not_highlight_hash_in_output() -> None:
