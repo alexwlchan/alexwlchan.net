@@ -4,11 +4,12 @@ date: 2024-04-23 08:16:35 +00:00
 title: Taking regular screenshots of my website
 summary: |
   A screenshot a day keeps the bit rot at bay.
-topic: Screenshots
+topics: 
+  - Screenshots
+  - Web archiving
 colors:
   index_light: "#3d3d36"
   index_dark:  "#d4d5d2"
-old_syntax_highlighting: true
 ---
 
 A few weeks ago I was reading the [<abbr title="Digital Preservation Coalition">DPC</abbr> Bit List][bitlist], an inventory of digital materials and the risks associated with their long-term preservation.

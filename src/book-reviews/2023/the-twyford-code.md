@@ -22,7 +22,6 @@ colors:
    css_light: '#0e7ac1'
    css_dark:  '#df432e'
 
-old_syntax_highlighting: true
 ---
 
 A decent enough crime story, told as a series of audio transcripts.

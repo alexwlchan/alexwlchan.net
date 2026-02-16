@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: Notes
-old_syntax_highlighting: true
 ---
 
 Notes are snippets of information that I find useful and wanted to write down, but aren't long or original enough to be articles.

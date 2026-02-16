@@ -22,7 +22,6 @@ colors:
    css_light: '#345f76'
    css_dark:  '#cf5b4e'
 
-old_syntax_highlighting: true
 ---
 
 This was a gift from Mum in 2020.
