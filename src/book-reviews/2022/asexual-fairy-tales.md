@@ -23,7 +23,6 @@ colors:
    css_light: '#2a3d67'
    css_dark:  '#f0bd61'
 
-old_syntax_highlighting: true
 ---
 
 This is a series of fairy tales in which the author saw their own asexuality, but the tales are presented sans commentary.

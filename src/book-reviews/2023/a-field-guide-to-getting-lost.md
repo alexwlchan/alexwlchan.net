@@ -21,7 +21,6 @@ colors:
    css_light: '#107d99'
    css_dark:  '#0686b8'
 
-old_syntax_highlighting: true
 ---
 
 I wanted to be more engaged with this than I was; it's about the idea of getting lost in various forms (more than just not knowing where you are).

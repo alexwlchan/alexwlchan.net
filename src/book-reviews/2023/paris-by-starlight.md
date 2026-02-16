@@ -22,7 +22,6 @@ colors:
    css_light: '#0a496c'
    css_dark:  '#f2f3f0'
 
-old_syntax_highlighting: true
 ---
 
 A fun fantasy story, with echoes of [*The Night Circus*](/book-reviews/the-night-circus/) or [*The Starless Sea*](/book-reviews/the-starless-sea/).

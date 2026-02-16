@@ -21,7 +21,6 @@ colors:
    css_light: '#120d0c'
    css_dark:  '#cbb975'
 
-old_syntax_highlighting: true
 ---
 A thriller about a woman who sees a girl being kidnapped from a railway station, but nobody else witnesses it.
 It's a first-person narration from the point of view of the woman, who's a new mother struggling with mental health issues.

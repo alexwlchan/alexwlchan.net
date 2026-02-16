@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: SQLite
-old_syntax_highlighting: true
 ---
 
 SQLite is a database engine that stores all its data in a file on disk, rather than running a separate database server.

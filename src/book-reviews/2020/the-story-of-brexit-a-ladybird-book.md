@@ -21,7 +21,6 @@ colors:
    css_light: '#795a44'
    css_dark:  '#cb8f60'
 
-old_syntax_highlighting: true
 ---
 
 Gift from Mum and Dad for Christmas 2020.

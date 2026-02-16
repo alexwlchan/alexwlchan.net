@@ -21,7 +21,6 @@ colors:
    css_light: '#270b60'
    css_dark:  '#f2ef79'
 
-old_syntax_highlighting: true
 ---
 
 I've had this book on my TBR list for a very long time.

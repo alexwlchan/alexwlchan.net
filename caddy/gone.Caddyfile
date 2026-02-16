@@ -121,7 +121,15 @@ handle /2017/backup-your-instapaper/ {
 	error 410
 }
 
+handle /2019/01/oyster-tracking/ {
+	error 410
+}
+
 handle /2019/08/removing-the-drm-from-my-kindle-books/ {
+	error 410
+}
+
+handle /2019/oyster-tracking/ {
 	error 410
 }
 
@@ -197,4 +205,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: WflY/qNquH)
+#[[[end]]] (sum: JLaQuCXczA)
