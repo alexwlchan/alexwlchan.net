@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: The world around us
-old_syntax_highlighting: true
 ---
 
 This is a bit of a catch-all topic for anything that occurs outside a computer -- geography, history, politics, whatever catches my eye.

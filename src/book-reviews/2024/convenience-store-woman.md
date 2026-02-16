@@ -25,7 +25,6 @@ colors:
    css_light: '#58473a'
    css_dark:  '#f6e21d'
 
-old_syntax_highlighting: true
 ---
 This story is short but instantly recognisable; it's a slice of life about a woman whose entire life revolves around the convenience store where she works.
 It's never stated explicitly in the text, but the woman is clearly autistic and likes the routines she has set up.

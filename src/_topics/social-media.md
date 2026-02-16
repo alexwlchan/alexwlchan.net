@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: Preserving social media
-old_syntax_highlighting: true
 ---
 
 Social media is modern culture, but it's very difficult to preserve.
