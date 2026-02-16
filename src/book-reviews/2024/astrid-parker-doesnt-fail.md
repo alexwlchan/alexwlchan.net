@@ -22,7 +22,6 @@ colors:
    css_light: '#128074'
    css_dark:  '#18ae9e'
 
-old_syntax_highlighting: true
 ---
 A fun queer romance to kick off the new year – it's always good when you have to start sketching diagrams because there are so many queer characters, and you need to remember how they're all related.
 

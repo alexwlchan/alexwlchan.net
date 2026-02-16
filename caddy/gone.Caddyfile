@@ -93,11 +93,19 @@ handle /2016/01/harry-potter-ipod/ {
 	error 410
 }
 
+handle /2016/02/saved-by-the-prompt/ {
+	error 410
+}
+
 handle /2016/06/toothbrush-subscriptions/ {
 	error 410
 }
 
 handle /2016/harry-potter-ipod/ {
+	error 410
+}
+
+handle /2016/saved-by-the-prompt/ {
 	error 410
 }
 
@@ -205,4 +213,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: JLaQuCXczA)
+#[[[end]]] (sum: QdHadVd5Oa)

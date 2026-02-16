@@ -22,7 +22,6 @@ colors:
    css_light: '#cc3a25'
    css_dark:  '#fbea04'
 
-old_syntax_highlighting: true
 ---
 
 A fun romance about Nadia and Daniel, who repeatedly almost-meet in a series of coincidences (a shared Tube carriage, a mutual friend, going to the same event).

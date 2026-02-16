@@ -21,7 +21,6 @@ colors:
    css_light: '#2a5184'
    css_dark:  '#7686a3'
 
-old_syntax_highlighting: true
 ---
 Fun book; the idea is to explain complicated ideas with simple words (i.e. the most common ten-thousand works in English).
 The illustrations are the usual XKCD style, with a good blend of information and wit.

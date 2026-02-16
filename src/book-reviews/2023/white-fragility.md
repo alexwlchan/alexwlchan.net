@@ -22,7 +22,6 @@ colors:
    css_light: '#201f31'
    css_dark:  '#c45a20'
 
-old_syntax_highlighting: true
 ---
 
 Good, succinct discussion of white fragility and the effect it has on discussions of racism.

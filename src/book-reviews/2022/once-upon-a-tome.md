@@ -22,7 +22,6 @@ colors:
    css_light: '#4b6869'
    css_dark:  '#e1d7c1'
 
-old_syntax_highlighting: true
 ---
 
 A fun collection of stories and anecdotes from working at Sotheran's, which create an air of mystery and intrique around rare book sellers.

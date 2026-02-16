@@ -1,14 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2016-02-24 08:16:00 +00:00
 summary: "I have some TextExpander snippets that I use to cut out words I don\u2019\
   t want to write."
-tags:
-  - textexpander
-  - writethedocs
-  - inclusion
+topic: Inclusion and accessibility
 title: How I use TextExpander to curb my language
-old_syntax_highlighting: true
 ---
 
 I saw a tweet yesterday that I really liked:

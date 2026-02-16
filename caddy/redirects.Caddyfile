@@ -225,8 +225,6 @@ redir /2016/05/safely-deleting-a-file-called-rf/ /2016/safely-deleting-a-file-ca
 redir /2016/05/safely-deleting-a-file-called-rf /2016/safely-deleting-a-file-called-rf/ permanent
 redir /2016/05/safely-deleting-a-file-called-rf-/ /2016/safely-deleting-a-file-called-rf/ permanent
 redir /2016/05/safely-deleting-a-file-called-rf- /2016/safely-deleting-a-file-called-rf/ permanent
-redir /2016/02/saved-by-the-prompt/ /2016/saved-by-the-prompt/ permanent
-redir /2016/02/saved-by-the-prompt /2016/saved-by-the-prompt/ permanent
 redir /2016/09/silence-is-golden/ /2016/silence-is-golden/ permanent
 redir /2016/09/silence-is-golden /2016/silence-is-golden/ permanent
 redir /2016/01/skeletor-2015/ /2016/skeletor-2015/ permanent
@@ -1828,4 +1826,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: uqjKNFqwAC)
+#[[[end]]] (sum: uqUpmBh2AF)

@@ -23,7 +23,6 @@ colors:
    css_light: '#533d41'
    css_dark:  '#9fa4a1'
 
-old_syntax_highlighting: true
 ---
 
 The memoir of Gene Cernan, the commander of Apollo 17 and astronaut on two other flights.

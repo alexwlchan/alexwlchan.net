@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2019-05-13 10:17:13 +00:00
-summary: Breaking down some tricky code that allows us to lock over concurrent operations.
-tags:
-  - scala
 title: Creating a locking service in a Scala type class
+summary: Breaking down some tricky code that allows us to lock over concurrent operations.
+topic: Scala
 colors:
   index_light: "#276b44"
   index_dark:  "#4dc194"
-old_syntax_highlighting: true
 ---
 
 <!-- Cover image: https://www.pexels.com/photo/brass-colored-metal-padlock-with-chain-4291/ -->
@@ -35,7 +33,7 @@ Instead, I hope you get a better understanding of how type classes work, how the
 Robert and I are part of a team building a [storage service], which will eventually be Wellcome’s permanent storage for digital records.
 That includes archives, images, photographs, and much more.
 
-We're saving files to an Amazon S3 bucket[^1], but Amazon doesn't have a way to lock around writes to S3.
+We're saving files to an Amazon S3 bucket, but Amazon doesn't have a way to lock around writes to S3.
 If more than one process writes to the same location at the same time, there's no guarantee which will win!
 
 <img src="/images/2019/locking.png" style="width: 327px;" alt="Three workers (orange blobs) trying to write to a single S3 bucket.">
@@ -49,8 +47,6 @@ This is one use case -- there are several other places where we need our own loc
 We wanted to build one locking implementation that we could use in lots of places.
 
 [storage service]: https://github.com/wellcometrust/storage-service
-
-[^1]: Eventually every file will be stored in multiple S3 buckets, all with versioning and [Object Locks](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) enabled. We'll also be saving a copy in another geographic region and with another cloud provider, probably Azure.
 
 
 
@@ -70,7 +66,7 @@ We'd separate out the locking logic and the database backend, and write somethin
 
 This is the API in the original service which were were trying to replicate:
 
-```scala
+```scala {"names":{"1":"lockingService"}}
 lockingService.withLocks(Set("1", "2", "3")) {
   // do some stuff
 }
@@ -91,7 +87,7 @@ We assume the resource has some sort of identifier, which we can use to distingu
 
 We might write something like this (here, a dao is a [data access object][dao]):
 
-```scala
+```scala {"names":{"1":"LockDao","2":"Ident","3":"lock","4":"id","6":"unlock","7":"id"}}
 trait LockDao[Ident] {
   def lock(id: Ident)
   def unlock(id: Ident)
@@ -119,7 +115,7 @@ A single call to `unlock()` releases all the locks owned by a process.
 
 Here's what that trait looks like:
 
-```scala
+```scala {"names":{"1":"LockDao","2":"Ident","3":"ContextId","4":"lock","5":"id","7":"contextId","9":"unlock","10":"contextId"}}
 trait LockDao[Ident, ContextId] {
   def lock(id: Ident, contextId: ContextId)
   def unlock(contextId: ContextId)
@@ -136,7 +132,7 @@ We could use a `Try` or a `Future`, but that doesn't feel quite right -- we expe
 
 Eventually we settled upon using an `Either`, with case classes for lock/unlock failures that include some context for the operation in question, and a Throwable that explains why the operation failed:
 
-```scala
+```scala {"names":{"1":"LockDao","2":"Ident","3":"ContextId","4":"LockResult","11":"UnlockResult","16":"lock","17":"id","19":"contextId","22":"unlock","23":"contextId","26":"Lock","27":"Ident","28":"ContextId","29":"id","31":"contextId","33":"LockFailure","34":"Ident","35":"id","37":"e","39":"UnlockFailure","40":"ContextId","41":"contextId","43":"e"}}
 trait LockDao[Ident, ContextId] {
   type LockResult = Either[LockFailure[Ident], Lock[Ident, ContextId]]
   type UnlockResult = Either[UnlockFailure[ContextId], Unit]
@@ -172,7 +168,7 @@ This makes our tests faster and easier to manage!
 Let's create one now.
 Here's a skeleton to start with:
 
-```scala
+```scala {"names":{"1":"InMemoryLockDao","2":"Ident","3":"ContextId","7":"lock","8":"id","10":"contextId","13":"unlock","14":"contextId"}}
 class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
   def lock(id: Ident, contextId: ContextId): LockResult = ???
   def unlock(contextId: ContextId): UnlockResult = ???
@@ -183,7 +179,7 @@ Because this is just for testing, we can store the locks as a map.
 When somebody acquires a new lock, we store the context ID in the map.
 Here's what that looks like:
 
-```scala
+```scala {"names":{"1":"PermanentLock","2":"Ident","3":"ContextId","4":"id","6":"contextId","11":"InMemoryLockDao","12":"Ident","13":"ContextId","17":"currentLocks","23":"lock","24":"id","26":"contextId","33":"existingContextId","43":"existingContextId","52":"newLock","65":"unlock","66":"contextId"}}
 case class PermanentLock[Ident, ContextId](
   id: Ident,
   contextId: ContextId
@@ -220,7 +216,7 @@ It's fine to call `lock()` if you already have the lock, but you can't lock an I
 
 Unlocking is much simpler: we just remove the entry from the map.
 
-```scala
+```scala {"names":{"1":"InMemoryLockDao","2":"Ident","3":"ContextId","7":"lock","8":"id","10":"contextId","13":"unlock","14":"contextId","21":"lockContextId"}}
 class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
   def lock(id: Ident, contextId: ContextId): LockResult = ...
 
@@ -242,7 +238,7 @@ When a caller uses this in tests, they can trust the LockDao is behaving correct
 
 Here's what it looks like in practice:
 
-```scala
+```scala {"names":{"1":"java","2":"util","3":"UUID","4":"dao","8":"u1"}}
 import java.util.UUID
 
 val dao = new InMemoryLockDao[String, UUID]()
@@ -286,7 +282,7 @@ It has to acquire a lock on each of those identifiers, get the result of the cal
 
 Here's a stub to start us off:
 
-```scala
+```scala {"names":{"1":"LockingService","2":"Ident","3":"withLocks","4":"ids","7":"callback"}}
 trait LockingService[Ident] {
   def withLocks(ids: Set[Ident])(callback: => ???) = ???
 }
@@ -295,7 +291,7 @@ trait LockingService[Ident] {
 For now, let's put aside the return type of the `callback`, and acquire a lock.
 We'll need a lock dao (which can be entirely generic), and a way to create context IDs:
 
-```scala
+```scala {"names":{"1":"LockingService","2":"LockDaoImpl","6":"lockDao","8":"withLocks","9":"ids","13":"callback","14":"createContextId"}}
 trait LockingService[LockDaoImpl <: LockDao[_, _]] {
   implicit val lockDao: LockDaoImpl
 
@@ -313,7 +309,7 @@ If we get them all, we can call the callback -- but if any of the locks fail, we
 
 Let's write a method for acquiring the locks:
 
-```scala
+```scala {"names":{"1":"grizzled","2":"slf4j","3":"Logging","4":"FailedLockingServiceOp","5":"FailedLock","6":"ContextId","7":"Ident","8":"contextId","10":"lockFailures","15":"LockingService","16":"LockDaoImpl","21":"LockingServiceResult","26":"getLocks","27":"ids","31":"contextId","35":"lockResults","42":"failedLocks","55":"getFailedLocks","56":"lockResults","71":"acc","78":"failedLock","81":"unlock","82":"contextId"}}
 import grizzled.slf4j.Logging
 
 trait FailedLockingServiceOp
@@ -378,7 +374,7 @@ We want to preserve that return type, and combine it with possible locking error
 
 So we added another pair of type parameters:
 
-```scala
+```scala {"names":{"1":"LockingService","2":"Out","3":"OutMonad","5":"Process","9":"withLocks","10":"ids","14":"callback"}}
 trait LockingService[Out, OutMonad[_], ...] {
   ...
 
@@ -429,7 +425,7 @@ So even if the callback code isn't wrapped in an explicit monad, the compiler ca
 So now we know what type our callback returns, let's actually call it inside the locking service.
 For now, assume we've already successfully acquired the locks, and we want to run the callback.
 
-```scala
+```scala {"names":{"1":"cats","2":"MonadError","3":"FailedProcess","4":"ContextId","5":"contextId","7":"e","10":"LockingService","11":"Out","12":"OutMonad","14":"Process","18":"unlock","19":"contextId","22":"OutMonadError","26":"cats","27":"implicits","29":"safeCallback","30":"contextId","33":"callback","36":"monadError","40":"partialResult","45":"out","56":"err"}}
 import cats.MonadError
 
 case class FailedProcess[ContextId](contextId: ContextId, e: Throwable)
@@ -481,7 +477,7 @@ Instead, we're handing that off to Cats.
 
 Now we have all the pieces we need to actually write out `withLocks` method, and here it is:
 
-```scala
+```scala {"names":{"1":"cats","2":"data","3":"EitherT","4":"LockingService","5":"Out","6":"OutMonad","8":"LockingServiceResult","13":"getLocks","14":"ids","18":"contextId","22":"withLocks","23":"ids","27":"callback","30":"m","34":"contextId","38":"eitherT","39":"contextId","48":"out"}}
 import cats.data.EitherT
 
 trait LockingService[Out, OutMonad[_], ...] {
@@ -534,7 +530,7 @@ In barely a hundred lines of Scala, we've implemented all the logic for a lockin
 We can combine the generic locking service with the in-memory lock dao, and get an in-memory locking service.
 Because all the logic is in the type class, this is really short:
 
-```scala
+```scala {"names":{"1":"java","2":"util","3":"UUID","4":"lockingService","11":"lockDao","18":"createContextId"}}
 import java.util.UUID
 
 val lockingService = new LockingService[String, Try, LockDao[String, UUID]] {
@@ -566,7 +562,7 @@ It makes tests simpler and cleaner elsewhere in the codebase.
 When we want an implementation to write in production, we can combine it with a LockDao implementation and get a new locking service implementation.
 This is the entirety of our DynamoDB locking service:
 
-```scala
+```scala {"names":{"1":"DynamoLockingService","2":"Out","3":"OutMonad","5":"lockDao","13":"createContextId"}}
 class DynamoLockingService[Out, OutMonad[_]](
   implicit val lockDao: DynamoLockDao)
     extends LockingService[Out, OutMonad, LockDao[String, UUID]] {
