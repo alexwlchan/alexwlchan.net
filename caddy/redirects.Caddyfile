@@ -1680,6 +1680,8 @@ redir /til/2025/aspect-ratio-slash-is-numeric/ /notes/2025/aspect-ratio-slash-is
 redir /til/2025/aspect-ratio-slash-is-numeric /notes/2025/aspect-ratio-slash-is-numeric/ permanent
 redir /til/2025/basic-socket-server-in-ruby/ /notes/2025/basic-socket-server-in-ruby/ permanent
 redir /til/2025/basic-socket-server-in-ruby /notes/2025/basic-socket-server-in-ruby/ permanent
+redir /til/2025/bfpo/ /notes/2025/bfpo/ permanent
+redir /til/2025/bfpo /notes/2025/bfpo/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
@@ -1704,6 +1706,8 @@ redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actio
 redir /til/2025/exiftool-in-github-actions /notes/2025/exiftool-in-github-actions/ permanent
 redir /til/2025/get-python-traceback-as-string/ /notes/2025/get-python-traceback-as-string/ permanent
 redir /til/2025/get-python-traceback-as-string /notes/2025/get-python-traceback-as-string/ permanent
+redir /til/2025/get-video-metadata-from-spotlight/ /notes/2025/get-video-metadata-from-spotlight/ permanent
+redir /til/2025/get-video-metadata-from-spotlight /notes/2025/get-video-metadata-from-spotlight/ permanent
 redir /til/2025/get-video-dimensions-with-mediainfo/ /notes/2025/get-video-dimensions-with-mediainfo/ permanent
 redir /til/2025/get-video-dimensions-with-mediainfo /notes/2025/get-video-dimensions-with-mediainfo/ permanent
 redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
@@ -1740,6 +1744,8 @@ redir /til/2025/see-tailscale-node-keys/ /notes/2025/see-tailscale-node-keys/ pe
 redir /til/2025/see-tailscale-node-keys /notes/2025/see-tailscale-node-keys/ permanent
 redir /til/2025/semaphore-frogs/ /notes/2025/semaphore-frogs/ permanent
 redir /til/2025/semaphore-frogs /notes/2025/semaphore-frogs/ permanent
+redir /til/2025/set-tqdm-total-later/ /notes/2025/set-tqdm-total-later/ permanent
+redir /til/2025/set-tqdm-total-later /notes/2025/set-tqdm-total-later/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting/ /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/shutil-copy-files-without-overwriting /notes/2025/shutil-copy-files-without-overwriting/ permanent
 redir /til/2025/sqlite-functions/ /notes/2025/sqlite-functions/ permanent
@@ -1812,4 +1818,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: GytktigpY1)
+#[[[end]]] (sum: u3QbL6GmH8)

@@ -1,22 +1,20 @@
 ---
-layout: til
+layout: note
 title: You can set/update the `total` of a progress bar `tqdm` after it starts
 summary: Update the `.total` attribute, then call `.refresh()`.
 date: 2025-05-17 16:00:18 +01:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 I use the [`tqdm` library][tqdm] to create progress bars in my terminal.
 
 If you know the number of items upfront, you can pass a `total` to `tqdm.tqdm()`, for example:
 
-```python
+```python {"names":{"1":"time","2":"tqdm","6":"pbar"}}
 import time
 import tqdm
 
 with tqdm.tqdm(total=100) as pbar:
-    for _ in tange(100):
+    for _ in range(100):
         time.sleep(1)
 ```
 
@@ -25,7 +23,7 @@ But what if you don't know the size upfront?
 It turns out you can set the `total` later, and then `tqdm` will use it when it redraws the progress bar.
 Here's a simple example:
 
-```python
+```python {"names":{"1":"time","2":"tqdm","5":"pbar"}}
 import time
 import tqdm
 

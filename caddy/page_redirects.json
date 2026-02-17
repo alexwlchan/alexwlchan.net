@@ -2742,6 +2742,9 @@
   "/notes/2025/basic-socket-server-in-ruby/": [
     "/til/2025/basic-socket-server-in-ruby/"
   ],
+  "/notes/2025/bfpo/": [
+    "/til/2025/bfpo/"
+  ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
   ],
@@ -2777,6 +2780,9 @@
   ],
   "/notes/2025/get-python-traceback-as-string/": [
     "/til/2025/get-python-traceback-as-string/"
+  ],
+  "/notes/2025/get-video-metadata-from-spotlight/": [
+    "/til/2025/get-video-metadata-from-spotlight/"
   ],
   "/notes/2025/get-video-dimensions-with-mediainfo/": [
     "/til/2025/get-video-dimensions-with-mediainfo/"
@@ -2831,6 +2837,9 @@
   ],
   "/notes/2025/semaphore-frogs/": [
     "/til/2025/semaphore-frogs/"
+  ],
+  "/notes/2025/set-tqdm-total-later/": [
+    "/til/2025/set-tqdm-total-later/"
   ],
   "/notes/2025/shutil-copy-files-without-overwriting/": [
     "/til/2025/shutil-copy-files-without-overwriting/"

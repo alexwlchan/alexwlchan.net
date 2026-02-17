@@ -1,19 +1,16 @@
 ---
-layout: post
+layout: article
 date: 2024-08-14 15:13:14 +00:00
 title: Plates and states
 summary: |
   On a recent trip to the US, I learnt a surprising amount from watching the license plates on passing cars.
-tags:
-  - travel
-  - driving
+topic: The world around us
 colors:
   index_light: "#921b2a"
   index_dark:  "#97b7c8"
 index:
   feature: true
 card_attribution: https://www.pexels.com/photo/wall-of-car-plate-12953608/
-old_syntax_highlighting: true
 ---
 
 I was recently visiting Vermont for a work trip -- my first time in the USA since I was a child.

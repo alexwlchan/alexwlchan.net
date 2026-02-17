@@ -1,7 +1,6 @@
 ---
 layout: topic
 title: Fun stuff
-old_syntax_highlighting: true
 ---
 
 This is silly stuff I've made and put on the Internet.
