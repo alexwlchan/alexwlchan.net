@@ -22,7 +22,6 @@ colors:
    css_light: '#ba3d3c'
    css_dark:  '#fcf5dd'
 
-old_syntax_highlighting: true
 ---
 
 A fun addition to the series, standard XKCD fare.

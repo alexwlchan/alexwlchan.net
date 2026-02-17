@@ -19,7 +19,6 @@ colors:
    css_light: '#bf3625'
    css_dark:  '#e24d32'
 
-old_syntax_highlighting: true
 ---
 
 I first heard of this in [a review by The Snicket Sleuth](https://snicketsleuth.tumblr.com/post/661507207111819264/the-sleuth-reviews-poison-for-breakfast), and I borrowed the ebook from the library.

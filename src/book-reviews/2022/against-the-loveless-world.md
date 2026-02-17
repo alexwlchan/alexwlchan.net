@@ -20,7 +20,6 @@ colors:
    css_light: '#156a49'
    css_dark:  '#e1c926'
 
-old_syntax_highlighting: true
 ---
 
 A powerful novel about a Palestinian woman, Nahr, who's stuck in an Israeli prison, reflecting on her life and how she came to be there.

@@ -22,7 +22,6 @@ colors:
    css_light: '#c52726'
    css_dark:  '#d4a633'
 
-old_syntax_highlighting: true
 ---
 
 A fun, interesting overview of this segment of the LEGO building world.

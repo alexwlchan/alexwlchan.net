@@ -22,7 +22,6 @@ colors:
    css_light: '#766f51'
    css_dark:  '#ded19b'
 
-old_syntax_highlighting: true
 ---
 
 I've had this on my shelf for a while; it covers a bunch of stuff about theoretical physics, fundamental forces, quantum mechanics, and so on.

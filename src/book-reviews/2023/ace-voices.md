@@ -22,7 +22,6 @@ colors:
    css_light: '#e5037d'
    css_dark:  '#e20b7d'
 
-old_syntax_highlighting: true
 ---
 
 There's a good book in here, but it's struggling to get out.

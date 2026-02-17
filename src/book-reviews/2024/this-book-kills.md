@@ -22,7 +22,6 @@ colors:
    css_light: '#2b396e'
    css_dark:  '#e7544a'
 
-old_syntax_highlighting: true
 ---
 Fun little murder mystery set in a boarding school.
 The murder is a copycat -- copying from Jess's short story, where she came up with a particularly unusual calling card of the murderer (the words "help me" spelt out in twigs by the victim's body).

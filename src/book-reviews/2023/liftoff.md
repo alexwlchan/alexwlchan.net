@@ -22,7 +22,6 @@ colors:
    css_light: '#1f79a6'
    css_dark:  '#fbef1a'
 
-old_syntax_highlighting: true
 ---
 
 Some really interesting stories from the founding of SpaceX, and the first four launches of the Falcon 1 rocket.

@@ -25,7 +25,6 @@ colors:
    css_light: '#137ea6'
    css_dark:  '#fda720'
 
-old_syntax_highlighting: true
 ---
 Eli is a trans man who's returning to Florida for Christmas after his comedy career stalled; Nick is a divorced father whose life has stalled.
 

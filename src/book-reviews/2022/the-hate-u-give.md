@@ -21,7 +21,6 @@ colors:
    css_light: '#1e807a'
    css_dark:  '#05b7aa'
 
-old_syntax_highlighting: true
 ---
 
 A story about Starr, a Black teenager who sees her friend Khalil get murdered by a police officer (for the second time), and dealing with the consequences: the reaction from her family, her Black neighbours and her White school friends; the increased attention from the media and the judicial system; processing her "fight or flight" instincts.

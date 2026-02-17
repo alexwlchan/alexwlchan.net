@@ -20,7 +20,6 @@ colors:
    css_light: '#a8663e'
    css_dark:  '#e6ad70'
 
-old_syntax_highlighting: true
 ---
 
 I first heard of this book in a [tweet from Hynek](https://twitter.com/hynek/status/1259536982411280386).

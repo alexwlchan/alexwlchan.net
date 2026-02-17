@@ -21,7 +21,6 @@ colors:
    css_light: '#ce1125'
    css_dark:  '#f0c26f'
 
-old_syntax_highlighting: true
 ---
 
 I started this with no context and without knowing who the author was. Interesting enough (and surprisingly, I find it much easier to keep Chinese names straight in my head than English names), but when I bothered to Google and see what other people thought of it, it rapidly killed my interest. (Spoiler: not complimentary.)

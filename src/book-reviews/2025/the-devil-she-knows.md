@@ -21,7 +21,6 @@ colors:
    css_light: '#a03636'
    css_dark:  '#f5b4a8'
 
-old_syntax_highlighting: true
 ---
 A hot and steamy romance from one of my favourite authors.
 Sam is heartbroken when her girlfriend Helen rejects her proposal and breaks up with her; distraught, she accepts a deal with Daphne to get six wishes in exchange for her soul.

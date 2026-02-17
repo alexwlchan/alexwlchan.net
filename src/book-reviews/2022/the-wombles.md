@@ -19,7 +19,6 @@ colors:
    css_light: '#578132'
    css_dark:  '#c0c559'
 
-old_syntax_highlighting: true
 ---
 
 Fun, charming little book of Womble adventures.

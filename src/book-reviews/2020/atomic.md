@@ -22,7 +22,6 @@ colors:
    css_light: '#4f688e'
    css_dark:  '#e5be4e'
 
-old_syntax_highlighting: true
 ---
 
 I've had a copy of this on my shelf for years, but it failed to grab me after two chapters.

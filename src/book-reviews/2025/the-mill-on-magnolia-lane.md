@@ -22,7 +22,6 @@ colors:
    css_light: '#197c99'
    css_dark:  '#4abbde'
 
-old_syntax_highlighting: true
 ---
 A cute little romance novel about Lizzie, who buys an abandoned mill after her father dies, and vows to renovate it.
 Things go fairly wrong for the women in her family -- a gas explosion, a cheating partner, an unexpected pregnancy -- and she gradually gathers them in the caravan where she's overseeing the building works.

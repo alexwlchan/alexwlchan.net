@@ -24,7 +24,6 @@ colors:
    css_light: '#1f3453'
    css_dark:  '#d0ab36'
 
-old_syntax_highlighting: true
 ---
 A love letter to reading and books – Guylain Vignolles works at a book-pulping factory, but adores books and steals single pages as an act of resistance.
 He reads the pages aloud to a rapt audience on his morning train, releasing the words into the world.

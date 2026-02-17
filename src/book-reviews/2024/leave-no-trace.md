@@ -22,7 +22,6 @@ colors:
    css_light: '#2a434b'
    css_dark:  '#e7e34b'
 
-old_syntax_highlighting: true
 ---
 A fun thriller with a hint of romance.
 Maya is a speech therapist who's assigned to work with Lucas, a nineteen year-old who's just emerged from the wilderness after he and his father disappeared a decade prior.

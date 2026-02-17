@@ -21,7 +21,6 @@ colors:
    css_light: '#715e36'
    css_dark:  '#e65813'
 
-old_syntax_highlighting: true
 ---
 
 This is a sci-fi classic that I'd never read, but I'm glad I finally have.

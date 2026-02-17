@@ -22,7 +22,6 @@ colors:
    css_light: '#5f717a'
    css_dark:  '#eef6f8'
 
-old_syntax_highlighting: true
 ---
 
 The book is a sort of diary: one page for every day of the year, detailing unusual weather events that happened on that day.

@@ -23,7 +23,6 @@ colors:
    css_light: '#53156f'
    css_dark:  '#f9cd24'
 
-old_syntax_highlighting: true
 ---
 
 Fun little sci-fi/YA novel, quite a page turner.

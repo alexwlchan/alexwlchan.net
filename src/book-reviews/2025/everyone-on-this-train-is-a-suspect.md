@@ -22,7 +22,6 @@ colors:
    css_light: '#df0c15'
    css_dark:  '#fce8e8'
 
-old_syntax_highlighting: true
 ---
 A murder mystery novel set on a train, starring Ernest, a crime writer who seems to encounter a lot of real-life murderers.
 There's a festival of crime writers and two people get murdered, so lots of people around who want to play amateur detective.

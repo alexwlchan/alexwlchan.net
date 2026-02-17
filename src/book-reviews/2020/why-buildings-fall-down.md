@@ -21,7 +21,6 @@ colors:
    css_light: '#716a81'
    css_dark:  '#9d7a69'
 
-old_syntax_highlighting: true
 ---
 
 Sequel to “Why Buildings Stand Up”. It’s an easy read, covering a variety of building styles, and explaining incidents in which the buildings failed. As before, clear writing and great illustrations.

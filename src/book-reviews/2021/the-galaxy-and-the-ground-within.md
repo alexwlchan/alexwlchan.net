@@ -21,7 +21,6 @@ colors:
    css_light: '#9d418d'
    css_dark:  '#dac8d9'
 
-old_syntax_highlighting: true
 ---
 
 This is the final book in Becky Chambers's *Wayfarers* series, and like the other three books I loved it.

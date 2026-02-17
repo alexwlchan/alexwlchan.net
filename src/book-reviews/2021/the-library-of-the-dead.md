@@ -22,7 +22,6 @@ colors:
    css_light: '#206969'
    css_dark:  '#86d4d4'
 
-old_syntax_highlighting: true
 ---
 
 A fun fantasy book set in a dystopian Edinburgh.

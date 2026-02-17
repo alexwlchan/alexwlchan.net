@@ -21,7 +21,6 @@ colors:
    css_light: '#3c3976'
    css_dark:  '#a1a6aa'
 
-old_syntax_highlighting: true
 ---
 
 Some fun imagined conversations in the corridors of power during Theresa May's premiership.

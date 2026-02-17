@@ -21,7 +21,6 @@ colors:
    css_light: '#796787'
    css_dark:  '#fcd390'
 
-old_syntax_highlighting: true
 ---
 
 Fun book that imagines tropes from science-fiction and fantasy as different worlds to be explored, and presents them as a travel guide: a world of pirates, a world of D&D characters, *Star Wars* and *Star Trek* mixed into one, and so on.

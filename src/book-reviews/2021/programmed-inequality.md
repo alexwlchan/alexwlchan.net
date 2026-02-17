@@ -22,7 +22,6 @@ colors:
    css_light: '#4f5c91'
    css_dark:  '#dddee0'
 
-old_syntax_highlighting: true
 ---
 
 I went to hear a brief reading of this in 2017, apparently, and it's sat on a shelf ever since.

@@ -21,7 +21,6 @@ colors:
    css_light: '#b74946'
    css_dark:  '#dfb940'
 
-old_syntax_highlighting: true
 ---
 
 Lots of parallels to the current tech industry.

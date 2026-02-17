@@ -22,7 +22,6 @@ colors:
    css_light: '#0d0804'
    css_dark:  '#fffffe'
 
-old_syntax_highlighting: true
 ---
 
 This was a gift from Mum, although I don't remember exactly when.

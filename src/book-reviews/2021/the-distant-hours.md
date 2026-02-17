@@ -21,7 +21,6 @@ colors:
    css_light: '#62769d'
    css_dark:  '#dedbb1'
 
-old_syntax_highlighting: true
 ---
 
 I found this book in a bag on a bench in a local village, with a note:

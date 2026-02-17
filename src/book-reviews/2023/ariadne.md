@@ -22,7 +22,6 @@ colors:
    css_light: '#053d8a'
    css_dark:  '#70b3d7'
 
-old_syntax_highlighting: true
 ---
 
 A lovely retelling of the myth of [Ariadne](https://en.wikipedia.org/wiki/Ariadne).

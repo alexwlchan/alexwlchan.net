@@ -21,7 +21,6 @@ colors:
    css_light: '#605150'
    css_dark:  '#de883e'
 
-old_syntax_highlighting: true
 ---
 I've tried to read this several times, and it's never quite clicked.
 I'm sure there's something in here, but I can't work out what it is, and trying to read it feels like a slog.

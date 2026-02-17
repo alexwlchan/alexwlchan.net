@@ -22,7 +22,6 @@ colors:
    css_light: '#665f3d'
    css_dark:  '#a57c56'
 
-old_syntax_highlighting: true
 ---
 A fantasy book about children who find magical doorways that take them to other worlds, and then find themselves returned to the human world.
 There's a school that looks after children who have returned, and who want to go back.

@@ -23,7 +23,6 @@ colors:
    css_light: '#804187'
    css_dark:  '#e8c99e'
 
-old_syntax_highlighting: true
 ---
 
 This is a heartbreaking story; Alex's wife Lisa is killed in a train crash, leaving him to look after their son Connor.

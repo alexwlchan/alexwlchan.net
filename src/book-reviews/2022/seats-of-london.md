@@ -22,7 +22,6 @@ colors:
    css_light: '#6d6d71'
    css_dark:  '#c6ac47'
 
-old_syntax_highlighting: true
 ---
 
 Cute little book about the seat covers on London's trains, trams, and buses.

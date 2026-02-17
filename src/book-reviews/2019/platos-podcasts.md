@@ -21,7 +21,6 @@ colors:
    css_light: '#c24d48'
    css_dark:  '#d34342'
 
-old_syntax_highlighting: true
 ---
 
 Each chapter is a snippet of one philosopher – a bit about their bio, how they practiced philosophy, something we can learn from them. It’s been on my shelf for ages and feels like something I should enjoy, but for whatever reason not grabbing me right now.

@@ -23,7 +23,6 @@ colors:
    css_light: '#7d5f83'
    css_dark:  '#f8e3e5'
 
-old_syntax_highlighting: true
 ---
 A charming sequel to [*The Distance Between Me and the Cherry Tree*](/book-reviews/the-distance-between-me-and-the-cherry-tree/).
 Mafalda is older and now two years into being blind.

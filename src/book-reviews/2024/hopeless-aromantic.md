@@ -22,7 +22,6 @@ colors:
    css_light: '#a65d4d'
    css_dark:  '#f0866f'
 
-old_syntax_highlighting: true
 ---
 I made it maybe thirty pages into this book before dropping it in disgust.
 It feels like a book written by somebody who's never been past the first page of Google search results.

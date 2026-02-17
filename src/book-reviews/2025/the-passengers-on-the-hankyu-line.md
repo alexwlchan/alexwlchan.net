@@ -24,7 +24,6 @@ colors:
    css_light: '#94292c'
    css_dark:  '#e0bc56'
 
-old_syntax_highlighting: true
 ---
 A charming collection of Japanese short stories that follow the passengers on a train line with iconic red carriages.
 

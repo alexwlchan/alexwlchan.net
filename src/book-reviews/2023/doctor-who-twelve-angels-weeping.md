@@ -23,7 +23,6 @@ colors:
    css_light: '#0a0605'
    css_dark:  '#d7b038'
 
-old_syntax_highlighting: true
 ---
 
 A good anthology of short stories, each exploring a different *Doctor Who* villain.

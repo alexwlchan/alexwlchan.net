@@ -21,7 +21,6 @@ colors:
    css_light: '#48458c'
    css_dark:  '#f57a23'
 
-old_syntax_highlighting: true
 ---
 
 A detailed, methodical description of different nuclear accidents.

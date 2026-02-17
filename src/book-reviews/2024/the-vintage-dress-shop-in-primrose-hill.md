@@ -21,7 +21,6 @@ colors:
    css_light: '#9b4b77'
    css_dark:  '#d9cb8d'
 
-old_syntax_highlighting: true
 ---
 Cute little romance story about Sophy, who finds work in a vintage dress shop after her life falls apart, and meets a dashing and suave man named Charles.
 Her imminent plans to emigrate to Australia hang over them both and are the source of conflict when her journey out comes sooner than they expected.

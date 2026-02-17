@@ -21,7 +21,6 @@ colors:
   css_light: "#a65f87"
   css_dark:  "#eab0d1"
 
-old_syntax_highlighting: true
 ---
 
 Laura Jane Williams tells the story of being dumped by her school sweetheart, and rebuilding her sense of self-worth.

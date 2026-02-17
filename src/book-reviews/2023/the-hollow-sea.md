@@ -21,7 +21,6 @@ colors:
    css_light: '#2f7677'
    css_dark:  '#62bac5'
 
-old_syntax_highlighting: true
 ---
 
 I picked this up from the library because the cover was somewhat intriguing, but the first few chapters didn't really grab me.

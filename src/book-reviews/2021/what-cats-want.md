@@ -21,7 +21,6 @@ colors:
    css_light: '#707072'
    css_dark:  '#e08456'
 
-old_syntax_highlighting: true
 ---
 
 Book of advice for anybody who wants to keep a cat.

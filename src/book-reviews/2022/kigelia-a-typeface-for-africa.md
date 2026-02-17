@@ -21,7 +21,6 @@ colors:
    css_light: '#b25405'
    css_dark:  '#f3da6b'
 
-old_syntax_highlighting: true
 ---
 
 Short booklet about the development of a typeface to cover the major writing systems in Africa.

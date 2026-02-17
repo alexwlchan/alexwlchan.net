@@ -23,7 +23,6 @@ colors:
    css_light: '#5b6d7f'
    css_dark:  '#788896'
 
-old_syntax_highlighting: true
 ---
 
 A very detailed breakdown of the Arctic convoys.

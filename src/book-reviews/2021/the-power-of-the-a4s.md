@@ -21,7 +21,6 @@ colors:
    css_light: '#2e3167'
    css_dark:  '#837645'
 
-old_syntax_highlighting: true
 ---
 
 Good collection of photos of these trains, taken from a variety of locations and angles.

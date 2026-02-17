@@ -20,7 +20,6 @@ colors:
    css_light: '#424f83'
    css_dark:  '#8293cf'
 
-old_syntax_highlighting: true
 ---
 
 Stories from filming of the third series, and what goes on that doesn't appear on screen.

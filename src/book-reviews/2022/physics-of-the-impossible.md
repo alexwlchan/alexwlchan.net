@@ -22,7 +22,6 @@ colors:
    css_light: '#7b512d'
    css_dark:  '#d59c62'
 
-old_syntax_highlighting: true
 ---
 
 This is a pop science book about technology that's currently the stuff of science fiction: faster-than-light travel, phasers and lasers, telepathy and telekinesis.

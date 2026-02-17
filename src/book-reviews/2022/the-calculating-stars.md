@@ -23,7 +23,6 @@ colors:
    css_light: '#296a93'
    css_dark:  '#94cee7'
 
-old_syntax_highlighting: true
 ---
 
 I started listening to this because it's been recommended several times on *The Incomparable*.

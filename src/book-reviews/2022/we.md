@@ -24,7 +24,6 @@ colors:
    css_light: '#845541'
    css_dark:  '#beb99e'
 
-old_syntax_highlighting: true
 ---
 
 This is a grim, dystopian sci-fi novel with some beautiful imagery.

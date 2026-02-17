@@ -22,7 +22,6 @@ colors:
    css_light: '#ce0d09'
    css_dark:  '#e9b8b0'
 
-old_syntax_highlighting: true
 ---
 Another competently constructed murder mystery from an author I enjoy.
 I worked out the villain a bit earlier than in her previous books, but only slightly.

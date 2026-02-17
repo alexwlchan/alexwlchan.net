@@ -23,7 +23,6 @@ colors:
    css_light: '#2773b0'
    css_dark:  '#43a15c'
 
-old_syntax_highlighting: true
 ---
 
 Some useful, practical advice. Nothing massively surprising – these is all fairly well-known advice, although it’s nice to have it with all the references. Even if you don’t follow the detailed regimes, there are small improvements to be had in many areas.

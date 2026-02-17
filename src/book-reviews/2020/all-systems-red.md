@@ -21,7 +21,6 @@ colors:
    css_light: '#752d1e'
    css_dark:  '#9fa8a1'
 
-old_syntax_highlighting: true
 ---
 
 Plot summary: the protagonist, Murderbot, is on contract to some humans who are doing mining research on a new planet -- from one of three companies on the planet.

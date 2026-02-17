@@ -22,7 +22,6 @@ colors:
    css_light: '#921d1a'
    css_dark:  '#cb6161'
 
-old_syntax_highlighting: true
 ---
 
 A great short story set in the world of the Silo trilogy, which manages to introduce a new character and set up a new conflict in just sixty-odd pages.

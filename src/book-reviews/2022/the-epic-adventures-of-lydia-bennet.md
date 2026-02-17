@@ -20,7 +20,6 @@ colors:
    css_light: '#546d84'
    css_dark:  '#a1b53e'
 
-old_syntax_highlighting: true
 ---
 
 This book concludes Lydia's story from [*The Lizzie Bennet Diaries*](https://en.wikipedia.org/wiki/The_Lizzie_Bennet_Diaries), a web series I adored when it was first airing.

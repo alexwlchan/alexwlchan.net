@@ -23,7 +23,6 @@ colors:
    css_light: '#1f1927'
    css_dark:  '#deb83c'
 
-old_syntax_highlighting: true
 ---
 
 A Doctor Who book written by Douglas Adams should be my cup of tea, but it completely failed to land with me.

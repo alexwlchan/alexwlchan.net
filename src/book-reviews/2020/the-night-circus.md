@@ -21,7 +21,6 @@ colors:
    css_light: '#050004'
    css_dark:  '#d43b51'
 
-old_syntax_highlighting: true
 ---
 
 This was originally recommended by [kaberett](https://kaberett.dreamwidth.org/), who really likes it.

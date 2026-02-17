@@ -21,7 +21,6 @@ colors:
    css_light: '#cc4147'
    css_dark:  '#f7b223'
 
-old_syntax_highlighting: true
 ---
 A spooky romance that unfolds in a non-linear way.
 The protagonists Jake and Stella have lived parallel but different lives.

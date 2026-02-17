@@ -22,7 +22,6 @@ colors:
    css_light: '#7d6637'
    css_dark:  '#ece086'
 
-old_syntax_highlighting: true
 ---
 
 This is a series of advice to a young mathematician at various points in their mathematical career: learning at school, their undergraduate degree, preparing for their PhD, postdoc, and eventually a career in academia.

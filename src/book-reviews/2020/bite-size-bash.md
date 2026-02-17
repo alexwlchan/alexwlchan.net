@@ -20,7 +20,6 @@ colors:
    css_light: '#856155'
    css_dark:  '#bd9677'
 
-old_syntax_highlighting: true
 ---
 
 A useful rundown of bash ideas and weirdnesses.

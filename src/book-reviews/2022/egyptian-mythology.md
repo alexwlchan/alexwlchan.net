@@ -22,7 +22,6 @@ colors:
    css_light: '#b5392b'
    css_dark:  '#f5b019'
 
-old_syntax_highlighting: true
 ---
 
 I got this from a second-hand book store on a whim; upon trying to read it I realised I'm not as interested as I thought it was.

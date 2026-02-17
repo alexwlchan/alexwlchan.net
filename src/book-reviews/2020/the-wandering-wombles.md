@@ -19,7 +19,6 @@ colors:
    css_light: '#d23675'
    css_dark:  '#baa14a'
 
-old_syntax_highlighting: true
 ---
 
 The book has an insert: "St Edward's Middle School Library", and the last time it was taken out in 1999.

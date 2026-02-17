@@ -24,7 +24,6 @@ colors:
    css_light: '#a6672d'
    css_dark:  '#fde071'
 
-old_syntax_highlighting: true
 ---
 
 A gorgeous little story about a boy who lives in a book shop, and becomes withdrawn and isolated after the death of his grandfather.

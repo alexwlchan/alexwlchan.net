@@ -22,7 +22,6 @@ colors:
    css_light: '#204548'
    css_dark:  '#d85762'
 
-old_syntax_highlighting: true
 ---
 
 A fun graphic novel which I picked up in _Gay's The Word_ after seeing it had become a Netflix film.

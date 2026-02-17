@@ -25,7 +25,6 @@ colors:
    css_light: '#0b677f'
    css_dark:  '#f2e78b'
 
-old_syntax_highlighting: true
 ---
 
 A story about the bookshop *Les Vraies Richesses*, run by the publisher and editor Edmond Charlot.

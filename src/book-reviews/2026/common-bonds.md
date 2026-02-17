@@ -22,7 +22,6 @@ colors:
   css_light: "#4b7855"
   css_dark:  "#8db67d"
 
-old_syntax_highlighting: true
 ---
 
 This is an anthology of aromantic stories I read as January's Ace Book Club book.

@@ -23,7 +23,6 @@ colors:
    css_light: '#d91e1f'
    css_dark:  '#fedd1a'
 
-old_syntax_highlighting: true
 ---
 
 This book is a series of essays about technology and computing, contradicting the myth of a technological utopia, and discussing the inequality and marginalisation caused by the current tech industry.

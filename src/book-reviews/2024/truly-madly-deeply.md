@@ -22,7 +22,6 @@ colors:
    css_light: '#c82e75'
    css_dark:  '#f5c1e6'
 
-old_syntax_highlighting: true
 ---
 Another fun romance from one of my favourite authors.
 It doesn't stand out to me like some of her previous books, but I still enjoyed it.

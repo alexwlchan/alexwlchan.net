@@ -22,7 +22,6 @@ colors:
    css_light: '#48408b'
    css_dark:  '#e9e3d6'
 
-old_syntax_highlighting: true
 ---
 A fun little murder mystery that hit all the usual beats -- a trail of clues, a false accusation, gathering all the suspects for the grand reveal.
 Nothing amazing, but I'm glad to have finally read one of Antony's books.

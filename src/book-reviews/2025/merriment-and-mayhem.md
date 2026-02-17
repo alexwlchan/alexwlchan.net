@@ -20,7 +20,6 @@ colors:
    css_light: '#30635c'
    css_dark:  '#fbc744'
 
-old_syntax_highlighting: true
 ---
 This book is the reason I picked up the *Under the Mistletoe*, because I usually like Alexandria Bellefleur's writing -- but it was another story I struggled to engage with.
 Somebody has a cooking disaster and fills her apartment with smoke, and an attractive firefighter shows up to help her out.

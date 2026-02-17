@@ -22,7 +22,6 @@ colors:
    css_light: '#9b5a8e'
    css_dark:  '#f0cd50'
 
-old_syntax_highlighting: true
 ---
 A cute little romance-ish book about Syd, who works in a queer-friendly bakery in Austin.
 After a bad breakup, Syd inadvertently bakes a batch of magical brownies that cause couples to break up, and they have to come up with new baked goods to repair the ruined romances.

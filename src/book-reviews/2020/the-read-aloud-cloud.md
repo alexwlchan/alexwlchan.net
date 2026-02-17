@@ -22,7 +22,6 @@ colors:
    css_light: '#5d686d'
    css_dark:  '#658ea6'
 
-old_syntax_highlighting: true
 ---
 
 This was a Christmas gift from Coco.

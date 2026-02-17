@@ -23,7 +23,6 @@ colors:
    css_light: '#574ba1'
    css_dark:  '#e44bb4'
 
-old_syntax_highlighting: true
 ---
 A fun little horror story set in Hollywood, where a queer screenwriter Misha finds himself pursued by his own creations.
 It also touches on the risks posed by AI in creative fields.

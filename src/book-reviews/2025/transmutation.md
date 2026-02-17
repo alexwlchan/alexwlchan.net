@@ -21,7 +21,6 @@ colors:
    css_light: '#652616'
    css_dark:  '#b6c358'
 
-old_syntax_highlighting: true
 ---
 A collection of short stories with themes of transformation and change.
 There are several stories related to gender, but also race, parenting, and attention.

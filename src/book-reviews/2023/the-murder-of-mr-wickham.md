@@ -21,7 +21,6 @@ colors:
    css_light: '#354463'
    css_dark:  '#d0ae53'
 
-old_syntax_highlighting: true
 ---
 
 A fun mystery novel featuring a bunch of Austen characters.

@@ -22,7 +22,6 @@ colors:
    css_light: '#3f686e'
    css_dark:  '#e7e098'
 
-old_syntax_highlighting: true
 ---
 
 I've had the Railway Detective series on my list for a while; this was a pleasant if unremarkable murder mystery featuring a Cambridge rowing cox and Italian family drama.

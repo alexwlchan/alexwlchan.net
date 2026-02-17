@@ -22,7 +22,6 @@ colors:
    css_light: '#42718d'
    css_dark:  '#f1e24c'
 
-old_syntax_highlighting: true
 ---
 
 I read eight of the twelve chapters, which was enough for now.

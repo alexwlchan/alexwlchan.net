@@ -21,7 +21,6 @@ colors:
    css_light: '#195a62'
    css_dark:  '#f55cb5'
 
-old_syntax_highlighting: true
 ---
 A pleasant but somewhat unremarkable romance -- during a storm, a woman is forced to shelter in the home of a childhood friend who has feelings for her, and still does, but a breakdown of communication meant they both thought the other hated them.
 I'm not a massive fan of "bad communication" as a trope and this wasn't a fantastic instance of it.

@@ -22,7 +22,6 @@ colors:
    css_light: '#445394'
    css_dark:  '#d5cf8e'
 
-old_syntax_highlighting: true
 ---
 
 Fun story about Hades and Persephone having secret crushes on each other, and accidentally being forced together by meddling from Zeus.

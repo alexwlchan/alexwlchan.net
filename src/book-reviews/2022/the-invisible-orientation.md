@@ -21,7 +21,6 @@ colors:
    css_light: '#854686'
    css_dark:  '#b6a5b5'
 
-old_syntax_highlighting: true
 ---
 
 I borrowed this from another asexual friend; I started it but didn't feel compelled to finish.

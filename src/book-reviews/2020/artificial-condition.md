@@ -21,7 +21,6 @@ colors:
    css_light: '#966b45'
    css_dark:  '#d2995a'
 
-old_syntax_highlighting: true
 ---
 
 Plot summary: Murderbot returns to a mining planet where it remembers going rogue and killing lots of people (and then had its memory purged).

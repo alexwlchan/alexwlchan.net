@@ -22,7 +22,6 @@ colors:
    css_light: '#716361'
    css_dark:  '#f6f5f1'
 
-old_syntax_highlighting: true
 ---
 
 The book is told as a series of short stories about different patients – what happened when they came for their consultations, the “aha” moment when Grosz worked out the underlying issue, and some discussion of how the themes of the patient’s problems might be more widely applicable.

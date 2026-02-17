@@ -20,7 +20,6 @@ colors:
    css_light: '#20807c'
    css_dark:  '#fc95b8'
 
-old_syntax_highlighting: true
 ---
 I just didn't care for this at all; the two characters (a single mother and a farmer who can't find jeans that fit) were smitten with each other immediately in an uninteresting way.
 It's only a short story, but I didn't care about the characters and I gave up halfway through.

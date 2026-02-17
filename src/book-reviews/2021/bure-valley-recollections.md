@@ -21,7 +21,6 @@ colors:
    css_light: '#c21b1d'
    css_dark:  '#ae9363'
 
-old_syntax_highlighting: true
 ---
 
 Short book about the history of the Bure Valley narrow-gauge railway, with lots of glossy photographs.

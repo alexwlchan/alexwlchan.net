@@ -22,7 +22,6 @@ colors:
    css_light: '#19202a'
    css_dark:  '#05eada'
 
-old_syntax_highlighting: true
 ---
 
 Christmas gift from Ed.

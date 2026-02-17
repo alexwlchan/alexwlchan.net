@@ -22,7 +22,6 @@ colors:
    css_light: '#674288'
    css_dark:  '#c8a4b0'
 
-old_syntax_highlighting: true
 ---
 
 Another murder mystery with Stevie Bell, but this time in a summer camp rather than Ellingham Academy.

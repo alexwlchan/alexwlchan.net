@@ -23,7 +23,6 @@ colors:
    css_light: '#5f692e'
    css_dark:  '#ea746b'
 
-old_syntax_highlighting: true
 ---
 I gave up on this book when I got to the first sex scene, and realised that I was continuing out of obligation rather than enjoyment.
 I wasn't rooting for Alexei and Ben, and I don't care if they fall in love with each other.

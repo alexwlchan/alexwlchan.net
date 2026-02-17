@@ -25,7 +25,6 @@ colors:
    css_light: '#813042'
    css_dark:  '#d75357'
 
-old_syntax_highlighting: true
 ---
 A cute teenage romance that had some lovely use of colour (for example, the red/blue of the Korean/Chinese lions).
 I have nothing specific to say; I enjoyed this one.

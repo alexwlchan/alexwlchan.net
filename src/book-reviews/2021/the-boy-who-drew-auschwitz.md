@@ -22,7 +22,6 @@ colors:
    css_light: '#706a62'
    css_dark:  '#aa998d'
 
-old_syntax_highlighting: true
 ---
 
 This is the account of Thomas Geve, a Jewish boy who was in his young teens when he was taken to the Auschwitz concentration camp.

@@ -21,7 +21,6 @@ colors:
    css_light: '#017d93'
    css_dark:  '#fae14a'
 
-old_syntax_highlighting: true
 ---
 
 A fun collection of seven short stories about the Moomins and their various friends.

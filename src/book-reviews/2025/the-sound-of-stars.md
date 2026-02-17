@@ -22,7 +22,6 @@ colors:
    css_light: '#484580'
    css_dark:  '#3681b1'
 
-old_syntax_highlighting: true
 ---
 A sci-fi romance set in a war-torn America after an alien invasion.
 Ellie is one of a few survivors, a young Black girl who's running an illicit library in her housing centre in New York.

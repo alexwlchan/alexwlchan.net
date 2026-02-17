@@ -23,7 +23,6 @@ colors:
    css_light: '#0f5987'
    css_dark:  '#eda147'
 
-old_syntax_highlighting: true
 ---
 
 I got this from the library on a whim, and I adored it; I've bought a paper copy for my bookshelf.

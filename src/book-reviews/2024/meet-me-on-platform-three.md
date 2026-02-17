@@ -21,7 +21,6 @@ colors:
    css_light: '#0c5b79'
    css_dark:  '#fcde49'
 
-old_syntax_highlighting: true
 ---
 A fun and enjoyable romance, based on a slightly implausible set of meet cutes centred around train stations.
 Nothing remarkable, an easy read.

@@ -21,7 +21,6 @@ colors:
    css_light: '#227f79'
    css_dark:  '#228279'
 
-old_syntax_highlighting: true
 ---
 
 A good sequel to [*The Runner*](/book-reviews/the-runner/) which explores another silo in meltdown after a failed cleaning.
