@@ -22,7 +22,6 @@ colors:
    css_light: '#586c79'
    css_dark:  '#eedfd0'
 
-old_syntax_highlighting: true
 ---
 
 I picked this up on a whim in the clearance section of the Gower Street Waterstones; it turned out to be a good decision.

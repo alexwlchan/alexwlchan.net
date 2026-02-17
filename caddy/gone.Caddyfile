@@ -97,6 +97,14 @@ handle /2015/bbfc-podcast/ {
 	error 410
 }
 
+handle /2015/http2-by-stealth/ {
+	error 410
+}
+
+handle /2015/09/http2-by-stealth/ {
+	error 410
+}
+
 handle /2015/govuk/ {
 	error 410
 }
@@ -289,4 +297,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: 4AFyvv5C3h)
+#[[[end]]] (sum: Vl6YZYdTm4)

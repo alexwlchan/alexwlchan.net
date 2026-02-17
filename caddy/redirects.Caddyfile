@@ -134,8 +134,6 @@ redir /2015/06/git-info-exclude/ /2015/git-info-exclude/ permanent
 redir /2015/06/git-info-exclude /2015/git-info-exclude/ permanent
 redir /2015/05/github-contributions/ /2015/github-contributions/ permanent
 redir /2015/05/github-contributions /2015/github-contributions/ permanent
-redir /2015/09/http2-by-stealth/ /2015/http2-by-stealth/ permanent
-redir /2015/09/http2-by-stealth /2015/http2-by-stealth/ permanent
 redir /2015/02/lists/ /2015/lists/ permanent
 redir /2015/02/lists /2015/lists/ permanent
 redir /2015/05/nvalt-and-marked/ /2015/nvalt-and-marked/ permanent
@@ -1532,6 +1530,8 @@ redir /2018/finatra-404/ /notes/2018/finatra-404/ permanent
 redir /2018/finatra-404 /notes/2018/finatra-404/ permanent
 redir /2018/10/finatra-404/ /notes/2018/finatra-404/ permanent
 redir /2018/10/finatra-404 /notes/2018/finatra-404/ permanent
+redir /til/2018/replace-parts-of-an-image/ /notes/2018/replace-parts-of-an-image/ permanent
+redir /til/2018/replace-parts-of-an-image /notes/2018/replace-parts-of-an-image/ permanent
 redir /til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/ /notes/2018/suppress-rdoc-ri-docs-with-gem-install/ permanent
 redir /til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install /notes/2018/suppress-rdoc-ri-docs-with-gem-install/ permanent
 redir /til/2018/list-all-git-object-ids-and-their-type/ /notes/2018/list-all-git-object-ids-and-their-type/ permanent
@@ -1812,4 +1812,4 @@ redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/print-sbt /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: MYkY/f2wfI)
+#[[[end]]] (sum: GytktigpY1)

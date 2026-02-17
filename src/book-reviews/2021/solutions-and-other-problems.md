@@ -23,7 +23,6 @@ colors:
    css_light: '#08735a'
    css_dark:  '#9cfde8'
 
-old_syntax_highlighting: true
 ---
 
 This was a gift from Coco for Christmas 2020.

@@ -118,9 +118,6 @@
   "/2015/github-contributions/": [
     "/2015/05/github-contributions/"
   ],
-  "/2015/http2-by-stealth/": [
-    "/2015/09/http2-by-stealth/"
-  ],
   "/2015/lists/": [
     "/2015/02/lists/"
   ],
@@ -2529,6 +2526,9 @@
   "/notes/2018/finatra-404/": [
     "/2018/finatra-404/",
     "/2018/10/finatra-404/"
+  ],
+  "/notes/2018/replace-parts-of-an-image/": [
+    "/til/2018/replace-parts-of-an-image/"
   ],
   "/notes/2018/suppress-rdoc-ri-docs-with-gem-install/": [
     "/til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/"

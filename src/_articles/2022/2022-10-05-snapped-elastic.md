@@ -1,16 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2022-10-05 07:50:53 +00:00
 title: Finding a tricky bug in Elasticsearch 8.4.2
 summary: Gradually deleting more and more data helped me get a reliable repro for an elusive bug.
-tags:
-  - debugging stories
+topic: Systems and software
 colors:
   index_light: "#52a89f"
   index_dark:  "#4fd6ca"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 <!-- Card image: https://wellcomecollection.org/works/r8t5urwh, public domain -->
@@ -239,7 +237,7 @@ That's pretty small by Elasticsearch standards, but still too big to share easil
 Because I knew the query reproduction was only looking at three fields, I could write a Python script to download just those fields.
 (I suppose it's possible that a non-queried field could affect the result, but that would be very strange!)
 
-{% code lang="python" names="1:outfile 2:hit" %}
+```python {"names":{"2":"outfile","3":"hit"}}
 with open("documents.json", "w") as outfile:
     for hit in scan(
         es,
@@ -248,28 +246,23 @@ with open("documents.json", "w") as outfile:
         index="works-indexed-2022-08-24",
     ):
         outfile.write(json.dumps(hit) + "\n")
-{% endcode %}
+```
 
 This alone made a big saving -- the file it created was ~600MB.
 
 This gave me a file with raw Elasticsearch hits:
 
-<style>
-  .nowrap pre, .nowrap code {
-    white-space: normal
-  }
-</style>
-
-<div class="nowrap">
-<pre><code>{"_index": "works-indexed-2022-10-04", "_id": "qpugxbb6", "_score": null, "_source": {}, "sort": [0]}<br/>
-{"_index": "works-indexed-2022-10-04", "_id": "v7tb52v3", "_score": 0, "_source": {"data": {"notes": [{"contents": "ESTC T90673"}, {"contents": "Electronic reproduction. Farmington Hills, Mich. : Thomson Gale, 2003. (Eighteenth century collections online). Available via the World Wide Web. Access limited by licensing agreements."}], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}, "sort": [0]}</code></pre></div>
+```text {"wrap":true}
+{"_index": "works-indexed-2022-10-04", "_id": "qpugxbb6", "_score": null, "_source": {}, "sort": [0]}
+{"_index": "works-indexed-2022-10-04", "_id": "v7tb52v3", "_score": 0, "_source": {"data": {"notes": [{"contents": "ESTC T90673"}, {"contents": "Electronic reproduction. Farmington Hills, Mich. : Thomson Gale, 2003. (Eighteenth century collections online). Available via the World Wide Web. Access limited by licensing agreements."}], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}, "sort": [0]}
+```
 
 I did a bit more filtering with tools like `jq` and `grep` to extract just the `_source` field, and remove any empty documents (not all our records use those fields).
 I also removed values that never contained the number `1`, as surely they'd be excluded by the query.
 
-<div class="nowrap">
-<pre><code>{"data": {"notes": [], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}</code></pre></div>
-
+```text {"wrap":true}
+{"data": {"notes": [], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}
+```
 
 This cut another decent chunk off the size – compressed it was ~30MB, much more manageable.
 Now I had to check I hadn't cut too far, and that this would still reproduce the issue.

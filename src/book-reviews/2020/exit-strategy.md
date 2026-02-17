@@ -21,7 +21,6 @@ colors:
    css_light: '#797474'
    css_dark:  '#ece5ae'
 
-old_syntax_highlighting: true
 ---
 
 Murderbot finds Dr. Mensah, who's being held by GrayCris, breaks her out with the help of some other friends, and gives her the evidence of GrayCris's illegal crimes.

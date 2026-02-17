@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: "Replace black/white parts of an image with ImageMagick"
 date: 2018-11-12 09:09:23 +00:00
-tags:
-  - imagemagick
-old_syntax_highlighting: true
+topic: Images and videos
 ---
 
 Replace white sections of an image with transparency:
@@ -24,6 +22,3 @@ If you want to additionally crop the image to the nontransparent portion:
 ```console
 $ convert myimage.jpg -fuzz 10% -transparent white -trim myimage.png
 ```
-
----
-

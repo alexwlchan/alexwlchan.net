@@ -23,7 +23,6 @@ colors:
    css_light: '#841c42'
    css_dark:  '#bd6436'
 
-old_syntax_highlighting: true
 ---
 
 An account of the disaster to befall PQ17 on its Arctic convoy run, drawn from Paul Lund’s experience on the convoy. It’s clearly written and explains the events well, without drowning the reader in unnecessary details or trivia.
