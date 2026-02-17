@@ -43,9 +43,6 @@
   "/2014/latex-alpha/": [
     "/2014/07/latex-alpha/"
   ],
-  "/2014/mathis-cars/": [
-    "/2014/12/mathis-cars/"
-  ],
   "/2014/new-standing-desk/": [
     "/2014/09/new-standing-desk/"
   ],
@@ -60,9 +57,6 @@
   ],
   "/2014/part-ii-advice/": [
     "/2014/05/part-ii-advice/"
-  ],
-  "/2014/pelican-linkposts/": [
-    "/2014/12/pelican-linkposts/"
   ],
   "/2014/ranged-strings/": [
     "/2014/11/ranged-strings/"
@@ -2501,6 +2495,7 @@
     "/notes/2018/",
     "/notes/2019/",
     "/notes/2020/",
+    "/notes/2022/",
     "/notes/2023/",
     "/notes/2024/",
     "/notes/2025/",
@@ -2565,6 +2560,11 @@
     "/til/2020/using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
+  ],
+  "/notes/2022/print-sbt/": [
+    "/til/2022/print-sbt/",
+    "/2022/print-sbt/",
+    "/2022/12/print-sbt/"
   ],
   "/notes/2023/buildkite-concurrency-gates/": [
     "/til/2023/buildkite-concurrency-gates/"
@@ -2799,6 +2799,9 @@
   "/notes/2025/gubernatorial/": [
     "/til/2025/gubernatorial/"
   ],
+  "/notes/2025/ignore-ai-scaled-videos/": [
+    "/til/2025/ignore-ai-scaled-videos/"
+  ],
   "/notes/2025/instagram-avatar-url/": [
     "/til/2025/instagram-avatar-url/"
   ],
@@ -2807,6 +2810,9 @@
   ],
   "/notes/2025/list-test-names-in-go/": [
     "/til/2025/list-test-names-in-go/"
+  ],
+  "/notes/2025/macos-launchagent-examples/": [
+    "/til/2025/macos-launchagent-examples/"
   ],
   "/notes/2025/mediainfo-duration/": [
     "/til/2025/mediainfo-duration/"
@@ -2831,6 +2837,9 @@
   ],
   "/notes/2025/ruby-range/": [
     "/til/2025/ruby-range/"
+  ],
+  "/notes/2025/s3-multipart-upload-date/": [
+    "/til/2025/s3-multipart-upload-date/"
   ],
   "/notes/2025/see-tailscale-node-keys/": [
     "/til/2025/see-tailscale-node-keys/"
@@ -2910,9 +2919,5 @@
   "/til/2018/horstmann-electric-7/": [
     "/2018/horstmann-electric-7/",
     "/2018/10/horstmann-electric-7/"
-  ],
-  "/til/2022/print-sbt/": [
-    "/2022/print-sbt/",
-    "/2022/12/print-sbt/"
   ]
 }

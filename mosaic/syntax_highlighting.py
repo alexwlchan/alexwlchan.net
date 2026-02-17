@@ -92,7 +92,8 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     # namespace. nn = Name.Namespace
     if lang == "python":
         for m in re.finditer(
-            r'<span class="nn">(?P<name>[a-z_]+\.[a-z_\.]+)</span>', highlighted_code
+            r'<span class="nn">(?P<name>[a-zA-Z0-9_]+\.[a-zA-Z0-9_\.]+)</span>',
+            highlighted_code,
         ):
             import_name = m.group("name")
             parts = import_name.split(".")

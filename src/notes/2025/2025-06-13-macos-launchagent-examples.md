@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: How to run a task on a schedule on macOS
 summary: Create a `LaunchAgent` with a `StartCalendarInterval` or `StartInterval` that defines how often you want the task to run.
 date: 2025-06-13 16:59:56 +01:00
-tags:
-  - macos
-old_syntax_highlighting: true
+topic: macOS
 ---
 I've been doing a bunch of work recently where I use macOS LaunchAgents to run task on a schedule, as a fairly basic polling mechanism that's built into my system.
 

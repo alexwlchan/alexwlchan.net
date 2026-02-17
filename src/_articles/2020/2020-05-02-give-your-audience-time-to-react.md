@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-05-02 06:01:43 +00:00
 title: Give your audience time to react
 summary: Rehearsing a presentation only tells you the minimum length of time you'll take. If you're speaking to a time limit, remember to leave some slack.
-tags:
-  - public speaking
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 One of the most common bits of advice in public speaking is to rehearse, rehearse, rehearse.

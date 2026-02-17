@@ -1,11 +1,11 @@
 ---
-layout: til
+layout: note
 title: Ignore AI upscaled YouTube videos with yt-dlp
 summary: Filter for formats that don't include `-sr` ("super resolution") in their format ID.
 date: 2025-12-24 15:16:54 +00:00
-tags:
-  - yt-dlp
-old_syntax_highlighting: true
+topics:
+  - Preserving social media
+  - Images and videos
 ---
 <!-- Card image based on https://www.pexels.com/photo/close-up-of-multi-colored-tulips-250716/ -->
 

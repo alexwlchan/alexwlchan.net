@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2020-04-22 18:19:40 +00:00
 title: Thinking about your gender
 summary: Cis people are allowed to think about their gender too.

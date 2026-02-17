@@ -1,11 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2020-06-06 06:38:11 +00:00
 title: Finding the months between two dates in Python
-tags:
-  - python
-  - datetime shenanigans
-old_syntax_highlighting: true
+topics:
+  - Python
+  - Datetime shenanigans
 ---
 
 Here's a function extracted from a recent project that I'm likely to reuse elsewhere: finding all the months between two dates in Python.
@@ -34,7 +33,7 @@ The correct behaviour is going to depend on our context, so the standard library
 
 If this function sounds useful, you can copy/paste the code below into your project:
 
-```python
+```python {"names":{"1":"datetime","2":"months_between","3":"start_date","4":"end_date","10":"year","13":"month","30":"start_of_2020","33":"today","37":"month"}}
 import datetime
 
 

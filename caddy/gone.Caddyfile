@@ -45,6 +45,10 @@ handle /2014/12/imessage-export/ {
 	error 410
 }
 
+handle /2014/12/pelican-linkposts/ {
+	error 410
+}
+
 handle /2014/12/war-on-christmas/ {
 	error 410
 }
@@ -57,11 +61,23 @@ handle /2014/imessage-export/ {
 	error 410
 }
 
+handle /2014/pelican-linkposts/ {
+	error 410
+}
+
 handle /2014/textexpander-amazon-affiliates/ {
 	error 410
 }
 
 handle /2014/veil/ {
+	error 410
+}
+
+handle /2014/mathis-cars/ {
+	error 410
+}
+
+handle /2014/12/mathis-cars/ {
 	error 410
 }
 
@@ -89,6 +105,10 @@ handle /2015/03/python-firewall/ {
 	error 410
 }
 
+handle /2015/09/http2-by-stealth/ {
+	error 410
+}
+
 handle /2015/09/spotlight-suggestions/ {
 	error 410
 }
@@ -98,10 +118,6 @@ handle /2015/bbfc-podcast/ {
 }
 
 handle /2015/http2-by-stealth/ {
-	error 410
-}
-
-handle /2015/09/http2-by-stealth/ {
 	error 410
 }
 
@@ -297,4 +313,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: Vl6YZYdTm4)
+#[[[end]]] (sum: mMSXkMge/1)

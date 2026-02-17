@@ -84,8 +84,6 @@ redir /2014/12/kitchen-sink-security/ /2014/kitchen-sink-security/ permanent
 redir /2014/12/kitchen-sink-security /2014/kitchen-sink-security/ permanent
 redir /2014/07/latex-alpha/ /2014/latex-alpha/ permanent
 redir /2014/07/latex-alpha /2014/latex-alpha/ permanent
-redir /2014/12/mathis-cars/ /2014/mathis-cars/ permanent
-redir /2014/12/mathis-cars /2014/mathis-cars/ permanent
 redir /2014/09/new-standing-desk/ /2014/new-standing-desk/ permanent
 redir /2014/09/new-standing-desk /2014/new-standing-desk/ permanent
 redir /2014/10/notes-on-tumblr/ /2014/notes-on-tumblr/ permanent
@@ -96,8 +94,6 @@ redir /2014/05/part-ia-exams/ /2014/part-ia-exams/ permanent
 redir /2014/05/part-ia-exams /2014/part-ia-exams/ permanent
 redir /2014/05/part-ii-advice/ /2014/part-ii-advice/ permanent
 redir /2014/05/part-ii-advice /2014/part-ii-advice/ permanent
-redir /2014/12/pelican-linkposts/ /2014/pelican-linkposts/ permanent
-redir /2014/12/pelican-linkposts /2014/pelican-linkposts/ permanent
 redir /2014/11/ranged-strings/ /2014/ranged-strings/ permanent
 redir /2014/11/ranged-strings /2014/ranged-strings/ permanent
 redir /2014/06/site-updates/ /2014/site-updates/ permanent
@@ -1504,6 +1500,8 @@ redir /notes/2019/ /notes/ permanent
 redir /notes/2019 /notes/ permanent
 redir /notes/2020/ /notes/ permanent
 redir /notes/2020 /notes/ permanent
+redir /notes/2022/ /notes/ permanent
+redir /notes/2022 /notes/ permanent
 redir /notes/2023/ /notes/ permanent
 redir /notes/2023 /notes/ permanent
 redir /notes/2024/ /notes/ permanent
@@ -1560,6 +1558,12 @@ redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/usin
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /til/2022/print-sbt/ /notes/2022/print-sbt/ permanent
+redir /til/2022/print-sbt /notes/2022/print-sbt/ permanent
+redir /2022/print-sbt/ /notes/2022/print-sbt/ permanent
+redir /2022/print-sbt /notes/2022/print-sbt/ permanent
+redir /2022/12/print-sbt/ /notes/2022/print-sbt/ permanent
+redir /2022/12/print-sbt /notes/2022/print-sbt/ permanent
 redir /til/2023/buildkite-concurrency-gates/ /notes/2023/buildkite-concurrency-gates/ permanent
 redir /til/2023/buildkite-concurrency-gates /notes/2023/buildkite-concurrency-gates/ permanent
 redir /til/2023/mechanize-ssl/ /notes/2023/mechanize-ssl/ permanent
@@ -1718,12 +1722,16 @@ redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
 redir /til/2025/gubernatorial/ /notes/2025/gubernatorial/ permanent
 redir /til/2025/gubernatorial /notes/2025/gubernatorial/ permanent
+redir /til/2025/ignore-ai-scaled-videos/ /notes/2025/ignore-ai-scaled-videos/ permanent
+redir /til/2025/ignore-ai-scaled-videos /notes/2025/ignore-ai-scaled-videos/ permanent
 redir /til/2025/instagram-avatar-url/ /notes/2025/instagram-avatar-url/ permanent
 redir /til/2025/instagram-avatar-url /notes/2025/instagram-avatar-url/ permanent
 redir /til/2025/json-with-required-field-in-golang/ /notes/2025/json-with-required-field-in-golang/ permanent
 redir /til/2025/json-with-required-field-in-golang /notes/2025/json-with-required-field-in-golang/ permanent
 redir /til/2025/list-test-names-in-go/ /notes/2025/list-test-names-in-go/ permanent
 redir /til/2025/list-test-names-in-go /notes/2025/list-test-names-in-go/ permanent
+redir /til/2025/macos-launchagent-examples/ /notes/2025/macos-launchagent-examples/ permanent
+redir /til/2025/macos-launchagent-examples /notes/2025/macos-launchagent-examples/ permanent
 redir /til/2025/mediainfo-duration/ /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/mediainfo-duration /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/platform-specific-dirs/ /notes/2025/platform-specific-dirs/ permanent
@@ -1740,6 +1748,8 @@ redir /til/2025/remove-microsecond-precision-in-python/ /notes/2025/remove-micro
 redir /til/2025/remove-microsecond-precision-in-python /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/ruby-range/ /notes/2025/ruby-range/ permanent
 redir /til/2025/ruby-range /notes/2025/ruby-range/ permanent
+redir /til/2025/s3-multipart-upload-date/ /notes/2025/s3-multipart-upload-date/ permanent
+redir /til/2025/s3-multipart-upload-date /notes/2025/s3-multipart-upload-date/ permanent
 redir /til/2025/see-tailscale-node-keys/ /notes/2025/see-tailscale-node-keys/ permanent
 redir /til/2025/see-tailscale-node-keys /notes/2025/see-tailscale-node-keys/ permanent
 redir /til/2025/semaphore-frogs/ /notes/2025/semaphore-frogs/ permanent
@@ -1814,8 +1824,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-redir /2022/print-sbt/ /til/2022/print-sbt/ permanent
-redir /2022/print-sbt /til/2022/print-sbt/ permanent
-redir /2022/12/print-sbt/ /til/2022/print-sbt/ permanent
-redir /2022/12/print-sbt /til/2022/print-sbt/ permanent
-#[[[end]]] (sum: u3QbL6GmH8)
+#[[[end]]] (sum: sx7NHNY9az)

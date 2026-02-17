@@ -1,18 +1,16 @@
 ---
-layout: post
+layout: article
 date: 2020-05-01 15:56:04 +00:00
 title: Illustrating lifecycle transitions in Amazon S3
 summary: A picture speaks a thousand words, which is why I always have pen and paper to hand.
-tags:
-  - aws
-  - aws:amazon s3
-  - drawing things
+topics:
+  - AWS
+  - Drawing things
 colors:
   index_light: "#118f63"
   index_dark:  "#09c385"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 Because I work on a digital archive that's [hosted in the cloud][stacks], I have to think about the cost of cloud storage.

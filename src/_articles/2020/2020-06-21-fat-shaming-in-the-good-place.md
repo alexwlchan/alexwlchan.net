@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2020-06-21 10:44:13 +00:00
 title: Fat shaming in <em>The Good Place</em>
 summary: How many good person points do you lose for making a joke about somebody's weight?

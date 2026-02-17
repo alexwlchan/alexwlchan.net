@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2020-04-12 14:27:01 +00:00
 title: A snippet for downloading files with Python
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 
 Back in February, I wrote about the [new storage service][storage] I've been helping to build at Wellcome.
@@ -33,7 +31,7 @@ This is a common problem I have to solve in a lot of my scripts:
 Because I do this so often, I've tidied up and extracted the function I use to download files.
 The next time I have to do this, I won't have to write it from scratch:
 
-```python
+```python {"names":{"1":"os","2":"sys","3":"uuid","4":"httpx","5":"tenacity","6":"retry","7":"retry_if_exception_type","8":"stop_after_attempt","9":"wait_fixed","10":"urllib3","11":"exceptions","25":"download_file","26":"url","27":"path","28":"client","52":"resp","55":"tmp_path","61":"out_file","62":"chunk","69":"exc"}}
 import os
 import sys
 import uuid
