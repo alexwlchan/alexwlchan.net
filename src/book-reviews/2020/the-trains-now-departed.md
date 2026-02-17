@@ -22,7 +22,6 @@ colors:
    css_light: '#c03038'
    css_dark:  '#a9ab54'
 
-old_syntax_highlighting: true
 ---
 
 This is a book about aspects of Britain's railways that have been lost and forgotten.

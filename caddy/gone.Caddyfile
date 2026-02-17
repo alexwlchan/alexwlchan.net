@@ -9,6 +9,14 @@
 #     cog.outl(f"handle {path} {{\n\terror 410\n}}\n")
 # 
 #]]]
+handle /2012/12/hypercritical/ {
+	error 410
+}
+
+handle /2012/hypercritical/ {
+	error 410
+}
+
 handle /2013/11/textmate-quick-look/ {
 	error 410
 }
@@ -137,11 +145,19 @@ handle /2017/02/backup-your-instapaper/ {
 	error 410
 }
 
+handle /2017/10/control-centre/ {
+	error 410
+}
+
 handle /2017/backup-your-goodreads/ {
 	error 410
 }
 
 handle /2017/backup-your-instapaper/ {
+	error 410
+}
+
+handle /2017/control-centre/ {
 	error 410
 }
 
@@ -217,6 +233,10 @@ handle /analytics/a.js {
 	error 410
 }
 
+handle /blog/2012/12/hypercritical/ {
+	error 410
+}
+
 handle /files/boiler_instructions.pdf {
 	error 410
 }
@@ -269,4 +289,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: T/YI5qS5/C)
+#[[[end]]] (sum: 4AFyvv5C3h)

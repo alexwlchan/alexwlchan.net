@@ -25,7 +25,6 @@ colors:
    css_light: '#132c44'
    css_dark:  '#eca1a3'
 
-old_syntax_highlighting: true
 ---
 
 This is a book about Mafalda, a ten-year old girl with [Stargardt's disease], which causes progressive loss of vision and eventually blindness.

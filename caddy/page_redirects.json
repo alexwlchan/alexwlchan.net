@@ -2,10 +2,6 @@
   "/": [
     "/about/"
   ],
-  "/2012/hypercritical/": [
-    "/2012/12/hypercritical/",
-    "/blog/2012/12/hypercritical/"
-  ],
   "/2013/candybar/": [
     "/2013/03/candybar/",
     "/blog/2013/03/candybar/"
@@ -287,9 +283,6 @@
   ],
   "/2017/building-your-repo/": [
     "/2017/12/building-your-repo/"
-  ],
-  "/2017/control-centre/": [
-    "/2017/10/control-centre/"
   ],
   "/2017/crossness-pumping-station/": [
     "/2017/06/crossness-pumping-station/"

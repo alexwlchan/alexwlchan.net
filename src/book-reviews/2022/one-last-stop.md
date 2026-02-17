@@ -23,7 +23,6 @@ colors:
    css_light: '#6b3480'
    css_dark:  '#fa993a'
 
-old_syntax_highlighting: true
 ---
 
 This is a delightful queer romance.

@@ -1,14 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2022-09-13 18:31:40 +00:00
 title: Generating art from lattice graphs
 summary: Randomly selecting a subset of edge from a graph can make pretty pictures.
-tags:
-  - generative art
-  - drawing things
+topic: Generative art
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

@@ -22,7 +22,6 @@ colors:
    css_light: '#81545b'
    css_dark:  '#f68e50'
 
-old_syntax_highlighting: true
 ---
 
 An interesting book about the use of colour in film, how different technology for filming in colour was developed, and examples of specific films that made good use of colour.

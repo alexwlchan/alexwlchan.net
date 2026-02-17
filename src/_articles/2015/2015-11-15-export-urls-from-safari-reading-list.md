@@ -1,12 +1,11 @@
 ---
+layout: article
 date: 2015-11-15 21:50:00 +00:00
-layout: post
-summary: A Python script for getting a list of URLs from Safari Reading List.
-tags:
-  - macos
-  - macos:safari
 title: Export a list of URLs from Safari Reading List
-old_syntax_highlighting: true
+summary: A Python script for getting a list of URLs from Safari Reading List.
+topics:
+  - macOS
+  - Python
 ---
 
 I've accumulated a lot of URLs in Safari's Reading List.  Problem is, trying to navigate a long list in the Safari is quite buggy &ndash; items move around randomly, I lose my place, and I'd really like more space than afforded by a single sidebar.  Wouldn't it be nice if I could pull all those URLs out of Safari, and get them in a standalone file?

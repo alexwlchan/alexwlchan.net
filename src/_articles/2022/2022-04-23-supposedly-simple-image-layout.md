@@ -1,15 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2022-04-23 23:03:46 +00:00
 title: Creating a “simple” three-up image layout in CSS
 summary: A step-by-step breakdown of how I made a one-left, two-right layout for my images.
-tags:
-  - css
-  - web development
+topic: CSS
 colors:
   index_light: "#4b536e"
   index_dark:  "#a7a7af"
-old_syntax_highlighting: true
 ---
 
 I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.
@@ -62,7 +59,7 @@ Here's a simple three-cell grid using divs:
 
 and the CSS that matches it:
 
-```css
+```css {"names":{"1":".grid","7":".grid","8":".left_image","10":".grid","11":".right_upper_image","12":".grid","13":".right_lower_image"}}
 .grid {
   display: grid;
   grid-template-columns: calc(66% - 5px) calc(34% - 5px);
@@ -287,7 +284,7 @@ How do we make them fit?
 
 We can tell the images to completely fill the grid items by setting `width` and `height` properties, but it's a bit crude:
 
-```css
+```css {"names":{"1":".grid","2":".item","3":"img"}}
 .grid .item img {
   width:  100%;
   height: 100%;
@@ -393,7 +390,7 @@ That's what I'd do if I was making this layout by hand!
 
 Let's add that CSS rule:
 
-```css
+```css {"names":{"1":".grid","2":".item","3":"img"}}
 .grid .item img {
   object-fit: cover;
 }
@@ -497,7 +494,7 @@ I was expecting to use this work to learn about that properly, and really wrap m
 There's another CSS property called [aspect-ratio] which lets you set a preferred aspect ratio for a container.
 If you add this property, you can change the size of the overall grid; for example:
 
-```css
+```css {"names":{"1":".grid"}}
 .grid {
   aspect-ratio: 16 / 9;
 }
@@ -606,7 +603,7 @@ This is what my new component looks like:
 </div>
 ```
 
-```css
+```css {"names":{"1":".grid","7":".grid","8":".left","10":".grid","11":".upper_right","12":".grid","13":".lower_right","14":".grid","15":".item","16":"img"}}
 .grid {
   display: grid;
   grid-template-columns: calc(66% - 5px) calc(34% - 5px);

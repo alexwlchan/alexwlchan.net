@@ -20,7 +20,6 @@ colors:
    css_light: '#567d7c'
    css_dark:  '#c7532b'
 
-old_syntax_highlighting: true
 ---
 
 An interesting concept and an easy read -- a synchronised swimming team who escape the Soviet Union -- but I was never that engaged.

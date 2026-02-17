@@ -20,7 +20,6 @@ colors:
    css_light: '#776038'
    css_dark:  '#c3a26a'
 
-old_syntax_highlighting: true
 ---
 
 M/M romance, where they meet each other in a shared guild of an online game.
