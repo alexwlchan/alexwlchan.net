@@ -1,21 +1,19 @@
 ---
-layout: post
+layout: article
 date: 2023-07-26 16:07:14 +00:00
 title: My Python snippet for walking a file tree
 summary: A function to find all the files in a directory is one of my most-used snippets.
-tags:
-  - python
+topic: Python
 colors:
   index_dark:  "#7e9327"
   index_light: "#4f5f10"
 card_attribution: https://www.pexels.com/photo/photo-of-pathway-surrounded-by-fir-trees-1578750/
-old_syntax_highlighting: true
 ---
 
 I write a lot of one-use Python scripts for quick analysis or cleaning something up on my disk, and they often involve iterating over a folder full of files.
 The key function for doing this is [`os.walk`][os.walk] in the standard library, but it's not quite what I want, so I have a wrapper function I use instead:
 
-{% code lang="python" names="0:os 1:get_file_paths_under 2:root 3:suffix 10:dirpath 12:filenames 16:f 18:p" %}
+```python {"names":{"1":"os","2":"get_file_paths_under","3":"root","4":"suffix","11":"dirpath","13":"filenames","17":"f","19":"p","34":"path"}}
 import os
 
 
@@ -36,19 +34,19 @@ def get_file_paths_under(root=".", *, suffix=""):
 
 for path in get_file_paths_under():
     ...
-{% endcode %}
+```
 
 This function gives me a couple of things over just using `os.walk`: it gives me a single iterator I can loop over, and it constructs the absolute path for me.
 The ability to filter by suffix is useful too; it gives me a quick way to filter my search.
 I use this when I'm working in a folder tree with lots of different file types.
 
-{% code lang="python" names="0:path 2:txt_path" %}
+```python {"names":{"1":"path","3":"txt_path"}}
 for path in get_file_paths_under("notes"):
     ...
 
 for txt_path in get_file_paths_under("notes", suffix=".txt"):
     ...
-{% endcode %}
+```
 
 The body of the function isn't especially complicated; the only vaguely interesting bit is the `ValueError`.
 it's to help catch silly mistakes when I accidentally pass the name of a file as the input -- if you try to `os.walk` over a file, you get an empty list of results, which can be a bit confusing.

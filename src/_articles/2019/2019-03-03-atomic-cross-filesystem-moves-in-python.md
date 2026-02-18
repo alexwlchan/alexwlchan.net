@@ -50,11 +50,13 @@ We should only catch and retry the specific error that comes from copying across
 
 If you try it, this is the error you get:
 
-<pre class="lng-pycon"><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span>os
-<span class="gp">&gt;&gt;&gt; </span>os<span class="o">.</span>rename<span class="p">(</span><span class="s2">"/mnt/semele/hello.txt"</span><span class="p">,</span> <span class="s2">"/mnt/dionysus/hello.txt"</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="gt">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span>
-<span class="gr">OSError: [Errno 18] Cross-device link: '/mnt/semele/hello.txt' -&gt; '/mnt/dionysus/hello.txt'</span></code></pre>
+```pycon
+>>> import os
+>>> os.rename("/mnt/semele/hello.txt", "/mnt/dionysus/hello.txt")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OSError: [Errno 18] Cross-device link: '/mnt/semele/hello.txt' -> '/mnt/dionysus/hello.txt'
+```
 
 Error code 18 is what we want to retry -- this is a standard Linux error number meaning "invalid cross-device link".
 We can use the [errno library](https://docs.python.org/3/library/errno.html) to get 18 as a named variable that's a little less of a magic number, like so:

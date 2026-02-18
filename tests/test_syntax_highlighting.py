@@ -323,6 +323,25 @@ def test_pycon_traceback() -> None:
     assert '<span class="gr">ValueError: BOOM!</span>' in html
 
 
+def test_pycon_file_is_part_of_error() -> None:
+    """
+    In a Python console traceback, the "File" line is included in the
+    error output.
+    """
+    src = (
+        '>>> open("example.py").seek(5, 5)\n'
+        "Traceback (most recent call last):\n"
+        '  File "<stdin>", line 1, in <module>\n'
+        "ValueError: invalid whence (5, should be 0, 1 or 2)\n"
+    )
+    html = apply_syntax_highlighting(src, lang="pycon")
+    expected = (
+        '<span class="gr">  File &quot;&lt;stdin&gt;&quot;, '
+        "line 1, in &lt;module&gt;</span>"
+    )
+    assert expected in html
+
+
 def test_c_highlights_macros() -> None:
     """
     The console language only highlights $ as the prompt, not #.

@@ -580,9 +580,6 @@
   "/2019/streaming-large-s3-objects/": [
     "/2019/09/streaming-large-s3-objects/"
   ],
-  "/2019/sunlight/": [
-    "/2019/01/sunlight/"
-  ],
   "/2019/ten-braille-facts/": [
     "/2019/07/ten-braille-facts/"
   ],
@@ -2711,6 +2708,9 @@
   "/notes/2024/use-launchagent-for-scheduled-script/": [
     "/til/2024/use-launchagent-for-scheduled-script/"
   ],
+  "/notes/2024/use-n-to-avoid-overwriting/": [
+    "/til/2024/use-n-to-avoid-overwriting/"
+  ],
   "/notes/2024/use-shlex-split-to-parse-nginx-logs/": [
     "/til/2024/use-shlex-split-to-parse-nginx-logs/"
   ],
@@ -2726,6 +2726,9 @@
   ],
   "/notes/2024/write-to-middle-of-file-with-python/": [
     "/til/2024/write-to-middle-of-file-with-python/"
+  ],
+  "/notes/2024/youtube-dl-options/": [
+    "/til/2024/youtube-dl-options/"
   ],
   "/notes/2025/access-nested-fields-in-typeddict/": [
     "/til/2025/access-nested-fields-in-typeddict/"

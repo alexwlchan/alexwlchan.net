@@ -225,6 +225,10 @@ handle /2019/01/oyster-tracking/ {
 	error 410
 }
 
+handle /2019/01/sunlight/ {
+	error 410
+}
+
 handle /2019/08/removing-the-drm-from-my-kindle-books/ {
 	error 410
 }
@@ -238,6 +242,10 @@ handle /2019/oyster-tracking/ {
 }
 
 handle /2019/removing-the-drm-from-my-kindle-books/ {
+	error 410
+}
+
+handle /2019/sunlight/ {
 	error 410
 }
 
@@ -313,4 +321,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: mMSXkMge/1)
+#[[[end]]] (sum: weFYMgOZ9Y)

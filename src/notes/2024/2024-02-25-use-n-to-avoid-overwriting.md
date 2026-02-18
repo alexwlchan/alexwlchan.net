@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 date: 2024-02-25 02:15:49 +00:00
 title: Use the `-n`/`-i` flags to avoid overwriting files with `cp` and `mv`
-tags:
-  - shell scripting
-old_syntax_highlighting: true
+topic: Shell scripting
 ---
 The `mv` and `cp` builtins have a `-n` flag (no-clobber), and will prevent them from overwriting an existing file.
 They also have a `-i` flag (interactive)

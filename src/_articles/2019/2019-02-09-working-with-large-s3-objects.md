@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2019-02-09 18:09:32 +00:00
 summary: Code for processing large objects in S3 without downloading the whole thing
   first, using file-like objects in Python.
-tags:
-  - python
-  - aws
-  - aws:amazon s3
+topics:
+  - AWS
+  - Python
 title: Working with really large objects in S3
-old_syntax_highlighting: true
 ---
 
 One of our current work projects involves working with large ZIP files stored in S3.
@@ -18,7 +16,7 @@ So far, so easy -- the AWS SDK allows us to read objects from S3, and there are 
 
 In Python, you can do something like:
 
-```python
+```python {"names":{"1":"zipfile","2":"boto3","3":"s3","13":"zf"}}
 import zipfile
 
 import boto3
@@ -65,7 +63,7 @@ If we can get a file-like object from S3, we can pass that around and most libra
 The boto3 SDK actually already gives us one file-like object, when you call GetObject.
 Like so:
 
-```python
+```python {"names":{"1":"boto3","2":"s3"}}
 import boto3
 
 s3 = boto3.client("s3")
@@ -78,7 +76,7 @@ print(s3_object["Body"])
 That StreamingBody is a file-like object responds to `read()`, which allows you to download the entire file into memory.
 So let's try passing that into ZipFile:
 
-```python
+```python {"names":{"1":"zipfile","2":"boto3","3":"s3","6":"s3_object","11":"streaming_body","16":"zf"}}
 import zipfile
 
 import boto3
@@ -117,7 +115,7 @@ We'll have to create our own file-like object, and define those methods ourselve
 
 The io docs suggest a good base for a read-only file-like object that returns bytes (the S3 SDK deals entirely in bytestrings) is RawIOBase, so let's start with a skeleton class:
 
-```python
+```python {"names":{"1":"io","2":"S3File","5":"__init__","6":"s3_object","7":"s3_object"}}
 import io
 
 
@@ -136,7 +134,7 @@ When we tried to load a ZIP file the first time, we discovered that somewhere th
 Let's implement that as our first operation.
 The io docs explain [how seek() works][io_seek]:
 
-> <strong>seek</strong>(offset[, whence])
+> <code><strong>seek</strong>(offset[, whence])</code>
 >
 > Change the stream position to the given byte `offset`. `offset` is interpreted relative to the position indicated by `whence`. The default value for `whence` is `SEEK_SET`. Values for whence are:
 >
@@ -152,7 +150,7 @@ When we open a file on disk, the OS handles that for us -- but in this case, we'
 
 This is what a seek() method might look like:
 
-```python
+```python {"names":{"1":"io","2":"S3File","5":"__init__","6":"s3_object","7":"s3_object","9":"position","10":"seek","11":"offset","12":"whence","41":"seekable"}}
 import io
 
 
@@ -194,7 +192,7 @@ ValueError: invalid whence (5, should be 0, 1 or 2)
 
 Now let's try using this updated version:
 
-```python
+```python {"names":{"1":"s3","4":"s3_object","9":"s3_file","15":"zf"}}
 s3 = boto3.resource("s3")
 s3_object = s3.Object(bucket_name="bukkit", key="bag.zip")
 
@@ -229,7 +227,7 @@ So we know what to implement next!
 
 The io docs explain [how read() works][io_read]:
 
-> **read**(size=-1)
+> <code><strong>read</strong>(size=-1)</code>
 >
 > Read up to `size` bytes from the object and return them. As a convenience, if `size` is unspecified or -1, all bytes until EOF are returned. Otherwise, only one system call is ever made. Fewer than `size` bytes may be returned if the operating system call returns fewer than `size` bytes.
 >
@@ -242,7 +240,7 @@ To read a specific section of an S3 object, we pass an HTTP Range header into th
 
 So let's add a read() method:
 
-```python
+```python {"names":{"1":"S3File","5":"size","8":"read","9":"size","11":"range_header","18":"new_position","24":"range_header","38":"readable"}}
 class S3File(io.RawIOBase):
     ...
 
@@ -288,7 +286,7 @@ Then we call the get() method on the object, pass the Range header, and read all
 
 If you use this version of the code, we can load the list of files in the ZIP correctly:
 
-```python
+```python {"names":{"1":"s3","4":"s3_object","9":"s3_file","15":"zf"}}
 s3 = boto3.resource("s3")
 s3_object = s3.Object(bucket_name="bukkit", key="bag.zip")
 
@@ -325,7 +323,7 @@ But this post proves the general idea: you can process a large object in S3 with
 
 Adding a couple of extra convenience methods (a repr() for pretty-printing, and tell() is a useful convenience), this is the final code, along with the example:
 
-```python
+```python {"names":{"1":"io","2":"S3File","5":"__init__","6":"s3_object","10":"__repr__","14":"size","17":"tell","19":"seek","20":"offset","21":"whence","49":"seekable","50":"read","51":"size","53":"range_header","60":"new_position","66":"range_header","80":"readable","81":"zipfile","82":"boto3","83":"s3","86":"s3_object","91":"s3_file","97":"zf"}}
 import io
 
 

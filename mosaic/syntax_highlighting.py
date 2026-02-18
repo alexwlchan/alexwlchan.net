@@ -138,6 +138,20 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             highlighted_code,
         )
 
+    # Python console: unhighlighted lines that start with 'File' in
+    # the traceback are gr (Generic.Error).
+    if lang == "pycon":
+        all_lines = highlighted_code.splitlines()
+        for i, line in enumerate(all_lines):
+            if line.startswith("  File"):
+                line = re.sub(
+                    r'line <span class="m">(?P<lineno>[0-9]+)</span>',
+                    r"line \g<lineno>",
+                    line,
+                )
+                all_lines[i] = f'<span class="gr">{line}</span>'
+        highlighted_code = "\n".join(all_lines)
+
     # C: highlight macro names as variable names
     # cp = Comment.Preproc
     if lang == "c":

@@ -1,16 +1,15 @@
 ---
-layout: post
+layout: article
 date: 2019-10-22T16:01:51.760Z
 title: Digital preservation at Wellcome Collection
 summary: Slides from a presentation about our processes, practices, and tools.
 canonical_url: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
-tags:
-  - wellcome collection
-  - digital preservation
+topics:
+  - Wellcome Collection
+  - Digital preservation
 colors:
   css_light: "#64573f"
   css_dark:  "#eeeab4"
-old_syntax_highlighting: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

@@ -452,8 +452,6 @@ redir /2019/12/spreadsheet-functions/ /2019/spreadsheet-functions/ permanent
 redir /2019/12/spreadsheet-functions /2019/spreadsheet-functions/ permanent
 redir /2019/09/streaming-large-s3-objects/ /2019/streaming-large-s3-objects/ permanent
 redir /2019/09/streaming-large-s3-objects /2019/streaming-large-s3-objects/ permanent
-redir /2019/01/sunlight/ /2019/sunlight/ permanent
-redir /2019/01/sunlight /2019/sunlight/ permanent
 redir /2019/07/ten-braille-facts/ /2019/ten-braille-facts/ permanent
 redir /2019/07/ten-braille-facts /2019/ten-braille-facts/ permanent
 redir /2019/09/triangular-coordinates-in-svg/ /2019/triangular-coordinates-in-svg/ permanent
@@ -1662,6 +1660,8 @@ redir /til/2024/under-construction/ /notes/2024/under-construction/ permanent
 redir /til/2024/under-construction /notes/2024/under-construction/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
+redir /til/2024/use-n-to-avoid-overwriting/ /notes/2024/use-n-to-avoid-overwriting/ permanent
+redir /til/2024/use-n-to-avoid-overwriting /notes/2024/use-n-to-avoid-overwriting/ permanent
 redir /til/2024/use-shlex-split-to-parse-nginx-logs/ /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
 redir /til/2024/use-shlex-split-to-parse-nginx-logs /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
 redir /til/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ /notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
@@ -1674,6 +1674,8 @@ redir /til/2024/why-cant-i-eject-a-disk/ /notes/2024/why-cant-i-eject-a-disk/ pe
 redir /til/2024/why-cant-i-eject-a-disk /notes/2024/why-cant-i-eject-a-disk/ permanent
 redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
+redir /til/2024/youtube-dl-options/ /notes/2024/youtube-dl-options/ permanent
+redir /til/2024/youtube-dl-options /notes/2024/youtube-dl-options/ permanent
 redir /til/2025/access-nested-fields-in-typeddict/ /notes/2025/access-nested-fields-in-typeddict/ permanent
 redir /til/2025/access-nested-fields-in-typeddict /notes/2025/access-nested-fields-in-typeddict/ permanent
 redir /til/2025/add-str-to-tarfile/ /notes/2025/add-str-to-tarfile/ permanent
@@ -1824,4 +1826,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: sx7NHNY9az)
+#[[[end]]] (sum: jEOWVUTm+d)
