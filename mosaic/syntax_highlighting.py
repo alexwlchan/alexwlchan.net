@@ -17,6 +17,7 @@ instead.
 
 import re
 import textwrap
+from typing import Literal
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
@@ -156,9 +157,28 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     # cp = Comment.Preproc
     if lang == "c":
         highlighted_code = re.sub(
-            r'<span class="cp">#define (?P<name>[A-Z_]+)\((?P<args>[^\)]+)\)',
-            r'#define <span class="n">\g<name></span>'
+            r'<span class="cp">(?P<define>#\s*define) '
+            r"(?P<name>[A-Z_]+)\((?P<args>[^\)]+)\)",
+            r'\g<define> <span class="n">\g<name></span>'
             r'<span class="p">(</span>\g<args><span class="p">)</span>',
+            highlighted_code,
+        )
+
+    # C: highlight #define variables as variable names.
+    # cp = Comment.Preprox
+    # mi = Number.Integer
+    if lang == "c":
+        highlighted_code = re.sub(
+            r'<span class="cp">(?P<define>#\s*define) '
+            r"(?P<name>[A-Z_]+) (?P<value>[0-9]+)</span>",
+            r'\g<define> <span class="n">\g<name></span> '
+            r'<span class="mi">\g<value></span>',
+            highlighted_code,
+        )
+        highlighted_code = re.sub(
+            r'<span class="cp">(?P<define>#\s*define) '
+            r"(?P<name>[A-Z_]+) (?P<value>[A-Za-z\(\)]+)</span>",
+            r'\g<define> <span class="n">\g<name></span> \g<value>',
             highlighted_code,
         )
 
@@ -200,6 +220,8 @@ def apply_syntax_highlighting(
     debug: bool = False,
     wrap: bool = False,
     linenos: bool = False,
+    line_numbers: str = "",
+    caption: str = "",
 ) -> str:
     """
     Apply syntax highlighting rules to a block of code.
@@ -300,6 +322,20 @@ def apply_syntax_highlighting(
 
     html = html.replace("<span></span>", "")
 
+    if linenos or line_numbers:
+        html, lineno_digits = add_line_numbers(html, linenos, line_numbers)
+
+        if caption:
+            figcaption = f"<figcaption>{caption}</figcaption>"
+        else:
+            figcaption = ""
+
+        html = (
+            f'<figure class="annotated_code" '
+            f'style="--lineno-digits: {lineno_digits}">'
+            f"{html}{figcaption}</figure>"
+        )
+
     # If we're in debug mode, append the debugging snippet.
     #
     # This gives me a tool that lets my dynamically choose which names
@@ -346,3 +382,92 @@ def apply_syntax_highlighting(
         """)
 
     return html
+
+
+def add_line_numbers(html: str, linenos: bool, line_numbers: str) -> tuple[str, int]:
+    """
+    Add line numbers to the HTML string.
+
+    Returns the highlighted code and the number of digits to allocate
+    for line numbering.
+    """
+    assert linenos or line_numbers
+
+    prefix1, prefix2, remaining = html.partition("<code>")
+    inner, suffix1, suffix2 = remaining.rpartition("</code>")
+    assert prefix1 + prefix2 + inner + suffix1 + suffix2 == html
+
+    line_count = len(inner.splitlines())
+
+    # If we passed linenos=true but didn't set any line numbers
+    # explicitly, default the line numbers to 1–N, where N is the
+    # number of lines.
+    if not line_numbers:
+        line_numbers = f"1-{line_count}"
+
+    # Parse the line_numbers attribute.
+    exact_line_numbers = parse_line_numbers(line_numbers)
+
+    # Check we have the correct number of line numbers to pair with
+    # each line in the snippet.
+    if len(exact_line_numbers) != line_count:
+        raise ValueError(
+            f"mismatched line numbers: got {len(exact_line_numbers)}, want {line_count}"
+        )
+
+    # Wrap each line in a <span class="ln"> (for "line") element
+    #
+    # e.g. if the input is
+    #
+    #     <pre>
+    #     def greet():
+    #         print("hello world!")
+    #     </pre>
+    #
+    # then it becomes
+    #
+    #     <pre>
+    #     <span class="ln">def greet():</span>
+    #     <span class="ln">    print("hello world!")</span>
+    #     </pre>
+    #
+    # We look for lines which are just ellipsis, which I often use
+    # in code snippets to indicate there's more text that I omitted.
+    inner_lines = inner.splitlines()
+    numbered_lines = []
+
+    for line, lineno in zip(inner_lines, exact_line_numbers):
+        if lineno == "…":
+            numbered_lines.append(f'<span class="ln empty p">{line}</span>')
+        else:
+            numbered_lines.append(
+                f'<span class="ln" style="--ln: {lineno}">{line}</span>'
+            )
+
+    assert len(numbered_lines) == len(inner_lines)
+
+    html = prefix1 + prefix2 + "\n".join(numbered_lines) + suffix1 + suffix2
+    return html, len(str(exact_line_numbers[-1]))
+
+
+def parse_line_numbers(s: str) -> list[int | Literal["…"]]:
+    """
+    Parse a range like 1-3,7-9 as a complete list of line numbers,
+    such as [1,2,3,7,8,9].
+
+    The line numbers can include an … character, which indicates the
+    line should not be numbered.
+    """
+    result: list[int | Literal["…"]] = []
+
+    for part in s.split(","):
+        if "-" in part:
+            start, end = part.split("-")
+            for i in range(int(start), int(end) + 1):
+                result.append(i)
+        elif part == "…":
+            result.append("…")
+        else:
+            result.append(int(part))
+
+    return result

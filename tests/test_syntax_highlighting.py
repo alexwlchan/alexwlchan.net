@@ -2,9 +2,11 @@
 Tests for `mosaic.syntax_highlighting`.
 """
 
+from typing import Literal
+
 import pytest
 
-from mosaic.syntax_highlighting import apply_syntax_highlighting
+from mosaic.syntax_highlighting import apply_syntax_highlighting, parse_line_numbers
 from mosaic.text import markdownify
 
 
@@ -342,21 +344,55 @@ def test_pycon_file_is_part_of_error() -> None:
     assert expected in html
 
 
-def test_c_highlights_macros() -> None:
+class TestDefineInC:
     """
-    The console language only highlights $ as the prompt, not #.
+    The C lexer highlights #define statements properly.
     """
-    html = apply_syntax_highlighting(
-        src="#define ADD_ONE(X) X + 1\nADD_ONE(9) * 2", lang="c", names={1: "ADD_ONE"}
+
+    def test_macro_with_one_arg(self) -> None:
+        """
+        A #define macro which takes a single argument.
+        """
+        html = apply_syntax_highlighting(
+            src="#define ADD_ONE(X) X + 1\nADD_ONE(9) * 2",
+            lang="c",
+            names={1: "ADD_ONE"},
+        )
+        assert html == (
+            '<pre class="lng-c"><code>'
+            '#define <span class="n">ADD_ONE</span><span class="p">'
+            '(</span>X<span class="p">)</span> X + 1</span>\n'
+            'ADD_ONE<span class="p">(</span><span class="mi">9</span>'
+            '<span class="p">)</span> <span class="o">*</span> '
+            '<span class="mi">2</span></code></pre>\n'
+        )
+
+    @pytest.mark.parametrize(
+        "src, name, expected",
+        [
+            (
+                "#define PROMPT_LEN_MAX 128\n",
+                "PROMPT_LEN_MAX",
+                '#define <span class="n">PROMPT_LEN_MAX</span> <span class="mi">128</span>',  # noqa: E501
+            ),
+            (
+                "# define CONTINUATION_PROMPT continuePrompt\n",
+                "CONTINUATION_PROMPT",
+                '# define <span class="n">CONTINUATION_PROMPT</span> continuePrompt',
+            ),
+            (
+                "# define CONTINUATION_PROMPT dynamicContinuePrompt()\n",
+                "CONTINUATION_PROMPT",
+                '# define <span class="n">CONTINUATION_PROMPT</span> dynamicContinuePrompt()',  # noqa: E501
+            ),
+        ],
     )
-    assert html == (
-        '<pre class="lng-c"><code>'
-        '#define <span class="n">ADD_ONE</span><span class="p">'
-        '(</span>X<span class="p">)</span> X + 1</span>\n'
-        'ADD_ONE<span class="p">(</span><span class="mi">9</span>'
-        '<span class="p">)</span> <span class="o">*</span> '
-        '<span class="mi">2</span></code></pre>\n'
-    )
+    def test_variable(self, src: str, name: str, expected: str) -> None:
+        """
+        A #define macro which sets a variable.
+        """
+        html = apply_syntax_highlighting(src, lang="c", names={1: name})
+        assert html == (f'<pre class="lng-c"><code>{expected}</code></pre>\n')
 
 
 def test_linewrap() -> None:
@@ -409,3 +445,13 @@ def test_concurrent_futures() -> None:
     )
     assert '<span class="n">concurrent</span>' in html
     assert '<span class="n">futures</span>' in html
+
+
+@pytest.mark.parametrize(
+    "s, line_numbers", [("1-3,…,7-9,…,11", [1, 2, 3, "…", 7, 8, 9, "…", 11])]
+)
+def test_parse_line_numbers(s: str, line_numbers: list[int | Literal["…"]]) -> None:
+    """
+    Tests for `parse_line_numbers`.
+    """
+    assert parse_line_numbers(s) == line_numbers
