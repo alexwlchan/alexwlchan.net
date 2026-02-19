@@ -13,7 +13,6 @@ colors:
   index_dark:  "#a9c1ca"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 <!-- Social sharing image from https://pixabay.com/photos/iceberg-antarctica-cold-arctic-5163649/ -->
 
@@ -269,7 +268,7 @@ I have some longer rules that aren't needed on every page, like styles for synta
 
 While reading [Home Sweet Homepage][hsh], I found a CSS selector I didn't understand:
 
-```css
+```css {"names":{"1":"img"}}
 img[src$="page01/image2.png"] {
   left: 713px;
   top:  902px;
@@ -320,9 +319,12 @@ Here's a link style from an old copy of the *Entertainment Weekly* website:
 </style>
 
 <blockquote id="underline_example">
-{% code lang="css" %}
+{% set md %}
+```css {"names":{"1":"a"}}
 a { box-shadow: inset 0 -6px 0 #b0e3fb; }
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 
   <div>
     <span style="box-shadow: inset 0 -6px 0 #b0e3fb;">
@@ -664,7 +666,7 @@ I could see an error in my browser console, but it was a bit vague -- it just sa
 
 Then I dropped this snippet into my dev tools console:
 
-```javascript
+```javascript {"names":{"3":"response","7":"error"}}
 fetch("sprite.svg")
   .then(response => console.log("Fetch succeeded:", response))
   .catch(error => console.error("Fetch failed:", error));
@@ -751,13 +753,13 @@ Eventually, I discovered the problem: [a bug in WebKit's developer tools][webkit
 
 For example, suppose the server sends this minifed CSS rule:
 
-```css
+```css {"names":{"1":"body"}}
 body>*:not(.black){color:green;}
 ```
 
 WebKit's dev tools prettify it like this:
 
-```css
+```css {"names":{"1":"body"}}
 body > * :not(.black) {
     color: green;
 }

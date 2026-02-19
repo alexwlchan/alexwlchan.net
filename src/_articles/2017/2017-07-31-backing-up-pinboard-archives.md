@@ -4,7 +4,6 @@ date: 2017-07-31 19:47:00 +00:00
 summary: A Rust utility for saving local copies of my full-page archives from Pinboard.
 topic: Web archiving
 title: Backing up full-page archives from Pinboard
-old_syntax_highlighting: true
 ---
 
 Several years ago, I blogged about [a Python script][python] I'd written to back up my Pinboard bookmarks.

@@ -2,7 +2,6 @@
 layout: page
 title: Today I Learned (TIL)
 nav_section: til
-old_syntax_highlighting: true
 ---
 TIL stands for **today I learned**.
 This is a collection of small, interesting things I've learnt, which I thought were worth remembering and sharing with other people.

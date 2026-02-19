@@ -4,7 +4,6 @@ title: The "strangler" pattern is named after a tree, not an act of violence
 summary: It's named after the strangler fig tree, which wraps itself a host tree and gradually kills them.
 date: 2026-02-10 20:20:26 +00:00
 topic: The world around us
-old_syntax_highlighting: true
 ---
 In software development, the [strangler pattern][wiki-strangler-pattern] is an approach to upgrading old code.
 You create a wrapper around old code, and gradually modify the wrapper to divert calls to your new code, until there's nothing left that's calling the old code.

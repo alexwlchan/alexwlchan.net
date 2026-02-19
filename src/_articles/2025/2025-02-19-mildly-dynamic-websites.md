@@ -1,18 +1,16 @@
 ---
-layout: post
+layout: article
 date: 2025-02-19 13:25:45 +00:00
 title: How I create static websites for tiny archives
 summary: Start with a simple HTML file, then add features like templates, sorting, and filtering as they become useful.
 colors:
   index_light: "#535353"
   index_dark:  "#cecece"
-tags:
-  - static sites
-  - web development
-  - javascript
+topics:
+  - Tiny archives
+  - Systems and software
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 Last year I wrote about [using static websites for tiny archives][static_sites].
 The idea is that I create tiny websites to store and describe my digital collections.
@@ -124,7 +122,7 @@ const bookmarks = [
 
 Then I have a function that renders the data for a single bookmark as HTML:
 
-{% code lang="javascript" names="0:Bookmark 1:bookmark" %}
+```javascript {"names":{"1":"Bookmark","2":"bookmark"}}
 function Bookmark(bookmark) {
   return `
     <li>
@@ -132,7 +130,7 @@ function Bookmark(bookmark) {
     </li>
   `;
 }
-{% endcode %}
+```
 
 Having a function that returns HTML is inspired by React and Next.js, where code is split into "components" that each render part of the web app.
 
@@ -221,7 +219,7 @@ I like to apply filters from a global menu, or to use controls on each item to f
 
 I use URL query parameters to store the list of currently-applied filters, for example:
 
-<pre><code>bookmarks.html?<strong>tag=animals&tag=wtf&publicationYear=2025</strong></code></pre>
+<pre><code>bookmarks.html?<mark>tag=animals&tag=wtf&publicationYear=2025</mark></code></pre>
 
 This means that any UI element that adds or removes a filter is a link to a new URL, so clicking it loads a new page, which triggers a complete re-render with the new filters.
 
@@ -230,7 +228,7 @@ Every site needs a slightly different set of filters, but the overall principle 
 
 Let's start by expanding our data model to include a couple of new fields:
 
-{% code lang="javascript" names="0:bookmarks" %}
+```javascript {"names":{"1":"bookmarks"}}
 const bookmarks = [
   {
     "url": "https://estherschindler.medium.com/the-old-family-photos-project-lessons-in-creating-family-photos-that-people-want-to-keep-ea3909129943",
@@ -240,11 +238,11 @@ const bookmarks = [
   },
   …
 ];
-{% endcode %}
+```
 
 Then we can define some filters we might use to narrow the list:
 
-```javascript
+```javascript {"names":{"1":"bookmarkFilters","5":"bookmark","6":"tagName","14":"bookmark","15":"year"}}
 const bookmarkFilters = [
   {
     id: 'tag',
@@ -270,7 +268,7 @@ This means there's only one place I need to make changes if I want to add or rem
 
 The next piece of the filtering code is a generic function that filters a list of items, and takes the list of filters as an argument:
 
-```javascript
+```javascript {"names":{"1":"filterItems","2":"items","3":"filters","4":"params","5":"matchingItems","7":"appliedFilters","8":"key","9":"value","14":"matchingFilter","30":"item","35":"altQuery","41":"linkToRemove"}}
 /*
  * Filter a list of items.
  *
@@ -333,7 +331,7 @@ The final step is to wire this filtering into the page render.
 We need to make sure we only show items that match the filter, and show the user a list of applied filters.
 Here's the new code:
 
-```html
+```html {"names":{"1":"script","4":"params","10":"matchingBookmarks","11":"appliedFilters","23":"f","38":"script","39":"h1","40":"h1","41":"p","42":"p","43":"ul","44":"id","45":"ul","46":"p","47":"p","48":"ul","49":"id","50":"ul"}}
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
@@ -392,12 +390,12 @@ Another sort order I often use is "random", which shuffles the items and is a fu
 
 As with filters, I put the current sort order in a query parameter, for example:
 
-<pre><code>bookmarks.html?<strong>sortOrder=titleAtoZ</strong></code></pre>
+<pre><code>bookmarks.html?<mark>sortOrder=titleAtoZ</mark></code></pre>
 
 As before, I want to write this in a generic way and share code between different sites.
 Let's start by defining a list of sort options:
 
-```javascript
+```javascript {"names":{"1":"bookmarkSortOptions","5":"a","6":"b","14":"a","15":"b"}}
 const bookmarkSortOptions = [
   {
     id: 'titleAtoZ',
@@ -422,7 +420,7 @@ Each sort option has three fields:
 
 Next, we can define a function that will sort a list of items:
 
-```javascript
+```javascript {"names":{"1":"sortItems","2":"items","3":"sortOptions","4":"params","5":"sortOrderId","8":"defaultSort","10":"selectedSort","23":"sortedItems","31":"getSortOrder","32":"params"}}
 /*
  * Sort a list of items.
  *
@@ -465,7 +463,7 @@ I only have to define the list of sort orders once.
 
 This approach makes it easy to add new sort orders, and to write a component that renders a dropdown menu to pick the sort order:
 
-```javascript
+```javascript {"names":{"1":"SortOrderDropdown","2":"sortOptions","3":"appliedSortOrder","6":"id","7":"label","16":"setSortOrder","17":"sortOrderId","18":"params"}}
 /*
  * Create a dropdown control to choose the sort order.  When you pick
  * a different value, the page reloads with the new sort.
@@ -497,7 +495,7 @@ Finally, we can wire the sorting code into the rest of the app.
 After filtering, we sort the items and then render the sorted list.
 We also show the sort controls on the page:
 
-```html
+```html {"names":{"1":"script","4":"params","10":"matchingBookmarks","11":"appliedFilters","14":"sortedBookmarks","15":"appliedSortOrder","36":"script","37":"p","38":"id","39":"p"}}
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
@@ -557,14 +555,14 @@ If I do want pagination, I stick to a classic design:
 
 As with other features, I use a URL query parameter to track the current page number:
 
-<pre><code>bookmarks.html?<strong>pageNumber=2</strong></code></pre>
+<pre><code>bookmarks.html?<mark>pageNumber=2</mark></code></pre>
 
 This code can be written in a completely generic way -- it doesn't have to care what sort of items we're paginating.
 
 First, let's write a function that will select a page of items for us.
 If we're on page N, what items should we be showing?
 
-```javascript
+```javascript {"names":{"1":"paginateItems","2":"items","3":"pageNumber","4":"pageSize","5":"startOfPage","8":"endOfPage","11":"thisPage"}}
 /*
  * Get a page of items.
  *
@@ -592,7 +590,7 @@ But that might reflect my general dislike of pagination, and it's definitely a n
 
 Once we know what page we're on and how many pages there are, we can create a component to render some basic pagination controls:
 
-```javascript
+```javascript {"names":{"1":"PaginationControls","2":"pageNumber","3":"totalPages","4":"params","7":"prevPageUrl","12":"prevPageLink","14":"prevPageLink","17":"nextPageUrl","22":"nextPageLink","24":"nextPageLink","25":"pageText","32":"p","35":"setPageNumber","36":"params","37":"pageNumber","38":"updatedParams"}}
 /*
  * Renders a list of pagination controls.
  *
@@ -641,7 +639,7 @@ function setPageNumber({ params, pageNumber }) {
 Finally, let's wire this code into the rest of the app.
 We get the page number from the URL query parameters, paginate the list of filtered and sorted items, and show some pagination controls:
 
-```html
+```html {"names":{"1":"script","2":"getPageNumber","3":"params","9":"params","15":"matchingBookmarks","16":"appliedFilters","19":"sortedBookmarks","20":"appliedSortOrder","22":"pageNumber","26":"thisPageOfBookmarks","27":"totalPages","47":"script","48":"p","49":"id","50":"p"}}
 <script>
   /* Get the current page number. */
   function getPageNumber(params) {
@@ -715,7 +713,7 @@ I have [a demo page](/files/2025/static-site-demo.html?demoId=noscript) which di
 This won't help if JavaScript is broken rather than disabled, so we also need to add error handling.
 We can listen for the [`error` event][error_event] on the window, and report an error to the user -- for example, if a script fails to load.
 
-```html
+```html {"names":{"1":"div","2":"id","3":"div","4":"script","7":"event","11":"script"}}
 <div id="errors"></div>
 
 <script>
@@ -761,7 +759,7 @@ You can [run QUnit in the browser][qunit_browser], and it only requires two file
 
 Here's an example of a QUnit test:
 
-```javascript
+```javascript {"names":{"3":"assert","4":"bookmarkA","6":"bookmarkC","8":"bookmarkP","10":"params","12":"sortedItems","13":"appliedSortOrder"}}
 QUnit.test("sorts bookmarks by title", function(assert) {
   // Create three bookmarks with different titles
   const bookmarkA = { title: "Almanac for apples" };
@@ -791,7 +789,7 @@ For example, it can test that if you select a new sort order, the page reloads a
 
 Here's an example of a simple test written with Playwright in [Python][playwright_python]:
 
-```python
+```python {"names":{"1":"playwright","2":"sync_api","3":"expect","4":"sync_playwright","6":"p","7":"browser","11":"page"}}
 from playwright.sync_api import expect, sync_playwright
 
 with sync_playwright() as p:
@@ -834,7 +832,7 @@ As we get more data, splitting the metadata and application logic makes everythi
 
 One pattern I've adopted is to put all the item metadata into a single, standalone JavaScript file that assigns a single variable:
 
-```javascript
+```javascript {"names":{"1":"bookmarks"}}
 const bookmarks = […];
 ```
 
@@ -850,7 +848,7 @@ I'll write more about this in future posts, because this one is long enough alre
 
 For example, let's add a new bookmark to the `metadata.js` file:
 
-```python
+```python {"names":{"1":"javascript_data_files","2":"read_js","3":"write_js","4":"bookmarks"}}
 from javascript_data_files import read_js, write_js
 
 bookmarks = read_js("metadata.js", varname="bookmarks")
