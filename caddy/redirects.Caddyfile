@@ -1572,6 +1572,8 @@ redir /til/2023/profiling-swift/ /notes/2023/profiling-swift/ permanent
 redir /til/2023/profiling-swift /notes/2023/profiling-swift/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion/ /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion /notes/2024/beware-of-test-n-with-command-expansion/ permanent
+redir /til/2024/build-query-string-with-curl/ /notes/2024/build-query-string-with-curl/ permanent
+redir /til/2024/build-query-string-with-curl /notes/2024/build-query-string-with-curl/ permanent
 redir /til/2024/how-to-check-the-quality-of-a-network-connection/ /notes/2024/check-the-quality-of-a-network-connection/ permanent
 redir /til/2024/how-to-check-the-quality-of-a-network-connection /notes/2024/check-the-quality-of-a-network-connection/ permanent
 redir /til/2024/close-responses-to-close-send-file/ /notes/2024/close-responses-to-close-send-file/ permanent
@@ -1826,4 +1828,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: jEOWVUTm+d)
+#[[[end]]] (sum: bajTYd/tnC)

@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-07-05 12:29:09 +01:00
 title: Build a URL with query string parameters with curl
 summary: |
   A combination of `--get` and `--data`/`--data-urlencode` allows you to write curl commands which are readable and expressive.
-tags:
-  - curl
-old_syntax_highlighting: true
+topic: Shell scripting
 ---
 I want to write an HTTP GET in curl which:
 
@@ -21,16 +19,16 @@ How can I do that with curl?
 I'm writing some documentation for the Wikimedia Commons API, and I want to include some runnable examples.
 The various query parameters get baked into a single GET URL, but that makes it quite difficult to see what's going on:
 
-{% code lang="shell" wrap="true" %}
+```shell {"wrap":true}
 curl 'https://commons.wikimedia.org/w/api.php?action=query&list=logevents&letitle=File%3AMugeni%20Elijah%20-%20Behind%20tha%20sin%20ArtWork.png&format=xml&letype=delete'
-{% endcode %}
+```
 
 There are five query parameters being passed to that URL!
 But this syntax makes it quite difficult to read and translate into another HTTP library.
 
 In Python, I'm used to expressing the query parameters as a structured object (which also handles the URL encoding for you), for example:
 
-{% code lang="python" names="0:httpx" %}
+```python {"names":{"1":"httpx"}}
 import httpx
 
 httpx.get(
@@ -43,7 +41,7 @@ httpx.get(
         "letype": "delete"
     }
 )
-{% endcode %}
+```
 
 Compared to the curl command, this is easier for somebody to read and translate to another language, but it's harder to copy/paste for a quick experiment.
 

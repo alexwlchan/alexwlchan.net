@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2014-11-02 16:19:00 +00:00
-tags:
-  - python
+topic: Python
 title: Unpacking sets and ranges from a single string
-old_syntax_highlighting: true
 ---
 
 <style>
@@ -37,7 +35,8 @@ I had a slightly different syntax in mind (simpler, and with more double bracket
 
 It supports the same syntax as the cURL counterpart. Here's a simple example:
 
-{% code lang="pycon" names="0:urls" %}
+```pycon {"names":{"1":"curlparser","2":"urls"}}
+>>> import curlparser
 >>> urls = curlparser.parse_string("http://site.{one,two,three}.com")
 >>> urls.next()
 "http://site.one.com"
@@ -45,7 +44,7 @@ It supports the same syntax as the cURL counterpart. Here's a simple example:
 "http://site.two.com"
 >>> urls.next()
 "http://site.three.com"
-{% endcode %}
+```
 
 It can also be invoked from the shell:
 
