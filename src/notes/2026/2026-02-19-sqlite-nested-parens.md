@@ -1,7 +1,7 @@
 ---
 layout: note
-title: The SQLite command line shell will show the level of parentheses
-summary: Prefixes like `(x1` or `(x2` tell you if you're in the middle of some unclosed parentheses.
+title: The SQLite command line shell will count your unclosed parentheses
+summary: If the prompt starts with `(x1` or `(x2`, it means you've opened some parentheses and not closed them yet.
 date: 2026-02-19 21:05:41 +00:00
 topic: SQLite
 ---
