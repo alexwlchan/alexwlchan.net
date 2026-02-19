@@ -50,7 +50,7 @@ pre.wrap {
   left: 0;
   text-align: right;
   width: calc(var(--lineno-digits) * 9px);
-  color: var(--accent-grey);
+  color: var(--punctuation);
 
   /* These three properties create a solid horizontal line between
    * the line numbers and the code. */
