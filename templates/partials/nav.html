@@ -1,8 +1,60 @@
 <nav>
+  {% set allowCollapsing = page.breadcrumb()|count >= 2 %}
   <h1>
     <a href="/">alexwlchan</a>
     {% for entry in page.breadcrumb() %}
-      » <a href="{{ entry.href }}" class="breadcrumb">{{ entry.label|smartify }}</a>
+      »
+      {% if allowCollapsing and loop.first %}<span id="collapsible">{% endif %}
+        {% if allowCollapsing and loop.last %}</span>{% endif %}
+      <a href="{{ entry.href }}" class="breadcrumb">{{ entry.label|smartify }}</a>
     {% endfor %}
   </h1>
+  {% if allowCollapsing %}
+    <script>
+      function getCssStyle(elem, prop) {
+        return window.getComputedStyle(elem, null).getPropertyValue(prop);
+      }
+      
+      function getCanvasFont(elem) {
+        const fontWeight = getCssStyle(elem, 'font-weight') || 'normal';
+        const fontSize   = getCssStyle(elem, 'font-size');
+        const fontFamily = getCssStyle(elem, 'font-family');
+  
+        return `${fontWeight} ${fontSize} ${fontFamily}`;
+      }
+            
+      const header = document.querySelector('nav h1');
+      
+      // Construct a <canvas> element with text the same font and size
+      // as the <h1>, to measure the min width required to display it.
+      const canvas = document.createElement("canvas");
+      const ctxt = canvas.getContext("2d");
+      ctxt.font = getCanvasFont(header);
+      const textWidth = ctxt.measureText(header.innerText).width;
+        
+      const ro = new ResizeObserver(entries => {        
+        // requestAnimationFrame is to avoid a "ResizeObserver loop
+        // completed with undelivered notifications" error.
+        requestAnimationFrame(() => {
+          for (let entry of entries) {
+            const isCollapsed = header.classList.contains("is-collapsed");
+            const shouldBeCollapsed = entry.contentRect.width < textWidth;
+          
+            if (!isCollapsed && shouldBeCollapsed) {
+              header.classList.add('is-collapsed');
+            } else if (isCollapsed && !shouldBeCollapsed) {
+              header.classList.remove('is-collapsed');
+            }
+          }
+        })
+      });
+      
+      ro.observe(header);
+    </script>
+    <style>
+      .is-collapsed #collapsible {
+        display: none;
+      }
+    </style>
+  {% endif %}
 </nav>

@@ -11,7 +11,16 @@ nav {
 
   background: var(--nav-bg-image) var(--primary-color);
   background-size: auto 100%;
+  
+  --text-color: white;
 }
+
+@media (prefers-color-scheme: dark) {  
+  nav {
+    --text-color: black;
+  }
+}
+
 
 nav:not(:has(ul)) {
   background-size: auto 125%;
@@ -38,13 +47,7 @@ nav ul {
 }
 
 nav, nav a, nav a:visited, nav a:hover {
-  color: white;
-}
-
-@media (prefers-color-scheme: dark) {  
-  nav, nav a, nav a:visited {
-    color: black;
-  }
+  color: var(--text-color);
 }
 
 nav h1 a:hover {
