@@ -1,11 +1,9 @@
 ---
+layout: article
 date: 2016-10-01 21:23:00 +00:00
-layout: post
-tags:
-  - shell scripting
+topic: Shell scripting
 title: A shell alias for tallying data
 summary: A way to count records on the command-line.
-old_syntax_highlighting: true
 ---
 
 Here's a tiny shell alias that I find useful when going through data on the command line.
