@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-main, footer > *, nav > *, #editing-toolbar_inner {
+main, footer > *, nav#header > *, #editing-toolbar_inner {
   max-width:    var(--max-width);
   margin-left:  auto;
   margin-right: auto;
@@ -38,7 +38,7 @@ figcaption {
   margin-top: 8px;
 }
 
-pre, blockquote, .table_of_contents {
+pre, blockquote, .table_of_contents, .update {
   border: var(--border-width) var(--border-style) var(--block-border-color);
   border-radius: var(--border-radius);
   background-color: var(--block-background);

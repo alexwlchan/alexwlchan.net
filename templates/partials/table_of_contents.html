@@ -2,8 +2,8 @@
   @use "components/table_of_contents";
 </style>
 
-<blockquote class="table_of_contents">
-  <h3>Table of contents</h3>
+<nav class="table_of_contents" aria-labelledby="toc-heading">
+  <h3 id="toc-heading">Table of contents</h3>
   <ul>
     {%- for entry in toc_entries -%}
       <li>
@@ -19,7 +19,7 @@
       </li>
     {%- endfor -%}
   </ul>
-</blockquote>
+</nav>
 
 {#
   Ensure there's a newline at the end of the rendered TOC.

@@ -20,11 +20,11 @@ def test_render_update(env: Environment) -> None:
         '<style type="x-text/scss">\n'
         '  @use "components/updates";\n'
         "</style>\n"
-        '<blockquote class="update" id="update-2001-02-03">\n'
+        '<aside class="update" role="note" id="update-2001-02-03">\n'
         '<p><strong>Update, <time datetime="2001-02-03">'
         "3 February 2001</time>:</strong> "
         "I am <em>really</em> excited about this change.</p>\n"
-        "</blockquote>"
+        "</aside>"
     )
 
 

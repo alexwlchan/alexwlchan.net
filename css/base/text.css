@@ -61,15 +61,19 @@ a:hover {
   }
 }
 
-blockquote, .table_of_contents {
+blockquote, .table_of_contents, .update {
   margin-left:  0;
   margin-right: 0;
   padding: 1px var(--default-padding);
 }
 
-blockquote:not(.embed), .table_of_contents {
+blockquote:not(.embed), .table_of_contents, .update {
   p:first-child { margin-top:    calc(2 * var(--default-padding) / 3); }
   p:last-child  { margin-bottom: calc(2 * var(--default-padding) / 3); }
+}
+
+.update {
+  margin: 1em 0;
 }
 
 svg text {

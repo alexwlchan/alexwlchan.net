@@ -139,7 +139,16 @@ class MosaicBlockParser(mistune.BlockParser):
         # time you see one in my source Markdown, I can assume everything
         # until the closing tag is pure HTML and doesn't need the Markdown
         # library to interfere.
-        PRE_TAGS = ["figure", "picture", "blockquote", "ol", "ul", "div", "details"]
+        PRE_TAGS = [
+            "aside",
+            "figure",
+            "picture",
+            "blockquote",
+            "ol",
+            "ul",
+            "div",
+            "details",
+        ]
 
         if open_tag in PRE_TAGS:
             end_tag = "</" + open_tag + ">"
@@ -360,10 +369,7 @@ def assert_is_invariant_under_markdown(html: str) -> None:
 
     # The Markdown plugin adds leading/trailing <p> tags; remove them
     # before doing the comparison.
-    if (
-        '<blockquote class="update"' not in html
-        and '<figure class="slide">' not in html
-    ):
+    if '<aside class="update"' not in html and '<figure class="slide">' not in html:
         markdownified = markdownified.replace("<p>", "", 1)
         markdownified = re.sub(r"</p>$", "", markdownified)
 

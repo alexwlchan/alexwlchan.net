@@ -36,14 +36,14 @@ class TestTableOfContentsExtension:
         html = env.from_string(md).render(page=StubPage(content=md)).strip()
         assert minify_html.minify(html) == (
             '<style type=x-text/scss>@use "components/table_of_contents";</style>'
-            "<blockquote class=table_of_contents>"
-            "<h3>Table of contents</h3>"
+            "<nav aria-labelledby=toc-heading class=table_of_contents>"
+            "<h3 id=toc-heading>Table of contents</h3>"
             "<ul><li>"
             "<a href=#my-first-heading>My first heading</a>"
             "<ul><li><a href=#subheading-1>Subheading 1</a>"
             "<li><a href=#subheading-2>Subheading 2</a></ul>"
             "<li><a href=#my-second-heading>My second heading</a>"
-            "</ul></blockquote> "
+            "</ul></nav> "
             "## My first heading "
             "### Subheading 1 "
             "### Subheading 2 "
@@ -66,13 +66,13 @@ class TestTableOfContentsExtension:
         html = env.from_string(md).render(page=StubPage(content=md)).strip()
         assert minify_html.minify(html) == (
             '<style type=x-text/scss>@use "components/table_of_contents";</style>'
-            "<blockquote class=table_of_contents>"
-            "<h3>Table of contents</h3>"
+            "<nav aria-labelledby=toc-heading class=table_of_contents>"
+            "<h3 id=toc-heading>Table of contents</h3>"
             "<ul><li><a href=#heading1>My first heading</a>"
             "<ul><li><a href=#subheading1a>Subheading 1</a>"
             "<li><a href=#subheading1b>Subheading 2</a></ul>"
             "<li><a href=#heading2>My second heading</a></ul>"
-            "</blockquote>"
+            "</nav>"
             "<h2 id=heading1>My first heading</h2>"
             "<h3 id=subheading1a>Subheading 1</h3>"
             "<h3 id=subheading1b>Subheading 2</h3>"
