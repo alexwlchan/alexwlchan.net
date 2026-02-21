@@ -1,18 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2017-06-07 20:50:00 +00:00
 summary: Pictures from my recent visit to Crossness, a Victorian pumping station for London's sewers.
 title: A visit to the Crossness pumping station
-tags:
-  - photography
-  - history
-  - london
+topic: The world around us
 colors:
   css_light: "#2b5750"
   css_dark:  "#5da898"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 In the early nineteenth century, the River Thames was heavily polluted.

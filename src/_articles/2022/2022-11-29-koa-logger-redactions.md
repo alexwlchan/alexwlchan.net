@@ -1,15 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2022-11-29 23:39:11 +00:00
 title: Redacting sensitive query parameters with koa and koa-logger
 summary: Using a custom transporter to modify the log message and remove secret information.
-tags:
-  - javascript
-  - javascript:koa
+topic: JavaScript
 colors:
   index_light: "#054f17"
   index_dark:  "#08af2f"
-old_syntax_highlighting: true
 ---
 
 <!-- Card image based on https://www.pexels.com/photo/photo-of-green-fern-leaves-1687341/ and Wikipedia article -->
@@ -46,7 +43,7 @@ I had to read the source code and look at some examples to understand it, and ev
 
 This is an example Koa server that uses koa-logger, and which calls a function `redactUrl()` to redact portions of a URL before logging it:
 
-{% code lang="javascript" names="0:Koa 2:logger 4:app 11:args 12:format 13:method 14:url 15:status 16:time 17:length 19:redactedUrl 22:newArgs" %}
+```javascript {"names":{"1":"Koa","3":"logger","5":"app","12":"args","13":"format","14":"method","15":"url","16":"status","17":"time","18":"length","20":"redactedUrl","23":"newArgs"}}
 const Koa = require('koa');            // ^2.13.4
 const logger = require('koa-logger');  // ^3.2.1
 
@@ -80,11 +77,11 @@ app.use(async ctx => {
 });
 
 app.listen(3000);
-{% endcode %}
+```
 
 and here's our implementation of `redactUrl()`, which redacts every query parameter:
 
-{% code lang="javascript" names="0:url 2:redactUrl 3:u 4:parsedUrl 11:params 15:key" %}
+```javascript {"names":{"1":"url","3":"redactUrl","4":"u","5":"parsedUrl","12":"params","16":"key"}}
 const url = require('url');
 
 /** Redact every query parameter from a URL */
@@ -118,7 +115,7 @@ function redactUrl(u) {
   // original brackets for ease of readability.
   return url.format(parsedUrl).replace(/%5Bredacted%5D/g, '[redacted]');
 }
-{% endcode %}
+```
 
 You could modify this if you only wanted to redact specific query parameters, or you wanted to redact some other part of the URL.
 
