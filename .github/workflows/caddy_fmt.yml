@@ -59,7 +59,7 @@ jobs:
         run: |
           find . \
             -name Caddyfile \
-            -o -name '*.Caddyfile' ! -name 'redirects.Caddyfile' ! -name 'book_redirects.Caddyfile' | \
+            -o -name '*.Caddyfile' ! -name 'redirects.Caddyfile' ! -name 'book_redirects.Caddyfile' ! -name 'til_redirects.Caddyfile' | \
             xargs -I '{}' --verbose caddy fmt --overwrite '{}'
       
       - name: Print changes
