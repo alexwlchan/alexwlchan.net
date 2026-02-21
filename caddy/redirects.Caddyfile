@@ -42,7 +42,7 @@ redir /theme/apple-touch-icon.png                                       /static/
 # import cog
 # import json
 # 
-# with open("caddy/page_redirects.json") as in_file:
+# with open("caddy/redirects.json") as in_file:
 #     redirects = json.load(in_file)
 # 
 # for new_path, all_old_paths in redirects.items():

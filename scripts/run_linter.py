@@ -88,6 +88,9 @@ if __name__ == "__main__":
     book_redirects_path = Path("caddy/book_redirects.Caddyfile")
     all_errors[book_redirects_path] += check_redirects(book_redirects_path, out_dir)
 
+    til_redirects_path = Path("caddy/til_redirects.Caddyfile")
+    all_errors[til_redirects_path] += check_redirects(til_redirects_path, out_dir)
+
     gone_path = Path("caddy/gone.Caddyfile")
     all_errors[gone_path] = check_http_410_gone(out_dir)
 

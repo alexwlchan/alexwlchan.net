@@ -1,8 +1,8 @@
 import /home/alexwlchan/repos/analytics.alexwlchan.net/Caddyfile
 import /home/alexwlchan/repos/finduntaggedtumblrposts.com/Caddyfile
-import /home/alexwlchan/repos/til/Caddyfile
 
 import caddy/book_redirects.Caddyfile
+import caddy/til_redirects.Caddyfile
 
 alexwlchan.net {
 	import caddy/redirects.Caddyfile
