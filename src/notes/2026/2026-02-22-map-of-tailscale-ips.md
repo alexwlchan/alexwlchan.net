@@ -54,5 +54,9 @@ $ tailscale status --json \
 }
 ```
 
+I'm planning to paste this directly into the [`hosts` section][ts-hosts] of my policy file.
+
 Tested with Tailscale 1.95.104.
 Disclaimer: At time of writing, I'm employed by Tailscale.
+
+[ts-hosts]: https://tailscale.com/docs/reference/syntax/policy-file#hosts
