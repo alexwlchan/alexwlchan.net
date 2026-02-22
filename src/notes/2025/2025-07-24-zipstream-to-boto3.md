@@ -1,12 +1,11 @@
 ---
-layout: til
+layout: note
 title: Using zipstream to stream new zip files to object storage with boto3
 summary: You can construct a `zipstream.ZipFile`, add files, then wrap it in a file-like object to upload it with `S3.upload_fileobj`.
 date: 2025-07-24 11:42:15 +01:00
-tags:
-  - python
-  - python:boto3
-old_syntax_highlighting: true
+topics:
+  - Python
+  - AWS
 ---
 I'm writing some code to build large ZIP files and store them in [S3-compatible object storage](/til/2025/linode-with-boto3/).
 
@@ -29,7 +28,7 @@ I'm using boto3 1.38.19 and zipstream 1.1.4.
 Here's my first attempt, based on the code in the python-zipstream README.
 I construct the `ZipFile`, add files, then pass it directly to `upload_fileobj`.
 
-```python
+```python {"names":{"1":"boto3","2":"zipstream","3":"s3_client","6":"zf"}}
 import boto3
 import zipstream
 
@@ -57,7 +56,7 @@ KeyError: 'There is no item named 8388608 in the archive'
 This is because `upload_fileobj` expects to receive a file-like object, whereas `zipstream.ZipFile` is giving it an iterable of `bytes`.
 We can write a wrapper class that transforms the `ZipFile` to get our first working upload.
 
-```python
+```python {"names":{"1":"FileLikeObject","2":"__init__","3":"iterable","4":"iterator","7":"buffer","8":"read","9":"size","11":"size","18":"chunk","25":"result","28":"result"}}
 class FileLikeObject:
     """
     Wrap an iterable of ``bytes`` and turn it into a file-like object
@@ -111,7 +110,7 @@ In zipstream, this is disabled by default.
 
 If you try to upload a ZIP file that exceeds these limits:
 
-```python
+```python {"names":{"1":"zf","5":"i","7":"s"}}
 zf = zipstream.ZipFile(mode="w")
 
 for i in range(100000):
