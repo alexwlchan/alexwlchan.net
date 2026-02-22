@@ -127,7 +127,7 @@ I hope you like it!
     ul {
       list-style-type: "";
       padding: var(--default-padding);
-      margin-top: 0;
+      margin-top:  0;
       margin-left: 0;
     
       li {
@@ -136,6 +136,10 @@ I hope you like it!
         grid-template-columns: 24px auto;
         gap: 7px;
         margin-top: 6px;
+      }
+      
+      li:first-child {
+        margin-top: 0;
       }
       
       a {
