@@ -60,6 +60,16 @@ Although I've enjoyed other books by Ashley Herring Blake, this was a struggle, 
 
 ## Quotes
 
+P69:
+
+> Ramona wrote *Moon Lovers hike* on number two of her bulleted list.
+>
+> "Moon Lovers?" Dylan asked.
+>
+> "It's a great trail. Lesser traveled during the day because it doesn't go around the lake, so we shouldn't run into a ton of people."
+>
+> No need to mention that Moon Lovers Trail was also a local legend, that any couple who walked its path under a full moon---which draped the trail in a silvery glow at its height---would fall in love and live happily ever after. His junior year of high school, Owen took the girl he had a crush on for a moonlit walk, and they've been married for twenty-six years.
+
 P127:
 
 > Dylan frowned. "I think I just want to talk?"
