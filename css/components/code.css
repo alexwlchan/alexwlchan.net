@@ -79,6 +79,7 @@ pre.wrap {
 
 .annotated_code figcaption {
   text-align: center;
+  text-wrap: balance;
 }
 
 .annotated_code pre:has( + figcaption) {

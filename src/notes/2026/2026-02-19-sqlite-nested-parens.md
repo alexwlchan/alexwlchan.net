@@ -18,7 +18,7 @@ I couldn't find any reference to it online, so I had to read the [SQLite source 
 The relevant code is in `shell.c.in`.
 First I found the default prompts, and two variables where the main and continuation prompts are stored:
 
-```c {"names":{"1":"PROMPT_LEN_MAX","2":"mainPrompt","4":"continuePrompt"},"line_numbers":"406-414","caption":"Lines 406–414 of <code>src/shell.c.in</code> at <a href='https://sqlite.org/src/info?name=15285c21cc3f1da9289b0b6c5fd0b2ca8ab2e664b4b300c404afe7634ce9876f&ln=406-414'><code>15285c21cc</code></a>"}
+```c {"names":{"1":"PROMPT_LEN_MAX","2":"mainPrompt","4":"continuePrompt"},"line_numbers":"406-414","caption":"Lines 406–414 of <a href='https://sqlite.org/src/info?name=15285c21cc3f1da9289b0b6c5fd0b2ca8ab2e664b4b300c404afe7634ce9876f&ln=406-414'><code>src/shell.c.in</code></a> in the <a href='https://sqlite.org/src/dir?ci=trunk'>SQLite source repository</a>. All SQLite code is <a href='https://sqlite.org/copyright.html'>in the public domain</a>."}
 /*
 ** Prompt strings. Initialized in main. Settable with
 **   .prompt main continue
@@ -32,7 +32,7 @@ static char continuePrompt[PROMPT_LEN_MAX];
 
 Looking at where those variables get used leads to another interesting snippet, which names this feature as "dynamic continuation prompt":
 
-```c {"names":{"2":"CONTINUATION_PROMPT","4":"CONTINUATION_PROMPT"},"line_numbers":"444-452,…,460-461","caption":"Lines 444–461 of <code>src/shell.c.in</code> at <a href='https://sqlite.org/src/info?name=15285c21cc3f1da9289b0b6c5fd0b2ca8ab2e664b4b300c404afe7634ce9876f&ln=444-461'><code>15285c21cc</code></a>"}
+```c {"names":{"2":"CONTINUATION_PROMPT","4":"CONTINUATION_PROMPT"},"line_numbers":"444-452,…,460-461","caption":"Lines 444–461 of <a href='https://sqlite.org/src/info?name=15285c21cc3f1da9289b0b6c5fd0b2ca8ab2e664b4b300c404afe7634ce9876f&ln=444-461'><code>src/shell.c.in</code></a> in the <a href='https://sqlite.org/src/dir?ci=trunk'>SQLite source repository</a>."}
 /*
 ** Optionally disable dynamic continuation prompt.
 ** Unless disabled, the continuation prompt shows open SQL lexemes if any,
@@ -49,7 +49,7 @@ Looking at where those variables get used leads to another interesting snippet, 
 
 And looking for the definition of that `dynamicContinuePrompt` function, I can see it updating a `dynPrompt.dynamicPrompt` variable with expressions like the `(x1` I saw in my SQLite shell:
 
-```c {"names":{"1":"dynamicContinuePrompt","10":"ncp","13":"ndp"},"line_numbers":"499-528","caption":"Lines 499–528 of <code>src/shell.c.in</code> at <a href='https://sqlite.org/src/info?name=15285c21cc3f1da9289b0b6c5fd0b2ca8ab2e664b4b300c404afe7634ce9876f&ln=499-528'><code>15285c21cc</code></a>"}
+```c {"names":{"1":"dynamicContinuePrompt","10":"ncp","13":"ndp"},"line_numbers":"499-528","caption":"Lines 499–528 of <a href='https://sqlite.org/src/info?name=15285c21cc3f1da9289b0b6c5fd0b2ca8ab2e664b4b300c404afe7634ce9876f&ln=499-528'><code>src/shell.c.in</code></a> in the <a href='https://sqlite.org/src/dir?ci=trunk'>SQLite source repository</a>."}
 /* Upon demand, derive the continuation prompt to display. */
 static char *dynamicContinuePrompt(void){
   if( continuePrompt[0]==0
