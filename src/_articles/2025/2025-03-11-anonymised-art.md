@@ -26,7 +26,7 @@ Sometimes the original pops straight to the top, but other times it takes a lot 
 
 So many of us have become accustomed to art as an endless, anonymous stream of "content".
 A beautiful image appears in our feed, we give it a quick heart, and scroll on, with no thought for the human who sweated blood and tears to create it.
-That original artist feels distant, disconected.
+That original artist feels distant, disconnected.
 Whatever benefit they might get from the "exposure" of your work going viral, they don't get any if their name has been removed first.
 
 I came across two examples recently that remind me it's not just artists who miss out -- it's everyone who enjoys art.
