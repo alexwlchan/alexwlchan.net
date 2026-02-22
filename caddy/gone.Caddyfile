@@ -268,6 +268,14 @@ handle /2015/spotlight-suggestions {
 	error 410
 }
 
+handle /2016/01/fusion-drive/ {
+	error 410
+}
+
+handle /2016/01/fusion-drive {
+	error 410
+}
+
 handle /2016/01/harry-potter-ipod/ {
 	error 410
 }
@@ -289,6 +297,14 @@ handle /2016/06/toothbrush-subscriptions/ {
 }
 
 handle /2016/06/toothbrush-subscriptions {
+	error 410
+}
+
+handle /2016/fusion-drive/ {
+	error 410
+}
+
+handle /2016/fusion-drive {
 	error 410
 }
 
@@ -584,4 +600,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: oO1R+0+7QD)
+#[[[end]]] (sum: 5Uc+CpDFUb)
