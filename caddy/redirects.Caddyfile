@@ -1546,6 +1546,8 @@ redir /til/2019/javascript-manipulating-url-query-parameters/ /notes/2019/javasc
 redir /til/2019/javascript-manipulating-url-query-parameters /notes/2019/javascript-manipulating-url-query-parameters/ permanent
 redir /til/2019/scala-iterating-over-the-newlines-of-an-inputstream/ /notes/2019/scala-iterating-over-the-newlines-of-an-inputstream/ permanent
 redir /til/2019/scala-iterating-over-the-newlines-of-an-inputstream /notes/2019/scala-iterating-over-the-newlines-of-an-inputstream/ permanent
+redir /til/2019/scanamo-conditional-updates-on-nested-fields/ /notes/2019/scanamo-conditional-updates-on-nested-fields/ permanent
+redir /til/2019/scanamo-conditional-updates-on-nested-fields /notes/2019/scanamo-conditional-updates-on-nested-fields/ permanent
 redir /2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
 redir /2020/a-python-function-to-ignore-a-path-with-git-info-exclude /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
 redir /2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/ /notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/ permanent
@@ -1698,6 +1700,8 @@ redir /til/2025/add-str-to-tarfile/ /notes/2025/add-str-to-tarfile/ permanent
 redir /til/2025/add-str-to-tarfile /notes/2025/add-str-to-tarfile/ permanent
 redir /til/2025/airdrop-location/ /notes/2025/airdrop-location/ permanent
 redir /til/2025/airdrop-location /notes/2025/airdrop-location/ permanent
+redir /til/2025/arobase-in-morse-code/ /notes/2025/arobase-in-morse-code/ permanent
+redir /til/2025/arobase-in-morse-code /notes/2025/arobase-in-morse-code/ permanent
 redir /til/2025/aspect-ratio-slash-is-numeric/ /notes/2025/aspect-ratio-slash-is-numeric/ permanent
 redir /til/2025/aspect-ratio-slash-is-numeric /notes/2025/aspect-ratio-slash-is-numeric/ permanent
 redir /til/2025/basic-socket-server-in-ruby/ /notes/2025/basic-socket-server-in-ruby/ permanent
@@ -1740,6 +1744,8 @@ redir /til/2025/get-video-dimensions-with-mediainfo/ /notes/2025/get-video-dimen
 redir /til/2025/get-video-dimensions-with-mediainfo /notes/2025/get-video-dimensions-with-mediainfo/ permanent
 redir /til/2025/google-deletes-inactive-accounts/ /notes/2025/google-deletes-inactive-accounts/ permanent
 redir /til/2025/google-deletes-inactive-accounts /notes/2025/google-deletes-inactive-accounts/ permanent
+redir /til/2025/go-compiler-spots-division-by-zero/ /notes/2025/go-compiler-spots-division-by-zero/ permanent
+redir /til/2025/go-compiler-spots-division-by-zero /notes/2025/go-compiler-spots-division-by-zero/ permanent
 redir /til/2025/go-stress/ /notes/2025/go-stress/ permanent
 redir /til/2025/go-stress /notes/2025/go-stress/ permanent
 redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
@@ -1852,4 +1858,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: Bbz5rE1f4c)
+#[[[end]]] (sum: LeMgfOQJy1)

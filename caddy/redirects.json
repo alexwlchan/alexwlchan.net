@@ -2547,6 +2547,9 @@
   "/notes/2019/scala-iterating-over-the-newlines-of-an-inputstream/": [
     "/til/2019/scala-iterating-over-the-newlines-of-an-inputstream/"
   ],
+  "/notes/2019/scanamo-conditional-updates-on-nested-fields/": [
+    "/til/2019/scanamo-conditional-updates-on-nested-fields/"
+  ],
   "/notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/": [
     "/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/",
     "/2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/"
@@ -2761,6 +2764,9 @@
   "/notes/2025/airdrop-location/": [
     "/til/2025/airdrop-location/"
   ],
+  "/notes/2025/arobase-in-morse-code/": [
+    "/til/2025/arobase-in-morse-code/"
+  ],
   "/notes/2025/aspect-ratio-slash-is-numeric/": [
     "/til/2025/aspect-ratio-slash-is-numeric/"
   ],
@@ -2823,6 +2829,9 @@
   ],
   "/notes/2025/google-deletes-inactive-accounts/": [
     "/til/2025/google-deletes-inactive-accounts/"
+  ],
+  "/notes/2025/go-compiler-spots-division-by-zero/": [
+    "/til/2025/go-compiler-spots-division-by-zero/"
   ],
   "/notes/2025/go-stress/": [
     "/til/2025/go-stress/"

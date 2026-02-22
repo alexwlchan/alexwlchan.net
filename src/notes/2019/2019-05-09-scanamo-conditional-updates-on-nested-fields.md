@@ -1,19 +1,15 @@
 ---
-layout: til
-title: "DynamoDB: Conditional updates on nested fields"
+layout: note
+title: "Conditional updates on nested fields in DynamoDB"
 date: 2019-05-09 12:12:24 +01:00
-tags:
-  - java
-  - aws
-  - aws:amazon dynamodb
-  - scala
-  - scala:scanamo
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Scala
 ---
 
 I always struggle with the ConditionalUpdate syntax for DynamoDB, so here's a snippet for the Java SDK that works (with a bit of Scanamo magic to turn case class instances into instances of `AttributeValue`):
 
-{% code lang="scala" names="0:com.gu.scanamo.DynamoFormat 1:com.amazonaws.services.dynamodbv2.model. 2:AttributeValue 3:UpdateItemRequest 4:scala.collection.JavaConverters._ 5:Versioned 6:payload 7:version 8:value 9:evidenceV 10:evidenceT 11:versionAv 14:payloadAv 17:updateItemRequest" %}
+```scala {"names":{"1":"com","2":"gu","3":"scanamo","4":"DynamoFormat","5":"com","6":"amazonaws","7":"services","8":"dynamodbv2","9":"model","10":"AttributeValue","11":"UpdateItemRequest","12":"scala","13":"collection","14":"JavaConverters","16":"Versioned","17":"T","18":"payload","20":"version","22":"value","25":"evidenceV","28":"evidenceT","31":"versionAv","37":"payloadAv","43":"updateItemRequest"}}
 import com.gu.scanamo.DynamoFormat
 import com.amazonaws.services.dynamodbv2.model.{
   AttributeValue,
@@ -46,11 +42,11 @@ val updateItemRequest = new UpdateItemRequest()
       ":version" -> versionAv
     ).asJava
   )
-{% endcode %}
+```
 
 Here is the equivalent code in the Scanamo DSL:
 
-{% code lang="scala" names="0:ops 1:table 15:dynamoClient" %}
+```scala {"names":{"1":"ops"}}
 val ops = table
   .given(
     not(attributeExists('id)) or
@@ -62,7 +58,7 @@ val ops = table
   )
 
 Scanamo.exec(dynamoClient)(ops)
-{% endcode %}
+```
 
 Note especially the use of `'version \ 'version` to access the nested field.
 

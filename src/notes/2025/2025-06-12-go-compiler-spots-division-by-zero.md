@@ -1,16 +1,14 @@
 ---
-layout: til
+layout: note
 title: Go's compiler is smart enough to spot division by zero errors
 date: 2025-06-12 17:18:46 +01:00
-tags:
-  - golang
-old_syntax_highlighting: true
+topic: Go
 ---
 I've been doing a couple of Go experiments, and I wanted to test if Go has lazy evaluation of `if` conditions.
 
 I wrote the following simple program -- the first condition is true, so I'm looking for Go to print the message on line 7 rather than try to evaluate the invalid condition:
 
-{% code lang="go" names="0:main 1:main" linenos="true" %}
+```go {"names":{"1":"main","2":"main"},"linenos":true}
 package main
 
 import "fmt"
@@ -20,7 +18,7 @@ func main() {
 		fmt.Println("one of these conditions is true")
 	}
 }
-{% endcode %}
+```
 
 But surprisingly, Go won't let me compile this program:
 
@@ -33,35 +31,35 @@ $ go run division.go
 This also works if your divisor is a `const` -- presumably the compiler inlines it at some point, and notices the same mistake.
 This code fails for a similar reason:
 
-{% code lang="go" names="0:divisor" %}
+```go {"names":{"1":"divisor"}}
 const divisor = 0
 
 if 2%2 == 0 || 1/divisor == 0 {
 	fmt.Println("one of these conditions is true")
 }
-{% endcode %}
+```
 
 But it's fine if your divisor is a regular variable.
 This makes sense -- the compiler can't know if the value might change at runtime and make this a legal operation.
 This code compiles and runs successfully, which also proves that Go is doing lazy evaluation of `if` conditions:
 
-{% code lang="go" names="0:divisor" %}
+```go {"names":{"1":"divisor"}}
 divisor := 0
 
 if 2%2 == 0 || 1/divisor == 0 {
 	fmt.Println("one of these conditions is true")
 }
-{% endcode %}
+```
 
 Finally, if you change the program so it does evaluate that branch:
 
-{% code lang="go" names="0:divisor" %}
+```go {"names":{"1":"divisor"}}
 divisor := 0
 
 if 1%2 == 0 || 1/divisor == 0 {
 	fmt.Println("one of these conditions is true")
 }
-{% endcode %}
+```
 
 then you get a runtime error:
 
