@@ -1724,6 +1724,8 @@ redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actio
 redir /til/2025/exiftool-in-github-actions /notes/2025/exiftool-in-github-actions/ permanent
 redir /til/2025/get-python-traceback-as-string/ /notes/2025/get-python-traceback-as-string/ permanent
 redir /til/2025/get-python-traceback-as-string /notes/2025/get-python-traceback-as-string/ permanent
+redir /til/2025/get-jq-values-in-array/ /notes/2025/get-jq-values-in-array/ permanent
+redir /til/2025/get-jq-values-in-array /notes/2025/get-jq-values-in-array/ permanent
 redir /til/2025/get-video-metadata-from-spotlight/ /notes/2025/get-video-metadata-from-spotlight/ permanent
 redir /til/2025/get-video-metadata-from-spotlight /notes/2025/get-video-metadata-from-spotlight/ permanent
 redir /til/2025/get-video-dimensions-with-mediainfo/ /notes/2025/get-video-dimensions-with-mediainfo/ permanent
@@ -1792,6 +1794,8 @@ redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /entertainment/who-is-bufo /notes/2026/who-is-bufo/ permanent
 redir /personal-thoughts/blogging/ /systems/ permanent
 redir /personal-thoughts/blogging /systems/ permanent
+redir /tags/jq/ /systems/jq/ permanent
+redir /tags/jq /systems/jq/ permanent
 redir /tag/ /tags/ permanent
 redir /tag /tags/ permanent
 redir /tags/amazon-s3/ /tags/aws/amazon-s3/ permanent
@@ -1838,4 +1842,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: pppqY0bHjl)
+#[[[end]]] (sum: ZTSl+MopNt)

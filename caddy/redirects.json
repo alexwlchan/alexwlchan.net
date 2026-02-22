@@ -2800,6 +2800,9 @@
   "/notes/2025/get-python-traceback-as-string/": [
     "/til/2025/get-python-traceback-as-string/"
   ],
+  "/notes/2025/get-jq-values-in-array/": [
+    "/til/2025/get-jq-values-in-array/"
+  ],
   "/notes/2025/get-video-metadata-from-spotlight/": [
     "/til/2025/get-video-metadata-from-spotlight/"
   ],
@@ -2901,6 +2904,9 @@
   ],
   "/systems/": [
     "/personal-thoughts/blogging/"
+  ],
+  "/systems/jq/": [
+    "/tags/jq/"
   ],
   "/tags/": [
     "/tag/"

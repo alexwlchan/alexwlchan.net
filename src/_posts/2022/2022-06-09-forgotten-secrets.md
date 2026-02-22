@@ -1,16 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2022-06-09 06:40:48 +00:00
 title: Experimenting with jq as a tool for filtering JSON
 summary: I wanted to learn jq's more powerful features, so I tried to filter some JSON from the AWS Secrets Manager CLI.
-tags:
-  - aws
+topics:
+  - AWS
   - jq
-  - aws:aws-secrets-manager
 colors:
   index_light: "#c5121f"
   index_dark:  "#ef5258"
-old_syntax_highlighting: true
 ---
 
 Recently I wanted to clean up our secrets in AWS Secrets Manager.
@@ -97,16 +95,18 @@ $ echo '{"colour": "green", "sides": 4}' | jq .colour
 
 so I could get the raw list with `jq .SecretList`, like so:
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
+```console
+$ aws secretsmanager list-secrets \
     | jq .SecretList
-<span class="go">[
+[
   {
     "ARN": "arn:aws:secretsmanager:eu-west-1:1234567890:secret:github_api_key-ngKsKU",
     "LastAccessedDate": 1654646400.0,
     ...
   },
   ...
-]</span></code></pre>
+]
+```
 
 [key_filter]: https://stedolan.github.io/jq/manual/#ObjectIdentifier-Index:.foo,.foo.bar
 
@@ -143,10 +143,12 @@ $ echo '[{"Time": 1654646400.0}, {"Time": 1638316800.0}]' | jq 'map(.Time |= str
 
 Putting these pieces together, we can replace the `LastAccessedDate` values with human-readable timestamps:
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
-    | jq .SecretList <span class="se">\</span>
-    | jq <span class="s1">'map(.LastAccessedDate |= strftime("%Y-%m-%d"))'</span>
-<span class="go">jq: error (at &lt;stdin&gt;:68): strftime/1 requires parsed datetime inputs</span></code></pre>
+```console
+$ aws secretsmanager list-secrets \
+    | jq .SecretList \
+    | jq 'map(.LastAccessedDate |= strftime("%Y-%m-%d"))'
+jq: error (at <stdin>:68): strftime/1 requires parsed datetime inputs
+```
 
 Oh.
 
@@ -164,10 +166,11 @@ $ echo '{"Name": "github_api_key"}' | jq '.LastAccessedDate |= .'
 We can get round this with jq's [conditional expressions].
 In particular, we can inspect the type of the value, and either call `strftime()` or drop in a hard-coded string:
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
-    | jq .SecretList <span class="se">\</span>
-    | jq <span class="s1">'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "&lt;never&gt;" end)'</span>
-<span class="go">[
+```console
+$ aws secretsmanager list-secrets \
+    | jq .SecretList \
+    | jq 'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "<never>" end)'
+[
   {
     "ARN": "arn:aws:secretsmanager:eu-west-1:241906670800:secret:github_api_key-ngKsKU",
     "LastAccessedDate": "2022-06-08",
@@ -175,10 +178,11 @@ In particular, we can inspect the type of the value, and either call `strftime()
   },
   {
     "ARN": "arn:aws:secretsmanager:eu-west-1:241906670800:secret:user_db_credentials-gAdCG1",
-    "LastAccessedDate": "&lt;never&gt;"
+    "LastAccessedDate": "<never>"
   },
   ...
-]</span></code></pre>
+]
+```
 
 [unix_time]: https://en.wikipedia.org/wiki/Unix_time
 [date_filter]: https://stedolan.github.io/jq/manual/#Dates
@@ -201,19 +205,22 @@ $ echo '[1, 2, 3, 4, 5]' | jq 'map(select(. >= 3))'
 Because I've already converted the dates into human-readable form, this let me write a human-readable filter.
 For example, if I want to find secrets that we haven't looked at this year:
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
-    | jq .SecretList <span class="se">\</span>
-    | jq <span class="s1">'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "&lt;never&gt;" end)'</span> <span class="se">\</span>
-    | jq <span class="s1">'map(select(.LastAccessedDate <= "2021-12-31"))'</span></code></pre>
+```console
+$ aws secretsmanager list-secrets \
+    | jq .SecretList \
+    | jq 'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "<never>" end)' \
+    | jq 'map(select(.LastAccessedDate <= "2021-12-31"))'
+```
 
 This isn't quite enough -- remember some of the secrets have never been retrieved, and I want to include them too.
 We can include them using jq's [boolean operators]:
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
-    | jq .SecretList <span class="se">\</span>
-    | jq <span class="s1">'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "&lt;never&gt;" end)'</span> <span class="se">\</span>
-    | jq <span class="s1">'map(select(.LastAccessedDate <= "2021-12-31" or .LastAccessedDate == "&lt;never&gt;"))'</span>
-<span class="go">[
+```console
+$ aws secretsmanager list-secrets \
+    | jq .SecretList \
+    | jq 'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "<never>" end)' \
+    | jq 'map(select(.LastAccessedDate <= "2021-12-31" or .LastAccessedDate == "<never>"))'
+[
   {
     "ARN": "arn:aws:secretsmanager:eu-west-1:241906670800:secret:twitter_oauth_token-aIWQcj",
     "LastAccessedDate": "2021-04-01",
@@ -221,10 +228,11 @@ We can include them using jq's [boolean operators]:
   },
   {
     "ARN": "arn:aws:secretsmanager:eu-west-1:241906670800:secret:user_db_credentials-gAdCG1",
-    "LastAccessedDate": "&lt;never&gt;"
+    "LastAccessedDate": "<never>"
   },
   ...
-]</span></code></pre>
+]
+```
 
 The alternative would have been writing this filter using Unix timestamps -- possible, but more cumbersome.
 
@@ -239,14 +247,16 @@ This JSON output is great for computers, but not so good for humans.
 There's a lot of information there I don't care about; I only want the secret and last retrieved date.
 Fortunately, jq also has some [formatting filters], one of which lets you print as TSV (tab-separated values):
 
-<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
-    | jq .SecretList <span class="se">\</span>
-    | jq <span class="s1">'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "&lt;never&gt;" end)'</span> <span class="se">\</span>
-    | jq <span class="s1">'map(select(.LastAccessedDate <= "2021-12-31" or .LastAccessedDate == "&lt;never&gt;"))'</span> <span class="se">\</span>
-    | jq -r <span class="s1">'map([.LastAccessedDate, .Name] | @tsv) | join("\n")'</span>
-<span class="go">2021-04-01	twitter_oauth_token
-&lt;never&gt;		email_cert
-2021-04-02	git_private_key</span></code></pre>
+```console
+$ aws secretsmanager list-secrets \
+    | jq .SecretList \
+    | jq 'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "<never>" end)' \
+    | jq 'map(select(.LastAccessedDate <= "2021-12-31" or .LastAccessedDate == "<never>"))' \
+    | jq -r 'map([.LastAccessedDate, .Name] | @tsv) | join("\n")'
+2021-04-01	twitter_oauth_token
+<never>		email_cert
+2021-04-02	git_private_key
+```
 
 The `-r` flag to jq tells it to print the raw value; not a JSON-formatted string.
 This give me a simple list I can work through and start to pick off secrets.

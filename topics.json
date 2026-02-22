@@ -109,6 +109,11 @@
     "parent": "Systems and software"
   },
   {
+    "name": "jq",
+    "href": "/systems/jq/",
+    "parent": "Systems and software"
+  },
+  {
     "name": "Books I've read",
     "href": "/book-reviews/"
   },

@@ -2,7 +2,9 @@
 layout: note
 title: How to get the IP address of a device in my Tailnet
 date: 2024-12-26 22:06:45 +00:00
-topic: Tailscale
+topics: 
+  - Tailscale
+  - jq
 summary: |
   Use `tailscale status --json` and filter the output using `jq`.
 ---
@@ -36,5 +38,3 @@ Then I can use `jq` to filter the output and get the IP address I need:
 tailscale status --json \
   | jq --join-output --raw-output '.Peer[] | select(.HostName  == "Phaenna") | .TailscaleIPs[0]'
 ```
-
-I've wrapped this command in [a shell script `get_phaenna_ip`](https://github.com/alexwlchan/scripts/blob/main/web/get_phaenna_ip).
