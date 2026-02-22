@@ -1,12 +1,11 @@
 ---
-layout: til
+layout: note
 date: 2024-03-24 11:34:05 +00:00
 title: Getting a boto3 Session for an IAM role using Python
 summary: Why I use Sessions in boto3, and the Python function I use to create them.
-tags:
-  - python
-  - aws
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Python
 ---
 When I worked at Wellcome, I was doing a lot of work with AWS, and I was a frequent user of boto3, the Python SDK for AWS.
 There were a lot of IAM roles, spread across multiple accounts, and I was writing Python scripts that would work with specific roles.
@@ -17,7 +16,7 @@ On the rare occasions I wrote Python in prod, I had the habit ingrained.
 
 The following snippet became a common element in my scripts:
 
-```python
+```python {"names":{"1":"boto3","2":"get_aws_session","3":"role_arn","7":"sts_client","10":"assumed_role_object","16":"credentials"}}
 import boto3
 
 
@@ -48,7 +47,7 @@ It was unusual for me to have scripts that ran longer than that, and when I did 
 
 In prod code, I'd just create the session directly:
 
-```python
+```python {"names":{"1":"sess"}}
 sess = boto3.Session()
 ```
 

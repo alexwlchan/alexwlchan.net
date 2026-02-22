@@ -8,7 +8,7 @@ summary: Connect to the domain using `net/http`, then you can inspect the `peer_
 I was tinkering with some HTTPS certificates, and I wanted to write a scheduled test that would check the certifcates weren't about to expire.
 This is the sort of thing that should be handled by a good certificate provider -- for example, Let's Encrypt sends me emails when my certificates are close to expiry -- but another check is a good belt-and-braces measure.
 
-I did this [with Python](/til/2024/expiry-date-of-https-certificate/) back in August, and I wanted to write similar checks in a codebase which is primarily Ruby.
+I did this [with Python][py-cert-expiry] back in August, and I wanted to write similar checks in a codebase which is primarily Ruby.
 Fortunately Ruby's `net/http` library exposes information about the HTTPS certificate, so it's a bit simpler than in Python:
 
 ```ruby {"names":{"2":"get_cert_expiry","3":"hostname","4":"uri","9":"response","17":"cert"}}
@@ -27,4 +27,7 @@ puts get_cert_expiry("alexwlchan.net")
 # 2025-02-17 08:34:57 UTC
 ```
 
-The `not_after` property is a [`Time`](https://ruby-doc.org/core-2.6.8/Time.html) which can be used directly in datetime comparisons and calculations.
+The `not_after` property is a [`Time`][rb-time] which can be used directly in datetime comparisons and calculations.
+
+[py-cert-expiry]: /notes/2024/expiry-date-of-https-certificate/
+[rb-time]: https://ruby-doc.org/core-2.6.8/Time.html

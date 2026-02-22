@@ -1610,12 +1610,16 @@ redir /til/2024/exclude-files-from-time-machine-with-tmutil/ /notes/2024/exclude
 redir /til/2024/exclude-files-from-time-machine-with-tmutil /notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
 redir /til/2024/how-to-do-exclusive-file-write-in-swift/ /notes/2024/exclusive-file-write-in-swift/ permanent
 redir /til/2024/how-to-do-exclusive-file-write-in-swift /notes/2024/exclusive-file-write-in-swift/ permanent
+redir /til/2024/expiry-date-of-https-certificate/ /notes/2024/expiry-date-of-https-certificate/ permanent
+redir /til/2024/expiry-date-of-https-certificate /notes/2024/expiry-date-of-https-certificate/ permanent
 redir /til/2024/expiry-date-of-https-certificate-ruby/ /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
 redir /til/2024/expiry-date-of-https-certificate-ruby /notes/2024/expiry-date-of-https-certificate-ruby/ permanent
 redir /til/2024/find-apple-system-icons/ /notes/2024/find-apple-system-icons/ permanent
 redir /til/2024/find-apple-system-icons /notes/2024/find-apple-system-icons/ permanent
 redir /til/2024/find-shortest-prefix-ruby/ /notes/2024/find-shortest-prefix-ruby/ permanent
 redir /til/2024/find-shortest-prefix-ruby /notes/2024/find-shortest-prefix-ruby/ permanent
+redir /til/2024/get-boto3-session/ /notes/2024/get-boto3-session/ permanent
+redir /til/2024/get-boto3-session /notes/2024/get-boto3-session/ permanent
 redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/gracefully-restart-a-gunicorn-app/ /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
@@ -1708,6 +1712,8 @@ redir /til/2025/collect-pytest-markers-from-failing-tests/ /notes/2025/collect-p
 redir /til/2025/collect-pytest-markers-from-failing-tests /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
 redir /til/2025/compare-two-files-bash/ /notes/2025/compare-two-files-bash/ permanent
 redir /til/2025/compare-two-files-bash /notes/2025/compare-two-files-bash/ permanent
+redir /til/2025/console-log-is-asynchronous-ish/ /notes/2025/console-log-is-asynchronous-ish/ permanent
+redir /til/2025/console-log-is-asynchronous-ish /notes/2025/console-log-is-asynchronous-ish/ permanent
 redir /til/2025/css-tab-size/ /notes/2025/css-tab-size/ permanent
 redir /til/2025/css-tab-size /notes/2025/css-tab-size/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
@@ -1842,4 +1848,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: ZTSl+MopNt)
+#[[[end]]] (sum: 8SbtBbkGbe)

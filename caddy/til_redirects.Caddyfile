@@ -42,7 +42,7 @@ til.alexwlchan.net {
   redir /errexit-and-arithmetic-expressions/ https://alexwlchan.net/notes/2024/errexit-and-arithmetic-expressions/ permanent
   redir /exclude-files-from-time-machine-with-tmutil/ https://alexwlchan.net/notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
   redir /find-files-with-sdc-fields/ https://alexwlchan.net/til/2023/find-files-with-sdc-fields/ permanent
-  redir /get-boto3-session/ https://alexwlchan.net/til/2024/get-boto3-session/ permanent
+  redir /get-boto3-session/ https://alexwlchan.net/notes/2024/get-boto3-session/ permanent
   redir /get-netlify-usage-from-api/ https://alexwlchan.net/til/2024/get-netlify-usage-from-api/ permanent
   redir /gracefully-restart-a-gunicorn-app/ https://alexwlchan.net/notes/2024/gracefully-restart-a-gunicorn-app/ permanent
   redir /how-to-check-when-a-cert-expires/ https://alexwlchan.net/til/2024/how-to-check-when-a-cert-expires/ permanent
@@ -86,5 +86,5 @@ til.alexwlchan.net {
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: b0wWkqipPu)
+#[[[end]]] (sum: eJwzUpR3NO)
 }

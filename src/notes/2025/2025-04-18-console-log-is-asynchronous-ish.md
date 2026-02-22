@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
+date: 2025-04-18 10:34:25 +01:00
 title: "`console.log()` holds a reference to an object, not a copy of it"
 summary: When you view an array/object with `console.log()`, you see the contents at the time you expand it, not as it existed when you called `console.log()`.
-date: 2025-04-18 10:34:25 +01:00
-tags:
-  - javascript
-old_syntax_highlighting: true
+topic: JavaScript
 ---
 I was having a weird issue with some JavaScript.
 I was loading a JSON object and logging it to the console in my browser dev tools, but it didn't match the object that was defined in my code.
@@ -16,7 +14,7 @@ Huh!
 
 Here's a snippet that illustrates the issue:
 
-```html
+```html {"names":{"1":"script","4":"kitchen","15":"script"}}
 <script>
   window.addEventListener("DOMContentLoaded", function() {
     var kitchen = {

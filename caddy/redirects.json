@@ -2631,6 +2631,9 @@
   "/notes/2024/exclusive-file-write-in-swift/": [
     "/til/2024/how-to-do-exclusive-file-write-in-swift/"
   ],
+  "/notes/2024/expiry-date-of-https-certificate/": [
+    "/til/2024/expiry-date-of-https-certificate/"
+  ],
   "/notes/2024/expiry-date-of-https-certificate-ruby/": [
     "/til/2024/expiry-date-of-https-certificate-ruby/"
   ],
@@ -2639,6 +2642,9 @@
   ],
   "/notes/2024/find-shortest-prefix-ruby/": [
     "/til/2024/find-shortest-prefix-ruby/"
+  ],
+  "/notes/2024/get-boto3-session/": [
+    "/til/2024/get-boto3-session/"
   ],
   "/notes/2024/get-tailscale-ip/": [
     "/til/2024/get-tailscale-ip/"
@@ -2775,6 +2781,9 @@
   ],
   "/notes/2025/compare-two-files-bash/": [
     "/til/2025/compare-two-files-bash/"
+  ],
+  "/notes/2025/console-log-is-asynchronous-ish/": [
+    "/til/2025/console-log-is-asynchronous-ish/"
   ],
   "/notes/2025/css-tab-size/": [
     "/til/2025/css-tab-size/"
