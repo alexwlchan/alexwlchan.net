@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Live Text is aware of how hyphenation works (kinda)
 date: 2023-12-26 12:26:12 +00:00
-tags:
-  - live-text
-old_syntax_highlighting: true
+topic: Systems and software
 ---
 
 Here’s a screenshot from a Kindle book (from *Silo Submerged*, by WJ Davies):

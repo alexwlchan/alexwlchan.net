@@ -31,7 +31,7 @@ til.alexwlchan.net {
   redir /beware-of-test-n-with-command-expansion/ https://alexwlchan.net/notes/2024/beware-of-test-n-with-command-expansion/ permanent
   redir /block-specific-ip-addresses/ https://alexwlchan.net/til/2024/block-specific-ip-addresses/ permanent
   redir /buildkite-concurrency-gates/ https://alexwlchan.net/notes/2023/buildkite-concurrency-gates/ permanent
-  redir /calliope-syndrome/ https://alexwlchan.net/til/2021/calliope-syndrome/ permanent
+  redir /calliope-syndrome/ https://alexwlchan.net/notes/2021/calliope-syndrome/ permanent
   redir /close-responses-to-close-send-file/ https://alexwlchan.net/notes/2024/close-responses-to-close-send-file/ permanent
   redir /convert-between-m-ids-and-filenames/ https://alexwlchan.net/til/2023/convert-between-m-ids-and-filenames/ permanent
   redir /count-only-counts-non-null-values/ https://alexwlchan.net/notes/2024/count-only-counts-non-null-values/ permanent
@@ -46,11 +46,11 @@ til.alexwlchan.net {
   redir /get-netlify-usage-from-api/ https://alexwlchan.net/til/2024/get-netlify-usage-from-api/ permanent
   redir /gracefully-restart-a-gunicorn-app/ https://alexwlchan.net/notes/2024/gracefully-restart-a-gunicorn-app/ permanent
   redir /how-to-check-when-a-cert-expires/ https://alexwlchan.net/til/2024/how-to-check-when-a-cert-expires/ permanent
-  redir /how-to-do-resumable-downloads/ https://alexwlchan.net/til/2023/how-to-do-resumable-downloads/ permanent
+  redir /how-to-do-resumable-downloads/ https://alexwlchan.net/notes/2023/resumable-downloads-with-curl/ permanent
   redir /how-to-parse-urls-with-jxa/ https://alexwlchan.net/til/2024/how-to-parse-urls-with-jxa/ permanent
   redir /how-to-render-svgs-on-github/ https://alexwlchan.net/til/2024/how-to-render-svgs-on-github/ permanent
   redir /image-function-to-insert-images/ https://alexwlchan.net/til/2024/image-function-to-insert-images/ permanent
-  redir /live-text-is-hyphenation-aware/ https://alexwlchan.net/til/2023/live-text-is-hyphenation-aware/ permanent
+  redir /live-text-is-hyphenation-aware/ https://alexwlchan.net/notes/2023/live-text-is-hyphenation-aware/ permanent
   redir /longest-common-suffix/ https://alexwlchan.net/notes/2024/longest-common-suffix/ permanent
   redir /manage-mp3-metadata-with-eyed3/ https://alexwlchan.net/til/2024/manage-mp3-metadata-with-eyed3/ permanent
   redir /manipulate-albums/ https://alexwlchan.net/til/2023/manipulate-albums/ permanent
@@ -73,7 +73,7 @@ til.alexwlchan.net {
   redir /tally-combinations-of-columns/ https://alexwlchan.net/notes/2024/tally-combinations-of-columns/ permanent
   redir /use-launchagent-for-scheduled-script/ https://alexwlchan.net/notes/2024/use-launchagent-for-scheduled-script/ permanent
   redir /use-n-to-avoid-overwriting/ https://alexwlchan.net/notes/2024/use-n-to-avoid-overwriting/ permanent
-  redir /use-rsync-and-passwordless-sudo/ https://alexwlchan.net/til/2024/use-rsync-and-passwordless-sudo/ permanent
+  redir /use-rsync-and-passwordless-sudo/ https://alexwlchan.net/notes/2024/use-rsync-and-passwordless-sudo/ permanent
   redir /use-shlex-split-to-parse-nginx-logs/ https://alexwlchan.net/notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
   redir /use-sqlite-utils-to-convert-csv-to-sqlite/ https://alexwlchan.net/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
   redir /use-the-capture-tag-for-complex-strings/ https://alexwlchan.net/til/2024/use-the-capture-tag-for-complex-strings/ permanent
@@ -86,5 +86,5 @@ til.alexwlchan.net {
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: iEeQ1ULdPr)
+#[[[end]]] (sum: b0wWkqipPu)
 }

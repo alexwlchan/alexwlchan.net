@@ -1498,6 +1498,8 @@ redir /notes/2019/ /notes/ permanent
 redir /notes/2019 /notes/ permanent
 redir /notes/2020/ /notes/ permanent
 redir /notes/2020 /notes/ permanent
+redir /notes/2021/ /notes/ permanent
+redir /notes/2021 /notes/ permanent
 redir /notes/2022/ /notes/ permanent
 redir /notes/2022 /notes/ permanent
 redir /notes/2023/ /notes/ permanent
@@ -1556,6 +1558,8 @@ redir /2020/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/usin
 redir /2020/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore/ /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
 redir /2020/10/til-using-git-check-ignore-to-debug-your-gitignore /notes/2020/using-git-check-ignore-to-debug-your-gitignore/ permanent
+redir /til/2021/calliope-syndrome/ /notes/2021/calliope-syndrome/ permanent
+redir /til/2021/calliope-syndrome /notes/2021/calliope-syndrome/ permanent
 redir /til/2022/print-sbt/ /notes/2022/print-sbt/ permanent
 redir /til/2022/print-sbt /notes/2022/print-sbt/ permanent
 redir /2022/print-sbt/ /notes/2022/print-sbt/ permanent
@@ -1564,12 +1568,16 @@ redir /2022/12/print-sbt/ /notes/2022/print-sbt/ permanent
 redir /2022/12/print-sbt /notes/2022/print-sbt/ permanent
 redir /til/2023/buildkite-concurrency-gates/ /notes/2023/buildkite-concurrency-gates/ permanent
 redir /til/2023/buildkite-concurrency-gates /notes/2023/buildkite-concurrency-gates/ permanent
+redir /til/2023/live-text-is-hyphenation-aware/ /notes/2023/live-text-is-hyphenation-aware/ permanent
+redir /til/2023/live-text-is-hyphenation-aware /notes/2023/live-text-is-hyphenation-aware/ permanent
 redir /til/2023/mechanize-ssl/ /notes/2023/mechanize-ssl/ permanent
 redir /til/2023/mechanize-ssl /notes/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl/ /notes/2023/mechanize-ssl/ permanent
 redir /2023/mechanize-ssl /notes/2023/mechanize-ssl/ permanent
 redir /til/2023/profiling-swift/ /notes/2023/profiling-swift/ permanent
 redir /til/2023/profiling-swift /notes/2023/profiling-swift/ permanent
+redir /til/2023/how-to-do-resumable-downloads/ /notes/2023/resumable-downloads-with-curl/ permanent
+redir /til/2023/how-to-do-resumable-downloads /notes/2023/resumable-downloads-with-curl/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion/ /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/build-query-string-with-curl/ /notes/2024/build-query-string-with-curl/ permanent
@@ -1664,6 +1672,8 @@ redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagen
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/use-n-to-avoid-overwriting/ /notes/2024/use-n-to-avoid-overwriting/ permanent
 redir /til/2024/use-n-to-avoid-overwriting /notes/2024/use-n-to-avoid-overwriting/ permanent
+redir /til/2024/use-rsync-and-passwordless-sudo/ /notes/2024/use-rsync-and-passwordless-sudo/ permanent
+redir /til/2024/use-rsync-and-passwordless-sudo /notes/2024/use-rsync-and-passwordless-sudo/ permanent
 redir /til/2024/use-shlex-split-to-parse-nginx-logs/ /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
 redir /til/2024/use-shlex-split-to-parse-nginx-logs /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
 redir /til/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ /notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
@@ -1828,4 +1838,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: bajTYd/tnC)
+#[[[end]]] (sum: pppqY0bHjl)

@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Calley-ope (calliope) Syndrome is pronouncing a word wrong because you’ve only ever read it on the page
 date: 2021-12-27 08:45:38 +00:00
-tags:
-  - interesting words
-old_syntax_highlighting: true
+topic: Interesting words
 ---
 This is a phrase that goes around the Internet every once in a while, but there's no definitive reference page for it (it doesn't, for example, have a Wikipedia entry).
 I wanted to track down where it came from.

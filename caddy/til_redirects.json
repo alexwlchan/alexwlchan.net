@@ -20,7 +20,7 @@
   "/notes/2023/buildkite-concurrency-gates/": [
     "/buildkite-concurrency-gates/"
   ],
-  "/til/2021/calliope-syndrome/": [
+  "/notes/2021/calliope-syndrome/": [
     "/calliope-syndrome/"
   ],
   "/notes/2024/close-responses-to-close-send-file/": [
@@ -65,7 +65,7 @@
   "/til/2024/how-to-check-when-a-cert-expires/": [
     "/how-to-check-when-a-cert-expires/"
   ],
-  "/til/2023/how-to-do-resumable-downloads/": [
+  "/notes/2023/resumable-downloads-with-curl/": [
     "/how-to-do-resumable-downloads/"
   ],
   "/til/2024/how-to-parse-urls-with-jxa/": [
@@ -77,7 +77,7 @@
   "/til/2024/image-function-to-insert-images/": [
     "/image-function-to-insert-images/"
   ],
-  "/til/2023/live-text-is-hyphenation-aware/": [
+  "/notes/2023/live-text-is-hyphenation-aware/": [
     "/live-text-is-hyphenation-aware/"
   ],
   "/notes/2024/longest-common-suffix/": [
@@ -146,7 +146,7 @@
   "/notes/2024/use-n-to-avoid-overwriting/": [
     "/use-n-to-avoid-overwriting/"
   ],
-  "/til/2024/use-rsync-and-passwordless-sudo/": [
+  "/notes/2024/use-rsync-and-passwordless-sudo/": [
     "/use-rsync-and-passwordless-sudo/"
   ],
   "/notes/2024/use-shlex-split-to-parse-nginx-logs/": [

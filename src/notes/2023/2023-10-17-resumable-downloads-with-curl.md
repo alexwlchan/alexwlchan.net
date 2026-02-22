@@ -1,14 +1,14 @@
 ---
-layout: til
+layout: note
 title: How to do resumable downloads with curl
 date: 2023-10-17 20:10:10 +00:00
-tags:
-  - curl
-old_syntax_highlighting: true
+date_updated: 2026-02-22 07:35:36 +00:00
+topic: Shell scripting
+summary: |
+  You want the [`--continue-at -` flag](https://curl.se/docs/manpage.html#-C), which will resume the transfer from the size of the already-downloaded file.
 ---
-The flag you want is [`--continue-at -`](https://curl.se/docs/manpage.html#-C), which will resume the transfer from the size of the already-downloaded file.
 
-Here's an example of using it in practice.
+Here's an example of using it to download a large file:
 
 ```bash
 curl \

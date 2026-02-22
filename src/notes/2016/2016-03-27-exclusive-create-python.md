@@ -1,17 +1,15 @@
 ---
+layout: article
 date: 2016-03-27 10:33:00 +00:00
-layout: post
+title: Exclusively create a file in Python 3
 summary: If you want to create a file, but only if it doesn't already exist, Python
   3 has a helpful new file mode `x`.
-tags:
-  - python
-title: Exclusively create a file in Python 3
-old_syntax_highlighting: true
+topic: Python
 ---
 
 I've been tidying up a lot of old Python code recently, and I keep running into this pattern:
 
-```python
+```python {"names":{"5":"f"}}
 if not os.path.exists('newfile.txt'):
     with open('newfile.txt', 'w') as f:
         f.write('hello world')
@@ -28,7 +26,7 @@ Otherwise you get a FileExistsError.
 
 Here's how I'd rewrite the snippet above:
 
-```python
+```python {"names":{"2":"f"}}
 try:
     with open('newfile.txt', 'x') as f:
         f.write('hello world')

@@ -2492,6 +2492,7 @@
     "/notes/2018/",
     "/notes/2019/",
     "/notes/2020/",
+    "/notes/2021/",
     "/notes/2022/",
     "/notes/2023/",
     "/notes/2024/",
@@ -2558,6 +2559,9 @@
     "/2020/til-using-git-check-ignore-to-debug-your-gitignore/",
     "/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/"
   ],
+  "/notes/2021/calliope-syndrome/": [
+    "/til/2021/calliope-syndrome/"
+  ],
   "/notes/2022/print-sbt/": [
     "/til/2022/print-sbt/",
     "/2022/print-sbt/",
@@ -2566,12 +2570,18 @@
   "/notes/2023/buildkite-concurrency-gates/": [
     "/til/2023/buildkite-concurrency-gates/"
   ],
+  "/notes/2023/live-text-is-hyphenation-aware/": [
+    "/til/2023/live-text-is-hyphenation-aware/"
+  ],
   "/notes/2023/mechanize-ssl/": [
     "/til/2023/mechanize-ssl/",
     "/2023/mechanize-ssl/"
   ],
   "/notes/2023/profiling-swift/": [
     "/til/2023/profiling-swift/"
+  ],
+  "/notes/2023/resumable-downloads-with-curl/": [
+    "/til/2023/how-to-do-resumable-downloads/"
   ],
   "/notes/2024/beware-of-test-n-with-command-expansion/": [
     "/til/2024/beware-of-test-n-with-command-expansion/"
@@ -2713,6 +2723,9 @@
   ],
   "/notes/2024/use-n-to-avoid-overwriting/": [
     "/til/2024/use-n-to-avoid-overwriting/"
+  ],
+  "/notes/2024/use-rsync-and-passwordless-sudo/": [
+    "/til/2024/use-rsync-and-passwordless-sudo/"
   ],
   "/notes/2024/use-shlex-split-to-parse-nginx-logs/": [
     "/til/2024/use-shlex-split-to-parse-nginx-logs/"

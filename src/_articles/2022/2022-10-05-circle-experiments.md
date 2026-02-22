@@ -7,7 +7,6 @@ topic: Generative art
 colors:
   index_light: "#ae0000"
   index_dark:  "#ea0000"
-old_syntax_highlighting: true
 ---
 
 <style>
