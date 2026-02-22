@@ -10,7 +10,6 @@ colors:
   index_light: "#4b5254"
   index_dark:  "#91c6fb"
 card_attribution: https://pixabay.com/photos/solid-oak-table-2113987/
-old_syntax_highlighting: true
 ---
 
 At work, we use [DynamoDB] as our primary database.
