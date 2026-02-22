@@ -57,7 +57,7 @@ til.alexwlchan.net {
   redir /mastodon-retrying/ https://alexwlchan.net/til/2024/mastodon-retrying/ permanent
   redir /offline-geo-lookups-of-ip-addresses/ https://alexwlchan.net/til/2024/offline-geo-lookups-of-ip-addresses/ permanent
   redir /open-can-ask-questions/ https://alexwlchan.net/notes/2024/open-can-ask-questions/ permanent
-  redir /pausing-svg-animation-varies-across-browsers/ https://alexwlchan.net/til/2024/pausing-svg-animation-varies-across-browsers/ permanent
+  redir /pausing-svg-animation-varies-across-browsers/ https://alexwlchan.net/notes/2024/pausing-svg-animation-varies-across-browsers/ permanent
   redir /photos-can-have-orientation-in-exif/ https://alexwlchan.net/til/2024/photos-can-have-orientation-in-exif/ permanent
   redir /profiling-swift/ https://alexwlchan.net/notes/2023/profiling-swift/ permanent
   redir /regex-library-for-unicode-property-escapes/ https://alexwlchan.net/notes/2024/regex-library-for-unicode-property-escapes/ permanent
@@ -86,5 +86,5 @@ til.alexwlchan.net {
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: eJwzUpR3NO)
+#[[[end]]] (sum: 2RuFDFQldj)
 }

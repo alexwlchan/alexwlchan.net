@@ -1644,6 +1644,8 @@ redir /til/2024/open-can-ask-questions/ /notes/2024/open-can-ask-questions/ perm
 redir /til/2024/open-can-ask-questions /notes/2024/open-can-ask-questions/ permanent
 redir /til/2024/how-to-open-twitter-webarchive-files/ /notes/2024/open-twitter-webarchive-files/ permanent
 redir /til/2024/how-to-open-twitter-webarchive-files /notes/2024/open-twitter-webarchive-files/ permanent
+redir /til/2024/pausing-svg-animation-varies-across-browsers/ /notes/2024/pausing-svg-animation-varies-across-browsers/ permanent
+redir /til/2024/pausing-svg-animation-varies-across-browsers /notes/2024/pausing-svg-animation-varies-across-browsers/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/reset-match-anchor-in-ruby/ /notes/2024/reset-match-anchor-in-ruby/ permanent
@@ -1714,6 +1716,8 @@ redir /til/2025/console-log-is-asynchronous-ish/ /notes/2025/console-log-is-asyn
 redir /til/2025/console-log-is-asynchronous-ish /notes/2025/console-log-is-asynchronous-ish/ permanent
 redir /til/2025/css-tab-size/ /notes/2025/css-tab-size/ permanent
 redir /til/2025/css-tab-size /notes/2025/css-tab-size/ permanent
+redir /til/2025/delete-where-doesnt-delete/ /notes/2025/delete-where-doesnt-delete/ permanent
+redir /til/2025/delete-where-doesnt-delete /notes/2025/delete-where-doesnt-delete/ permanent
 redir /til/2025/disable-handoff-icons-in-dock/ /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-handoff-icons-in-dock /notes/2025/disable-handoff-icons-in-dock/ permanent
 redir /til/2025/disable-javascript-in-iframe/ /notes/2025/disable-javascript-in-iframe/ permanent
@@ -1848,4 +1852,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: qQcy45lTeX)
+#[[[end]]] (sum: Bbz5rE1f4c)
