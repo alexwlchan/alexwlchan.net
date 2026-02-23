@@ -89,6 +89,28 @@ def test_markdownify_oneline() -> None:
             "  </svg>\n"
             "</figure>"
         ),
+        (
+            '<svg aria-labelledby="svg_example" role="img" viewBox="0 0 200 200" '
+            'xmlns="http://www.w3.org/2000/svg">'
+            '<title id="svg_example">Figure with nested svg tags</title>\n'
+            '<svg x="10" y="10">\n<text x="10" y="10">some text</text>\n</svg>\n'
+            '<text x="10" y="10">more text</text>\n'
+            '<svg x="20" y="20">\n<text x="20" y="20">some text</text>\n</svg>\n'
+            '<text x="20" y="20">more text</text>\n</svg>'
+        ),
+        (
+            '<svg aria-labelledby="svg_example" role="img" viewBox="0 0 200 200" '
+            'xmlns="http://www.w3.org/2000/svg">'
+            '<title id="svg_example">Figure with nested svg tags</title>\n'
+            '<svg x="10" y="10">\n'
+            '  <svg x="10" y="10">\n'
+            '    <text x="10" y="10">some text</text>\n'
+            "  </svg>\n"
+            "</svg>\n"
+            '<text x="10" y="10">more text</text>\n'
+            '<svg x="20" y="20">\n<text x="20" y="20">some text</text>\n</svg>\n'
+            '<text x="20" y="20">more text</text>\n</svg>'
+        ),
     ],
 )
 def test_block_elements_are_preserved(md: str) -> None:

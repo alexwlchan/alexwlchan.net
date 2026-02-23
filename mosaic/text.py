@@ -150,11 +150,41 @@ class MosaicBlockParser(mistune.BlockParser):
             "details",
         ]
 
-        if open_tag in PRE_TAGS:
+        if open_tag == "svg":
+            return _parse_to_end_of_svg(state, m.end())
+
+        elif open_tag in PRE_TAGS:
             end_tag = "</" + open_tag + ">"
             return _parse_html_to_end(state, end_tag, m.end())
 
         return super().parse_raw_html(m, state)
+
+
+def _parse_to_end_of_svg(state: BlockState, start_pos: int) -> int:
+    """
+    Parse to the end of the current <svg> tag, noting that <svg> tags
+    can be nested within each other.
+    """
+    if "</svg>" not in state.src[start_pos:]:  # pragma: no cover
+        raise ValueError(f"no closing </svg> found in HTML: {state.src}")
+
+    # Find all instances of a closing </svg> tag, then pick the first one
+    # where we have balanced opening/closing tags -- that means we've
+    # correctly skipped over all the nested <svg> tags.
+    candidates = [m.end() for m in re.finditer("</svg>", state.src[start_pos:])]
+
+    for c in candidates:
+        marker_pos = start_pos + c
+        text = state.src[state.cursor : marker_pos]
+        if text.count("<svg") == text.count("</svg>"):
+            break
+
+    state.cursor = marker_pos
+    end_pos = state.find_line_end()
+    text += state.get_text(end_pos)
+
+    state.append_token({"type": "block_html", "raw": text})
+    return end_pos
 
 
 markdown = mistune.Markdown(renderer=AlexwlchanRenderer(), block=MosaicBlockParser())
@@ -369,7 +399,11 @@ def assert_is_invariant_under_markdown(html: str) -> None:
 
     # The Markdown plugin adds leading/trailing <p> tags; remove them
     # before doing the comparison.
-    if '<aside class="update"' not in html and '<figure class="slide">' not in html:
+    if (
+        '<aside class="update"' not in html
+        and '<figure class="slide">' not in html
+        and not html.startswith("<svg")
+    ):
         markdownified = markdownified.replace("<p>", "", 1)
         markdownified = re.sub(r"</p>$", "", markdownified)
 

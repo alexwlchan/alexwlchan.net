@@ -1,9 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2015-12-10 08:15:00 +00:00
 link: http://leancrew.com/all-this/2015/11/simpler-syndication/
-tags:
-  - python
+topic: Python
 title: Simpler syndication, by Dr. Drang
 index:
   exclude: true
@@ -40,4 +39,4 @@ and on my iPhone:
   class="screenshot"
 %}
 
-My updated code is [in a Gist](https://gist.github.com/alexwlchan/01cec115a6f51d35ab26).
+You can download [my updated code](/files/2015/drangreader.zip).

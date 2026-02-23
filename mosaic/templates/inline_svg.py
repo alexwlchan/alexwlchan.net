@@ -31,6 +31,7 @@ from jinja2 import pass_context
 from jinja2.runtime import Context
 
 from .jinja_extensions import KwargsExtensionBase
+from mosaic.text import assert_is_invariant_under_markdown, smartify
 
 
 class InlineSvgExtension(KwargsExtensionBase):
@@ -93,7 +94,7 @@ def render_inline_svg(
         # Create a new <title> tag
         title_tag = soup.new_tag("title")
         title_tag["id"] = svg_id
-        title_tag.string = alt
+        title_tag.string = smartify(alt)
 
         # Insert the <title> at the beginning of the SVG
         svg_tag.insert(0, title_tag)
@@ -139,6 +140,9 @@ def render_inline_svg(
         dst_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src_path, dst_path)
         href = "/" + str(dst_path.relative_to(out_dir))
-        return f'<a href="{href}">{xml_output}</a>'
+        html = f'<a href="{href}">{xml_output}</a>'
     else:
-        return xml_output
+        html = xml_output
+
+    assert_is_invariant_under_markdown(html)
+    return html

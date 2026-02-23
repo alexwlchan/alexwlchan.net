@@ -26,6 +26,10 @@ p {
   text-wrap: pretty;
 }
 
+svg p {
+  margin: 0 !important;
+}
+
 a {
   text-underline-offset: 2px;
   color: var(--link-color);

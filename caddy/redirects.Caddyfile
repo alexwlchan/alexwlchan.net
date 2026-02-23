@@ -1714,6 +1714,8 @@ redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-ru
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/collect-pytest-markers-from-failing-tests/ /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
 redir /til/2025/collect-pytest-markers-from-failing-tests /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
+redir /til/2025/combine-arrows-mermaid/ /notes/2025/combine-arrows-mermaid/ permanent
+redir /til/2025/combine-arrows-mermaid /notes/2025/combine-arrows-mermaid/ permanent
 redir /til/2025/compare-two-files-bash/ /notes/2025/compare-two-files-bash/ permanent
 redir /til/2025/compare-two-files-bash /notes/2025/compare-two-files-bash/ permanent
 redir /til/2025/console-log-is-asynchronous-ish/ /notes/2025/console-log-is-asynchronous-ish/ permanent
@@ -1858,4 +1860,4 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: LeMgfOQJy1)
+#[[[end]]] (sum: mk9oC9aTgG)

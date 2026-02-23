@@ -44,6 +44,70 @@ class TestInlineSvgExtension:
             '<rect fill="yellow" height="200" width="200"/>\n</svg>'
         )
 
+    def test_alt_text_is_smartified(self, src_dir: Path, env: Environment) -> None:
+        """
+        Alt text is processed with SmartyPants.
+        """
+        (src_dir / "_images/2026").mkdir(parents=True)
+        (src_dir / "_images/2026/example.svg").write_text(
+            '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
+            '  <text x="10" y="10">some text</text>\n'
+            "</svg>"
+        )
+        page = StubPage(date=datetime(2026, 1, 1))
+
+        md = """{%
+            inline_svg
+            filename="example.svg"
+            alt="Text with 'straight' quotes"
+        %}"""
+
+        html = env.from_string(md).render(page=page).strip()
+        assert html == (
+            '<svg aria-labelledby="svg_example" role="img" '
+            'viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'
+            '<title id="svg_example">Text with ‘straight’ quotes</title>\n'
+            '<text x="10" y="10">some text</text>\n</svg>'
+        )
+
+    def test_handle_nested_svg(self, src_dir: Path, env: Environment) -> None:
+        """
+        I can render inline SVGs with nested <svg> tags.
+        """
+        (src_dir / "_images/2026").mkdir(parents=True)
+        (src_dir / "_images/2026/example.svg").write_text(
+            '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
+            '  <svg x="10" y="10">\n'
+            '    <text x="10" y="10">some text</text>\n'
+            "  </svg>\n"
+            '  <text x="10" y="10">more text</text>\n'
+            '  <svg x="20" y="20">\n'
+            '    <text x="20" y="20">some text</text>\n'
+            "  </svg>\n"
+            '  <text x="20" y="20">more text</text>\n'
+            "</svg>"
+        )
+        page = StubPage(date=datetime(2026, 1, 1))
+
+        md = """{%
+            inline_svg
+            filename="example.svg"
+            alt="Figure with nested svg tags"
+        %}"""
+
+        html = env.from_string(md).render(page=page).strip()
+        print(repr(html))
+        assert html == (
+            '<svg aria-labelledby="svg_example" role="img" '
+            'viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'
+            '<title id="svg_example">Figure with nested svg tags</title>\n'
+            '<svg x="10" y="10">\n<text x="10" y="10">some text</text>\n'
+            '</svg>\n<text x="10" y="10">more text</text>\n'
+            '<svg x="20" y="20">\n<text x="20" y="20">some text</text>\n'
+            '</svg>\n<text x="20" y="20">more text</text>\n'
+            "</svg>"
+        )
+
     def test_link_multiple_svgs_in_same_page(
         self, src_dir: Path, out_dir: Path, env: Environment
     ) -> None:

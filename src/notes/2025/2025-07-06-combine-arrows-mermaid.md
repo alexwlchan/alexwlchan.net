@@ -1,11 +1,8 @@
 ---
-layout: til
+layout: note
 title: Combine arrows in Mermaid by using an invisible node
 date: 2025-07-06 09:37:21 +01:00
-tags:
-  - mermaid
-  - drawing things
-old_syntax_highlighting: true
+topic: Drawing things
 ---
 <style>
   @media screen and (min-width: 500px) {
@@ -16,6 +13,10 @@ old_syntax_highlighting: true
       align-items: center;
     }
   }
+  
+  .nodeLabel p {
+    font-size: 16px;
+  }
 </style>
 
 I was drawing a chart with [Mermaid](https://mermaid.js.org/intro/syntax-reference.html), where several sources combine into a single destination.
@@ -23,10 +24,10 @@ Here's a quick demo:
 
 <blockquote class="demo">
   <pre><code>flowchart LR
-    SRC1[source 1]
-    SRC2[source 2]
-    SRC3[source 3]
-    DST[destination]
+    <span class="n">SRC1</span>[source 1]
+    <span class="n">SRC2</span>[source 2]
+    <span class="n">SRC3</span>[source 3]
+    <span class="n">DST</span>[destination]
 
     SRC1 --> DST
     SRC2 --> DST
@@ -46,13 +47,13 @@ This looks more like what I want:
 
 <blockquote class="demo">
   <pre><code>flowchart LR
-  SRC1[source 1]
-  SRC2[source 2]
-  SRC3[source 3]
-  DST[destination]
+  <span class="n">SRC1</span>[source 1]
+  <span class="n">SRC2</span>[source 2]
+  <span class="n">SRC3</span>[source 3]
+  <span class="n">DST</span>[destination]
 
-  E[ ]:::empty
-  classDef empty height: 0, width: 0
+  <span class="n">E</span>[ ]:::empty
+  classDef <span class="n">empty</span> height: 0, width: 0
 
   SRC1 --- E
   SRC2 --- E
