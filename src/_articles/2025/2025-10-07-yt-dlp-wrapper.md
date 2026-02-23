@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-10-07 06:19:18 +00:00
 title: Creating a personal wrapper around yt-dlp
 summary: I've written a new script which calls yt-dlp with my preferred options, so I don't have to copy my configuration across different projects.
-tags:
-  - yt-dlp
-  - my tools
-old_syntax_highlighting: true
+topics:
+  - Preserving social media
+  - Images and videos
 ---
 I download a lot of videos from YouTube, and [yt-dlp] is my tool of choice.
 Sometimes I download videos as a one-off, but more often I'm downloading videos in a project -- my bookmarks, my collection of TV clips, or my social media scrapbook.

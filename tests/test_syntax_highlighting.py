@@ -455,3 +455,16 @@ def test_parse_line_numbers(s: str, line_numbers: list[int | Literal["…"]]) ->
     Tests for `parse_line_numbers`.
     """
     assert parse_line_numbers(s) == line_numbers
+
+
+def test_terraform() -> None:
+    """
+    Test Terraform syntax highlighting.
+    """
+    html = apply_syntax_highlighting(
+        'resource "aws_s3_bucket" "example" {\n  bucket = "my-example"\n}',
+        lang="terraform",
+        names={1: "aws_s3_bucket", 2: "example"},
+    )
+    assert '<span class="kr">resource</span>' not in html
+    assert '<span class="n">&quot;aws_s3_bucket&quot;</span>' in html

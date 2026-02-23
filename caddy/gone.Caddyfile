@@ -140,6 +140,22 @@ handle /2014/veil {
 	error 410
 }
 
+handle /2014/instapaper-urls/ {
+	error 410
+}
+
+handle /2014/instapaper-urls {
+	error 410
+}
+
+handle /2014/06/instapaper-urls/ {
+	error 410
+}
+
+handle /2014/06/instapaper-urls {
+	error 410
+}
+
 handle /2014/mathis-cars/ {
 	error 410
 }
@@ -600,4 +616,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: 5Uc+CpDFUb)
+#[[[end]]] (sum: mY4AXuOI57)

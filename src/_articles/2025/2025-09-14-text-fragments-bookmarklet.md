@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-09-14 21:44:01 +00:00
 title: Linking to text fragments with a bookmarklet
 summary: I've written a bookmarklet that helps me link to specific text on a web page.
-tags:
-  - javascript
-  - bookmarklets
-old_syntax_highlighting: true
+topics:
+  - JavaScript
+  - Bookmarklets
 ---
 One of my favourite features added to web browsers in the last few years is [text fragments].
 
@@ -47,7 +46,7 @@ It's a small tool, but it's made my link sharing much easier.
 
 This is the JavaScript that gets triggered when you run the bookmarklet:
 
-{% code lang="javascript" names="0:selectedText 7:url" %}
+```javascript {"names":{"1":"selectedText","8":"url"}}
 const selectedText = window.getSelection().toString().trim();
 
 if (!selectedText) {
@@ -59,4 +58,4 @@ const url = new URL(window.location);
 url.hash = `:~:text=${encodeURIComponent(selectedText)}`;
 
 alert(url.toString());
-{% endcode %}
+```

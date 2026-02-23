@@ -1,16 +1,14 @@
 ---
-layout: til
+layout: note
 title: Convert an animated GIF to an MP4 with ffmpeg
 date: 2024-07-10 22:30:08 +01:00
-tags:
-  - ffmpeg
-old_syntax_highlighting: true
+topic: Images and videos
 ---
 I sometimes need to convert animated GIFs into MP4 movie files -- this can often result in much smaller files, which is useful for serving the images on the web.
 
 This is the `ffmpeg` command I use:
 
-{% code lang="shell" %}
+```shell
 ffmpeg \
   -i INPUT_GIF_PATH \
   -movflags faststart \
@@ -18,7 +16,7 @@ ffmpeg \
   [-vf scale=WIDTH:HEIGHT] \
   [-y] \
   OUTPUT_MP4_PATH
-{% endcode %}
+```
 
 Here's what it's doing:
 

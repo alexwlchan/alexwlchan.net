@@ -78,8 +78,6 @@ redir /2014/12/acronyms/ /2014/acronyms/ permanent
 redir /2014/12/acronyms /2014/acronyms/ permanent
 redir /2014/08/alfred-screenshots/ /2014/alfred-screenshots/ permanent
 redir /2014/08/alfred-screenshots /2014/alfred-screenshots/ permanent
-redir /2014/06/instapaper-urls/ /2014/instapaper-urls/ permanent
-redir /2014/06/instapaper-urls /2014/instapaper-urls/ permanent
 redir /2014/12/kitchen-sink-security/ /2014/kitchen-sink-security/ permanent
 redir /2014/12/kitchen-sink-security /2014/kitchen-sink-security/ permanent
 redir /2014/07/latex-alpha/ /2014/latex-alpha/ permanent
@@ -1586,6 +1584,8 @@ redir /til/2024/how-to-check-the-quality-of-a-network-connection/ /notes/2024/ch
 redir /til/2024/how-to-check-the-quality-of-a-network-connection /notes/2024/check-the-quality-of-a-network-connection/ permanent
 redir /til/2024/close-responses-to-close-send-file/ /notes/2024/close-responses-to-close-send-file/ permanent
 redir /til/2024/close-responses-to-close-send-file /notes/2024/close-responses-to-close-send-file/ permanent
+redir /til/2024/convert-an-animated-gif-to-mp4/ /notes/2024/convert-an-animated-gif-to-mp4/ permanent
+redir /til/2024/convert-an-animated-gif-to-mp4 /notes/2024/convert-an-animated-gif-to-mp4/ permanent
 redir /til/2024/count-only-counts-non-null-values/ /notes/2024/count-only-counts-non-null-values/ permanent
 redir /til/2024/count-only-counts-non-null-values /notes/2024/count-only-counts-non-null-values/ permanent
 redir /til/2024/create-a-directory-first/ /notes/2024/create-a-directory-first/ permanent
@@ -1860,4 +1860,10 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
-#[[[end]]] (sum: mk9oC9aTgG)
+redir /digital-preservation/flickr-foundation/ /work/flickr-foundation/ permanent
+redir /digital-preservation/flickr-foundation /work/flickr-foundation/ permanent
+redir /systems/tailscale/ /work/tailscale/ permanent
+redir /systems/tailscale /work/tailscale/ permanent
+redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
+redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
+#[[[end]]] (sum: /PCPmFoNO+)

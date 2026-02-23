@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-11-17 08:52:48 +00:00
 title: Cleaning up messy dates in JSON
 summary: I wrote a Python script to help me get timestamps in a consistent format in my JSON.
-tags:
-  - python
-  - datetime shenanigans
-  - json
-old_syntax_highlighting: true
+topics:
+  - Python
+  - Datetime shenanigans
 ---
 I've been cleaning up some messy data, and it includes timestamps written by a variety of humans and machines, which don't use a consistent format.
 
@@ -29,7 +27,7 @@ I wrote a Python script to help me find, validate, and normalise all my timestam
 
 {% table_of_contents %}
 
-## Finding all the data strings
+## Finding all the date strings
 
 All the messy data is in JSON, and the structure is quite inconsistent -- a lot of heavily nested objects, differently-named fields, varying models and schemas.
 This project is about tidying it up.
@@ -61,7 +59,7 @@ It only has a few types, and even fewer that matter here:
 
 Here's my code:
 
-{% code lang="python" names="0:collections 1:abc 2:Iterator 3:typing 4:Any 5:find_all_dates 6:json_value 18:key 19:value 39:value" %}
+```python {"names":{"1":"collections","2":"abc","3":"Iterator","4":"typing","5":"Any","6":"find_all_dates","7":"json_value","19":"key","20":"value","39":"value"}}
 from collections.abc import Iterator
 from typing import Any
 
@@ -103,7 +101,7 @@ def find_all_dates(json_value: Any) -> Iterator[tuple[dict[str, Any], str, str]]
     # Case 4: handle unexpected types
     else:
         raise TypeError(f"Unexpected type: {type(json_value)}")
-{% endcode %}
+```
 
 There are branches for all the builtin JSON types, then a catch-all branch for anything else.
 
@@ -122,7 +120,7 @@ For the example above, here's the first tuple it returns:
 
 This return type allows me to both read and modify the JSON with the same function:
 
-{% code lang="python" names="2:date_string 4:json_value 7:json_obj 8:key 9:date_string 11:json_value" %}
+```python {"names":{"3":"date_string","8":"json_obj","9":"key","10":"date_string"}}
 # Reading the timestamps
 for _, _, date_string in find_all_dates(json_value):
     print(date_string)
@@ -130,7 +128,7 @@ for _, _, date_string in find_all_dates(json_value):
 # Modifying the timestamps
 for json_obj, key, date_string in find_all_dates(json_value):
     json_obj[key] = run_fixup(date_string)
-{% endcode %}
+```
 
 The latter works because `json_obj` points to the actual dictionary from the nested JSON, not a copy, so when we assign `json_obj[key] = …`, we modify the original JSON structure in-place.
 
@@ -149,11 +147,11 @@ There's no room for ambiguity, and no risk of a timestamp being guessed incorrec
 The `strptime` function takes two arguments: the string you want to parse, and the format string.
 Here's an example:
 
-{% code lang="pycon" names="0:datetime 1:datetime" %}
+```pycon {"names":{"1":"datetime","2":"datetime"}}
 >>> from datetime import datetime
 >>> datetime.strptime("2001-02-03T04:05:06+00:00", "%Y-%m-%dT%H:%M:%S%z")
 datetime.datetime(2001, 2, 3, 4, 5, 6, tzinfo=datetime.timezone.utc)
-{% endcode %}
+```
 
 If you pass a timestamp that doesn't match the format string, it throws a ValueError:
 
@@ -171,7 +169,7 @@ ValueError: unconverted data remains: T04:05:06+00:00
 
 This allows us to write a function that checks if a timestamp matches a given format:
 
-{% code lang="python" names="0:datetime 1:datetime 2:date_matches_format 3:date_string 5:format" %}
+```python {"names":{"1":"datetime","2":"datetime","3":"date_matches_format","4":"date_string","6":"format"}}
 from datetime import datetime
 
 
@@ -185,7 +183,7 @@ def date_matches_format(date_string: str, format: str) -> bool:
         return True
     except ValueError:
         return False
-{% endcode %}
+```
 
 The `format` can be any format code supported by `strptime()`.
 The [Python docs](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior) have a list of all the accepted format codes.
@@ -193,7 +191,7 @@ That list includes a couple of non-standard format codes which only have partial
 
 If we want to allow multiple formats, we can wrap this function [using `any()`][any]:
 
-{% code lang="python" names="0:date_matches_any_format 1:date_string 3:formats" %}
+```python {"names":{"1":"date_matches_any_format","2":"date_string","4":"formats","12":"fmt"}}
 def date_matches_any_format(date_string: str, formats: tuple[str]) -> bool:
     """
     Returns True if `date_string` can be parsed as a datetime
@@ -203,11 +201,11 @@ def date_matches_any_format(date_string: str, formats: tuple[str]) -> bool:
         date_matches_format(date_string, fmt)
         for fmt in formats
     )
-{% endcode %}
+```
 
 Here's how we can use this function to find any timestamps that don't match our allowed formats:
 
-{% code lang="python" names="0:allowed_formats 3:date_string" %}
+```python {"names":{"1":"allowed_formats","4":"date_string"}}
 allowed_formats = (
     # 2001-02-03T04:05:06+07:00
     "%Y-%m-%dT%H:%M:%S%z",
@@ -219,7 +217,7 @@ allowed_formats = (
 for _, _, date_string in find_all_dates(json_value):
     if not date_matches_any_format(date_string, allowed_formats):
         print(date_string)
-{% endcode %}
+```
 
 [strptime]: https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
 [strptime_fmt_code]: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
@@ -231,7 +229,7 @@ for _, _, date_string in find_all_dates(json_value):
 
 With these two functions in hand, I wrote a test I can run with pytest to tell me about any timestamps that don't match my allowed formats:
 
-{% code lang="python" names="0:test_all_timestamps_are_consistent 1:allowed_formats 2:bad_date_strings 6:date_string 8:JSON_DATA" %}
+```python {"names":{"1":"test_all_timestamps_are_consistent","2":"allowed_formats","3":"bad_date_strings","7":"date_string"}}
 def test_all_timestamps_are_consistent():
     """
     All the timestamps in my JSON use a consistent format.
@@ -253,7 +251,7 @@ def test_all_timestamps_are_consistent():
     }
 
     assert bad_date_strings == set()
-{% endcode %}
+```
 
 If you only allow a single format, you could simplify this slightly by using `date_matches_format`.
 
@@ -285,7 +283,7 @@ I wrote one-off fixer scripts to perform these conversions.
 Each script would read the JSON file, look for date strings in a given format, convert them to my preferred format, then write the result back to my JSON file:
 Here's one example:
 
-{% code lang="python" names="0:json 1:old_format 2:new_format 4:in_file 5:json_data 9:json_obj 10:key 11:date_string 17:d 28:out_file" %}
+```python {"names":{"1":"json","2":"old_format","3":"new_format","5":"in_file","6":"json_data","10":"json_obj","11":"key","12":"date_string","18":"d","29":"out_file"}}
 import json
 
 
@@ -306,7 +304,7 @@ for json_obj, key, date_string in find_all_dates(json_data):
 
 with open("my_data.json", "w") as out_file:
     out_file.write(json.dumps(json_data, indent=2))
-{% endcode %}
+```
 
 I keep my JSON data files in Git, and I committed every time I ran a successful script.
 That made it easy to see the changes from each fix-up, and to revert them if I made a mistake.
@@ -331,7 +329,7 @@ Here's what we've done in this post:
 Here's the final test which ties this all together.
 I've saved it as `test_date_formats.py`:
 
-{% code lang="python" names="0:collections 1:abc 2:Iterator 3:datetime 4:datetime 5:typing 6:Any 7:find_all_dates 8:json_value 20:key 21:value 41:value 54:date_matches_format 55:date_string 57:format 65:date_matches_any_format 66:date_string 68:formats 76:fmt 78:test_all_timestamps_are_consistent 79:allowed_formats 80:bad_date_strings 84:date_string" %}
+```python {"names":{"1":"collections","2":"abc","3":"Iterator","4":"datetime","5":"datetime","6":"typing","7":"Any","8":"find_all_dates","9":"json_value","21":"key","22":"value","41":"value","54":"date_matches_format","55":"date_string","57":"format","65":"date_matches_any_format","66":"date_string","68":"formats","76":"fmt","78":"test_all_timestamps_are_consistent","79":"allowed_formats","80":"bad_date_strings","84":"date_string"}}
 from collections.abc import Iterator
 from datetime import datetime
 from typing import Any
@@ -422,7 +420,7 @@ def test_all_timestamps_are_consistent():
     }
 
     assert bad_date_strings == set()
-{% endcode %}
+```
 
 If you want to use this test, you'll need to modify it to read your JSON data, and to specify the list of timestamp formats you accept.
 

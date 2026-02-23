@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2024-10-06 21:22:28 +00:00
 title: Two examples of hover styles on images
 summary: When I hover over an image, I can add a border to a link, or change the colours of an SVG icon.
-tags:
-  - css
-  - svg
-  - drawing things
+topics:
+  - CSS
+  - SVG
 old_syntax_highlighting: true
 ---
 I enjoy adding [`:hover` styles][mdn] to my websites.
@@ -235,49 +234,49 @@ Here are all the icons I had in this system:
   <li>
     <a href="mailto:alex@alexwlchan.net">
       <span class="visually-hidden">email</span>
-      <span aria-hidden="true">{% inline_svg filename="social_icons/email.svg" %}</span></a>
+      <span aria-hidden="true">{% inline_svg filename="social_icons/email.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a href="https://books.alexwlchan.net">
       <span class="visually-hidden">what I’m reading</span>
-      <span aria-hidden="true">{% inline_svg filename="social_icons/book.svg" %}</span></a>
+      <span aria-hidden="true">{% inline_svg filename="social_icons/book.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a id="footer_link--rss" href="https://alexwlchan.net/atom.xml">
       <span class="visually-hidden">RSS feed</span>
-      <span aria-hidden="true">{% inline_svg filename="social_icons/rss.svg" %}</span></a>
+      <span aria-hidden="true">{% inline_svg filename="social_icons/rss.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a href="https://twitter.com/alexwlchan">
       <span class="visually-hidden">Twitter</span>
-      <span aria-hidden="true">{% inline_svg filename="social_icons/twitter.svg" %}</span></a>
+      <span aria-hidden="true">{% inline_svg filename="social_icons/twitter.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a rel="me" href="https://social.alexwlchan.net/@alex">
       <span class="visually-hidden">Mastodon</span>
-      <span>{% inline_svg filename="social_icons/mastodon.svg" %}</span></a>
+      <span>{% inline_svg filename="social_icons/mastodon.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a href="https://github.com/alexwlchan/">
       <span class="visually-hidden">GitHub</span>
-      <span aria-hidden="true">{% inline_svg filename="social_icons/github.svg" %}</span></a>
+      <span aria-hidden="true">{% inline_svg filename="social_icons/github.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a href="https://www.linkedin.com/in/alexwlchan/">
       <span class="visually-hidden">LinkedIn</span>
-      <span>{% inline_svg filename="social_icons/linkedin.svg" %}</span></a>
+      <span>{% inline_svg filename="social_icons/linkedin.svg" class="dark_aware" %}</span></a>
   </li>
 
   <li>
     <a href="https://ko-fi.com/alexwlchan">
       <span class="visually-hidden">Kofi</span>
-      <span>{% inline_svg filename="social_icons/kofi.svg" %}</span></a>
+      <span>{% inline_svg filename="social_icons/kofi.svg" class="dark_aware" %}</span></a>
   </li>
 </ul>
 

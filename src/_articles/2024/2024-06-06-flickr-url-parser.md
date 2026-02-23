@@ -1,18 +1,16 @@
 ---
-layout: post
+layout: article
 date: 2024-06-06 16:14:24 +00:00
 title: The surprising utility of a Flickr URL parser
 summary: I made a library that knows how to read lots of different forms of Flickr.com URL, and I used `hyperlink` to do it.
 link: https://www.flickr.org/the-surprising-utility-of-a-flickr-url-parser/
-tags:
-  - flickr
-  - flickr foundation
-  - python
+topics:
+  - Preserving social media
+  - Flickr Foundation
 colors:
   index_light: "#785a28"
   index_dark:  "#cdae58"
 card_attribution: https://www.flickr.com/photos/usnationalarchives/4727552068/
-old_syntax_highlighting: true
 ---
 
 As part of my work at the Flickr Foundation, I wrote a little Python library that can be used to parse Flickr URLs.
@@ -30,7 +28,7 @@ At the heart of the project is a Python library called [hyperlink](https://hyper
 This is a URL parsing library that I first came across several years ago, when I made a few contributions to the python-hyper library.
 It has quite a nice API for breaking apart URLs:
 
-{% code lang="pycon" names="0:hyperlink 1:url" %}
+```pycon {"names":{"1":"hyperlink","2":"url"}}
 >>> import hyperlink
 >>> url = hyperlink.parse("https://www.flickr.com/photo_exif.gne?id=4727552068")
 >>> url.host
@@ -39,24 +37,24 @@ It has quite a nice API for breaking apart URLs:
 ('photo_exif.gne',)
 >>> url.fragment
 ''
-{% endcode %}
+```
 
 There is a [`urlparse` module](https://docs.python.org/3/library/urllib.parse.html) in the standard library, but I prefer Hyperlink because of how it handles query strings.
 It does the work of parsing query strings and reversing any URL decoding in a single step, whereas it's several steps with the standard library.
 
 Compare:
 
-{% code lang="pycon" names="0:url" %}
+```pycon {"names":{"1":"url"}}
 >>> url = hyperlink.parse('https://example.com/?greeting=hello%20world&place=caf%c3%a9')
 >>> url.query
 (('greeting', 'hello world'), ('place', 'café'))
 >>> url.get('place')
 ['café']
-{% endcode %}
+```
 
 with:
 
-{% code lang="pycon" names="0:url" %}
+```pycon {"names":{"1":"url"}}
 >>> url = urllib.parse.urlparse('https://example.com/?greeting=hello%20world&place=caf%c3%a9')
 >>> url.query
 'greeting=hello%20world&place=caf%c3%a9'
@@ -64,7 +62,7 @@ with:
 {'greeting': ['hello world'], 'place': ['café']}
 >>> urllib.parse.parse_qs(url.query)['place']
 ['café']
-{% endcode %}
+```
 
 I find the former easier to write and to read.
 It also has a nice API for [manipulating query parameters](https://hyperlink.readthedocs.io/en/latest/api.html#query-parameters), which I use in a lot of projects.

@@ -193,6 +193,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             flags=re.MULTILINE,
         )
 
+    # Terraform: the 'resource' keyword is not worth highlighting.
+    if lang == "terraform":
+        highlighted_code = highlighted_code.replace(
+            '<span class="kr">resource</span>', "resource"
+        )
+
     # Whitespace: delete it unless we're in console or irb snippets,
     # where we use it as part of disabling selection.
     if lang not in {"console", "irb", "pycon", "sqlite3"}:
@@ -300,7 +306,13 @@ def apply_syntax_highlighting(
 
         # If this is one of the names we want to highlight but the variable
         # name doesn't match, throw an error.
-        elif names_to_highlight[idx] != varname:
+        #
+        # In Terraform, it's okay to omit the wrapping quotes because it
+        # makes the JSON escaping trickier.
+        elif (
+            lang == "terraform"
+            and "&quot;" + names_to_highlight[idx] + "&quot;" != varname
+        ) or (lang != "terraform" and names_to_highlight[idx] != varname):
             raise ValueError(
                 f"got bad name at {idx}: want {names_to_highlight[idx]}, got {varname}"
             )

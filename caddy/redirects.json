@@ -34,9 +34,6 @@
   "/2014/alfred-screenshots/": [
     "/2014/08/alfred-screenshots/"
   ],
-  "/2014/instapaper-urls/": [
-    "/2014/06/instapaper-urls/"
-  ],
   "/2014/kitchen-sink-security/": [
     "/2014/12/kitchen-sink-security/"
   ],
@@ -2595,6 +2592,9 @@
   "/notes/2024/close-responses-to-close-send-file/": [
     "/til/2024/close-responses-to-close-send-file/"
   ],
+  "/notes/2024/convert-an-animated-gif-to-mp4/": [
+    "/til/2024/convert-an-animated-gif-to-mp4/"
+  ],
   "/notes/2024/count-only-counts-non-null-values/": [
     "/til/2024/count-only-counts-non-null-values/"
   ],
@@ -2971,5 +2971,14 @@
   "/til/2018/horstmann-electric-7/": [
     "/2018/horstmann-electric-7/",
     "/2018/10/horstmann-electric-7/"
+  ],
+  "/work/flickr-foundation/": [
+    "/digital-preservation/flickr-foundation/"
+  ],
+  "/systems/tailscale/": [
+    "/work/tailscale/"
+  ],
+  "/work/wellcome-collection/": [
+    "/digital-preservation/wellcome-collection/"
   ]
 }

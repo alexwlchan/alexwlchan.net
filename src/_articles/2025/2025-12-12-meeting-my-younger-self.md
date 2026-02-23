@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2025-12-12 10:30:02 +00:00
 title: Meeting my younger self
 summary: I reviewed 150,000 fragments of my online life, and I was reminded of the friends I found, the mistakes I made, and the growth I gained.
@@ -12,7 +12,6 @@ index:
 colors:
   css_light: "#446d8d"
   css_dark:  "#b86748"
-old_syntax_highlighting: true
 ---
 I've been building a [scrapbook of social media][scrapbook], a place where I can save posts and conversations that I want to remember.
 It has a nice web-based interface for browsing, and a carefully-designed data model that should scale as I add more platforms and more years of my life.

@@ -104,6 +104,16 @@
     "parent": "Systems and software"
   },
   {
+    "name": "Terraform",
+    "href": "/systems/terraform/",
+    "parent": "Systems and software"
+  },
+  {
+    "name": "Error messages",
+    "href": "/systems/error-messages/",
+    "parent": "Systems and software"
+  },
+  {
     "name": "Images and videos",
     "href": "/systems/images-and-videos/",
     "parent": "Systems and software"
@@ -150,14 +160,18 @@
     "parent": "Digital preservation"
   },
   {
+    "name": "Work",
+    "href": "/work/"
+  },
+  {
     "name": "Wellcome Collection",
-    "href": "/digital-preservation/wellcome-collection/",
-    "parent": "Digital preservation"
+    "href": "/work/wellcome-collection/",
+    "parent": "Work"
   },
   {
     "name": "Flickr Foundation",
-    "href": "/digital-preservation/flickr-foundation/",
-    "parent": "Digital preservation"
+    "href": "/work/flickr-foundation/",
+    "parent": "Work"
   },
   {
     "name": "Computers",
@@ -226,5 +240,9 @@
   {
     "name": "Maths",
     "href": "/maths/"
+  },
+  {
+    "name": "Bookmarklets",
+    "href": "/bookmarklets/"
   }
 ]
