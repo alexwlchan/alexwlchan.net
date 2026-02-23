@@ -178,6 +178,8 @@ def _parse_to_end_of_svg(state: BlockState, start_pos: int) -> int:
         text = state.src[state.cursor : marker_pos]
         if text.count("<svg") == text.count("</svg>"):
             break
+    else:  # no break  # pragma: no cover
+        raise ValueError("<svg> tags not balanced")
 
     state.cursor = marker_pos
     end_pos = state.find_line_end()
