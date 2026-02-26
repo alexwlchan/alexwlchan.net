@@ -60,7 +60,7 @@ I'm using Lanczos with window 3 because it creates the best looking image (to my
 
 Here's a shell script that uses ffmpeg to [create an MP4 video of an animated GIF](/notes/2024/convert-an-animated-gif-to-mp4/):
 
-```shell {"debug":true}
+```shell {"names":{"1":"gif_path","2":"thumbnail_path","3":"width","4":"height"}}
 gif_path="animated_squares.gif"
 thumbnail_path="animated_squares.mp4"
 
