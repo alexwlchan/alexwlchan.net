@@ -1860,10 +1860,12 @@ redir /2018/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7/ /til/2018/horstmann-electric-7/ permanent
 redir /2018/10/horstmann-electric-7 /til/2018/horstmann-electric-7/ permanent
+redir /day-job/ /work/ permanent
+redir /day-job /work/ permanent
 redir /digital-preservation/flickr-foundation/ /work/flickr-foundation/ permanent
 redir /digital-preservation/flickr-foundation /work/flickr-foundation/ permanent
-redir /systems/tailscale/ /work/tailscale/ permanent
-redir /systems/tailscale /work/tailscale/ permanent
+redir /work/tailscale/ /systems/tailscale/ permanent
+redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: /PCPmFoNO+)
+#[[[end]]] (sum: Za/c7C41FU)

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2024-08-20 17:16:50 +00:00
 title: "create_thumbnail: create smaller versions of images"
 summary:
@@ -13,7 +13,6 @@ colors:
   index_dark:  "#b6b86c"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 I’ve made a new command-line tool: [create_thumbnail], which creates thumbnails of images.
 I need image thumbnails in a lot of projects, and I wanted a single tool I could use in all of them rather than having multiple copies of the same code.
@@ -45,7 +44,7 @@ The heavy lifting is done by the [image crate] and [ffmpeg].
 
 Here's how you can use the image crate to resize an image in Rust:
 
-{% code lang="rust" names="0:image_path 1:thumbnail_path 2:width 3:height" %}
+```rust {"names":{"1":"image_path","2":"thumbnail_path","3":"width","4":"height"}}
 let image_path = "pineapple.jpg";
 let thumbnail_path = "thumbnail.jpg";
 
@@ -54,14 +53,14 @@ let (width, height) = (306, 204);
 image::open(image_path)?
     .resize(width, height, image::imageops::FilterType::Lanczos3)
     .save(thumbnail_path)?;
-{% endcode %}
+```
 
 The documentation for the `resize()` method has [some good examples][resize] of the different filter options -- how they affect the quality of the image and the time taken to create it.
 I'm using Lanczos with window 3 because it creates the best looking image (to my eyes at least), and I'm not particularly performance constrained.
 
-Here's a shell script that uses ffmpeg to [create an MP4 video of an animated GIF](/til/2024/convert-an-animated-gif-to-mp4/):
+Here's a shell script that uses ffmpeg to [create an MP4 video of an animated GIF](/notes/2024/convert-an-animated-gif-to-mp4/):
 
-{% code lang="shell" names="0:gif_path 1:thumbnail_path 2:width 3:height" %}
+```shell {"debug":true}
 gif_path="animated_squares.gif"
 thumbnail_path="animated_squares.mp4"
 
@@ -74,7 +73,7 @@ ffmpeg \
   -pix_fmt yuv420p \
   -vf "scale=$width:$height" \
   "$thumbnail_path"
-{% endcode %}
+```
 
 My tool is a wrapper around these two snippets.
 It picks the correct dimensions for the final thumbnail based on the dimensions of the original image and the max width/height, then runs these two snippets to create the thumbnail.

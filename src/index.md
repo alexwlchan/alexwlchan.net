@@ -288,7 +288,7 @@ I hope you like it!
       </li>
       <li>
         {% inline_svg filename="icons/office.svg" class="dark_aware" %}
-        <a href="/day-job/">My day job</a>
+        <a href="/work/">My day job</a>
       </li>
       <li>
         {% inline_svg filename="icons/branch.svg" class="dark_aware" %}
