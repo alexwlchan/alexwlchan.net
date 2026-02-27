@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2026-01-14 08:38:52 +00:00
 title: The Good, the Bad, and the Gutters
 summary: A step-by-step guide to a movie poster grid that uses CSS Grid, text-wrap balanced titles, and dynamic hover states.
@@ -9,7 +9,6 @@ index:
 colors:
   css_light: "#911e31"
   css_dark:  "#d64f71"
-old_syntax_highlighting: true
 ---
 I've been organising my local movie collection recently, and converting it into [a static site][static-sites].
 I want the homepage to be a scrolling grid of movie posters, where I can click on any poster and start watching the movie.

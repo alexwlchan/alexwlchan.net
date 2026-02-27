@@ -1,13 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2020-11-06 15:20:01 +00:00
 title: Remembering if a &lt;details&gt; element was opened
 summary: A JavaScript function that remembers if a details element was reopened, and keeps it open when you reload the page.
-tags:
-  - javascript
-  - html
-  - web development
-old_syntax_highlighting: true
+topic: JavaScript
 ---
 
 A rather useful HTML feature is the [&lt;details&gt; disclosure element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
@@ -74,7 +70,7 @@ When the function runs, it also checks the current value in localStorage, and op
 
 Here's the code:
 
-```javascript
+```javascript {"names":{"1":"rememberIfDetailsWasDisclosed","2":"detailsId","3":"localStorageKey","5":"details","11":"event"}}
 // Remember the state of a <details> element.
 //
 // If the element is opened and the page is reloaded, the element will

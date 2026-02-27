@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2016-08-07 22:46:00 +00:00
 title: 'Python snippets: Cleaning up empty/nearly empty directories'
 summary: A pair of Python scripts I've been using to clean up my mess of directories.
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 
 Last month, I wrote about [some tools](/2016/clearing-disk-space-on-os-x/) I'd been using to clear disk space on my Mac.
@@ -40,7 +38,7 @@ I don't care about these hidden files: if the visible contents of the directory 
 So when I'm clearing folders, I really want to delete anything that's truly empty, or which only contains hidden files.
 For that, I use the following Python script:
 
-```python
+```python {"names":{"1":"os","2":"shutil","3":"to_delete","4":"root","5":"dirs","9":"d","11":"full_path","20":"s","28":"p"}}
 import os
 import shutil
 
@@ -91,7 +89,7 @@ It's much easier to look through all the files when they're all together, not sc
 
 So once again, to Python:
 
-```python
+```python {"names":{"1":"os","2":"shutil","3":"root","5":"files","8":"f"}}
 import os
 import shutil
 
