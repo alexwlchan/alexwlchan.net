@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 600 602"
+   id="svg2"
+   version="1.1">
+  <title
+     id="title3002">3.26 Подача звукового сигнала запрещена</title>
+  <g
+     id="layer1"
+     transform="translate(0,-452.36218)">
+    <path
+       style="opacity:1;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path5334"
+       d="m -65.613615,432.25998 c 0,16.27327 -9.89766,29.46537 -22.107042,29.46537 -12.209383,0 -22.107043,-13.1921 -22.107043,-29.46537 0,-16.27328 9.89766,-29.46537 22.107043,-29.46537 12.209382,0 22.107042,13.19209 22.107042,29.46537 z"
+       transform="matrix(13.570336,0,0,10.181443,1490.3988,-3648.6681)" />
+    <path
+       transform="matrix(13.525102,0,0,10.147505,1486.4308,-3633.998)"
+       d="m -65.613615,432.25998 c 0,16.27327 -9.89766,29.46537 -22.107042,29.46537 -12.209383,0 -22.107043,-13.1921 -22.107043,-29.46537 0,-16.27328 9.89766,-29.46537 22.107043,-29.46537 12.209382,0 22.107042,13.19209 22.107042,29.46537 z"
+       id="path3003"
+       style="color:#000000;fill:none;stroke:#000000;stroke-width:0.17071831000000001;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;opacity:1"
+       />
+    <path
+       style="opacity:1;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 116.76419,616.87826 c -12.73602,22.93116 -19.989922,49.32916 -19.989922,77.41935 0,28.09019 7.253902,54.4882 19.989922,77.41936 7.65019,-38.62321 41.72157,-67.74194 82.59072,-67.74194 l 12.5504,0 -19.65725,-19.65725 C 154.58181,681.17337 123.96684,653.242 116.76419,616.87826 z"
+       id="path7161" />
+    <path
+       style="opacity:1;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 271.9658,684.62019 19.35484,19.35484 37.71169,0 c 25.27855,0 46.76453,16.1619 54.7379,38.70968 l -53.73992,0 19.35484,19.35484 37.71169,0 c 0,10.81126 -2.95885,20.93929 -8.10484,29.60685 l 14.00202,14.00202 c 8.48791,-12.42217 13.45766,-27.42829 13.45766,-43.60887 l 30.24194,0 c 4.29604,16.69741 19.46166,29.03226 37.5,29.03226 21.37876,0 38.70967,-17.33092 38.70967,-38.70968 0,-21.37877 -17.33091,-38.70968 -38.70967,-38.70968 -18.03834,0 -33.20396,12.33485 -37.5,29.03226 l -32.69154,0 c -8.5921,-33.39481 -38.89309,-58.06452 -74.96975,-58.06452 l -57.06653,0 z"
+       id="path7159" />
+    <path
+       style="opacity:1;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 212.9033,742.68471 c -26.72346,0 -48.3871,21.66364 -48.3871,48.3871 0,26.72345 21.66364,48.38709 48.3871,48.38709 l 116.12903,0 c 5.68836,0 11.23335,-0.61987 16.57258,-1.78427 l -17.57057,-17.57057 -115.13104,0 c -16.03407,0 -29.03226,-12.99818 -29.03226,-29.03225 0,-16.03408 12.99819,-29.03226 29.03226,-29.03226 l 57.06653,0 -19.35484,-19.35484 -37.71169,0 z"
+       id="path7133" />
+    <path
+       style="opacity:1;color:#000000;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 300 10 C 139.83742 10 10 139.83742 10 300 C 10 460.16258 139.83742 590 300 590 C 460.16258 590 590 460.16258 590 300 C 590 139.83742 460.16258 10 300 10 z M 300 59.03125 C 433.08281 59.03125 540.96875 166.9172 540.96875 300 C 540.96875 359.57582 519.35369 414.09739 483.53125 456.15625 L 143.84375 116.46875 C 185.90261 80.646313 240.42418 59.03125 300 59.03125 z M 116.46875 143.84375 L 456.15625 483.53125 C 414.09739 519.35369 359.57582 540.96875 300 540.96875 C 166.91719 540.96875 59.03125 433.0828 59.03125 300 C 59.03125 240.42418 80.646314 185.90261 116.46875 143.84375 z "
+       transform="translate(0,452.36218)"
+       id="path7567" />
+  </g>
+</svg>
