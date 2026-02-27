@@ -2,7 +2,7 @@
 layout: note
 title: Road signs in the Soviet union don't have circular heads
 summary: Their heads are more a sort of rounded triangle shape, a bit like an oval or an egg.
-date: 2026-02-27 19:54:09 +0000
+date: 2026-02-27 19:54:09 +00:00
 topic: The world around us
 ---
 Earlier this week, I saw a photo of a road sign that caught my eye.
