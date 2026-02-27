@@ -199,6 +199,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="kr">resource</span>', "resource"
         )
 
+    # TypeScript: the 'type' keyword is not worth highlighting.
+    if lang == "typescript":
+        highlighted_code = highlighted_code.replace(
+            '<span class="kr">type</span>', "type"
+        )
+
     # Whitespace: delete it unless we're in console or irb snippets,
     # where we use it as part of disabling selection.
     if lang not in {"console", "irb", "pycon", "sqlite3"}:
@@ -459,7 +465,8 @@ def add_line_numbers(html: str, linenos: bool, line_numbers: str) -> tuple[str, 
     assert len(numbered_lines) == len(inner_lines)
 
     html = prefix1 + prefix2 + "\n".join(numbered_lines) + suffix1 + suffix2
-    return html, len(str(exact_line_numbers[-1]))
+    lineno_digits = max(len(str(s)) for s in exact_line_numbers)
+    return html, lineno_digits
 
 
 def parse_line_numbers(s: str) -> list[int | Literal["…"]]:

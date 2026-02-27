@@ -1,13 +1,10 @@
 ---
-layout: til
+layout: note
+date: 2025-06-18 07:42:59 +01:00
 title: The error "No aggregated item, sequence was empty" comes from Jinja2
 summary: |
   You get this error message if you try to use Jinja2's filters to get the min/max of an empty sequence.
-date: 2025-06-18 07:42:59 +01:00
-tags:
-  - python
-  - python:jinja
-old_syntax_highlighting: true
+topic: Python
 ---
 I was debugging a Python app recently, and I saw an error message in my logs that I didn't recognise:
 
@@ -54,13 +51,8 @@ The fix is to ensure you're not trying to get the `min()` or `max()` of an empty
 
 Once I knew this error came from Jinja2, I was able to search the Jinja2 codebase and [find the function][_min_or_max] where this error is being returned:
 
-{%
-  code
-  lang="python"
-  line_numbers="486-488,_,492-498,_,_"
-  src="https://github.com/pallets/jinja/blob/220e67ae999c24e4077d7bf5bdc932757b65a338/src/jinja2/filters.py#L486-L503"
-  names="0:_min_or_max 1:environment 2:value 3:it 6:first"
-%}
+
+```python {"line_numbers":"486-488,…,492-498,…","names":{"1":"_min_or_max","2":"environment","3":"value","4":"it","7":"first"},"caption":"Lines 486–498 of <a href='https://github.com/pallets/jinja/blob/220e67ae999c24e4077d7bf5bdc932757b65a338/src/jinja2/filters.py#L486-L503'>src/jinja2/filters.py</a> in the <a href='https://github.com/pallets/jinja'>pallets/jinja</a> repo. Copyright Pallets, used under the BSD-3-Clause license."}
 def _min_or_max(
     environment: "Environment",
     value: "t.Iterable[V]",
@@ -72,9 +64,8 @@ def _min_or_max(
         first = next(it)
     except StopIteration:
         return environment.undefined("No aggregated item, sequence was empty.")
-
     ...
-{% endcode %}
+```
 
 Until I saw this code, I didn't realise `Undefined` was an actual type -- I've only ever encountered it in the sense of "undefined variable", which is a fairly common programming error, and not necessarily associated with a type.
 

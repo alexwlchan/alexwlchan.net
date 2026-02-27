@@ -1736,6 +1736,8 @@ redir /til/2025/exclusive-write-in-go/ /notes/2025/exclusive-write-in-go/ perman
 redir /til/2025/exclusive-write-in-go /notes/2025/exclusive-write-in-go/ permanent
 redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actions/ permanent
 redir /til/2025/exiftool-in-github-actions /notes/2025/exiftool-in-github-actions/ permanent
+redir /til/2025/f-string-equals/ /notes/2025/f-string-equals/ permanent
+redir /til/2025/f-string-equals /notes/2025/f-string-equals/ permanent
 redir /til/2025/get-python-traceback-as-string/ /notes/2025/get-python-traceback-as-string/ permanent
 redir /til/2025/get-python-traceback-as-string /notes/2025/get-python-traceback-as-string/ permanent
 redir /til/2025/get-jq-values-in-array/ /notes/2025/get-jq-values-in-array/ permanent
@@ -1766,6 +1768,8 @@ redir /til/2025/macos-launchagent-examples/ /notes/2025/macos-launchagent-exampl
 redir /til/2025/macos-launchagent-examples /notes/2025/macos-launchagent-examples/ permanent
 redir /til/2025/mediainfo-duration/ /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/mediainfo-duration /notes/2025/mediainfo-duration/ permanent
+redir /til/2025/no-aggregated-item/ /notes/2025/no-aggregated-item/ permanent
+redir /til/2025/no-aggregated-item /notes/2025/no-aggregated-item/ permanent
 redir /til/2025/platform-specific-dirs/ /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/platform-specific-dirs /notes/2025/platform-specific-dirs/ permanent
 redir /til/2025/poison-centers/ /notes/2025/poison-centers/ permanent
@@ -1868,4 +1872,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: Za/c7C41FU)
+#[[[end]]] (sum: nJbQzqeH8q)

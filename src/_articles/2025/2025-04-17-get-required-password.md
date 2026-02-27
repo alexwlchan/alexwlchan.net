@@ -3,11 +3,10 @@ layout: post
 date: 2025-04-17 06:51:06 +00:00
 title: "Beyond `None`: actionable error messages for `keyring.get_password()`"
 summary: I have a wrapper for `get_password()` so that if it can't find a password, you get an error that explains how to set the password, and what password you should choose.
-tags:
-  - python
-  - error messages
+topics:
+  - Python
+  - Error messages
 card_attribution: https://www.pexels.com/photo/close-up-of-keys-333837/
-old_syntax_highlighting: true
 ---
 
 I'm a big fan of [keyring][pypi], a Python module made by [Jason R. Coombs][jaraco] for storing secrets in the system keyring.
@@ -19,7 +18,7 @@ The same code will work on different platforms, because keyring handles the hard
 
 It has a straightforward API: the `keyring.set_password` and `keyring.get_password` functions will handle a lot of use cases.
 
-```pycon
+```pycon {"names":{"1":"keyring"}}
 >>> import keyring
 >>> keyring.set_password("xkcd", "alexwlchan", "correct-horse-battery-staple")
 >>> keyring.get_password("xkcd", "alexwlchan")
@@ -51,7 +50,7 @@ Indeed, continuing often leads to more confusing errors when some other function
 
 For a while, I wrapped `get_password` in a function that would throw an exception if it couldn't find the password:
 
-```python
+```python {"names":{"1":"get_required_password","2":"service_name","4":"username","7":"password"}}
 def get_required_password(service_name: str, username: str) -> str:
     """
     Get password from the specified service.
@@ -90,7 +89,7 @@ I still think my initial error was an improvement over letting `None` be used in
 
 This is my extended wrapper:
 
-```python
+```python {"names":{"1":"get_required_password","2":"service_name","4":"username","6":"explanation","9":"password"}}
 def get_required_password(service_name: str, username: str, explanation: str) -> str:
     """
     Get password from the specified service.

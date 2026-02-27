@@ -468,3 +468,26 @@ def test_terraform() -> None:
     )
     assert '<span class="kr">resource</span>' not in html
     assert '<span class="n">&quot;aws_s3_bucket&quot;</span>' in html
+
+
+def test_lineno_digits() -> None:
+    """
+    Test the lineno-digits property of the code with line numbers.
+    """
+    html = apply_syntax_highlighting(
+        'def greet():\n    print("hello world!")\n    ...',
+        lang="python",
+        line_numbers="101-102,…",
+    )
+    assert "--lineno-digits: 3" in html
+
+
+def test_typescript() -> None:
+    """
+    Test TypeScript syntax highlighting.
+    """
+    html = apply_syntax_highlighting(
+        "type ScheduledEvent = {\n  start: Date;\n  end: Date;\n}\n",
+        lang="typescript",
+    )
+    assert '<span class="kr">type</span>' not in html
