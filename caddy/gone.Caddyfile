@@ -404,6 +404,14 @@ handle /2018/04/24-hours {
 	error 410
 }
 
+handle /2018/05/google-duplex/ {
+	error 410
+}
+
+handle /2018/05/google-duplex {
+	error 410
+}
+
 handle /2018/08/do-not-distract-while-driving/ {
 	error 410
 }
@@ -449,6 +457,14 @@ handle /2018/finding-slow-builds-in-travis/ {
 }
 
 handle /2018/finding-slow-builds-in-travis {
+	error 410
+}
+
+handle /2018/google-duplex/ {
+	error 410
+}
+
+handle /2018/google-duplex {
 	error 410
 }
 
@@ -616,4 +632,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: mY4AXuOI57)
+#[[[end]]] (sum: GuCu89NL7w)

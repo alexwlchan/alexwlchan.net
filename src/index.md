@@ -4,7 +4,6 @@ title: ""
 colors:
   css_light: "#098a07"
   css_dark:  "#5ff042"
-old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

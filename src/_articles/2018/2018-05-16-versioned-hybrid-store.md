@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2018-05-16T12:12:50.882Z
 title: Creating a data store from S3 and DynamoDB
 summary: A new storage layer for large records in the Catalogue pipeline.
 canonical_url: https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1
-tags:
-  - wellcome collection
-  - aws:amazon s3
-  - aws:amazon dynamodb
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Wellcome Collection
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

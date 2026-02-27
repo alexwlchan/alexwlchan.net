@@ -413,6 +413,7 @@ def test_linewrap() -> None:
         ("function greet\n  echo 'hello world'\nend", "greet"),
         ("set -g -x location /home/alex/readme.txt\n", "location"),
         ("set -g -x PIP_REQUIRE_VIRTUALENV true\n", "PIP_REQUIRE_VIRTUALENV"),
+        ("function s3mate\n  echo 'I am an S3 function'\nend", "s3mate"),
     ],
 )
 def test_fish_variables(src: str, varname: str) -> None:

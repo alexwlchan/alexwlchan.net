@@ -1,13 +1,12 @@
 ---
+layout: article
 date: 2018-04-27 06:43:25 +00:00
-layout: post
 summary: Two shell functions for editing and inspecting S3 objects as if they were
   local files.
-tags:
-  - aws
-  - aws:amazon s3
+topics:
+  - AWS
+  - Shell scripting
 title: Two shortcuts for using S3 in the shell
-old_syntax_highlighting: true
 ---
 
 I often find myself needing to edit or inspect the contents of a text file stored in S3.
@@ -24,7 +23,7 @@ To that end, I have a function in my shell config that simplifies the process of
 The function is written for fish, but the concept could be adapted for any shell.
 It opens the file in my preferred text editor, which is TextMate (invoked with `mate`).
 
-```shell
+```fish {"names":{"1":"s3mate","2":"s3key","4":"localname"}}
 function s3mate
   set s3key $argv[1]
   set localname (basename $argv[1])
@@ -73,7 +72,7 @@ In practice, it’s rare for me to work on a file that has multiple editors, so 
 Once I had this function, it was only a small tweak to get a version that inspects files, but doesn’t edit them.
 Viz:
 
-```shell
+```fish {"names":{"1":"s3cat","2":"s3key","4":"localname"}}
 function s3cat
   set s3key $argv[1]
   set localname (basename $argv[1])

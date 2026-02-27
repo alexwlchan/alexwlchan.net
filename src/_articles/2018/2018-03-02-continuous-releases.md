@@ -1,16 +1,15 @@
 ---
-layout: post
+layout: article
 date: 2018-03-02 08:04:05 +00:00
 link: https://hypothesis.works/articles/continuous-releases/
 title: The Hypothesis continuous release process
-tags:
-  - builds and ci
-  - python:hypothesis
+topics:
+  - Software testing
+  - Builds and CI
 summary: How we do continuous releases of hypothesis-python, and why.
 colors:
   index_light: "#006dad"
   index_dark:  "#2975bc"
-old_syntax_highlighting: true
 ---
 
 About a year ago, David built a powerful continuous release system for the hypothesis-python repo.

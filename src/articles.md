@@ -4,7 +4,6 @@ title: Articles
 colors:
   css_light: "#115bda"
   css_dark:  "#40c3ff"
-old_syntax_highlighting: true
 ---
 
 <style type="x-text/scss">

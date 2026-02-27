@@ -187,7 +187,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
         highlighted_code = re.sub(
             r'<span class="([a-z]+)">(?P<keyword>set|function)</span>'
             r"(?P<flags>(?: -g| -x)*) "
-            r"(?P<name>[A-Za-z_]+)(?P<space>\s)",
+            r"(?P<name>[A-Za-z0-9_]+)(?P<space>\s)",
             r'\g<keyword>\g<flags> <span class="n">\g<name></span>\g<space>',
             highlighted_code,
             flags=re.MULTILINE,

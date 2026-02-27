@@ -322,8 +322,6 @@ redir /2018/10/gender-recognition-act/ /2018/gender-recognition-act/ permanent
 redir /2018/10/gender-recognition-act /2018/gender-recognition-act/ permanent
 redir /2018/12/getting-credentials-for-an-assumed-iam-role/ /2018/getting-credentials-for-an-assumed-iam-role/ permanent
 redir /2018/12/getting-credentials-for-an-assumed-iam-role /2018/getting-credentials-for-an-assumed-iam-role/ permanent
-redir /2018/05/google-duplex/ /2018/google-duplex/ permanent
-redir /2018/05/google-duplex /2018/google-duplex/ permanent
 redir /2018/07/icloud-calendars/ /2018/icloud-calendars/ permanent
 redir /2018/07/icloud-calendars /2018/icloud-calendars/ permanent
 redir /2018/07/imac-accessory/ /2018/imac-accessory/ permanent
@@ -1872,4 +1870,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: nJbQzqeH8q)
+#[[[end]]] (sum: yV/axe6x1d)
