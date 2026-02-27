@@ -46,7 +46,7 @@ httpx==0.28.1
     #   -r dev_requirements.in
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-hypothesis==6.151.5
+hypothesis==6.151.9
     # via -r requirements.txt
 idna==3.11
     # via
@@ -113,7 +113,7 @@ pfzy==0.3.4
     # via
     #   -r requirements.txt
     #   inquirerpy
-pillow==12.1.0
+pillow==12.1.1
     # via -r requirements.txt
 pluggy==1.6.0
     # via
@@ -177,7 +177,7 @@ tornado==6.5.4
     #   livereload
 tqdm==4.67.3
     # via -r requirements.txt
-types-docutils==0.22.3.20251115
+types-docutils==0.22.3.20260223
     # via
     #   -r requirements.txt
     #   types-pygments
@@ -189,14 +189,13 @@ types-requests==2.32.4.20260107
     # via
     #   -r requirements.txt
     #   types-tqdm
-types-tqdm==4.67.2.20260202
+types-tqdm==4.67.3.20260205
     # via -r requirements.txt
 typing-extensions==4.15.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-    #   anyio
     #   beautifulsoup4
     #   mypy
     #   pydantic
