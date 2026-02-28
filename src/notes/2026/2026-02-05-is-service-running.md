@@ -3,7 +3,6 @@ layout: note
 title: Use `systemctl is-active` to determine if a service is running
 date: 2026-02-05 16:25:19 +00:00
 topic: Shell scripting
-old_syntax_highlighting: true
 ---
 At work, we have some Linux VMs with services managed by `systemctl`.
 

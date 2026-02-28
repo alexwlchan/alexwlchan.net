@@ -1,13 +1,12 @@
 ---
-layout: til
+layout: note
 date: 2024-04-11 18:28:43 +01:00
 title: How to embed an inline SVG in a CSS rule
 summary: |
   Modern browsers allow you to embed the SVG almost as-is, with just a couple of characters that need escaping – no base64 required!
-tags:
-  - css
-  - svg
-old_syntax_highlighting: true
+topics:
+  - CSS
+  - SVG
 ---
 As part of redesigning this site, I was moving some of my small SVGs out of external files and inlining them in CSS rules.
 In my head, the way you do this is by base64-encoding the SVG and shoving it in a `url()` function, for example:

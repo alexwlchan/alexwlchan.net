@@ -1,15 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2020-06-15 06:57:51 +00:00
 title: Archive monocultures considered harmful
 summary: We are better off when the same topic is represented in multiple, different archives.
-tags:
-  - digital preservation
-old_syntax_highlighting: true
+topic: Digital preservation
 ---
-
-*Note: like everything on this blog, this is my personal opinion. I'm not speaking for Wellcome Collection or anybody else who works there.*
-
 When you think about archives, it's easy to imagine them as neutral, impartial collections of stuff.
 They're a container for historical objects, presented without bias or opinion.
 But ask anyone who works in an archive, and they'll tell you that isn't the case.

@@ -156,19 +156,19 @@ handle /2014/06/instapaper-urls {
 	error 410
 }
 
-handle /2014/mathis-cars/ {
-	error 410
-}
-
-handle /2014/mathis-cars {
-	error 410
-}
-
 handle /2014/12/mathis-cars/ {
 	error 410
 }
 
 handle /2014/12/mathis-cars {
+	error 410
+}
+
+handle /2014/mathis-cars/ {
+	error 410
+}
+
+handle /2014/mathis-cars {
 	error 410
 }
 
@@ -212,6 +212,14 @@ handle /2015/01/kings-cross-problems {
 	error 410
 }
 
+handle /2015/02/flask-notes/ {
+	error 410
+}
+
+handle /2015/02/flask-notes {
+	error 410
+}
+
 handle /2015/03/python-firewall/ {
 	error 410
 }
@@ -244,11 +252,11 @@ handle /2015/bbfc-podcast {
 	error 410
 }
 
-handle /2015/http2-by-stealth/ {
+handle /2015/flask-notes/ {
 	error 410
 }
 
-handle /2015/http2-by-stealth {
+handle /2015/flask-notes {
 	error 410
 }
 
@@ -257,6 +265,14 @@ handle /2015/govuk/ {
 }
 
 handle /2015/govuk {
+	error 410
+}
+
+handle /2015/http2-by-stealth/ {
+	error 410
+}
+
+handle /2015/http2-by-stealth {
 	error 410
 }
 
@@ -632,4 +648,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: GuCu89NL7w)
+#[[[end]]] (sum: RJQfRN2GrV)

@@ -97,9 +97,6 @@
   "/2015/export-urls-from-safari-reading-list/": [
     "/2015/11/export-urls-from-safari-reading-list/"
   ],
-  "/2015/flask-notes/": [
-    "/2015/02/flask-notes/"
-  ],
   "/2015/getting-started-testing/": [
     "/2015/10/getting-started-testing/"
   ],
@@ -2651,6 +2648,9 @@
   ],
   "/notes/2024/hyperlink-errors/": [
     "/til/2024/hyperlink-errors/"
+  ],
+  "/notes/2024/inline-svg-in-css/": [
+    "/til/2024/inline-svg-in-css/"
   ],
   "/notes/2024/inside-a-safari-webarchive/": [
     "/til/2024/whats-inside-safari-webarchive/"

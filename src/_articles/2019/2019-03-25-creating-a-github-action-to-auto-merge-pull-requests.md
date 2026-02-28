@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2019-03-25 21:15:36 +00:00
 title: Creating a GitHub Action to auto-merge pull requests
 summary: Saving myself the trouble of clicking that pesky "merge" button.
-tags:
-  - builds and ci
-  - github actions
+topic: Builds and CI
 colors:
   index_light: "#1b1e21"
   index_dark:  "#e6f2fb"
@@ -30,7 +28,13 @@ After our call, I got an Action working, and I've had it running successfully fo
 In this post, I'll explain how I wrote an Action to auto-merge my pull requests.
 When a pull request passes tests, GitHub Actions automatically merges the PR and then deletes the branch:
 
-<img src="/images/2019/github_actions_merge.png" alt="A screenshot of the GitHub pull request UI, showing the github actions bot merging and deleting a branch." style="width: 700px;">
+{%
+  picture
+  filename="github_actions_merge.png"
+  class="screenshot"
+  width="700"
+  alt="A screenshot of the GitHub pull request UI, showing the github actions bot merging and deleting a branch."
+%}
 
 If you just want the code, [skip to the end](#putting-it-all-together) or check out [the GitHub repo][repo].
 
@@ -144,7 +148,7 @@ When GitHub Actions runs a container, it includes a JSON file with data from the
 It passes the path to this file as the `GITHUB_EVENT_PATH` environment variable.
 So let's open and load that file:
 
-```python
+```python {"names":{"1":"json","2":"os"}}
 import json
 import os
 
@@ -157,7 +161,7 @@ if __name__ == "__main__":
 We only want to do something if the check run is completed, otherwise we don't have enough information to determine if we're ready to merge.
 The GitHub developer docs explain what [the fields on a check_run event look like][event], and the "status" field tells us the current state of the check:
 
-```python
+```python {"names":{"1":"sys","2":"check_run","4":"name"}}
 import sys
 
 
@@ -172,14 +176,17 @@ if __name__ == "__main__":
 ```
 
 Calling `sys.exit` means we bail out of the script, and don't do anything else.
-In a GitHub Action, exit code 78 is a [*neutral* status][exit_code].
+In a GitHub Action, exit code 78 is a <a href="https://developer.github.com/actions/creating-github actions/accessing-the-runtime-environment/#exit-codes-and-statuses"><em>neutral</em> status</a>.
 It's a way to say "we didn't do any work".
 This is what it looks like in the UI, compared to a successful run:
 
-<img src="/images/2019/github_actions_neutral.png" alt="Two rows of text, both saying “on pull request pass, merge the branch”, one with a grey square, one with a green tick." style="width: 411px;">
-
-[event]: https://developer.github.com/v3/activity/events/types/#checkrunevent
-[exit_code]: https://developer.github.com/actions/creating-github actions/accessing-the-runtime-environment/#exit-codes-and-statuses
+{%
+  picture
+  filename="github_actions_neutral.png"
+  width="411"
+  alt="Two rows of text, both saying “on pull request pass, merge the branch”, one with a grey square, one with a green tick."
+  class="screenshot"
+%}
 
 If we know the check has completed, we can look at how it completed.
 Anything except a success means something has gone wrong, and we shouldn't merge the PR -- it needs manual inspection.
@@ -206,7 +213,7 @@ For me, that means:
 The check_run event includes a bit of data about the pull request, including the PR number and the branches.
 I use this for a bit of logging:
 
-```python
+```python {"names":{"3":"pull_request","5":"pr_number","7":"pr_src","9":"pr_dst"}}
     assert len(check_run["pull_requests"]) == 1
     pull_request = check_run["pull_requests"][0]
     pr_number = pull_request["number"]
@@ -219,7 +226,7 @@ I use this for a bit of logging:
 But for the detailed information like title and pull request author, I need to query the [pull requests API][pr_api].
 Let's start by creating an HTTP session for working with the GitHub API:
 
-```python
+```python {"names":{"1":"requests","2":"create_session","3":"github_token","4":"sess","11":"raise_for_status","12":"resp","13":"args","14":"kwargs"}}
 import requests
 
 
@@ -272,7 +279,7 @@ We don't need to much around creating and rotating API tokens by hand.
 
 We can read this environment variable to create a session:
 
-```python
+```python {"names":{"1":"github_token","4":"sess"}}
     github_token = os.environ["GITHUB_TOKEN"]
 
     sess = create_session(github_token)
@@ -280,7 +287,7 @@ We can read this environment variable to create a session:
 
 Now let's read some data from the pull requests API, and run the checks:
 
-```python
+```python {"names":{"1":"pr_data","6":"pr_title","15":"pr_user"}}
     pr_data = sess.get(pull_request["url"]).json()
 
     pr_title = pr_data["title"]
@@ -300,7 +307,7 @@ If the PR isn't ready to be merged, I use another neutral status -- a failing bu
 
 If it's ready and we haven't bailed out yet, we can merge the pull request!
 
-```python
+```python {"names":{"2":"merge_url"}}
     print("*** This pull request is ready to be merged.")
     merge_url = pull_request["url"] + "/merge"
     sess.put(merge_url)
@@ -308,7 +315,7 @@ If it's ready and we haven't bailed out yet, we can merge the pull request!
 
 Then to keep things tidy, I delete the PR branch when I’m done:
 
-```python
+```python {"names":{"2":"pr_ref","4":"api_base_url","6":"ref_url"}}
     print("*** Cleaning up pull request branch")
     pr_ref = pr_data["head"]["ref"]
     api_base_url = pr_data["base"]["repo"]["url"]
@@ -354,7 +361,7 @@ COPY merge_pr.py /
 ENTRYPOINT ["python3", "/merge_pr.py"]
 ```
 
-```python
+```python {"names":{"1":"json","2":"os","3":"requests","4":"create_session","5":"github_token","6":"sess","13":"raise_for_status","14":"resp","15":"args","16":"kwargs","30":"event_path","33":"event_data","38":"check_run","40":"name","54":"pull_request","56":"pr_number","58":"pr_src","60":"pr_dst","66":"github_token","69":"sess","72":"pr_data","77":"pr_title","86":"pr_user","95":"merge_url","101":"pr_ref","103":"api_base_url","105":"ref_url"}}
 # auto_merge_pull_requests/merge_pr.py
 #!/usr/bin/env python
 # -*- encoding: utf-8
@@ -458,3 +465,5 @@ And so on.
 GitHub Actions feels like it could be really flexible and powerful, and I'm glad to have created something useful with it.
 I've had this code running in the repo for this blog for nearly a month, and it's working fine -- saving me a bit of work every time.
 It'll even merge the pull request where I've written this blog post.
+
+[event]: https://developer.github.com/v3/activity/events/types/#checkrunevent

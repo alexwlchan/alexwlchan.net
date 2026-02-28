@@ -120,8 +120,6 @@ redir /2015/07/exit-traps-in-bash/ /2015/exit-traps-in-bash/ permanent
 redir /2015/07/exit-traps-in-bash /2015/exit-traps-in-bash/ permanent
 redir /2015/11/export-urls-from-safari-reading-list/ /2015/export-urls-from-safari-reading-list/ permanent
 redir /2015/11/export-urls-from-safari-reading-list /2015/export-urls-from-safari-reading-list/ permanent
-redir /2015/02/flask-notes/ /2015/flask-notes/ permanent
-redir /2015/02/flask-notes /2015/flask-notes/ permanent
 redir /2015/10/getting-started-testing/ /2015/getting-started-testing/ permanent
 redir /2015/10/getting-started-testing /2015/getting-started-testing/ permanent
 redir /2015/06/git-info-exclude/ /2015/git-info-exclude/ permanent
@@ -1624,6 +1622,8 @@ redir /til/2024/gracefully-restart-a-gunicorn-app/ /notes/2024/gracefully-restar
 redir /til/2024/gracefully-restart-a-gunicorn-app /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
 redir /til/2024/hyperlink-errors/ /notes/2024/hyperlink-errors/ permanent
 redir /til/2024/hyperlink-errors /notes/2024/hyperlink-errors/ permanent
+redir /til/2024/inline-svg-in-css/ /notes/2024/inline-svg-in-css/ permanent
+redir /til/2024/inline-svg-in-css /notes/2024/inline-svg-in-css/ permanent
 redir /til/2024/whats-inside-safari-webarchive/ /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/whats-inside-safari-webarchive /notes/2024/inside-a-safari-webarchive/ permanent
 redir /til/2024/install-from-github-releases/ /notes/2024/install-from-github-releases/ permanent
@@ -1870,4 +1870,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: yV/axe6x1d)
+#[[[end]]] (sum: g+fVwZZY6+)
