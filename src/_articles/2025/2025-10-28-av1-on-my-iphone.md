@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2025-10-28 09:59:45 +00:00
 title: Why can't my iPhone play that video?
 summary: The answer involves the AV1 video codec, Apple's chips, and several new web APIs I learnt along the way.
-tags:
-  - web development
-  - video
-old_syntax_highlighting: true
+topic: Images and videos
 ---
 I [download a lot of videos][downloads], but recently I discovered that some of those videos won't play on my iPhone.
 If I try to open the videos or embed them in a webpage, I get a broken video player:
@@ -64,15 +61,15 @@ If you want more detail, read the [AV1 codecs docs on MDN][av1_codec] or the [Co
 
 We can get the key information about the unplayable video using `ffprobe`:
 
-{% code lang="shell" %}
-ffprobe -v error -select_streams v:0 \
+```console
+$ ffprobe -v error -select_streams v:0 \
     -show_entries stream=codec_name,profile,level,bits_per_raw_sample \
     -of default=noprint_wrappers=1 "input.mp4"
-# codec_name=av1
-# profile=Main
-# level=8
-# bits_per_raw_sample=N/A
-{% endcode %}
+codec_name=av1
+profile=Main
+level=8
+bits_per_raw_sample=N/A
+```
 
 The AV1 codec template is `av01.P.LLT.DD`, which we construct as follows:
 
@@ -96,15 +93,15 @@ video/mp4; codecs=avc1.640028
 
 By swapping out the argument to `-show_entries`, we can also use ffprobe to get the resolution, frame rate, and bit rate:
 
-{% code lang="shell" %}
-ffprobe -v error -select_streams v:0 \
-  -show_entries stream=width,height,bit_rate,r_frame_rate \
-  -of default=noprint_wrappers=1:nokey=0 "input.mp4"
-# width=1920
-# height=1080
-# r_frame_rate=24000/1001
-# bit_rate=1088190
-{% endcode %}
+```console
+$ ffprobe -v error -select_streams v:0 \
+    -show_entries stream=width,height,bit_rate,r_frame_rate \
+    -of default=noprint_wrappers=1:nokey=0 "input.mp4"
+width=1920
+height=1080
+r_frame_rate=24000/1001
+bit_rate=1088190
+```
 
 Now we have this information, let's pass it to some browser APIs.
 
@@ -119,10 +116,10 @@ Note the word "likely": possible responses are "probably", "maybe" and "no".
 
 Here's an example using the MIME type of my AV1 video:
 
-{% code lang="javascript" names="0:video" %}
+```javascript {"names":{"1":"video"}}
 const video = document.createElement("video");
 video.canPlayType("video/mp4; codecs=av01.0.08M.08");
-{% endcode %}
+```
 
 Let's run this with few different values, and compare the results:
 

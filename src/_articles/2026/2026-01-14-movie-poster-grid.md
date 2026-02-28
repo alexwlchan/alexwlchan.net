@@ -318,13 +318,14 @@ First, I use my [dominant_colours tool][dominant_colours] to get a suitable tint
   }
 </style>
 
-<!-- console?prompt=$ -->
-
 <div id="dominant_colours_example">
-{% code lang="console" %}
+{% set md %}
+```console
 $ dominant_colours gridiator.png --best-against-bg '#222'
 ▇ #ecd3ab
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </div>
 
 Then I add this to my markup as a CSS variable:

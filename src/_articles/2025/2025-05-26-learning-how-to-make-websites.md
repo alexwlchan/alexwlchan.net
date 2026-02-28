@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2025-05-26 10:01:21 +00:00
 title: What I learnt about making websites by reading two thousand web pages
 summary: How to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
@@ -206,10 +206,13 @@ I saw it on a number of sites that publish longer articles -- they used a progre
 </style>
 
 <blockquote id="progress_example">
-  {% code lang="html" wrap="true" %}
+{% set md %}
+```html {"wrap":true}
 <label for="file">Progress:</label>
-<progress id="file" max="100" value="70">70%</progress>
-  {% endcode %}
+<progress id="file" max="100" value="70">70%</progress>.
+```
+{% endset %}
+{{ md|markdownify }}
 
   <div>
     <label for="file">File progress:</label>

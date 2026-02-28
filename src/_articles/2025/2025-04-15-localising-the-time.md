@@ -1,13 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2025-04-15 21:23:24 +00:00
 title: Localising the `<time>` with JavaScript
 summary:
   I'm using the `<time>` element and some JavaScript to display timestamps as human-readable, localised timestamps. Something like `Tue, 15 Apr 2025 at 20:45 BST` is easier to read than `2025-04-15T19:45:00Z`.
-tags:
-  - javascript
-  - datetime shenanigans
-old_syntax_highlighting: true
+topics:
+  - JavaScript
+  - Datetime shenanigans
 ---
 I've been writing some internal dashboards recently, and one hard part is displaying timestamps.
 Our server does everything in UTC, but the team is split across four different timezones, so the server timestamps aren't always easy to read. 
@@ -43,7 +42,7 @@ I put a machine-readable date and time string with a timezone offset string in t
 
 Then I add this JavaScript snippet to the page:
 
-```javascript
+```javascript {"names":{"6":"timeElem"}}
 window.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll("time").forEach(function(timeElem) {
     

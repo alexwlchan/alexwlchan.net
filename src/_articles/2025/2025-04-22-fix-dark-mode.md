@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-04-22 06:40:55 +00:00
 title: A flash of light in the darkness
 summary: If you're using an image as your background, remember to set a fallback colour as well, especially if you're in dark mode.
-tags:
-  - css
-  - blogging about blogging
-old_syntax_highlighting: true
+topics:
+  - CSS
+  - Blogging about blogging
 ---
 I support dark mode on this site, and as part of the dark theme, I have a colour-inverted copy of the default background texture.
 I like giving my website a subtle bit of texture, which I think makes it stand out from a web which is mostly solid-colour backgrounds.
@@ -47,7 +46,7 @@ Both my textures are based on the ["White Waves" pattern][white_waves] made by S
 
 I was setting these images as my background with two CSS rules, using the [`prefers-color-scheme: dark`][prefers_dark] media feature to use the alternate image in dark mode:
 
-{% code lang="css" %}
+```css {"names":{"1":"body","5":"body"}}
 body {
   background: url('https://alexwlchan.net/theme/white-waves-transparent.png');
 }
@@ -57,7 +56,7 @@ body {
     background: url('https://alexwlchan.net/theme/black-waves-transparent.png');
   }
 }
-{% endcode %}
+```
 
 This works, mostly.
 
@@ -93,7 +92,7 @@ I've made two changes to prevent this happening again.
     The CSS `background` property supports adding a colour, which is used until the image loads, or as a fallback if it doesn't.
     I already use this in a few places, and now I've added it to my `body` background.
     
-    {% code lang="css" %}
+    ```css {"names":{"1":"body","5":"body"}}
     body {
       background: url('https://…/white-waves-transparent.png') #fafafa;
     }
@@ -103,7 +102,7 @@ I've made two changes to prevent this happening again.
         background: url('https://…/black-waves-transparent.png') #0d0d0d;
       }
     }
-    {% endcode %}
+    ```
 
     This avoids the flash of unstyled background before the image loads -- the browser will use a solid dark background until it gets the texture.
 

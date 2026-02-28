@@ -1,18 +1,16 @@
 ---
-layout: post
+layout: article
 date: 2025-12-05 07:54:32 +00:00
 title: When square pixels aren't square
 summary: "When you want to get the dimensions of a video file, you probably want the display aspect ratio. Using the dimensions of a stored frame may result in a stretched or squashed video."
-tags:
-  - video
-old_syntax_highlighting: true
+topic: Images and videos
 ---
 When I embed videos in web pages, I specify an [aspect ratio][mdn-aspect-ratio].
 For example, if my video is 1920×1080 pixels, I'd write:
 
-{% code lang="html" wrap="true" %}
+```html {"wrap":true}
 <video style="aspect-ratio: 1920 / 1080">
-{% endcode %}
+```
 
 If I also set a width or a height, the browser now knows exactly how much space this video will take up on the page -- even if it hasn't loaded the video file yet.
 When it initially renders the page, it can leave the right gap, so it doesn't need to rearrange when the video eventually loads.
@@ -113,7 +111,7 @@ This video by Simeon Schmauß tries to match what the human eye would have seen 
 
 We can get the width, height, and **sample aspect ratio** (which is another name for pixel aspect ratio) using ffprobe:
 
-{% code lang="console" %}
+```console
 $ ffprobe -v error \
       -select_streams v:0 \
       -show_entries stream=width,height,sample_aspect_ratio \
@@ -123,7 +121,7 @@ width=1920
 height=1080
 sample_aspect_ratio=45:64
 [/STREAM]
-{% endcode %}
+```
 
 Here `1920` is the stored width, and `45:64` is the pixel aspect ratio.
 We can multiply them together to get the display width: <code>1920×45&thinsp;/&thinsp;64 = 1350</code>.
@@ -169,7 +167,7 @@ I was telling the browser the wrong aspect ratio, and the browser had to update 
 This is my old function for getting the dimensions of a video file, which uses a [Python wrapper around MediaInfo][mediainfo-py] to extract the width and height fields.
 I now realise that this only gives me the storage aspect ratio, and may be misleading for some videos.
 
-{% code lang="python" names="0:pathlib 1:Path 2:pymediainfo 3:MediaInfo 4:get_storage_aspect_ratio 5:video_path 10:media_info 14:video_track" %}
+```python {"names":{"1":"pathlib","2":"Path","3":"pymediainfo","4":"MediaInfo","5":"get_storage_aspect_ratio","6":"video_path","11":"media_info","15":"video_track","18":"tr"}}
 from pathlib import Path
 
 from pymediainfo import MediaInfo
@@ -191,7 +189,7 @@ def get_storage_aspect_ratio(video_path: Path) -> tuple[int, int]:
         raise ValueError(f"No video track found in {video_path}")
     
     return video_track.width, video_track.height
-{% endcode %}
+```
 
 I can't find an easy way to extract the pixel aspect ratio using pymediainfo.
 It does expose a `Track.aspect_ratio` property, but that's a string which has a rounded value -- for example, `45:64` becomes `0.703`.
@@ -200,7 +198,7 @@ Since I can get the complete value from ffprobe, that's what I'm doing in my rev
 
 The new function is longer, but it's more accurate:
 
-{% code lang="python" names="0:fractions 1:Fraction 2:json 3:pathlib 4:Path 5:subprocess 6:get_display_aspect_ratio 7:video_path 12:cmd 15:output 19:ffprobe_resp 23:video_stream 25:pixel_aspect_ratio 30:pixel_aspect_ratio 31:width 35:height" %}
+```python {"names":{"1":"fractions","2":"Fraction","3":"json","4":"pathlib","5":"Path","6":"subprocess","7":"get_display_aspect_ratio","8":"video_path","13":"cmd","16":"output","20":"ffprobe_resp","24":"video_stream","26":"pixel_aspect_ratio","31":"pixel_aspect_ratio","32":"width","36":"height"}}
 from fractions import Fraction
 import json
 from pathlib import Path
@@ -261,7 +259,7 @@ def get_display_aspect_ratio(video_path: Path) -> tuple[int, int]:
     height = video_stream["height"]
     
     return width, height
-{% endcode %}
+```
 
 This is calling the `ffprobe` command I showed above, plus `-print_format json` to print the data in JSON, which is easier for Python to parse.
 

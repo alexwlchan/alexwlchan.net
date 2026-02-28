@@ -68,7 +68,7 @@ Let's dive in!
 A website can be a single HTML file you edit by hand.
 Open a text editor like TextEdit or Notepad, copy-paste the following text, and save it in a file named `bookmarks.html`.
 
-{% code lang="html" wrap="true" %}
+```html {"wrap":true}
 <h1>Bookmarks</h1>
 
 <ul>
@@ -76,7 +76,7 @@ Open a text editor like TextEdit or Notepad, copy-paste the following text, and 
   <li><a href="https://www.theatlantic.com/technology/archive/2015/01/why-i-am-not-a-maker/384767/">Why I Am Not a Maker, by Debbie Chachra (The Atlantic, 2015)</a></li>
   <li><a href="https://meyerweb.com/eric/thoughts/2014/06/10/so-many-nevers/">So Many Nevers, by Eric Meyer (2014)</a></li>
 </ul>
-{% endcode %}
+```
 
 If you open this file in your web browser, you'll see a list of three links.
 You can also [check out my demo page](/files/2025/static-site-demo.html?demoId=hand-written-html) to see this in action.
@@ -103,7 +103,7 @@ When a site gets bigger, I convert the metadata into [JSON][json], then I use Ja
 Let's start with a simple example of metadata in JSON.
 My real data has more fields, like date saved or a list of keyword tags, but this is enough to get the idea:
 
-{% code lang="javascript" names="0:bookmarks" %}
+```javascript {"names":{"1":"bookmarks"}}
 const bookmarks = [
   {
     "url": "https://estherschindler.medium.com/the-old-family-photos-project-lessons-in-creating-family-photos-that-people-want-to-keep-ea3909129943",
@@ -118,7 +118,7 @@ const bookmarks = [
     "title": "So Many Nevers, by Eric Meyer (2014)"
   }
 ];
-{% endcode %}
+```
 
 Then I have a function that renders the data for a single bookmark as HTML:
 

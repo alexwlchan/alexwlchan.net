@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2025-03-28 08:43:57 +00:00
 title: "What I've Learned by Building to Last"
 summary: There are patterns in what lasts; people skills matter more than technical skills; long-lasting systems cannot grow forever.
@@ -11,7 +11,6 @@ index:
 colors:
   css_light: "#408074"
   css_dark:  "#7CF6DF"
-old_syntax_highlighting: true
 ---
 Yesterday I gave a talk at [Monki Gras 2025](https://monkigras.com/).
 This year, the theme is *Sustaining Software Development Craft*, and here's the description from the conference website:

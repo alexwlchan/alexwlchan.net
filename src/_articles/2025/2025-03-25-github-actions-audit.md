@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-03-25 16:53:43 +00:00
 title: Whose code am I running in GitHub Actions?
 summary: I wanted to know what third-party code I was using in my GitHub Actions. I was able to use standard text processing tools and shell pipelines to get a quick tally.
-tags:
-  - shell scripting
-  - github
-old_syntax_highlighting: true
+topics:
+  - Shell scripting
+  - Builds and CI
 ---
 A week ago, somebody added malicious code [to the tj-actions/changed-files GitHub Action][compromise].
 If you used the compromised action, it would leak secrets to your build log.
@@ -102,9 +101,12 @@ Let's step through how it works.
 
 <dl>
 <dt>
-  {% code lang="shell" %}
+{% set md %}
+```shell
 find . -path '*/.github/workflows/*' -type f -name '*.yml' -print0
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
@@ -128,9 +130,12 @@ find . -path '*/.github/workflows/*' -type f -name '*.yml' -print0
   </p>
 </dd>
 <dt>
-{% code lang="shell" %}
+{% set md %}
+```shell
 xargs -0 grep --no-filename "uses:"
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
@@ -146,9 +151,12 @@ xargs -0 grep --no-filename "uses:"
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: ruby/setup-ruby@v1</code></p>
 </dd>
 <dt>
-{% code lang="shell" %}
+{% set md %}
+```shell
 sed 's/\- uses:/uses:/g' \
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
@@ -163,9 +171,12 @@ sed 's/\- uses:/uses:/g' \
   </p>
 </dd>
 <dt>
-{% code lang="shell" %}
+{% set md %}
+```shell
 tr '"' ' '
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
@@ -181,9 +192,12 @@ tr '"' ' '
   </p>
 </dd>
 <dt>
-{% code lang="shell" %}
+{% set md %}
+```shell
 awk '{print $2}'
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
@@ -198,9 +212,12 @@ ruby/setup-ruby@v1</code></p>
   </p>
 </dd>
 <dt>
-{% code lang="shell" %}
+{% set md %}
+```shell
 sed 's/\r//g'
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
@@ -209,9 +226,12 @@ sed 's/\r//g'
   </p>
 </dd>
 <dt>
-{% code lang="shell" %}
+{% set md %}
+```shell
 sort | uniq --count | sort --numeric-sort
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </dt>
 <dd>
   <p>
