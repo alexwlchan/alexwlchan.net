@@ -1,13 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2024-04-17 19:44:35 +00:00
 title: Getting faster Jekyll builds with caching in plugins
 summary: |
   I was able to build my Jekyll site much faster by using the built-in caching API.
-tags:
-  - jekyll
-  - blogging about blogging
-old_syntax_highlighting: true
+topics:
+  - Blogging about blogging
+  - Ruby
 ---
 
 <!-- Card image: https://www.pexels.com/photo/laboratory-test-tubes-2280549/ -->
@@ -39,7 +38,7 @@ If `key` is already in the cache, it returns the cached value; if not, it runs t
 
 Here's an example:
 
-```ruby
+```ruby {"names":{"1":"cache","5":"add_non_breaking_spaces","6":"markdown"}}
 def cache
   @@cache ||= Jekyll::Cache.new('AddNonBreakingSpaces')
 end
@@ -82,7 +81,7 @@ In this case, I slightly prefer the second approach, so I added a "cached smarti
 This overrides the existing `smartify` filter and replaces it with a cached version.
 I can continue to use `smartify` in my templates as before, and enjoy a nice speedup:
 
-```ruby
+```ruby {"names":{"1":"Jekyll","2":"Filters","3":"builtin_smartify","5":"smartify_cache","9":"smartify","10":"input"}}
 # cached_smartify.rb
 module Jekyll
   module Filters
