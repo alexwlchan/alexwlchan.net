@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2022-12-20 08:31:16 +00:00
 title: How we do bulk analysis of our Prismic content
 summary: By downloading all our Prismic documents, we can run validation rules, fix broken links, and find interesting examples.
-tags:
-  - prismic
+topic: Systems and software
 colors:
   index_light: "#1d1d25"
   index_dark:  "#a1a1b5"
-old_syntax_highlighting: true
 ---
 
 <!-- Cover image: https://commons.wikimedia.org/wiki/File:Prism_flat_rainbow.jpg, CC0 -->
@@ -53,7 +51,7 @@ Fortunately, the Prismic client library includes a [dangerouslyGetAll() method][
 It includes both pagination and throttling, so it can fetch everything without overwhelming the Prismic API.
 We can put this in a short script:
 
-{% code lang="javascript" names="0:fetch 1:prismic 3:downloadDocuments 4:endpoint 7:client 12:documents 18:documents" %}
+```javascript {"names":{"1":"fetch","2":"prismic","4":"downloadDocuments","5":"endpoint","8":"client","13":"documents","19":"documents"}}
 // npm i node-fetch @prismicio/client
 // node download-documents-1.js
 
@@ -72,7 +70,7 @@ async function downloadDocuments() {
 
 downloadDocuments()
   .then(documents => console.log(documents));
-{% endcode %}
+```
 
 This can be somewhat slow -- our library has about 3.5k documents, and it takes 20 seconds to download.
 Over time, as we write more and bigger documents, that's only going to get slower.
@@ -81,7 +79,7 @@ To speed things up, we save our snapshot to a JSON file, and we use refs to skip
 Prismic uses [refs] as identifiers for different versions of content -- whenever you make a change, you get a new ref.
 By including the ref in the filename, we can tell if we've already saved this version of the content -- and we can skip downloading it again.
 
-{% code lang="javascript" names="0:fs 2:fetch 3:prismic 5:downloadSnapshot 6:endpoint 9:client 14:masterRef 17:snapshotFile 23:documents 35:snapshotFile" %}
+```javascript {"names":{"1":"fs","3":"fetch","4":"prismic","6":"downloadSnapshot","7":"endpoint","10":"client","15":"masterRef","18":"snapshotFile","24":"documents","36":"snapshotFile"}}
 // npm i node-fetch @prismicio/client
 // node download-documents-2.js
 
@@ -110,11 +108,11 @@ async function downloadSnapshot() {
 
 downloadSnapshot()
   .then(snapshotFile => console.log(`Saved snapshot to ${snapshotFile}`));
-{% endcode %}
+```
 
 We can retrieve the documents by reading the snapshot:
 
-{% code lang="javascript" names="0:fs 2:readJson 3:path 4:jsonString 12:documents" %}
+```javascript {"names":{"1":"fs","3":"readJson","5":"jsonString","13":"documents"}}
 // node read-documents.js
 
 const fs = require('fs');
@@ -126,7 +124,7 @@ function readJson(path) {
 
 const documents = readJson('snapshot.Y5dUDREAAF9hpGNe.json');
 console.log(`There are ${documents.length} documents in Prismic`);
-{% endcode %}
+```
 
 Splitting the download and the analysis is a classic pattern in data pipelines.
 The initial download is slow, but the subsequent processing is much faster.
@@ -146,7 +144,7 @@ Now we have this snapshot, what can we do with it?
 
 One thing a snapshot can do is give us a link to every bit of content we have in Prismic:
 
-{% code lang="javascript" names="0:nonVisibleTypes 2:createUrl 3:baseUrl 4:type 5:id 14:doc" %}
+```javascript {"names":{"1":"nonVisibleTypes","3":"createUrl","4":"baseUrl","5":"type","6":"id","14":"doc"}}
 const nonVisibleTypes = new Set([
   'audiences', 'interpretation-types', 'labels', 'teams',
 ]);
@@ -170,7 +168,7 @@ for (let doc of documents) {
 // http://localhost:3000/events/Xagh1RAAACMAozgg
 // http://localhost:3000/articles/Ye6WHxAAACMAXTxz
 // http://localhost:3000/books/YW7dSREAACAANjZn
-{% endcode %}
+```
 
 I've found this useful when doing a big, disruptive refactor -- it takes a while, but I can use this list to grind through every page.
 I [fetch every page][curl] from a local copy of the site, check for errors, and then I can fix them before they're deployed to prod.
@@ -202,7 +200,7 @@ Content editors can assemble a sequence of different slices in the GUI editor to
 To help us manage our slice types, we made a tool that counts how many times each slice type is used.
 It goes through every page in the snapshot, counts all the slices it uses, then prints the result:
 
-{% code lang="javascript" names="0:doc 5:slice 19:a 20:b 24:entry" %}
+```javascript {"names":{"1":"doc","6":"slice","20":"a","21":"b","25":"entry"}}
 for (let doc of documents) {
   if (doc.data.body) {
     for (let slice of doc.data.body) {
@@ -216,7 +214,7 @@ Object.entries(sliceTally)
   .forEach(entry =>
     console.log(`${entry[1].toString().padStart(6, ' ')}\t${entry[0]}`)
   );
-{% endcode %}
+```
 
 The output is a simple table:
 
@@ -258,7 +256,7 @@ If I was doing some work on the map code, it might be useful to know which pages
 
 We can find this with just a small change to the previous script:
 
-{% code lang="javascript" names="0:doc 1:documents 9:slice" %}
+```javascript {"names":{"1":"doc","10":"slice"}}
 for (let doc of documents) {
   if (doc.data.body) {
     if (doc.data.body.some(slice => slice.type === 'map')) {
@@ -267,7 +265,7 @@ for (let doc of documents) {
     }
   }
 }
-{% endcode %}
+```
 
 We also use this when we update our slice types.
 Over time, we've deprecated slice types as we recognise their flaws, and replaced them with newer types.
@@ -291,7 +289,7 @@ As we loop through the documents, we can apply logic that looks for documents wh
 For example, in our event model, we can link to interpretation types (audio described, closed captioning, sign language interpreted, and so on).
 When the interpretation types get reorganised or restructured, that can break the links on old events -- but we can detect them in a snapshot:
 
-{% code lang="javascript" names="0:detectBrokenInterpretationTypeLinks 1:doc 4:brokenLinks 9:it 19:doc 20:documents" %}
+```javascript {"names":{"1":"detectBrokenInterpretationTypeLinks","2":"doc","10":"it","20":"doc"}}
 function detectBrokenInterpretationTypeLinks(doc) {
   if (doc.type === 'events') {
     const brokenLinks = doc.data.interpretations.filter(
@@ -309,7 +307,7 @@ function detectBrokenInterpretationTypeLinks(doc) {
 for (let doc of documents) {
   detectBrokenInterpretationTypeLinks(doc);
 }
-{% endcode %}
+```
 
 We've used this to detect and fix several issues on the site, including:
 
