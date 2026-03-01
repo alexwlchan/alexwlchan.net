@@ -25,7 +25,7 @@ def test_note_properties(src_dir: Path) -> None:
     assert n.url == "/notes/2026/example-note/"
     assert n.breadcrumb() == [
         BreadcrumbEntry(label="Systems and software", href="/systems/"),
-        BreadcrumbEntry(label="Python", href="/systems/python/"),
+        BreadcrumbEntry(label="Python", href="/python/"),
     ]
 
 
