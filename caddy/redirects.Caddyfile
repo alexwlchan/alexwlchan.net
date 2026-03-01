@@ -1726,6 +1726,8 @@ redir /til/2025/disable-javascript-in-iframe/ /notes/2025/disable-javascript-in-
 redir /til/2025/disable-javascript-in-iframe /notes/2025/disable-javascript-in-iframe/ permanent
 redir /til/2025/discard-in-js-spread/ /notes/2025/discard-in-js-spread/ permanent
 redir /til/2025/discard-in-js-spread /notes/2025/discard-in-js-spread/ permanent
+redir /til/2025/dont-nest-script-in-head/ /notes/2025/dont-nest-script-in-head/ permanent
+redir /til/2025/dont-nest-script-in-head /notes/2025/dont-nest-script-in-head/ permanent
 redir /til/2025/download-tumblr-avatars/ /notes/2025/download-tumblr-avatars/ permanent
 redir /til/2025/download-tumblr-avatars /notes/2025/download-tumblr-avatars/ permanent
 redir /til/2025/exclusive-write-in-go/ /notes/2025/exclusive-write-in-go/ permanent
@@ -1776,6 +1778,8 @@ redir /til/2025/python3-13-sqlite-warnings/ /notes/2025/python3-13-sqlite-warnin
 redir /til/2025/python3-13-sqlite-warnings /notes/2025/python3-13-sqlite-warnings/ permanent
 redir /til/2025/python-3-14/ /notes/2025/python-3-14/ permanent
 redir /til/2025/python-3-14 /notes/2025/python-3-14/ permanent
+redir /til/2025/python-smartypants/ /notes/2025/python-smartypants/ permanent
+redir /til/2025/python-smartypants /notes/2025/python-smartypants/ permanent
 redir /til/2025/remove-microsecond-precision-in-python/ /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/remove-microsecond-precision-in-python /notes/2025/remove-microsecond-precision-in-python/ permanent
 redir /til/2025/ruby-range/ /notes/2025/ruby-range/ permanent
@@ -1810,6 +1814,8 @@ redir /til/2025/zipstream-to-boto3/ /notes/2025/zipstream-to-boto3/ permanent
 redir /til/2025/zipstream-to-boto3 /notes/2025/zipstream-to-boto3/ permanent
 redir /entertainment/who-is-bufo/ /notes/2026/who-is-bufo/ permanent
 redir /entertainment/who-is-bufo /notes/2026/who-is-bufo/ permanent
+redir /systems/python/ /python/ permanent
+redir /systems/python /python/ permanent
 redir /personal-thoughts/blogging/ /systems/ permanent
 redir /personal-thoughts/blogging /systems/ permanent
 redir /tags/jq/ /systems/jq/ permanent
@@ -1868,4 +1874,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: BmZOYh/29O)
+#[[[end]]] (sum: MJ3g11iG58)

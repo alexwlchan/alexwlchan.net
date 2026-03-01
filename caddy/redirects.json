@@ -2803,6 +2803,9 @@
   "/notes/2025/discard-in-js-spread/": [
     "/til/2025/discard-in-js-spread/"
   ],
+  "/notes/2025/dont-nest-script-in-head/": [
+    "/til/2025/dont-nest-script-in-head/"
+  ],
   "/notes/2025/download-tumblr-avatars/": [
     "/til/2025/download-tumblr-avatars/"
   ],
@@ -2878,6 +2881,9 @@
   "/notes/2025/python-3-14/": [
     "/til/2025/python-3-14/"
   ],
+  "/notes/2025/python-smartypants/": [
+    "/til/2025/python-smartypants/"
+  ],
   "/notes/2025/remove-microsecond-precision-in-python/": [
     "/til/2025/remove-microsecond-precision-in-python/"
   ],
@@ -2928,6 +2934,9 @@
   ],
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"
+  ],
+  "/python/": [
+    "/systems/python/"
   ],
   "/systems/": [
     "/personal-thoughts/blogging/"

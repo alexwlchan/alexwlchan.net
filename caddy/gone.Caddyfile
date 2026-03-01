@@ -612,6 +612,14 @@ handle /2021/safari-15-favicons {
 	error 410
 }
 
+handle /til/2025/redirect-log-printf/ {
+	error 410
+}
+
+handle /til/2025/redirect-log-printf {
+	error 410
+}
+
 handle /analytics/a.js {
 	error 410
 }
@@ -680,4 +688,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: sT/kcYRTLH)
+#[[[end]]] (sum: 9Ll5KqATrw)

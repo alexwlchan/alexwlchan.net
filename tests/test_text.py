@@ -8,6 +8,24 @@ from mosaic import text as t
 
 
 @pytest.mark.parametrize(
+    "text, expected",
+    [
+        ("Isn't it delightful -- she said", "Isn’t it delightful – she said"),
+        ("Are you ... sure?", "Are you … sure?"),
+        ("<h2>Isn't it delightful?</h2>", "<h2>Isn’t it delightful?</h2>"),
+        ("<li>Isn't it delightful?</li>", "<li>Isn’t it delightful?</li>"),
+        ("<p>&quot;It's nice&quot;, he said</p>", "<p>“It’s nice”, he said</p>"),
+    ],
+)
+def test_smartify(text: str, expected: str) -> None:
+    """
+    Test smartify().
+    """
+    actual = t.smartify(text)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
     "md, expected",
     [
         (
@@ -24,7 +42,7 @@ from mosaic import text as t
             "<table><tr><td>Hello</td><td>World</td></tr></table>\n\n</li>\n"
             "<li><p>This is another list item</p>\n</li>\n</ul>",
         ),
-        # Test that smart quotes and dashed are applied.
+        # Test that smart quotes and dashes are applied.
         ("Isn't it delightful -- she said", "<p>Isn’t it delightful – she said</p>"),
         (
             "## Isn't it delightful?",
