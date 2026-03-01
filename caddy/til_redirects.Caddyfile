@@ -26,7 +26,7 @@ til.alexwlchan.net {
   #]]]
   redir / https://alexwlchan.net/til/ permanent
   redir /atom.xml https://alexwlchan.net/til/atom.xml permanent
-  redir /animate-svg-elements-with-animate/ https://alexwlchan.net/til/2024/animate-svg-elements-with-animate/ permanent
+  redir /animate-svg-elements-with-animate/ https://alexwlchan.net/notes/2024/animate-svg-elements-with-animate/ permanent
   redir /applescript-do-javascript/ https://alexwlchan.net/til/2024/applescript-do-javascript/ permanent
   redir /beware-of-test-n-with-command-expansion/ https://alexwlchan.net/notes/2024/beware-of-test-n-with-command-expansion/ permanent
   redir /block-specific-ip-addresses/ https://alexwlchan.net/til/2024/block-specific-ip-addresses/ permanent
@@ -86,5 +86,5 @@ til.alexwlchan.net {
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: 2RuFDFQldj)
+#[[[end]]] (sum: z5Ix+eKGJq)
 }

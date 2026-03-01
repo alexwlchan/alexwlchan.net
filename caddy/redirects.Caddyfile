@@ -306,8 +306,6 @@ redir /2018/05/beware-logged-errors/ /2018/beware-logged-errors/ permanent
 redir /2018/05/beware-logged-errors /2018/beware-logged-errors/ permanent
 redir /2018/11/book-recommendations/ /2018/book-recommendations/ permanent
 redir /2018/11/book-recommendations /2018/book-recommendations/ permanent
-redir /2018/09/content-warnings/ /2018/content-warnings/ permanent
-redir /2018/09/content-warnings /2018/content-warnings/ permanent
 redir /2018/03/continuous-releases/ /2018/continuous-releases/ permanent
 redir /2018/03/continuous-releases /2018/continuous-releases/ permanent
 redir /2018/01/downloading-sqs-queues/ /2018/downloading-sqs-queues/ permanent
@@ -558,8 +556,6 @@ redir /2020/04/storing-language-vocabulary-as-a-graph/ /2020/storing-language-vo
 redir /2020/04/storing-language-vocabulary-as-a-graph /2020/storing-language-vocabulary-as-a-graph/ permanent
 redir /2020/03/stripey-flag-wallpapers/ /2020/stripey-flag-wallpapers/ permanent
 redir /2020/03/stripey-flag-wallpapers /2020/stripey-flag-wallpapers/ permanent
-redir /2020/04/survivors-guilt/ /2020/survivors-guilt/ permanent
-redir /2020/04/survivors-guilt /2020/survivors-guilt/ permanent
 redir /2020/01/tex-dockerfile/ /2020/tex-dockerfile/ permanent
 redir /2020/01/tex-dockerfile /2020/tex-dockerfile/ permanent
 redir /2020/05/the-friends-i-lost-along-the-way/ /2020/the-friends-i-lost-along-the-way/ permanent
@@ -1572,6 +1568,8 @@ redir /til/2023/profiling-swift/ /notes/2023/profiling-swift/ permanent
 redir /til/2023/profiling-swift /notes/2023/profiling-swift/ permanent
 redir /til/2023/how-to-do-resumable-downloads/ /notes/2023/resumable-downloads-with-curl/ permanent
 redir /til/2023/how-to-do-resumable-downloads /notes/2023/resumable-downloads-with-curl/ permanent
+redir /til/2024/animate-svg-elements-with-animate/ /notes/2024/animate-svg-elements-with-animate/ permanent
+redir /til/2024/animate-svg-elements-with-animate /notes/2024/animate-svg-elements-with-animate/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion/ /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/build-query-string-with-curl/ /notes/2024/build-query-string-with-curl/ permanent
@@ -1870,4 +1868,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: g+fVwZZY6+)
+#[[[end]]] (sum: BmZOYh/29O)

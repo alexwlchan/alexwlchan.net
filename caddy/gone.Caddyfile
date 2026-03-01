@@ -452,11 +452,27 @@ handle /2018/08/selective-sudo-on-travis {
 	error 410
 }
 
+handle /2018/09/content-warnings/ {
+	error 410
+}
+
+handle /2018/09/content-warnings {
+	error 410
+}
+
 handle /2018/24-hours/ {
 	error 410
 }
 
 handle /2018/24-hours {
+	error 410
+}
+
+handle /2018/content-warnings/ {
+	error 410
+}
+
+handle /2018/content-warnings {
 	error 410
 }
 
@@ -564,11 +580,27 @@ handle /2020/02/a-remote-controlled-oven-is-a-safety-nightmare {
 	error 410
 }
 
+handle /2020/04/survivors-guilt/ {
+	error 410
+}
+
+handle /2020/04/survivors-guilt {
+	error 410
+}
+
 handle /2020/a-remote-controlled-oven-is-a-safety-nightmare/ {
 	error 410
 }
 
 handle /2020/a-remote-controlled-oven-is-a-safety-nightmare {
+	error 410
+}
+
+handle /2020/survivors-guilt/ {
+	error 410
+}
+
+handle /2020/survivors-guilt {
 	error 410
 }
 
@@ -648,4 +680,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: RJQfRN2GrV)
+#[[[end]]] (sum: sT/kcYRTLH)

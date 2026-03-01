@@ -16,7 +16,7 @@ import pytest
         ("https://til.alexwlchan.net/", "https://alexwlchan.net/til/"),
         (
             "https://til.alexwlchan.net/animate-svg-elements-with-animate/",
-            "https://alexwlchan.net/til/2024/animate-svg-elements-with-animate/",
+            "https://alexwlchan.net/notes/2024/animate-svg-elements-with-animate/",
         ),
         ("https://alexwlchan.net/all-posts", "/articles/"),
         ("https://alexwlchan.net/all-posts/", "/articles/"),

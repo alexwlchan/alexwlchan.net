@@ -365,9 +365,6 @@
   "/2018/book-recommendations/": [
     "/2018/11/book-recommendations/"
   ],
-  "/2018/content-warnings/": [
-    "/2018/09/content-warnings/"
-  ],
   "/2018/continuous-releases/": [
     "/2018/03/continuous-releases/"
   ],
@@ -738,9 +735,6 @@
   ],
   "/2020/stripey-flag-wallpapers/": [
     "/2020/03/stripey-flag-wallpapers/"
-  ],
-  "/2020/survivors-guilt/": [
-    "/2020/04/survivors-guilt/"
   ],
   "/2020/tex-dockerfile/": [
     "/2020/01/tex-dockerfile/"
@@ -2573,6 +2567,9 @@
   ],
   "/notes/2023/resumable-downloads-with-curl/": [
     "/til/2023/how-to-do-resumable-downloads/"
+  ],
+  "/notes/2024/animate-svg-elements-with-animate/": [
+    "/til/2024/animate-svg-elements-with-animate/"
   ],
   "/notes/2024/beware-of-test-n-with-command-expansion/": [
     "/til/2024/beware-of-test-n-with-command-expansion/"

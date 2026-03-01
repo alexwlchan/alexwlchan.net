@@ -7,7 +7,6 @@ summary: A snippet to make it a bit easier to debug errors in AWS Lambda functio
 topics:
   - AWS
   - Python
-old_syntax_highlighting: true
 ---
 
 At work, we use [AWS Lambda][lambda] functions for a bunch of "glue" pieces between different services.
