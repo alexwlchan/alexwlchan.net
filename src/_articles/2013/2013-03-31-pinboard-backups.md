@@ -1,12 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2013-03-31 11:13:00 +00:00
-summary: A script for automatically backing up bookmarks from Pinboard
-tags:
-  - pinboard
-  - python
 title: Automatic Pinboard backups
-old_syntax_highlighting: true
+summary: A script for automatically backing up bookmarks from Pinboard
+topic: Web archiving
 ---
 
 I've been using [**Pinboard**](http://pinboard.in) to store my bookmarks for nearly two years, and it's a wonderful site.
@@ -25,7 +22,7 @@ Finally, I drew inspiration from Dr. Drang's series of posts on [archiving tweet
 
 So without further ado, here's the script:
 
-{% code lang="python" linenos="true" names="0:os 1:pytz 2:datetime 3:datetime 4:urllib2 5:bookmarkdir 8:pinboard_api 9:yearfmt 10:datefmt 11:homeTZ 14:y 21:t 31:credentials 32:line 34:me 35:token 47:bookmarkfile 52:u" %}
+```python {"names":{"1":"os","2":"pytz","3":"datetime","4":"datetime","5":"urllib2","6":"bookmarkdir","9":"pinboard_api","10":"yearfmt","11":"datefmt","12":"homeTZ","15":"y","22":"t","32":"credentials","33":"line","35":"me","36":"token","48":"bookmarkfile","53":"u"}}
 import os
 import pytz
 from datetime import datetime
@@ -56,7 +53,7 @@ bookmarkfile = open(bookmarkdir + y + '/pinboard-backup.' + t + '.xml', 'w')
 u = urllib2.urlopen(pinboard_api + 'posts/all?auth_token=' + me + ':' + token)
 bookmarkfile.write(u.read())
 bookmarkfile.close()
-{% endcode %}
+```
 
 The first section defines the parameters for the script: where the bookmarks are stored and the version of the Pinboard API that I'm using. The `datetime` code to get strings of the date are used later to set up the particular structure I wanted for my backups.
 

@@ -1706,6 +1706,8 @@ redir /til/2025/bfpo/ /notes/2025/bfpo/ permanent
 redir /til/2025/bfpo /notes/2025/bfpo/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
+redir /til/2025/bluesky-avatar-url/ /notes/2025/bluesky-avatar-url/ permanent
+redir /til/2025/bluesky-avatar-url /notes/2025/bluesky-avatar-url/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/collapsing-whitespace-in-liquid/ /notes/2025/collapsing-whitespace-in-liquid/ permanent
@@ -1782,6 +1784,8 @@ redir /til/2025/python3-13-sqlite-warnings/ /notes/2025/python3-13-sqlite-warnin
 redir /til/2025/python3-13-sqlite-warnings /notes/2025/python3-13-sqlite-warnings/ permanent
 redir /til/2025/python-3-14/ /notes/2025/python-3-14/ permanent
 redir /til/2025/python-3-14 /notes/2025/python-3-14/ permanent
+redir /til/2025/python-and-rot13/ /notes/2025/python-and-rot13/ permanent
+redir /til/2025/python-and-rot13 /notes/2025/python-and-rot13/ permanent
 redir /til/2025/python-smartypants/ /notes/2025/python-smartypants/ permanent
 redir /til/2025/python-smartypants /notes/2025/python-smartypants/ permanent
 redir /til/2025/remove-microsecond-precision-in-python/ /notes/2025/remove-microsecond-precision-in-python/ permanent
@@ -1878,4 +1882,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: crFAuLcMHi)
+#[[[end]]] (sum: TGltGKpzEk)
