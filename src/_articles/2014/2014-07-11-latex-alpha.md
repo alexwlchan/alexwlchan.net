@@ -1,14 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2014-07-11 07:43:00 +00:00
-tags:
-  - latex
-  - wolfram alpha
+topic: Systems and software
 title: Getting plaintext LaTeX from Wolfram Alpha
 colors:
   index_light: "#f35716"
   index_dark:  "#ffc433"
-old_syntax_highlighting: true
 ---
 
 Although I don't write numerical equations very often, I couldn't help but smile at [this post by Dr. Drang][drang].
@@ -27,7 +24,7 @@ I think I can use this to get the final piece.
 If you don't already have a (free) Wolfram ID, then [signing up for one][wid] takes about a minute.
 Then you can register an API key, and make queries in the form
 
-```
+```text {"wrap":true}
 http://api.wolframalpha.com/v2/query?input=\pi&appid=XXXXXX-YYYYYYYYYY
 ```
 
@@ -40,7 +37,7 @@ That's what we want.
 
 I've wrapped this in a script, which incorporates part of what Dr. Drang wrote:
 
-{% code lang="python" names="0:requests 1:urllib 2:quote_plus 3:xml.etree.ElementTree 4:ET 5:appid 6:get_plaintext_query 7:latex 8:r 14:root 20:pod 25:subpod 28:result 39:sys 40:stdin" %}
+```python {"names":{"1":"requests","2":"urllib","3":"quote_plus","4":"xml","5":"etree","6":"ElementTree","7":"ET","8":"appid","9":"get_plaintext_query","10":"latex","11":"r","17":"root","23":"pod","28":"subpod","31":"result","41":"sys","42":"stdin"}}
 import requests
 from urllib import quote_plus
 import xml.etree.ElementTree as ET
@@ -64,7 +61,7 @@ def get_plaintext_query(latex):
 if __name__ == '__main__':
     from sys import stdin
     print get_plaintext_query(stdin.read())
-{% endcode %}
+```
 
 You'll need to add your own App ID in line 8.
 The URL encoding is handled by `quote_plus`, taken from Dr. Drang's script, and then `ElementTree` handles the XML decoding.
@@ -77,23 +74,23 @@ There may be other forms of input for which this is useful, but I couldn't think
 If we have the plaintext number in a script, then we can also do some nice formatting.
 For example, if we're working with currency units, then we might want to trim all but the last two decimal places:
 
-{% code lang="pycon" names="0:x 2:y" %}
+```pycon {"names":{"1":"x","3":"y"}}
 >>> x = get_plaintext_query('\pi')
 3.1415926535897932384626433832795028841971693993751058...
 >>> y = eval(x.replace('...', ''))
 >>> round(y, 2)
 3.14
-{% endcode %}
+```
 
 Alternatively, I remember in school being told to round to a particular number of significant figures.
 Here's a quick function for rounding to significant figures:
 
-{% code lang="python" names="0:get_sig_figs 1:num 2:n 3:div" %}
+```python {"names":{"1":"get_sig_figs","2":"num","3":"n","4":"div"}}
 def get_sig_figs(num, n):
     div = 1
     while int(num / div) > 0: div *= 10
     return round(num / div, n) * div
-{% endcode %}
+```
 
 And there are probably plenty of other things you could do with this.
 But since I don't work with this sort of numerical equation on a regular basis (yet), I don't know how useful this would actually be, so I think I'll just stop there.

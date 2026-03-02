@@ -1,19 +1,16 @@
 ---
-layout: til
+layout: note
 title: Redacting sensitive information from gunicorn access logs
 date: 2025-07-04 12:56:59 +01:00
 summary: Create a subclass of `gunicorn.glogging.Logger`, and redact information in the `atoms()` method.
-tags:
-  - python
-  - python:gunicorn
-old_syntax_highlighting: true
+topic: Python
 ---
 I'm working on a Python web app that's running with gunicorn, and I'm writing access logs to a file.
 By default, these logs include the full URL requested by the user, with any query parameters.
 
 This app uses OAuth to authenticate with a third-party service, so at some point users get redirected back to the app with some OAuth tokens in the URL:
 
-```
+```text {"wrap":true}
 127.0.0.1 - - [01/Jan/2001:01:01:01 +0000] "GET /callback?oauth_token=72157720950195922-ddd4617fd8594560&oauth_verifier=51be7d7b0c701ba6 HTTP/1.1" 302 201 "https://www.flickr.com/" "Mozilla/5.0"
 ```
 
@@ -29,7 +26,7 @@ Normally I'm running gunicorn with Flask apps, but gunicorn's logging is complet
 
 The gunicorn documentation [includes a simple test app](https://docs.gunicorn.org/en/stable/run.html#gunicorn), which I'll save to `test.py`:
 
-{% code lang="python" names="0:app 1:environ 2:start_response 3:data 4:status 5:response_headers" %}
+```python {"names":{"1":"app","2":"environ","3":"start_response","4":"data","5":"status","6":"response_headers"}}
 def app(environ, start_response):
     """Simplest possible application object"""
     data = b'Hello, World!\n'
@@ -40,7 +37,7 @@ def app(environ, start_response):
     ]
     start_response(status, response_headers)
     return iter([data])
-{% endcode %}
+```
 
 I can start the app and save the access logs to a file:
 
@@ -80,8 +77,7 @@ This returns "atoms for log formatting", which are the different tokens you can 
 
 Here's a subclass of `Logger` which replaces sensitive query parameters with `[redacted]`, which I've saved to `mylogging.py`:
 
-{% code lang="python"
-   names="0:datetime 1:timedelta 2:typing 3:urllib.parse 4:gunicorn 5:glogging 6:Logger 7:gunicorn 8:http 9:Request 10:gunicorn 11:http 12:Response 13:SENSITIVE_QUERY_PARAMS 14:redact_uri 15:uri 18:u 34:redact_query 35:query 39:qsl 44:idx 45:name 63:RedactingLogger 65:atoms 66:self 67:resp 69:req 71:environ 76:request_time 80:atoms" %}
+```python {"names":{"1":"datetime","2":"timedelta","3":"typing","4":"urllib","5":"parse","6":"gunicorn","7":"glogging","8":"Logger","9":"gunicorn","10":"http","11":"message","12":"Request","13":"gunicorn","14":"http","15":"wsgi","16":"Response","17":"SENSITIVE_QUERY_PARAMS","18":"redact_uri","19":"uri","22":"u","27":"u","38":"redact_query","39":"query","43":"qsl","48":"idx","49":"name","67":"RedactingLogger","68":"Logger","69":"atoms","70":"resp","72":"req","74":"environ","79":"request_time","83":"atoms"}}
 from datetime import timedelta
 import typing
 import urllib.parse
@@ -147,7 +143,7 @@ class RedactingLogger(Logger):
         atoms["q"] = redact_query(environ.get("QUERY_STRING"))
 
         return atoms
-{% endcode %}
+```
 
 I can restart my gunicorn app and tell it to use this logger class:
 

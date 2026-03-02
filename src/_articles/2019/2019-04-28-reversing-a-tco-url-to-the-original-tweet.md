@@ -1,15 +1,12 @@
 ---
+layout: article
 date: 2019-04-28 09:13:06 +00:00
-layout: post
-summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to take
-  a t.co URL and find the original tweet.
 title: Reversing a t.co URL to the original tweet
-tags:
-  - twitter
+summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to take a t.co URL and find the original tweet.
+topic: Preserving social media
 colors:
   index_light: "#273d5d"
   index_dark:  "#5fa0c1"
-old_syntax_highlighting: true
 ---
 
 If you post a link on Twitter, it goes through Twitter's [t.co link-shortening service][tco].
@@ -27,14 +24,14 @@ If you're just reading Twitter, the presence of t.co is mostly invisible -- it's
 A t.co URL is an [HTTP 301 Redirect][http_301] to the destination, which any browser or HTTP client can follow (as long as Twitter keeps running the service).
 For example:
 
-{% code lang="pycon" names="0:requests 1:resp" %}
+```pycon {"names":{"1":"requests","2":"resp"}}
 >>> import requests
 >>> resp = requests.head("https://t.co/mtXLLfYOYE")
 >>> resp.status_code
 301
 >>> resp.headers["Location"]
 'https://www.bbc.co.uk/news/blogs-trending-47975564'
-{% endcode %}
+```
 
 But what if you only have the t.co URL, and you want to find the original tweet?
 For example, I see t.co URLs in my referrer logs -- people linking to my blog -- and I want to know what they're saying about me!
@@ -89,7 +86,7 @@ You'll need some Twitter API credentials, which you can get through [Twitter's d
 In the past I used [tweepy] to connect to the Twitter APIs, but these days I prefer to use the [requests-oauthlib library] and make direct requests.
 We create an OAuth session:
 
-{% code lang="python" names="0:requests_oauthlib 1:OAuth1Session 2:sess 5:TWITTER_CONSUMER_KEY 7:TWITTER_CONSUMER_SECRET 9:TWITTER_ACCESS_TOKEN 11:TWITTER_ACCESS_TOKEN_SECRET" %}
+```python {"names":{"1":"requests_oauthlib","2":"OAuth1Session","3":"sess"}}
 from requests_oauthlib import OAuth1Session
 
 sess = OAuth1Session(
@@ -98,11 +95,11 @@ sess = OAuth1Session(
     resource_owner_key=TWITTER_ACCESS_TOKEN,
     resource_owner_secret=TWITTER_ACCESS_TOKEN_SECRET
 )
-{% endcode %}
+```
 
 Then we can call the search API like so:
 
-{% code lang="python" names="0:resp" %}
+```python {"names":{"1":"resp"}}
 resp = sess.get(
     "https://api.twitter.com/1.1/search/tweets.json",
     params={
@@ -110,16 +107,16 @@ resp = sess.get(
         "count": 100,
     }
 )
-{% endcode %}
+```
 
 The `q` parameter is the search query, which in this case is the t.co URL.
 We get as many tweets as possible (you're allowed up to 100 tweets in a single request).
 
 We extract the tweets like so:
 
-{% code lang="python" names="0:statuses" %}
+```python {"names":{"1":"statuses"}}
 statuses = resp.json()["statuses"]
-{% endcode %}
+```
 
 The API represents every retweet as an individual status, so a tweet with three retweets would have four entries in this response -- one for the original tweet, and three more for each of the retweets.
 The Twitter web UI handles that for us, and consolidates them into a single result.
@@ -128,7 +125,7 @@ We have to do that manually.
 If a tweet from the API is a retweet, it has a `retweeted_status` key that contains the original tweet.
 Let's look for that, and build tweet URLs accordingly:
 
-{% code lang="python" names="0:tweet_urls 2:status 3:statuses 4:tweet 7:tweet 9:url" %}
+```python {"names":{"1":"tweet_urls","3":"status","5":"tweet","8":"tweet","10":"url"}}
 tweet_urls = set()
 
 for status in statuses:
@@ -142,7 +139,7 @@ for status in statuses:
     )
 
     tweet_urls.add(url)
-{% endcode %}
+```
 
 This gives us the URLs for tweets that use or mention the t.co URL we were looking for.
 
@@ -150,7 +147,7 @@ If we want to be stricter, we could check that these tweets include the t.co sho
 (In the Twitter API, an "entity" is metadata or extra context for the tweet -- images, videos, URLs, that sort of thing.)
 We add `"include_entities": True` to the parameters in our API call, then modify our `for` loop slightly:
 
-{% code lang="python" names="0:status 1:statuses 5:u 7:url" %}
+```python {"names":{"1":"status","6":"u","8":"url"}}
 for status in statuses:
     ...
 
@@ -158,11 +155,11 @@ for status in statuses:
         continue
 
     url = ...
-{% endcode %}
+```
 
 Putting this all together gives us the following function:
 
-{% code lang="python" names="0:requests_oauthlib 1:OAuth1Session 2:sess 5:TWITTER_CONSUMER_KEY 7:TWITTER_CONSUMER_SECRET 9:TWITTER_ACCESS_TOKEN 11:TWITTER_ACCESS_TOKEN_SECRET 12:find_tweets_using_tco 13:tco_url 14:resp 19:statuses 22:tweet_urls 24:status 25:statuses 26:tweet 29:tweet 34:u 36:url" %}
+```python {"names":{"1":"requests_oauthlib","2":"OAuth1Session","3":"sess","13":"find_tweets_using_tco","14":"tco_url","15":"resp","20":"statuses","23":"tweet_urls","25":"status","27":"tweet","30":"tweet","35":"u","37":"url"}}
 from requests_oauthlib import OAuth1Session
 
 
@@ -213,7 +210,7 @@ def find_tweets_using_tco(tco_url):
         tweet_urls.add(url)
 
     return tweet_urls
-{% endcode %}
+```
 
 I've been using this code to reverse t.co URLs that appear in my web analytics for a while now.
 It works about as well as the website but I find it quicker to use.

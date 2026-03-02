@@ -1756,6 +1756,8 @@ redir /til/2025/go-test-verbose/ /notes/2025/go-test-verbose/ permanent
 redir /til/2025/go-test-verbose /notes/2025/go-test-verbose/ permanent
 redir /til/2025/gubernatorial/ /notes/2025/gubernatorial/ permanent
 redir /til/2025/gubernatorial /notes/2025/gubernatorial/ permanent
+redir /til/2025/gunicorn-redactions/ /notes/2025/gunicorn-redactions/ permanent
+redir /til/2025/gunicorn-redactions /notes/2025/gunicorn-redactions/ permanent
 redir /til/2025/ignore-ai-scaled-videos/ /notes/2025/ignore-ai-scaled-videos/ permanent
 redir /til/2025/ignore-ai-scaled-videos /notes/2025/ignore-ai-scaled-videos/ permanent
 redir /til/2025/instagram-avatar-url/ /notes/2025/instagram-avatar-url/ permanent
@@ -1876,4 +1878,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: 1kVbSMZ9Mt)
+#[[[end]]] (sum: crFAuLcMHi)
