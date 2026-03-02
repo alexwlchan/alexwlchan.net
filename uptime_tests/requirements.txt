@@ -40,7 +40,7 @@ pytest==9.0.2
     # via pytest-cov
 pytest-cov==7.0.0
     # via -r uptime_tests/requirements.in
-ruff==0.15.0
+ruff==0.15.4
     # via -r uptime_tests/requirements.in
 typing-extensions==4.15.0
     # via mypy
