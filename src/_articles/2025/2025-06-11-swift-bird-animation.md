@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-06-11 13:52:05 +00:00
 title: Recreating the bird animation from Swift.org
 summary: The Swift.org website got a redesign, including an animation of a swooping bird, and I read the source code to understand how it works.
-tags:
-  - drawing things
-  - web development
+topics:
+  - Drawing things
+  - JavaScript
 index:
   feature: true
 colors:
@@ -13,7 +13,6 @@ colors:
   index_dark:  "#f7c057"
   css_light:   "#cd4506"
   css_dark:    "#f7c057"
-old_syntax_highlighting: true
 ---
 Last week, the Swift.org website [got a redesign][redesign].
 I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH COOL BIRD!
@@ -300,7 +299,7 @@ You give it a path definition, and it gives you a step-by-step explanation of wh
 
 We can draw this path on an HTML5 canvas like so:
 
-{% code lang="javascript" names="0:canvas 3:ctx 12:path" %}
+```python {"names":{"2":"canvas","6":"ctx","16":"path"}}
 const canvas = document.querySelector('canvas');
 
 const ctx = canvas.getContext('2d');
@@ -313,7 +312,7 @@ const path = new Path2D(
 );
 
 ctx.stroke(path);
-{% endcode %}
+```
 
 The way Swift.org draws a partial path is a really neat trick: they're using a line dash pattern with a variable offset.
 It took me a moment to figure out what their code was doing, but then it all clicked into place.
@@ -451,16 +450,22 @@ Notice how the line gradually appears:
 
 <blockquote id="progressDemo" class="light_block">
 <div>
-{% code lang="javascript" names="0:progress" %}
+{% set md %}
+```javascript {"names":{"1":"progress"}}
 const progress = 0;
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 <input type="range" min="0.0" max="1.0" value="0.0" step="0.01" oninput="drawProgressDemo(this.value)" style="width: 300px; max-width: 100%; margin-top:0.5em;">
 
-{% code lang="javascript" names="0:pathLength" %}
+{% set md %}
+```javascript {"names":{"1":"pathLength"}}
 const pathLength = 2776
 ctx.setLineDash([pathLength]);
 ctx.lineDashOffset = pathLength * (1 - progress);
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </div>
 
 <div class="cell">
@@ -511,10 +516,10 @@ I'm sure that naming makes sense to somebody, but it's not immediately obvious t
 First we need to load the bitmap image which will be our "source".
 We can create a new `img` element with `document.createElement("img")`, then load the image by setting the `src` attribute:
 
-{% code lang="javascript" names="0:img" %}
+```javascript {"names":{"1":"img"}}
 const img = document.createElement("img");
 img.src = url;
-{% endcode %}
+```
 
 In the Swift.org animation, the value of `globalCompositeOperation` is [`source-in`][source_in] -- the new shape is only drawn where the new shape and the old shape overlap, and the old shape becomes transparent.
 
@@ -629,14 +634,14 @@ Anime.js has a lot of different options, but the way Swift.org uses it is fairly
 
 First it creates an object to track the state of the animation:
 
-{% code lang="javascript" names="0:state" %}
+```javascript {"names":{"1":"state"}}
 const state = { progress: 0 };
-{% endcode %}
+```
 
 Then there's a function that redraws the swoop based on the current progress.
 It clears the canvas, then redraws the partial path and the mask:
 
-{% code lang="javascript" names="0:updateSwoop" %}
+```javascript {"names":{"1":"updateSwoop"}}
 function updateSwoop() {
   // Clear canvas before next draw
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -653,7 +658,7 @@ function updateSwoop() {
   // Reset to default for our next stroke paint
   ctx.globalCompositeOperation = 'source-out';
 }
-{% endcode %}
+```
 
 Finally, it creates [a timeline][timeline], and [adds an animation][timeline_add] for each swoop.
 
@@ -665,14 +670,14 @@ When it adds the animation, it passes five things:
 *   an [easing function][ease]; in this case `in(1.8)` means the animation will start slowly and gradually speed up
 *   the `updateSwoop` function as a callback for every time the animation updates
 
-{% code lang="javascript" names="0:tl" %}
+```javascript {"names":{"1":"tl"}}
 const tl = anime.createTimeline()
 
 tl.add(
   state,
   { progress: 1, duration: 1000, ease: 'in(1.8)', onUpdate: updateSwoop }
 );
-{% endcode %}
+```
 
 You may have wondered why the `state` is an object, and not a single value like `const progress = 0`.
 If we passed a numeric value to `tl.add()`, JavaScript would pass it by value, and any changes wouldn't be visible to the `updateSwoop()` function.
@@ -721,7 +726,7 @@ In the HTML, it has a `<div>` that wraps the canvas elements where it draws all 
 
 Then it uses a [`MutationObserver`][MutationObserver] to watch the entire page for changes, and start the animation once it finds this wrapper `<div>`:
 
-{% code lang="javascript" names="0:observer 2:animContainer" %}
+```javascript {"names":{"1":"observer","3":"animContainer"}}
 // Start animation when container is mounted
 const observer = new MutationObserver(() => {
   const animContainer = document.querySelector('.animation-container')
@@ -735,7 +740,7 @@ observer.observe(document.documentElement, {
   childList: true,
   subtree:   true,
 })
-{% endcode %}
+```
 
 It achieves the same effect as watching for `DOMContentLoaded`, but in a different way.
 
@@ -762,11 +767,11 @@ There's one other aspect of the animation on Swift.org that I want to highlight.
 At the beginning of the animation sequence, it checks to see if you have the ["prefers reduced motion" preference][prefers-reduced-motion].
 This is an accessibility setting that allows somebody to minimise non-essential animations.
 
-{% code lang="javascript" names="0:isReduceMotionEnabled" %}
+```javascript {"names":{"1":"isReduceMotionEnabled"}}
 const isReduceMotionEnabled = window.matchMedia(
   '(prefers-reduced-motion: reduce)',
 ).matches
-{% endcode %}
+```
 
 Further down, the code checks for this preference, and if it's set, it skips the animation and just renders the final image.
 
