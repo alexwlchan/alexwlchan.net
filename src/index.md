@@ -56,8 +56,6 @@ I'm queer and trans, and my pronouns are "they" or "she".
 
 I hope you like it!
 
-<br/>
-
 <style>
   #homepage_cards {
     list-style-type: "";
@@ -238,12 +236,9 @@ I hope you like it!
     stroke-linecap: round;
     fill: none;
   }
-  
+    
   #homepage_cards_wrapper {
-    margin-top: 1.5em;
-  }
-  
-  #homepage_cards_wrapper {
+    margin-top: 2.5em;
     background: rgba(153, 153, 153, 0.12);
   }
   
@@ -278,6 +273,10 @@ I hope you like it!
       margin: 0 auto;
       padding: 0 var(--default-padding);
     }
+  }
+  
+  #recent_articles h2 {
+    margin-top: 1.5em;
   }
   
 </style>
