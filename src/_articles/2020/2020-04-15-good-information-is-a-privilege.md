@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2020-04-15 18:54:02 +00:00
 title: Access to information is a privilege
-old_syntax_highlighting: true
+topic: Personal thoughts
 ---
 
 Here's something that struck me recently: **access to good, reliable information is a privilege.**

@@ -1,11 +1,9 @@
 ---
+layout: article
 date: 2016-07-28 21:03:00 +00:00
-layout: post
-summary: A quick Python function to follow a redirect to its eventual conclusion.
-tags:
-  - python
 title: 'Python snippets: Chasing redirects and URL shorteners'
-old_syntax_highlighting: true
+summary: A quick Python function to follow a redirect to its eventual conclusion.
+topic: Python
 ---
 
 Quick post today.
@@ -32,7 +30,7 @@ All the good link shorteners use [HTTP&nbsp;3XX redirects](https://en.wikipedia.
 A lot of HTTP libraries will just follow those if you make a GET request, so it's enough to make a GET request and see where you end up.
 Here's what that looks like with [python-requests](http://docs.python-requests.org/en/master/):
 
-```python
+```python {"names":{"1":"requests","2":"resolve_url","3":"base_url","4":"r","10":"sys"}}
 import requests
 
 def resolve_url(base_url):
@@ -49,7 +47,7 @@ When run from the command-line, this just prints the final URL.
 Sometimes I also want to see the intermediate links involved in the resolution: for example, if a site "helpfully" redirects any broken pages to a generic 404.
 In that case, I make individual HEAD requests and follow the redirects manually:
 
-```python
+```python {"names":{"1":"requests","2":"chase_redirects","3":"url","5":"r","14":"sys","15":"url"}}
 import requests
 
 def chase_redirects(url):
