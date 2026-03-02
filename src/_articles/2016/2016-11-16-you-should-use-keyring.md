@@ -1,14 +1,9 @@
 ---
+layout: article
 date: 2016-11-16 07:48:00 +00:00
-layout: post
-summary: If you need to store passwords in a Python application, use the keyring module
-  to keep them safe.
-tags:
-  - python
-  - infosec
-  - python:keyring
 title: Use keyring to store your credentials
-old_syntax_highlighting: true
+summary: If you need to store passwords in a Python application, use the keyring module to keep them safe.
+topic: Python
 ---
 
 I write a lot of Python scripts that interact with online services, which usually means requires my passwords and API keys.
@@ -16,7 +11,7 @@ But how to store them?
 
 The simplest approach would be to save my variable in my unencrypted source code:
 
-```python
+```python {"names":{"1":"PASSWORD"}}
 PASSWORD = 'password!'
 ```
 
@@ -40,7 +35,7 @@ And they're entirely decoupled from your source code: if you always use keyring,
 Most of the time, I use just two functions: `get_password` and `set_password`.
 Here's an example of setting and then retrieving a password:
 
-```pycon
+```pycon {"names":{"1":"keyring"}}
 >>> import keyring
 >>> keyring.set_password('twitter', 'xkcd', 'correct horse battery staple')
 >>> keyring.get_password('twitter', 'xkcd')
