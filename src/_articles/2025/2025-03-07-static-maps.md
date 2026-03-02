@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2025-03-07 13:04:17 +00:00
 title: Creating static map images with OpenStreetMap, Web Mercator, and Pillow
 summary: I made some simple map visualisations by downloading tiles from OpenStreetMap, then annotating the tiles with Pillow.
-tags:
-  - maps
-  - python
-old_syntax_highlighting: true
+topics:
+  - Drawing things
+  - Python
+  - The world around us
 ---
 I've been working on a project where I need to plot points on a map.
 I don’t need an interactive or dynamic visualisation -- just a static map with coloured dots for each coordinate.
@@ -107,9 +107,11 @@ print(out_path)
 ```
 
 The higher the zoom level, the more tiles you need to download, and the larger the final image will be.
-I ran this script up to zoom level 6, and this is the data involved:
+I ran this script up to zoom level 6, and this is the size of the data:
 
 <style>
+  @use "components/tables";
+  
   #zoom_levels {
     margin: 0 auto;
   }
@@ -122,15 +124,19 @@ I ran this script up to zoom level 6, and this is the data involved:
   }
 </style>
 
-<table id="zoom_levels">
-  <tr><th>Zoom level</th><th>Number of tiles</th><th>Pixels</th><th>File size</th></tr>
-  <tr><td>0</td><td>1</td><td>256×256</td><td>17.1 kB</td></tr>
-  <tr><td>1</td><td>4</td><td>512×512</td><td>56.3 kB</td></tr>
-  <tr><td>2</td><td>16</td><td>1024×1024</td><td>155.2 kB</td></tr>
-  <tr><td>3</td><td>64</td><td>2048×2048</td><td>506.4 kB</td></tr>
-  <tr><td>4</td><td>256</td><td>4096×4096</td><td>2.7 MB</td></tr>
-  <tr><td>5</td><td>1,024</td><td>8192×8192</td><td>13.9 MB</td></tr>
-  <tr><td>6</td><td>4,096</td><td>16384×16384</td><td>46.1 MB</td></tr>
+<table class="block" id="zoom_levels">
+  <thead>
+    <tr><th>Zoom level</th><th>Number of tiles</th><th>Pixels</th><th>File size</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>1</td><td>256×256</td><td>17.1 kB</td></tr>
+    <tr><td>1</td><td>4</td><td>512×512</td><td>56.3 kB</td></tr>
+    <tr><td>2</td><td>16</td><td>1024×1024</td><td>155.2 kB</td></tr>
+    <tr><td>3</td><td>64</td><td>2048×2048</td><td>506.4 kB</td></tr>
+    <tr><td>4</td><td>256</td><td>4096×4096</td><td>2.7 MB</td></tr>
+    <tr><td>5</td><td>1,024</td><td>8192×8192</td><td>13.9 MB</td></tr>
+    <tr><td>6</td><td>4,096</td><td>16384×16384</td><td>46.1 MB</td></tr>
+  </tbody>
 </table>
 
 I can just about open that zoom level 6 image on my computer, but it's struggling.
