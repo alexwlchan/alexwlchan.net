@@ -1508,6 +1508,8 @@ redir /til/2016/rust-safe-macro-expansion/ /notes/2016/rust-safe-macro-expansion
 redir /til/2016/rust-safe-macro-expansion /notes/2016/rust-safe-macro-expansion/ permanent
 redir /til/2016/shutil-which/ /notes/2016/shutil-which/ permanent
 redir /til/2016/shutil-which /notes/2016/shutil-which/ permanent
+redir /til/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing/ /notes/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing/ permanent
+redir /til/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing /notes/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing/ permanent
 redir /til/2018/create-compact-json-with-python/ /notes/2018/compact-json-with-python/ permanent
 redir /til/2018/create-compact-json-with-python /notes/2018/compact-json-with-python/ permanent
 redir /2018/finatra-404/ /notes/2018/finatra-404/ permanent
@@ -1902,4 +1904,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: 09QpI7OKcY)
+#[[[end]]] (sum: nnbZxCsyoe)

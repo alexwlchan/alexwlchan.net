@@ -1,11 +1,10 @@
 ---
-layout: til
+layout: note
 title: Why does Hypothesis try the same example three times before failing?
 date: 2016-12-01 21:50:00 +00:00
-tags:
-  - python
-  - python:hypothesis
-old_syntax_highlighting: true
+topics:
+  - Python
+  - Software testing
 ---
 
 From the #hypothesis IRC channel:

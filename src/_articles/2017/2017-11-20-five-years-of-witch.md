@@ -1,16 +1,14 @@
 ---
-layout: post
-tags:
-  - tnmoc
-  - history
-  - computing
+layout: article
+date: 2017-11-20T15:00:00Z
 title: My favourite WITCH story
 summary: As the WITCH computer celebrates five years since its reboot at TNMoC, a fun story of how it was left to run at Christmas.
 colors:
   index_light: "#564a41"
   index_dark:  "#bfab8a"
-date: 2017-11-20T15:00:00Z
-old_syntax_highlighting: true
+topics: 
+  - The world around us
+  - Computers
 ---
 
 Today, the [National Museum of Computing][tnmoc] (TNMoC) is celebrating the five-year anniversary of their reboot of the Harwell-Dekatron computer, also known as WITCH.

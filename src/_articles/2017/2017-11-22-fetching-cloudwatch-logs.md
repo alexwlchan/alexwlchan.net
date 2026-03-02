@@ -1,14 +1,12 @@
 ---
+layout: article
 date: 2017-11-22 11:50:19 +00:00
-layout: post
+title: Downloading logs from Amazon CloudWatch
 summary: A detailed breakdown of how I wrote a Python script to download logs from
   CloudWatch.
-tags:
-  - aws
-  - python
-  - aws:amazon cloudwatch
-title: Downloading logs from Amazon CloudWatch
-old_syntax_highlighting: true
+topics:
+  - AWS
+  - Python
 ---
 
 At work, we use [Amazon CloudWatch][cloudwatch] for logging in our applications.
@@ -43,7 +41,7 @@ Let's grab the first batch of events:
 
 [boto3]: http://boto3.readthedocs.io/en/latest/reference/services/logs.html
 
-```python
+```python {"names":{"1":"boto3","2":"get_log_events","3":"log_group","4":"client","7":"resp","14":"event"}}
 import boto3
 
 
@@ -73,7 +71,7 @@ How do we get the rest?
 The docs tell us that each API response includes a `nextToken` parameter, which we can pass into the next call to get the next set of logs.
 So let's tweak the function to do that:
 
-```python
+```python {"names":{"1":"get_log_events","2":"log_group","3":"client","6":"kwargs","8":"resp"}}
 def get_log_events(log_group):
     """Generate all the log events from a CloudWatch group.
 
@@ -107,7 +105,7 @@ We've got a generator that gives us all the events.
 Let's send them somewhere useful --- for me, that's a log file that has all the messages, one per line.
 I wrote a script like this:
 
-```python
+```python {"names":{"1":"get_log_events","2":"log_group","3":"event"}}
 def get_log_events(log_group):
     ...
 
@@ -139,7 +137,7 @@ I've written about docopt [before][before]; in short, it lets you write the help
 Most of the work is writing the help string --- parsing the arguments only requires a single line of code.
 Something like:
 
-```python
+```python {"names":{"1":"docopt","2":"get_log_events","3":"log_group","4":"args","7":"log_group","9":"event"}}
 """Print log event messages from a CloudWatch log group.
 
 Usage: print_log_events.py <LOG_GROUP_NAME>
@@ -194,7 +192,7 @@ The boto3 docs for [client.get\_log\_events()][get_log_events] show us two param
 
 For now, let's just add some new parameters to our function, and pass them straight through:
 
-```python
+```python {"names":{"1":"get_log_events","2":"log_group","3":"start_time","4":"end_time","5":"client","8":"kwargs","16":"resp"}}
 def get_log_events(log_group, start_time=None, end_time=None):
     """Generate all the log events from a CloudWatch group.
 
@@ -227,7 +225,7 @@ def get_log_events(log_group, start_time=None, end_time=None):
 
 We can also add some options for users to pass the start time and end time to the script:
 
-```python
+```python {"names":{"1":"get_log_events","2":"log_group","3":"start_time","4":"end_time","5":"args","8":"log_group","11":"start_time","14":"start_time","16":"end_time","19":"end_time","20":"logs","28":"event"}}
 """Print log event messages from a CloudWatch log group.
 
 Usage: print_log_events.py <LOG_GROUP_NAME> [--start=<START>] [--end=<END>]
@@ -289,7 +287,7 @@ Luckily, Python has a wealth of libraries for dealing with datetimes.
 A recent favourite of mine is [Maya][maya], which wraps a number of other datetime libraries for a nice, clean API.
 In particular, there's a way to turn human descriptions of times into datetime objects:
 
-```pycon
+```pycon {"names":{"1":"maya"}}
 >>> import maya
 >>> maya.when('two days ago')
 <MayaDT epoch=1511169236.51311>
@@ -300,7 +298,7 @@ In particular, there's a way to turn human descriptions of times into datetime o
 Maya records times as seconds since the epoch (with negative integers used to record times before the epoch).
 We can use this to get milliseconds as well:
 
-```python
+```python {"names":{"1":"maya","2":"milliseconds_since_epoch","3":"time_string","4":"dt","8":"seconds"}}
 import maya
 
 
@@ -313,7 +311,7 @@ def milliseconds_since_epoch(time_string):
 Now we can take the `--start` and `--end` arguments to our script, and pass them through the function before we call `get_log_events()`.
 This gives our script a much more human-friendly interface:
 
-```python
+```python {"names":{"1":"get_log_events","2":"log_group","3":"start_time","4":"end_time","5":"args","8":"log_group","11":"start_time","17":"start_time","19":"end_time","25":"end_time"}}
 """Print log event messages from a CloudWatch log group.
 
 Usage: print_log_events.py <LOG_GROUP_NAME> [--start=<START>] [--end=<END>]
@@ -374,7 +372,7 @@ In this post, we've written a script that:
 
 This is the final version of the script:
 
-```python
+```python {"names":{"1":"boto3","2":"docopt","3":"maya","4":"get_log_events","5":"log_group","6":"start_time","7":"end_time","8":"client","11":"kwargs","19":"resp","27":"milliseconds_since_epoch","28":"time_string","29":"dt","33":"seconds","37":"args","40":"log_group","43":"start_time","49":"start_time","51":"end_time","57":"end_time","58":"logs","66":"event"}}
 #!/usr/bin/env python
 # -*- encoding: utf-8
 """Print log event messages from a CloudWatch log group.
