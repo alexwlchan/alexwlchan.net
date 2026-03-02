@@ -48,7 +48,7 @@ def fix_relative_url(tag: Tag, attribute_name: str) -> None:
     new_values = []
 
     for v in values:
-        if v.startswith("/images") or v.startswith("/files"):
+        if v.startswith("/"):
             new_values.append(f"https://alexwlchan.net{v}")
         else:
             new_values.append(v)
