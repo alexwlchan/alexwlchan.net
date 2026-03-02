@@ -168,171 +168,219 @@ I hope you like it!
       --card-bg: url('/h/40c3ff.png');
     }
   }
-  </style>
   
-  <style>
-    path, ellipse {
-      stroke: currentColor;
-      stroke-linecap: round;
-      fill: none;
-    }
-    
-    .border {
-      stroke-width: 2;
-    }
-    
-    circle.dot {
-      fill: currentColor;
-      stroke: none;
-    }
-    
-    g[data-value="1"] {
-      .upper, .lower, .mid { display: none; }
-      .mid.center { display: block; }
-    }
+  path, ellipse {
+    stroke: currentColor;
+    stroke-linecap: round;
+    fill: none;
+  }
+  
+  .border {
+    stroke-width: 2;
+  }
+  
+  circle.dot {
+    fill: currentColor;
+    stroke: none;
+  }
+  
+  g[data-value="1"] {
+    .upper, .lower, .mid { display: none; }
+    .mid.center { display: block; }
+  }
 
-    g[data-value="2"][data-alt="false"] {
-      .upper, .lower, .mid { display: none; }
-      .upper.left, .lower.right { display: block; }
+  g[data-value="2"][data-alt="false"] {
+    .upper, .lower, .mid { display: none; }
+    .upper.left, .lower.right { display: block; }
+  }
+  g[data-value="2"][data-alt="true"] {
+    .upper, .lower, .mid { display: none; }
+    .upper.right, .lower.left { display: block; }
+  }
+  
+  g[data-value="3"][data-alt="false"] {
+    .upper, .lower, .mid { display: none; }
+    .upper.right, .mid.center, .lower.left { display: block; }
+  }
+  g[data-value="3"][data-alt="true"] {
+    .upper, .lower, .mid { display: none; }
+    .upper.left, .mid.center, .lower.right { display: block; }
+  }
+
+  g[data-value="4"] {
+    .center, .mid { display: none; }
+  }
+
+  g[data-value="5"] {
+    .center, .mid { display: none; }
+    .mid.center { display: block; }
+  }
+
+  g[data-value="6"][data-alt="false"] {
+    .center { display: none; }
+  }
+  g[data-value="6"][data-alt="true"] {
+    .mid { display: none; }
+  }
+
+  .dot {
+    stroke: none;
+    fill: currentColor;
+  }
+  
+  #die_outline {
+    stroke: currentColor;
+    stroke-linecap: round;
+    fill: none;
+  }
+  
+  #homepage_cards_wrapper {
+    margin-top: 1.5em;
+  }
+  
+  #homepage_cards_wrapper {
+    background: rgba(153, 153, 153, 0.12);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    #homepage_cards_wrapper {
+      background: rgba(43, 43, 43, 0.55);
     }
-    g[data-value="2"][data-alt="true"] {
-      .upper, .lower, .mid { display: none; }
-      .upper.right, .lower.left { display: block; }
-    }
+  }
+  
+  /* The width of the window is 100vw, the width of <main> is 100%.
+   *
+   * When we expand <section>s to break out of <main>, we need to add
+   * a negative left margin to move it against the edge of the window,
+   * then re-add our padding.
+   *
+   *    |                   |
+   *    |    +++++++++++    | 
+   *    |    +++++++++++    | 
+   *    |                   |
+   *
+   *         <!- 100% ->
+   *     <----- 100vw ----->
+   *
+   */
+  #homepage_cards_wrapper {
+    padding:     1.5em 0;
+    width:       calc(100vw);
+    margin-left: calc(50% - 50vw);
     
-    g[data-value="3"][data-alt="false"] {
-      .upper, .lower, .mid { display: none; }
-      .upper.right, .mid.center, .lower.left { display: block; }
+    & > * {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--default-padding);
     }
-    g[data-value="3"][data-alt="true"] {
-      .upper, .lower, .mid { display: none; }
-      .upper.left, .mid.center, .lower.right { display: block; }
-    }
-
-    g[data-value="4"] {
-      .center, .mid { display: none; }
-    }
-
-    g[data-value="5"] {
-      .center, .mid { display: none; }
-      .mid.center { display: block; }
-    }
-
-    g[data-value="6"][data-alt="false"] {
-      .center { display: none; }
-    }
-    g[data-value="6"][data-alt="true"] {
-      .mid { display: none; }
-    }
-
-    .dot {
-      stroke: none;
-      fill: currentColor;
-    }
-    
-    #die_outline {
-      stroke: currentColor;
-      stroke-linecap: round;
-      fill: none;
-    }
-  </style>
+  }
+  
 </style>
 
-<ul id="homepage_cards">
-  <li id="writing" class="card">
-    <h2>My writing</h2>
-    <ul>
-      <li>
-        {% inline_svg filename="icons/programming.svg" class="dark_aware" %}
-        <span>
-          <a href="/systems/">Systems and software</a>
-        </span>
-      </li>
-      <li>
-        {% inline_svg filename="icons/floppy_disk.svg" class="dark_aware" %}
-        <span>
-          <a href="/digital-preservation/">Digital preservation</a>
-        </span>
-      </li>
-      <li>
-        {% inline_svg filename="icons/accessibility.svg" class="dark_aware" %}
-        <span>
-          <a href="/inclusion/">Inclusion and accessibility</a>
-        </span>
-      </li>
-      <li>
-        {% inline_svg filename="icons/lightbulb.svg" class="dark_aware" %}
-        <a href="/personal-thoughts/">Personal thoughts</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/pencil.svg" class="dark_aware" %}
-        <a href="/art/">Art and creativity</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/map_pin.svg" class="dark_aware" %}
-        <a href="/world/">The world around us</a>
-      </li>
-    </ul>
-  </li>
-  <li id="life" class="card">
-    <h2>My life</h2>
-    <ul>
-      <li>
-        {% inline_svg filename="icons/id_card.svg" class="dark_aware" %}
-        <a href="/about-me/">About me</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/layers.svg" class="dark_aware" %}
-        <a href="/about-the-site/">About the site</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/office.svg" class="dark_aware" %}
-        <a href="/work/">My day job</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/branch.svg" class="dark_aware" %}
-        <a href="/license/">Using my code</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/heart.svg" class="dark_aware" %}
-        <a href="/say-thanks/">Say thanks</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/envelope.svg" class="dark_aware" %}
-        <a href="/contact/">Contact me</a>
-      </li>
-    </ul>
-  </li>
-  <li id="archives" class="card">
-    <h2>My archives</h2>
-    <ul>
-      <li>
-        {% inline_svg filename="icons/microphone.svg" class="dark_aware" %}
-        <a href="/talks/">Talks I’ve given</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/book.svg" class="dark_aware" %}
-        <a href="/book-reviews/">Books I’ve read</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/dice.svg" class="dark_aware" %}
-        <a href="/fun-stuff/">Fun stuff I’ve made</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/paperplane.svg" class="dark_aware" %}
-        <a href="https://buttondown.com/alexwlchan">Newsletter</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/newspaper.svg" class="dark_aware" %}
-        <a href="/articles/">Articles</a>
-      </li>
-      <li>
-        {% inline_svg filename="icons/note.svg" class="dark_aware" %}
-        <a href="/notes/">Notes</a>
-      </li>
-    </ul>
-  </li>
-</ul>
+<section id="homepage_cards_wrapper">
+<div>
+  <ul id="homepage_cards">
+    <li id="writing" class="card">
+      <h2>My writing</h2>
+      <ul>
+        <li>
+          {% inline_svg filename="icons/programming.svg" class="dark_aware" %}
+          <span>
+            <a href="/systems/">Systems and software</a>
+          </span>
+        </li>
+        <li>
+          {% inline_svg filename="icons/floppy_disk.svg" class="dark_aware" %}
+          <span>
+            <a href="/digital-preservation/">Digital preservation</a>
+          </span>
+        </li>
+        <li>
+          {% inline_svg filename="icons/accessibility.svg" class="dark_aware" %}
+          <span>
+            <a href="/inclusion/">Inclusion and accessibility</a>
+          </span>
+        </li>
+        <li>
+          {% inline_svg filename="icons/lightbulb.svg" class="dark_aware" %}
+          <a href="/personal-thoughts/">Personal thoughts</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/pencil.svg" class="dark_aware" %}
+          <a href="/art/">Art and creativity</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/map_pin.svg" class="dark_aware" %}
+          <a href="/world/">The world around us</a>
+        </li>
+      </ul>
+    </li>
+    <li id="life" class="card">
+      <h2>My life</h2>
+      <ul>
+        <li>
+          {% inline_svg filename="icons/id_card.svg" class="dark_aware" %}
+          <a href="/about-me/">About me</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/layers.svg" class="dark_aware" %}
+          <a href="/about-the-site/">About the site</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/office.svg" class="dark_aware" %}
+          <a href="/work/">My day job</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/branch.svg" class="dark_aware" %}
+          <a href="/license/">Using my code</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/heart.svg" class="dark_aware" %}
+          <a href="/say-thanks/">Say thanks</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/envelope.svg" class="dark_aware" %}
+          <a href="/contact/">Contact me</a>
+        </li>
+      </ul>
+    </li>
+    <li id="archives" class="card">
+      <h2>My archives</h2>
+      <ul>
+        <li>
+          {% inline_svg filename="icons/microphone.svg" class="dark_aware" %}
+          <a href="/talks/">Talks I’ve given</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/book.svg" class="dark_aware" %}
+          <a href="/book-reviews/">Books I’ve read</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/dice.svg" class="dark_aware" %}
+          <a href="/fun-stuff/">Fun stuff I’ve made</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/paperplane.svg" class="dark_aware" %}
+          <a href="https://buttondown.com/alexwlchan">Newsletter</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/newspaper.svg" class="dark_aware" %}
+          <a href="/articles/">Articles</a>
+        </li>
+        <li>
+          {% inline_svg filename="icons/note.svg" class="dark_aware" %}
+          <a href="/notes/">Notes</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</section>
+
+## Recent posts
+
+{% set articles = ((site.articles + site.notes) | sort(attribute="sort_date", reverse=True))[:5] %}
+{% include "partials/article_links.html" %}
 
 <script>
   function randomiseDieValue(selector, choices) {
