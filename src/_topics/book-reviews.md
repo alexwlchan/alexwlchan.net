@@ -156,7 +156,7 @@ This page is where I keep notes on all the books I've read:
                 {%- include "partials/star_rating.html" -%}
               {%- endwith -%}
               {% if rev.review.rating %}
-                {{ " " }}({{ star_rating(rev.review.rating) }}).
+                {{ " " }}{{ star_rating(rev.review.rating) }}
               {% endif %}
             {%- elif rev.review.rating -%}
               {{- star_rating(rev.review.rating) -}}
