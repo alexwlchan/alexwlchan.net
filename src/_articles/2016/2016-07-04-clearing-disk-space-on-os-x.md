@@ -1,12 +1,10 @@
 ---
-layout: post
+layout: article
 date: 2016-07-04 07:42:00 +00:00
 summary: "A few tools and utilities I\u2019ve been using to help clear disk space\
   \ on my Mac."
-tags:
-  - macos
+topic: macOS
 title: Clearing disk space on OS X
-old_syntax_highlighting: true
 ---
 
 Over the weekend, I've been trying to clear some disk space on my Mac.
@@ -79,7 +77,7 @@ For this, I turned to Python's `filecmp` module.
 This module contains a number of functions for comparing files and directories.
 This let me write a shell function for doing the comparisons on the command-line (this is the [fish shell](https://fishshell.com)):
 
-```fish
+```fish {"names":{"1":"filecmp"}}
 function filecmp
     python -c "import filecmp; print(filecmp.cmp('''$argv[1]''', '''$argv[2]'''))"
 end

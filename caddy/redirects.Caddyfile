@@ -188,8 +188,6 @@ redir /2016/03/itunes-images-with-alfred/ /2016/itunes-images-with-alfred/ perma
 redir /2016/03/itunes-images-with-alfred /2016/itunes-images-with-alfred/ permanent
 redir /2016/11/low-tech-productivity/ /2016/low-tech-productivity/ permanent
 redir /2016/11/low-tech-productivity /2016/low-tech-productivity/ permanent
-redir /2016/05/os-x-hates-textmate/ /2016/os-x-hates-textmate/ permanent
-redir /2016/05/os-x-hates-textmate /2016/os-x-hates-textmate/ permanent
 redir /2016/09/please-use-aspell/ /2016/please-use-aspell/ permanent
 redir /2016/09/please-use-aspell /2016/please-use-aspell/ permanent
 redir /2016/09/pyconuk2016/ /2016/pyconuk2016/ permanent
@@ -1904,4 +1902,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: 50S64OR9HQ)
+#[[[end]]] (sum: 09QpI7OKcY)

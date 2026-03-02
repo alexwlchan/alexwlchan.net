@@ -1,12 +1,11 @@
 ---
+layout: article
 date: 2016-05-05 21:03:00 +00:00
-summary: If for some reason you create a file called `-rf *`, it’s possible to delete it safely. But really, don’t create it in the first place.
-layout: post
-tags:
-  - shell scripting
-  - code crimes
 title: Safely deleting a file called ‘-rf *’
-old_syntax_highlighting: true
+summary: If for some reason you create a file called `-rf *`, it’s possible to delete it safely. But really, don’t create it in the first place.
+topics:
+  - Code crimes
+  - Shell scripting
 ---
 
 Odd thing that happened at work today: we accidentally created a file called `-rf *` on one of our dev boxes.

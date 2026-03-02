@@ -52,6 +52,14 @@ handle /2014/04/veil {
 	error 410
 }
 
+handle /2014/06/instapaper-urls/ {
+	error 410
+}
+
+handle /2014/06/instapaper-urls {
+	error 410
+}
+
 handle /2014/08/textexpander-amazon-affiliates/ {
 	error 410
 }
@@ -81,6 +89,14 @@ handle /2014/12/imessage-export/ {
 }
 
 handle /2014/12/imessage-export {
+	error 410
+}
+
+handle /2014/12/mathis-cars/ {
+	error 410
+}
+
+handle /2014/12/mathis-cars {
 	error 410
 }
 
@@ -116,6 +132,22 @@ handle /2014/imessage-export {
 	error 410
 }
 
+handle /2014/instapaper-urls/ {
+	error 410
+}
+
+handle /2014/instapaper-urls {
+	error 410
+}
+
+handle /2014/mathis-cars/ {
+	error 410
+}
+
+handle /2014/mathis-cars {
+	error 410
+}
+
 handle /2014/pelican-linkposts/ {
 	error 410
 }
@@ -137,38 +169,6 @@ handle /2014/veil/ {
 }
 
 handle /2014/veil {
-	error 410
-}
-
-handle /2014/instapaper-urls/ {
-	error 410
-}
-
-handle /2014/instapaper-urls {
-	error 410
-}
-
-handle /2014/06/instapaper-urls/ {
-	error 410
-}
-
-handle /2014/06/instapaper-urls {
-	error 410
-}
-
-handle /2014/12/mathis-cars/ {
-	error 410
-}
-
-handle /2014/12/mathis-cars {
-	error 410
-}
-
-handle /2014/mathis-cars/ {
-	error 410
-}
-
-handle /2014/mathis-cars {
 	error 410
 }
 
@@ -324,6 +324,14 @@ handle /2016/02/saved-by-the-prompt {
 	error 410
 }
 
+handle /2016/05/os-x-hates-textmate/ {
+	error 410
+}
+
+handle /2016/05/os-x-hates-textmate {
+	error 410
+}
+
 handle /2016/06/toothbrush-subscriptions/ {
 	error 410
 }
@@ -345,6 +353,14 @@ handle /2016/harry-potter-ipod/ {
 }
 
 handle /2016/harry-potter-ipod {
+	error 410
+}
+
+handle /2016/os-x-hates-textmate/ {
+	error 410
+}
+
+handle /2016/os-x-hates-textmate {
 	error 410
 }
 
@@ -612,14 +628,6 @@ handle /2021/safari-15-favicons {
 	error 410
 }
 
-handle /til/2025/redirect-log-printf/ {
-	error 410
-}
-
-handle /til/2025/redirect-log-printf {
-	error 410
-}
-
 handle /analytics/a.js {
 	error 410
 }
@@ -672,6 +680,14 @@ handle /talks/campug_git.pdf {
 	error 410
 }
 
+handle /til/2025/redirect-log-printf/ {
+	error 410
+}
+
+handle /til/2025/redirect-log-printf {
+	error 410
+}
+
 handle /talks/colossus_operators.jpg {
 	error 410
 }
@@ -688,4 +704,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: 9Ll5KqATrw)
+#[[[end]]] (sum: wylAA75CDo)
