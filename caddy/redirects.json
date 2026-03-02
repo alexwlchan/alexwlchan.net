@@ -2571,6 +2571,9 @@
   "/notes/2024/animate-svg-elements-with-animate/": [
     "/til/2024/animate-svg-elements-with-animate/"
   ],
+  "/notes/2024/applescript-do-javascript/": [
+    "/til/2024/applescript-do-javascript/"
+  ],
   "/notes/2024/beware-of-test-n-with-command-expansion/": [
     "/til/2024/beware-of-test-n-with-command-expansion/"
   ],
@@ -2649,6 +2652,9 @@
   "/notes/2024/how-to-parse-urls-with-jxa/": [
     "/til/2024/how-to-parse-urls-with-jxa/"
   ],
+  "/notes/2024/how-to-render-svgs-on-github/": [
+    "/til/2024/how-to-render-svgs-on-github/"
+  ],
   "/notes/2024/hyperlink-errors/": [
     "/til/2024/hyperlink-errors/"
   ],
@@ -2699,6 +2705,9 @@
   ],
   "/notes/2024/run-random-subset-of-tests-in-pytest/": [
     "/til/2024/run-random-subset-of-tests-in-pytest/"
+  ],
+  "/notes/2024/running-the-netlify-cli-in-github-actions/": [
+    "/til/2024/running-the-netlify-cli-in-github-actions/"
   ],
   "/notes/2024/simulate-a-readerror-54-connection-reset/": [
     "/til/2024/simulate-a-readerror-54-connection-reset/"
@@ -2757,6 +2766,9 @@
   ],
   "/notes/2024/why-cant-i-eject-a-disk/": [
     "/til/2024/why-cant-i-eject-a-disk/"
+  ],
+  "/notes/2024/wordpress-urls-to-monitor/": [
+    "/til/2024/wordpress-urls-to-monitor/"
   ],
   "/notes/2024/write-to-middle-of-file-with-python/": [
     "/til/2024/write-to-middle-of-file-with-python/"
@@ -2889,6 +2901,9 @@
   ],
   "/notes/2025/mediainfo-duration/": [
     "/til/2025/mediainfo-duration/"
+  ],
+  "/notes/2025/mermaid-box-in-flowchart/": [
+    "/til/2025/mermaid-box-in-flowchart/"
   ],
   "/notes/2025/no-aggregated-item/": [
     "/til/2025/no-aggregated-item/"

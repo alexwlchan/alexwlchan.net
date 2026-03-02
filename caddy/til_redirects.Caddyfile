@@ -27,7 +27,7 @@ til.alexwlchan.net {
   redir / https://alexwlchan.net/til/ permanent
   redir /atom.xml https://alexwlchan.net/til/atom.xml permanent
   redir /animate-svg-elements-with-animate/ https://alexwlchan.net/notes/2024/animate-svg-elements-with-animate/ permanent
-  redir /applescript-do-javascript/ https://alexwlchan.net/til/2024/applescript-do-javascript/ permanent
+  redir /applescript-do-javascript/ https://alexwlchan.net/notes/2024/applescript-do-javascript/ permanent
   redir /beware-of-test-n-with-command-expansion/ https://alexwlchan.net/notes/2024/beware-of-test-n-with-command-expansion/ permanent
   redir /block-specific-ip-addresses/ https://alexwlchan.net/til/2024/block-specific-ip-addresses/ permanent
   redir /buildkite-concurrency-gates/ https://alexwlchan.net/notes/2023/buildkite-concurrency-gates/ permanent
@@ -48,7 +48,7 @@ til.alexwlchan.net {
   redir /how-to-check-when-a-cert-expires/ https://alexwlchan.net/til/2024/how-to-check-when-a-cert-expires/ permanent
   redir /how-to-do-resumable-downloads/ https://alexwlchan.net/notes/2023/resumable-downloads-with-curl/ permanent
   redir /how-to-parse-urls-with-jxa/ https://alexwlchan.net/notes/2024/how-to-parse-urls-with-jxa/ permanent
-  redir /how-to-render-svgs-on-github/ https://alexwlchan.net/til/2024/how-to-render-svgs-on-github/ permanent
+  redir /how-to-render-svgs-on-github/ https://alexwlchan.net/notes/2024/how-to-render-svgs-on-github/ permanent
   redir /image-function-to-insert-images/ https://alexwlchan.net/til/2024/image-function-to-insert-images/ permanent
   redir /live-text-is-hyphenation-aware/ https://alexwlchan.net/notes/2023/live-text-is-hyphenation-aware/ permanent
   redir /longest-common-suffix/ https://alexwlchan.net/notes/2024/longest-common-suffix/ permanent
@@ -62,7 +62,7 @@ til.alexwlchan.net {
   redir /profiling-swift/ https://alexwlchan.net/notes/2023/profiling-swift/ permanent
   redir /regex-library-for-unicode-property-escapes/ https://alexwlchan.net/notes/2024/regex-library-for-unicode-property-escapes/ permanent
   redir /run-random-subset-of-tests-in-pytest/ https://alexwlchan.net/notes/2024/run-random-subset-of-tests-in-pytest/ permanent
-  redir /running-the-netlify-cli-in-github-actions/ https://alexwlchan.net/til/2024/running-the-netlify-cli-in-github-actions/ permanent
+  redir /running-the-netlify-cli-in-github-actions/ https://alexwlchan.net/notes/2024/running-the-netlify-cli-in-github-actions/ permanent
   redir /send-if-modified-since-with-httpx/ https://alexwlchan.net/til/2024/send-if-modified-since-with-httpx/ permanent
   redir /simulate-pipes-with-subprocess/ https://alexwlchan.net/notes/2024/simulate-pipes-with-subprocess/ permanent
   redir /sort-dom-elements-with-appendchild/ https://alexwlchan.net/notes/2024/sort-dom-elements-with-appendchild/ permanent
@@ -84,7 +84,7 @@ til.alexwlchan.net {
   redir /what-is-a-snak/ https://alexwlchan.net/til/2023/what-is-a-snak/ permanent
   redir /wmc-allowed-title-characters/ https://alexwlchan.net/til/2024/wmc-allowed-title-characters/ permanent
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
-  redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
+  redir /wordpress-urls-to-monitor/ https://alexwlchan.net/notes/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: X/LuHwpYxe)
+#[[[end]]] (sum: o+zewv1/i9)
 }

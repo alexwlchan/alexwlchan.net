@@ -1,11 +1,8 @@
 ---
-layout: til
+layout: note
 title: "SVGs are only rendered on GitHub if you use an `<img>` that points to another file"
 date: 2024-01-04 22:07:01 +00:00
-tags:
-  - svg
-  - github
-old_syntax_highlighting: true
+topic: SVG
 ---
 I was trying to write a Markdown file to render on GitHub, and include an SVG file.
 

@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: WordPress URLs that get hammered by spammers
 date: 2024-01-12 10:31:11 +00:00
-tags:
-  - wordpress
-old_syntax_highlighting: true
+topic: Systems and software
 ---
 At the Flickr Foundation, we run our WordPress site behind a reverse proxy.
 This causes the underlying WordPress instance to see all traffic as coming from the proxy server, including spam.

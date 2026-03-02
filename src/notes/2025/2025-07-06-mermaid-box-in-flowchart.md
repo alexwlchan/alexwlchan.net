@@ -1,31 +1,26 @@
 ---
-layout: til
+layout: note
 title: Group nodes in a Mermaid flowchart by putting them in a subgraph
 date: 2025-07-06 19:54:31 +01:00
-tags:
-  - mermaid
-  - drawing things
-old_syntax_highlighting: true
+topic: Drawing things
 ---
 I was drawing a flowchart with [Mermaid][mermaid], and I wanted to draw a box around several items to group them together.
 
 I found a suggestion by [Stack Overflow user KZiovas][so] to use a subgraph.
 Here's an example:
 
-```
-flowchart LR
-  subgraph sources["my sources"]
+<pre><code>flowchart LR
+  subgraph <span class="n">sources</span>["my sources"]
 
-    SRC1[source 1]
-    SRC2[source 2]
-    SRC3[source 3]
+    <span class="n">SRC1</span>[source 1]
+    <span class="n">SRC2</span>[source 2]
+    <span class="n">SRC3</span>[source 3]
   end
-  DST[destination]
+  <span class="n">DST</span>[destination]
 
   SRC1 --> DST
   SRC2 --> DST
-  SRC3 --> DST
-```
+  SRC3 --> DST</code></pre>
 
 and here's what the rendered graph looks like:
 

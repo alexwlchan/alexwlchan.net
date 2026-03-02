@@ -1,12 +1,9 @@
 ---
-layout: til
+layout: note
 date: 2024-01-04 22:59:15 +00:00
 date_updated: 2024-01-20 11:48:34 +00:00
 title: "Get and manipulate the contents of a page in Safari with `\"do JavaScript\"`"
-tags:
-  - safari
-  - applescript
-old_syntax_highlighting: true
+topic: AppleScript
 ---
 Here's an AppleScript which runs `document.querySelector` in a Safari tab and returns the matching HTML:
 
@@ -22,7 +19,7 @@ end tell
 
 If you try to run the AppleScript without the `.innerHTML` property, e.g.
 
-```applescript
+```applescript {"names":{"1":"selectedText"}}
 set selectedText to (do JavaScript "document.querySelector(\"main\")")
 ```
 
@@ -60,7 +57,7 @@ But the rendered HTML is available to JavaScript running on the page, so we can 
 I had two YouTube accounts, and I wanted to move videos from the "Watch Later" playlist in one to the other.
 I opened the two accounts in different windows, and then I repeatedly ran this AppleScript:
 
-```applescript
+```applescript {"names":{"4":"theYouTubeUrl"}}
 tell application "Safari"
     -- Get the path to the video at the top of the playlist in window 1
     -- e.g. /watch?v=123456789
@@ -74,7 +71,7 @@ tell application "Safari"
         delay 5
 
         -- Open the actions menu, which contains the "Save" button, and wait
-    -- for the menu to open
+        -- for the menu to open
         do JavaScript "document.querySelector('button[aria-label=\"More actions\"]').click()"
         delay 1
 

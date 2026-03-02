@@ -1570,6 +1570,8 @@ redir /til/2023/how-to-do-resumable-downloads/ /notes/2023/resumable-downloads-w
 redir /til/2023/how-to-do-resumable-downloads /notes/2023/resumable-downloads-with-curl/ permanent
 redir /til/2024/animate-svg-elements-with-animate/ /notes/2024/animate-svg-elements-with-animate/ permanent
 redir /til/2024/animate-svg-elements-with-animate /notes/2024/animate-svg-elements-with-animate/ permanent
+redir /til/2024/applescript-do-javascript/ /notes/2024/applescript-do-javascript/ permanent
+redir /til/2024/applescript-do-javascript /notes/2024/applescript-do-javascript/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion/ /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/beware-of-test-n-with-command-expansion /notes/2024/beware-of-test-n-with-command-expansion/ permanent
 redir /til/2024/build-query-string-with-curl/ /notes/2024/build-query-string-with-curl/ permanent
@@ -1622,6 +1624,8 @@ redir /til/2024/how-to-highlight-python-console-in-jekyll/ /notes/2024/how-to-hi
 redir /til/2024/how-to-highlight-python-console-in-jekyll /notes/2024/how-to-highlight-python-console-in-jekyll/ permanent
 redir /til/2024/how-to-parse-urls-with-jxa/ /notes/2024/how-to-parse-urls-with-jxa/ permanent
 redir /til/2024/how-to-parse-urls-with-jxa /notes/2024/how-to-parse-urls-with-jxa/ permanent
+redir /til/2024/how-to-render-svgs-on-github/ /notes/2024/how-to-render-svgs-on-github/ permanent
+redir /til/2024/how-to-render-svgs-on-github /notes/2024/how-to-render-svgs-on-github/ permanent
 redir /til/2024/hyperlink-errors/ /notes/2024/hyperlink-errors/ permanent
 redir /til/2024/hyperlink-errors /notes/2024/hyperlink-errors/ permanent
 redir /til/2024/inline-svg-in-css/ /notes/2024/inline-svg-in-css/ permanent
@@ -1656,6 +1660,8 @@ redir /til/2024/reset-match-anchor-in-ruby/ /notes/2024/reset-match-anchor-in-ru
 redir /til/2024/reset-match-anchor-in-ruby /notes/2024/reset-match-anchor-in-ruby/ permanent
 redir /til/2024/run-random-subset-of-tests-in-pytest/ /notes/2024/run-random-subset-of-tests-in-pytest/ permanent
 redir /til/2024/run-random-subset-of-tests-in-pytest /notes/2024/run-random-subset-of-tests-in-pytest/ permanent
+redir /til/2024/running-the-netlify-cli-in-github-actions/ /notes/2024/running-the-netlify-cli-in-github-actions/ permanent
+redir /til/2024/running-the-netlify-cli-in-github-actions /notes/2024/running-the-netlify-cli-in-github-actions/ permanent
 redir /til/2024/simulate-a-readerror-54-connection-reset/ /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-a-readerror-54-connection-reset /notes/2024/simulate-a-readerror-54-connection-reset/ permanent
 redir /til/2024/simulate-pipes-with-subprocess/ /notes/2024/simulate-pipes-with-subprocess/ permanent
@@ -1696,6 +1702,8 @@ redir /til/2025/rm-verbose/ /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2025/rm-verbose /notes/2024/verbose-deletions-with-rm/ permanent
 redir /til/2024/why-cant-i-eject-a-disk/ /notes/2024/why-cant-i-eject-a-disk/ permanent
 redir /til/2024/why-cant-i-eject-a-disk /notes/2024/why-cant-i-eject-a-disk/ permanent
+redir /til/2024/wordpress-urls-to-monitor/ /notes/2024/wordpress-urls-to-monitor/ permanent
+redir /til/2024/wordpress-urls-to-monitor /notes/2024/wordpress-urls-to-monitor/ permanent
 redir /til/2024/write-to-middle-of-file-with-python/ /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2024/write-to-middle-of-file-with-python /notes/2024/write-to-middle-of-file-with-python/ permanent
 redir /til/2024/youtube-dl-options/ /notes/2024/youtube-dl-options/ permanent
@@ -1784,6 +1792,8 @@ redir /til/2025/macos-launchagent-examples/ /notes/2025/macos-launchagent-exampl
 redir /til/2025/macos-launchagent-examples /notes/2025/macos-launchagent-examples/ permanent
 redir /til/2025/mediainfo-duration/ /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/mediainfo-duration /notes/2025/mediainfo-duration/ permanent
+redir /til/2025/mermaid-box-in-flowchart/ /notes/2025/mermaid-box-in-flowchart/ permanent
+redir /til/2025/mermaid-box-in-flowchart /notes/2025/mermaid-box-in-flowchart/ permanent
 redir /til/2025/no-aggregated-item/ /notes/2025/no-aggregated-item/ permanent
 redir /til/2025/no-aggregated-item /notes/2025/no-aggregated-item/ permanent
 redir /til/2025/platform-specific-dirs/ /notes/2025/platform-specific-dirs/ permanent
@@ -1894,4 +1904,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: o//P+Wq4Ws)
+#[[[end]]] (sum: 50S64OR9HQ)
