@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2014-08-31 12:12:00 +00:00
-tags:
-  - tumblr
 title: Updates to my site for finding untagged Tumblr posts
-old_syntax_highlighting: true
+topic: Systems and software
 ---
 
 About two weeks ago, I took a family holiday to Oslo. When I came back, I found that my site for [finding untagged Tumblr posts][post1] had received a lot of traffic while I was gone. I'm flattered that so many people have found it useful.
@@ -47,7 +45,7 @@ This means that the `all_posts` array includes an object for every post on a blo
 
 In the update, the `all_posts` array is filtered to only include untagged posts. Objects for tagged posts are discarded immediately. I have two utility functions:
 
-{% code lang="javascript" names="0:post_is_untagged 1:post 5:filter_untagged_posts 6:posts" %}
+```javascript {"names":{"1":"post_is_untagged","2":"post","6":"filter_untagged_posts","7":"posts"}}
 var post_is_untagged = function(post) {
     return !post.tags.length;
 }
@@ -55,7 +53,7 @@ var post_is_untagged = function(post) {
 var filter_untagged_posts = function(posts) {
     return posts.filter(post_is_untagged);
 }
-{% endcode %}
+```
 
 which are applied to all the post objects I receive from the Tumblr API. Then I renamed the array to `untagged_posts`, and slightly simplified the HTML:
 
@@ -75,7 +73,7 @@ Discarding all the tagged posts reduces memory usage, but I was still populating
 
 So I refined `filter_untagged_posts` so that all I save is the URL, and every other attribute gets discarded:
 
-{% code lang="javascript" names="0:filter_untagged_posts 1:posts 2:untagged_posts 6:trimmed_urls 7:p" %}
+```javascript {"names":{"1":"filter_untagged_posts","2":"posts","3":"untagged_posts","7":"trimmed_urls"}}
 var filter_untagged_posts = function(posts) {
     untagged_posts   = posts.filter(post_is_untagged);
     var trimmed_urls = [];
@@ -86,7 +84,7 @@ var filter_untagged_posts = function(posts) {
 
     return trimmed_urls
 }
-{% endcode %}
+```
 
 Now the `untagged_posts` array only includes URLs, and the HTML can be simplified even further:
 

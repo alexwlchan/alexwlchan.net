@@ -1,12 +1,11 @@
 ---
+layout: article
 date: 2016-10-08 18:31:00 +00:00
-layout: post
 summary: Why py.test is my unit test framework of choice in Python.
-tags:
-  - python
-  - python:pytest
+topics:
+  - Python
+  - Software testing
 title: Why I use py.test
-old_syntax_highlighting: true
 ---
 
 A question came up in Slack at work recently: _"What's your favorite/recommended unit test framework [for Python]?"_
@@ -26,7 +25,7 @@ So, why do I prefer py.test?
 When you write a test with unittest, you have to subclass `unittest.TestCase` and write your tests as methods on that class.
 For example:
 
-```python
+```python {"names":{"1":"unittest","2":"TestNumberFunctions","5":"test_doubling","6":"test_tripling"}}
 import unittest
 
 class TestNumberFunctions(unittest.TestCase):
@@ -40,7 +39,7 @@ class TestNumberFunctions(unittest.TestCase):
 
 Whereas with py.test, you can just specify tests as top-level functions:
 
-```python
+```python {"names":{"1":"test_doubling","2":"test_tripling"}}
 def test_doubling():
     ...
 
@@ -62,7 +61,7 @@ When you use the unittest framework, you have to remember to use the [special as
 These produce more helpful diagnostics when a test fails.
 For example, consider these two tests:
 
-```python
+```python {"names":{"1":"TestTheAnswer","4":"test_with_regular_assert","6":"test_with_assert_helpers"}}
 class TestTheAnswer(unittest.TestCase):
 
     def test_with_regular_assert(self):
@@ -100,7 +99,7 @@ Ick.
 
 In py.test, you just have to use regular assert statements:
 
-```python
+```python {"names":{"1":"test_the_answer"}}
 def test_the_answer():
     assert the_answer() == 42
 ```
@@ -109,8 +108,8 @@ This is the sort of error output you get:
 
 <pre><code>    def test_the_answer():
 &gt;       assert the_answer() == 42
-<span style="color: #d01c11">E       assert 54 == 42</span>
-<span style="color: #d01c11">E        +  where 54 = the_answer()</span>
+<span style="color: var(--red);">E       assert 54 == 42</span>
+<span style="color: var(--red);">E        +  where 54 = the_answer()</span>
 
 hitchhikers.py:14: AssertionError
 </code></pre>
@@ -128,9 +127,9 @@ Here's the output from another test failure:
 <!-- And this!! -->
 <pre><code>    def test_some_more():
 &gt;       assert (the_purpose_of(life) is not None) or (the_answer() == 42)
-<span style="color: #d01c11">E       assert (None is not None or 54 == 42)</span>
-<span style="color: #d01c11">E        +  where None = the_purpose_of('life')</span>
-<span style="color: #d01c11">E        +  and   54 = the_answer()</span>
+<span style="color: var(--red);">E       assert (None is not None or 54 == 42)</span>
+<span style="color: var(--red);">E        +  where None = the_purpose_of('life')</span>
+<span style="color: var(--red);">E        +  and   54 = the_answer()</span>
 
 arthur.py:16: AssertionError
 </code></pre>
@@ -142,7 +141,7 @@ I have no idea how py.test is handling asserts under the hood, but it's really h
 Often, I want to run the same test with multiple test cases.
 With unittest, the best approach is to put them in a `for` loop:
 
-```python
+```python {"names":{"1":"TestFizzBuzz","4":"test_my_fizzbuzz","5":"n","6":"result"}}
 class TestFizzBuzz(unittest.TestCase):
 
     def test_my_fizzbuzz(self):
@@ -165,7 +164,7 @@ You provide a list of test cases, but each of those is then evaluated separately
 If one case fails, that doesn't block running the other test cases.
 Here's what that looks like:
 
-```python
+```python {"names":{"1":"pytest","5":"test_fizzbuzz","6":"n","7":"result"}}
 import pytest
 
 @pytest.mark.parametrize('n, result', [
