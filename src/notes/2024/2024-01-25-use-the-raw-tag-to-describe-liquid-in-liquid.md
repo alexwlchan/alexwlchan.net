@@ -1,13 +1,12 @@
 ---
-layout: til
+layout: note
 date: 2024-01-25 21:55:11 +00:00
 title: Use the `{% raw %}` tag to describe Liquid in Liquid
 summary: |
   If you're trying to write about using Liquid tags in a Liquid-based site, wrapping your tags in the `{% raw %}` tag will prevent them being rendered.
-tags:
-  - liquid
-  - jekyll
-old_syntax_highlighting: true
+topics: 
+  - Ruby
+  - Blogging about blogging
 ---
 This is a problem I had when trying to write my TIL about [the `{% raw %}{% capture %}{% endraw %}` tag](/til/2024/use-the-capture-tag-for-complex-strings/).
 I'd written an example in my Markdown source code:

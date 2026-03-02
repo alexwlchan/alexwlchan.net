@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2022-09-23 05:42:28 +00:00
 title: '"Fixing" the rules of division'
 summary: If we want to redefine how division works, Ruby is happy to oblige.
-tags:
-  - maths
-  - ruby
-  - code crimes
+topics:
+  - Code crimes
+  - Ruby
 colors:
   css_light:   "#292929"
   css_dark:    "#b0b0b0"
@@ -14,7 +13,6 @@ colors:
   index_dark:  "#FF4242"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 <!-- Card image from https://www.publicdomainpictures.net/en/view-image.php?image=82122&picture=vintage-office-calculator-keypad -->
@@ -58,7 +56,7 @@ irb(main):001:0> 0.class
 To override a method, we declare the class, then declare the method, and this replaces any existing implementations.
 For example:
 
-{% code lang="ruby" names="0:Integer 1:/ 2:divisor" %}
+```ruby {"names":{"1":"Integer","2":"/","3":"divisor"}}
 class Integer
   def /(divisor)
     "headache"
@@ -66,7 +64,7 @@ class Integer
 end
 
 puts 29018198 / 37  # "headache"
-{% endcode %}
+```
 
 Thus recreating the experience of many people and school-level maths.
 
@@ -80,7 +78,7 @@ Thus recreating the experience of many people and school-level maths.
 This gives us a clear way forward: we'll override this function to return the result we want.
 If we're doing `0 / 2`, we'll return `0.5`, and otherwise we'll return the normal result.
 
-{% code lang="ruby" names="0:Integer 1:/ 2:divisor" %}
+```ruby {"names":{"1":"Integer","2":"/","3":"divisor"}}
 class Integer
   def /(divisor)
     if self == 0 and divisor == 2
@@ -92,7 +90,7 @@ class Integer
 end
 
 puts 0 / 2  # 0.5
-{% endcode %}
+```
 
 Hooray!
 We've fixed mathematics.
@@ -145,7 +143,7 @@ This variable won't be updated when we update the `Integer` class, so we can cal
 
 Like so:
 
-{% code lang="ruby" names="0:Integer 1:broken_div 4:divisor" %}
+```ruby {"names":{"1":"Integer","2":"broken_div","5":"divisor"}}
 class Integer
   broken_div = instance_method(:div)
 
@@ -161,7 +159,7 @@ end
 puts 0 / 2  # 0.5
 puts 1 / 2  # 0
 puts 3 / 2  # 1
-{% endcode %}
+```
 
 [so]: https://stackoverflow.com/a/4471202/1558022
 
@@ -190,7 +188,7 @@ There's probably a good reason I'm not seeing.
 
 This is the final code:
 
-{% code lang="ruby" names="0:Integer 1:broken_div 4:divisor 12:divisor 15:Float 16:broken_div 19:divisor 27:divisor" %}
+```ruby {"names":{"1":"Integer","2":"broken_div","5":"divisor","13":"divisor","16":"Float","17":"broken_div","20":"divisor","28":"divisor"}}
 class Integer
   broken_div = instance_method(:/)
 
@@ -232,7 +230,7 @@ puts 6 / 2    # 3
 puts 0.0 / 2 # 0.5
 puts 1.0 / 2 # 0.5
 puts 2.0 / 2 # 1.0
-{% endcode %}
+```
 
 And that, I think, is enough.
 We've redefined what it means to divide zero in half, we've changed the way our computer thinks about division, and we have a template we could use to "fix" other operations.

@@ -1618,6 +1618,10 @@ redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/gracefully-restart-a-gunicorn-app/ /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
 redir /til/2024/gracefully-restart-a-gunicorn-app /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
+redir /til/2024/how-to-highlight-python-console-in-jekyll/ /notes/2024/how-to-highlight-python-console-in-jekyll/ permanent
+redir /til/2024/how-to-highlight-python-console-in-jekyll /notes/2024/how-to-highlight-python-console-in-jekyll/ permanent
+redir /til/2024/how-to-parse-urls-with-jxa/ /notes/2024/how-to-parse-urls-with-jxa/ permanent
+redir /til/2024/how-to-parse-urls-with-jxa /notes/2024/how-to-parse-urls-with-jxa/ permanent
 redir /til/2024/hyperlink-errors/ /notes/2024/hyperlink-errors/ permanent
 redir /til/2024/hyperlink-errors /notes/2024/hyperlink-errors/ permanent
 redir /til/2024/inline-svg-in-css/ /notes/2024/inline-svg-in-css/ permanent
@@ -1646,6 +1650,8 @@ redir /til/2024/pausing-svg-animation-varies-across-browsers/ /notes/2024/pausin
 redir /til/2024/pausing-svg-animation-varies-across-browsers /notes/2024/pausing-svg-animation-varies-across-browsers/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes/ /notes/2024/regex-library-for-unicode-property-escapes/ permanent
 redir /til/2024/regex-library-for-unicode-property-escapes /notes/2024/regex-library-for-unicode-property-escapes/ permanent
+redir /til/2024/remove-letterboxing/ /notes/2024/remove-letterboxing/ permanent
+redir /til/2024/remove-letterboxing /notes/2024/remove-letterboxing/ permanent
 redir /til/2024/reset-match-anchor-in-ruby/ /notes/2024/reset-match-anchor-in-ruby/ permanent
 redir /til/2024/reset-match-anchor-in-ruby /notes/2024/reset-match-anchor-in-ruby/ permanent
 redir /til/2024/run-random-subset-of-tests-in-pytest/ /notes/2024/run-random-subset-of-tests-in-pytest/ permanent
@@ -1674,6 +1680,8 @@ redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagen
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/use-n-to-avoid-overwriting/ /notes/2024/use-n-to-avoid-overwriting/ permanent
 redir /til/2024/use-n-to-avoid-overwriting /notes/2024/use-n-to-avoid-overwriting/ permanent
+redir /til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ /notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
+redir /til/2024/use-the-raw-tag-to-describe-liquid-in-liquid /notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
 redir /til/2024/use-rsync-and-passwordless-sudo/ /notes/2024/use-rsync-and-passwordless-sudo/ permanent
 redir /til/2024/use-rsync-and-passwordless-sudo /notes/2024/use-rsync-and-passwordless-sudo/ permanent
 redir /til/2024/use-shlex-split-to-parse-nginx-logs/ /notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
@@ -1882,4 +1890,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: TGltGKpzEk)
+#[[[end]]] (sum: u0oMFpy750)

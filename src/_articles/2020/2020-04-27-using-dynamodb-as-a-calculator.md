@@ -1,13 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2020-04-27 09:23:04 +00:00
 title: Using DynamoDB as a calculator
 summary: Taking advantage of Amazon's least-loved compute platform.
-tags:
-  - aws
-  - aws:amazon dynamodb
-  - python
-  - code crimes
+topics:
+  - Code crimes
+  - AWS
+  - Python
 colors:
   index_light: "#234371"
   index_dark:  "#56abdf"
@@ -85,7 +84,7 @@ Within DynamoDB, we run all our computing inside *Table*.
 Within a table, operations run within *Rows*.
 Let's write some code to create a table for us, and to assign a row ID that we can use to track an individual calculation:
 
-```python
+```python {"names":{"1":"contextlib","2":"uuid","3":"boto3","4":"dynamodb","7":"DynamoCalculator","8":"__enter__","9":"table_name","25":"__exit__","26":"exc_type","27":"exc_value","28":"traceback","35":"row_id","36":"calculation_id","46":"calculator"}}
 import contextlib
 import uuid
 
@@ -166,7 +165,7 @@ For this, we can use the UpdateItem API, which can modify a row based on its exi
 
 For example, we could tell it to add one number to another, like so:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"add","3":"x","5":"y","9":"calculation_id"}}
 class DynamoCalculator:
     ...
 
@@ -198,7 +197,7 @@ It turns out we can consolidate these three API calls into one.
 The UpdateItem API creates a row if it doesn't exist yet (saving the PutItem), and we can also ask it to give us the value it just wrote to the row (saving the GetItem).
 Here's what the consolidated version looks like:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"add","3":"x","5":"y","9":"calculation_id"}}
 class DynamoCalculator:
     ...
 
@@ -236,7 +235,7 @@ Consolidating three API calls into one is a good optimisation!
 Subtraction is the opposite of addition, with the convenient property that subtracting *y* is the same as adding (negative *y*).
 This leads some people to define subtraction like so:
 
-```python
+```python {"names":{"1":"subtract","2":"x","4":"y"}}
     def subtract(self, x: int, y: int) -> int:
         """
         Subtracts one integer from another and returns the result.
@@ -250,7 +249,7 @@ What's the point of having a compute platform like DynamoDB if we don't use it f
 
 DynamoDB's UpdateItem API supports subtraction as well as addition, which is a much better approach:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"subtract","3":"x","5":"y","9":"calculation_id"}}
 class DynamoCalculator:
     ...
 
@@ -279,7 +278,7 @@ This is where things get a bit trickier -- the UpdateExpression used by the Upda
 We'll have to build our own implementation of multiplication.
 A simple approach is to use a recursive algorithm:
 
-```
+```python {"names":{"1":"multiply","2":"x","3":"y"}}
 def multiply(x, y):
     if y == 0:
         return 0
@@ -289,7 +288,7 @@ def multiply(x, y):
 
 Consider an example:
 
-```
+```python
 multiply(5, 3) = 5 + multiply(5, 2)
                = 5 + (5 + multiply(5, 1))
                = 5 + (5 + (5 + multiply(5, 0)))
@@ -318,7 +317,7 @@ If the condition is false, the write fails and we get an error.
 One of the conditions you can specify is that two values are the same.
 So let's try to write to the table with this condition -- if it succeeds, the numbers are equal; if it fails, they're not.
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"eq","5":"y","9":"calculation_id"}}
 class DynamoCalculator:
     ...
 
@@ -333,7 +332,7 @@ class DynamoCalculator:
                     ConditionExpression=":x = :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
-            except Exception as exc:
+            except Exception:
                 return False
             else:
                 return True
@@ -345,7 +344,7 @@ Next, let's use DynamoDB to implement basic control flow.
 For an IF statement, we have a condition, an "if true" action, and an "if false" action.
 We can continue to misuse conditional operations, and pass the boolean directly to DynamoDB:
 
-```python
+```python {"names":{"1":"typing","2":"Callable","3":"DynamoCalculator","4":"if_","5":"condition","7":"if_true","10":"if_false","15":"calculation_id"}}
 from typing import Callable
 
 
@@ -355,7 +354,7 @@ class DynamoCalculator:
     def if_(
         self,
         condition: bool,
-        if_true: Callable[[], int],
+        if_true:  Callable[[], int],
         if_false: Callable[[], int]
     ) -> bool:
         """
@@ -369,7 +368,7 @@ class DynamoCalculator:
                     ConditionExpression=":condition = :true",
                     ExpressionAttributeValues={":condition": condition, ":true": True}
                 )
-            except Exception as exc:
+            except Exception:
                 return if_false()
             else:
                 return if_true()
@@ -380,7 +379,7 @@ This is a sophisticated programming technique called [*lazy evaluation*](https:/
 
 Now we have enough pieces to start building out our multiplication function:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"multiply","3":"x","5":"y"}}
 class DynamoCalculator:
     ...
 
@@ -401,7 +400,7 @@ class DynamoCalculator:
 This works if *y* is positive or zero, but if *y* is negative it keeps decrementing forever.
 We need to tweak our algorithm slightly:
 
-```
+```python {"names":{"1":"multiply","2":"x","3":"y"}}
 def multiply(x, y):
     if y == 0:
         return 0
@@ -416,7 +415,7 @@ This leaves the problem of working out if `y` is negative.
 
 DynamoDB supports all the logical operators in conditional updates, so we can follow the same technique we've already used twice:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"lt","3":"x","5":"y","9":"calculation_id"}}
 class DynamoCalculator:
     ...
 
@@ -431,7 +430,7 @@ class DynamoCalculator:
                     ConditionExpression=":x < :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
-            except Exception as exc:
+            except Exception:
                 return False
             else:
                 return True
@@ -439,7 +438,7 @@ class DynamoCalculator:
 
 This gives us the last piece we need to create a fully working multiplication function:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"multiply","3":"x","5":"y","8":"if_y_non_negative","15":"if_y_negative","16":"y_pos"}}
 class DynamoCalculator:
     ...
 
@@ -471,7 +470,7 @@ class DynamoCalculator:
 
 We can tackle division in a similar way to multiplication, using a recursive algorithm:
 
-```
+```python {"names":{"1":"divide","2":"x","3":"y"}}
 def divide(x, y):
     if y < 0:
         return -1 * divide(x, -y)
@@ -484,7 +483,7 @@ def divide(x, y):
 
 Which falls out of the pieces we've already built like so:
 
-```python
+```python {"names":{"1":"DynamoCalculator","2":"divide","3":"x","5":"y","8":"if_y_negative","14":"if_y_positive"}}
 class DynamoCalculator:
     ...
 
@@ -519,7 +518,7 @@ We can continue to compose the functions we've already written to round out our 
 
 We can get "not equal to" by defining a NOT operator, and applying that to the output of "eq()":
 
-```python
+```python {"names":{"1":"not_","2":"condition","9":"ne","10":"x","12":"y"}}
     def not_(self, condition: bool) -> bool:
         """
         Returns the negation of ``condition``.
@@ -539,7 +538,7 @@ We can get "not equal to" by defining a NOT operator, and applying that to the o
 
 We can define "less than or equal to" by defining an OR operator, and applying that to the output of "lt()" and "eq()":
 
-```python
+```python {"names":{"1":"or_","2":"condition1","4":"condition2","7":"int_1","12":"int_2","21":"le","22":"x","24":"y"}}
     def or_(self, condition1: bool, condition2: bool) -> bool:
         """
         Returns True if at least one of ``condition1`` and ``condition2`` is True.
@@ -560,7 +559,7 @@ We can define "less than or equal to" by defining an OR operator, and applying t
 
 We can define "greater than" and "greater than or equal to" as the negation of "less than or equal to" and "less than", respectively:
 
-```python
+```python {"names":{"1":"gt","2":"x","4":"y","11":"ge","12":"x","14":"y"}}
     def gt(self, x: int, y: int) -> bool:
         """
         Returns True if x > y, False otherwise.
@@ -576,7 +575,7 @@ We can define "greater than" and "greater than or equal to" as the negation of "
 
 And finally, for completion's sake, let's define an AND operator and a NAND operator:
 
-```python
+```python {"names":{"1":"and_","2":"condition1","4":"condition2","7":"int_1","12":"int_2","21":"nand","22":"condition1","24":"condition2"}}
     def and_(self, condition1: bool, condition2: bool) -> bool:
         """
         Returns True if both ``condition1`` and ``condition2`` are True.

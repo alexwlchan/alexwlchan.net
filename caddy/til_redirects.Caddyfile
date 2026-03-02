@@ -47,7 +47,7 @@ til.alexwlchan.net {
   redir /gracefully-restart-a-gunicorn-app/ https://alexwlchan.net/notes/2024/gracefully-restart-a-gunicorn-app/ permanent
   redir /how-to-check-when-a-cert-expires/ https://alexwlchan.net/til/2024/how-to-check-when-a-cert-expires/ permanent
   redir /how-to-do-resumable-downloads/ https://alexwlchan.net/notes/2023/resumable-downloads-with-curl/ permanent
-  redir /how-to-parse-urls-with-jxa/ https://alexwlchan.net/til/2024/how-to-parse-urls-with-jxa/ permanent
+  redir /how-to-parse-urls-with-jxa/ https://alexwlchan.net/notes/2024/how-to-parse-urls-with-jxa/ permanent
   redir /how-to-render-svgs-on-github/ https://alexwlchan.net/til/2024/how-to-render-svgs-on-github/ permanent
   redir /image-function-to-insert-images/ https://alexwlchan.net/til/2024/image-function-to-insert-images/ permanent
   redir /live-text-is-hyphenation-aware/ https://alexwlchan.net/notes/2023/live-text-is-hyphenation-aware/ permanent
@@ -77,7 +77,7 @@ til.alexwlchan.net {
   redir /use-shlex-split-to-parse-nginx-logs/ https://alexwlchan.net/notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
   redir /use-sqlite-utils-to-convert-csv-to-sqlite/ https://alexwlchan.net/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
   redir /use-the-capture-tag-for-complex-strings/ https://alexwlchan.net/til/2024/use-the-capture-tag-for-complex-strings/ permanent
-  redir /use-the-raw-tag-to-describe-liquid-in-liquid/ https://alexwlchan.net/til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
+  redir /use-the-raw-tag-to-describe-liquid-in-liquid/ https://alexwlchan.net/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
   redir /use-unicode-property-escapes-to-find-emoji/ https://alexwlchan.net/til/2023/use-unicode-property-escapes-to-find-emoji/ permanent
   redir /verbose-deletions-with-rm/ https://alexwlchan.net/notes/2024/verbose-deletions-with-rm/ permanent
   redir /what-happens-when-you-replace-a-photo/ https://alexwlchan.net/til/2024/what-happens-when-you-replace-a-photo/ permanent
@@ -86,5 +86,5 @@ til.alexwlchan.net {
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: z5Ix+eKGJq)
+#[[[end]]] (sum: rtvhZ/Oy0C)
 }

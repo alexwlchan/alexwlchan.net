@@ -1,16 +1,14 @@
 ---
-layout: til
+layout: note
 date: 2024-02-24 06:55:47 +00:00
 title: How to parse URLs in JXA
-tags:
-  - jxa
-old_syntax_highlighting: true
+topic: JavaScript
 ---
 Whenever I want to do AppleScript-like automation which involves string manipulation, I reach for JXA instead.
 
 If I want to parse URLs, I normally use the [URL() constructor](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL):
 
-```javascript
+```javascript {"names":{"1":"urlString","2":"url"}}
 var urlString = "https://www.example.com/path/to/resource?param1=value1&param2=value2";
 
 var url = new URL(urlString);
@@ -25,7 +23,7 @@ Error: ReferenceError: Can't find variable: URL
 Instead, a way I've found to parse URLs in JXA is to use `NSURL`.
 It's a slightly different interface to JavaScript's standard URL class, but better than writing a URL parser from scratch:
 
-```javascript
+```javascript {"names":{"1":"url","6":"scheme","11":"host","16":"path","21":"query"}}
 var url = $.NSURL.URLWithString(urlString);
 
 var scheme = ObjC.unwrap(url.scheme);

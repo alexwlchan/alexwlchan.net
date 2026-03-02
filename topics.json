@@ -244,5 +244,10 @@
   {
     "name": "Bookmarklets",
     "href": "/bookmarklets/"
+  },
+  {
+    "name": "Code crimes",
+    "href": "/code-crimes/",
+    "parent": "Systems and software"
   }
 ]

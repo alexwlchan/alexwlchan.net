@@ -2643,6 +2643,12 @@
   "/notes/2024/gracefully-restart-a-gunicorn-app/": [
     "/til/2024/gracefully-restart-a-gunicorn-app/"
   ],
+  "/notes/2024/how-to-highlight-python-console-in-jekyll/": [
+    "/til/2024/how-to-highlight-python-console-in-jekyll/"
+  ],
+  "/notes/2024/how-to-parse-urls-with-jxa/": [
+    "/til/2024/how-to-parse-urls-with-jxa/"
+  ],
   "/notes/2024/hyperlink-errors/": [
     "/til/2024/hyperlink-errors/"
   ],
@@ -2685,6 +2691,9 @@
   "/notes/2024/regex-library-for-unicode-property-escapes/": [
     "/til/2024/regex-library-for-unicode-property-escapes/"
   ],
+  "/notes/2024/remove-letterboxing/": [
+    "/til/2024/remove-letterboxing/"
+  ],
   "/notes/2024/reset-match-anchor-in-ruby/": [
     "/til/2024/reset-match-anchor-in-ruby/"
   ],
@@ -2726,6 +2735,9 @@
   ],
   "/notes/2024/use-n-to-avoid-overwriting/": [
     "/til/2024/use-n-to-avoid-overwriting/"
+  ],
+  "/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/": [
+    "/til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/"
   ],
   "/notes/2024/use-rsync-and-passwordless-sudo/": [
     "/til/2024/use-rsync-and-passwordless-sudo/"

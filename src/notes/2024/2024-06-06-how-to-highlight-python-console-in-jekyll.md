@@ -1,14 +1,13 @@
 ---
-layout: til
+layout: note
 date: 2024-06-06 17:41:39 +01:00
 title: How to highlight Python console sessions in Jekyll
 summary: |
   Adding a couple of options to the `console` lexer (`console?lang=python&prompt=>>>`) gets you syntax highlighting for a Python console session.
-tags:
-  - jekyll
-  - ruby:rouge
-  - python
-old_syntax_highlighting: true
+topics:
+  - Ruby
+  - Blogging about blogging
+  - Python
 ---
 I was writing another article for this site, and I created a code block with backticks and the language identifier `pycon`, for a Python console session:
 
@@ -45,12 +44,12 @@ That solution works, but it's a bit ugly and I won't remember to do it.
 
 So I wrote [a Jekyll hook](https://jekyllrb.com/docs/plugins/hooks/) that modifies my Markdown source to replace `pycon` with `console?lang=…` whenever my site gets built:
 
-{% code lang="ruby" names="3:p" %}
+```ruby {"names":{"7":"p"}}
 # _plugins/pycon_rouge_highlighter.rb
 Jekyll::Hooks.register(%i[pages posts], :pre_render) do |p|
   p.content = p.content.gsub("\n```pycon\n", "\n```console?lang=python&prompt=>>>,...\n")
 end
-{% endcode %}
+```
 
 This is quite a brittle fix, but for my small site it should be fine.
 

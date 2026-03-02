@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-06-08 11:11:25 +01:00
 title: Removing letterboxing from a video screenshot with ImageMagick
 summary: |
   Using `-trim` will remove the black portions and leave you the unletterboxed image.
-tags:
-  - imagemagick
-old_syntax_highlighting: true
+topic: Images and videos
 ---
 I was doing some work today with screenshots of a video that had [black "letterboxing" bars](https://en.wikipedia.org/wiki/Letterboxing_%28filming%29) around it.
 If you use `convert [input] -trim [output]`, you can remove this with ImageMagick.
