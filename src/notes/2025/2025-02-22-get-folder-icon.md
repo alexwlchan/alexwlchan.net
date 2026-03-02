@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 title: How to get a macOS file/folder icon in Swift
 summary:
   Use `NSWorkspace.shared.icon` to get the icon as an `NSImage`, then you can save it to disk or do something else with it.
 date: 2025-02-22 00:10:03 +00:00
-tags:
-  - swift
-old_syntax_highlighting: true
+topic: Swift
 ---
 I was working on a project where I needed the icons of a list of folders on macOS.
 I wanted to see if I could automate this process.
@@ -14,7 +12,7 @@ I wanted to see if I could automate this process.
 The key method I need is [`NSWorkspace.shared.icon(forFile:)`](https://developer.apple.com/documentation/appkit/nsworkspace/icon(forfile:)), which returns the icon for a file/folder as an `NSImage`.
 You can then use this in a variety of ways; I wrote a short script that saves this as a PNG image:
 
-```swift
+```swift {"names":{"1":"Cocoa","2":"Foundation","3":"arguments","11":"folderURL","15":"icon","22":"bitmap","27":"pngData","33":"outputFileURL"}}
 #!/usr/bin/env swift
 // Get the macOS Finder icon for a file/folder.
 //

@@ -8,7 +8,7 @@ topics:
   - Ruby
   - Blogging about blogging
 ---
-This is a problem I had when trying to write my TIL about [the `{% raw %}{% capture %}{% endraw %}` tag](/til/2024/use-the-capture-tag-for-complex-strings/).
+This is a problem I had when trying to write my TIL about [the `{% raw %}{% capture %}{% endraw %}` tag](/notes/2024/use-the-capture-tag-for-complex-strings/).
 I'd written an example in my Markdown source code:
 
 {% raw %}

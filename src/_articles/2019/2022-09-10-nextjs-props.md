@@ -1,16 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2022-09-10 17:04:31 +00:00
 title: Finding redundant data in our Next.js props
 summary: A script that helps us optimise our `__NEXT_DATA__`, which in turn helps reduce page size.
-tags:
-  - javascript
-  - javascript:next.js
-  - web development
+topic: JavaScript
 colors:
   index_light: "#AE160E"
   index_dark:  "#f15850"
-old_syntax_highlighting: true
 ---
 
 At work, we use the [Next.js framework][nextjs] to build our website.
@@ -20,7 +16,7 @@ For example, if you're reading an article, we fetch all the article data from th
 
 These props get embedded in the page as JSON, where they'll be read by the client-side code:
 
-```html
+```html {"wrap":true}
 <!DOCTYPE html>
 <html lang="en" class="is-keyboard">
   <body>

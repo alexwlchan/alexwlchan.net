@@ -76,7 +76,7 @@ til.alexwlchan.net {
   redir /use-rsync-and-passwordless-sudo/ https://alexwlchan.net/notes/2024/use-rsync-and-passwordless-sudo/ permanent
   redir /use-shlex-split-to-parse-nginx-logs/ https://alexwlchan.net/notes/2024/use-shlex-split-to-parse-nginx-logs/ permanent
   redir /use-sqlite-utils-to-convert-csv-to-sqlite/ https://alexwlchan.net/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
-  redir /use-the-capture-tag-for-complex-strings/ https://alexwlchan.net/til/2024/use-the-capture-tag-for-complex-strings/ permanent
+  redir /use-the-capture-tag-for-complex-strings/ https://alexwlchan.net/notes/2024/use-the-capture-tag-for-complex-strings/ permanent
   redir /use-the-raw-tag-to-describe-liquid-in-liquid/ https://alexwlchan.net/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
   redir /use-unicode-property-escapes-to-find-emoji/ https://alexwlchan.net/til/2023/use-unicode-property-escapes-to-find-emoji/ permanent
   redir /verbose-deletions-with-rm/ https://alexwlchan.net/notes/2024/verbose-deletions-with-rm/ permanent
@@ -86,5 +86,5 @@ til.alexwlchan.net {
   redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/til/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: rtvhZ/Oy0C)
+#[[[end]]] (sum: X/LuHwpYxe)
 }

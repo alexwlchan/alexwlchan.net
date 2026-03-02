@@ -1680,6 +1680,8 @@ redir /til/2024/use-launchagent-for-scheduled-script/ /notes/2024/use-launchagen
 redir /til/2024/use-launchagent-for-scheduled-script /notes/2024/use-launchagent-for-scheduled-script/ permanent
 redir /til/2024/use-n-to-avoid-overwriting/ /notes/2024/use-n-to-avoid-overwriting/ permanent
 redir /til/2024/use-n-to-avoid-overwriting /notes/2024/use-n-to-avoid-overwriting/ permanent
+redir /til/2024/use-the-capture-tag-for-complex-strings/ /notes/2024/use-the-capture-tag-for-complex-strings/ permanent
+redir /til/2024/use-the-capture-tag-for-complex-strings /notes/2024/use-the-capture-tag-for-complex-strings/ permanent
 redir /til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ /notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
 redir /til/2024/use-the-raw-tag-to-describe-liquid-in-liquid /notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
 redir /til/2024/use-rsync-and-passwordless-sudo/ /notes/2024/use-rsync-and-passwordless-sudo/ permanent
@@ -1748,6 +1750,8 @@ redir /til/2025/exiftool-in-github-actions/ /notes/2025/exiftool-in-github-actio
 redir /til/2025/exiftool-in-github-actions /notes/2025/exiftool-in-github-actions/ permanent
 redir /til/2025/f-string-equals/ /notes/2025/f-string-equals/ permanent
 redir /til/2025/f-string-equals /notes/2025/f-string-equals/ permanent
+redir /til/2025/get-folder-icon/ /notes/2025/get-folder-icon/ permanent
+redir /til/2025/get-folder-icon /notes/2025/get-folder-icon/ permanent
 redir /til/2025/get-python-traceback-as-string/ /notes/2025/get-python-traceback-as-string/ permanent
 redir /til/2025/get-python-traceback-as-string /notes/2025/get-python-traceback-as-string/ permanent
 redir /til/2025/get-jq-values-in-array/ /notes/2025/get-jq-values-in-array/ permanent
@@ -1890,4 +1894,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: u0oMFpy750)
+#[[[end]]] (sum: o//P+Wq4Ws)

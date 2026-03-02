@@ -1,12 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-01-12 21:35:45 +00:00
 title: Use the `{% capture %}` tag to assign complex strings to variables
 summary: |
   If you want to get a string that's semi-complicated to construct, you can put a "mini-template" in the `{% capture %}` tag to build it over multiple lines.
-tags:
-  - liquid
-old_syntax_highlighting: true
+topic: Ruby
 ---
 You can use the [capture tag] to create a new variable:
 
