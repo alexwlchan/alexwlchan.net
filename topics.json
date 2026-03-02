@@ -249,5 +249,10 @@
     "name": "Code crimes",
     "href": "/code-crimes/",
     "parent": "Systems and software"
+  },
+  {
+    "name": "LaTeX",
+    "href": "/latex/",
+    "parent": "Systems and software"
   }
 ]
