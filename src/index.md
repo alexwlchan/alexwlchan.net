@@ -169,6 +169,11 @@ I hope you like it!
     }
   }
   
+  #recent_articles {
+    --primary-color: var(--red);
+    --link-color:    var(--red);
+  }
+  
   path, ellipse {
     stroke: currentColor;
     stroke-linecap: round;
@@ -377,10 +382,14 @@ I hope you like it!
 </div>
 </section>
 
-## Recent posts
-
-{% set articles = ((site.articles + site.notes) | sort(attribute="sort_date", reverse=True))[:5] %}
-{% include "partials/article_links.html" %}
+<section id="recent_articles">
+<h2>Recent articles</h2>
+{%- set articles = (site.articles | sort(attribute="date", reverse=True))[:5] -%}
+{%- with include_topic = true -%}
+  {%- include "partials/article_links.html" -%}
+{%- endwith -%}
+<p><a href="/articles/" style="color: var(--text-color);">Read more articles</a> &rarr;</p>
+</section>
 
 <script>
   function randomiseDieValue(selector, choices) {
