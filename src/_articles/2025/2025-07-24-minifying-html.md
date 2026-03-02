@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2025-07-24 21:59:10 +00:00
 title: Minifying HTML on my Jekyll website
 summary: I compare three different approaches to minifying HTML.
-tags:
-  - html
-  - blogging about blogging
-  - jekyll
-old_syntax_highlighting: true
+topics:
+  - Ruby
+  - Blogging about blogging
 ---
 I minify all the HTML on this website -- removing unnecessary whitespace, tidying up attributes, optimising HTML entities, and so on.
 This makes each page smaller, and theoretically the website should be slightly faster.
@@ -32,15 +30,17 @@ It's a single HTML file written in pure [Liquid](https://shopify.github.io/liqui
 First you save the HTML file to `_layouts/compress.html`, then reference it in your highest-level layout.
 For example, in `_layouts/default.html` you might write:
 
+{% raw %}
 ```html
 ---
 layout: compress
 ---
 
 <html>
-{% raw %}{{ content }}{% endraw %}
+{{ content }}
 </html>
 ```
+{% endraw %}
 
 Because it's a single HTML file, it's easy to install and doesn't require any plugins.
 This is useful if you're running in an environment where plugins are restricted or disallowed (which I think includes [GitHub Pages](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins), although I'm not 100% sure).
@@ -54,16 +54,18 @@ The README describes it as an "alpha version", but in my usage it was very stabl
 
 I start by changing my `compress.html` layout to pass the page content to a `compress_html` filter:
 
+{% raw %}
 ```html
 ---
 ---
 
-{% raw %}{{ content | compress_html }}{% endraw %}
+{{ content | compress_html }}
 ```
+{% endraw %}
 
 This filter is defined as [a custom plugin](https://jekyllrb.com/docs/plugins/filters/); I save the following code in `_plugins/compress_html.rb`:
 
-{% code lang="ruby" names="0:run_compress_html 1:html 3:options 4:compressor 12:Jekyll 13:CompressHtmlFilter 14:compress_html 15:html 16:cache" %}
+```ruby {"names":{"1":"run_compress_html","2":"html","4":"options","5":"compressor","13":"Jekyll","14":"CompressHtmlFilter","15":"compress_html","16":"html","17":"cache"}}
 def run_compress_html(html)
   require 'htmlcompressor'
 
@@ -87,7 +89,7 @@ module Jekyll
 end
 
 Liquid::Template.register_filter(Jekyll::CompressHtmlFilter)
-{% endcode %}
+```
 
 I mostly stick with the default options; the only extra rule I enabled was to remove inter-tag spaces.
 Consider the following example:
@@ -111,7 +113,7 @@ It's very fast, and even more aggressive than other minifiers.
 I use it in a very similar way to `htmlcompressor`.
 I call the same `compress_html` filter in `_layouts/compress.html`, and then my `run_compress_html` in `_plugins/compress_html.rb` is a bit different:
 
-{% code lang="ruby" names="0:run_compress_html 1:html 3:options" %}
+```ruby {"names":{"1":"run_compress_html","2":"html","4":"options"}}
 def run_compress_html(html)
   require 'minify_html'
 
@@ -124,7 +126,7 @@ def run_compress_html(html)
 
   minify_html(html, options)
 end
-{% endcode %}
+```
 
 This is a much more aggressive minifier.
 For example, it turns out that the `<html>` and `<head>` elements are optional in an HTML5 document, so this minifier removes them if it can.
@@ -144,25 +146,10 @@ I'm not sure this has ever caught an issue introduced by a minifer, but it gives
 <h2 id="comparison">Comparing the three approaches</h2>
 
 <style>
-  table#sizes {
-    width: 100%;
-    border: var(--border-width) var(--border-style) var(--block-border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--block-background);
-    padding: var(--default-padding);
-  }
-
-  table#sizes tr:not(:last-of-type) > th,
-  table#sizes tr:not(:last-of-type) > td {
-    border-bottom: 2px solid var(--block-border-color);
-  }
+  @use "components/tables";
 
   table#sizes td:not(:first-child) {
     text-align: center;
-  }
-
-  table#sizes tr > td:nth-child(2) {
-    padding-left: 1em;
   }
 </style>
 
@@ -177,27 +164,31 @@ There are two key metrics for HTML minifiers:
 
     Here's the average page size after minification:
 
-    <table id="sizes">
-      <tr>
-        <th>Approach</th>
-        <th>Average HTML page size</th>
-      </tr>
-      <tr>
-        <td>Without minification</td>
-        <td title="15,306 bytes">14.9 KiB</td>
-      </tr>
-      <tr>
-        <td>Compress HTML in Jekyll 3.2.0</td>
-        <td title="14,617 bytes">14.3 KiB</td>
-      </tr>
-      <tr>
-        <td>htmlcompressor 0.4.0</td>
-        <td title="14,383 bytes">14.0 KiB</td>
-      </tr>
-      <tr>
-        <td>minify-html 0.16.4</td>
-        <td title="13,844 bytes">13.5 KiB</td>
-      </tr>
+    <table class="block" id="sizes">
+      <thead>
+        <tr>
+          <th>Approach</th>
+          <th style="text-align: center;">Average HTML page size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Without minification</td>
+          <td title="15,306 bytes">14.9 KiB</td>
+        </tr>
+        <tr>
+          <td>Compress HTML in Jekyll 3.2.0</td>
+          <td title="14,617 bytes">14.3 KiB</td>
+        </tr>
+        <tr>
+          <td>htmlcompressor 0.4.0</td>
+          <td title="14,383 bytes">14.0 KiB</td>
+        </tr>
+        <tr>
+          <td>minify-html 0.16.4</td>
+          <td title="13,844 bytes">13.5 KiB</td>
+        </tr>
+      </tbody>
     </table>
 
 I'm currently using minify-html.
