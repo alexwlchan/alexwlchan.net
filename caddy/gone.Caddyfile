@@ -28,11 +28,27 @@ handle /2012/hypercritical {
 	error 410
 }
 
+handle /2013/08/google-maps/ {
+	error 410
+}
+
+handle /2013/08/google-maps {
+	error 410
+}
+
 handle /2013/11/textmate-quick-look/ {
 	error 410
 }
 
 handle /2013/11/textmate-quick-look {
+	error 410
+}
+
+handle /2013/google-maps/ {
+	error 410
+}
+
+handle /2013/google-maps {
 	error 410
 }
 
@@ -688,4 +704,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: 9Ll5KqATrw)
+#[[[end]]] (sum: oECLe4i6Zg)

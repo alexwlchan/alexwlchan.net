@@ -1,11 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2014-08-28 00:32:00 +00:00
-tags:
-  - alfred
-  - applescript
+topic: AppleScript
 title: A quick Alfred workflow for opening recent screenshots
-old_syntax_highlighting: true
 ---
 
 I'm a big fan of the productivity app [Alfred][alf]. It's one of the
@@ -22,11 +19,11 @@ I wrote a short workflow to open my most recent screenshot in the Alfred file br
 We can use AppleScript to get the most recently created file in the
 screenshots directory, which should be the latest screenshot:
 
-{% code lang="applescript" names="0:screenshotFolder 3:screenshots 8:latestScreenshot" %}
+```applescript {"names":{"1":"screenshotFolder","4":"screenshots","9":"latestScreenshot"}}
 set screenshotFolder to ("/Users/alexwlchan/screenshots" as POSIX file)
 set screenshots to (get every file of folder screenshotFolder)
 set latestScreenshot to item 1 of reverse of (sort screenshots by creation date)
-{% endcode %}
+```
 
 In the final line, we can replace `item 1` by `item n`, for an
 integer&nbsp;*n*, to get the *n*th most recent screenshot.
@@ -36,7 +33,7 @@ keyword (I used "screenshot"), with an optional argument to determine
 which screenshot you want. This is connected to a "Run NSAppleScript"
 action with the following script:
 
-{% code lang="applescript" names="0:alfred_script 1:q 5:screenshotFolder 8:screenshots 13:latestScreenshot" %}
+```applescript {"names":{"1":"alfred_script","2":"q","6":"screenshotFolder","9":"screenshots","14":"latestScreenshot"}}
 on alfred_script(q)
     tell application "Finder"
         if q is "" then set q to 1
@@ -46,7 +43,7 @@ on alfred_script(q)
     end tell
     search (POSIX path of (latestScreenshot as alias))
 end alfred_script
-{% endcode %}
+```
 
 Here `q` is the argument passed by the Keyword input. If we don't supply
 an argument, then Alfred gives an empty string, so we default to using 1,

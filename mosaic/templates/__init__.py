@@ -23,7 +23,6 @@ from mosaic.topics import get_topic_by_name
 
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
-from .legacy_code import CodeBlockExtension
 from .pictures import article_card_image, PictureExtension
 from .rss_feed import fix_html_for_feed_readers, fix_youtube_iframes, xml_escape
 from .slides import SlideExtension
@@ -43,7 +42,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
         extensions=[
             "jinja2.ext.do",
             "jinja2.ext.loopcontrols",
-            CodeBlockExtension,
             DownloadExtension,
             InlineSvgExtension,
             PictureExtension,

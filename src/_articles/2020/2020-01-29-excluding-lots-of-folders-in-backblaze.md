@@ -1,14 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2020-01-29 09:44:49 +00:00
 title: Excluding lots of folders in Backblaze
 summary: Backblaze lets you say “back up everything except these folders”. How do you tell it you have lots of folders you want it to ignore?
-tags:
-  - macos
-  - backblaze
+topic: Systems and software
 index:
   exclude: true
-old_syntax_highlighting: true
 ---
 
 One of the services I rely on is [Backblaze].
@@ -66,7 +63,8 @@ If you'd like to use the script, you can find it below:
 <details>
 <summary>add_backblaze_exclusions.py</summary>
 
-{% code lang="python" names="0:datetime 1:os 2:pathlib 3:shutil 4:subprocess 5:sys 6:typing 7:Iterator 8:List 9:lxml 10:etree 11:get_dirs_to_exclude 18:dirname 19:argv 20:path 35:add_exclusion 36:root 39:exclude_dir 42:do_backup_elements 48:do_backup 50:already_excluded 62:dirfilter 81:save_backup_copy 82:bzinfo_path 85:today 90:backup_path 97:restart_backblaze 98:cmd 106:dirs_to_exclude 110:bzinfo_path 111:backup_path 116:root 120:exclude_dir 130:outfile" %}
+{% set md %}
+```python {"names":{"1":"datetime","2":"os","3":"pathlib","4":"shutil","5":"subprocess","6":"sys","7":"typing","8":"Iterator","9":"List","10":"lxml","11":"etree","12":"get_dirs_to_exclude","13":"argv","19":"dirname","21":"path","36":"add_exclusion","37":"root","40":"exclude_dir","43":"do_backup_elements","49":"do_backup","51":"already_excluded","54":"dirname","63":"dirfilter","82":"save_backup_copy","83":"bzinfo_path","86":"today","91":"backup_path","98":"restart_backblaze","99":"cmd","106":"dirs_to_exclude","110":"bzinfo_path","111":"backup_path","116":"root","120":"exclude_dir","130":"outfile"}}
 """
 Script for adding one-off folder exclusions to BackBlaze.
 
@@ -200,7 +198,9 @@ if __name__ == "__main__":
 
     print("*** Restarting BackBlaze")
     restart_backblaze()
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </details>
 
 Since this is messing with your backup config, you should double-check when it's done -- does the list of folder exclusions in the settings look correct?

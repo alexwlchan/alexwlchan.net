@@ -19,9 +19,9 @@ Here's an excerpt from one of my Liquid templates:
 
 When this gets rendered, it inserts a space between the closing/opening `<p>` tags:
   
-{% code lang="html" wrap="true" %}
+```html {"wrap":true}
 <p class="title">This is the title of the article</p>·<p class="summary">This is the summary of the article</p>
-{% endcode %}
+```
 
 I don't want the space in the final HTML -- it's unnecessary, and my current [HTML minifier][minifying-html] doesn't optimise it away.
 

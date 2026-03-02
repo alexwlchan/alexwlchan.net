@@ -60,8 +60,6 @@ redir /blog/2013/03/candybar/ /2013/candybar/ permanent
 redir /blog/2013/03/candybar /2013/candybar/ permanent
 redir /2013/02/darwin/ /2013/darwin/ permanent
 redir /2013/02/darwin /2013/darwin/ permanent
-redir /2013/08/google-maps/ /2013/google-maps/ permanent
-redir /2013/08/google-maps /2013/google-maps/ permanent
 redir /2013/03/pinboard-backups/ /2013/pinboard-backups/ permanent
 redir /2013/03/pinboard-backups /2013/pinboard-backups/ permanent
 redir /blog/2013/03/pinboard-backups/ /2013/pinboard-backups/ permanent
@@ -1890,4 +1888,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: u0oMFpy750)
+#[[[end]]] (sum: PC14r4bgjF)

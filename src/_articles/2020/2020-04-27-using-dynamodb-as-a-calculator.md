@@ -637,7 +637,9 @@ Sure, it's all here:
 <details>
 <summary>dynamo_calculator.py</summary>
 
-{% code lang="python" names="0:contextlib 1:typing 2:Callable 3:uuid 4:boto3 5:dynamodb 8:DynamoCalculator 9:__enter__ 10:self 11:table_name 30:__exit__ 31:self 32:exc_type 33:exc_value 34:traceback 42:row_id 43:self 44:calculation_id 54:__repr__ 55:self 59:add 60:self 61:x 63:y 68:calculation_id 83:subtract 84:self 85:x 87:y 92:calculation_id 107:eq 108:self 109:x 111:y 116:calculation_id 127:exc 128:if_ 129:self 130:condition 132:if_true 135:if_false 141:calculation_id 151:exc 154:lt 155:self 156:x 158:y 163:calculation_id 174:exc 175:multiply 176:self 177:x 179:y 182:if_y_non_negative 192:if_y_negative 219:divide 220:self 221:x 223:y 226:if_y_negative 235:if_y_positive 262:not_ 263:self 264:condition 272:ne 273:self 274:x 276:y 285:or_ 286:self 287:condition1 289:condition2 310:le 311:self 312:x 314:y 327:gt 328:self 329:x 331:y 340:ge 342:x 344:y 353:and_ 354:self 355:condition1 357:condition2 378:nand 379:self 380:condition1 382:condition2 393:calculator 506:p 507:q" %}
+{% set md %}
+
+```python {"names":{"1":"contextlib","2":"typing","3":"Callable","4":"uuid","5":"boto3","6":"dynamodb","9":"DynamoCalculator","10":"__enter__","11":"table_name","27":"__exit__","28":"exc_type","29":"exc_value","30":"traceback","37":"row_id","38":"calculation_id","47":"__repr__","50":"add","51":"x","53":"y","57":"calculation_id","71":"subtract","72":"x","74":"y","78":"calculation_id","92":"eq","93":"x","95":"y","99":"calculation_id","109":"if_","110":"condition","112":"if_true","115":"if_false","120":"calculation_id","131":"lt","132":"x","134":"y","138":"calculation_id","148":"multiply","149":"x","151":"y","154":"if_y_non_negative","161":"if_y_negative","162":"y_pos","181":"divide","182":"x","184":"y","187":"if_y_negative","193":"if_y_positive","213":"not_","214":"condition","221":"ne","222":"x","224":"y","231":"or_","232":"condition1","234":"condition2","237":"int_1","242":"int_2","251":"le","252":"x","254":"y","264":"gt","265":"x","267":"y","274":"ge","275":"x","277":"y","284":"and_","285":"condition1","287":"condition2","290":"int_1","295":"int_2","304":"nand","305":"condition1","307":"condition2","315":"calculator","427":"p","428":"q"}}
 """
 What happens if you try to use DynamoDB as an integer calculator?
 """
@@ -728,7 +730,7 @@ class DynamoCalculator:
                     ConditionExpression=":x = :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
-            except Exception as exc:
+            except Exception:
                 return False
             else:
                 return True
@@ -750,7 +752,7 @@ class DynamoCalculator:
                     ConditionExpression=":condition = :true",
                     ExpressionAttributeValues={":condition": condition, ":true": True}
                 )
-            except Exception as exc:
+            except Exception:
                 return if_false()
             else:
                 return if_true()
@@ -766,7 +768,7 @@ class DynamoCalculator:
                     ConditionExpression=":x < :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
-            except Exception as exc:
+            except Exception:
                 return False
             else:
                 return True
@@ -962,7 +964,9 @@ if __name__ == "__main__":
                 f"{display(calculator.or_(p, q))}        | "
                 f"{display(calculator.nand(p, q))}"
             )
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 
 </details>
 

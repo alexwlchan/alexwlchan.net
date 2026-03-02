@@ -1,11 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2013-08-06 09:52:00 +00:00
-tags:
-  - tumblr
-  - python
 title: Finding untagged posts on Tumblr
-old_syntax_highlighting: true
+topic: Systems and software
 ---
 
 Yesterday one of my friends was going through her old Tumblr posts, trying to add tags to every post. If you have any more than a handful of posts, then this becomes tedious and difficult, and you've no guarantee that you tagged them all when you're done. Tumblr doesn't have a built-in way to list all of your untagged posts, so I wrote a script to poll the [Tumblr API][api], and get a list of post URLs which didn't have tags.
@@ -14,7 +11,7 @@ Doing a Google search for this topic, it seems that this is a fairly common prob
 
 The script itself is fairly simple:
 
-{% code lang="python" names="0:urllib2 1:json 2:hostname 3:api_key 4:url 10:api_response 11:url 12:req 20:jsonresponse 23:post_count 25:increments 27:i 30:jsonresponse 39:i" %}
+```python {"names":{"5":"url","11":"api_response","12":"url","13":"req","21":"jsonresponse","24":"post_count","26":"increments","28":"i","31":"jsonresponse","38":"posts","40":"i"}}
 import urllib2
 import json
 
@@ -40,7 +37,7 @@ for i in range(0, increments):
             print posts[i]["post_url"]
 
 print "All finished!"
-{% endcode %}
+```
 
 The only notable feature of the script is that it gets posts in batches of 20, because the Tumblr API only returns up to 20 posts at a time. Everything else is either standard Python or follows from the way that Tumblr structure their API responses.
 

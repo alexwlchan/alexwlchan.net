@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2013-08-20 10:47:00 +00:00
-summary: A bookmarklet to hide some of the UI chrome in the new design of Google Maps.
-tags:
-  - javascript
 title: Cleaning up Google Maps
+summary: A bookmarklet to hide some of the UI chrome in the new design of Google Maps.
+topic: JavaScript
 index:
   exclude: true
-old_syntax_highlighting: true
 ---
 
 Earlier this morning, Fraser Speirs was bemoaning the design of the new Google&nbsp;Maps:
@@ -40,15 +38,15 @@ Since Google Maps is a web app, adding a `display: none` attribute to the offend
 
 So the following CSS is all we need:
 
-{% code lang="css" %}
+```css {"names":{"1":"#omnibox","2":"#welcome","3":".widget-viewcard","4":".widget-zoom","5":".watermark"}}
 #omnibox #welcome .widget-viewcard .widget-zoom .watermark {
     display: none;
 }
-{% endcode %}
+```
 
 However, that might not be exactly what we want. The search box is a useful feature; we just don't want it all the time. What we really want is a toggle: we can use the search box when we need to, and hide it once we're done. The following JavaScript is sufficient:
 
-{% code lang="javascript" names="0:ids 1:classes 2:hidden 10:disp 11:disp 12:i 24:i 29:div 34:j" %}
+```javascript {"names":{"1":"ids","2":"classes","3":"hidden","11":"disp","12":"disp","13":"i","25":"i","30":"div","35":"j"}}
 var ids = ["omnibox", "cards", "welcome"];
 var classes = ["widget-viewcard", "widget-zoom", "watermark"];
 var hidden = (window.getComputedStyle(document.getElementById(ids[0]))).getPropertyValue("display");
@@ -69,7 +67,7 @@ for (var i = 0; i < classes.length; i++) {
     div[j].style.display = disp;
   }
 }
-{% endcode %}
+```
 
 We can then bind this to a bookmarklet, and make that our toggle. (John Gruber's [JavaScript bookmarklet builder](http://daringfireball.net/2007/03/javascript_bookmarklet_builder) made this very easy.)
 

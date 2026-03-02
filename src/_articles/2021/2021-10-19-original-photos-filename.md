@@ -1,14 +1,14 @@
 ---
-layout: post
+layout: article
 date: 2021-10-19 19:11:45 +00:00
 title: Programatically finding the original filename of a photo in the macOS Photos Library
 summary: If you're looking at a UUID'd file in the PhotosLibrary package, how do you find its original filename?
-tags:
-  - macos
+topics:
+  - Images and videos
+  - macOS
 colors:
   index_light: "#1582c6"
   index_dark:  "#8fcff4"
-old_syntax_highlighting: true
 ---
 
 I was doing some poking around in the Photos Library recently, and found something that might be useful to other people.
@@ -30,7 +30,7 @@ How do I find the camera filename from a UUID'd file?
 
 The information lives in the Photos database, which is a SQLite database:
 
-```console
+```console {"wrap":true}
 $ sqlite3 "file:///Users/alexwlchan/Pictures/Photos Library.photoslibrary/database/Photos.sqlite?mode=ro"
 ```
 
@@ -49,9 +49,9 @@ Other people have done more sophisticated analysis of the Photos database, but f
 While working on a different project, I discovered another way to do this using AppleScript.
 The scripting dictionary for Photos.app allows you to address media items by UUID, so you can do something like:
 
-{% code lang="applescript" wrap="true" %}
+```applescript {"wrap":true}
 tell application "Photos" to get filename of media item {id: "682DB554-618E-42D6-92A1-3695CFF10D3B"}
-{% endcode %}
+```
 
 This is quite a bit slower than accessing the SQLite database directly, but it's less likely to break in future versions of Photos.
 Depending on what you're doing, this might be more convenient.

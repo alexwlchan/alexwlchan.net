@@ -1,12 +1,8 @@
 ---
-layout: post
+layout: article
 date: 2020-03-08 10:13:19 +00:00
 title: Creating striped flag wallpapers with Pillow
-tags:
-  - python
-  - drawing things
-  - python:pillow
-old_syntax_highlighting: true
+topic: Generative art
 ---
 
 <style>
@@ -27,12 +23,13 @@ old_syntax_highlighting: true
 
 One of the builtin wallpapers that ships with iOS is a black wallpaper with slanted rainbow stripes, based on the [old rainbow Apple logo](https://commons.wikimedia.org/wiki/File:Apple_Computer_Logo_rainbow.svg).
 
-<figure>
-  <img src="/images/2020/rainbow_apple_wallpaper.jpg" class="wallpaper" alt="A black wallpaper with six coloured diagonal stripes. From top to bottom: green, yellow, orange, red, purple, blue.">
+<figure style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;">
+  <img src="/images/2020/rainbow_apple_wallpaper.jpg" class="wallpaper" alt="A black wallpaper with six coloured diagonal stripes. From top to bottom: green, yellow, orange, red, purple, blue." style="margin-left: auto">
   {%
     inline_svg
     filename="rainbow_apple_logo.svg"
     alt="The rainbow Apple logo."
+    style="max-height: 250px;"
   %}
 </figure>
 
@@ -49,7 +46,8 @@ It always draws the stripes are roughly the same height and position on the scre
 
 <details>
   <summary>create_stripey_wallpapers.py</summary>
-{% code lang="python" names="0:PIL 1:Image 2:ImageDraw 3:create_wallpaper 4:stripes 5:background_color 6:im 12:draw 16:stripe_height 17:left_hand_midpoint 18:right_hand_midpoint 19:total_stripe_height 23:left_hand_top 25:right_hand_top 27:i 28:color 49:name 50:stripes 51:im" %}
+{% set md %}
+```python {"names":{"1":"PIL","2":"Image","3":"ImageDraw","4":"create_wallpaper","5":"stripes","6":"background_color","7":"im","13":"draw","17":"stripe_height","18":"left_hand_midpoint","19":"right_hand_midpoint","20":"total_stripe_height","24":"left_hand_top","26":"right_hand_top","28":"i","29":"color","49":"name","50":"stripes","51":"im"}}
 from PIL import Image, ImageDraw
 
 
@@ -122,7 +120,9 @@ if __name__ == '__main__':
     ]:
         im = create_wallpaper(stripes=stripes)
         im.save(f"wallpaper_{name}.jpg")
-{% endcode %}
+```
+{% endset %}
+{{ md|markdownify }}
 </details>
 
 I've used it to create four mystery wallpapers, based on different flags with horizontal stripes:
