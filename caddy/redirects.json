@@ -2776,6 +2776,9 @@
   "/notes/2025/check-if-tailscale-is-running/": [
     "/til/2025/check-tailscale-is-running/"
   ],
+  "/notes/2025/collapsing-whitespace-in-liquid/": [
+    "/til/2025/collapsing-whitespace-in-liquid/"
+  ],
   "/notes/2025/collect-pytest-markers-from-failing-tests/": [
     "/til/2025/collect-pytest-markers-from-failing-tests/"
   ],

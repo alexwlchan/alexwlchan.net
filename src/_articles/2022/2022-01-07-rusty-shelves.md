@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2022-01-07 09:05:51 +00:00
 title: Creating coloured bookshelf graphics in Rust
 summary: Explaining some code that draws coloured rectangles in a way that looks a bit like an upside-down bookshelf.
-tags:
-  - rust
-  - generative art
-  - drawing things
-old_syntax_highlighting: true
+topics:
+  - Generative art
+  - Rust
 ---
 
 In my [last post], I mentioned I have a mini-site where I track the books I've been reading ([books.alexwlchan.net]).
@@ -68,7 +66,7 @@ Different instances of `ImageBuffer` can hold different types of pixels, like RG
 We create a new `ImageBuffer` by passing the width and the height.
 For example, to create an image which is 200 pixels wide and 100 pixels tall:
 
-```rust
+```rust  {"names":{"1":"image","2":"ImageBuffer","3":"Rgba","4":"main","5":"img"}}
 use image::{ImageBuffer, Rgba};
 
 fn main() {
@@ -83,7 +81,7 @@ The type hint tells the compiler that this instance of `ImageBuffer` should have
 
 The crate includes some aliases for creating `ImageBuffer` instances with commonly used pixel types, so we can simplify this:
 
-```rust
+```rust {"names":{"1":"image","2":"RgbaImage","3":"main","4":"img"}}
 use image::RgbaImage;
 
 fn main() {
@@ -109,7 +107,7 @@ For example, let's draw a green rectangle using [`draw_filled_rect`].
 We pass the image we're modifying, the rectangle we want to draw, and the colour.
 The function returns the new image.
 
-```rust
+```rust {"names":{"1":"image","2":"RgbaImage","3":"Rgba","4":"imageproc","5":"drawing","6":"draw_filled_rect","7":"imageproc","8":"rect","9":"Rect","10":"main","11":"img","14":"green","17":"rect","21":"new_img"}}
 use image::{RgbaImage, Rgba};
 use imageproc::drawing::draw_filled_rect;
 use imageproc::rect::Rect;
@@ -146,7 +144,7 @@ Here's what the result looks like:
 
 You can also modify the image in-place by making it mutable, and using `draw_filled_rect_mut`:
 
-```rust
+```rust {"names":{"1":"imageproc","3":"draw_filled_rect_mut","4":"main","5":"img"}}
 ...
 use imageproc::drawing::draw_filled_rect_mut;
 
@@ -170,7 +168,7 @@ I don't care about keeping previous versions of the image.
 
 Here's one more example, drawing multiple shapes on a canvas:
 
-```rust
+```rust {"names":{"1":"image","2":"RgbaImage","3":"Rgba","4":"imageproc","5":"drawing","6":"draw_filled_circle_mut","7":"draw_filled_rect_mut","8":"draw_polygon_mut","9":"imageproc","10":"point","11":"Point","12":"imageproc","13":"rect","14":"Rect","15":"main","16":"img","19":"green","22":"turquoise","25":"pink"}}
 use image::{RgbaImage, Rgba};
 use imageproc::drawing::{
     draw_filled_circle_mut,
@@ -220,7 +218,7 @@ Each of these will start from the top edge, have a random width and height, and 
 
 Let's start by sketching out an API for generating rectangles:
 
-```rust
+```rust {"names":{"1":"std","2":"ops","3":"Range","4":"RectangleOptions","5":"width","7":"height","9":"total_width","10":"generate_rectangles","11":"options","15":"rectangles"}}
 use std::ops::Range;
 
 struct RectangleOptions {
@@ -259,7 +257,7 @@ It expresses the data in a more succinct way, and it's similar to the API for ge
 
 Now let's fill in the body of the function:
 
-```rust
+```rust {"names":{"1":"rand","2":"Rng","3":"generate_rectangles","4":"options","8":"result","11":"rng","14":"x_coord","18":"width","27":"height","36":"rect"}}
 use rand::Rng;
 
 fn generate_rectangles(options: RectangleOptions) -> Vec<Rect> {
@@ -315,7 +313,7 @@ I can see what this is doing, and it'll still make sense to me when I have to re
 
 We can combine what we've done so far to draw some black rectangles:
 
-```rust
+```rust {"names":{"1":"main","2":"width","3":"img","7":"black","10":"rectangles","17":"r"}}
 fn main() {
     let width = 500;
     let mut img = RgbaImage::new(width, 100);
@@ -366,7 +364,7 @@ I want an RNG that gives consistent output.
 I can get a consistent shape by replacing `thread_rng()` with a seeded RNG.
 Using a seeded RNG with a fixed seed means the random number generator becomes deterministic, and returns the same results each time.
 
-```rust
+```rust {"names":{"1":"rand","2":"prelude","3":"rand_pcg","4":"Pcg64","5":"generate_rectangles","6":"options","10":"result","13":"rng"}}
 use rand::prelude::*;
 use rand_pcg::Pcg64;
 
@@ -396,7 +394,7 @@ There's a Rust crate called [`palette`] that seems to have pretty good support f
 I've only used a little bit of it so far, but I like what I see, and it let me generate random colours pretty easily.
 Here's what that looks like:
 
-```rust
+```rust {"names":{"1":"palette","2":"FromColor","3":"Hsl","4":"Srgb","5":"palette","6":"rgb","7":"Rgb","8":"generate_colour_like","9":"base","12":"hsl","17":"rng","20":"min_lightness","23":"max_lightness","26":"new_lightness","31":"new_hsl"}}
 use palette::{FromColor, Hsl, Srgb};
 use palette::rgb::Rgb;
 
@@ -443,7 +441,7 @@ We take the `for r in rectangles` loop we used above, and now we call `generate_
 That gives us a colour for that individual rectangle.
 We need to do a bit of work to convert the `palette` colour into an `image` colour, but once that's done we pass it to the `draw()` method:
 
-```rust
+```rust {"names":{"1":"main","2":"base_colour","5":"r","7":"colour","12":"colour"}}
 fn main() {
     ...
 

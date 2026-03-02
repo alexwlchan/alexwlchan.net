@@ -1,16 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2022-04-02 08:44:29 +00:00
 title: Checking lots of URLs with curl
 summary: A bash script to check the HTTP status code of a bunch of URLs, for simple and portable uptime checking.
-tags:
-  - shell scripting
-  - curl
+topic: Shell scripting
 
 colors:
   index_light: "#073551"
   index_dark:  "#0ad1d1"
-old_syntax_highlighting: true
 ---
 
 I've been rejigging some stuff on the site recently -- moving the hosting, turning off my old web server, updating DNS records -- and I wanted a quick way to check I hadn't broken anything.
@@ -23,20 +20,20 @@ To help me out, I wrote a short shell script using [curl] to check a bunch of UR
 
 This curl command will check a single URL, and print the HTTP status code:
 
-{% code lang="shell" %}
+```shell
 curl \
     --output /dev/null \
     --silent \
     --write-out "%{http_code}" \
     "https://alexwlchan.net"
-{% endcode %}
+```
 
 You might also know this as `curl -o /dev/null -s -w "%{http_code}"`, but in scripts or teaching examples I always prefer to use the long version of flag names -- they tend to be more readable, and they're easier to look up if you don't know what they do.
 
 We can capture the printed status code, and check if it's a 200 OK:
 
 
-{% code lang="shell" names="0:STATUS_CODE" %}
+```shell {"names":{"1":"STATUS_CODE"}}
 STATUS_CODE=$(curl \
     --output /dev/null \
     --silent \
@@ -49,7 +46,7 @@ then
 else
   echo "Website is down!  Expected 200, got $STATUS_CODE"
 fi
-{% endcode %}
+```
 
 The double brackets are an example of bash's *arithmetic evaluation*.
 Normally bash variables are strings, but this forces bash to treat the variables as numbers.
@@ -85,7 +82,7 @@ Note that these are URL paths, rather than full URLs -- this is so I could check
 
 This is what the shell script looks like:
 
-{% code lang="bash" names="0:BASE_URL 3:ERRORS 4:path 6:url 11:STATUS_CODE" %}
+```bash {"names":{"1":"BASE_URL","4":"ERRORS","5":"url","9":"STATUS_CODE"}}
 BASE_URL="${BASE_URL:-https://alexwlchan.net}"
 
 ERRORS=0
@@ -116,7 +113,7 @@ then
   exit 1
 fi
 ```
-{% endcode %}
+
 First I'm setting the base URL which will be prepended to the paths.
 The `${BASE_URL:-https://alexwlchan.net}` sets a default value using shell [parameter expansion].
 If I set a `BASE_URL` environment variable, that will be prepended to all the paths; if I don't, it uses the URL of my live site as a default value.

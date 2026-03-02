@@ -1708,6 +1708,8 @@ redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inact
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
+redir /til/2025/collapsing-whitespace-in-liquid/ /notes/2025/collapsing-whitespace-in-liquid/ permanent
+redir /til/2025/collapsing-whitespace-in-liquid /notes/2025/collapsing-whitespace-in-liquid/ permanent
 redir /til/2025/collect-pytest-markers-from-failing-tests/ /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
 redir /til/2025/collect-pytest-markers-from-failing-tests /notes/2025/collect-pytest-markers-from-failing-tests/ permanent
 redir /til/2025/combine-arrows-mermaid/ /notes/2025/combine-arrows-mermaid/ permanent
@@ -1874,4 +1876,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: MJ3g11iG58)
+#[[[end]]] (sum: 1kVbSMZ9Mt)
