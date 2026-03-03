@@ -449,7 +449,8 @@ def test_concurrent_futures() -> None:
 
 
 @pytest.mark.parametrize(
-    "s, line_numbers", [("1-3,…,7-9,…,11", [1, 2, 3, "…", 7, 8, 9, "…", 11])]
+    "s, line_numbers",
+    [("1-3,…,7-9,…,11", [1, 2, 3, "…", 7, 8, 9, "…", 11]), ("1–5", [1, 2, 3, 4, 5])],
 )
 def test_parse_line_numbers(s: str, line_numbers: list[int | Literal["…"]]) -> None:
     """
@@ -481,6 +482,48 @@ def test_lineno_digits() -> None:
         line_numbers="101-102,…",
     )
     assert "--lineno-digits: 3" in html
+
+
+@pytest.mark.parametrize("line_numbers", ["1", "1-4", "1-2,…,5-6"])
+def test_invalid_line_numbers(line_numbers: str) -> None:
+    """
+    If the number of line numbers doesn't match the length of the snippet,
+    it throws a ValueError.
+    """
+    with pytest.raises(ValueError, match="mismatched line numbers"):
+        apply_syntax_highlighting(
+            'def greet():\n    print("hello world!")\n    ...',
+            lang="python",
+            line_numbers=line_numbers,
+        )
+
+
+def test_uses_default_line_numbers() -> None:
+    """
+    If you don't supply a set of line numbers, it defaults to 1–N.
+    """
+    html = apply_syntax_highlighting(
+        'def greet():\n    print("hello world!")\n    ...',
+        lang="python",
+        linenos=True,
+    )
+
+    assert '<span class="ln" style="--ln: 1">' in html
+    assert '<span class="ln" style="--ln: 3">' in html
+
+
+def test_adds_figcaption() -> None:
+    """
+    It includes a <figcaption> with the supplied text, if provided.
+    """
+    html = apply_syntax_highlighting(
+        'def greet():\n    print("hello world!")\n    ...',
+        lang="python",
+        linenos=True,
+        caption="This is some example code",
+    )
+
+    assert "<figcaption>This is some example code</figcaption>" in html
 
 
 def test_typescript() -> None:

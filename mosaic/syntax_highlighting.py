@@ -426,6 +426,7 @@ def add_line_numbers(html: str, linenos: bool, line_numbers: str) -> tuple[str, 
     # If we passed linenos=true but didn't set any line numbers
     # explicitly, default the line numbers to 1–N, where N is the
     # number of lines.
+    print(line_numbers)
     if not line_numbers:
         line_numbers = f"1-{line_count}"
 
@@ -488,6 +489,10 @@ def parse_line_numbers(s: str) -> list[int | Literal["…"]]:
     for part in s.split(","):
         if "-" in part:
             start, end = part.split("-")
+            for i in range(int(start), int(end) + 1):
+                result.append(i)
+        elif "–" in part:  # en dash
+            start, end = part.split("–")
             for i in range(int(start), int(end) + 1):
                 result.append(i)
         elif part == "…":
