@@ -40,9 +40,11 @@
 .acards > li a {
   text-decoration: none;
   height: 100%;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
 }
 
-.c_t, .c_d {
+.c_t, .c_d, p.meta {
   padding: 16px;
 }
 
@@ -62,6 +64,12 @@
   padding-top: 0;
   font-size: 85%;
   line-height: 1.45em;
+}
+
+p.meta {
+  margin-top: auto;
+  padding-top:    0;
+  padding-bottom: 0;
 }
 
 /* c_im = card_image_wrapper */

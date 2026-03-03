@@ -49,5 +49,14 @@
     </p>
 
     {{- "" -}}
+    
+    <p class="meta">
+      {%- if article.topics -%}{{ article.topics[0] | smartify }}{{- " · " -}}{%- endif -%}
+      {%- with date_format = '%-d %b %Y' -%}
+      {%- with date = article.date -%}
+        {%- include "partials/timestamp.html" -%}
+      {%- endwith -%}
+      {%- endwith -%}
+    </p>
   </a>
 </li>

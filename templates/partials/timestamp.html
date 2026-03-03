@@ -11,7 +11,8 @@
 -#}
 
 <time datetime="{{ date.strftime('%Y-%m-%d') }}">
-  {{- date.strftime('%-d %B %Y') -}}
+  {%- set date_format = date_format|default('%-d %B %Y') -%}
+  {{- date.strftime(date_format) -}}
 </time>
 
 {{- "" -}}

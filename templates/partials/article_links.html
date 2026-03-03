@@ -11,12 +11,15 @@
   ><h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
       {{- article.title | markdownify_oneline -}}
     </a>
-    {%- if include_topic is defined and include_topic -%}
-    <span class="meta">{{- " · " -}}
-    {{ article.topics[0] }}
+    <span class="meta">
+    {% if article.topics %}{{- " · " -}}
+    {{ article.topics[0] }}{% endif %}
     {{- " · " -}}
-    {%- with date = article.date -%}{%- include "partials/timestamp.html" -%}{% endwith -%}</span>
-    {%- endif %}
+    {%- with date = article.date -%}
+    {%- with date_format = '%-d %b %Y' -%}
+      {%- include "partials/timestamp.html" -%}
+    {%- endwith -%}
+    {%- endwith -%}</span>
     </h4>
 
     {%- if article.summary -%}
