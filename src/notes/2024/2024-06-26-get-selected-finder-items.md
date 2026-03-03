@@ -1,11 +1,10 @@
 ---
-layout: til
+layout: note
 date: 2024-06-26 09:29:09 +01:00
 title: How to get the selected item in Finder using AppleScript
-tags:
-  - applescript
-  - macos
-old_syntax_highlighting: true
+topics: 
+  - AppleScript
+  - macOS
 ---
 I was doing some stuff today where I was selecting items in Finder, and then passing them to a command-line app in Terminal.
 I could drag-and-drop the files into Terminal to get their path, but for hundreds of items that gets tedious -- I wanted a way for Terminal to automatically get the current item in Finder.

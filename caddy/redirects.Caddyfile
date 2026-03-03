@@ -1588,6 +1588,8 @@ redir /til/2024/create-a-directory-first/ /notes/2024/create-a-directory-first/ 
 redir /til/2024/create-a-directory-first /notes/2024/create-a-directory-first/ permanent
 redir /til/2024/create-a-sticky-bottom-footer/ /notes/2024/create-a-sticky-bottom-footer/ permanent
 redir /til/2024/create-a-sticky-bottom-footer /notes/2024/create-a-sticky-bottom-footer/ permanent
+redir /til/2024/curl-redirect-target/ /notes/2024/curl-redirect-target/ permanent
+redir /til/2024/curl-redirect-target /notes/2024/curl-redirect-target/ permanent
 redir /til/2024/current-user-equals-none/ /notes/2024/current-user-equals-none/ permanent
 redir /til/2024/current-user-equals-none /notes/2024/current-user-equals-none/ permanent
 redir /til/2024/custom-error-pages-in-flask/ /notes/2024/custom-error-pages-in-flask/ permanent
@@ -1616,6 +1618,10 @@ redir /til/2024/find-shortest-prefix-ruby/ /notes/2024/find-shortest-prefix-ruby
 redir /til/2024/find-shortest-prefix-ruby /notes/2024/find-shortest-prefix-ruby/ permanent
 redir /til/2024/get-boto3-session/ /notes/2024/get-boto3-session/ permanent
 redir /til/2024/get-boto3-session /notes/2024/get-boto3-session/ permanent
+redir /til/2024/get-image-from-a-video/ /notes/2024/get-image-from-a-video/ permanent
+redir /til/2024/get-image-from-a-video /notes/2024/get-image-from-a-video/ permanent
+redir /til/2024/get-selected-finder-items/ /notes/2024/get-selected-finder-items/ permanent
+redir /til/2024/get-selected-finder-items /notes/2024/get-selected-finder-items/ permanent
 redir /til/2024/get-tailscale-ip/ /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/get-tailscale-ip /notes/2024/get-tailscale-ip/ permanent
 redir /til/2024/gracefully-restart-a-gunicorn-app/ /notes/2024/gracefully-restart-a-gunicorn-app/ permanent
@@ -1904,4 +1910,4 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: nnbZxCsyoe)
+#[[[end]]] (sum: 1I7/TJq48q)

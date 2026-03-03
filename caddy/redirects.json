@@ -2598,6 +2598,9 @@
   "/notes/2024/create-a-sticky-bottom-footer/": [
     "/til/2024/create-a-sticky-bottom-footer/"
   ],
+  "/notes/2024/curl-redirect-target/": [
+    "/til/2024/curl-redirect-target/"
+  ],
   "/notes/2024/current-user-equals-none/": [
     "/til/2024/current-user-equals-none/"
   ],
@@ -2639,6 +2642,12 @@
   ],
   "/notes/2024/get-boto3-session/": [
     "/til/2024/get-boto3-session/"
+  ],
+  "/notes/2024/get-image-from-a-video/": [
+    "/til/2024/get-image-from-a-video/"
+  ],
+  "/notes/2024/get-selected-finder-items/": [
+    "/til/2024/get-selected-finder-items/"
   ],
   "/notes/2024/get-tailscale-ip/": [
     "/til/2024/get-tailscale-ip/"

@@ -1,10 +1,8 @@
 ---
-layout: til
+layout: note
 title: Get an image from a video with ffmpeg
 date: 2024-07-24 21:17:35 +01:00
-tags:
-  - ffmpeg
-old_syntax_highlighting: true
+topic: Images and videos
 ---
 I had some video files, and I wanted to extract an image from the video to use as a thumbnail.
 
