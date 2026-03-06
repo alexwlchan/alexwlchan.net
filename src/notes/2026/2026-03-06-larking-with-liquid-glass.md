@@ -18,7 +18,7 @@ I wanted to create a similar image with a "new" banner in the style of Liquid Gl
 Initially I tried creating it in [Acorn][acorn], but I lack the graphical design skills to replicate the effect -- I realised it would be easier to create the effect in code.
 
 I opened Xcode on a Mac running macOS Tahoe and created a new Mac app.
-The default project contains a single SwiftUI view `ContentView`, which I replaced with the following code:
+I added one of Apple's marketing images to the Asset catalogue, then I modified the default SwiftUI view `ContentView`:
 
 ```swift {"names":{"1":"SwiftUI","2":"ContentView","4":"body"}}
 import SwiftUI
