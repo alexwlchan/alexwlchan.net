@@ -25,14 +25,14 @@ def test_filter_for_topic() -> None:
     """
     page1 = Page(url="/page1/")
     page2 = Page(url="/page2/", topics=["Python"])
-    page3 = Page(url="/page3/", topics=["Systems and software"])
+    page3 = Page(url="/page3/", topics=["Computers and code"])
     page4 = Page(url="/page4/", topics=["Art and creativity", "Python"])
     page5 = Page(url="/page5/", topics=["Generative art", "Interesting words"])
 
     pages: list[BaseHtmlPage] = [page1, page2, page3, page4, page5]
 
     assert filter_for_topic(pages, topic_name="Python") == [page2, page4]
-    assert filter_for_topic(pages, topic_name="Systems and software") == [
+    assert filter_for_topic(pages, topic_name="Computers and code") == [
         page2,
         page3,
         page4,

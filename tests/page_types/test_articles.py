@@ -23,7 +23,7 @@ def test_article_properties(src_dir: Path) -> None:
     assert a.template_name == "post.html"
     assert a.url == "/2026/example-article/"
     assert a.breadcrumb() == [
-        BreadcrumbEntry(label="Systems and software", href="/systems/"),
+        BreadcrumbEntry(label="Computers and code", href="/computers-and-code/"),
         BreadcrumbEntry(label="Python", href="/python/"),
     ]
 
