@@ -121,6 +121,7 @@ sup {
   font-size: 1.9em;
   line-height: 1.45em;
   margin-bottom: -6px;
+  text-wrap: pretty;
   a {
     text-decoration: none;
   }

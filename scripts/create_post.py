@@ -6,7 +6,6 @@ Create a new post.
 from datetime import datetime, timezone
 import os
 from pathlib import Path
-import re
 import subprocess
 import sys
 from typing import Any
@@ -14,7 +13,6 @@ from typing import Any
 import httpx
 from InquirerPy import inquirer
 import termcolor
-from unidecode import unidecode
 import yaml
 
 sys.path.append(str(Path(__file__).parent.parent))
@@ -28,6 +26,10 @@ def slugify(u: str) -> str:
 
     From https://leancrew.com/all-this/2014/10/asciifying/
     """
+    import re
+
+    from unidecode import unidecode
+
     # fmt: off
     u = re.sub(u'[–—/:;,.]', '-', u)  # replace separating punctuation
     a = unidecode(u).lower()          # best ASCII substitutions, lowercased
@@ -190,5 +192,14 @@ if __name__ == "__main__":
             )
 
         subprocess.check_call(["open", str(md_path)])
+    elif post_type == "note":
+        title = ask_for_text(message="Title:".ljust(9, " "))
+        slug = ask_for_text(message="URL slug:", default=slugify(title))
+        md_path = Path("src/notes") / year / f"{now.strftime('%Y-%m-%d')}-{slug}.md"
+        md_path.parent.mkdir(exist_ok=True)
+        with open(md_path, "x") as out_file:
+            out_file.write(
+                f"---\nlayout: note\ndate: {now.isoformat()}\ntitle: {title}\n---\n"
+            )
     else:
         raise NotImplementedError(post_type)

@@ -241,6 +241,8 @@ PREFIX_WORDS = [
     "Season",
     "season",
     "SQLite",
+    "Thunderbolt",
+    "Xcode",
 ]
 
 # Construct a regex like `(issue|part|season) (\d+)`.
