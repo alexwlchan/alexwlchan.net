@@ -3,7 +3,7 @@ layout: article
 date: 2022-12-20 08:31:16 +00:00
 title: How we do bulk analysis of our Prismic content
 summary: By downloading all our Prismic documents, we can run validation rules, fix broken links, and find interesting examples.
-topic: Systems and software
+topic: Computers and code
 colors:
   index_light: "#1d1d25"
   index_dark:  "#a1a1b5"

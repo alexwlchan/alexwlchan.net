@@ -8,7 +8,9 @@ colors:
   index_dark:  "#bfab8a"
 topics: 
   - The world around us
-  - Computers
+  - Computers and code
+hidden_topics:
+  - History
 ---
 
 Today, the [National Museum of Computing][tnmoc] (TNMoC) is celebrating the five-year anniversary of their reboot of the Harwell-Dekatron computer, also known as WITCH.

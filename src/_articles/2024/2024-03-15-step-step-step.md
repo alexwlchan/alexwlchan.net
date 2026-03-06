@@ -4,7 +4,7 @@ date: 2024-03-15 12:56:46 +00:00
 title: "Step… Step… Step…"
 summary: Swing dancing and prompt engineering are pretty different. But could learning one help us learn the other?
 topics:
-  - Systems and software
+  - Computers and code
   - Talks I've given
 colors:
   css_dark:  "#88FA4E"

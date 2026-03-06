@@ -1,127 +1,127 @@
 [
   {
-    "name": "Systems and software",
-    "href": "/systems/"
+    "name": "Computers and code",
+    "href": "/computers-and-code/"
   },
   {
     "name": "Git",
-    "href": "/systems/git/",
-    "parent": "Systems and software"
+    "href": "/git/",
+    "parent": "Computers and code"
   },
   {
     "name": "JavaScript",
-    "href": "/systems/javascript/",
-    "parent": "Systems and software"
+    "href": "/javascript/",
+    "parent": "Computers and code"
   },
   {
     "name": "Python",
     "href": "/python/",
-    "parent": "Systems and software"
+    "parent": "Computers and code"
   },
   {
     "name": "Builds and CI",
-    "href": "/systems/build-systems/",
-    "parent": "Systems and software"
+    "href": "/build-systems/",
+    "parent": "Computers and code"
   },
   {
     "name": "AWS",
-    "href": "/systems/aws/",
-    "parent": "Systems and software"
+    "href": "/aws/",
+    "parent": "Computers and code"
   },
   {
     "name": "SQLite",
-    "href": "/systems/sqlite/",
-    "parent": "Systems and software"
+    "href": "/sqlite/",
+    "parent": "Computers and code"
   },
   {
     "name": "Ruby",
-    "href": "/systems/ruby/",
-    "parent": "Systems and software"
+    "href": "/ruby/",
+    "parent": "Computers and code"
   },
   {
     "name": "Rust",
-    "href": "/systems/rust/",
-    "parent": "Systems and software"
+    "href": "/rust/",
+    "parent": "Computers and code"
   },
   {
     "name": "Scala",
-    "href": "/systems/scala/",
-    "parent": "Systems and software"
+    "href": "/scala/",
+    "parent": "Computers and code"
   },
   {
     "name": "Go",
-    "href": "/systems/go/",
-    "parent": "Systems and software"
+    "href": "/go/",
+    "parent": "Computers and code"
   },
   {
     "name": "Blogging about blogging",
-    "href": "/systems/blogging/",
-    "parent": "Systems and software"
+    "href": "/blogging/",
+    "parent": "Computers and code"
   },
   {
     "name": "CSS",
-    "href": "/systems/css/",
-    "parent": "Systems and software"
+    "href": "/css/",
+    "parent": "Computers and code"
   },
   {
     "name": "Regular expressions",
-    "href": "/systems/regex/",
-    "parent": "Systems and software"
+    "href": "/regex/",
+    "parent": "Computers and code"
   },
   {
     "name": "Datetime shenanigans",
-    "href": "/systems/datetime-shenanigans/",
-    "parent": "Systems and software"
+    "href": "/datetime-shenanigans/",
+    "parent": "Computers and code"
   },
   {
     "name": "Shell scripting",
-    "href": "/systems/shell-scripting/",
-    "parent": "Systems and software"
+    "href": "/shell-scripting/",
+    "parent": "Computers and code"
   },
   {
     "name": "AppleScript",
-    "href": "/systems/applescript/",
-    "parent": "Systems and software"
+    "href": "/applescript/",
+    "parent": "Computers and code"
   },
   {
     "name": "Swift",
-    "href": "/systems/swift/",
-    "parent": "Systems and software"
+    "href": "/swift/",
+    "parent": "Computers and code"
   },
   {
     "name": "HTML",
-    "href": "/systems/html/",
-    "parent": "Systems and software"
+    "href": "/html/",
+    "parent": "Computers and code"
   },
   {
     "name": "Docker",
-    "href": "/systems/docker/",
-    "parent": "Systems and software"
+    "href": "/docker/",
+    "parent": "Computers and code"
   },
   {
     "name": "Software testing",
-    "href": "/systems/software-testing/",
-    "parent": "Systems and software"
+    "href": "/software-testing/",
+    "parent": "Computers and code"
   },
   {
     "name": "Terraform",
-    "href": "/systems/terraform/",
-    "parent": "Systems and software"
+    "href": "/terraform/",
+    "parent": "Computers and code"
   },
   {
     "name": "Error messages",
-    "href": "/systems/error-messages/",
-    "parent": "Systems and software"
+    "href": "/error-messages/",
+    "parent": "Computers and code"
   },
   {
     "name": "Images and videos",
-    "href": "/systems/images-and-videos/",
-    "parent": "Systems and software"
+    "href": "/images-and-videos/",
+    "parent": "Computers and code"
   },
   {
     "name": "jq",
-    "href": "/systems/jq/",
-    "parent": "Systems and software"
+    "href": "/jq/",
+    "parent": "Computers and code"
   },
   {
     "name": "Books I've read",
@@ -174,23 +174,19 @@
     "parent": "Work"
   },
   {
-    "name": "Computers",
-    "href": "/computers/"
-  },
-  {
     "name": "macOS",
-    "href": "/computers/macos/",
-    "parent": "Computers"
+    "href": "/macos/",
+    "parent": "Computers and code"
   },
   {
     "name": "Windows",
-    "href": "/computers/windows/",
-    "parent": "Computers"
+    "href": "/windows/",
+    "parent": "Computers and code"
   },
   {
     "name": "Tailscale",
     "href": "/systems/tailscale/",
-    "parent": "Systems and software"
+    "parent": "Computers and code"
   },
   {
     "name": "The world around us",
@@ -248,11 +244,11 @@
   {
     "name": "Code crimes",
     "href": "/code-crimes/",
-    "parent": "Systems and software"
+    "parent": "Computers and code"
   },
   {
     "name": "LaTeX",
     "href": "/latex/",
-    "parent": "Systems and software"
+    "parent": "Computers and code"
   }
 ]

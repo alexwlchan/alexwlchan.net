@@ -2989,14 +2989,89 @@
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"
   ],
+  "/aws/": [
+    "/systems/aws/"
+  ],
+  "/git/": [
+    "/systems/git/"
+  ],
+  "/go/": [
+    "/systems/go/"
+  ],
+  "/scala/": [
+    "/systems/scala/"
+  ],
+  "/javascript/": [
+    "/systems/javascript/"
+  ],
+  "/build-systems/": [
+    "/systems/build-systems/"
+  ],
+  "/ruby/": [
+    "/systems/ruby/"
+  ],
+  "/rust/": [
+    "/systems/rust/"
+  ],
+  "/sqlite/": [
+    "/systems/sqlite/"
+  ],
+  "/html/": [
+    "/systems/html/"
+  ],
+  "/software-testing/": [
+    "/systems/software-testing/"
+  ],
+  "/terraform/": [
+    "/systems/terraform/"
+  ],
+  "/images-and-videos/": [
+    "/systems/images-and-videos/"
+  ],
+  "/error-messages/": [
+    "/systems/error-messages/"
+  ],
+  "/jq/": [
+    "/systems/jq/",
+    "/tags/jq/"
+  ],
+  "/docker/": [
+    "/systems/docker/"
+  ],
   "/python/": [
     "/systems/python/"
   ],
-  "/systems/": [
-    "/personal-thoughts/blogging/"
+  "/applescript/": [
+    "/systems/applescript/"
   ],
-  "/systems/jq/": [
-    "/tags/jq/"
+  "/swift/": [
+    "/systems/swift/"
+  ],
+  "/css/": [
+    "/systems/css/"
+  ],
+  "/regex/": [
+    "/systems/regex/"
+  ],
+  "/datetime-shenanigans/": [
+    "/systems/datetime-shenanigans/"
+  ],
+  "/shell-scripting/": [
+    "/systems/shell-scripting/"
+  ],
+  "/macos/": [
+    "/systems/macos/"
+  ],
+  "/windows/": [
+    "/systems/windows/"
+  ],
+  "/blogging/": [
+    "/personal-thoughts/blogging/",
+    "/systems/blogging/"
+  ],
+  "/computers-and-code/": [
+    "/computers/",
+    "/systems/"
   ],
   "/tags/": [
     "/tag/"

@@ -1,6 +1,6 @@
 ---
 layout: topic
-title: Systems and software
+title: Computers and code
 ---
 
 I've been a professional software developer since 2014, and a hobbyist for several years before that.

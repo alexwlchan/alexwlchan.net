@@ -3,7 +3,7 @@ layout: article
 date: 2020-01-29 09:44:49 +00:00
 title: Excluding lots of folders in Backblaze
 summary: Backblaze lets you say “back up everything except these folders”. How do you tell it you have lots of folders you want it to ignore?
-topic: Systems and software
+topic: Computers and code
 index:
   exclude: true
 ---

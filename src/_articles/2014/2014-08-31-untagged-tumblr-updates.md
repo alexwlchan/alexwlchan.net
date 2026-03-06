@@ -2,7 +2,9 @@
 layout: article
 date: 2014-08-31 12:12:00 +00:00
 title: Updates to my site for finding untagged Tumblr posts
-topic: Systems and software
+topic: Computers and code
+future_topics:
+  - Tumblr
 ---
 
 About two weeks ago, I took a family holiday to Oslo. When I came back, I found that my site for [finding untagged Tumblr posts][post1] had received a lot of traffic while I was gone. I'm flattered that so many people have found it useful.

@@ -1,7 +1,7 @@
 ---
 layout: article
 date: 2014-07-11 07:43:00 +00:00
-topic: Systems and software
+topic: Computers and code
 title: Getting plaintext LaTeX from Wolfram Alpha
 colors:
   index_light: "#f35716"

@@ -290,7 +290,7 @@ I hope you like it!
         <li>
           {% inline_svg filename="icons/programming.svg" class="dark_aware" %}
           <span>
-            <a href="/systems/">Systems and software</a>
+            <a href="/computers-and-code/">Computers and code</a>
           </span>
         </li>
         <li>
