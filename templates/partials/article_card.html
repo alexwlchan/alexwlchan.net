@@ -39,19 +39,19 @@
     {{- "" -}}
 
     <p class="c_t">
-      {{- article.title | markdownify_oneline -}}
+      {{- article.title | markdownify_oneline | cleanup_text -}}
     </p>
 
     {{- "" -}}
 
     <p class="c_d">
-      {{- article.summary | markdownify_oneline -}}
+      {{- article.summary | markdownify_oneline | cleanup_text -}}
     </p>
 
     {{- "" -}}
     
     <p class="meta">
-      {%- if article.topics -%}{{ article.topics[0] | smartify }}{{- " · " -}}{%- endif -%}
+      {%- if article.topics -%}{{ article.topics[0] | smartify | cleanup_text }}{{- " · " -}}{%- endif -%}
       {%- with date_format = '%-d %b %Y' -%}
       {%- with date = article.date -%}
         {%- include "partials/timestamp.html" -%}

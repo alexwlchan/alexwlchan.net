@@ -745,10 +745,6 @@
   "src/_posts/2019/2019-07-18-section-28.md": [
     "politics"
   ],
-  "src/_posts/2019/2019-07-29-finding-divisors-with-python.md": [
-    "python",
-    "maths"
-  ],
   "src/_posts/2019/2019-08-19-finding-tint-colours-with-k-means.md": [
     "python",
     "images",
@@ -1112,16 +1108,9 @@
     "generative art",
     "fun stuff"
   ],
-  "src/_posts/2021/2021-03-12-inner-outer-strokes-svg.md": [
-    "svg",
-    "drawing things"
-  ],
   "src/_posts/2021/2021-03-29-unified-search.md": [
     "wellcome collection",
     "search"
-  ],
-  "src/_posts/2021/2021-04-05-secure-input.md": [
-    "macos"
   ],
   "src/_posts/2021/2021-04-18-detect-private-browsing.md": [
     "applescript",
@@ -1621,11 +1610,6 @@
     "theatre",
     "operation mincemeat"
   ],
-  "src/_posts/2024/2024-01-31-big-pdf.md": [
-    "drawing things",
-    "code crimes",
-    "pdf"
-  ],
   "src/_posts/2024/2024-02-11-moving-youtube-likes.md": [
     "python",
     "youtube"
@@ -1792,10 +1776,6 @@
     "epub",
     "my tools"
   ],
-  "src/_posts/2025/2025-02-04-lego-inventory-spreadsheets.md": [
-    "lego",
-    "sqlite"
-  ],
   "src/_posts/2025/2025-02-08-bagit-errors.md": [
     "bagit",
     "digital preservation"
@@ -1850,9 +1830,6 @@
   "src/_posts/2025/2025-04-22-fix-dark-mode.md": [
     "css",
     "blogging about blogging"
-  ],
-  "src/_posts/2025/2025-04-29-copying-sqlite-databases.md": [
-    "sqlite"
   ],
   "src/_posts/2025/2025-05-04-duplicate-names-in-json.md": [
     "python",

@@ -156,6 +156,20 @@ def test_block_elements_are_preserved(md: str) -> None:
         ),
         ("After x and y is the z-axis", "After x and y is the z&#8209;axis"),
         ("A.B. Charles", "A.B.&nbsp;Charles"),
+        (
+            "<h1>LaTeX</h1>",
+            "<h1>"
+            '<style type="x-text/scss">@use "components/latex";</style>'
+            '<span class="visually-hidden">LaTeK</span>'
+            '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
+            "</h1>",
+        ),
+        (
+            "LaTeX",
+            '<style type="x-text/scss">@use "components/latex";</style>'
+            '<span class="visually-hidden">LaTeK</span>'
+            '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>',
+        ),
     ],
 )
 def test_cleanup_text(text: str, cleaned_text: str) -> None:

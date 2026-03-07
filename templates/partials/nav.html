@@ -6,7 +6,7 @@
       »
       {% if allowCollapsing and loop.first %}<span id="collapsible">{% endif %}
         {% if allowCollapsing and loop.last %}</span>{% endif %}
-      <a href="{{ entry.href }}" class="breadcrumb">{{ entry.label|smartify }}</a>
+      <a href="{{ entry.href }}" class="breadcrumb">{{ entry.label | smartify | cleanup_text }}</a>
     {% endfor %}
   </h1>
   {% if allowCollapsing %}

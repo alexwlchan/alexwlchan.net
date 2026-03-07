@@ -15,7 +15,7 @@
           See https://tinytip.co/tips/a11y-voiceover-text-role/
         #}
         <span role="text">
-          {{ page.title | markdownify_oneline | cleanup_text }}
+          {{- page.title | markdownify_oneline | cleanup_text -}}
         </span>
 
         {% if page.link %}

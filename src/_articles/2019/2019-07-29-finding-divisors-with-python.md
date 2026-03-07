@@ -1,13 +1,12 @@
 ---
+layout: article
 date: 2019-07-29 20:34:53 +00:00
-layout: post
 summary: Using unique prime factorisations and itertools to find all the divisors
   of a number.
 title: Finding divisors of a number with Python
-tags:
-  - python
-  - maths
-old_syntax_highlighting: true
+topics:
+  - Python
+  - Maths
 ---
 
 Here's a problem I was trying to solve recently: given an integer *n*, what are all the divisors of *n*?
@@ -24,7 +23,7 @@ I don't know if I'll use it again, but I'm writing it up because it was a fun ex
 
 If we want to find all the numbers that evenly divide *n*, we could just try every number up to *n*:
 
-```python
+```python {"names":{"1":"get_divisors","2":"n","3":"i"}}
 def get_divisors(n):
     for i in range(1, int(n / 2) + 1):
         if n % i == 0:
@@ -55,7 +54,7 @@ For example, 2, 3 and 5 are prime, but 4 and 6 are not.)
 
 Here's a function that finds the prime factors of *n*:
 
-```python
+```python {"names":{"1":"prime_factors","2":"n","3":"i"}}
 def prime_factors(n):
     i = 2
     while i * i <= n:
@@ -98,7 +97,7 @@ The prime factors of any divisor of *n* must be a subset of the prime factors of
 
 First, let's get the prime factors "with multiplicity" (the prime factors, and how many times each factor appears in the prime factorisation):
 
-```python
+```python {"names":{"1":"collections","2":"get_divisors","3":"n","4":"pf","7":"pf_with_multiplicity"}}
 import collections
 
 def get_divisors(n):
@@ -111,7 +110,7 @@ def get_divisors(n):
 
 Then, let's go ahead and construct all the powers of each prime that might appear in a possible divisor of *n*.
 
-```python
+```python {"names":{"1":"get_divisors","2":"n","3":"powers","5":"i","9":"factor","10":"count"}}
 def get_divisors(n):
     ...
     powers = [
@@ -134,7 +133,7 @@ For example, for 9! this would give us
 Then to combine these into divisors, we can use the rather nifty [itertools.product][product], which takes a series of iterables, and spits out all the ordered combinations of the different iterables it receives.
 It selects one entry from each list of prime powers, and then by multiplying them together we get a divisor of *n*.
 
-```python
+```python {"names":{"1":"itertools","2":"prod","4":"result","5":"i","10":"get_divisors","11":"n","12":"prime_power_combo"}}
 import itertools
 
 def prod(iterable):
@@ -160,7 +159,7 @@ And thus, we have the divisors of *n* (although unlike the original function, th
 
 Putting that all together gives this function for getting the divisors of *n*:
 
-```python
+```python {"names":{"1":"collections","2":"itertools","3":"prime_factors","4":"n","5":"i","17":"prod","18":"iterable","19":"result","20":"i","25":"get_divisors","26":"n","27":"pf","30":"pf_with_multiplicity","34":"powers","37":"i","40":"factor","41":"count","44":"prime_power_combo"}}
 import collections
 import itertools
 

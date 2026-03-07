@@ -1,11 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2021-04-05 07:25:20 +00:00
 title: Finding the app/process that's using Secure Input
 summary: A Python script that shows me the name of processes that have Secure Input enabled.
-tags:
-  - macos
-old_syntax_highlighting: true
+topic: macOS
 ---
 
 macOS has a security feature called [*"Secure Input"*][sec_input].

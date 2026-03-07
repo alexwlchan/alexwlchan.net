@@ -3,9 +3,11 @@ layout: post
 date: 2025-02-04 08:05:17 +00:00
 title: Making inventory spreadsheets for my LEGO sets
 summary: Using the Rebrickable database downloads and sqlite-utils, I can quickly create spreadsheets that let me tick off the parts in each set.
-tags:
-  - lego
-  - sqlite
+topics:
+  - Fun stuff
+  - SQLite
+future_topics:
+  - LEGO
 card_attribution: https://pixabay.com/photos/lego-block-toys-3602218/
   ta98mori, Pixabay Content License, retrieved 4 February 2025
 old_syntax_highlighting: true
