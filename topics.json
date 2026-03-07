@@ -250,5 +250,9 @@
     "name": "LaTeX",
     "href": "/latex/",
     "parent": "Computers and code"
+  },
+  {
+    "name": "Colours",
+    "href": "/colours/"
   }
 ]
