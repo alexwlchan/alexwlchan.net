@@ -252,6 +252,11 @@
     "parent": "Computers and code"
   },
   {
+    "name": "Flickr",
+    "href": "/flickr/",
+    "parent": "Computers and code"
+  },
+  {
     "name": "Colours",
     "href": "/colours/"
   },
@@ -262,5 +267,34 @@
   {
     "name": "Naming things",
     "href": "/naming-things/"
+  },
+  {
+    "name": "HTTP",
+    "href": "/http/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Spreadsheets",
+    "href": "/spreadsheets/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Text and Unicode",
+    "href": "/text/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Wikimedia Commons",
+    "href": "/wikimedia-commons/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Photo management",
+    "href": "/photo-management/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Domestic life",
+    "href": "/domestic/"
   }
 ]

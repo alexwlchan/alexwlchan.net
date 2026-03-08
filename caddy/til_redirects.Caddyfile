@@ -24,52 +24,52 @@ til.alexwlchan.net {
   #         cog.outl(f"redir {old_path} https://alexwlchan.net{new_slug} permanent")
   # 
   #]]]
-  redir / https://alexwlchan.net/til/ permanent
-  redir /atom.xml https://alexwlchan.net/til/atom.xml permanent
+  redir / https://alexwlchan.net/notes/ permanent
+  redir /atom.xml https://alexwlchan.net/notes/atom.xml permanent
   redir /animate-svg-elements-with-animate/ https://alexwlchan.net/notes/2024/animate-svg-elements-with-animate/ permanent
   redir /applescript-do-javascript/ https://alexwlchan.net/notes/2024/applescript-do-javascript/ permanent
   redir /beware-of-test-n-with-command-expansion/ https://alexwlchan.net/notes/2024/beware-of-test-n-with-command-expansion/ permanent
-  redir /block-specific-ip-addresses/ https://alexwlchan.net/til/2024/block-specific-ip-addresses/ permanent
+  redir /block-specific-ip-addresses/ https://alexwlchan.net/notes/2024/block-specific-ip-addresses/ permanent
   redir /buildkite-concurrency-gates/ https://alexwlchan.net/notes/2023/buildkite-concurrency-gates/ permanent
   redir /calliope-syndrome/ https://alexwlchan.net/notes/2021/calliope-syndrome/ permanent
   redir /close-responses-to-close-send-file/ https://alexwlchan.net/notes/2024/close-responses-to-close-send-file/ permanent
-  redir /convert-between-m-ids-and-filenames/ https://alexwlchan.net/til/2023/convert-between-m-ids-and-filenames/ permanent
+  redir /convert-between-m-ids-and-filenames/ https://alexwlchan.net/notes/2023/convert-between-m-ids-and-filenames/ permanent
   redir /count-only-counts-non-null-values/ https://alexwlchan.net/notes/2024/count-only-counts-non-null-values/ permanent
   redir /create-a-directory-first/ https://alexwlchan.net/notes/2024/create-a-directory-first/ permanent
   redir /create-a-sticky-bottom-footer/ https://alexwlchan.net/notes/2024/create-a-sticky-bottom-footer/ permanent
-  redir /create-flag-emojis-for-countries/ https://alexwlchan.net/til/2024/create-flag-emojis-for-countries/ permanent
+  redir /create-flag-emojis-for-countries/ https://alexwlchan.net/notes/2024/create-flag-emojis-for-countries/ permanent
   redir /custom-error-pages-in-flask/ https://alexwlchan.net/notes/2024/custom-error-pages-in-flask/ permanent
   redir /errexit-and-arithmetic-expressions/ https://alexwlchan.net/notes/2024/errexit-and-arithmetic-expressions/ permanent
   redir /exclude-files-from-time-machine-with-tmutil/ https://alexwlchan.net/notes/2024/exclude-files-from-time-machine-with-tmutil/ permanent
-  redir /find-files-with-sdc-fields/ https://alexwlchan.net/til/2023/find-files-with-sdc-fields/ permanent
+  redir /find-files-with-sdc-fields/ https://alexwlchan.net/notes/2023/find-files-with-sdc-fields/ permanent
   redir /get-boto3-session/ https://alexwlchan.net/notes/2024/get-boto3-session/ permanent
-  redir /get-netlify-usage-from-api/ https://alexwlchan.net/til/2024/get-netlify-usage-from-api/ permanent
+  redir /get-netlify-usage-from-api/ https://alexwlchan.net/notes/2024/get-netlify-usage-from-api/ permanent
   redir /gracefully-restart-a-gunicorn-app/ https://alexwlchan.net/notes/2024/gracefully-restart-a-gunicorn-app/ permanent
-  redir /how-to-check-when-a-cert-expires/ https://alexwlchan.net/til/2024/how-to-check-when-a-cert-expires/ permanent
+  redir /how-to-check-when-a-cert-expires/ https://alexwlchan.net/notes/2024/how-to-check-when-a-cert-expires/ permanent
   redir /how-to-do-resumable-downloads/ https://alexwlchan.net/notes/2023/resumable-downloads-with-curl/ permanent
   redir /how-to-parse-urls-with-jxa/ https://alexwlchan.net/notes/2024/how-to-parse-urls-with-jxa/ permanent
   redir /how-to-render-svgs-on-github/ https://alexwlchan.net/notes/2024/how-to-render-svgs-on-github/ permanent
-  redir /image-function-to-insert-images/ https://alexwlchan.net/til/2024/image-function-to-insert-images/ permanent
+  redir /image-function-to-insert-images/ https://alexwlchan.net/notes/2024/image-function-to-insert-images/ permanent
   redir /live-text-is-hyphenation-aware/ https://alexwlchan.net/notes/2023/live-text-is-hyphenation-aware/ permanent
   redir /longest-common-suffix/ https://alexwlchan.net/notes/2024/longest-common-suffix/ permanent
-  redir /manage-mp3-metadata-with-eyed3/ https://alexwlchan.net/til/2024/manage-mp3-metadata-with-eyed3/ permanent
-  redir /manipulate-albums/ https://alexwlchan.net/til/2023/manipulate-albums/ permanent
-  redir /mastodon-retrying/ https://alexwlchan.net/til/2024/mastodon-retrying/ permanent
-  redir /offline-geo-lookups-of-ip-addresses/ https://alexwlchan.net/til/2024/offline-geo-lookups-of-ip-addresses/ permanent
+  redir /manage-mp3-metadata-with-eyed3/ https://alexwlchan.net/notes/2024/manage-mp3-metadata-with-eyed3/ permanent
+  redir /manipulate-albums/ https://alexwlchan.net/notes/2023/manipulate-albums/ permanent
+  redir /mastodon-retrying/ https://alexwlchan.net/notes/2024/mastodon-retrying/ permanent
+  redir /offline-geo-lookups-of-ip-addresses/ https://alexwlchan.net/notes/2024/offline-geo-lookups-of-ip-addresses/ permanent
   redir /open-can-ask-questions/ https://alexwlchan.net/notes/2024/open-can-ask-questions/ permanent
   redir /pausing-svg-animation-varies-across-browsers/ https://alexwlchan.net/notes/2024/pausing-svg-animation-varies-across-browsers/ permanent
-  redir /photos-can-have-orientation-in-exif/ https://alexwlchan.net/til/2024/photos-can-have-orientation-in-exif/ permanent
+  redir /photos-can-have-orientation-in-exif/ https://alexwlchan.net/notes/2024/photos-can-have-orientation-in-exif/ permanent
   redir /profiling-swift/ https://alexwlchan.net/notes/2023/profiling-swift/ permanent
   redir /regex-library-for-unicode-property-escapes/ https://alexwlchan.net/notes/2024/regex-library-for-unicode-property-escapes/ permanent
   redir /run-random-subset-of-tests-in-pytest/ https://alexwlchan.net/notes/2024/run-random-subset-of-tests-in-pytest/ permanent
   redir /running-the-netlify-cli-in-github-actions/ https://alexwlchan.net/notes/2024/running-the-netlify-cli-in-github-actions/ permanent
-  redir /send-if-modified-since-with-httpx/ https://alexwlchan.net/til/2024/send-if-modified-since-with-httpx/ permanent
+  redir /send-if-modified-since-with-httpx/ https://alexwlchan.net/notes/2024/send-if-modified-since-with-httpx/ permanent
   redir /simulate-pipes-with-subprocess/ https://alexwlchan.net/notes/2024/simulate-pipes-with-subprocess/ permanent
   redir /sort-dom-elements-with-appendchild/ https://alexwlchan.net/notes/2024/sort-dom-elements-with-appendchild/ permanent
   redir /sqlite-to-csv-tally/ https://alexwlchan.net/notes/2024/sqlite-to-csv-tally/ permanent
   redir /sqlite3-context-manager-doesnt-close-connections/ https://alexwlchan.net/notes/2024/sqlite3-context-manager-doesnt-close-connections/ permanent
   redir /style-a-details-element/ https://alexwlchan.net/notes/2024/style-a-details-element/ permanent
-  redir /tables-and-links-in-obsidian/ https://alexwlchan.net/til/2024/tables-and-links-in-obsidian/ permanent
+  redir /tables-and-links-in-obsidian/ https://alexwlchan.net/notes/2024/tables-and-links-in-obsidian/ permanent
   redir /tally-combinations-of-columns/ https://alexwlchan.net/notes/2024/tally-combinations-of-columns/ permanent
   redir /use-launchagent-for-scheduled-script/ https://alexwlchan.net/notes/2024/use-launchagent-for-scheduled-script/ permanent
   redir /use-n-to-avoid-overwriting/ https://alexwlchan.net/notes/2024/use-n-to-avoid-overwriting/ permanent
@@ -78,13 +78,13 @@ til.alexwlchan.net {
   redir /use-sqlite-utils-to-convert-csv-to-sqlite/ https://alexwlchan.net/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/ permanent
   redir /use-the-capture-tag-for-complex-strings/ https://alexwlchan.net/notes/2024/use-the-capture-tag-for-complex-strings/ permanent
   redir /use-the-raw-tag-to-describe-liquid-in-liquid/ https://alexwlchan.net/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/ permanent
-  redir /use-unicode-property-escapes-to-find-emoji/ https://alexwlchan.net/til/2023/use-unicode-property-escapes-to-find-emoji/ permanent
+  redir /use-unicode-property-escapes-to-find-emoji/ https://alexwlchan.net/notes/2023/use-unicode-property-escapes-to-find-emoji/ permanent
   redir /verbose-deletions-with-rm/ https://alexwlchan.net/notes/2024/verbose-deletions-with-rm/ permanent
-  redir /what-happens-when-you-replace-a-photo/ https://alexwlchan.net/til/2024/what-happens-when-you-replace-a-photo/ permanent
-  redir /what-is-a-snak/ https://alexwlchan.net/til/2023/what-is-a-snak/ permanent
-  redir /wmc-allowed-title-characters/ https://alexwlchan.net/til/2024/wmc-allowed-title-characters/ permanent
-  redir /woe-means-where-on-earth/ https://alexwlchan.net/til/2023/woe-means-where-on-earth/ permanent
+  redir /what-happens-when-you-replace-a-photo/ https://alexwlchan.net/notes/2024/what-happens-when-you-replace-a-photo/ permanent
+  redir /what-is-a-snak/ https://alexwlchan.net/notes/2023/what-is-a-snak/ permanent
+  redir /wmc-allowed-title-characters/ https://alexwlchan.net/notes/2024/wmc-allowed-title-characters/ permanent
+  redir /woe-means-where-on-earth/ https://alexwlchan.net/notes/2023/woe-means-where-on-earth/ permanent
   redir /wordpress-urls-to-monitor/ https://alexwlchan.net/notes/2024/wordpress-urls-to-monitor/ permanent
   redir /youtube-dl-options/ https://alexwlchan.net/notes/2024/youtube-dl-options/ permanent
-#[[[end]]] (sum: o+zewv1/i9)
+#[[[end]]] (sum: ZkmnFSzRy/)
 }
