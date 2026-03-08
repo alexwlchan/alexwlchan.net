@@ -1844,6 +1844,8 @@ redir /til/2025/subprocess-line-by-line/ /notes/2025/subprocess-line-by-line/ pe
 redir /til/2025/subprocess-line-by-line /notes/2025/subprocess-line-by-line/ permanent
 redir /til/2025/subprocess-text-true/ /notes/2025/subprocess-text-true/ permanent
 redir /til/2025/subprocess-text-true /notes/2025/subprocess-text-true/ permanent
+redir /til/2025/timelord-at-cam/ /notes/2025/timelord-at-cam/ permanent
+redir /til/2025/timelord-at-cam /notes/2025/timelord-at-cam/ permanent
 redir /til/2025/tumblr-api-sans-auth/ /notes/2025/tumblr-api-sans-auth/ permanent
 redir /til/2025/tumblr-api-sans-auth /notes/2025/tumblr-api-sans-auth/ permanent
 redir /til/2025/typing-getargs/ /notes/2025/typing-getargs/ permanent
@@ -1970,4 +1972,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /world/words/ /interesting-words/ permanent
 redir /world/words /interesting-words/ permanent
-#[[[end]]] (sum: nXkeUKAGfJ)
+#[[[end]]] (sum: w3E8oS2e4K)
