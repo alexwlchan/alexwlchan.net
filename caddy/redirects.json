@@ -3248,7 +3248,8 @@
   "/systems/tailscale/": [
     "/work/tailscale/"
   ],
-  "/tags/": [
+  "/topics/": [
+    "/tags/",
     "/tag/"
   ],
   "/aws": [

@@ -29,6 +29,7 @@ from .page_types import (
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
+from .topics import rebuild_topics_by_name
 
 
 class Site(BaseModel):
@@ -171,6 +172,7 @@ class Site(BaseModel):
                 "environment": "production",
                 "site": self,
                 "enable_analytics": enable_analytics,
+                "all_topics": rebuild_topics_by_name(),
             }
         )
 

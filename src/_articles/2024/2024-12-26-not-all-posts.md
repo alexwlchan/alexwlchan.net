@@ -209,7 +209,7 @@ There's plenty of programming, but you can see the non-programming topics as wel
 
 I hope this will help new visitors find something they're excited to read.
 
-[tags]: /tags/
+[tags]: /topics/
 [hoy]: https://stackingthebricks.com/how-blogs-broke-the-web/
 
 ### I've made my favourite posts more visible

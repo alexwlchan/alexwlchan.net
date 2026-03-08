@@ -2059,8 +2059,10 @@ redir /systems/swift/ /swift/ permanent
 redir /systems/swift /swift/ permanent
 redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
-redir /tag/ /tags/ permanent
-redir /tag /tags/ permanent
+redir /tags/ /topics/ permanent
+redir /tags /topics/ permanent
+redir /tag/ /topics/ permanent
+redir /tag /topics/ permanent
 redir /tags/aws/amazon-s3/ /aws permanent
 redir /tags/aws/amazon-s3 /aws permanent
 redir /tags/amazon-s3/ /aws permanent
@@ -2079,4 +2081,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: GHW6QIIaGR)
+#[[[end]]] (sum: 2yH9RgNqYl)
