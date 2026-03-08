@@ -46,7 +46,7 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
     }
 
     match layout:
-        case "post" | "article":
+        case "article":
             return Article(**kwargs)
         case "book_review":
             return BookReview(**kwargs)

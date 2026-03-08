@@ -40,8 +40,7 @@ class Article(BaseHtmlPage):
         """
         The name of HTML file used as a template for this type of page.
         """
-        # TODO: Rename this to `article.html` for consistency.
-        return "post.html"
+        return "article.html"
 
     @property
     def url(self) -> str:

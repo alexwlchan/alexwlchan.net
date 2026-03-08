@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
 import re
-from typing import Any, Literal, Self, TypedDict
+from typing import Any, Self, TypedDict
 
 from jinja2 import Environment
 import minify_html
@@ -106,9 +106,6 @@ class BaseHtmlPage(ABC, BaseModel):
     # TODO(2026-01-20): Make this a required field for all posts.
     summary: str | None = None
 
-    # A list of tags for this page or post
-    tags: list[str] = Field(default_factory=lambda: list())
-
     # When this page or post was created
     date: datetime | None = None
 
@@ -137,11 +134,6 @@ class BaseHtmlPage(ABC, BaseModel):
 
     # Which section is this page part of?
     part_of: PartOf | None = None
-
-    # Which section of the site this page/post belongs to
-    nav_section: Literal["articles", "til", "contact", "subscribe", "tags"] | None = (
-        None
-    )
 
     # Attribution information about the photo used for the card.
     # TODO(2026-01-20): Actually use this information.
@@ -188,17 +180,6 @@ class BaseHtmlPage(ABC, BaseModel):
         Returns the path where this HTML file should be written.
         """
         return out_dir / self.url.strip("/") / "index.html"
-
-    @model_validator(mode="after")
-    def remove_tags_on_hidden_posts(self) -> Self:
-        """
-        If a post is hidden from the sitewide index, remove its tags.
-
-        TODO(2026-01-21): Decide if this is still the correct behaviour.
-        """
-        if self.index.exclude:
-            self.tags = []
-        return self
 
     @model_validator(mode="after")
     def set_sharing_card(self) -> Self:
