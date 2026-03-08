@@ -1,11 +1,13 @@
 ---
-layout: til
+layout: note
 title: Looking up posts in the Bluesky API
 summary: Install the `atproto` package, construct a client with your username/password, then call the `get_post_thread` method with your `at://` URI.
 date: 2025-08-10 22:53:18 +01:00
-tags:
-  - bluesky
-  - python
+topics:
+  - Preserving social media
+  - Python
+future_topics:
+  - Bluesky
 old_syntax_highlighting: true
 ---
 I wanted to use the [Bluesky API][api] to get some basic information about posts.
@@ -19,7 +21,7 @@ It wasn't difficult, but there were a couple of non-obvious steps I wanted to no
 
 2.  **Create an authentication session:**
 
-    ```python
+    ```python {"names":{"1":"atproto","2":"Client","3":"client"}}
     from atproto import Client
     
     client = Client()
@@ -33,7 +35,7 @@ It wasn't difficult, but there were a couple of non-obvious steps I wanted to no
 3.  **Call the [`get_post_thread` method][getPostThread].**
     This method includes information about the replies and parents, but I'm just interested in a single post:
 
-    ```python
+    ```python {"names":{"1":"api_resp"}}
     api_resp = client.get_post_thread(
         uri="at://discobooks.bsky.social/app.bsky.feed.post/3lvgbcnv5vs2a",
         depth=0,
@@ -53,7 +55,7 @@ It wasn't difficult, but there were a couple of non-obvious steps I wanted to no
     
     This allowed me to find the fields I wanted, and extract them into a simpler structure:
     
-    ```python
+    ```python {"names":{"1":"datetime","2":"datetime","3":"post","7":"my_data"}}
     from datetime import datetime
     
     post = api_resp.thread.post

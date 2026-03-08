@@ -1732,6 +1732,8 @@ redir /til/2025/bitly-deletes-inactive-accounts/ /notes/2025/bitly-deletes-inact
 redir /til/2025/bitly-deletes-inactive-accounts /notes/2025/bitly-deletes-inactive-accounts/ permanent
 redir /til/2025/bluesky-avatar-url/ /notes/2025/bluesky-avatar-url/ permanent
 redir /til/2025/bluesky-avatar-url /notes/2025/bluesky-avatar-url/ permanent
+redir /til/2025/bluesky-post-info/ /notes/2025/bluesky-post-info/ permanent
+redir /til/2025/bluesky-post-info /notes/2025/bluesky-post-info/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/collapsing-whitespace-in-liquid/ /notes/2025/collapsing-whitespace-in-liquid/ permanent
@@ -1972,4 +1974,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /world/words/ /interesting-words/ permanent
 redir /world/words /interesting-words/ permanent
-#[[[end]]] (sum: w3E8oS2e4K)
+#[[[end]]] (sum: fm4wX1Y+rd)
