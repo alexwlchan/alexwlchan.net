@@ -1,10 +1,11 @@
 ---
-layout: til
+layout: note
 title: The caret anchor (`^`) matches differently in Python and Ruby
 date: 2026-01-11 10:16:27 +00:00
-tags:
-  - regex
-old_syntax_highlighting: true
+topics:
+  - Regular expressions
+  - Ruby
+  - Python
 ---
 One thing I've come to learn is that there is no "one" regex syntax, and it varies across different languages.
 Today I learnt another difference!
