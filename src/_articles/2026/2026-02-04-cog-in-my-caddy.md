@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Creating Caddyfiles with Cog
 summary: Cog is a tool for doing in-place text generation for static files. It's useful for generating repetitive config, like my web server redirects.
 date: 2026-02-05 08:21:14 +00:00

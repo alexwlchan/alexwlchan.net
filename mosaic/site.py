@@ -2,12 +2,10 @@
 Build system for alexwlchan.net.
 """
 
-import collections
 from collections import Counter
 from datetime import datetime, timezone
 import filecmp
 import hashlib
-import heapq
 import itertools
 from pathlib import Path
 import shutil
@@ -15,7 +13,6 @@ from typing import Any
 
 from jinja2 import Environment
 from pydantic import BaseModel, Field
-import termcolor
 from tqdm import tqdm
 import yaml
 
@@ -27,12 +24,12 @@ from .page_types import (
     BaseHtmlPage,
     BookReview,
     Note,
-    Page,
     read_markdown_files,
 )
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
+from .topics import rebuild_topics_by_name
 
 
 class Site(BaseModel):
@@ -115,14 +112,6 @@ class Site(BaseModel):
         self.time = datetime.now(tz=timezone.utc)
         self.all_pages = read_markdown_files(self.src_dir)
 
-        for p in self.all_pages:
-            if p.tags and not p.topics:
-                print(
-                    termcolor.colored(
-                        f"page has tags, no topics: {p.md_path}", "yellow"
-                    )
-                )
-
         # Check none of the URLs are duplicated
         counter = Counter(p.url for p in self.all_pages)
         duplicate_urls = {url: count for url, count in counter.items() if count > 1}
@@ -166,42 +155,6 @@ class Site(BaseModel):
             for art in articles_that_year:
                 art.card_short_name = prefixes[slugs[art]]
 
-        # Tags:
-        #
-        #   - Work out all the tags being used
-        #   - Create an HtmlPage that should be written for each page
-        #
-        tag_tally = collections.defaultdict(list)
-        for p in self.all_pages:
-            for t in p.tags:
-                tag_tally[t].append(p)
-
-        for tag_name, tagged_pages in tag_tally.items():
-            if ":" in tag_name:
-                namespace, tag_name = tag_name.split(":")
-            else:
-                namespace, tag_name = "", tag_name
-
-            tag_descriptions = yaml.safe_load(
-                (self.src_dir / "_data/tag_descriptions.yml").read_text()
-            )
-
-            self.all_pages.append(
-                Page(
-                    url=f"/tags/{namespace}/{tag_name}/".replace("//", "/").replace(
-                        " ", "-"
-                    ),
-                    template_name="tag.html",
-                    title=f"Tagged with “{tag_name}”",
-                    extra_variables={
-                        "tagged_pages": tagged_pages,
-                        "namespace": namespace,
-                        "tag_name": tag_name,
-                        "tag_description": tag_descriptions.get(tag_name),
-                    },
-                )
-            )
-
         # Write the CSS file.
         css_url = self.build_base_css_file()
 
@@ -211,12 +164,6 @@ class Site(BaseModel):
 
         self.data = {
             "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
-            "popular_tags": heapq.nlargest(
-                25,
-                tag_tally.keys(),
-                lambda tag_name: len(tag_tally[tag_name]),
-            ),
-            "tag_tally": tag_tally,
         }
 
         env.globals.update(
@@ -225,6 +172,7 @@ class Site(BaseModel):
                 "environment": "production",
                 "site": self,
                 "enable_analytics": enable_analytics,
+                "all_topics": rebuild_topics_by_name(),
             }
         )
 

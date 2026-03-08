@@ -38,33 +38,24 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
     ):
         front_matter["topics"] = [front_matter.pop("topic")]
 
+    kwargs = {
+        "src_dir": src_dir,
+        "md_path": md_path,
+        "content": content,
+        **front_matter,
+    }
+
     match layout:
-        case "post" | "article":
-            return Article(
-                src_dir=src_dir, md_path=md_path, content=content, **front_matter
-            )
+        case "article":
+            return Article(**kwargs)
         case "book_review":
-            return BookReview(
-                src_dir=src_dir, md_path=md_path, content=content, **front_matter
-            )
+            return BookReview(**kwargs)
         case "note":
-            return Note(
-                src_dir=src_dir, md_path=md_path, content=content, **front_matter
-            )
+            return Note(**kwargs)
         case "page":
-            return Page(
-                src_dir=src_dir,
-                md_path=md_path,
-                content=content,
-                **front_matter,
-            )
+            return Page(**kwargs)
         case "topic":
-            return TopicPage(
-                src_dir=src_dir,
-                md_path=md_path,
-                content=content,
-                **front_matter,
-            )
+            return TopicPage(**kwargs)
         case _:
             raise ValueError(f"unrecognised layout in {md_path}: {layout!r}")
 

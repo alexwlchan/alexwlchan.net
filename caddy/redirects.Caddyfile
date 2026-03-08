@@ -110,8 +110,6 @@ redir /2015/11/backups-and-docker/ /2015/backups-and-docker/ permanent
 redir /2015/11/backups-and-docker /2015/backups-and-docker/ permanent
 redir /2015/11/bbc-micro-bit/ /2015/bbc-micro-bit/ permanent
 redir /2015/11/bbc-micro-bit /2015/bbc-micro-bit/ permanent
-redir /2015/11/beyond-pep8/ /2015/beyond-pep8/ permanent
-redir /2015/11/beyond-pep8 /2015/beyond-pep8/ permanent
 redir /2015/09/effective-python/ /2015/effective-python/ permanent
 redir /2015/09/effective-python /2015/effective-python/ permanent
 redir /2015/03/exam-advice/ /2015/exam-advice/ permanent
@@ -128,8 +126,6 @@ redir /2015/05/github-contributions/ /2015/github-contributions/ permanent
 redir /2015/05/github-contributions /2015/github-contributions/ permanent
 redir /2015/02/lists/ /2015/lists/ permanent
 redir /2015/02/lists /2015/lists/ permanent
-redir /2015/05/nvalt-and-marked/ /2015/nvalt-and-marked/ permanent
-redir /2015/05/nvalt-and-marked /2015/nvalt-and-marked/ permanent
 redir /2015/05/one-step-paste-simulator/ /2015/one-step-paste-simulator/ permanent
 redir /2015/05/one-step-paste-simulator /2015/one-step-paste-simulator/ permanent
 redir /2015/11/operation-fortitude/ /2015/operation-fortitude/ permanent
@@ -142,8 +138,6 @@ redir /2015/03/pygmentizr/ /2015/pygmentizr/ permanent
 redir /2015/03/pygmentizr /2015/pygmentizr/ permanent
 redir /2015/11/quick-shell-docker/ /2015/quick-shell-docker/ permanent
 redir /2015/11/quick-shell-docker /2015/quick-shell-docker/ permanent
-redir /2015/05/raft-algorithm/ /2015/raft-algorithm/ permanent
-redir /2015/05/raft-algorithm /2015/raft-algorithm/ permanent
 redir /2015/06/safer-file-copying/ /2015/safer-file-copying/ permanent
 redir /2015/06/safer-file-copying /2015/safer-file-copying/ permanent
 redir /2015/12/simpler-syndication/ /2015/simpler-syndication/ permanent
@@ -195,8 +189,6 @@ redir /2016/09/pyconuk2016 /2016/pyconuk2016/ permanent
 redir /talks/pyconuk2016 /2016/pyconuk2016/ permanent
 redir /2016/05/python-smtplib-and-fastmail/ /2016/python-smtplib-and-fastmail/ permanent
 redir /2016/05/python-smtplib-and-fastmail /2016/python-smtplib-and-fastmail/ permanent
-redir /2016/06/reading-web-pages-on-my-kindle/ /2016/reading-web-pages-on-my-kindle/ permanent
-redir /2016/06/reading-web-pages-on-my-kindle /2016/reading-web-pages-on-my-kindle/ permanent
 redir /2016/04/regexes-are-code/ /2016/regexes-are-code/ permanent
 redir /2016/04/regexes-are-code /2016/regexes-are-code/ permanent
 redir /2016/05/safely-deleting-a-file-called-rf/ /2016/safely-deleting-a-file-called-rf/ permanent
@@ -227,8 +219,6 @@ redir /2016/11/you-should-use-keyring/ /2016/you-should-use-keyring/ permanent
 redir /2016/11/you-should-use-keyring /2016/you-should-use-keyring/ permanent
 redir /2017/11/a-plumbers-guide-to-git/ /2017/a-plumbers-guide-to-git/ permanent
 redir /2017/11/a-plumbers-guide-to-git /2017/a-plumbers-guide-to-git/ permanent
-redir /2017/12/armed-police/ /2017/armed-police/ permanent
-redir /2017/12/armed-police /2017/armed-police/ permanent
 redir /2017/11/asking-about-gender/ /2017/asking-about-gender/ permanent
 redir /2017/11/asking-about-gender /2017/asking-about-gender/ permanent
 redir /2017/07/backing-up-pinboard-archives/ /2017/backing-up-pinboard-archives/ permanent
@@ -263,8 +253,6 @@ redir /2017/07/listing-s3-keys/ /2017/listing-s3-keys/ permanent
 redir /2017/07/listing-s3-keys /2017/listing-s3-keys/ permanent
 redir /2017/09/ode-to-docopt/ /2017/ode-to-docopt/ permanent
 redir /2017/09/ode-to-docopt /2017/ode-to-docopt/ permanent
-redir /2017/10/overengineering/ /2017/overengineering/ permanent
-redir /2017/10/overengineering /2017/overengineering/ permanent
 redir /2017/10/pip-tools/ /2017/pip-tools/ permanent
 redir /2017/10/pip-tools /2017/pip-tools/ permanent
 redir /2017/10/pronunciation-peeves/ /2017/pronunciation-peeves/ permanent
@@ -284,8 +272,6 @@ redir /2017/01/scrape-logged-in-ao3/ /2017/scrape-logged-in-ao3/ permanent
 redir /2017/01/scrape-logged-in-ao3 /2017/scrape-logged-in-ao3/ permanent
 redir /2017/07/soundcloud-backups/ /2017/soundcloud-backups/ permanent
 redir /2017/07/soundcloud-backups /2017/soundcloud-backups/ permanent
-redir /2017/10/tweets-in-keynote/ /2017/tweets-in-keynote/ permanent
-redir /2017/10/tweets-in-keynote /2017/tweets-in-keynote/ permanent
 redir /2017/09/useful-git-commands/ /2017/useful-git-commands/ permanent
 redir /2017/09/useful-git-commands /2017/useful-git-commands/ permanent
 redir /2018/03/a-plumbers-guide-to-git/ /2018/a-plumbers-guide-to-git/ permanent
@@ -316,8 +302,6 @@ redir /2018/10/gender-recognition-act/ /2018/gender-recognition-act/ permanent
 redir /2018/10/gender-recognition-act /2018/gender-recognition-act/ permanent
 redir /2018/12/getting-credentials-for-an-assumed-iam-role/ /2018/getting-credentials-for-an-assumed-iam-role/ permanent
 redir /2018/12/getting-credentials-for-an-assumed-iam-role /2018/getting-credentials-for-an-assumed-iam-role/ permanent
-redir /2018/07/icloud-calendars/ /2018/icloud-calendars/ permanent
-redir /2018/07/icloud-calendars /2018/icloud-calendars/ permanent
 redir /2018/07/imac-accessory/ /2018/imac-accessory/ permanent
 redir /2018/07/imac-accessory /2018/imac-accessory/ permanent
 redir /2018/08/inclusive-conferences/ /2018/inclusive-conferences/ permanent
@@ -350,8 +334,6 @@ redir /2018/09/suspicious-minds/ /2018/suspicious-minds/ permanent
 redir /2018/09/suspicious-minds /2018/suspicious-minds/ permanent
 redir /2018/07/travel-instructions/ /2018/travel-instructions/ permanent
 redir /2018/07/travel-instructions /2018/travel-instructions/ permanent
-redir /2018/10/unscrupulous-time-travel/ /2018/unscrupulous-time-travel/ permanent
-redir /2018/10/unscrupulous-time-travel /2018/unscrupulous-time-travel/ permanent
 redir /2018/02/working-from-home/ /2018/working-from-home/ permanent
 redir /2018/02/working-from-home /2018/working-from-home/ permanent
 redir /2019/06/a-jekyll-filter-for-obfuscating-email-addresses/ /2019/a-jekyll-filter-for-obfuscating-email-addresses/ permanent
@@ -410,8 +392,6 @@ redir /2019/01/notes-from-you-got-this/ /2019/notes-from-you-got-this/ permanent
 redir /2019/01/notes-from-you-got-this /2019/notes-from-you-got-this/ permanent
 redir /2019/12/november-scripts/ /2019/november-scripts/ permanent
 redir /2019/12/november-scripts /2019/november-scripts/ permanent
-redir /2019/01/paul-rothe-and-sons/ /2019/paul-rothe-and-sons/ permanent
-redir /2019/01/paul-rothe-and-sons /2019/paul-rothe-and-sons/ permanent
 redir /2019/06/reading-a-chinese-dictionary/ /2019/reading-a-chinese-dictionary/ permanent
 redir /2019/06/reading-a-chinese-dictionary /2019/reading-a-chinese-dictionary/ permanent
 redir /2019/06/regenerating/ /2019/regenerating/ permanent
@@ -2079,10 +2059,16 @@ redir /systems/swift/ /swift/ permanent
 redir /systems/swift /swift/ permanent
 redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
-redir /tag/ /tags/ permanent
-redir /tag /tags/ permanent
-redir /tags/amazon-s3/ /tags/aws/amazon-s3/ permanent
-redir /tags/amazon-s3 /tags/aws/amazon-s3/ permanent
+redir /tags/ /topics/ permanent
+redir /tags /topics/ permanent
+redir /tag/ /topics/ permanent
+redir /tag /topics/ permanent
+redir /tags/aws/amazon-s3/ /aws permanent
+redir /tags/aws/amazon-s3 /aws permanent
+redir /tags/amazon-s3/ /aws permanent
+redir /tags/amazon-s3 /aws permanent
+redir /tags/aws/ /aws permanent
+redir /tags/aws /aws permanent
 redir /systems/terraform/ /terraform/ permanent
 redir /systems/terraform /terraform/ permanent
 redir /systems/windows/ /windows/ permanent
@@ -2093,4 +2079,6 @@ redir /digital-preservation/flickr-foundation/ /work/flickr-foundation/ permanen
 redir /digital-preservation/flickr-foundation /work/flickr-foundation/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: A6dgR6WZ67)
+redir /art/generative-art/ /generative-art/ permanent
+redir /art/generative-art /generative-art/ permanent
+#[[[end]]] (sum: 2yH9RgNqYl)

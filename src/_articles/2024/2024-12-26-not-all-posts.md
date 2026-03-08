@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2024-12-26 09:54:55 +00:00
 title: Not all blog posts are created equal
 summary: Splitting my site into "articles" and "today I learned" helped me overcome writer's block and improve my writing.
@@ -209,7 +209,7 @@ There's plenty of programming, but you can see the non-programming topics as wel
 
 I hope this will help new visitors find something they're excited to read.
 
-[tags]: /tags/
+[tags]: /topics/
 [hoy]: https://stackingthebricks.com/how-blogs-broke-the-web/
 
 ### I've made my favourite posts more visible

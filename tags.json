@@ -34,30 +34,13 @@
   "src/_posts/2014/2014-04-20-veil.md": [
     "harry-potter"
   ],
-  "src/_posts/2014/2014-05-12-part-ii-advice.md": [
-    "maths",
-    "cambridge"
-  ],
-  "src/_posts/2014/2014-05-14-part-ia-exams.md": [
-    "cambridge",
-    "maths"
-  ],
-  "src/_posts/2014/2014-06-13-untagged-tumblr-posts-redux.md": [
-    "tumblr"
-  ],
   "src/_posts/2014/2014-06-23-instapaper-urls.md": [
     "instapaper",
     "applescript"
   ],
-  "src/_posts/2014/2014-06-29-skeletor.md": [
-    "skeletor"
-  ],
   "src/_posts/2014/2014-07-11-latex-alpha.md": [
     "latex",
     "wolfram alpha"
-  ],
-  "src/_posts/2014/2014-07-18-overcast.md": [
-    "podcasts"
   ],
   "src/_posts/2014/2014-08-28-alfred-screenshots.md": [
     "alfred",
@@ -72,23 +55,12 @@
   "src/_posts/2014/2014-09-05-new-standing-desk.md": [
     "personal"
   ],
-  "src/_posts/2014/2014-09-14-404-pages.md": [
-    "python:pelican",
-    "python",
-    "blogging about blogging"
-  ],
-  "src/_posts/2014/2014-10-01-notes-on-tumblr.md": [
-    "tumblr"
-  ],
   "src/_posts/2014/2014-10-28-virtualfish.md": [
     "fish shell",
     "shell scripting"
   ],
   "src/_posts/2014/2014-11-02-ranged-strings.md": [
     "python"
-  ],
-  "src/_posts/2014/2014-12-06-skeletors-all-the-way-down.md": [
-    "skeletor"
   ],
   "src/_posts/2014/2014-12-10-acronyms.md": [
     "python"
@@ -102,16 +74,6 @@
     "pelican",
     "python"
   ],
-  "src/_posts/2015/2015-02-09-swift-let.md": [
-    "swift"
-  ],
-  "src/_posts/2015/2015-02-12-lists.md": [
-    "javascript",
-    "bookmarklets"
-  ],
-  "src/_posts/2015/2015-02-22-1password.md": [
-    "infosec"
-  ],
   "src/_posts/2015/2015-02-22-flask-notes.md": [
     "python"
   ],
@@ -123,42 +85,14 @@
     "python",
     "python:pygments"
   ],
-  "src/_posts/2015/2015-03-29-exam-advice.md": [
-    "maths"
-  ],
-  "src/_posts/2015/2015-03-29-technical-exams.md": [
-    "cambridge",
-    "maths"
-  ],
   "src/_posts/2015/2015-05-16-one-step-paste-simulator.md": [
     "os-x"
-  ],
-  "src/_posts/2015/2015-05-17-nvalt-and-marked.md": [
-    "python"
-  ],
-  "src/_posts/2015/2015-05-26-github-contributions.md": [
-    "github"
   ],
   "src/_posts/2015/2015-06-02-git-info-exclude.md": [
     "git"
   ],
   "src/_posts/2015/2015-06-22-safer-file-copying.md": [
     "python"
-  ],
-  "src/_posts/2015/2015-06-29-persistent-ipython-notebooks.md": [
-    "python",
-    "windows",
-    "python:ipython"
-  ],
-  "src/_posts/2015/2015-07-27-exit-traps-in-bash.md": [
-    "shell scripting"
-  ],
-  "src/_posts/2015/2015-08-19-untagged-tumblr-v2.md": [
-    "tumblr"
-  ],
-  "src/_posts/2015/2015-09-06-effective-python.md": [
-    "python",
-    "books"
   ],
   "src/_posts/2015/2015-09-16-http2-by-stealth.md": [
     "os-x",
@@ -167,25 +101,12 @@
   "src/_posts/2015/2015-09-20-spotlight-suggestions.md": [
     "ios"
   ],
-  "src/_posts/2015/2015-10-12-getting-started-testing.md": [
-    "python"
-  ],
-  "src/_posts/2015/2015-11-02-quick-shell-docker.md": [
-    "docker",
-    "shell scripting"
-  ],
-  "src/_posts/2015/2015-11-03-bbc-micro-bit.md": [
-    "python"
-  ],
   "src/_posts/2015/2015-11-13-beyond-pep8.md": [
     "python"
   ],
   "src/_posts/2015/2015-11-15-export-urls-from-safari-reading-list.md": [
     "macos",
     "macos:safari"
-  ],
-  "src/_posts/2015/2015-11-30-backups-and-docker.md": [
-    "docker"
   ],
   "src/_posts/2015/2015-12-10-simpler-syndication.md": [
     "python"
@@ -209,21 +130,8 @@
     "writethedocs",
     "inclusion"
   ],
-  "src/_posts/2016/2016-03-08-backup-paranoia.md": [
-    "backups"
-  ],
   "src/_posts/2016/2016-03-27-exclusive-create-python.md": [
     "python"
-  ],
-  "src/_posts/2016/2016-03-29-itunes-images-with-alfred.md": [
-    "alfred",
-    "python"
-  ],
-  "src/_posts/2016/2016-04-08-regexes-are-code.md": [
-    "regex"
-  ],
-  "src/_posts/2016/2016-04-16-hiding-the-youtube-search-bar.md": [
-    "javascript"
   ],
   "src/_posts/2016/2016-05-01-os-x-hates-textmate.md": [
     "os-x",
@@ -232,22 +140,6 @@
   "src/_posts/2016/2016-05-05-safely-deleting-a-file-called-rf.md": [
     "shell scripting",
     "code crimes"
-  ],
-  "src/_posts/2016/2016-05-10-python-smtplib-and-fastmail.md": [
-    "python",
-    "fastmail"
-  ],
-  "src/_posts/2016/2016-05-16-finding-404s-in-apache-logs.md": [
-    "python",
-    "apache"
-  ],
-  "src/_posts/2016/2016-06-07-hypothesis-intro.md": [
-    "python",
-    "python:hypothesis"
-  ],
-  "src/_posts/2016/2016-06-09-introduction-to-property-based-testing.md": [
-    "python",
-    "slides"
   ],
   "src/_posts/2016/2016-06-16-reading-web-pages-on-my-kindle.md": [
     "python",
@@ -263,32 +155,11 @@
   "src/_posts/2016/2016-08-07-clean-up-directories.md": [
     "python"
   ],
-  "src/_posts/2016/2016-08-19-is-a-url-from-tumblr.md": [
-    "tumblr",
-    "python"
-  ],
-  "src/_posts/2016/2016-08-31-dealing-with-query-strings.md": [
-    "python"
-  ],
   "src/_posts/2016/2016-09-14-pyconuk2016.md": [
     "talks",
     "property-based testing",
     "software testing",
     "python:hypothesis"
-  ],
-  "src/_posts/2016/2016-09-17-speech-to-text.md": [
-    "pyconuk",
-    "conferences",
-    "inclusion",
-    "accessibility"
-  ],
-  "src/_posts/2016/2016-09-19-silence-is-golden.md": [
-    "pyconuk",
-    "conferences",
-    "inclusion"
-  ],
-  "src/_posts/2016/2016-09-23-please-use-aspell.md": [
-    "writethedocs"
   ],
   "src/_posts/2016/2016-10-01-a-shell-alias-for-tallying.md": [
     "shell scripting"
@@ -309,34 +180,14 @@
     "drawing things",
     "generative art"
   ],
-  "src/_posts/2016/2016-10-30-the-a-stands-for-asexual.md": [
-    "personal",
-    "asexuality"
-  ],
   "src/_posts/2016/2016-11-16-you-should-use-keyring.md": [
     "python",
     "infosec",
     "python:keyring"
   ],
-  "src/_posts/2016/2016-11-30-low-tech-productivity.md": [
-    "productivity"
-  ],
-  "src/_posts/2016/2016-12-01-strings-are-terrible.md": [
-    "unicode",
-    "python:hypothesis",
-    "python"
-  ],
   "src/_posts/2016/2016-12-28-slack-history.md": [
     "python",
     "slack"
-  ],
-  "src/_posts/2017/2017-01-07-scrape-logged-in-ao3.md": [
-    "python",
-    "ao3"
-  ],
-  "src/_posts/2017/2017-01-14-experiments-with-ao3-and-python.md": [
-    "python",
-    "ao3"
   ],
   "src/_posts/2017/2017-02-08-backup-your-goodreads.md": [
     "python",
@@ -351,10 +202,6 @@
     "property-based testing",
     "software testing",
     "python:hypothesis"
-  ],
-  "src/_posts/2017/2017-03-25-extensions-in-python-markdown.md": [
-    "python",
-    "markdown"
   ],
   "src/_posts/2017/2017-04-04-lessons-from-alterconf.md": [
     "alterconf",
@@ -382,22 +229,12 @@
   "src/_posts/2017/2017-09-02-lazy-reading-in-python.md": [
     "python"
   ],
-  "src/_posts/2017/2017-09-11-ode-to-docopt.md": [
-    "python",
-    "python:docopt",
-    "talks"
-  ],
   "src/_posts/2017/2017-09-18-useful-git-commands.md": [
     "git",
     "builds and ci"
   ],
   "src/_posts/2017/2017-10-03-overengineering.md": [
     "jekyll"
-  ],
-  "src/_posts/2017/2017-10-09-pip-tools.md": [
-    "python",
-    "docker",
-    "make"
   ],
   "src/_posts/2017/2017-10-11-latex-underlines.md": [
     "latex",
@@ -407,27 +244,9 @@
     "ios",
     "frustrations"
   ],
-  "src/_posts/2017/2017-10-25-tweets-in-keynote.md": [
-    "keynote",
-    "twitter"
-  ],
-  "src/_posts/2017/2017-10-28-lightning-talks.md": [
-    "conferences",
-    "pyconuk"
-  ],
   "src/_posts/2017/2017-11-03-pyconuk-2017-privilege-inclusion.md": [
     "talks",
     "inclusion"
-  ],
-  "src/_posts/2017/2017-11-08-asking-about-gender.md": [
-    "gender"
-  ],
-  "src/_posts/2017/2017-11-09-a-plumbers-guide-to-git.md": [
-    "workshops",
-    "git"
-  ],
-  "src/_posts/2017/2017-11-20-dont-tap-the-mic.md": [
-    "conferences"
   ],
   "src/_posts/2017/2017-11-20-five-years-of-witch.md": [
     "tnmoc",
@@ -442,49 +261,18 @@
   "src/_posts/2017/2017-11-27-pruning-git-branches.md": [
     "git"
   ],
-  "src/_posts/2017/2017-12-11-armed-police.md": [
-    "politics"
-  ],
-  "src/_posts/2017/2017-12-18-building-your-repo.md": [
-    "make",
-    "docker",
-    "builds and ci"
-  ],
   "src/_posts/2017/2017-12-18-loris-for-iiif.md": [
     "wellcome collection",
     "iiif"
-  ],
-  "src/_posts/2018/2018-01-18-ips-for-documentation.md": [
-    "documentation"
-  ],
-  "src/_posts/2018/2018-01-20-listing-s3-keys-redux.md": [
-    "aws",
-    "python",
-    "aws:amazon s3"
   ],
   "src/_posts/2018/2018-01-25-downloading-sqs-queues.md": [
     "aws",
     "python",
     "aws:amazon sqs"
   ],
-  "src/_posts/2018/2018-02-13-cloudwatch-alarms-in-slack.md": [
-    "wellcome collection",
-    "slack"
-  ],
-  "src/_posts/2018/2018-02-24-working-from-home.md": [
-    "personal",
-    "work"
-  ],
-  "src/_posts/2018/2018-03-01-overnight-bag.md": [
-    "work"
-  ],
   "src/_posts/2018/2018-03-02-continuous-releases.md": [
     "builds and ci",
     "python:hypothesis"
-  ],
-  "src/_posts/2018/2018-03-13-a-plumbers-guide-to-git.md": [
-    "git",
-    "workshops"
   ],
   "src/_posts/2018/2018-04-17-24-hours.md": [
     "productivity",
@@ -513,26 +301,6 @@
     "aws:amazon s3",
     "aws:amazon dynamodb"
   ],
-  "src/_posts/2018/2018-05-26-ascii-bar-charts.md": [
-    "terminal tricks",
-    "python"
-  ],
-  "src/_posts/2018/2018-07-01-imac-accessory.md": [
-    "imac",
-    "hardware"
-  ],
-  "src/_posts/2018/2018-07-15-travel-instructions.md": [
-    "misc"
-  ],
-  "src/_posts/2018/2018-07-19-leaking-my-ssh-keys.md": [
-    "github",
-    "builds and ci",
-    "infosec"
-  ],
-  "src/_posts/2018/2018-07-28-icloud-calendars.md": [
-    "icloud",
-    "fastmail"
-  ],
   "src/_posts/2018/2018-08-02-selective-sudo-on-travis.md": [
     "travis",
     "build-automation"
@@ -550,80 +318,28 @@
     "conferences",
     "inclusion"
   ],
-  "src/_posts/2018/2018-08-20-no-more-tumblr-redirects.md": [
-    "tumblr"
-  ],
   "src/_posts/2018/2018-08-25-parallel-scan-scanamo.md": [
     "aws",
     "scala",
     "aws:amazon dynamodb"
-  ],
-  "src/_posts/2018/2018-08-26-maps-for-pyconuk.md": [
-    "pyconuk",
-    "graphic design"
   ],
   "src/_posts/2018/2018-09-05-error-logging-in-lambdas.md": [
     "aws",
     "python",
     "aws:aws-lambda"
   ],
-  "src/_posts/2018/2018-09-13-pyconuk-2018.md": [
-    "pyconuk"
-  ],
-  "src/_posts/2018/2018-09-17-lessons-in-signage.md": [
-    "pyconuk",
-    "conferences",
-    "graphic design"
-  ],
-  "src/_posts/2018/2018-09-22-suspicious-minds.md": [
-    "pyconuk",
-    "talks",
-    "systems thinking"
-  ],
-  "src/_posts/2018/2018-09-24-assume-worst-intent.md": [
-    "pyconuk",
-    "talks",
-    "community management",
-    "inclusion",
-    "trust and safety"
-  ],
-  "src/_posts/2018/2018-10-11-gender-recognition-act.md": [
-    "gender",
-    "uk-politics"
-  ],
   "src/_posts/2018/2018-10-22-finatra-404.md": [
     "scala:finatra",
     "scala",
     "web development"
-  ],
-  "src/_posts/2018/2018-10-29-unscrupulous-time-travel.md": [
-    "misc",
-    "time-travel"
-  ],
-  "src/_posts/2018/2018-10-31-mri-scans-of-fruit-and-veg.md": [
-    "drawing things",
-    "wellcome collection"
   ],
   "src/_posts/2018/2018-11-02-finding-unsubscribed-sns-topics.md": [
     "golang",
     "aws",
     "aws:amazon-sns"
   ],
-  "src/_posts/2018/2018-11-08-aberdulais-waterfall.md": [
-    "personal",
-    "wales",
-    "photography"
-  ],
-  "src/_posts/2018/2018-11-13-book-recommendations.md": [
-    "books"
-  ],
   "src/_posts/2018/2018-12-05-backing-up-tumblr.md": [
     "tumblr"
-  ],
-  "src/_posts/2018/2018-12-13-getting-credentials-for-an-assumed-iam-role.md": [
-    "python",
-    "aws",
-    "aws:aws iam"
   ],
   "src/_posts/2018/2018-12-23-iterating-in-fixed-size-chunks.md": [
     "python"
@@ -642,9 +358,6 @@
     "health",
     "personal"
   ],
-  "src/_posts/2019/2019-01-28-notes-from-you-got-this.md": [
-    "conferences"
-  ],
   "src/_posts/2019/2019-01-29-debugging-a-stuck-terraform-plan.md": [
     "terraform",
     "aws"
@@ -653,27 +366,13 @@
     "talks",
     "accessibility"
   ],
-  "src/_posts/2019/2019-02-05-inclusive-events-redux.md": [
-    "conferences",
-    "inclusion"
-  ],
   "src/_posts/2019/2019-02-09-working-with-large-s3-objects.md": [
     "python",
     "aws",
     "aws:amazon s3"
   ],
-  "src/_posts/2019/2019-02-26-checking-jekyll-sites-with-htmlproofer.md": [
-    "jekyll",
-    "accessibility",
-    "blogging about blogging"
-  ],
   "src/_posts/2019/2019-03-03-atomic-cross-filesystem-moves-in-python.md": [
     "python"
-  ],
-  "src/_posts/2019/2019-03-11-finding-the-latest-screenshot-in-macos-mojave.md": [
-    "macos",
-    "shell scripting",
-    "screenshots"
   ],
   "src/_posts/2019/2019-03-15-forth-bridge.md": [
     "personal",
@@ -687,14 +386,8 @@
   "src/_posts/2019/2019-04-11-getting-a-transcript-of-a-talk-from-youtube.md": [
     "youtube"
   ],
-  "src/_posts/2019/2019-04-23-some-tips-for-conferences.md": [
-    "conferences"
-  ],
   "src/_posts/2019/2019-04-28-reversing-a-tco-url-to-the-original-tweet.md": [
     "twitter"
-  ],
-  "src/_posts/2019/2019-05-01-finding-unused-variables-in-a-terraform-module.md": [
-    "terraform"
   ],
   "src/_posts/2019/2019-05-13-creating-a-locking-service-in-a-scala-type-class.md": [
     "scala"
@@ -711,24 +404,8 @@
     "gender",
     "inclusion"
   ],
-  "src/_posts/2019/2019-06-04-getting-cover-images-from-mobi-ebooks.md": [
-    "ebooks"
-  ],
-  "src/_posts/2019/2019-06-09-acorn-on-the-command-line.md": [
-    "applescript",
-    "acorn",
-    "images"
-  ],
   "src/_posts/2019/2019-06-12-reading-a-chinese-dictionary.md": [
     "languages"
-  ],
-  "src/_posts/2019/2019-06-15-a-jekyll-filter-for-obfuscating-email-addresses.md": [
-    "jekyll",
-    "blogging about blogging"
-  ],
-  "src/_posts/2019/2019-06-18-regenerating.md": [
-    "personal",
-    "gender"
   ],
   "src/_posts/2019/2019-07-01-ten-braille-facts.md": [
     "languages",
@@ -739,18 +416,6 @@
     "aws:amazon s3",
     "aws"
   ],
-  "src/_posts/2019/2019-07-08-creating-preview-thumbnails-of-pdf-documents.md": [
-    "pdf"
-  ],
-  "src/_posts/2019/2019-07-18-section-28.md": [
-    "politics"
-  ],
-  "src/_posts/2019/2019-08-19-finding-tint-colours-with-k-means.md": [
-    "python",
-    "images",
-    "python:pillow",
-    "colour"
-  ],
   "src/_posts/2019/2019-09-05-unpacking-compressed-archives-in-scala.md": [
     "scala"
   ],
@@ -759,19 +424,8 @@
     "aws:amazon s3",
     "scala"
   ],
-  "src/_posts/2019/2019-09-23-triangular-coordinates-in-svg.md": [
-    "svg",
-    "drawing things"
-  ],
-  "src/_posts/2019/2019-09-28-github-code-search-with-de-duplication.md": [
-    "github"
-  ],
   "src/_posts/2019/2019-10-06-rough-edges-of-filecmp.md": [
     "python"
-  ],
-  "src/_posts/2019/2019-10-11-religious-holidays.md": [
-    "inclusion",
-    "religion"
   ],
   "src/_posts/2019/2019-10-14-sans-io-programming.md": [
     "pyconuk",
@@ -784,43 +438,13 @@
     "wellcome collection",
     "digital preservation"
   ],
-  "src/_posts/2019/2019-11-06-aws-costs-graph.md": [
-    "aws",
-    "aws:aws-billing"
-  ],
-  "src/_posts/2019/2019-11-08-fixing-terraform-module-sources.md": [
-    "terraform"
-  ],
   "src/_posts/2019/2019-11-17-saving-a-copy-of-a-tweet-by-typing-twurl.md": [
     "twitter",
     "python"
   ],
-  "src/_posts/2019/2019-11-27-my-scanning-setup.md": [
-    "personal",
-    "productivity",
-    "digital preservation"
-  ],
-  "src/_posts/2019/2019-12-02-november-scripts.md": [
-    "python",
-    "aws"
-  ],
-  "src/_posts/2019/2019-12-06-spreadsheet-functions.md": [
-    "spreadsheets"
-  ],
-  "src/_posts/2019/2019-12-11-yaml-impossible.md": [
-    "python",
-    "code crimes"
-  ],
   "src/_posts/2020/2020-01-04-finding-the-bottlenecks-in-an-ecs-cluster.md": [
     "aws",
     "aws:amazon ecs"
-  ],
-  "src/_posts/2020/2020-01-16-pride-valknuts.md": [
-    "python",
-    "glitch",
-    "generative art",
-    "fun stuff",
-    "drawing things"
   ],
   "src/_posts/2020/2020-01-19-tex-dockerfile.md": [
     "latex",
@@ -859,34 +483,10 @@
   "src/_posts/2020/2020-02-25-a-remote-controlled-oven-is-a-safety-nightmare.md": [
     "security"
   ],
-  "src/_posts/2020/2020-03-02-finding-the-size-of-your-s3-buckets.md": [
-    "aws",
-    "aws:amazon s3"
-  ],
-  "src/_posts/2020/2020-03-04-adding-non-breaking-spaces-with-jekyll.md": [
-    "jekyll",
-    "blogging about blogging"
-  ],
   "src/_posts/2020/2020-03-08-stripey-flag-wallpapers.md": [
     "python",
     "drawing things",
     "python:pillow"
-  ],
-  "src/_posts/2020/2020-03-14-sick-leave.md": [
-    "work"
-  ],
-  "src/_posts/2020/2020-03-15-rich-enough-to-make-bad-choices.md": [
-    "inclusion"
-  ],
-  "src/_posts/2020/2020-03-25-inclusion-cant-be-an-afterthought.md": [
-    "inclusion",
-    "talks",
-    "open life science"
-  ],
-  "src/_posts/2020/2020-04-05-storing-language-vocabulary-as-a-graph.md": [
-    "languages",
-    "python",
-    "graph theory"
   ],
   "src/_posts/2020/2020-04-12-downloading-files-with-python.md": [
     "python"
@@ -895,24 +495,14 @@
     "personal",
     "gender"
   ],
-  "src/_posts/2020/2020-04-17-getting-word-count-stats-for-my-blog.md": [
-    "jekyll",
-    "blogging about blogging"
-  ],
   "src/_posts/2020/2020-04-18-survivors-guilt.md": [
     "pandemic"
   ],
   "src/_posts/2020/2020-04-19-comparing-json-in-scala.md": [
     "scala"
   ],
-  "src/_posts/2020/2020-04-19-complex-failures.md": [
-    "systems thinking"
-  ],
   "src/_posts/2020/2020-04-22-thinking-about-gender.md": [
     "gender"
-  ],
-  "src/_posts/2020/2020-04-26-exploring-an-unknown-sql-server.md": [
-    "mysql"
   ],
   "src/_posts/2020/2020-04-27-using-dynamodb-as-a-calculator.md": [
     "aws",
@@ -928,24 +518,11 @@
   "src/_posts/2020/2020-05-02-give-your-audience-time-to-react.md": [
     "public speaking"
   ],
-  "src/_posts/2020/2020-05-02-how-long-is-my-data.md": [
-    "digital preservation",
-    "glitch",
-    "fun stuff"
-  ],
   "src/_posts/2020/2020-05-10-make-it-safe-to-admit-mistakes.md": [
     "interpersonal skills"
   ],
   "src/_posts/2020/2020-05-11-the-friends-i-lost-along-the-way.md": [
     "personal"
-  ],
-  "src/_posts/2020/2020-05-12-reflecting-on-bad-life-choices.md": [
-    "python",
-    "code crimes"
-  ],
-  "src/_posts/2020/2020-05-14-letter-to-my-mp-about-liz-truss-and-medical-treatment-for-trans-youth.md": [
-    "politics",
-    "gender"
   ],
   "src/_posts/2020/2020-05-15-downloading-the-ao3-fics-that-i-ve-saved-in-pinboard.md": [
     "python",
@@ -973,9 +550,6 @@
     "python",
     "datetime shenanigans"
   ],
-  "src/_posts/2020/2020-06-15-always-read-your-contract.md": [
-    "personal"
-  ],
   "src/_posts/2020/2020-06-15-archive-monocultures-considered-harmful.md": [
     "digital preservation"
   ],
@@ -989,16 +563,6 @@
     "tv:the-good-place",
     "tv"
   ],
-  "src/_posts/2020/2020-06-24-using-applescript-to-open-a-url-in-private-browsing-in-safari.md": [
-    "applescript",
-    "macos",
-    "macos:safari"
-  ],
-  "src/_posts/2020/2020-07-06-changing-the-accent-colour-of-icns-icons.md": [
-    "macos",
-    "colour",
-    "fun stuff"
-  ],
   "src/_posts/2020/2020-07-12-how-to-do-parallel-downloads-with-youtube-dl.md": [
     "shell scripting",
     "youtube"
@@ -1008,18 +572,6 @@
   ],
   "src/_posts/2020/2020-07-20-running-concurrent-try-functions-in-scala.md": [
     "scala"
-  ],
-  "src/_posts/2020/2020-07-22-why-do-programming-languages-have-a-main-function.md": [
-    "programming",
-    "history"
-  ],
-  "src/_posts/2020/2020-07-26-getting-a-markdown-link-to-a-window-in-safari.md": [
-    "macos",
-    "applescript",
-    "macos:safari"
-  ],
-  "src/_posts/2020/2020-08-06-using-fuzzy-string-matching-to-find-duplicate-tags.md": [
-    "python"
   ],
   "src/_posts/2020/2020-08-18-s3-keys-are-not-file-paths.md": [
     "aws:amazon s3",
@@ -1039,20 +591,6 @@
   "src/_posts/2020/2020-09-26-using-qlmanage-to-create-thumbnails-on-macos.md": [
     "macos"
   ],
-  "src/_posts/2020/2020-09-30-a-sprinkling-of-azure.md": [
-    "wellcome collection",
-    "digital preservation",
-    "azure"
-  ],
-  "src/_posts/2020/2020-10-12-a-new-readme-for-docstore.md": [
-    "productivity"
-  ],
-  "src/_posts/2020/2020-10-12-the-importance-of-good-error-messages.md": [
-    "error messages"
-  ],
-  "src/_posts/2020/2020-10-17-how-do-i-use-my-iphone-cameras.md": [
-    "photo management"
-  ],
   "src/_posts/2020/2020-11-01-a-python-function-to-ignore-a-path-with-git-info-exclude.md": [
     "git",
     "python"
@@ -1065,43 +603,12 @@
   "src/_posts/2020/2020-11-15-maths-is-about-facing-ambiguity-not-avoiding-it.md": [
     "maths"
   ],
-  "src/_posts/2020/2020-11-16-how-i-read-non-fiction-books.md": [
-    "books",
-    "productivity",
-    "taking notes"
-  ],
-  "src/_posts/2020/2020-11-18-copying-images-from-docker-hub-to-amazon-ecr.md": [
-    "docker",
-    "aws:amazon-ecr",
-    "aws"
-  ],
   "src/_posts/2020/2020-11-24-non-technical-users.md": [
     "writing"
-  ],
-  "src/_posts/2020/2020-12-01-creating-short-lived-temporary-roles-for-experimenting-with-aws-iam-policy-documents.md": [
-    "aws",
-    "aws:aws iam"
-  ],
-  "src/_posts/2021/2021-01-01-what-year-is-it.md": [
-    "datetime shenanigans"
   ],
   "src/_posts/2021/2021-01-18-digital-verification.md": [
     "digital preservation",
     "wellcome collection"
-  ],
-  "src/_posts/2021/2021-01-31-kempisbot.md": [
-    "python",
-    "twitter",
-    "fun stuff"
-  ],
-  "src/_posts/2021/2021-02-15-screaming-in-the-cloud.md": [
-    "podcasts",
-    "aws"
-  ],
-  "src/_posts/2021/2021-03-02-an-applescript-to-toggle-voice-control.md": [
-    "applescript",
-    "macos",
-    "accessibility"
   ],
   "src/_posts/2021/2021-03-07-rainbow-hearts.md": [
     "glitch",
@@ -1111,16 +618,6 @@
   "src/_posts/2021/2021-03-29-unified-search.md": [
     "wellcome collection",
     "search"
-  ],
-  "src/_posts/2021/2021-04-18-detect-private-browsing.md": [
-    "applescript",
-    "macos",
-    "macos:safari"
-  ],
-  "src/_posts/2021/2021-04-29-coloured-squares.md": [
-    "python",
-    "terminal tricks",
-    "colour"
   ],
   "src/_posts/2021/2021-04-30-s3-progress-bars.md": [
     "aws:amazon s3",
@@ -1138,9 +635,6 @@
     "python",
     "aws",
     "aws:aws-secrets-manager"
-  ],
-  "src/_posts/2021/2021-07-09-useful-github-searches.md": [
-    "github"
   ],
   "src/_posts/2021/2021-08-22-finding-misconfigured-or-dangling-cloudwatch-alarms.md": [
     "aws",
@@ -1168,13 +662,6 @@
     "macos",
     "safari"
   ],
-  "src/_posts/2021/2021-09-22-non-commuting-strings.md": [
-    "unicode"
-  ],
-  "src/_posts/2021/2021-09-25-cloud-costs-report.md": [
-    "aws",
-    "aws:aws-billing"
-  ],
   "src/_posts/2021/2021-09-28-editing-toolbar.md": [
     "blogging about blogging",
     "javascript",
@@ -1188,14 +675,6 @@
     "work",
     "interpersonal skills"
   ],
-  "src/_posts/2021/2021-10-04-redacting-pdfs.md": [
-    "infosec"
-  ],
-  "src/_posts/2021/2021-10-06-readmes-for-open-science.md": [
-    "documentation",
-    "open life science",
-    "talks"
-  ],
   "src/_posts/2021/2021-10-14-console-copying.md": [
     "markdown",
     "css",
@@ -1206,12 +685,6 @@
   ],
   "src/_posts/2021/2021-10-19-original-photos-filename.md": [
     "macos"
-  ],
-  "src/_posts/2021/2021-11-30-dominant-colours.md": [
-    "images",
-    "colour",
-    "rust",
-    "my tools"
   ],
   "src/_posts/2021/2021-12-01-slashes.md": [
     "macos",
@@ -1233,20 +706,6 @@
     "generative art",
     "drawing things"
   ],
-  "src/_posts/2022/2022-01-14-animated-artichokes.md": [
-    "python",
-    "drawing things",
-    "wellcome collection"
-  ],
-  "src/_posts/2022/2022-02-12-route53.md": [
-    "aws",
-    "aws:amazon-route53"
-  ],
-  "src/_posts/2022/2022-02-15-safari-tabs.md": [
-    "jxa",
-    "macos:safari",
-    "macos"
-  ],
   "src/_posts/2022/2022-02-19-two-twitter-cards.md": [
     "twitter",
     "blogging about blogging"
@@ -1264,47 +723,14 @@
     "css",
     "web development"
   ],
-  "src/_posts/2022/2022-04-25-lorenz-wheels.md": [
-    "drawing things",
-    "latex",
-    "history"
-  ],
-  "src/_posts/2022/2022-05-05-rust-on-glitch.md": [
-    "glitch",
-    "rust"
-  ],
-  "src/_posts/2022/2022-05-07-dominant-web-colours.md": [
-    "colour",
-    "glitch",
-    "fun stuff"
-  ],
-  "src/_posts/2022/2022-05-17-carbon-monoxide.md": [
-    "domestic"
-  ],
-  "src/_posts/2022/2022-06-03-new-archive.md": [
-    "blogging about blogging"
-  ],
   "src/_posts/2022/2022-06-09-forgotten-secrets.md": [
     "aws",
     "jq",
     "aws:aws-secrets-manager"
   ],
-  "src/_posts/2022/2022-06-26-alfred-to-github.md": [
-    "alfred",
-    "github"
-  ],
   "src/_posts/2022/2022-06-26-imaginary-numbers.md": [
     "trivia",
     "tv"
-  ],
-  "src/_posts/2022/2022-07-02-saturn-v.md": [
-    "cross-stitch",
-    "space"
-  ],
-  "src/_posts/2022/2022-07-10-martian-plaque.md": [
-    "trivia",
-    "tv",
-    "space"
   ],
   "src/_posts/2022/2022-07-23-screenshots.md": [
     "digital preservation",
@@ -1316,18 +742,9 @@
   "src/_posts/2022/2022-08-03-no-cute.md": [
     "error messages"
   ],
-  "src/_posts/2022/2022-08-07-spaaaaaace.md": [
-    "photography",
-    "science",
-    "space"
-  ],
   "src/_posts/2022/2022-08-08-buildkite-deployments.md": [
     "builds and ci",
     "buildkite"
-  ],
-  "src/_posts/2022/2022-08-10-circle-party.md": [
-    "svg",
-    "drawing things"
   ],
   "src/_posts/2022/2022-08-16-egyptian-mixtape.md": [
     "cross-stitch"
@@ -1335,11 +752,6 @@
   "src/_posts/2022/2022-08-18-strict-jinja.md": [
     "python",
     "python:jinja"
-  ],
-  "src/_posts/2022/2022-08-28-blink-diffs.md": [
-    "photography",
-    "ios",
-    "ipad"
   ],
   "src/_posts/2022/2022-09-10-nextjs-props.md": [
     "javascript",
@@ -1371,23 +783,6 @@
   "src/_posts/2022/2022-10-05-snapped-elastic.md": [
     "debugging stories"
   ],
-  "src/_posts/2022/2022-10-10-library-lookup.md": [
-    "books",
-    "libraries"
-  ],
-  "src/_posts/2022/2022-10-25-iterative-project-management.md": [
-    "talks",
-    "open life science",
-    "project management"
-  ],
-  "src/_posts/2022/2022-10-26-accessibility-fixes.md": [
-    "accessibility",
-    "blogging about blogging"
-  ],
-  "src/_posts/2022/2022-11-04-obsidian-plugin.md": [
-    "obsidian",
-    "javascript"
-  ],
   "src/_posts/2022/2022-11-06-tweet-alt-text.md": [
     "twitter",
     "digital preservation",
@@ -1404,42 +799,11 @@
     "javascript",
     "javascript:koa"
   ],
-  "src/_posts/2022/2022-12-16-marquee-rocket.md": [
-    "code crimes",
-    "html",
-    "fun stuff"
-  ],
   "src/_posts/2022/2022-12-20-prismic-validation.md": [
     "prismic"
   ],
-  "src/_posts/2022/2022-12-21-cursor-confirmed.md": [
-    "fun stuff",
-    "code crimes",
-    "javascript"
-  ],
   "src/_posts/2022/2022-12-31-2022-in-reading.md": [
     "books"
-  ],
-  "src/_posts/2022/2022-12-31-live-text-script.md": [
-    "images",
-    "swift"
-  ],
-  "src/_posts/2023/2023-01-13-upward-assignment.md": [
-    "ruby",
-    "code crimes"
-  ],
-  "src/_posts/2023/2023-01-15-check-for-transparency.md": [
-    "blogging about blogging",
-    "images",
-    "imagemagick"
-  ],
-  "src/_posts/2023/2023-01-22-changing-the-bulb-in-a-meridian-lighting-cir100b-ceiling-light.md": [
-    "home"
-  ],
-  "src/_posts/2023/2023-01-28-responsive-image-bookmarklet.md": [
-    "blogging about blogging",
-    "images",
-    "web development"
   ],
   "src/_posts/2023/2023-02-09-moving-to-the-cloud.md": [
     "wellcome collection",
@@ -1449,10 +813,6 @@
     "aws:amazon s3",
     "python",
     "aws"
-  ],
-  "src/_posts/2023/2023-02-15-school-stuff.md": [
-    "personal",
-    "digital preservation"
   ],
   "src/_posts/2023/2023-02-16-css-formatting-in-the-console.md": [
     "web development",
@@ -1469,10 +829,6 @@
   "src/_posts/2023/2023-03-02-dictionaries-and-userdict.md": [
     "python"
   ],
-  "src/_posts/2023/2023-03-05-filtering-netlify-analytics.md": [
-    "blogging about blogging",
-    "netlify"
-  ],
   "src/_posts/2023/2023-03-13-cats-cross-stitch-and-copyright.md": [
     "cross-stitch"
   ],
@@ -1483,69 +839,15 @@
     "aws",
     "aws:amazon-sns"
   ],
-  "src/_posts/2023/2023-04-21-terraform-template-docs.md": [
-    "terraform",
-    "documentation"
-  ],
-  "src/_posts/2023/2023-04-25-erratic-ecs-events.md": [
-    "aws:amazon ecs",
-    "aws",
-    "slack"
-  ],
-  "src/_posts/2023/2023-05-11-redecorating-my-bedroom.md": [
-    "home"
-  ],
-  "src/_posts/2023/2023-05-17-s3tree.md": [
-    "aws:amazon s3",
-    "aws",
-    "drawing things"
-  ],
-  "src/_posts/2023/2023-05-25-managing-albums-in-photos.md": [
-    "applescript",
-    "swift",
-    "macos",
-    "photo management"
-  ],
-  "src/_posts/2023/2023-05-30-docker-on-demand.md": [
-    "docker",
-    "shell scripting"
-  ],
   "src/_posts/2023/2023-06-04-now.md": [
     "datetime shenanigans"
-  ],
-  "src/_posts/2023/2023-06-18-blink.md": [
-    "photo management",
-    "swift",
-    "swift:swiftui"
   ],
   "src/_posts/2023/2023-06-28-preserved-dates.md": [
     "javascript",
     "datetime shenanigans"
   ],
-  "src/_posts/2023/2023-07-03-bedtime-for-ecs.md": [
-    "aws:amazon ecs",
-    "aws:amazon-eventbridge"
-  ],
-  "src/_posts/2023/2023-07-08-spy-for-spy.md": [
-    "theatre",
-    "london"
-  ],
-  "src/_posts/2023/2023-07-15-picture-plugin.md": [
-    "web development",
-    "jekyll",
-    "blogging about blogging"
-  ],
   "src/_posts/2023/2023-07-26-snake-walker.md": [
     "python"
-  ],
-  "src/_posts/2023/2023-07-28-cloudfront-logs.md": [
-    "python",
-    "aws",
-    "aws:amazon cloudfront"
-  ],
-  "src/_posts/2023/2023-08-18-tag-iac-resources.md": [
-    "aws",
-    "terraform"
   ],
   "src/_posts/2023/2023-08-19-hester.md": [
     "theatre",
@@ -1556,25 +858,13 @@
     "aws",
     "aws:aws iam"
   ],
-  "src/_posts/2023/2023-09-19-obsidian-setup.md": [
-    "obsidian",
-    "taking notes"
-  ],
   "src/_posts/2023/2023-09-20-fare-wellcome-collection.md": [
     "personal",
     "wellcome collection"
   ],
-  "src/_posts/2023/2023-09-24-adding-watch-locations.md": [
-    "python",
-    "photo management"
-  ],
   "src/_posts/2023/2023-09-28-spotting-spam-in-our-cloudfront-logs.md": [
     "python",
     "aws:amazon cloudfront"
-  ],
-  "src/_posts/2023/2023-10-15-finding-big-photos.md": [
-    "photo management",
-    "swift"
   ],
   "src/_posts/2023/2023-10-20-forgetful-fish.md": [
     "shell scripting",
@@ -1600,20 +890,6 @@
   "src/_posts/2024/2024-01-02-dog-or-bat.md": [
     "fun stuff"
   ],
-  "src/_posts/2024/2024-01-07-best-age-picker.md": [
-    "code crimes",
-    "drawing things",
-    "svg"
-  ],
-  "src/_posts/2024/2024-01-21-ian-flemingo.md": [
-    "books",
-    "theatre",
-    "operation mincemeat"
-  ],
-  "src/_posts/2024/2024-02-11-moving-youtube-likes.md": [
-    "python",
-    "youtube"
-  ],
   "src/_posts/2024/2024-03-15-step-step-step.md": [
     "talks",
     "generative ai"
@@ -1621,9 +897,6 @@
   "src/_posts/2024/2024-04-02-commons-explorer.md": [
     "flickr",
     "flickr foundation"
-  ],
-  "src/_posts/2024/2024-04-11-flapi.md": [
-    "flickr"
   ],
   "src/_posts/2024/2024-04-14-star-spangled-ballad.md": [
     "theatre",
@@ -1651,11 +924,6 @@
     "digital preservation",
     "photography"
   ],
-  "src/_posts/2024/2024-05-25-documenting-my-dns.md": [
-    "dns",
-    "blogging about blogging",
-    "ruby"
-  ],
   "src/_posts/2024/2024-06-01-drawing-repetitive-radial-artworks.md": [
     "generative art",
     "drawing things"
@@ -1664,14 +932,6 @@
     "flickr",
     "flickr foundation",
     "python"
-  ],
-  "src/_posts/2024/2024-06-11-flickypedia-backfillr-bot.md": [
-    "wikimedia commons",
-    "flickr foundation"
-  ],
-  "src/_posts/2024/2024-06-24-emptydir.md": [
-    "rust",
-    "my tools"
   ],
   "src/_posts/2024/2024-07-04-command-icon.md": [
     "generative art",
@@ -1696,14 +956,6 @@
     "personal",
     "digital preservation"
   ],
-  "src/_posts/2024/2024-09-18-finder-terminal-tools.md": [
-    "macos",
-    "automation"
-  ],
-  "src/_posts/2024/2024-09-23-netlify-bandwidth-graph.md": [
-    "netlify",
-    "drawing things"
-  ],
   "src/_posts/2024/2024-10-06-hover-states.md": [
     "css",
     "svg",
@@ -1717,11 +969,6 @@
   "src/_posts/2024/2024-10-07-putting-history-on-the-map.md": [
     "flickr"
   ],
-  "src/_posts/2024/2024-10-14-alt-text-snippet.md": [
-    "blogging about blogging",
-    "accessibility",
-    "javascript"
-  ],
   "src/_posts/2024/2024-10-16-static-websites.md": [
     "digital preservation",
     "static sites"
@@ -1730,15 +977,6 @@
     "netlify",
     "ruby",
     "blogging about blogging"
-  ],
-  "src/_posts/2024/2024-11-03-netlify-to-caddy.md": [
-    "blogging about blogging",
-    "caddy",
-    "netlify"
-  ],
-  "src/_posts/2024/2024-11-14-how-i-name-my-computers.md": [
-    "personal",
-    "naming things"
   ],
   "src/_posts/2024/2024-12-26-not-all-posts.md": [
     "blogging about blogging"
@@ -1749,10 +987,6 @@
   "src/_posts/2024/2024-12-31-2024-in-reading.md": [
     "books"
   ],
-  "src/_posts/2025/2025-01-04-password-notes.md": [
-    "infosec",
-    "taking notes"
-  ],
   "src/_posts/2025/2025-01-07-testing-rust-cli-apps-with-assert-cmd.md": [
     "rust",
     "software testing"
@@ -1760,16 +994,6 @@
   "src/_posts/2025/2025-01-17-randline.md": [
     "my tools",
     "rust"
-  ],
-  "src/_posts/2025/2025-01-21-images-and-spreadsheets.md": [
-    "spreadsheets",
-    "images",
-    "photo management"
-  ],
-  "src/_posts/2025/2025-02-01-ao3-epub-covers.md": [
-    "ao3",
-    "epub",
-    "my tools"
   ],
   "src/_posts/2025/2025-02-08-bagit-errors.md": [
     "bagit",
@@ -1849,10 +1073,6 @@
   "src/_posts/2025/2025-06-11-swift-bird-animation.md": [
     "drawing things",
     "web development"
-  ],
-  "src/_posts/2025/2025-07-08-moving-my-glitch-apps-to-my-own-web-server.md": [
-    "glitch",
-    "fun stuff"
   ],
   "src/_posts/2025/2025-07-24-minifying-html.md": [
     "html",
@@ -1945,16 +1165,6 @@
   ],
   "src/_posts/2026/2026-01-08-q-but-for-go.md": [
     "golang"
-  ],
-  "src/_posts/2026/2026-01-10-memorised-passwords.md": [
-    "infosec"
-  ],
-  "src/_posts/2026/2026-01-10-recovery-codes.md": [
-    "infosec"
-  ],
-  "src/_posts/2026/2026-01-12-perceptual-colour-headers.md": [
-    "colour",
-    "blogging about blogging"
   ],
   "src/_posts/2026/2026-01-14-movie-poster-grid.md": [
     "css"

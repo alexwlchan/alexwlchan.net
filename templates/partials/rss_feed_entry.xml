@@ -22,8 +22,8 @@
     ]]>
   </content>
 
-  {% for tag in post.tags %}
-    <category term="{{ tag | xml_escape }}" />
+  {% for topic in post.topics %}
+    <category term="{{ topic | xml_escape }}" />
   {% endfor %}
 
   {% if post.summary %}

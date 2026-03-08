@@ -46,7 +46,7 @@ def get_topic_by_name(topic_name: str) -> Topic:
         return TOPICS_BY_NAME[topic_name]
 
 
-def rebuild_topics_by_name() -> None:
+def rebuild_topics_by_name() -> dict[str, Topic]:
     """
     Rebuild TOPICS_BY_NAME based on the current contents of `TOPICS_BY_NAME`.
     """
@@ -64,3 +64,5 @@ def rebuild_topics_by_name() -> None:
             parent_topic.children.append(this_topic)
         else:
             TOPICS_BY_NAME[t["name"]] = Topic(name=t["name"], href=t["href"])
+
+    return TOPICS_BY_NAME

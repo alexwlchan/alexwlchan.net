@@ -23,12 +23,7 @@ def test_read_page_from_file(src_dir: Path) -> None:
     md_path = src_dir / "example.md"
 
     md_path.write_text(
-        "---\n"
-        "layout: page\n"
-        "title: Contact\n"
-        "nav_section: contact\n"
-        "---\n"
-        "This is my contact page"
+        "---\nlayout: page\ntitle: Contact\n---\nThis is my contact page"
     )
 
     page = read_page_from_markdown(src_dir, md_path)
@@ -47,12 +42,9 @@ def test_read_article(src_dir: Path) -> None:
 
     md_path.write_text(
         "---\n"
-        "layout: post\n"
+        "layout: article\n"
         "title: My first post\n"
         "date: 2001-02-03 04:05:06 +00:00\n"
-        "tags:\n"
-        "  - writing\n"
-        "  - programming\n"
         "---\n"
         "This is my first blog post"
     )
@@ -63,32 +55,6 @@ def test_read_article(src_dir: Path) -> None:
     assert page.md_path == md_path
     assert page.title == "My first post"
     assert page.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
-    assert page.tags == ["writing", "programming"]
-
-
-def test_hidden_article_has_no_tags(src_dir: Path) -> None:
-    """
-    An article which is excluded from the sitewide index doesn't have tags.
-    """
-    src_dir.mkdir()
-    md_path = src_dir / "hidden.md"
-
-    md_path.write_text(
-        "---\n"
-        "layout: post\n"
-        "title: My first post\n"
-        "date: 2001-02-03 04:05:06 +00:00\n"
-        "tags:\n"
-        "  - writing\n"
-        "  - programming\n"
-        "index:\n"
-        "  exclude: true\n"
-        "---\n"
-        "This post doesn't appear in the indexes"
-    )
-
-    page = read_page_from_markdown(src_dir, md_path)
-    assert page.tags == []
 
 
 def test_read_error_includes_filename(src_dir: Path) -> None:

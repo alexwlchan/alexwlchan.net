@@ -208,7 +208,7 @@
   },
   {
     "name": "Generative art",
-    "href": "/art/generative-art/",
+    "href": "/generative-art/",
     "parent": "Art and creativity"
   },
   {
@@ -296,5 +296,34 @@
   {
     "name": "Domestic life",
     "href": "/domestic/"
+  },
+  {
+    "name": "Tumblr",
+    "href": "/tumblr/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Cross-stitch",
+    "href": "/cross-stitch/",
+    "parent": "Art and creativity"
+  },
+  {
+    "name": "Books and reading",
+    "href": "/books-and-reading/",
+    "parent": "Entertainment"
+  },
+  {
+    "name": "DNS",
+    "href": "/dns/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "YouTube",
+    "href": "/youtube/",
+    "parent": "Computers and code"
+  },
+  {
+    "name": "Conferences",
+    "href": "/conferences/"
   }
 ]

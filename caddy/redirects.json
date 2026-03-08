@@ -82,9 +82,6 @@
   "/2015/bbc-micro-bit/": [
     "/2015/11/bbc-micro-bit/"
   ],
-  "/2015/beyond-pep8/": [
-    "/2015/11/beyond-pep8/"
-  ],
   "/2015/effective-python/": [
     "/2015/09/effective-python/"
   ],
@@ -109,9 +106,6 @@
   "/2015/lists/": [
     "/2015/02/lists/"
   ],
-  "/2015/nvalt-and-marked/": [
-    "/2015/05/nvalt-and-marked/"
-  ],
   "/2015/one-step-paste-simulator/": [
     "/2015/05/one-step-paste-simulator/"
   ],
@@ -129,9 +123,6 @@
   ],
   "/2015/quick-shell-docker/": [
     "/2015/11/quick-shell-docker/"
-  ],
-  "/2015/raft-algorithm/": [
-    "/2015/05/raft-algorithm/"
   ],
   "/2015/safer-file-copying/": [
     "/2015/06/safer-file-copying/"
@@ -205,9 +196,6 @@
   "/2016/python-smtplib-and-fastmail/": [
     "/2016/05/python-smtplib-and-fastmail/"
   ],
-  "/2016/reading-web-pages-on-my-kindle/": [
-    "/2016/06/reading-web-pages-on-my-kindle/"
-  ],
   "/2016/regexes-are-code/": [
     "/2016/04/regexes-are-code/"
   ],
@@ -250,9 +238,6 @@
   ],
   "/2017/a-plumbers-guide-to-git/": [
     "/2017/11/a-plumbers-guide-to-git/"
-  ],
-  "/2017/armed-police/": [
-    "/2017/12/armed-police/"
   ],
   "/2017/asking-about-gender/": [
     "/2017/11/asking-about-gender/"
@@ -301,9 +286,6 @@
   "/2017/ode-to-docopt/": [
     "/2017/09/ode-to-docopt/"
   ],
-  "/2017/overengineering/": [
-    "/2017/10/overengineering/"
-  ],
   "/2017/pip-tools/": [
     "/2017/10/pip-tools/"
   ],
@@ -331,9 +313,6 @@
   ],
   "/2017/soundcloud-backups/": [
     "/2017/07/soundcloud-backups/"
-  ],
-  "/2017/tweets-in-keynote/": [
-    "/2017/10/tweets-in-keynote/"
   ],
   "/2017/useful-git-commands/": [
     "/2017/09/useful-git-commands/"
@@ -379,9 +358,6 @@
   ],
   "/2018/getting-credentials-for-an-assumed-iam-role/": [
     "/2018/12/getting-credentials-for-an-assumed-iam-role/"
-  ],
-  "/2018/icloud-calendars/": [
-    "/2018/07/icloud-calendars/"
   ],
   "/2018/imac-accessory/": [
     "/2018/07/imac-accessory/"
@@ -430,9 +406,6 @@
   ],
   "/2018/travel-instructions/": [
     "/2018/07/travel-instructions/"
-  ],
-  "/2018/unscrupulous-time-travel/": [
-    "/2018/10/unscrupulous-time-travel/"
   ],
   "/2018/working-from-home/": [
     "/2018/02/working-from-home/"
@@ -520,9 +493,6 @@
   ],
   "/2019/november-scripts/": [
     "/2019/12/november-scripts/"
-  ],
-  "/2019/paul-rothe-and-sons/": [
-    "/2019/01/paul-rothe-and-sons/"
   ],
   "/2019/reading-a-chinese-dictionary/": [
     "/2019/06/reading-a-chinese-dictionary/"
@@ -3278,11 +3248,14 @@
   "/systems/tailscale/": [
     "/work/tailscale/"
   ],
-  "/tags/": [
+  "/topics/": [
+    "/tags/",
     "/tag/"
   ],
-  "/tags/aws/amazon-s3/": [
-    "/tags/amazon-s3/"
+  "/aws": [
+    "/tags/aws/amazon-s3/",
+    "/tags/amazon-s3/",
+    "/tags/aws/"
   ],
   "/terraform/": [
     "/systems/terraform/"
@@ -3298,5 +3271,8 @@
   ],
   "/work/wellcome-collection/": [
     "/digital-preservation/wellcome-collection/"
+  ],
+  "/generative-art/": [
+    "/art/generative-art/"
   ]
 }

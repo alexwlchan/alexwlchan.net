@@ -228,6 +228,22 @@ handle /2015/03/python-firewall {
 	error 410
 }
 
+handle /2015/05/nvalt-and-marked/ {
+	error 410
+}
+
+handle /2015/05/nvalt-and-marked {
+	error 410
+}
+
+handle /2015/05/raft-algorithm/ {
+	error 410
+}
+
+handle /2015/05/raft-algorithm {
+	error 410
+}
+
 handle /2015/09/http2-by-stealth/ {
 	error 410
 }
@@ -244,11 +260,27 @@ handle /2015/09/spotlight-suggestions {
 	error 410
 }
 
+handle /2015/11/beyond-pep8/ {
+	error 410
+}
+
+handle /2015/11/beyond-pep8 {
+	error 410
+}
+
 handle /2015/bbfc-podcast/ {
 	error 410
 }
 
 handle /2015/bbfc-podcast {
+	error 410
+}
+
+handle /2015/beyond-pep8/ {
+	error 410
+}
+
+handle /2015/beyond-pep8 {
 	error 410
 }
 
@@ -284,11 +316,27 @@ handle /2015/kings-cross-problems {
 	error 410
 }
 
+handle /2015/nvalt-and-marked/ {
+	error 410
+}
+
+handle /2015/nvalt-and-marked {
+	error 410
+}
+
 handle /2015/python-firewall/ {
 	error 410
 }
 
 handle /2015/python-firewall {
+	error 410
+}
+
+handle /2015/raft-algorithm/ {
+	error 410
+}
+
+handle /2015/raft-algorithm {
 	error 410
 }
 
@@ -404,6 +452,54 @@ handle /2017/10/control-centre {
 	error 410
 }
 
+handle /2017/10/overengineering/ {
+	error 410
+}
+
+handle /2017/10/overengineering {
+	error 410
+}
+
+handle /2017/10/tweets-in-keynote/ {
+	error 410
+}
+
+handle /2017/10/tweets-in-keynote {
+	error 410
+}
+
+handle /2017/12/armed-police/ {
+	error 410
+}
+
+handle /2017/12/armed-police {
+	error 410
+}
+
+handle /2016/06/reading-web-pages-on-my-kindle/ {
+	error 410
+}
+
+handle /2016/06/reading-web-pages-on-my-kindle {
+	error 410
+}
+
+handle /2016/reading-web-pages-on-my-kindle/ {
+	error 410
+}
+
+handle /2016/reading-web-pages-on-my-kindle {
+	error 410
+}
+
+handle /2017/armed-police/ {
+	error 410
+}
+
+handle /2017/armed-police {
+	error 410
+}
+
 handle /2017/backup-your-goodreads/ {
 	error 410
 }
@@ -425,6 +521,22 @@ handle /2017/control-centre/ {
 }
 
 handle /2017/control-centre {
+	error 410
+}
+
+handle /2017/overengineering/ {
+	error 410
+}
+
+handle /2017/overengineering {
+	error 410
+}
+
+handle /2017/tweets-in-keynote/ {
+	error 410
+}
+
+handle /2017/tweets-in-keynote {
 	error 410
 }
 
@@ -460,6 +572,14 @@ handle /2018/08/finding-slow-builds-in-travis {
 	error 410
 }
 
+handle /2018/08/icloud-calendars/ {
+	error 410
+}
+
+handle /2018/08/icloud-calendars {
+	error 410
+}
+
 handle /2018/08/selective-sudo-on-travis/ {
 	error 410
 }
@@ -473,6 +593,14 @@ handle /2018/09/content-warnings/ {
 }
 
 handle /2018/09/content-warnings {
+	error 410
+}
+
+handle /2018/10/unscrupulous-time-travel/ {
+	error 410
+}
+
+handle /2018/10/unscrupulous-time-travel {
 	error 410
 }
 
@@ -516,11 +644,27 @@ handle /2018/google-duplex {
 	error 410
 }
 
+handle /2018/icloud-calendars/ {
+	error 410
+}
+
+handle /2018/icloud-calendars {
+	error 410
+}
+
 handle /2018/selective-sudo-on-travis/ {
 	error 410
 }
 
 handle /2018/selective-sudo-on-travis {
+	error 410
+}
+
+handle /2018/unscrupulous-time-travel/ {
+	error 410
+}
+
+handle /2018/unscrupulous-time-travel {
 	error 410
 }
 
@@ -537,6 +681,14 @@ handle /2019/01/oyster-tracking/ {
 }
 
 handle /2019/01/oyster-tracking {
+	error 410
+}
+
+handle /2019/01/paul-rothe-and-sons/ {
+	error 410
+}
+
+handle /2019/01/paul-rothe-and-sons {
 	error 410
 }
 
@@ -569,6 +721,14 @@ handle /2019/oyster-tracking/ {
 }
 
 handle /2019/oyster-tracking {
+	error 410
+}
+
+handle /2019/paul-rothe-and-sons/ {
+	error 410
+}
+
+handle /2019/paul-rothe-and-sons {
 	error 410
 }
 
@@ -704,4 +864,4 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: wylAA75CDo)
+#[[[end]]] (sum: L8G4lj6utV)

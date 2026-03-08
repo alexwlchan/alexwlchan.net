@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2020-07-13 22:20:06 +00:00
 title: What does \d match in a regex?
 topic: Regular expressions
