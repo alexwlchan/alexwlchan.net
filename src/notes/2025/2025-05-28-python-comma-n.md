@@ -1,18 +1,16 @@
 ---
-layout: til
+layout: note
 title: Print a comma-separated number in Python with `{num:,}`
 summary: You can use `{num:,}` to insert a comma every three digits, `{num:_}` to insert an underscore every three digits, and `{num:n}` to insert a locale-aware digit separator.
 date: 2025-05-28 17:39:19 +01:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 ## Insert a comma every three digits
 
 I forget exactly how I discovered this, but if you want to pretty-print a number with commas every three digits in Python, you can use the `,` format specifier.
 For example:
 
-```pycon
+```pycon {"names":{"1":"num"}}
 >>> num = 123456789
 >>> f"{num:,}"
 '123,456,789'
@@ -53,7 +51,7 @@ When I start a new Python REPL session, there's no locale, so there's no digit s
 
 If I set the locale to British English, I see the commas I'm familiar with:
 
-```pycon
+```pycon {"names":{"1":"locale"}}
 >>> import locale
 >>> locale.setlocale(locale.LC_NUMERIC, "en_GB")
 >>> f"{num:n}"
@@ -85,7 +83,7 @@ And so on.
 
 In the past I've used the [humanize library](https://github.com/python-humanize/humanize) for this sort of pretty printing, specifically the `intcomma()` function:
 
-```pycon
+```pycon {"names":{"1":"humanize"}}
 >>> import humanize
 >>> humanize.intcomma(123456789)
 '123,456,789'

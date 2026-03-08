@@ -2595,9 +2595,6 @@
   "src/_til/2025/2025-06-30-f-string-equals.md": [
     "python"
   ],
-  "src/_til/2025/2025-07-02-popstate.md": [
-    "web development"
-  ],
   "src/_til/2025/2025-07-04-gunicorn-redactions.md": [
     "python",
     "python:gunicorn"
