@@ -13,7 +13,6 @@ from typing import Any
 
 from jinja2 import Environment
 from pydantic import BaseModel, Field
-import termcolor
 from tqdm import tqdm
 import yaml
 
@@ -111,14 +110,6 @@ class Site(BaseModel):
         """
         self.time = datetime.now(tz=timezone.utc)
         self.all_pages = read_markdown_files(self.src_dir)
-
-        for p in self.all_pages:
-            if p.tags and not p.topics:
-                print(
-                    termcolor.colored(
-                        f"page has tags, no topics: {p.md_path}", "yellow"
-                    )
-                )
 
         # Check none of the URLs are duplicated
         counter = Counter(p.url for p in self.all_pages)
