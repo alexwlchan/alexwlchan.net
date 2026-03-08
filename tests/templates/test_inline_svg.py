@@ -44,6 +44,28 @@ class TestInlineSvgExtension:
             '<rect fill="yellow" height="200" width="200"/>\n</svg>'
         )
 
+    def test_page_without_date(self, src_dir: Path, env: Environment) -> None:
+        """
+        An inline SVG in a page without a date looks in the `_images` dir.
+        """
+        (src_dir / "_images").mkdir(parents=True)
+        (src_dir / "_images/example.svg").write_text(
+            '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
+            '  <rect width="200" height="200" fill="yellow"/>\n'
+            "</svg>"
+        )
+        page = StubPage()
+
+        md = '{% inline_svg filename="example.svg" alt="A yellow rectangle" %}'
+
+        html = env.from_string(md).render(page=page).strip()
+        assert html == (
+            '<svg aria-labelledby="svg_example" role="img" '
+            'viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'
+            '<title id="svg_example">A yellow rectangle</title>\n'
+            '<rect fill="yellow" height="200" width="200"/>\n</svg>'
+        )
+
     def test_alt_text_is_smartified(self, src_dir: Path, env: Environment) -> None:
         """
         Alt text is processed with SmartyPants.
@@ -197,6 +219,31 @@ class TestInlineSvgExtension:
             '<rect fill="blue" height="200" width="200"/>'
             '<rect fill="yellow" height="200" width="200"/>\n</svg>'
         )
+
+    def test_style_attrs_are_minifiged(self, src_dir: Path, env: Environment) -> None:
+        """
+        <style> tags in the original SVG are minified.
+        """
+        (src_dir / "_images/2026").mkdir(parents=True)
+        (src_dir / "_images/2026/example.svg").write_text(
+            '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
+            "  <defs>\n"
+            "    <style>\n"
+            "      rect { fill: blue; }\n"
+            "\n"
+            "      circle { fill: yellow; }\n"
+            "    </style>\n"
+            "  </defs>\n"
+            '  <rect width="200" height="200"/>\n'
+            '  <rect width="200" height="200"/>\n'
+            "</svg>"
+        )
+        page = StubPage(date=datetime(2026, 1, 1))
+
+        md = '{% inline_svg filename="example.svg" alt="Two shapes" %}'
+
+        html = env.from_string(md).render(page=page).strip()
+        assert "<style>rect { fill: blue; }\ncircle { fill: yellow; }</style>" in html
 
     def test_non_svg_is_error(self, env: Environment) -> None:
         """

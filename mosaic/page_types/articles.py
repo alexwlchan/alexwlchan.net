@@ -62,26 +62,6 @@ class Article(BaseHtmlPage):
             return [BreadcrumbEntry(label="articles", href="/articles/")]
 
     @property
-    def is_featured(self) -> bool:
-        """
-        Returns True if this is a featured post.
-
-        TODO(2026-01-21): Rework the index attributes so this can be
-        set directly.
-        """
-        return self.index.feature
-
-    @property
-    def is_excluded(self) -> bool:
-        """
-        Returns True if this is an excluded post.
-
-        TODO(2026-01-21): Rework the index attributes so this can be
-        set directly.
-        """
-        return self.index.exclude
-
-    @property
     def is_new(self) -> bool:
         """
         Returns True if this page was published recently, False otherwise.

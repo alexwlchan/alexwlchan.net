@@ -48,13 +48,3 @@ class Note(BaseHtmlPage):
             BreadcrumbEntry(label=t.name, href=t.href)
             for t in get_topic_by_name(self.topics[0]).breadcrumb
         ]
-
-    @property
-    def is_excluded(self) -> bool:
-        """
-        Returns True if this is an excluded post.
-
-        TODO(2026-01-21): Rework the index attributes so this can be
-        set directly.
-        """
-        return self.index.exclude
