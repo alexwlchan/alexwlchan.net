@@ -1734,6 +1734,8 @@ redir /til/2025/bluesky-avatar-url/ /notes/2025/bluesky-avatar-url/ permanent
 redir /til/2025/bluesky-avatar-url /notes/2025/bluesky-avatar-url/ permanent
 redir /til/2025/bluesky-post-info/ /notes/2025/bluesky-post-info/ permanent
 redir /til/2025/bluesky-post-info /notes/2025/bluesky-post-info/ permanent
+redir /til/2025/caddy-disable-basic-auth/ /notes/2025/caddy-disable-basic-auth/ permanent
+redir /til/2025/caddy-disable-basic-auth /notes/2025/caddy-disable-basic-auth/ permanent
 redir /til/2025/check-tailscale-is-running/ /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/check-tailscale-is-running /notes/2025/check-if-tailscale-is-running/ permanent
 redir /til/2025/collapsing-whitespace-in-liquid/ /notes/2025/collapsing-whitespace-in-liquid/ permanent
@@ -1796,6 +1798,8 @@ redir /til/2025/json-with-required-field-in-golang/ /notes/2025/json-with-requir
 redir /til/2025/json-with-required-field-in-golang /notes/2025/json-with-required-field-in-golang/ permanent
 redir /til/2025/linode-with-boto3/ /notes/2025/linode-with-boto3/ permanent
 redir /til/2025/linode-with-boto3 /notes/2025/linode-with-boto3/ permanent
+redir /til/2025/list-of-tickboxes-in-wtforms/ /notes/2025/list-of-tickboxes-in-wtforms/ permanent
+redir /til/2025/list-of-tickboxes-in-wtforms /notes/2025/list-of-tickboxes-in-wtforms/ permanent
 redir /til/2025/list-test-names-in-go/ /notes/2025/list-test-names-in-go/ permanent
 redir /til/2025/list-test-names-in-go /notes/2025/list-test-names-in-go/ permanent
 redir /til/2025/macos-launchagent-examples/ /notes/2025/macos-launchagent-examples/ permanent
@@ -1976,4 +1980,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /world/words/ /interesting-words/ permanent
 redir /world/words /interesting-words/ permanent
-#[[[end]]] (sum: Zz1mPhRq/7)
+#[[[end]]] (sum: mXx5/RaDlx)

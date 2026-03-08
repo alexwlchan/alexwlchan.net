@@ -1,18 +1,16 @@
 ---
-layout: til
+layout: note
 title: Show a list of checkboxes in a WTForms form
 summary: Subclass `SelectMultipleField` and override the `widget` and `option_widget` fields.
 date: 2025-07-06 17:55:56 +01:00
-tags:
-  - python
-old_syntax_highlighting: true
+topic: Python
 ---
 I was working on a Flask app, which had a [web form](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms) using WTForms.
 I wanted one of the form fields to be a list of items, from which the user could select one or more.
 
 The basic functionality isn't tricky to write -- here's an example, using a [`SelectMultipleField`](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectMultipleField) to keep the list of options:
 
-```python
+```python {"names":{"1":"flask","2":"Flask","3":"flask_wtf","4":"FlaskForm","5":"wtforms","6":"SelectMultipleField","7":"SubmitField","8":"MyForm","10":"colours","13":"submit","15":"app","22":"homepage","23":"form"}}
 from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import SelectMultipleField, SubmitField
@@ -61,7 +59,7 @@ It technically works, but this is a somewhat unusual form control -- I'm not sur
 I wanted to render this as a list of checkboxes, and this is quite straightforward.
 You can subclass `SelectMultipleField` and change a couple of the widgets:
 
-```python
+```python {"names":{"1":"wtforms","2":"SelectMultipleField","3":"wtforms","4":"widgets","5":"CheckboxInput","6":"ListWidget","7":"SelectMultipleCheckboxesField","9":"widget","12":"option_widget"}}
 from wtforms import SelectMultipleField
 from wtforms.widgets import CheckboxInput, ListWidget
 
