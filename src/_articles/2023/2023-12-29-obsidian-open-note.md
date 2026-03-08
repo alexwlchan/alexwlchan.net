@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2023-12-29 07:46:33 +00:00
 title: Getting the path to the note I have open in Obsidian
 summary: Although Obsidian doesn’t support AppleScript, I can use System Events to find out which note I have open.
-tags:
-  - obsidian
-  - applescript
-old_syntax_highlighting: true
+topic: AppleScript
+future_topics:
+  - Automation
+  - Obsidian
 ---
 I have a bunch of Python scripts I use to clean up text files, and I call them by passing the path to the text file as an argument, for example:
 
@@ -67,7 +67,7 @@ There are a bunch of ways you could do this; I picked Python because that's what
 This is the script I wrote, which I named [`obnote`](https://github.com/alexwlchan/scripts/blob/main/macos/obnote).
 Hopefully the comments are enough to explain what's going on:
 
-```python
+```python {"names":{"1":"os","2":"subprocess","3":"get_file_paths_under","4":"root","5":"suffix","12":"dirpath","14":"filenames","18":"f","20":"p","35":"get_applescript_output","36":"script","37":"cmd","44":"window_title","46":"note_title","47":"vault_name","52":"vault_root","60":"path"}}
 #!/usr/bin/env python3
 """
 Print the path to the Markdown file which is currently open
