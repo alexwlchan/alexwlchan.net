@@ -3,7 +3,7 @@ layout: article
 date: 2019-01-31 10:03:33 +00:00
 title: "The Curb Cut Effect"
 summary: Slides and notes for my talk 'The Curb Cut Effect'. Making something better for disabled people can make it better for everybody.
-tags:
+topics:
   - Inclusion and accessibility
   - Talks I've given
 colors:

@@ -634,4 +634,4 @@ Many of these I wouldn't know how to draw if I started from a blank sheet of pap
 If you want to create some of these shapes yourself, the web app is available at [alexwlchan.net/fun-stuff/looped-squares/](/fun-stuff/looped-squares/).
 Send me your favourites!
 
-If you like this post, you might want to check out my other [generative art](/tags/generative-art/).
+If you like this post, you might want to check out my other [generative art](/generative-art/).

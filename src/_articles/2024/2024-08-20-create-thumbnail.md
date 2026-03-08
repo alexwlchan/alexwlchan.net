@@ -4,10 +4,7 @@ date: 2024-08-20 17:16:50 +00:00
 title: "create_thumbnail: create smaller versions of images"
 summary:
   I've made a new tool that allows me to reuse my thumbnailing code across all my projects.
-tags:
-  - rust
-  - my tools
-  - images
+topic: Images and videos
 colors:
   index_light: "#697c13"
   index_dark:  "#b6b86c"

@@ -3,10 +3,9 @@ layout: article
 date: 2025-07-30 09:26:41 +00:00
 title: Slipstitch, Queer Craft, and community spaces
 summary: Remembering Slipstitch, a queer-friendly yarn shop and the fortnightly crafting meet-ups that were a highlight of my week.
-  
 topics:
   - Personal thoughts
-  - Art and creativity
+  - Cross-stitch
 colors:
   css_light: "#34827e"
   css_dark:  "#9dd2d6"
@@ -41,7 +40,7 @@ I can't remember exactly when I first came across Slipstitch, but I remember why
 Slipstitch was sometimes the target of stickering campaigns from TERFs and anti-trans campaigners, who objected to Rosie’s [vocal support of trans people](https://www.instagram.com/p/DIjI4ukoH8D/). (Rosie is the shop’s owner and a dear friend.)
 
 This discussion spilled onto Twitter, and at some point Rosie's tweets appeared in my timeline.
-I saw the shop account calling out the stickers and re-affirming its support of trans people, and since I'm trans and I do [lots of cross-stitch](/tags/cross-stitch/), I decided to check it out.
+I saw the shop account calling out the stickers and re-affirming its support of trans people, and since I'm trans and I do [lots of cross-stitch](/cross-stitch/), I decided to check it out.
 I looked around the online store, thinking I might buy some thread -- then I found an event called "Queer Craft", and booked.
 
 Turning up the next Monday, I was a bit nervous -- would I be queer enough?

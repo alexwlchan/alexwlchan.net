@@ -33,9 +33,9 @@ You may not want to generate these exact images, but the ability to generate gra
 
 [last post]: /2021/2021-in-reading/
 [books.alexwlchan.net]: https://books.alexwlchan.net/
-[red]: https://books.alexwlchan.net/reviews/trains
-[yellow]: https://books.alexwlchan.net/reviews/your-computer-is-on-fire/
-[blue]: https://books.alexwlchan.net/reviews/the-power-of-the-a4s
+[red]: /book-reviews/trains/
+[yellow]: /book-reviews/your-computer-is-on-fire/
+[blue]: /book-reviews/the-power-of-the-a4s/
 
 
 
@@ -478,6 +478,6 @@ If you want to get the final code, you can download this zipfile, which is a com
 
 {% download filename="rusty-shelves.zip" %}
 
-I've been making [graphics like this](/tags/generative-art/) for over five years, and it's as fun now as when I started.
+I've been making [graphics like this](/generative-art/) for over five years, and it's as fun now as when I started.
 I enjoy taking an idea (can I arrange coloured rectangles to look like a bookshelf?) and turning it into an endless collection of similar images.
 Given how much of my computing life is spent on work, productivity and business, it's nice to make things that just look pretty.
