@@ -13,7 +13,7 @@ import pytest
             "https://alexwlchan.net/2021/06/s3-deprecates-bittorrent/",
             "/2021/s3-deprecates-bittorrent/",
         ),
-        ("https://til.alexwlchan.net/", "https://alexwlchan.net/til/"),
+        ("https://til.alexwlchan.net/", "https://alexwlchan.net/notes/"),
         (
             "https://til.alexwlchan.net/animate-svg-elements-with-animate/",
             "https://alexwlchan.net/notes/2024/animate-svg-elements-with-animate/",
