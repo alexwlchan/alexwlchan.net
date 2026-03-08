@@ -6,8 +6,10 @@ date: 2025-07-24 11:42:15 +01:00
 topics:
   - Python
   - AWS
+future_topics:
+  - boto3
 ---
-I'm writing some code to build large ZIP files and store them in [S3-compatible object storage](/til/2025/linode-with-boto3/).
+I'm writing some code to build large ZIP files and store them in [S3-compatible object storage](/notes/2025/linode-with-boto3/).
 
 I could build the ZIP as a local file, and then upload it to the cloud -- but that means I need to have enough local disk space to store the entire file before I begin uploading.
 Alternatively, I could store the zip in an in-memory buffer -- but now I need lots of memory instead of lots of disk.
@@ -19,7 +21,7 @@ I found Allan Lei's [zipstream module](https://github.com/allanlei/python-zipstr
 
 It took a bit of work to integrate it with boto3.
 
-(I was using [Linode object storage](/til/2025/linode-with-boto3/) for all of these examples, but I think it should be the same for any S3-compatible storage that works with boto3.)
+(I was using [Linode object storage](/notes/2025/linode-with-boto3/) for all of these examples, but I think it should be the same for any S3-compatible storage that works with boto3.)
 
 I'm using boto3 1.38.19 and zipstream 1.1.4.
 

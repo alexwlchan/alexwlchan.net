@@ -2627,34 +2627,6 @@
   "src/_til/2025/2025-07-18-caddy-disable-basic-auth.md": [
     "caddy"
   ],
-  "src/_til/2025/2025-07-22-add-str-to-tarfile.md": [
-    "python"
-  ],
-  "src/_til/2025/2025-07-23-linode-with-boto3.md": [
-    "linode",
-    "python",
-    "python:boto3"
-  ],
-  "src/_til/2025/2025-07-24-zipstream-to-boto3.md": [
-    "python",
-    "python:boto3"
-  ],
-  "src/_til/2025/2025-08-11-bluesky-avatar-url.md": [
-    "bluesky"
-  ],
-  "src/_til/2025/2025-08-15-python-smartypants.md": [
-    "python"
-  ],
-  "src/_til/2025/2025-08-18-list-test-names-in-go.md": [
-    "golang"
-  ],
-  "src/_til/2025/2025-08-19-go-stress.md": [
-    "golang",
-    "software testing"
-  ],
-  "src/_til/2025/2025-08-19-sqlite-functions.md": [
-    "sqlite"
-  ],
   "src/_til/2025/2025-08-28-arobase-in-morse-code.md": [
     "history",
     "naming things"
