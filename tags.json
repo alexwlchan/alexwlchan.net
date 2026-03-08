@@ -2624,9 +2624,6 @@
     "python",
     "python:pytest"
   ],
-  "src/_til/2025/2025-07-18-caddy-disable-basic-auth.md": [
-    "caddy"
-  ],
   "src/_til/2025/2025-08-28-arobase-in-morse-code.md": [
     "history",
     "naming things"

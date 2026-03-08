@@ -241,26 +241,11 @@ def apply_syntax_highlighting(
     This has all my custom logic for adding line numbers, tidying up
     the output HTML, and so on. It doesn't know anything about Markdown.
     """
-    lexer = get_lexer_by_name(lang)
-    formatter = HtmlFormatter()
+    if lang == "caddy":
+        html = format_caddy(src)
+    else:
+        html = format_with_pygments(src, lang)
 
-    # In console snippets, the only prompt character I use is a dollar ($),
-    # but the lexer allows # and %.
-    #
-    # This branch removes those two characters from the regex.  To detect
-    # unrelated changes to the regex that I should incorporate, assert the
-    # current value of the regex first.
-    if lang == "console":
-        assert lexer._ps1rgx == re.compile(  # type: ignore
-            r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
-            r"?|\[\S+[@:][^\n]+\].+))\s*[$#%]\s*)(.*\n?)"
-        ), "outdated console lexer regex"
-        lexer._ps1rgx = re.compile(  # type: ignore
-            r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
-            r"?|\[\S+[@:][^\n]+\].+))\s*[$]\s*)(.*\n?)"
-        )
-
-    html = highlight(src, lexer, formatter)
     html = apply_manual_fixes(html, lang)
 
     if debug:
@@ -281,7 +266,7 @@ def apply_syntax_highlighting(
     for idx, m in reversed(list(enumerate(name_matches, start=1))):
         # In HTML, all tags and attributes get highlighted in blue;
         # skip doing any name cleanup.
-        if (lang == "html" or lang == "xml") and names is None and not debug:
+        if (lang in {"caddy", "html", "xml"}) and names is None and not debug:
             continue
 
         varname = m.group("varname")
@@ -500,3 +485,87 @@ def parse_line_numbers(s: str) -> list[int | Literal["…"]]:
             result.append(int(part))
 
     return result
+
+
+def format_with_pygments(src: str, lang: str) -> str:
+    """
+    Apply syntax highlighting for a code snippet with Pygments.
+    """
+    lexer = get_lexer_by_name(lang)
+    formatter = HtmlFormatter()
+
+    # In console snippets, the only prompt character I use is a dollar ($),
+    # but the lexer allows # and %.
+    #
+    # This branch removes those two characters from the regex.  To detect
+    # unrelated changes to the regex that I should incorporate, assert the
+    # current value of the regex first.
+    if lang == "console":
+        assert lexer._ps1rgx == re.compile(  # type: ignore
+            r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
+            r"?|\[\S+[@:][^\n]+\].+))\s*[$#%]\s*)(.*\n?)"
+        ), "outdated console lexer regex"
+        lexer._ps1rgx = re.compile(  # type: ignore
+            r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
+            r"?|\[\S+[@:][^\n]+\].+))\s*[$]\s*)(.*\n?)"
+        )
+
+    return highlight(src, lexer, formatter)
+
+
+# Matches a line which only contains whitespace and a closing brace
+CADDY_CLOSING_PARENS_RE = re.compile(r"^(?P<whitespace>\s*)}$")
+
+# Matches a line which starts with a #
+CADDY_COMMENT_RE = re.compile(r"^(?P<whitespace>\s*)# (?P<comment>.*)")
+
+# Matches a line with a matcher at the start of the line
+CADDY_MATCHER_RE = re.compile(r"^(?P<matcher>[^\s]+) {$")
+
+# Matches a line with a matcher indented in the line
+CADDY_INDENTED_MATCHER_RE = re.compile(r"^(?P<whitespace>\s+)(?P<matcher>[^\s]+) {$")
+
+
+def format_caddy(src: str) -> str:
+    """
+    Apply syntax highlighting for Caddy config.
+
+    There's no Pygments lexer, so this is a rough lexer based on my snippets.
+    """
+    out_lines = []
+
+    for line in src.splitlines():
+        # Empty lines are passed unmodified
+        if not line.strip():
+            out_lines.append("")
+
+        # Any line starting with # is a comment
+        elif m := CADDY_COMMENT_RE.match(line):
+            out_lines.append(
+                m.group("whitespace")
+                + '<span class="c"># '
+                + m.group("comment")
+                + "</span>"
+            )
+
+        # Closing parens
+        elif m := CADDY_CLOSING_PARENS_RE.match(line):
+            out_lines.append(m.group("whitespace") + '<span class="p">}</span>')
+
+        elif m := CADDY_MATCHER_RE.match(line):
+            out_lines.append(
+                '<span class="n">'
+                + m.group("matcher")
+                + "</span> "
+                + '<span class="p">{</span>'
+            )
+
+        elif m := CADDY_INDENTED_MATCHER_RE.match(line):
+            out_lines.append(
+                m.group("whitespace") + m.group("matcher") + ' <span class="p">{</span>'
+            )
+
+        else:
+            out_lines.append(line)
+
+    return '<div class="highlight"><pre>' + "\n".join(out_lines) + "</pre></div>"

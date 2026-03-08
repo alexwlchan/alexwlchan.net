@@ -1,11 +1,9 @@
 ---
-layout: til
+layout: note
 title: Disable HTTP Basic Auth for certain pages in Caddy
 summary: Define a matcher that negates the routes you want to be public, then use that with your `basic_auth` directive.
 date: 2025-07-18 10:20:52 +01:00
-tags:
-  - caddy
-old_syntax_highlighting: true
+topic: Caddy
 ---
 Suppose I have a web server using Caddy, and I'm protecting it with HTTP Basic Authentication using the [`basic_auth` directive](https://caddyserver.com/docs/caddyfile/directives/basic_auth).
 
@@ -15,7 +13,7 @@ Here's a simple Caddyfile where every route requires auth:
 
 <!-- caddy -->
 
-```
+```caddy
 :2016 {
 	basic_auth {
 		# $ caddy hash-password --plaintext correct-horse-battery-staple
@@ -48,9 +46,7 @@ I want routes that skip the authentication (e.g. a publicly-accessible healthche
 
 The way to do this is to define a [matcher](https://caddyserver.com/docs/caddyfile/matchers) that matches all the pages *except* the ones I want to make public, and then use that matcher with my `basic_auth` directive.
 
-<!-- caddy -->
-
-```
+```caddy
 :2016 {
 	@private {
 		not path /public/*

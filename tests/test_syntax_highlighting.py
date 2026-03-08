@@ -535,3 +535,31 @@ def test_typescript() -> None:
         lang="typescript",
     )
     assert '<span class="kr">type</span>' not in html
+
+
+def test_caddy_highlighting() -> None:
+    """
+    Test Caddy syntax highlighting.
+    """
+    src = (
+        ":2016 {\n"
+        "\t@private {\n"
+        "\n"
+        "\t\t# $ caddy hash-password --plaintext 123\n"
+        "\t\txkcd $2a$14$123\n"
+        "\t}\n"
+        "}"
+    )
+    html = (
+        '<pre class="lng-caddy"><code>'
+        '<span class="n">:2016</span> <span class="p">{</span>\n'
+        '\t@private <span class="p">{</span>\n'
+        "\n"
+        '\t\t<span class="c"># $ caddy hash-password --plaintext 123</span>\n'
+        "\t\txkcd $2a$14$123\n"
+        '\t<span class="p">}</span>\n'
+        '<span class="p">}</span>'
+        "</code></pre>"
+    )
+
+    assert apply_syntax_highlighting(src, lang="caddy") == html
