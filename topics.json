@@ -193,11 +193,6 @@
     "href": "/world/"
   },
   {
-    "name": "Interesting words",
-    "href": "/world/words/",
-    "parent": "The world around us"
-  },
-  {
     "name": "Entertainment",
     "href": "/world/entertainment/",
     "parent": "The world around us"
@@ -254,5 +249,13 @@
   {
     "name": "Colours",
     "href": "/colours/"
+  },
+  {
+    "name": "Interesting words",
+    "href": "/interesting-words/"
+  },
+  {
+    "name": "Naming things",
+    "href": "/naming-things/"
   }
 ]

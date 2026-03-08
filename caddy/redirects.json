@@ -2908,6 +2908,9 @@
   "/notes/2025/macos-launchagent-examples/": [
     "/til/2025/macos-launchagent-examples/"
   ],
+  "/notes/2025/mcp-in-archivematica/": [
+    "/til/2025/mcp-in-archivematica/"
+  ],
   "/notes/2025/mediainfo-duration/": [
     "/til/2025/mediainfo-duration/"
   ],
@@ -3124,5 +3127,8 @@
   ],
   "/work/wellcome-collection/": [
     "/digital-preservation/wellcome-collection/"
+  ],
+  "/interesting-words/": [
+    "/world/words/"
   ]
 }

@@ -1638,11 +1638,6 @@
     "screenshots",
     "digital preservation"
   ],
-  "src/_posts/2024/2024-05-03-psephology.md": [
-    "politics",
-    "interesting words",
-    "history"
-  ],
   "src/_posts/2024/2024-05-14-what-comes-after-aws.md": [
     "aws"
   ],
@@ -2688,11 +2683,6 @@
     "golang",
     "software testing"
   ],
-  "src/_til/2025/2025-09-22-mcp-in-archivematica.md": [
-    "digital preservation",
-    "archivematica",
-    "naming things"
-  ],
   "src/_til/2025/2025-10-04-tumblr-api-sans-auth.md": [
     "tumblr"
   ],
@@ -2726,8 +2716,5 @@
   ],
   "src/_til/2025/2025-12-24-ignore-ai-scaled-videos.md": [
     "yt-dlp"
-  ],
-  "src/_til/2026/2026-01-11-caret-regex-anchor.md": [
-    "regex"
   ]
 }

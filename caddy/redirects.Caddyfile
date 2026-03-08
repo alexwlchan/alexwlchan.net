@@ -1796,6 +1796,8 @@ redir /til/2025/list-test-names-in-go/ /notes/2025/list-test-names-in-go/ perman
 redir /til/2025/list-test-names-in-go /notes/2025/list-test-names-in-go/ permanent
 redir /til/2025/macos-launchagent-examples/ /notes/2025/macos-launchagent-examples/ permanent
 redir /til/2025/macos-launchagent-examples /notes/2025/macos-launchagent-examples/ permanent
+redir /til/2025/mcp-in-archivematica/ /notes/2025/mcp-in-archivematica/ permanent
+redir /til/2025/mcp-in-archivematica /notes/2025/mcp-in-archivematica/ permanent
 redir /til/2025/mediainfo-duration/ /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/mediainfo-duration /notes/2025/mediainfo-duration/ permanent
 redir /til/2025/mermaid-box-in-flowchart/ /notes/2025/mermaid-box-in-flowchart/ permanent
@@ -1966,4 +1968,6 @@ redir /work/tailscale/ /systems/tailscale/ permanent
 redir /work/tailscale /systems/tailscale/ permanent
 redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ permanent
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
-#[[[end]]] (sum: o0QV/9w5eY)
+redir /world/words/ /interesting-words/ permanent
+redir /world/words /interesting-words/ permanent
+#[[[end]]] (sum: nXkeUKAGfJ)
