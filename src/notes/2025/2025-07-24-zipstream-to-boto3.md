@@ -6,7 +6,7 @@ date: 2025-07-24 11:42:15 +01:00
 topics:
   - Python
   - AWS
-future_topics:
+hidden_topics:
   - boto3
 ---
 I'm writing some code to build large ZIP files and store them in [S3-compatible object storage](/notes/2025/linode-with-boto3/).

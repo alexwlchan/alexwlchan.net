@@ -4,7 +4,7 @@ title: Using Linode object storage and boto3
 summary: If you're calling `put_object`, you need the config option `request_checksum_calculation = "when_required"`.
 date: 2025-07-23 15:46:49 +01:00
 topic: Python
-future_topics:
+hidden_topics:
   - Linode
   - boto3
 ---

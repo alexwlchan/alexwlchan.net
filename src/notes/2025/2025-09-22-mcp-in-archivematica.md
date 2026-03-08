@@ -6,7 +6,7 @@ date: 2025-09-22 09:28:04 +01:00
 topics:
   - Digital preservation
   - Naming things
-future_topics:
+hidden_topics:
   - Archivematica
 ---
 The acronym "MCP" has been used a lot recently in the context of Large Language Models.

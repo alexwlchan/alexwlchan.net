@@ -3,7 +3,7 @@ layout: article
 date: 2014-08-31 12:12:00 +00:00
 title: Updates to my site for finding untagged Tumblr posts
 topic: Computers and code
-future_topics:
+hidden_topics:
   - Tumblr
 ---
 

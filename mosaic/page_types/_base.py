@@ -158,7 +158,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
     # A place for me to put topics that don't exist yet, but where
     # this post might be filed in future.
-    future_topics: list[str] = Field(default_factory=lambda: list())
+    hidden_topics: list[str] = Field(default_factory=lambda: list())
 
     # This tracks progress on alexwlchan/alexwlchan.net#1138
     # As I confirm posts are fixed, I can delete this setting and eventually

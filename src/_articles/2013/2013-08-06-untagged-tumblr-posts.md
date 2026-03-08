@@ -3,7 +3,7 @@ layout: article
 date: 2013-08-06 09:52:00 +00:00
 title: Finding untagged posts on Tumblr
 topic: Computers and code
-future_topics:
+hidden_topics:
   - Tumblr
 ---
 

@@ -4,7 +4,7 @@ title: Get the avatar URL for a Bluesky user
 summary: Make a request to the `app.bsky.actor.getProfile` endpoint, passing their handle as the `actor` parameter.
 date: 2025-08-11 09:06:46 +01:00
 topic: Preserving social media
-future_topics:
+hidden_topics:
   - Bluesky
 ---
 Here's an example of an unauthenticated API request using the [`app.bsky.actor.getProfile` API](https://docs.bsky.app/docs/api/app-bsky-actor-get-profile) which returns the URL of the user's avatar in the JSON response:

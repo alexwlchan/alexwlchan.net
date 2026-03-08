@@ -6,7 +6,7 @@ date: 2025-08-10 22:53:18 +01:00
 topics:
   - Preserving social media
   - Python
-future_topics:
+hidden_topics:
   - Bluesky
 old_syntax_highlighting: true
 ---

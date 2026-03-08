@@ -6,7 +6,7 @@ summary: Using the Rebrickable database downloads and sqlite-utils, I can quickl
 topics:
   - Fun stuff
   - SQLite
-future_topics:
+hidden_topics:
   - LEGO
 card_attribution: https://pixabay.com/photos/lego-block-toys-3602218/
   ta98mori, Pixabay Content License, retrieved 4 February 2025
