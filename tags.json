@@ -1963,21 +1963,11 @@
     "blogging about blogging",
     "fun stuff"
   ],
-  "src/_til/2013/2013-05-11-rss-podcasts-tumblr.md": [
-    "podcasts",
-    "tumblr"
-  ],
   "src/_til/2016/2016-03-20-german-telephone-numbers.md": [
     "trivia"
   ],
   "src/_til/2016/2016-08-25-shutil-which.md": [
     "python"
-  ],
-  "src/_til/2016/2016-10-08-worcester-28cdi-clock.md": [
-    "home"
-  ],
-  "src/_til/2016/2016-10-16-tricity-sie454-clock.md": [
-    "home"
   ],
   "src/_til/2016/2016-10-29-rust-safe-macro-expansion.md": [
     "rust"
@@ -2002,9 +1992,6 @@
   "src/_til/2018/2018-10-24-xargs-for-parallel-processing.md": [
     "shell scripting"
   ],
-  "src/_til/2018/2018-10-28-horstmann-electric-7.md": [
-    "home"
-  ],
   "src/_til/2018/2018-11-12-replace-parts-of-an-image.md": [
     "imagemagick"
   ],
@@ -2012,15 +1999,8 @@
     "ruby",
     "docker"
   ],
-  "src/_til/2019/2019-04-20-http-the-content-disposition-header.md": [
-    "http"
-  ],
   "src/_til/2019/2019-04-20-javascript-manipulating-url-query-parameters.md": [
     "javascript"
-  ],
-  "src/_til/2019/2019-05-03-transportapi.md": [
-    "trains",
-    "python"
   ],
   "src/_til/2019/2019-05-07-scala-iterating-over-the-newlines-of-an-inputstream.md": [
     "scala"
@@ -2036,9 +2016,6 @@
     "scala",
     "scala:scanamo"
   ],
-  "src/_til/2019/2019-05-11-how-do-dreamwidth-post-ids-increment.md": [
-    "dreamwidth"
-  ],
   "src/_til/2019/2019-08-28-installing-mimetype-on-alpine-linux.md": [
     "alpine"
   ],
@@ -2047,11 +2024,6 @@
   ],
   "src/_til/2021/2021-12-27-calliope-syndrome.md": [
     "interesting words"
-  ],
-  "src/_til/2022/2022-09-04-how-to-use-hex-colours-with-the-palette-crate.md": [
-    "rust",
-    "rust:palette",
-    "colour"
   ],
   "src/_til/2022/2022-12-04-print-sbt.md": [
     "scala",
@@ -2063,44 +2035,16 @@
   "src/_til/2023/2023-06-01-buildkite-concurrency-gates.md": [
     "buildkite"
   ],
-  "src/_til/2023/2023-09-03-canonical-mastodon-posts.md": [
-    "mastodon"
-  ],
-  "src/_til/2023/2023-09-06-use-unicode-property-escapes-to-find-emoji.md": [
-    "javascript",
-    "unicode"
-  ],
-  "src/_til/2023/2023-10-02-woe-means-where-on-earth.md": [
-    "flickr",
-    "naming things"
-  ],
-  "src/_til/2023/2023-10-10-what-is-a-snak.md": [
-    "wikimedia commons",
-    "naming things"
-  ],
-  "src/_til/2023/2023-10-16-find-files-with-sdc-fields.md": [
-    "wikimedia commons",
-    "sparql"
-  ],
   "src/_til/2023/2023-10-17-how-to-do-resumable-downloads.md": [
     "curl"
-  ],
-  "src/_til/2023/2023-11-30-prefer-xml-in-the-wikimedia-apis.md": [
-    "wikimedia commons"
   ],
   "src/_til/2023/2023-12-07-mechanize-ssl.md": [
     "python",
     "python:mechanize",
     "python:certifi"
   ],
-  "src/_til/2023/2023-12-08-convert-between-m-ids-and-filenames.md": [
-    "wikimedia commons"
-  ],
   "src/_til/2023/2023-12-26-live-text-is-hyphenation-aware.md": [
     "live-text"
-  ],
-  "src/_til/2023/2023-12-27-manipulate-albums.md": [
-    "photokit"
   ],
   "src/_til/2024/2024-01-02-sqlite3-context-manager-doesnt-close-connections.md": [
     "python",
@@ -2150,23 +2094,11 @@
   "src/_til/2024/2024-01-07-style-a-details-element.md": [
     "css"
   ],
-  "src/_til/2024/2024-01-09-image-function-to-insert-images.md": [
-    "spreadsheets"
-  ],
-  "src/_til/2024/2024-01-10-create-flag-emojis-for-countries.md": [
-    "python",
-    "unicode"
-  ],
   "src/_til/2024/2024-01-11-sort-dom-elements-with-appendchild.md": [
     "javascript"
   ],
   "src/_til/2024/2024-01-12-create-a-sticky-bottom-footer.md": [
     "css"
-  ],
-  "src/_til/2024/2024-01-12-manage-mp3-metadata-with-eyed3.md": [
-    "python",
-    "macos",
-    "python:eyeD3"
   ],
   "src/_til/2024/2024-01-12-use-the-capture-tag-for-complex-strings.md": [
     "liquid"
@@ -2190,10 +2122,6 @@
   "src/_til/2024/2024-01-17-use-rsync-and-passwordless-sudo.md": [
     "rsync"
   ],
-  "src/_til/2024/2024-01-19-offline-geo-lookups-of-ip-addresses.md": [
-    "python",
-    "networking"
-  ],
   "src/_til/2024/2024-01-22-beware-of-test-n-with-command-expansion.md": [
     "fish shell"
   ],
@@ -2203,9 +2131,6 @@
   "src/_til/2024/2024-01-25-use-the-raw-tag-to-describe-liquid-in-liquid.md": [
     "liquid",
     "jekyll"
-  ],
-  "src/_til/2024/2024-01-25-wmc-allowed-title-characters.md": [
-    "wikimedia commons"
   ],
   "src/_til/2024/2024-01-26-custom-error-pages-in-flask.md": [
     "python"
@@ -2222,31 +2147,15 @@
   "src/_til/2024/2024-02-21-count-only-counts-non-null-values.md": [
     "sqlite"
   ],
-  "src/_til/2024/2024-02-21-what-happens-when-you-replace-a-photo.md": [
-    "flickr"
-  ],
   "src/_til/2024/2024-02-22-errexit-and-arithmetic-expressions.md": [
     "bash",
     "shell scripting"
-  ],
-  "src/_til/2024/2024-02-22-how-to-check-when-a-cert-expires.md": [
-    "http",
-    "curl"
   ],
   "src/_til/2024/2024-02-24-how-to-parse-urls-with-jxa.md": [
     "jxa"
   ],
   "src/_til/2024/2024-02-25-use-n-to-avoid-overwriting.md": [
     "shell scripting"
-  ],
-  "src/_til/2024/2024-02-26-block-specific-ip-addresses.md": [
-    "nginx"
-  ],
-  "src/_til/2024/2024-02-28-get-netlify-usage-from-api.md": [
-    "netlify"
-  ],
-  "src/_til/2024/2024-03-16-mastodon-retrying.md": [
-    "mastodon"
   ],
   "src/_til/2024/2024-03-23-youtube-dl-options.md": [
     "yt-dlp"
@@ -2255,37 +2164,13 @@
     "python",
     "aws"
   ],
-  "src/_til/2024/2024-03-24-tables-and-links-in-obsidian.md": [
-    "obsidian"
-  ],
-  "src/_til/2024/2024-03-28-photos-can-have-orientation-in-exif.md": [
-    "images",
-    "python"
-  ],
   "src/_til/2024/2024-04-01-open-can-ask-questions.md": [
     "shell scripting",
     "macos"
   ],
-  "src/_til/2024/2024-04-02-send-if-modified-since-with-httpx.md": [
-    "http",
-    "python",
-    "python:httpx"
-  ],
-  "src/_til/2024/2024-04-07-shuffle-an-array-in-jekyll.md": [
-    "jekyll",
-    "liquid"
-  ],
   "src/_til/2024/2024-04-11-inline-svg-in-css.md": [
     "css",
     "svg"
-  ],
-  "src/_til/2024/2024-04-12-how-to-see-pywikibot-http-requests.md": [
-    "python",
-    "python:requests",
-    "python:pywikibot"
-  ],
-  "src/_til/2024/2024-04-14-count-discord-messages.md": [
-    "discord"
   ],
   "src/_til/2024/2024-04-17-take-a-wayback-machine-screenshot.md": [
     "screenshots",
@@ -2298,18 +2183,9 @@
   "src/_til/2024/2024-05-04-get-a-tally-of-tally-counts.md": [
     "sqlite"
   ],
-  "src/_til/2024/2024-05-07-get-info-about-curl-download.md": [
-    "curl"
-  ],
   "src/_til/2024/2024-05-07-minutes-in-a-year.md": [
     "theatre",
     "datetime shenanigans"
-  ],
-  "src/_til/2024/2024-05-12-get-hex-colour-as-clap-argument.md": [
-    "rust",
-    "rust:clap",
-    "rust:palette",
-    "colour"
   ],
   "src/_til/2024/2024-05-14-whats-inside-safari-webarchive.md": [
     "safari",
@@ -2352,19 +2228,8 @@
   "src/_til/2024/2024-07-05-build-query-string-with-curl.md": [
     "curl"
   ],
-  "src/_til/2024/2024-07-05-deleted-file-on-wikimedia-commons.md": [
-    "wikimedia commons"
-  ],
   "src/_til/2024/2024-07-10-convert-an-animated-gif-to-mp4.md": [
     "ffmpeg"
-  ],
-  "src/_til/2024/2024-07-20-get-artwork-from-an-mp3-file.md": [
-    "ffmpeg",
-    "python:eyeD3"
-  ],
-  "src/_til/2024/2024-07-24-create-image-placeholders.md": [
-    "images",
-    "css"
   ],
   "src/_til/2024/2024-07-24-get-image-from-a-video.md": [
     "ffmpeg"
@@ -2385,24 +2250,12 @@
   "src/_til/2024/2024-10-06-detect-tty-in-rust.md": [
     "rust"
   ],
-  "src/_til/2024/2024-10-11-flickr-visibility-flags.md": [
-    "flickr"
-  ],
-  "src/_til/2024/2024-10-17-html-equivalent.md": [
-    "html"
-  ],
   "src/_til/2024/2024-10-17-hyperlink-errors.md": [
     "python",
     "python:hyperlink"
   ],
   "src/_til/2024/2024-10-21-under-construction.md": [
     "css"
-  ],
-  "src/_til/2024/2024-10-23-flickr-user-email-address.md": [
-    "flickr"
-  ],
-  "src/_til/2024/2024-10-24-flickr-tag-name.md": [
-    "flickr"
   ],
   "src/_til/2024/2024-10-25-curl-redirect-target.md": [
     "curl"
@@ -2416,9 +2269,6 @@
   ],
   "src/_til/2024/2024-11-18-find-apple-system-icons.md": [
     "macos"
-  ],
-  "src/_til/2024/2024-11-21-reverse-proxy-caddy.md": [
-    "caddy"
   ],
   "src/_til/2024/2024-11-22-debugging-find-and-xargs.md": [
     "shell scripting"
@@ -2437,13 +2287,6 @@
   "src/_til/2024/2024-12-02-why-cant-i-eject-a-disk.md": [
     "macos"
   ],
-  "src/_til/2024/2024-12-21-editing-filename-in-finder-converts-to-nfd.md": [
-    "macos",
-    "unicode shenanigans"
-  ],
-  "src/_til/2024/2024-12-25-find-biggest-backblaze-files.md": [
-    "backblaze"
-  ],
   "src/_til/2024/2024-12-25-limits-on-visited-styles.md": [
     "css"
   ],
@@ -2457,23 +2300,11 @@
   "src/_til/2025/2025-01-09-shutil-copy-files-without-overwriting.md": [
     "python"
   ],
-  "src/_til/2025/2025-01-21-block-by-ip-address-caddy.md": [
-    "caddy"
-  ],
   "src/_til/2025/2025-01-22-platform-specific-dirs.md": [
     "python"
   ],
-  "src/_til/2025/2025-01-25-add-cover-to-epub-file.md": [
-    "epub"
-  ],
-  "src/_til/2025/2025-01-25-find-content-opf-in-epub.md": [
-    "epub"
-  ],
   "src/_til/2025/2025-02-06-basic-socket-server-in-ruby.md": [
     "ruby"
-  ],
-  "src/_til/2025/2025-02-07-flickr-video-sizes.md": [
-    "flickr"
   ],
   "src/_til/2025/2025-02-09-download-tumblr-avatars.md": [
     "tumblr"
@@ -2487,9 +2318,6 @@
   ],
   "src/_til/2025/2025-02-17-disable-javascript-in-iframe.md": [
     "javascript"
-  ],
-  "src/_til/2025/2025-02-17-loading-animation.md": [
-    "css"
   ],
   "src/_til/2025/2025-02-21-bfpo.md": [
     "interesting words"
@@ -2518,10 +2346,6 @@
     "sqlite",
     "python:sqlite-utils"
   ],
-  "src/_til/2025/2025-04-26-ftfy-fix-and-explain.md": [
-    "python",
-    "unicode"
-  ],
   "src/_til/2025/2025-04-27-sqlite-tally-for-big-values.md": [
     "sqlite"
   ],
@@ -2533,12 +2357,6 @@
   ],
   "src/_til/2025/2025-04-30-python-3-14.md": [
     "python"
-  ],
-  "src/_til/2025/2025-05-01-flickr-license-history.md": [
-    "flickr"
-  ],
-  "src/_til/2025/2025-05-06-flickr-photosof.md": [
-    "flickr"
   ],
   "src/_til/2025/2025-05-17-gubernatorial.md": [
     "politics",

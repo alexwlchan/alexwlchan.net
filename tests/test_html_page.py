@@ -11,7 +11,6 @@ from mosaic.page_types import (
     Article,
     BaseHtmlPage,
     Page,
-    TodayILearned,
     read_page_from_markdown,
 )
 
@@ -141,16 +140,6 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
                 content="This is a post about Darwin",
             ),
             "/2013/darwin/",
-        ),
-        (
-            TodayILearned(
-                src_dir=Path("src"),
-                md_path=Path("src/_til/2013/2013-05-11-rss-podcasts-tumblr"),
-                date=datetime(2013, 5, 11),
-                title="RSS podcasts on Tumblr",
-                content="This is a post about Tumblr",
-            ),
-            "/til/2013/rss-podcasts-tumblr/",
         ),
         (
             Page(title="Posts tagged with ‘python’", url="/tags/python/"),

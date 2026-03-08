@@ -299,6 +299,7 @@ NON_BREAKING_PHRASES = [
     "ECMA-404",
     "e.g. ",
     "Face ID",
+    "Flickr API",
     "Git LFS",
     "HTTP 200 OK",
     "iMac G3",

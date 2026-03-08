@@ -1,8 +1,8 @@
 {
-  "/til/": [
+  "/notes/": [
     "/"
   ],
-  "/til/atom.xml": [
+  "/notes/atom.xml": [
     "/atom.xml"
   ],
   "/notes/2024/animate-svg-elements-with-animate/": [
@@ -14,7 +14,7 @@
   "/notes/2024/beware-of-test-n-with-command-expansion/": [
     "/beware-of-test-n-with-command-expansion/"
   ],
-  "/til/2024/block-specific-ip-addresses/": [
+  "/notes/2024/block-specific-ip-addresses/": [
     "/block-specific-ip-addresses/"
   ],
   "/notes/2023/buildkite-concurrency-gates/": [
@@ -26,7 +26,7 @@
   "/notes/2024/close-responses-to-close-send-file/": [
     "/close-responses-to-close-send-file/"
   ],
-  "/til/2023/convert-between-m-ids-and-filenames/": [
+  "/notes/2023/convert-between-m-ids-and-filenames/": [
     "/convert-between-m-ids-and-filenames/"
   ],
   "/notes/2024/count-only-counts-non-null-values/": [
@@ -38,7 +38,7 @@
   "/notes/2024/create-a-sticky-bottom-footer/": [
     "/create-a-sticky-bottom-footer/"
   ],
-  "/til/2024/create-flag-emojis-for-countries/": [
+  "/notes/2024/create-flag-emojis-for-countries/": [
     "/create-flag-emojis-for-countries/"
   ],
   "/notes/2024/custom-error-pages-in-flask/": [
@@ -50,19 +50,19 @@
   "/notes/2024/exclude-files-from-time-machine-with-tmutil/": [
     "/exclude-files-from-time-machine-with-tmutil/"
   ],
-  "/til/2023/find-files-with-sdc-fields/": [
+  "/notes/2023/find-files-with-sdc-fields/": [
     "/find-files-with-sdc-fields/"
   ],
   "/notes/2024/get-boto3-session/": [
     "/get-boto3-session/"
   ],
-  "/til/2024/get-netlify-usage-from-api/": [
+  "/notes/2024/get-netlify-usage-from-api/": [
     "/get-netlify-usage-from-api/"
   ],
   "/notes/2024/gracefully-restart-a-gunicorn-app/": [
     "/gracefully-restart-a-gunicorn-app/"
   ],
-  "/til/2024/how-to-check-when-a-cert-expires/": [
+  "/notes/2024/how-to-check-when-a-cert-expires/": [
     "/how-to-check-when-a-cert-expires/"
   ],
   "/notes/2023/resumable-downloads-with-curl/": [
@@ -74,7 +74,7 @@
   "/notes/2024/how-to-render-svgs-on-github/": [
     "/how-to-render-svgs-on-github/"
   ],
-  "/til/2024/image-function-to-insert-images/": [
+  "/notes/2024/image-function-to-insert-images/": [
     "/image-function-to-insert-images/"
   ],
   "/notes/2023/live-text-is-hyphenation-aware/": [
@@ -83,16 +83,16 @@
   "/notes/2024/longest-common-suffix/": [
     "/longest-common-suffix/"
   ],
-  "/til/2024/manage-mp3-metadata-with-eyed3/": [
+  "/notes/2024/manage-mp3-metadata-with-eyed3/": [
     "/manage-mp3-metadata-with-eyed3/"
   ],
-  "/til/2023/manipulate-albums/": [
+  "/notes/2023/manipulate-albums/": [
     "/manipulate-albums/"
   ],
-  "/til/2024/mastodon-retrying/": [
+  "/notes/2024/mastodon-retrying/": [
     "/mastodon-retrying/"
   ],
-  "/til/2024/offline-geo-lookups-of-ip-addresses/": [
+  "/notes/2024/offline-geo-lookups-of-ip-addresses/": [
     "/offline-geo-lookups-of-ip-addresses/"
   ],
   "/notes/2024/open-can-ask-questions/": [
@@ -101,7 +101,7 @@
   "/notes/2024/pausing-svg-animation-varies-across-browsers/": [
     "/pausing-svg-animation-varies-across-browsers/"
   ],
-  "/til/2024/photos-can-have-orientation-in-exif/": [
+  "/notes/2024/photos-can-have-orientation-in-exif/": [
     "/photos-can-have-orientation-in-exif/"
   ],
   "/notes/2023/profiling-swift/": [
@@ -116,7 +116,7 @@
   "/notes/2024/running-the-netlify-cli-in-github-actions/": [
     "/running-the-netlify-cli-in-github-actions/"
   ],
-  "/til/2024/send-if-modified-since-with-httpx/": [
+  "/notes/2024/send-if-modified-since-with-httpx/": [
     "/send-if-modified-since-with-httpx/"
   ],
   "/notes/2024/simulate-pipes-with-subprocess/": [
@@ -134,7 +134,7 @@
   "/notes/2024/style-a-details-element/": [
     "/style-a-details-element/"
   ],
-  "/til/2024/tables-and-links-in-obsidian/": [
+  "/notes/2024/tables-and-links-in-obsidian/": [
     "/tables-and-links-in-obsidian/"
   ],
   "/notes/2024/tally-combinations-of-columns/": [
@@ -161,22 +161,22 @@
   "/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/": [
     "/use-the-raw-tag-to-describe-liquid-in-liquid/"
   ],
-  "/til/2023/use-unicode-property-escapes-to-find-emoji/": [
+  "/notes/2023/use-unicode-property-escapes-to-find-emoji/": [
     "/use-unicode-property-escapes-to-find-emoji/"
   ],
   "/notes/2024/verbose-deletions-with-rm/": [
     "/verbose-deletions-with-rm/"
   ],
-  "/til/2024/what-happens-when-you-replace-a-photo/": [
+  "/notes/2024/what-happens-when-you-replace-a-photo/": [
     "/what-happens-when-you-replace-a-photo/"
   ],
-  "/til/2023/what-is-a-snak/": [
+  "/notes/2023/what-is-a-snak/": [
     "/what-is-a-snak/"
   ],
-  "/til/2024/wmc-allowed-title-characters/": [
+  "/notes/2024/wmc-allowed-title-characters/": [
     "/wmc-allowed-title-characters/"
   ],
-  "/til/2023/woe-means-where-on-earth/": [
+  "/notes/2023/woe-means-where-on-earth/": [
     "/woe-means-where-on-earth/"
   ],
   "/notes/2024/wordpress-urls-to-monitor/": [

@@ -31,4 +31,4 @@ curl "$url" \
 
 If I only want to follow a single redirect, I can add the [`--max-redirs` flag](https://curl.se/docs/manpage.html#--max-redirs).
 
-As I was writing this command, I had a vague memory of the `--write-out` flag -- it's one of Daniel Stenberg's  ["personal favourites"](https://daniel.haxx.se/blog/2023/08/01/curl-write-out-to-files/) and I wrote about using it in [a TIL in May](/til/2024/get-info-about-curl-download/).
+As I was writing this command, I had a vague memory of the `--write-out` flag -- it's one of Daniel Stenberg's  ["personal favourites"](https://daniel.haxx.se/blog/2023/08/01/curl-write-out-to-files/) and I wrote about using it in [a note in May](/notes/2024/get-info-about-curl-download/).

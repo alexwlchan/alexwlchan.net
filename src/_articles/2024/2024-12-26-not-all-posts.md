@@ -141,7 +141,7 @@ This clarity means I can write TILs very quickly, and now I feel comfortable tak
 This article was in draft for over two months -- it took me a long time to find a flow and structure that I liked, and it's improved so much from my first outline.
 
 [articles]: /articles/
-[til]: /til/
+[til]: /notes/
 [Simon Willison]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
 [Julia Evans]: https://jvns.ca/blog/2024/11/09/new-microblog/
 

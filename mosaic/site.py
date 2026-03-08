@@ -28,7 +28,6 @@ from .page_types import (
     BookReview,
     Note,
     Page,
-    TodayILearned,
     read_markdown_files,
 )
 from .templates import get_jinja_environment
@@ -255,12 +254,7 @@ class Site(BaseModel):
         #
         # This must occur after generating the pages, so the `html_content`
         # attribute is populated.
-        self.generate_rss_feeds(
-            env,
-            self.articles,
-            self.notes,
-            tils=[p for p in self.pages if isinstance(p, TodayILearned)],
-        )
+        self.generate_rss_feeds(env, self.articles, self.notes)
 
         # Clean up HTML files that weren't written as part of this build;
         # this usually indicates a renamed or deleted page.
@@ -350,7 +344,6 @@ class Site(BaseModel):
         env: Environment,
         articles: list[Article],
         notes: list[Note],
-        tils: list[TodayILearned],
     ) -> None:
         """
         Generate the RSS feeds for the site.
@@ -359,6 +352,6 @@ class Site(BaseModel):
         atom_xml = atom_template.render(articles=articles)
         (self.out_dir / "atom.xml").write_text(atom_xml)
 
-        til_atom_template = env.get_template("til_atom.xml")
-        til_atom_xml = til_atom_template.render(tils=notes + tils)
-        (self.out_dir / "til/atom.xml").write_text(til_atom_xml)
+        notes_atom_template = env.get_template("notes_atom.xml")
+        notes_atom_xml = notes_atom_template.render(notes=notes)
+        (self.out_dir / "notes/atom.xml").write_text(notes_atom_xml)

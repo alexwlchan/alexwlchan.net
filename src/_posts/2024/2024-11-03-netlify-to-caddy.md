@@ -145,7 +145,7 @@ Everything seems to have migrated correctly.
 Yay!
 
 It's nice to be back running a proper web server, and not trying to shoehorn everything into Netlify's more limited config model.
-When it's more settled, I'll wrote some [today I learned](/til/) posts about my Caddy config, so there are more examples of Caddyfiles in search results.
+When it's more settled, I'll wrote [some notes](/notes/) about my Caddy config, so there are more examples of Caddyfiles in search results.
 
 Running my own web server is definitely smoother than the last time I tried it.
 The near-universal deployment of HTTPS is broadly a good thing, but it introduced some friction for a while.

@@ -512,10 +512,6 @@
   "/2019/listing-s3-keys/": [
     "/2019/07/listing-s3-keys/"
   ],
-  "/2019/the-curb-cut-effect": [
-    "/2019/monki-gras-the-curb-cut-effect/",
-    "/2019/01/monki-gras-the-curb-cut-effect/"
-  ],
   "/2019/my-scanning-setup/": [
     "/2019/11/my-scanning-setup/"
   ],
@@ -564,6 +560,10 @@
   ],
   "/2019/ten-braille-facts/": [
     "/2019/07/ten-braille-facts/"
+  ],
+  "/2019/the-curb-cut-effect": [
+    "/2019/monki-gras-the-curb-cut-effect/",
+    "/2019/01/monki-gras-the-curb-cut-effect/"
   ],
   "/2019/triangular-coordinates-in-svg/": [
     "/2019/09/triangular-coordinates-in-svg/"
@@ -1043,6 +1043,9 @@
   "/a-plumbers-guide-to-git/4-refs-and-branches/": [
     "/a-plumbers-guide-to-git/4/"
   ],
+  "/applescript/": [
+    "/systems/applescript/"
+  ],
   "/articles/": [
     "/2012/",
     "/2012/12/",
@@ -1172,6 +1175,32 @@
     "/posts/",
     "/writing/"
   ],
+  "/aws/": [
+    "/systems/aws/"
+  ],
+  "/blogging/": [
+    "/personal-thoughts/blogging/",
+    "/systems/blogging/"
+  ],
+  "/build-systems/": [
+    "/systems/build-systems/"
+  ],
+  "/computers-and-code/": [
+    "/computers/",
+    "/systems/"
+  ],
+  "/css/": [
+    "/systems/css/"
+  ],
+  "/datetime-shenanigans/": [
+    "/systems/datetime-shenanigans/"
+  ],
+  "/docker/": [
+    "/systems/docker/"
+  ],
+  "/error-messages/": [
+    "/systems/error-messages/"
+  ],
   "/files/2013/find_untagged_posts.py": [
     "/files/find_untagged_posts.py",
     "/files/untagged-posts.py"
@@ -1281,6 +1310,18 @@
   "/fun-stuff/looped-squares/": [
     "/files/2024/looped_squares.html",
     "/files/2024/looped_squares/"
+  ],
+  "/git/": [
+    "/systems/git/"
+  ],
+  "/go/": [
+    "/systems/go/"
+  ],
+  "/html/": [
+    "/systems/html/"
+  ],
+  "/images-and-videos/": [
+    "/systems/images-and-videos/"
   ],
   "/images/2014/P8050559.jpg": [
     "/images/2014/standing_desk.jpg"
@@ -2192,114 +2233,6 @@
   "/images/2018/suspicious-minds/slide9.png": [
     "/slides/suspicious-minds/suspicious-minds.009.png"
   ],
-  "/images/2019/the-curb-cut-effect/slide1.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide1.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.001.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide10.png": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide10.png",
-    "/slides/curbcut_monkigras/curbcut_monkigras.010.png"
-  ],
-  "/images/2019/the-curb-cut-effect/slide11.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide11.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.011.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide12.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide12.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.012.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide13.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide13.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.013.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide14.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide14.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.014.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide15.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide15.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.015.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide16.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide16.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.016.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide17.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide17.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.017.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide18.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide18.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.018.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide19.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide19.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.019.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide2.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide2.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.002.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide20.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide20.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.020.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide21.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide21.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.021.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide23.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide23.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.023.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide23.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide24.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.024.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide24.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide25.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.025.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide25.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide26.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.026.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide26.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide27.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.027.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide27.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide28.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.028.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide28.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide3.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.003.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide4.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide4.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.004.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide5.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide5.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.005.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide6.jpg": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide6.jpg",
-    "/slides/curbcut_monkigras/curbcut_monkigras.006.jpg"
-  ],
-  "/images/2019/the-curb-cut-effect/slide7.png": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide7.png",
-    "/slides/curbcut_monkigras/curbcut_monkigras.007.png"
-  ],
-  "/images/2019/the-curb-cut-effect/slide8.png": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide8.png",
-    "/slides/curbcut_monkigras/curbcut_monkigras.008.png"
-  ],
-  "/images/2019/the-curb-cut-effect/slide9.png": [
-    "/images/2019/monki-gras-the-curb-cut-effect/slide9.png",
-    "/slides/curbcut_monkigras/curbcut_monkigras.009.png"
-  ],
   "/images/2019/sans-io-programming/slide1.jpg": [
     "/slides/sans_io/sans_io.001.jpg"
   ],
@@ -2396,6 +2329,110 @@
   "/images/2019/sans-io-programming/slide9.jpg": [
     "/slides/sans_io/sans_io.009.jpg"
   ],
+  "/images/2019/the-curb-cut-effect/slide1.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide1.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.001.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide10.png": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide10.png",
+    "/slides/curbcut_monkigras/curbcut_monkigras.010.png"
+  ],
+  "/images/2019/the-curb-cut-effect/slide11.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide11.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.011.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide12.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide12.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.012.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide13.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide13.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.013.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide14.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide14.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.014.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide15.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide15.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.015.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide16.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide16.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.016.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide17.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide17.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.017.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide18.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide18.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.018.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide19.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide19.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.019.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide2.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide2.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.002.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide20.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide20.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.020.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide21.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide21.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.021.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide23.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide24.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.024.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide24.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide25.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.025.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide25.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide26.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.026.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide26.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide27.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.027.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide27.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide28.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.028.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide28.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide3.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.003.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide4.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide4.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.004.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide5.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide5.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.005.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide6.jpg": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide6.jpg",
+    "/slides/curbcut_monkigras/curbcut_monkigras.006.jpg"
+  ],
+  "/images/2019/the-curb-cut-effect/slide7.png": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide7.png",
+    "/slides/curbcut_monkigras/curbcut_monkigras.007.png"
+  ],
+  "/images/2019/the-curb-cut-effect/slide8.png": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide8.png",
+    "/slides/curbcut_monkigras/curbcut_monkigras.008.png"
+  ],
+  "/images/2019/the-curb-cut-effect/slide9.png": [
+    "/images/2019/monki-gras-the-curb-cut-effect/slide9.png",
+    "/slides/curbcut_monkigras/curbcut_monkigras.009.png"
+  ],
   "/images/2020/inclusion-cant-be-an-afterthought/slide1.png": [
     "/slides/ols_afterthought/ols_afterthought.001.png"
   ],
@@ -2465,7 +2502,24 @@
   "/images/projects/pyconuk-speaking.jpg": [
     "/images/pyconuk-speaking.jpg"
   ],
+  "/interesting-words/": [
+    "/world/words/"
+  ],
+  "/javascript/": [
+    "/systems/javascript/"
+  ],
+  "/jq/": [
+    "/systems/jq/",
+    "/tags/jq/"
+  ],
+  "/macos/": [
+    "/systems/macos/"
+  ],
+  "/notes/atom.xml": [
+    "/til/atom.xml"
+  ],
   "/notes/": [
+    "/notes/2013/",
     "/notes/2014/",
     "/notes/2016/",
     "/notes/2018/",
@@ -2476,7 +2530,24 @@
     "/notes/2023/",
     "/notes/2024/",
     "/notes/2025/",
-    "/notes/2026/"
+    "/notes/2026/",
+    "/til/",
+    "/til/2026/",
+    "/til/2025/",
+    "/til/2024/",
+    "/til/2023/",
+    "/til/2022/",
+    "/til/2021/",
+    "/til/2020/",
+    "/til/2019/",
+    "/til/2018/",
+    "/til/2016/",
+    "/til/2013/"
+  ],
+  "/notes/2013/rss-podcasts-tumblr/": [
+    "/til/2013/rss-podcasts-tumblr/",
+    "/2013/rss-podcasts-tumblr/",
+    "/2013/05/rss-podcasts-tumblr/"
   ],
   "/notes/2014/custom-css-resophnotes/": [
     "/2014/custom-css-resophnotes/",
@@ -2492,8 +2563,20 @@
   "/notes/2016/shutil-which/": [
     "/til/2016/shutil-which/"
   ],
+  "/notes/2016/tricity-sie454-clock/": [
+    "/til/2016/tricity-sie454-clock/",
+    "/2016/tricity-sie454-clock/",
+    "/2016/10/tricity-sie454-clock/",
+    "/notes/tricity-sie454-clock/"
+  ],
   "/notes/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing/": [
     "/til/2016/why-does-hypothesis-try-the-same-example-three-times-before-failing/"
+  ],
+  "/notes/2016/worcester-28cdi-clock/": [
+    "/til/2016/worcester-28cdi-clock/",
+    "/2016/worcester-28cdi-clock/",
+    "/2016/10/worcester-28cdi-clock/",
+    "/notes/worcester-28cdi-clock/"
   ],
   "/notes/2018/compact-json-with-python/": [
     "/til/2018/create-compact-json-with-python/"
@@ -2502,11 +2585,13 @@
     "/2018/finatra-404/",
     "/2018/10/finatra-404/"
   ],
-  "/notes/2018/replace-parts-of-an-image/": [
-    "/til/2018/replace-parts-of-an-image/"
+  "/notes/2018/git-force-with-lease/": [
+    "/til/2018/using-force-with-lease/"
   ],
-  "/notes/2018/suppress-rdoc-ri-docs-with-gem-install/": [
-    "/til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/"
+  "/notes/2018/horstmann-electric-7/": [
+    "/til/2018/horstmann-electric-7/",
+    "/2018/horstmann-electric-7/",
+    "/2018/10/horstmann-electric-7/"
   ],
   "/notes/2018/list-all-git-object-ids-and-their-type/": [
     "/til/2018/list-all-git-object-ids-and-their-type/"
@@ -2514,14 +2599,23 @@
   "/notes/2018/non-str-repr-is-typeerror/": [
     "/til/2018/non-str-repr-is-typeerror/"
   ],
-  "/notes/2018/git-force-with-lease/": [
-    "/til/2018/using-force-with-lease/"
+  "/notes/2018/replace-parts-of-an-image/": [
+    "/til/2018/replace-parts-of-an-image/"
+  ],
+  "/notes/2018/suppress-rdoc-ri-docs-with-gem-install/": [
+    "/til/2018/how-to-suppress-installing-rdoc-ri-docs-when-running-gem-install/"
   ],
   "/notes/2018/xargs-for-parallel-processing/": [
     "/til/2018/xargs-for-parallel-processing/"
   ],
   "/notes/2019/github-set-co-commit-credit-with-co-authored-by/": [
     "/til/2019/github-set-co-commit-credit-with-co-authored-by/"
+  ],
+  "/notes/2019/how-do-dreamwidth-post-ids-increment/": [
+    "/til/2019/how-do-dreamwidth-post-ids-increment/"
+  ],
+  "/notes/2019/http-the-content-disposition-header/": [
+    "/til/2019/http-the-content-disposition-header/"
   ],
   "/notes/2019/installing-mimetype-on-alpine-linux/": [
     "/til/2019/installing-mimetype-on-alpine-linux/"
@@ -2535,6 +2629,9 @@
   "/notes/2019/scanamo-conditional-updates-on-nested-fields/": [
     "/til/2019/scanamo-conditional-updates-on-nested-fields/"
   ],
+  "/notes/2019/transportapi/": [
+    "/til/2019/transportapi/"
+  ],
   "/notes/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/": [
     "/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/",
     "/2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/"
@@ -2547,6 +2644,9 @@
   "/notes/2021/calliope-syndrome/": [
     "/til/2021/calliope-syndrome/"
   ],
+  "/notes/2022/how-to-use-hex-colours-with-the-palette-crate/": [
+    "/til/2022/how-to-use-hex-colours-with-the-palette-crate/"
+  ],
   "/notes/2022/print-sbt/": [
     "/til/2022/print-sbt/",
     "/2022/print-sbt/",
@@ -2555,18 +2655,42 @@
   "/notes/2023/buildkite-concurrency-gates/": [
     "/til/2023/buildkite-concurrency-gates/"
   ],
+  "/notes/2023/canonical-mastodon-posts/": [
+    "/til/2023/canonical-mastodon-posts/"
+  ],
+  "/notes/2023/convert-between-m-ids-and-filenames/": [
+    "/til/2023/convert-between-m-ids-and-filenames/"
+  ],
+  "/notes/2023/find-files-with-sdc-fields/": [
+    "/til/2023/find-files-with-sdc-fields/"
+  ],
   "/notes/2023/live-text-is-hyphenation-aware/": [
     "/til/2023/live-text-is-hyphenation-aware/"
+  ],
+  "/notes/2023/manipulate-albums/": [
+    "/til/2023/manipulate-albums/"
   ],
   "/notes/2023/mechanize-ssl/": [
     "/til/2023/mechanize-ssl/",
     "/2023/mechanize-ssl/"
+  ],
+  "/notes/2023/prefer-xml-in-the-wikimedia-apis/": [
+    "/til/2023/prefer-xml-in-the-wikimedia-apis/"
   ],
   "/notes/2023/profiling-swift/": [
     "/til/2023/profiling-swift/"
   ],
   "/notes/2023/resumable-downloads-with-curl/": [
     "/til/2023/how-to-do-resumable-downloads/"
+  ],
+  "/notes/2023/use-unicode-property-escapes-to-find-emoji/": [
+    "/til/2023/use-unicode-property-escapes-to-find-emoji/"
+  ],
+  "/notes/2023/what-is-a-snak/": [
+    "/til/2023/what-is-a-snak/"
+  ],
+  "/notes/2023/woe-means-where-on-earth/": [
+    "/til/2023/woe-means-where-on-earth/"
   ],
   "/notes/2024/animate-svg-elements-with-animate/": [
     "/til/2024/animate-svg-elements-with-animate/"
@@ -2576,6 +2700,9 @@
   ],
   "/notes/2024/beware-of-test-n-with-command-expansion/": [
     "/til/2024/beware-of-test-n-with-command-expansion/"
+  ],
+  "/notes/2024/block-specific-ip-addresses/": [
+    "/til/2024/block-specific-ip-addresses/"
   ],
   "/notes/2024/build-query-string-with-curl/": [
     "/til/2024/build-query-string-with-curl/"
@@ -2589,6 +2716,9 @@
   "/notes/2024/convert-an-animated-gif-to-mp4/": [
     "/til/2024/convert-an-animated-gif-to-mp4/"
   ],
+  "/notes/2024/count-discord-messages/": [
+    "/til/2024/count-discord-messages/"
+  ],
   "/notes/2024/count-only-counts-non-null-values/": [
     "/til/2024/count-only-counts-non-null-values/"
   ],
@@ -2597,6 +2727,12 @@
   ],
   "/notes/2024/create-a-sticky-bottom-footer/": [
     "/til/2024/create-a-sticky-bottom-footer/"
+  ],
+  "/notes/2024/create-flag-emojis-for-countries/": [
+    "/til/2024/create-flag-emojis-for-countries/"
+  ],
+  "/notes/2024/create-image-placeholders/": [
+    "/til/2024/create-image-placeholders/"
   ],
   "/notes/2024/curl-redirect-target/": [
     "/til/2024/curl-redirect-target/"
@@ -2610,6 +2746,9 @@
   "/notes/2024/debugging-find-and-xargs/": [
     "/til/2024/debugging-find-and-xargs/"
   ],
+  "/notes/2024/deleted-file-on-wikimedia-commons/": [
+    "/til/2024/deleted-file-on-wikimedia-commons/"
+  ],
   "/notes/2024/detect-tty-in-rust/": [
     "/til/2024/detect-tty-in-rust/"
   ],
@@ -2618,6 +2757,9 @@
   ],
   "/notes/2024/dollar-underscore-bash/": [
     "/til/2024/dollar-underscore-bash/"
+  ],
+  "/notes/2024/editing-filename-in-finder-converts-to-nfd/": [
+    "/til/2024/editing-filename-in-finder-converts-to-nfd/"
   ],
   "/notes/2024/errexit-and-arithmetic-expressions/": [
     "/til/2024/errexit-and-arithmetic-expressions/"
@@ -2628,23 +2770,47 @@
   "/notes/2024/exclusive-file-write-in-swift/": [
     "/til/2024/how-to-do-exclusive-file-write-in-swift/"
   ],
-  "/notes/2024/expiry-date-of-https-certificate/": [
-    "/til/2024/expiry-date-of-https-certificate/"
-  ],
   "/notes/2024/expiry-date-of-https-certificate-ruby/": [
     "/til/2024/expiry-date-of-https-certificate-ruby/"
+  ],
+  "/notes/2024/expiry-date-of-https-certificate/": [
+    "/til/2024/expiry-date-of-https-certificate/"
   ],
   "/notes/2024/find-apple-system-icons/": [
     "/til/2024/find-apple-system-icons/"
   ],
+  "/notes/2024/find-biggest-backblaze-files/": [
+    "/til/2024/find-biggest-backblaze-files/"
+  ],
   "/notes/2024/find-shortest-prefix-ruby/": [
     "/til/2024/find-shortest-prefix-ruby/"
+  ],
+  "/notes/2024/flickr-tag-name/": [
+    "/til/2024/flickr-tag-name/"
+  ],
+  "/notes/2024/flickr-user-email-address/": [
+    "/til/2024/flickr-user-email-address/"
+  ],
+  "/notes/2024/flickr-visibility-flags/": [
+    "/til/2024/flickr-visibility-flags/"
+  ],
+  "/notes/2024/get-artwork-from-an-mp3-file/": [
+    "/til/2024/get-artwork-from-an-mp3-file/"
   ],
   "/notes/2024/get-boto3-session/": [
     "/til/2024/get-boto3-session/"
   ],
+  "/notes/2024/get-hex-colour-as-clap-argument/": [
+    "/til/2024/get-hex-colour-as-clap-argument/"
+  ],
   "/notes/2024/get-image-from-a-video/": [
     "/til/2024/get-image-from-a-video/"
+  ],
+  "/notes/2024/get-info-about-curl-download/": [
+    "/til/2024/get-info-about-curl-download/"
+  ],
+  "/notes/2024/get-netlify-usage-from-api/": [
+    "/til/2024/get-netlify-usage-from-api/"
   ],
   "/notes/2024/get-selected-finder-items/": [
     "/til/2024/get-selected-finder-items/"
@@ -2655,6 +2821,9 @@
   "/notes/2024/gracefully-restart-a-gunicorn-app/": [
     "/til/2024/gracefully-restart-a-gunicorn-app/"
   ],
+  "/notes/2024/how-to-check-when-a-cert-expires/": [
+    "/til/2024/how-to-check-when-a-cert-expires/"
+  ],
   "/notes/2024/how-to-highlight-python-console-in-jekyll/": [
     "/til/2024/how-to-highlight-python-console-in-jekyll/"
   ],
@@ -2664,8 +2833,17 @@
   "/notes/2024/how-to-render-svgs-on-github/": [
     "/til/2024/how-to-render-svgs-on-github/"
   ],
+  "/notes/2024/how-to-see-pywikibot-http-requests/": [
+    "/til/2024/how-to-see-pywikibot-http-requests/"
+  ],
+  "/notes/2024/html-equivalent/": [
+    "/til/2024/html-equivalent/"
+  ],
   "/notes/2024/hyperlink-errors/": [
     "/til/2024/hyperlink-errors/"
+  ],
+  "/notes/2024/image-function-to-insert-images/": [
+    "/til/2024/image-function-to-insert-images/"
   ],
   "/notes/2024/inline-svg-in-css/": [
     "/til/2024/inline-svg-in-css/"
@@ -2673,11 +2851,11 @@
   "/notes/2024/inside-a-safari-webarchive/": [
     "/til/2024/whats-inside-safari-webarchive/"
   ],
-  "/notes/2024/install-from-github-releases/": [
-    "/til/2024/install-from-github-releases/"
-  ],
   "/notes/2024/insomnolent/": [
     "/til/2024/insomnolent/"
+  ],
+  "/notes/2024/install-from-github-releases/": [
+    "/til/2024/install-from-github-releases/"
   ],
   "/notes/2024/limits-on-visited-styles/": [
     "/til/2024/limits-on-visited-styles/"
@@ -2688,11 +2866,20 @@
   "/notes/2024/longest-common-suffix/": [
     "/til/2024/longest-common-suffix/"
   ],
+  "/notes/2024/manage-mp3-metadata-with-eyed3/": [
+    "/til/2024/manage-mp3-metadata-with-eyed3/"
+  ],
+  "/notes/2024/mastodon-retrying/": [
+    "/til/2024/mastodon-retrying/"
+  ],
   "/notes/2024/minutes-in-a-year/": [
     "/til/2024/minutes-in-a-year/"
   ],
   "/notes/2024/not-all-coal-is-the-same/": [
     "/til/2024/not-all-coal-is-the-same/"
+  ],
+  "/notes/2024/offline-geo-lookups-of-ip-addresses/": [
+    "/til/2024/offline-geo-lookups-of-ip-addresses/"
   ],
   "/notes/2024/open-can-ask-questions/": [
     "/til/2024/open-can-ask-questions/"
@@ -2703,6 +2890,9 @@
   "/notes/2024/pausing-svg-animation-varies-across-browsers/": [
     "/til/2024/pausing-svg-animation-varies-across-browsers/"
   ],
+  "/notes/2024/photos-can-have-orientation-in-exif/": [
+    "/til/2024/photos-can-have-orientation-in-exif/"
+  ],
   "/notes/2024/regex-library-for-unicode-property-escapes/": [
     "/til/2024/regex-library-for-unicode-property-escapes/"
   ],
@@ -2712,11 +2902,20 @@
   "/notes/2024/reset-match-anchor-in-ruby/": [
     "/til/2024/reset-match-anchor-in-ruby/"
   ],
+  "/notes/2024/reverse-proxy-caddy/": [
+    "/til/2024/reverse-proxy-caddy/"
+  ],
   "/notes/2024/run-random-subset-of-tests-in-pytest/": [
     "/til/2024/run-random-subset-of-tests-in-pytest/"
   ],
   "/notes/2024/running-the-netlify-cli-in-github-actions/": [
     "/til/2024/running-the-netlify-cli-in-github-actions/"
+  ],
+  "/notes/2024/send-if-modified-since-with-httpx/": [
+    "/til/2024/send-if-modified-since-with-httpx/"
+  ],
+  "/notes/2024/shuffle-an-array-in-jekyll/": [
+    "/til/2024/shuffle-an-array-in-jekyll/"
   ],
   "/notes/2024/simulate-a-readerror-54-connection-reset/": [
     "/til/2024/simulate-a-readerror-54-connection-reset/"
@@ -2727,14 +2926,17 @@
   "/notes/2024/sort-dom-elements-with-appendchild/": [
     "/til/2024/sort-dom-elements-with-appendchild/"
   ],
-  "/notes/2024/sqlite3-context-manager-doesnt-close-connections/": [
-    "/til/2024/sqlite3-context-manager-doesnt-close-connections/"
-  ],
   "/notes/2024/sqlite-to-csv-tally/": [
     "/til/2024/sqlite-to-csv-tally/"
   ],
+  "/notes/2024/sqlite3-context-manager-doesnt-close-connections/": [
+    "/til/2024/sqlite3-context-manager-doesnt-close-connections/"
+  ],
   "/notes/2024/style-a-details-element/": [
     "/til/2024/style-a-details-element/"
+  ],
+  "/notes/2024/tables-and-links-in-obsidian/": [
+    "/til/2024/tables-and-links-in-obsidian/"
   ],
   "/notes/2024/take-a-wayback-machine-screenshot/": [
     "/til/2024/take-a-wayback-machine-screenshot/"
@@ -2754,12 +2956,6 @@
   "/notes/2024/use-n-to-avoid-overwriting/": [
     "/til/2024/use-n-to-avoid-overwriting/"
   ],
-  "/notes/2024/use-the-capture-tag-for-complex-strings/": [
-    "/til/2024/use-the-capture-tag-for-complex-strings/"
-  ],
-  "/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/": [
-    "/til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/"
-  ],
   "/notes/2024/use-rsync-and-passwordless-sudo/": [
     "/til/2024/use-rsync-and-passwordless-sudo/"
   ],
@@ -2769,12 +2965,24 @@
   "/notes/2024/use-sqlite-utils-to-convert-csv-to-sqlite/": [
     "/til/2024/use-sqlite-utils-to-convert-csv-to-sqlite/"
   ],
+  "/notes/2024/use-the-capture-tag-for-complex-strings/": [
+    "/til/2024/use-the-capture-tag-for-complex-strings/"
+  ],
+  "/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/": [
+    "/til/2024/use-the-raw-tag-to-describe-liquid-in-liquid/"
+  ],
   "/notes/2024/verbose-deletions-with-rm/": [
     "/til/2024/verbose-deletions-with-rm/",
     "/til/2025/rm-verbose/"
   ],
+  "/notes/2024/what-happens-when-you-replace-a-photo/": [
+    "/til/2024/what-happens-when-you-replace-a-photo/"
+  ],
   "/notes/2024/why-cant-i-eject-a-disk/": [
     "/til/2024/why-cant-i-eject-a-disk/"
+  ],
+  "/notes/2024/wmc-allowed-title-characters/": [
+    "/til/2024/wmc-allowed-title-characters/"
   ],
   "/notes/2024/wordpress-urls-to-monitor/": [
     "/til/2024/wordpress-urls-to-monitor/"
@@ -2787,6 +2995,9 @@
   ],
   "/notes/2025/access-nested-fields-in-typeddict/": [
     "/til/2025/access-nested-fields-in-typeddict/"
+  ],
+  "/notes/2025/add-cover-to-epub-file/": [
+    "/til/2025/add-cover-to-epub-file/"
   ],
   "/notes/2025/add-str-to-tarfile/": [
     "/til/2025/add-str-to-tarfile/"
@@ -2808,6 +3019,9 @@
   ],
   "/notes/2025/bitly-deletes-inactive-accounts/": [
     "/til/2025/bitly-deletes-inactive-accounts/"
+  ],
+  "/notes/2025/block-by-ip-address-caddy/": [
+    "/til/2025/block-by-ip-address-caddy/"
   ],
   "/notes/2025/bluesky-avatar-url/": [
     "/til/2025/bluesky-avatar-url/"
@@ -2866,23 +3080,35 @@
   "/notes/2025/f-string-equals/": [
     "/til/2025/f-string-equals/"
   ],
+  "/notes/2025/find-content-opf-in-epub/": [
+    "/til/2025/find-content-opf-in-epub/"
+  ],
+  "/notes/2025/flickr-license-history/": [
+    "/til/2025/flickr-license-history/"
+  ],
+  "/notes/2025/flickr-photosof/": [
+    "/til/2025/flickr-photosof/"
+  ],
+  "/notes/2025/flickr-video-sizes/": [
+    "/til/2025/flickr-video-sizes/"
+  ],
+  "/notes/2025/ftfy-fix-and-explain/": [
+    "/til/2025/ftfy-fix-and-explain/"
+  ],
   "/notes/2025/get-folder-icon/": [
     "/til/2025/get-folder-icon/"
-  ],
-  "/notes/2025/get-python-traceback-as-string/": [
-    "/til/2025/get-python-traceback-as-string/"
   ],
   "/notes/2025/get-jq-values-in-array/": [
     "/til/2025/get-jq-values-in-array/"
   ],
-  "/notes/2025/get-video-metadata-from-spotlight/": [
-    "/til/2025/get-video-metadata-from-spotlight/"
+  "/notes/2025/get-python-traceback-as-string/": [
+    "/til/2025/get-python-traceback-as-string/"
   ],
   "/notes/2025/get-video-dimensions-with-mediainfo/": [
     "/til/2025/get-video-dimensions-with-mediainfo/"
   ],
-  "/notes/2025/google-deletes-inactive-accounts/": [
-    "/til/2025/google-deletes-inactive-accounts/"
+  "/notes/2025/get-video-metadata-from-spotlight/": [
+    "/til/2025/get-video-metadata-from-spotlight/"
   ],
   "/notes/2025/go-compiler-spots-division-by-zero/": [
     "/til/2025/go-compiler-spots-division-by-zero/"
@@ -2892,6 +3118,9 @@
   ],
   "/notes/2025/go-test-verbose/": [
     "/til/2025/go-test-verbose/"
+  ],
+  "/notes/2025/google-deletes-inactive-accounts/": [
+    "/til/2025/google-deletes-inactive-accounts/"
   ],
   "/notes/2025/gubernatorial/": [
     "/til/2025/gubernatorial/"
@@ -2916,6 +3145,9 @@
   ],
   "/notes/2025/list-test-names-in-go/": [
     "/til/2025/list-test-names-in-go/"
+  ],
+  "/notes/2025/loading-animation/": [
+    "/til/2025/loading-animation/"
   ],
   "/notes/2025/macos-launchagent-examples/": [
     "/til/2025/macos-launchagent-examples/"
@@ -2944,9 +3176,6 @@
   "/notes/2025/pygments-html-classes/": [
     "/til/2025/pygments-html-classes/"
   ],
-  "/notes/2025/python3-13-sqlite-warnings/": [
-    "/til/2025/python3-13-sqlite-warnings/"
-  ],
   "/notes/2025/python-3-14/": [
     "/til/2025/python-3-14/"
   ],
@@ -2958,6 +3187,9 @@
   ],
   "/notes/2025/python-smartypants/": [
     "/til/2025/python-smartypants/"
+  ],
+  "/notes/2025/python3-13-sqlite-warnings/": [
+    "/til/2025/python3-13-sqlite-warnings/"
   ],
   "/notes/2025/remove-microsecond-precision-in-python/": [
     "/til/2025/remove-microsecond-precision-in-python/"
@@ -3007,32 +3239,20 @@
   "/notes/2025/typing-getargs/": [
     "/til/2025/typing-getargs/"
   ],
-  "/notes/2026/caret-regex-anchor/": [
-    "/til/2026/caret-regex-anchor/"
-  ],
   "/notes/2025/zipstream-to-boto3/": [
     "/til/2025/zipstream-to-boto3/"
+  ],
+  "/notes/2026/caret-regex-anchor/": [
+    "/til/2026/caret-regex-anchor/"
   ],
   "/notes/2026/who-is-bufo/": [
     "/entertainment/who-is-bufo/"
   ],
-  "/aws/": [
-    "/systems/aws/"
+  "/python/": [
+    "/systems/python/"
   ],
-  "/git/": [
-    "/systems/git/"
-  ],
-  "/go/": [
-    "/systems/go/"
-  ],
-  "/scala/": [
-    "/systems/scala/"
-  ],
-  "/javascript/": [
-    "/systems/javascript/"
-  ],
-  "/build-systems/": [
-    "/systems/build-systems/"
+  "/regex/": [
+    "/systems/regex/"
   ],
   "/ruby/": [
     "/systems/ruby/"
@@ -3040,65 +3260,23 @@
   "/rust/": [
     "/systems/rust/"
   ],
-  "/sqlite/": [
-    "/systems/sqlite/"
-  ],
-  "/html/": [
-    "/systems/html/"
-  ],
-  "/software-testing/": [
-    "/systems/software-testing/"
-  ],
-  "/terraform/": [
-    "/systems/terraform/"
-  ],
-  "/images-and-videos/": [
-    "/systems/images-and-videos/"
-  ],
-  "/error-messages/": [
-    "/systems/error-messages/"
-  ],
-  "/jq/": [
-    "/systems/jq/",
-    "/tags/jq/"
-  ],
-  "/docker/": [
-    "/systems/docker/"
-  ],
-  "/python/": [
-    "/systems/python/"
-  ],
-  "/applescript/": [
-    "/systems/applescript/"
-  ],
-  "/swift/": [
-    "/systems/swift/"
-  ],
-  "/css/": [
-    "/systems/css/"
-  ],
-  "/regex/": [
-    "/systems/regex/"
-  ],
-  "/datetime-shenanigans/": [
-    "/systems/datetime-shenanigans/"
+  "/scala/": [
+    "/systems/scala/"
   ],
   "/shell-scripting/": [
     "/systems/shell-scripting/"
   ],
-  "/macos/": [
-    "/systems/macos/"
+  "/software-testing/": [
+    "/systems/software-testing/"
   ],
-  "/windows/": [
-    "/systems/windows/"
+  "/sqlite/": [
+    "/systems/sqlite/"
   ],
-  "/blogging/": [
-    "/personal-thoughts/blogging/",
-    "/systems/blogging/"
+  "/swift/": [
+    "/systems/swift/"
   ],
-  "/computers-and-code/": [
-    "/computers/",
-    "/systems/"
+  "/systems/tailscale/": [
+    "/work/tailscale/"
   ],
   "/tags/": [
     "/tag/"
@@ -3106,36 +3284,11 @@
   "/tags/aws/amazon-s3/": [
     "/tags/amazon-s3/"
   ],
-  "/til/": [
-    "/til/2026/",
-    "/til/2025/",
-    "/til/2024/",
-    "/til/2023/",
-    "/til/2022/",
-    "/til/2021/",
-    "/til/2020/",
-    "/til/2019/",
-    "/til/2018/",
-    "/til/2016/",
-    "/til/2013/"
+  "/terraform/": [
+    "/systems/terraform/"
   ],
-  "/til/2013/rss-podcasts-tumblr/": [
-    "/2013/rss-podcasts-tumblr/",
-    "/2013/05/rss-podcasts-tumblr/"
-  ],
-  "/til/2016/tricity-sie454-clock/": [
-    "/2016/tricity-sie454-clock/",
-    "/2016/10/tricity-sie454-clock/",
-    "/notes/tricity-sie454-clock/"
-  ],
-  "/til/2016/worcester-28cdi-clock/": [
-    "/2016/worcester-28cdi-clock/",
-    "/2016/10/worcester-28cdi-clock/",
-    "/notes/worcester-28cdi-clock/"
-  ],
-  "/til/2018/horstmann-electric-7/": [
-    "/2018/horstmann-electric-7/",
-    "/2018/10/horstmann-electric-7/"
+  "/windows/": [
+    "/systems/windows/"
   ],
   "/work/": [
     "/day-job/"
@@ -3143,13 +3296,7 @@
   "/work/flickr-foundation/": [
     "/digital-preservation/flickr-foundation/"
   ],
-  "/systems/tailscale/": [
-    "/work/tailscale/"
-  ],
   "/work/wellcome-collection/": [
     "/digital-preservation/wellcome-collection/"
-  ],
-  "/interesting-words/": [
-    "/world/words/"
   ]
 }

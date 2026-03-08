@@ -13,7 +13,7 @@ from ._base import BreadcrumbEntry, BaseHtmlPage
 from .articles import Article
 from .book_reviews import BookReview
 from .generic_pages import Page
-from .notes import Note, TodayILearned
+from .notes import Note
 from .topic_pages import TopicPage
 
 
@@ -49,10 +49,6 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
             )
         case "note":
             return Note(
-                src_dir=src_dir, md_path=md_path, content=content, **front_matter
-            )
-        case "til":
-            return TodayILearned(
                 src_dir=src_dir, md_path=md_path, content=content, **front_matter
             )
         case "page":
@@ -96,7 +92,6 @@ __all__ = [
     "BreadcrumbEntry",
     "Note",
     "Page",
-    "TodayILearned",
     "TopicPage",
     "read_markdown_files",
 ]
