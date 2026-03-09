@@ -33,6 +33,24 @@ def test_read_page_from_file(src_dir: Path) -> None:
     assert page.content == "This is my contact page"
 
 
+@pytest.mark.parametrize("topics_yml", ["topic: Python\n", "topics:\n- Python\n"])
+def test_single_topic_can_be_str_or_list(src_dir: Path, topics_yml: str) -> None:
+    """
+    If there's only one topic, it can be expressed as a `topic` string
+    or a one-item list `topics`.
+    """
+    src_dir.mkdir()
+    md_path = src_dir / "example.md"
+
+    md_path.write_text(
+        "---\nlayout: page\n"
+        "title: Example\n" + topics_yml + "---\n" + "This is an example page"
+    )
+
+    page = read_page_from_markdown(src_dir, md_path)
+    assert page.topics == ["Python"]
+
+
 def test_read_article(src_dir: Path) -> None:
     """
     Read an article from Markdown.
