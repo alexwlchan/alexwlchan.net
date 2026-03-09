@@ -325,6 +325,22 @@ def test_pycon_traceback() -> None:
     assert '<span class="gr">ValueError: BOOM!</span>' in html
 
 
+def test_pycon_traceback2() -> None:
+    """
+    Test another case of output in a Python console snippet.
+    """
+    src = (
+        ">>> scotland.flag\n"
+        "Traceback (most recent call last):\n"
+        '  File "<stdin>", line 1, in <module>\n'
+        '  File "db.py", line 17, in __getattr__\n'
+        "    raise AttributeError()\n"
+        "AttributeError\n"
+    )
+    html = apply_syntax_highlighting(src, lang="pycon")
+    assert '<span class="gr">raise AttributeError()</span>' in html
+
+
 def test_pycon_file_is_part_of_error() -> None:
     """
     In a Python console traceback, the "File" line is included in the

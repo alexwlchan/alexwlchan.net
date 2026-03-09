@@ -6,7 +6,6 @@ summary: Is uppercasing then reversing a string the same as reversing and then u
 colors:
   index_light: "#19177C"
   index_dark:  "#514ff3"
-old_syntax_highlighting: true
 topic: Text and Unicode
 ---
 
@@ -53,7 +52,7 @@ I tried a few examples by hand with [combining characters] and didn't get anywhe
 ([Source code](/files/2021/test_for_noncommutative_strings.py))
 It tried a few hundred examples, then stumbled upon a string where uppercasing and reversing don't commute:
 
-```
+```pycon
 >>> 'ﬁ'.upper()[::-1]
 'IF'
 >>> 'ﬁ'[::-1].upper()

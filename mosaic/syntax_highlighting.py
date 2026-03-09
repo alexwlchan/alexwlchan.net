@@ -141,6 +141,11 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             r'<span class="gr">\g<error>: ',
             highlighted_code,
         )
+        highlighted_code = highlighted_code.replace(
+            '<span class="k">raise</span> <span class="ne">AttributeError</span>'
+            '<span class="p">()</span>',
+            '<span class="gr">raise AttributeError()</span>',
+        )
 
     # Python console: unhighlighted lines that start with 'File' in
     # the traceback are gr (Generic.Error).

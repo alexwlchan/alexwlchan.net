@@ -5,7 +5,6 @@ summary: |
   They were deliberately non-sequential as an anti-spam technique.
   It's no longer required, but it's in the codebase now and hasn't been changed since it was written.
 date: 2019-05-11 23:26:38 +01:00
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Dreamwidth
@@ -15,7 +14,7 @@ Dreamwidth IDs (posts, comments) don't increment one-by-one, but via algebraic m
 
 The exact pattern is [something like](https://github.com/dreamwidth/dw-free/blob/2c5f1a9a11efbcf43a9eaa73a6ae43a533ec439d/cgi-bin/DW/Collection.pm#L54):
 
-```
+```perl {"names":{"1":"display_id"}}
 display_id = collection_id * 256 + internal_id
 ```
 

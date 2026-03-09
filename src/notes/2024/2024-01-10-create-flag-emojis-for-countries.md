@@ -2,7 +2,6 @@
 layout: note
 title: How to create flag emojis for countries in Python
 date: 2024-01-10 10:31:11 +00:00
-old_syntax_highlighting: true
 topics:
   - Python
   - Text and Unicode
@@ -12,7 +11,7 @@ topics:
 There's a [pycountry package][pycountry] that provides a Python API for the ISO databases for country information.
 You can get the flags from its API, for example:
 
-```pycon
+```pycon {"names":{"1":"pycountry","2":"germany"}}
 >>> import pycountry
 >>> germany = pycountry.countries.get(alpha_2='DE')
 >>> germany.flag
@@ -22,7 +21,7 @@ You can get the flags from its API, for example:
 Alternatively, flag emojis are constructed from a pair of "regional indicator symbol letters", e.g. the Armenian country code is AM, so the flag emoji is 🇦🇲 = 🇦​🇲.
 You can then construct your flags like so:
 
-```python
+```python {"names":{"1":"get_flag_emoji","2":"country_id","5":"code_point_start","9":"code_points","13":"char"}}
 def get_flag_emoji(country_id: str) -> str:
     code_point_start = ord("🇦") - ord("A")
     assert code_point_start == 127397
@@ -42,12 +41,12 @@ Some countries are subdivisions of other countries, and some of those subdivisio
 
 pycountry doesn't have flags for subdivisions, e.g.
 
-```pycon
+```pycon {"names":{"1":"scotland"}}
 >>> scotland = pycountry.subdivisions.get(code='GB-SCT')
 >>> scotland.flag
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/private/var/folders/_c/h0g4c9_n6rg8d2v509hztzdc0000gn/T/tmp.YhlCEzkg/.venv/lib/python3.12/site-packages/pycountry/db.py", line 17, in __getattr__
+  File "db.py", line 17, in __getattr__
     raise AttributeError()
 AttributeError
 ```
@@ -57,7 +56,7 @@ e.g. the Scottish flag combines black flag, five regional indicator symbols, and
 
 The best approach I've found is to hard-code exceptions for these where necessary:
 
-```python
+```python {"names":{"1":"get_flag_emoji","2":"country_id"}}
 def get_flag_emoji(country_id: str) -> str:
     if country_id == "GB-SCT":
         return "🏴󠁧󠁢󠁳󠁣󠁴󠁿"

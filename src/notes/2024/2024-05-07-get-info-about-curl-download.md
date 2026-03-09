@@ -4,7 +4,6 @@ date: 2024-05-07 20:54:36 +01:00
 title: How to get the filename/size without downloading a file in curl
 summary: |
   You can do some fun stuff with the `--write-out` flag and variables.
-old_syntax_highlighting: true
 topic: Shell scripting
 hidden_topics:
   - HTTP

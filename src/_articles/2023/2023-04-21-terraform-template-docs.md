@@ -7,7 +7,6 @@ colors:
   index_light: "#7B42BC"
   index_dark:  "#af75fa"
 card_attribution: pexels-pixabay-261763.jpg, noun-pencil-5667651-FFFFFF.png
-old_syntax_highlighting: true
 topic: Terraform
 hidden_topics:
   - Documentation
