@@ -12,7 +12,6 @@ colors:
   index_dark:  "#56abdf"
 index:
   feature: true
-old_syntax_highlighting: true
 ---
 
 On a recent [AWS Cost Optimisation Q&A](https://www.youtube.com/watch?t=52m01s&v=Nmyxo68jM2s), Corey Quinn talked about his experiments with [DynamoDB][dynamodb]:

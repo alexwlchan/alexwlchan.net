@@ -6,7 +6,6 @@ summary: My procedure for scanning paper, and organising the scanned PDFs with k
 colors:
   index_light: "#302d2b"
   index_dark:  "#c2904f"
-old_syntax_highlighting: true
 topics:
   - Digital preservation
   - Computers and code
