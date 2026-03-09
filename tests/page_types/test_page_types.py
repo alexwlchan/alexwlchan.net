@@ -10,6 +10,7 @@ import pytest
 from mosaic.page_types import (
     Article,
     BaseHtmlPage,
+    BookReview,
     Page,
     read_page_from_markdown,
 )
@@ -73,6 +74,39 @@ def test_read_article(src_dir: Path) -> None:
     assert page.md_path == md_path
     assert page.title == "My first post"
     assert page.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
+
+
+def test_read_book_review(src_dir: Path) -> None:
+    """
+    Read a book review from Markdown.
+    """
+    src_dir.mkdir()
+    md_path = src_dir / "review.md"
+
+    md_path.write_text(
+        "---\n"
+        "layout: book_review\n"
+        "date: 2001-02-03 04:05:06 +00:00\n"
+        "book:\n"
+        "  title: Example Book\n"
+        "  contributors:\n"
+        "    - name: Jane Smith\n"
+        "  genres:\n"
+        "    - fiction\n"
+        "  publication_year: 2000\n"
+        "review:\n"
+        "  date_read: 2001-02-03\n"
+        "  format: paperback\n"
+        "  rating: 4\n"
+        "---\n"
+        "Some thoughts on the book"
+    )
+
+    page = read_page_from_markdown(src_dir, md_path)
+
+    assert isinstance(page, BookReview)
+    assert page.md_path == md_path
+    assert page.book.title == "Example Book"
 
 
 def test_read_error_includes_filename(src_dir: Path) -> None:
