@@ -124,8 +124,11 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
     # Bash: highlight functions as potential names
     if lang == "bash":
         highlighted_code = re.sub(
-            r'(<pre>|\n)(?P<function_name>[a-z_]+)(<span class="o">\(\)</span>)',
-            r'\1<span class="n">\g<function_name></span>\3',
+            r"(?P<whitespace><pre>|\n)"
+            r'(?P<keyword><span class="k">function</span><span class="w"> </span>)?'
+            r"(?P<name>[a-z_]+)"
+            r'(?P<parens><span class="o">\(\)</span>)',
+            r'\g<whitespace>\g<keyword><span class="n">\g<name></span>\g<parens>',
             highlighted_code,
             flags=re.MULTILINE,
         )

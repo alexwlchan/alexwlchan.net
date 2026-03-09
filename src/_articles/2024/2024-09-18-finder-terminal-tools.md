@@ -6,7 +6,6 @@ summary: A few shell scripts I use to go between the Finder and the Terminal.
 colors:
   index_light: "#565656"
   index_dark:  "#dbe3e9"
-old_syntax_highlighting: true
 topic: macOS
 ---
 Earlier this week, Dr. Drang [wrote a post][drang] about a few automations he uses to go between the Terminal's command line and the Finder's GUI.
@@ -143,7 +142,7 @@ That leaves the file on disk, but gives you a safety net to recover the file unt
 If I want the safety net of the Trash when I'm deleting a file from the Terminal, I could use `ffile` to reveal the file in Finder and delete it from there -- but that's one too many steps.
 Instead, I wrote an AppleScript `trash.scpt` that moves files and folders to the Trash:
 
-```applescript
+```applescript {"names":{"2":"argv","4":"filePath","6":"posixPath"}}
 #!/usr/bin/env osascript
 # Move one or more files to the Trash in macOS.
 #

@@ -2,7 +2,6 @@
 layout: note
 title: Manage MP3 metadata from iTunes with eyed3
 date: 2024-01-12 06:38:34 +00:00
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - eyeD3
@@ -19,7 +18,7 @@ In iTunes, you can set a year for a track: `Get Info` > `Details` > `Year`.
 
 To retrieve this value with eyed3:
 
-```python
+```python {"names":{"1":"eyed3","2":"audiofile"}}
 import eyed3  # 0.9.7
 
 audiofile = eyed3.load("song.mp3")
@@ -34,7 +33,7 @@ The [`getBestDate()` function][getBestDate] is inspecting several ID3 tags; the 
 
 To set this value with eyed3:
 
-```python
+```python {"names":{"1":"eyed3","2":"eyed3","3":"core","4":"Date","5":"audiofile"}}
 import eyed3  # 0.9.7
 from eyed3.core import Date
 
@@ -53,7 +52,7 @@ In iTunes, you can set one or image images as artwork for a track: `Get Info` > 
 
 To retrieve these images with eyed3:
 
-```python
+```python {"names":{"1":"io","2":"eyed3","3":"PIL","4":"Image","5":"audiofile","8":"i","9":"af_image","14":"im"}}
 import io
 
 import eyed3  # 0.9.7
@@ -69,7 +68,7 @@ for i, af_image in enumerate(audiofile.tag.images):
 
 To store artwork with eyed3:
 
-```python
+```python {"names":{"1":"eyed3","2":"eyed3","3":"id3","4":"frames","5":"ImageFrame","6":"PIL","7":"Image","8":"audiofile","11":"artwork"}}
 import eyed3
 from eyed3.id3.frames import ImageFrame
 from PIL import Image

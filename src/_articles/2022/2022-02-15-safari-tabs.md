@@ -3,7 +3,6 @@ layout: article
 date: 2022-02-15 20:54:35 +00:00
 title: Closing lots of Safari tabs with JXA
 summary: To help me keep my tab count down, I wrote a JXA script to close tabs that can easily be recreated.
-old_syntax_highlighting: true
 topic: macOS
 hidden_topics:
   - AppleScript
@@ -39,7 +38,7 @@ Chrome and Firefox have similar hooks for AppleScript/JXA, but I leave those as 
 In JXA, you can look up Safari's windows as the `.windows` property on the application, which returns an array.
 For example, this tells me I have 23 windows open:
 
-```javascript
+```javascript {"names":{"1":"safari"}}
 const safari = Application("Safari");
 
 console.log(safari.windows.length);
@@ -67,7 +66,7 @@ The entries of `window.tabs` are in left-to-right order.
 
 We can put these calls together in a for loop to get the URL of every tab in every window:
 
-```javascript
+```javascript {"names":{"1":"tabGenerator","2":"window_count","6":"window_index","10":"this_window","14":"tab_count","18":"tab_index","22":"tab"}}
 function* tabGenerator() {
   window_count = safari.windows.length;
 
@@ -106,7 +105,7 @@ If I go through the tabs in reverse, the only tabs and windows that get renumber
 This is the "business logic" of the script -- deciding whether a tab can be safely closed.
 For me, a simple list of URL prefixes is plenty -- if any of them match, it's a tab I know I can recreate later.
 
-```javascript
+```javascript {"names":{"1":"isSafeToClose","2":"url"}}
 function isSafeToClose(url) {
 
   // Sometimes we get a `null` as the URL of a tab; I'm not sure why,
@@ -133,7 +132,7 @@ function isSafeToClose(url) {
 
 I did consider putting the URL prefixes in an array, and using `.some()` to look for matches:
 
-```javascript
+```javascript {"names":{"1":"prefixes"}}
 prefixes = [ /*...*/ ];
 
 return prefixes.some(url.startsWith);
@@ -150,7 +149,7 @@ If you want to use a version of this script, replace this function with logic to
 
 This is the final part of my script:
 
-```javascript
+```javascript {"names":{"1":"window_index","2":"tab_index","3":"url"}}
 for (const [window_index, tab_index, url] of tabGenerator()) {
   if (isSafeToClose(url)) {
     console.log(url);

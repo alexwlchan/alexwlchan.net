@@ -3,7 +3,6 @@ layout: article
 date: 2020-07-06 21:31:32 +00:00
 title: Changing the accent colour of ICNS icons
 summary: Playing with macOS ICNS image files to create colourful new icons.
-old_syntax_highlighting: true
 topics:
   - Colours
   - macOS
@@ -144,7 +143,7 @@ If I run this transformation over every PNG image in the iconset, then rejoin th
 
 Here's what that looks like:
 
-```bash
+```bash {"names":{"3":"modulate_icns","4":"icns_path","6":"modulate_arg","8":"filename","10":"icon_name","12":"iconset_path","14":"out_path"}}
 #!/usr/bin/env bash
 
 set -o errexit
@@ -182,7 +181,7 @@ modulate_icns "Notality.icns" "100,100,0"
 
 Then I combined that with a bash `for` loop to get the icon adjusted to a variety of colours:
 
-```bash
+```bash {"names":{"1":"hue_rotate"}}
 for (( hue_rotate=0; hue_rotate<200; hue_rotate++ ))
 do
   modulate_icns "Notality.icns" "100,100,$hue_rotate"

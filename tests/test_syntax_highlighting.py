@@ -279,7 +279,7 @@ def test_bash_functions_are_highlighted() -> None:
     """
     html = apply_syntax_highlighting(
         src='print_hello() {\n  echo "hello"\n}\n\n'
-        'print_goodbye() {\n  echo "goodbye"\n}\n',
+        'function print_goodbye() {\n  echo "goodbye"\n}\n',
         lang="bash",
         names={1: "print_hello", 3: "print_goodbye"},
     )
