@@ -6,7 +6,6 @@ summary: After months of introspection and soul-searching, I've had some big rea
 colors:
   index_light: "#0a5b8a"
   index_dark:  "#54b8f2"
-old_syntax_highlighting: true
 topic: Personal thoughts
 hidden_topics:
   - Gender

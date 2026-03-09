@@ -2,7 +2,6 @@
 layout: article
 date: 2019-03-11 20:31:17 +00:00
 title: Finding the latest screenshot in macOS Mojave
-old_syntax_highlighting: true
 topics:
   - macOS
   - Shell scripting

@@ -6,7 +6,6 @@ summary: Notes from the inaugural 'You Got This' conference, a conference about 
 colors:
   index_light: "#640b0f"
   index_dark:  "#e1f0f6"
-old_syntax_highlighting: true
 topic: Conferences
 ---
 
