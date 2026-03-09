@@ -2,7 +2,6 @@
 layout: note
 date: 2024-02-26 10:15:24 +00:00
 title: How to restrict a page to specific IP addresses
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - nginx
@@ -12,48 +11,44 @@ You still had to login with a username/password if your IP address was approved,
 
 This is how you can use nginx to restrict a page to a fixed set of users:
 
-```nginx
-location /wp-login.php {
+<pre class="lng-nginx"><code>location <span class="n">/wp-login.php</span> <span class="p">{</span>
     allow 1.2.3.4;
     allow 5.6.7.8;
     deny all;
 
-    # forward to real login page, e.g. with a `proxy_pass`
-}
-```
+    <span class="c"># forward to real login page, e.g. with a `proxy_pass`</span>
+<span class="p">}</span></code></pre>
 
 If somebody doesn't have an approved IP address, they'll get a generic HTTP 403 Forbidden error page.
 
 It may be helpful to customise the error page, to give instructions to legitimate users about how to get themselves unblocked.
 This is how you can create a custom error page:
 
-```nginx
-location /wp-login.php {
+<pre class="lng-nginx"><code>location <span class="n">/wp-login.php</span> <span class="p">{</span>
     allow 1.2.3.4;
     allow 5.6.7.8;
     deny all;
 
     error_page 403 /wp_login_blocked.html;
 
-    # forward to real login page, e.g. with a `proxy_pass`
-}
+    <span class="c"># forward to real login page, e.g. with a `proxy_pass`</span>
+<span class="p">}</span>
 
-location = /wp_login_blocked.html {
+location = <span class="n">/wp_login_blocked.html</span> <span class="p">{</span>
     allow all;
     default_type text/plain;
-    return 200 "<html>
-      <head>
-        <title>403 Forbidden</title>
-      </head>
-      <body>
-        <h1>403 Forbidden</h1>
-        <p>
+    return 200 <span class="s">"&lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;403 Forbidden&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;403 Forbidden&lt;/h1&gt;
+        &lt;p&gt;
           Your IP address is $remote_addr.
           You aren't allowed to log in!
-        </p>
-      </body>
-      </html>
-      ";
-}
-```
+        &lt;/p&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+      "</span>;
+<span class="p">}</span></code></pre>
 

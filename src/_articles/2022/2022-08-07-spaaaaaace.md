@@ -6,7 +6,6 @@ summary: You don’t realise how big the solar system is until you've walked the
 colors:
   index_light: '#af5418'
   index_dark: '#d69f30'
-old_syntax_highlighting: true
 topic: The world around us
 hidden_topics:
   - Photography

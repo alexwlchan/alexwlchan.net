@@ -8,7 +8,6 @@ colors:
   css_dark: '#198ff5'
 index:
   exclude: true
-old_syntax_highlighting: true
 topics:
   - Blogging about blogging
   - Inclusion and accessibility

@@ -6,7 +6,6 @@ summary: Some web scraping and Python helps me find books that I can borrow imme
 colors:
   index_light: '#527345'
   index_dark: '#97b18a'
-old_syntax_highlighting: true
 topic: Books and reading
 ---
 
