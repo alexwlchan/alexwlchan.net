@@ -5,10 +5,9 @@ title: A tip for travel instructions
 summary: Lots of people use smartphones for mapping, so consider that when writing travel advice.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: The world around us
 hidden_topics:
-- Travel
+  - Travel
 ---
 
 Given how many people use their smartphones for maps, here's a suggestion for writing travel instructions:

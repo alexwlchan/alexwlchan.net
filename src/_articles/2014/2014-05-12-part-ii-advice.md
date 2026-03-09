@@ -5,7 +5,6 @@ summary: Some suggestions for second year Cambridge maths students looking for w
 title: Brief advice for Part II
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Maths
 hidden_topics:
   - Academia

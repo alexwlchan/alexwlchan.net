@@ -6,7 +6,6 @@ summary: A quick braindump of my thoughts from drawing some venue maps for PyCon
 colors:
   index_light: "#336EAF"
   index_dark:  "#fac126"
-old_syntax_highlighting: true
 topics:
   - Conferences
   - Drawing things

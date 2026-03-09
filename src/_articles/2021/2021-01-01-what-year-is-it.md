@@ -6,7 +6,6 @@ summary: If you use ICU date formatting, make sure you use the right format spec
 colors:
   index_light: "#b17474"
   index_dark:  "#c28786"
-old_syntax_highlighting: true
 topic: Datetime shenanigans
 ---
 

@@ -42,21 +42,21 @@ You can [skip to the end](#actually-useful-information) if you just want the pra
 
 Many programming languages support [*parallel assignment*](https://en.wikipedia.org/wiki/Assignment_(computer_science)#Parallel_assignment), which allows you to set multiple variables at once:
 
-```
+```python {"names":{"1":"longitude","2":"latitude"}}
 longitude, latitude = 51.9, -0.2
 ```
 
 This will set `longitude` to `51.9`, and `latitude` to `-0.2`.
 It's a more concise version of
 
-```
+```python {"names":{"1":"longitude","2":"latitude"}}
 longitude = 51.9
 latitude = -0.2
 ```
 
 This is often used in Python to return multiple values from a single function:
 
-```python
+```python {"names":{"1":"get_position","2":"longitude","3":"latitude"}}
 def get_position():
     return 51.9, -0.2
 
@@ -70,7 +70,7 @@ For tuple unpacking to work, you need to have the same number of variables on th
 If they don't match, you get an error.
 For example:
 
-```pycon
+```pycon {"names":{"1":"longitude","2":"latitude","3":"altitude"}}
 >>> longitude, latitude, altitude = 51.9, -0.2
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -112,7 +112,7 @@ We could jump straight to the end, but let's go through all of them in turn to s
 If you've used Python for any length of time, you've probably seen an example of reflection-like behaviour, even if you didn't realise it.
 Consider the following program:
 
-```python
+```python {"names":{"1":"divide","2":"x","3":"y","6":"result"}}
 # divide_by_zero.py
 def divide(x, y):
     return x / y
@@ -139,7 +139,7 @@ The information is usually printed to stderr for a human to read, but we can als
 
 Observe:
 
-```python
+```python {"names":{"1":"traceback","2":"Trues","3":"frame_summary","13":"a","14":"b"}}
 import traceback
 
 def Trues():
@@ -166,7 +166,7 @@ If you run this code, this is what you get:
 That `a, b = Trues()` line is what we want -- it tells us where this function is being called, and what it's being expanded into.
 We can do some naive string parsing on this line to work out how many variables there are on the left-hand side:
 
-```python
+```python {"names":{"1":"calling_code","5":"trues_count"}}
 # Find the line where this function is called
 calling_code = traceback.extract_stack()[0].line
 
@@ -177,18 +177,18 @@ trues_count = len(calling_code.split("=")[0].split(","))
 
 Then we return that number of Trues:
 
-```python
+```python {"names":{"1":"traceback","2":"Trues","3":"calling_code","7":"trues_count","13":"a","14":"b","19":"a","20":"b","21":"c","22":"d"}}
 import traceback
 
 def Trues():
-  # Find the line where this function is called
-  calling_code = traceback.extract_stack()[0].line
-
-  # The line will be something like ``a, b = Trues()``.
-  # Count variables on the left-hand side.
-  trues_count = len(calling_code.split("=")[0].split(","))
-
-  return [True] * trues_count
+    # Find the line where this function is called
+    calling_code = traceback.extract_stack()[0].line
+    
+    # The line will be something like ``a, b = Trues()``.
+    # Count variables on the left-hand side.
+    trues_count = len(calling_code.split("=")[0].split(","))
+    
+    return [True] * trues_count
 
 a, b = Trues()
 print(a, b)  # True True
@@ -205,14 +205,14 @@ Let's all go ho---wait a minute, there's a problem.
 Python allows you to split statements over multiple lines.
 For example, this is valid Python:
 
-```python
+```python {"names":{"1":"a","2":"b","3":"c","4":"d"}}
 a, b, \
 c, d = 1, 2, 3, 4
 ```
 
 If you try to use `Trues()` with a tuple definition that's split over multiple lines, you get an error:
 
-```python
+```python {"names":{"1":"a","2":"b","3":"c","4":"d"}}
 a, b, \
 c, d = Trues()
 ```
@@ -238,11 +238,11 @@ I wrote this code at 11pm, and this approach wasn't the most sensible choice, bu
 Since traceback only gives us one line, we have to get the remaining lines ourselves.
 The traceback does tell us the number of the line that was executing, so let's open the file and read all the lines up to that one:
 
-```python
+```python {"names":{"1":"itertools","2":"Trues2","3":"current_frame","9":"srcfile","10":"lines"}}
 import itertools
 
 def Trues2():
-  # Find the line where this function is called
+    # Find the line where this function is called
     current_frame = traceback.extract_stack()[0]
 
     # Read all the lines up to the point where ``Trues2()`` is
@@ -276,7 +276,7 @@ Let's work back through `lines`, grabbing more and more lines until something go
 
 When we get a snippet that includes a NameError or a SyntaxError, we know we're looking at a line that isn't part of this assignment expression:
 
-```python
+```python {"names":{"1":"Trues2","2":"dummy_trues","3":"line_count","7":"src","11":"l","19":"src"}}
 def Trues2():
     ...
     def dummy_trues():
@@ -309,7 +309,7 @@ def Trues2():
 An example would probably be helpful.
 Let's suppose our program was
 
-```python
+```python {"names":{"1":"Trues2","2":"a","3":"b","4":"c","5":"d"}}
 def Trues2():
     ...
     return
@@ -341,7 +341,7 @@ If you look at the code above, you see we have to pass a definition for `Trues2(
 If it returns the wrong number of `True`'s, you get a ValueError.
 We can exploit this to find the correct number of `True`'s, by counting up until we stop getting ValueError's:
 
-```python
+```python {"names":{"1":"Trues2","2":"true_count","6":"result","8":"guessed_trues"}}
 def Trues2():
     ...
     for true_count in itertools.count(start=1):
@@ -364,7 +364,7 @@ This is what people mean by [composition](https://en.wikipedia.org/wiki/Function
 But there's another type of multi-line expression you can write, which this code fails to parse correctly.
 In Python, any expression inside parentheses can be split across multiple lines:
 
-```python
+```python {"names":{"1":"a","2":"b","3":"c","4":"d"}}
 (a, b
 c, d) = Trues2()
 ```
@@ -378,7 +378,7 @@ It always fails, because the definition of Trues2() passed into the `exec()` nam
 
 The fix is to keep track of whether we've seen a syntactically valid group of lines yet, and only stop after that's happened:
 
-```python
+```python {"names":{"1":"Trues2","2":"dummy_trues","3":"have_seen_valid_lines","4":"line_count","8":"src","12":"l","26":"l"}}
 def Trues2():
     ...
     def dummy_trues():
@@ -412,9 +412,9 @@ def Trues2():
 
 Let's step through this example again:
 
-```python
+```python {"names":{"1":"Trues2","2":"a","3":"b","4":"c","5":"d"}}
 def Trues2():
-  ...
+    ...
 
 (a, b,
 c, d) = Trues2()
@@ -437,7 +437,7 @@ Now the loop would go as follows:
 
 Putting this all together:
 
-```python
+```python {"names":{"1":"itertools","2":"traceback","3":"Trues2","4":"current_frame","10":"srcfile","11":"lines","18":"dummy_trues","19":"have_seen_valid_lines","20":"line_count","24":"src","28":"l","42":"l","48":"true_count","52":"result","54":"guessed_trues","60":"a","61":"b","66":"a","67":"b","68":"c","69":"d","76":"a","77":"b","78":"c","79":"d","86":"a","87":"b","88":"c","89":"d"}}
 import itertools
 import traceback
 
@@ -542,7 +542,7 @@ I did find the *executing* Python library that gets [the currently executing AST
 
 We have to use the [inspect module](https://docs.python.org/3/library/inspect.html) instead of traceback to get the current frame, and then pass it to this library to get the AST node:
 
-```python
+```python {"names":{"1":"inspect","2":"executing","3":"Trues3","4":"frame","7":"current_frame","12":"node","18":"a","19":"b"}}
 import inspect
 
 import executing
@@ -569,7 +569,7 @@ This node has an attribute `.parent`.
 By grabbing that and inspecting the type, I found an `ast.Assign` node.
 This represents an assignment; that is, an expression of the form `X = Y`:
 
-```python
+```python {"names":{"1":"Trues3","6":"assign_node"}}
 def Trues3():
     ...
     assert isinstance(node, ast.Call)
@@ -584,7 +584,7 @@ Entries were things like `<_ast.List object at 0x102312b90>` or `<_ast.Tuple obj
 
 Let's grab that value:
 
-```python
+```python {"names":{"1":"Trues3","2":"target"}}
 def Trues3():
     ...
     target = assign_node.targets[0]
@@ -592,7 +592,7 @@ def Trues3():
 
 And then we count how many entries it contains, and use that to assemble the result:
 
-```python
+```python {"names":{"1":"ast","2":"inspect","3":"executing","4":"Trues3","5":"frame","8":"current_frame","13":"calling_node","24":"assign_node","32":"target_node","45":"a","46":"b","51":"a","52":"b","53":"c","54":"d"}}
 import ast
 import inspect
 
@@ -632,7 +632,7 @@ Tuple unpacking allows you to put more complex, nested expressions on the left-h
 
 You can make all of the following work in a fairly sensible way:
 
-```python
+```python {"names":{"1":"a","3":"a","4":"b","6":"a","7":"b","8":"c","10":"a","11":"b","12":"c","13":"d","15":"a","16":"b","17":"c","18":"d","20":"a","21":"b","24":"a","25":"b","26":"c","27":"d","28":"e","31":"a","32":"b","33":"c"}}
 a = Trues4()
 a, b = Trues4()
 a, b, c = Trues4()
@@ -651,7 +651,7 @@ a, *b, c = Trues4()
 
 I'm not going to explain them all, but here's the relevant source code:
 
-```python
+```python {"names":{"1":"ast","2":"inspect","3":"secrets","4":"executing","5":"truthify","6":"node","11":"result","12":"entry","42":"Trues4","43":"frame","46":"current_frame","51":"calling_node","58":"err","70":"assign_node","73":"target","83":"index_in_tuple","89":"assign_node"}}
 import ast
 import inspect
 import secrets
@@ -715,7 +715,7 @@ def Trues4():
 There's one thing I didn't manage to get working.
 If you look back at the original chat message, the suggestion was to use a standalone variable, not a function:
 
-```python
+```python {"names":{"1":"a","2":"b","3":"c","4":"d"}}
 a, b, c, d = Trues
 ```
 
@@ -724,7 +724,7 @@ This is the method that gets called when Python tries to iterate over something;
 
 Here's a minimal example of how you could set up that `__iter__` method:
 
-```python
+```python {"names":{"1":"Truthiness","2":"__iter__","3":"Trues","5":"a","6":"b","7":"c","8":"d"}}
 class Truthiness:
     def __iter__(self):
         yield from [True, True, True, True]

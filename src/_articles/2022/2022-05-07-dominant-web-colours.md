@@ -7,7 +7,6 @@ link: https://dominant-colours.glitch.me/
 colors:
   index_light: '#1b3055'
   index_dark: '#bdbdc2'
-old_syntax_highlighting: true
 topics:
   - Colours
   - Fun stuff

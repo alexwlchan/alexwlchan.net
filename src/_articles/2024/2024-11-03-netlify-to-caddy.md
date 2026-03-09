@@ -3,7 +3,6 @@ layout: article
 date: 2024-11-03 12:15:30 +00:00
 title: Moving my website from Netlify to Caddy
 summary: To avoid getting stung by Netlify's bandwidth charges, I moved this site to a Linux server running Caddy as my web server.
-old_syntax_highlighting: true
 topics:
   - Blogging about blogging
   - Caddy

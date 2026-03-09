@@ -4,7 +4,6 @@ date: 2016-08-19 23:34:00 +00:00
 title: 'Python snippets: Is a URL from a Tumblr post?'
 index:
   exclude: true
-old_syntax_highlighting: true
 topics:
   - Tumblr
   - Python

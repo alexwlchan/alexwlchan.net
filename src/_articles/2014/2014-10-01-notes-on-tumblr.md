@@ -30,7 +30,7 @@ Maybe I could use a page scraper, and just automate pressing "Show more notes"? 
 
 So in the end, I settled for a simpler solution: in the notes section at the bottom of a post, just hide anything which isn't a reblog with commentary. This comes down to a single line of CSS:
 
-```css
+```css {"names":{"1":"ol","2":".notes","3":"li","4":".without_commentary"}}
 ol.notes li.without_commentary { display: none !important; }
 ```
 

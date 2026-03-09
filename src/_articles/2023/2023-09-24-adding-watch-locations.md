@@ -120,7 +120,7 @@ I don't think I've worked with GPS data before, and there's a bit more than I ex
 I used [lxml] to write a Python function which extracts all these track points from the file.
 There are dedicated libraries for dealing with GPX files, but I already know how to use lxml and it was simple enough to write something for this one-off task.
 
-```python
+```python {"names":{"1":"datetime","2":"lxml","3":"etree","4":"pytz","5":"utc","8":"get_track_points","9":"tree","12":"namespaces","13":"trkpt","18":"time_str","24":"time","31":"elevation","38":"latitude","42":"longitude","51":"infile","52":"tree","56":"track_point"}}
 import datetime
 
 from lxml import etree
@@ -164,7 +164,7 @@ with open("route_2023-09-17_2.38pm.gpx") as infile:
 
 I pulled all these track points into a single Python dictionary, mapping time to location:
 
-```python
+```python {"names":{"2":"infile","3":"tree","7":"locations","10":"track_point"}}
 with open("route_2023-09-17_2.38pm.gpx") as infile:
     tree = etree.parse(infile)
 
@@ -184,7 +184,7 @@ Because they're so close together, either is fine for my purposes.
 
 To tie this all together, I wrote a bit more Python which would find all the JPEG files from my camera, get the timestamp of that photo, and use `exiftool` to add location metadata if my workout had recorded a location at that precise timestamp:
 
-```python
+```python {"names":{"1":"subprocess","2":"get_created_time","3":"jpeg_path","4":"camera_timezone","5":"created_time_str","11":"created_time","21":"set_location","22":"jpeg_path","23":"location_info","36":"jpeg_path","39":"slovenia","42":"created_time","47":"location_info"}}
 import subprocess
 
 
@@ -228,7 +228,6 @@ def set_location(jpeg_path, *, location_info):
 
 # See https://alexwlchan.net/2023/snake-walker/ for get_file_paths_under()
 for jpeg_path in get_file_paths_under("100_OLYMP", suffix=".jpg"):
-
     slovenia = pytz.timezone("Europe/Ljubljana")
     created_time = get_created_time(jpeg_path, camera_timezone=slovenia)
 

@@ -2,7 +2,6 @@
 layout: note
 title: Use Unicode property escapes to detect emoji in JavaScript
 date: 2023-09-06 23:46:15 +00:00
-old_syntax_highlighting: true
 topics:
   - JavaScript
   - Text and Unicode

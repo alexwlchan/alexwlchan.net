@@ -3,7 +3,6 @@ layout: article
 date: 2015-09-06 18:42:00 +00:00
 summary: A review of Effective Python, by Brett Slatkin.
 title: 'Review: Effective Python'
-old_syntax_highlighting: true
 topics:
   - Python
   - Books I've read
