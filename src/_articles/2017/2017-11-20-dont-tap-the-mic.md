@@ -7,7 +7,6 @@ date: 2017-11-20T08:00:00Z
 colors:
   index_light: "#4a403a"
   index_dark:  "#d5d6d5"
-old_syntax_highlighting: true
 topic: Conferences
 ---
 

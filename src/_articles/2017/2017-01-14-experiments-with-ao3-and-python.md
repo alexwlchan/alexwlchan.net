@@ -5,7 +5,6 @@ link: https://github.com/alexwlchan/ao3
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,
   it might not be necessary.
 title: A Python interface to AO3
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - AO3

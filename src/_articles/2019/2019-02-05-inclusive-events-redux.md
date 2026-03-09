@@ -6,7 +6,6 @@ link: https://alexwlchan.net/ideas-for-inclusive-events/
 summary: An updated version of my list of ideas for running inclusive and welcoming events.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Inclusion and accessibility
 ---
 

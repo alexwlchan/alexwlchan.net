@@ -3,7 +3,6 @@ layout: article
 date: 2026-01-10 16:30:24 +00:00
 title: Where I store my multi-factor recovery codes
 summary: Most services give you MFA recovery codes but don't tell you where to store them. I use an encrypted disk image and a simple HTML file.
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Security
