@@ -5,7 +5,6 @@ title: How I use the notes field in my password manager
 summary: |
   I use notes as a mini-changelog to track the context and history of my online accounts.
   I write down why I created accounts, made changes, or chose particular settings.
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Security

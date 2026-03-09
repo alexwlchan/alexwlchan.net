@@ -4,7 +4,6 @@ date: 2016-11-30 19:07:00 +00:00
 summary: A few suggestions for "low tech devices" that aid in the process of generating
   ideas.
 title: Some low-tech ways to get more ideas
-old_syntax_highlighting: true
 topic: Personal thoughts
 ---
 

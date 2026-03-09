@@ -6,7 +6,6 @@ summary: Slides from my talk about property-based testing at CamPUG.
 title: Introduction to property-based testing
 index:
   exclude: true
-old_syntax_highlighting: true
 topics:
   - Software testing
   - Python
