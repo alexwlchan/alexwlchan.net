@@ -8,7 +8,6 @@ colors:
   index_dark: '#fbfafa'
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Blogging about blogging
 ---
 

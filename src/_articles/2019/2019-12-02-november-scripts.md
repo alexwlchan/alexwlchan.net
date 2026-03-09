@@ -2,7 +2,6 @@
 layout: article
 date: 2019-12-02 23:21:41 +00:00
 title: "November 2019 scripts: downloading podcasts, retrying flaky errors, Azure and AWS"
-old_syntax_highlighting: true
 topics:
   - Python
   - AWS

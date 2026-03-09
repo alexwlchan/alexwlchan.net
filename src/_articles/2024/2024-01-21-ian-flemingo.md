@@ -6,7 +6,6 @@ summary: 'A fledgling author uses a theatre trip to leave the nest. (Or: some pr
 colors:
   css_light: '#464646'
   css_dark: '#adadad'
-old_syntax_highlighting: true
 topics:
 - Art and creativity
 - Books and reading

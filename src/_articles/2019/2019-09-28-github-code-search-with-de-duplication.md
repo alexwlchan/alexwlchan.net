@@ -3,7 +3,6 @@ layout: article
 date: 2019-09-28 19:26:39 +00:00
 link: https://github.com/alexwlchan/github-code-search
 title: 'Experiment: GitHub code search with de-duplication'
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - GitHub

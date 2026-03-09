@@ -7,7 +7,6 @@ title: Python and the BBC micro:bit
 colors:
   index_light: "#18ab6d"
   index_dark:  "#18ab6d"
-old_syntax_highlighting: true
 topic: Python
 ---
 

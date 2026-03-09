@@ -3,7 +3,6 @@ layout: article
 date: 2018-03-01 19:05:00 +00:00
 title: Keep an overnight bag in the office
 summary: Although hopefully never needed, I think it's worth keeping an overnight bag in your workplace.
-old_syntax_highlighting: true
 topic: Work
 ---
 

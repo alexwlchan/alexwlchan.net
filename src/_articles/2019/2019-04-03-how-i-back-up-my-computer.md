@@ -8,7 +8,6 @@ index:
 topic: Computers and code
 hidden_topics:
   - Backups
-old_syntax_highlighting: true
 ---
 
 About a fortnight ago, there was lots of news coverage about [Myspace losing 12 years of uploaded music][myspace].

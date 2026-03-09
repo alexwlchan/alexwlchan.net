@@ -3,7 +3,6 @@ layout: article
 date: 2023-01-22 21:22:16 +00:00
 title: Changing the bulb in a Meridian Lighting CIR100B ceiling light
 summary: A note to my future self. Also, reverse image search is amazing.
-old_syntax_highlighting: true
 topic: Domestic life
 ---
 

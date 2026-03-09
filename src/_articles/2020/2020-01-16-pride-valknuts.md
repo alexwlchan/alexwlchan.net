@@ -7,7 +7,6 @@ link: https://alexwlchan.net/fun-stuff/rainbow-valknuts/
 colors:
   index_light: "#e31b85"
   index_dark:  "#c8c8c8"
-old_syntax_highlighting: true
 topics:
   - Fun stuff
   - Drawing things

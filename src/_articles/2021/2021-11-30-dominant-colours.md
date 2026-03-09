@@ -8,7 +8,6 @@ colors:
   index_dark:  "#88a7d3"
 index:
   feature: true
-old_syntax_highlighting: true
 topics:
   - Colours
   - Images and videos

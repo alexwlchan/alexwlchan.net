@@ -7,7 +7,6 @@ link: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-clo
 colors:
   index_light: "#4497b4"
   index_dark:  "#4597b4"
-old_syntax_highlighting: true
 topic: AWS
 hidden_topics:
   - Podcasts

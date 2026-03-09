@@ -7,7 +7,6 @@ summary: Why I care about names being pronounced correctly, and appreciate MIT's
 topic: Inclusion and accessibility
 index:
   exclude: true
-old_syntax_highlighting: true
 ---
 
 I really enjoyed this NPR story about how MIT try to get accurate pronunciations of names at commencement.

@@ -2,7 +2,6 @@
 layout: note
 title: "The Content-Disposition header can be used to name a downloaded file"
 date: 2019-04-20 21:24:30 +01:00
-old_syntax_highlighting: true
 topic: HTTP
 ---
 

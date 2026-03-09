@@ -6,7 +6,6 @@ summary: If NASA was the first to land on Mars in <em>For All Mankind</em>, what
 colors:
   css_light: '#495652'
   css_dark: '#aab6b2'
-old_syntax_highlighting: true
 topic: Entertainment
 hidden_topics:
   - Space exploration

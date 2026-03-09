@@ -14,7 +14,6 @@ colors:
   css_dark:  "#00ddff"
   index_light: "#2f2f2f"
   index_dark:  "#66b8e8"
-old_syntax_highlighting: true
 ---
 I manage my bookmarks [with a static website](/2025/bookmarks-static-site/).
 I've bookmarked over 2000 pages, and I keep a local snapshot of every page.

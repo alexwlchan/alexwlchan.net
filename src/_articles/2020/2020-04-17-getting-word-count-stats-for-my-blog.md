@@ -5,7 +5,6 @@ title: Getting word count stats for my blog
 link: https://alexwlchan.net/stats/
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Blogging about blogging
 hidden_topics:
   - Jekyll

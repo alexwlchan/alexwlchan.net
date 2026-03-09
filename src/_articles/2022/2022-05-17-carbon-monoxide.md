@@ -5,7 +5,6 @@ title: Changing my carbon monoxide detectors
 summary: Keeping my home safe from deadly gases.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Domestic life
 ---
 

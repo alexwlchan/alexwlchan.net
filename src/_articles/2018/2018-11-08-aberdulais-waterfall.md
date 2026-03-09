@@ -6,7 +6,6 @@ summary: Pictures from my trip to the waterfalls and former tin plating works at
 colors:
   index_light: "#74844e"
   index_dark:  "#9bb06c"
-old_syntax_highlighting: true
 topic: The world around us
 hidden_topics:
   - Photography

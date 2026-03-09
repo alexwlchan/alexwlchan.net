@@ -6,7 +6,6 @@ title: Cloning GitHub's Contributions chart
 colors:
   index_light: "#4a35a5"
   index_dark:  "#79d9e9"
-old_syntax_highlighting: true
 topic: Drawing things
 hidden_topics:
 - GitHub

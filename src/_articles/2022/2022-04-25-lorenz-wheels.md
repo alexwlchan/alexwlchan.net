@@ -7,7 +7,6 @@ link: https://github.com/alexwlchan/lorenz-wheels
 colors:
   index_light: '#423f3a'
   index_dark: '#a9a69a'
-old_syntax_highlighting: true
 topics:
   - Drawing things
   - LaTeX

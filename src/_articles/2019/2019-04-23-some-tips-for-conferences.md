@@ -2,7 +2,6 @@
 layout: article
 date: 2019-04-23 09:27:31 +00:00
 title: Some tips for conferences
-old_syntax_highlighting: true
 topic: Conferences
 ---
 

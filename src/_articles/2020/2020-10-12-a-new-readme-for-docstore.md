@@ -7,7 +7,6 @@ link: https://github.com/alexwlchan/docstore
 colors:
   index_light: "#7a2342"
   index_dark:  "#e5bcc9"
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Organising stuff

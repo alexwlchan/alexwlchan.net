@@ -6,7 +6,6 @@ title: A plumber's guide to Git
 colors:
   index_light: "#d32a1d"
   index_dark:  "#eae7e8"
-old_syntax_highlighting: true
 topics:
   - Git
   - Talks I've given

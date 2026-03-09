@@ -6,7 +6,6 @@ summary: Notes from a talk about inclusion in design and unconscious bias.
 colors:
   css_light: "#20883f"
   css_dark:  "#2fc65d"
-old_syntax_highlighting: true
 topics:
   - Inclusion and accessibility
   - Talks I've given

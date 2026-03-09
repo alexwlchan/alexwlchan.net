@@ -2,7 +2,6 @@
 layout: note
 title: How to set the clock on a Worcester 28CDi boiler
 date: 2016-10-08 01:01:01 +00:00
-old_syntax_highlighting: true
 topic: Domestic life
 ---
 

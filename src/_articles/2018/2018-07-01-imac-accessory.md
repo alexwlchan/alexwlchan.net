@@ -6,7 +6,6 @@ summary: Adding a USB extension cable to my iMac makes a world of difference.
 colors:
   index_light: "#857f71"
   index_dark:  "#b9b3a1"
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
 - Hardware

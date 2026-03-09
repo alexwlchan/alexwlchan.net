@@ -6,7 +6,6 @@ title: PyCon UK 2017 resources
 topic: Talks I've given
 index:
   exclude: true
-old_syntax_highlighting: true
 ---
 
 This post is a signpost to useful resources for my PyCon UK talks/workshops.

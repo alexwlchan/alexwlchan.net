@@ -9,7 +9,6 @@ index:
 colors:
   index_light: "#4d3c1b"
   index_dark:  "#b7b0a4"
-old_syntax_highlighting: true
 topics:
   - Computers and code
   - Naming things

@@ -4,7 +4,6 @@ date: 2018-10-31 09:10:26.014000 +00:00
 title: Peering through MRI scans of fruit and veg
 summary: What do you see when you pass fruit and vegetables through an MRI scanner? And how many animated GIFs can you make?
 canonical_url: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
-old_syntax_highlighting: true
 topics:
   - Drawing things
   - Wellcome Collection

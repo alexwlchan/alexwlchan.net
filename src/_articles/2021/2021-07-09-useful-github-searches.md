@@ -6,7 +6,6 @@ summary: I have hotkeys to search GitHub in several ways, including by user, by 
 colors:
   index_light: "#0e1013"
   index_dark:  "#a5a8ab"
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - GitHub

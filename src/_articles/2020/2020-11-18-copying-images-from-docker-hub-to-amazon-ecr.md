@@ -3,7 +3,6 @@ layout: article
 date: 2020-11-18 09:41:32 +00:00
 title: A script to copy images from Docker Hub to Amazon ECR
 link: https://github.com/wellcomecollection/platform-infrastructure/blob/4b16beef44efbe8faa9a62f5459ab6f706e07032/builds/copy_docker_images_to_ecr.py
-old_syntax_highlighting: true
 topics:
   - Docker
   - AWS

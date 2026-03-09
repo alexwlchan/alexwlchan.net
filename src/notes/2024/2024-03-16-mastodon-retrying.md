@@ -2,7 +2,6 @@
 layout: note
 date: 2024-03-16 08:39:19 +00:00
 title: How much will Mastodon instances try to re-send messages?
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Mastodon

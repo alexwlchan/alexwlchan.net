@@ -8,7 +8,6 @@ colors:
   index_light: "#815701"
   css_dark:    "#c79d2b"
   index_dark:  "#c79d2b"
-old_syntax_highlighting: true
 topic: Domestic life
 ---
 

@@ -3,7 +3,6 @@ layout: article
 date: 2018-08-20 07:17:19 +00:00
 title: Avoiding the automatic redirect on Tumblr posts
 summary: I see an intermittent 303 Redirect when trying to navigate to a Tumblr 'permalink'; changing the User-Agent seems to fix it.
-old_syntax_highlighting: true
 topic: Tumblr
 ---
 

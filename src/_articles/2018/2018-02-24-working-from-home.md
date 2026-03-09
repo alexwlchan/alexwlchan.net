@@ -5,7 +5,6 @@ title: A working from home experiment
 summary: I've recently started working from home for one day a week. In this post I explain why I made the change, some of the benefits and risks, and why I think it's worth trying.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Work
 ---
 

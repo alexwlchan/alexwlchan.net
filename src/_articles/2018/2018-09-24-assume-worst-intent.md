@@ -6,7 +6,6 @@ summary: How do we design services and platforms to reduce the risk of harassmen
 colors:
   index_light: "#531b93"
   index_dark:  "#b7cada"
-old_syntax_highlighting: true
 topics:
   - Inclusion and accessibility
   - Talks I've given

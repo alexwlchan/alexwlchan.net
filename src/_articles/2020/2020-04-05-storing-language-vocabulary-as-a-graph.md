@@ -6,7 +6,6 @@ summary: Experimenting with a way to store words and phrases that highlights the
 colors:
   index_light: "#946800"
   index_dark:  "#ffb300"
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Languages

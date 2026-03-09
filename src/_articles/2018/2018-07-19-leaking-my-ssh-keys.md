@@ -3,7 +3,6 @@ layout: article
 date: 2018-07-19 07:38:10 +00:00
 title: A robot leaked my SSH keys
 summary: A cautionary tale of a daft incident where I leaked a set of SSH keys to GitHub.
-old_syntax_highlighting: true
 topic: Builds and CI
 hidden_topics:
   - GitHub

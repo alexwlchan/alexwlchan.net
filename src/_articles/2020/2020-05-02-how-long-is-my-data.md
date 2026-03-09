@@ -9,7 +9,6 @@ colors:
   index_dark:  "#fbabfa"
 index:
   feature: true
-old_syntax_highlighting: true
 topics:
   - Fun stuff
   - Digital preservation

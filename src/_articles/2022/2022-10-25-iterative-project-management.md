@@ -6,7 +6,6 @@ summary: Notes from a talk about agile and iterative approaches to project manag
 colors:
   css_light: '#20883f'
   css_dark: '#2fc65d'
-old_syntax_highlighting: true
 topic: Talks I've given
 hidden_topics:
   - Project management

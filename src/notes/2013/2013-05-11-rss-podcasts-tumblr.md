@@ -4,7 +4,6 @@ date: 2013-05-11 12:26:00 +00:00
 summary: |
   If you add `/podcast` to a Tumblr site, you get a podcast-like RSS feed for all the external audio posts on that site.
 title: Get an RSS feed of external audio posts on Tumblr
-old_syntax_highlighting: true
 topic: Tumblr
 hidden_topics:
   - Audio

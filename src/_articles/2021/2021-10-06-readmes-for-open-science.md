@@ -6,7 +6,6 @@ summary: Slides for a short talk about READMEs, why they're important, and what 
 colors:
   css_light: "#20883f"
   css_dark:  "#2fc65d"
-old_syntax_highlighting: true
 topic: Talks I've given
 hidden_topics:
   - Documentation

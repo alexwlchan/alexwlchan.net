@@ -5,7 +5,6 @@ title: Email with a purpose
 index:
   exclude: true
 topic: Computers and code
-old_syntax_highlighting: true
 ---
 
 I've just finished reading [*Operation Fortitude*][az], by Joshua Levine.

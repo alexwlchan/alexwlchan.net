@@ -4,7 +4,6 @@ date: 2018-02-13 11:36:50.494000 +00:00
 title: Getting helpful CloudWatch alarms in Slack
 summary: How we use AWS Lambda to send messages about our CloudWatch alarms to Slack, and some ways we add context and information to make those messages as helpful as possible.
 canonical_url: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31
-old_syntax_highlighting: true
 topic: AWS
 hidden_topics:
   - Slack

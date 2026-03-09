@@ -4,7 +4,6 @@ title: What is the `author_name` in the list of tags on a Flickr photo?
 summary: |
   When you call the `flickr.photos.getInfo` API, each tag is attributed to an author. The `author_name` is their username, not their realname.
 date: 2024-10-24 10:00:15 +01:00
-old_syntax_highlighting: true
 topic: Flickr
 ---
 When you look up a photo with the `flickr.photos.getInfo` API, you get a list of tags on the photo, including the NSID and "authorname" of the Flickr member who added the tag.

@@ -3,7 +3,6 @@ layout: article
 date: 2016-06-07 12:00:00 +00:00
 title: Introduction to property-based testing
 summary: Testing with randomly generated examples can be a good way to uncover bugs in your code.
-old_syntax_highlighting: true
 topics:
   - Software testing
   - Python

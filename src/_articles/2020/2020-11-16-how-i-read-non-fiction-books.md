@@ -6,7 +6,6 @@ summary: I take notes so I remember more of what I read.
 colors:
   index_light: "#4f391d"
   index_dark:  "#c1ae97"
-old_syntax_highlighting: true
 topic: Books and reading
 hidden_topics:
   - Taking notes

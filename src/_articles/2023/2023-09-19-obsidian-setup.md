@@ -4,7 +4,6 @@ date: 2023-09-19 21:30:59 +00:00
 title: How I set up my Obsidian vaults
 summary: The tags, folders, and themes I use to manage information in my Obsidian vaults.
 card_attribution: https://www.pexels.com/photo/close-up-of-obsidian-in-rock-4775418/
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Taking nodes

@@ -5,7 +5,6 @@ title: Always read your contracts
 link: https://twitter.com/alexwlchan/status/1271339259509825536
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: The world around us
 ---
 

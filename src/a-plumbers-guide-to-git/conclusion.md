@@ -5,7 +5,6 @@ title: "A Plumber's Guide to Git: Conclusion"
 part_of:
   url: /a-plumbers-guide-to-git/
   label: "A Plumber's Guide to Git"
-old_syntax_highlighting: true
 ---
 
 Well done for getting this far!

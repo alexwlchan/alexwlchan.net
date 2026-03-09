@@ -5,7 +5,6 @@ title: Getting blink diffs for photos on the iPad
 summary: The Darkroom app lets me instantly switch between photos, which is how I compare and review shots.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Photo management
 ---
 

@@ -6,7 +6,6 @@ summary: An Excel mistake shows why learning to write good error messages is a c
 # I'd like to feature this when it has a better card image!
 # index:
 #   feature: true
-old_syntax_highlighting: true
 topic: Error messages
 ---
 
