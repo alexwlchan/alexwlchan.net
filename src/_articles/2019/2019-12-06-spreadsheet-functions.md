@@ -2,7 +2,6 @@
 layout: article
 date: 2019-12-06 09:02:20 +00:00
 title: "Some useful spreadsheet functions: FORMULATEXT, MATCH, CONCATENATE and INDIRECT"
-old_syntax_highlighting: true
 topic: Spreadsheets
 ---
 

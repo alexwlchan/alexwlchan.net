@@ -5,7 +5,6 @@ summary: Some advice for IA Mathmos sitting Tripos
 title: Some Part IA exam advice
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Maths
 hidden_topics:
   - Academia

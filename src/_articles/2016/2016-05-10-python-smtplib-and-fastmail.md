@@ -3,7 +3,6 @@ layout: article
 date: 2016-05-10 12:41:00 +00:00
 title: A Python smtplib wrapper for Fastmail
 summary: A quick python-smtplib wrapper for sending emails through Fastmail.
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - Email
@@ -28,7 +27,7 @@ Since the Python standard library includes [smtplib][smtplib], I decided to give
 
 After a bit of mucking around, I came up with this wrapper:
 
-```python
+```python {"names":{"1":"email","2":"encoders","3":"email","4":"mime","5":"base","6":"MIMEBase","7":"email","8":"mime","9":"multipart","10":"MIMEMultipart","11":"email","12":"mime","13":"text","14":"MIMEText","15":"smtplib","16":"FastmailSMTP","17":"smtplib","18":"SMTP_SSL","19":"__init__","20":"username","21":"password","28":"send_message","29":"from_addr","30":"to_addrs","31":"msg","32":"subject","33":"attachments","34":"msg_root","43":"msg_alternative","53":"attachment","55":"prt"}}
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
@@ -99,7 +98,7 @@ Finally, on line 39, I call the sendmail method from the SMTP class, which actua
 The nice thing about subclassing the standard SMTP class is that I can use my wrapper class as a drop-in replacement.
 Like so:
 
-```python
+```python {"names":{"4":"server"}}
 with FastmailSMTP(user, pw) as server:
     server.send_message(from_addr='hello@example.org',
                         to_addrs=['jane@doe.net', 'john@smith.org'],

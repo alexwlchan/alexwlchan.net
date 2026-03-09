@@ -28,7 +28,7 @@ For my purposes, this is a sufficiently reliable indicator.
 
 So this is the function I use to detect Tumblr URLs:
 
-```python
+```python {"names":{"1":"urllib","2":"parse","3":"urlparse","5":"urlparse","6":"urlparse","7":"requests","8":"is_tumblr_url","9":"url","14":"req"}}
 try:
     from urllib.parse import urlparse
 except ImportError:  # Python 2

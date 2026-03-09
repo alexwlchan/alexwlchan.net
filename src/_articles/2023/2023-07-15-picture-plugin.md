@@ -112,7 +112,7 @@ That's because my plugin can work it out automatically -- when Jekyll renders a 
 That means each instance of my picture tag knows which article it's in, and it can get the article's publication date.
 Then it can construct the path to the original image.
 
-```ruby
+```ruby {"names":{"1":"Jekyll","2":"PictureTag","5":"render","6":"context","7":"article","10":"date","12":"year","15":"path"}}
 module Jekyll
   class PictureTag < Liquid::Tag
     def render(context)
@@ -137,7 +137,7 @@ This mimics the [HTML attribute of the same name][width_attribute].
 
 I get the dimensions of the original image using the [rszr gem]:
 
-```ruby
+```ruby {"names":{"2":"image"}}
 require 'rszr'
 
 image = Rszr::Image.load(source_path)
@@ -147,7 +147,7 @@ puts image.width
 Then I use ImageMagick to create multiple derivative images, at different widths for different screen pixel densities -- 1x, 2x, or 3x.
 I don't create derivatives that are wider than the original image; that would be wasteful.
 
-```ruby
+```ruby {"names":{"1":"widths_to_create","3":"pixel_density","7":"w"}}
 widths_to_create =
   (1..3)
     .map { |pixel_density| pixel_density * visible_width }

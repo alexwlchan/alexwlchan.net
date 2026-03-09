@@ -7,7 +7,6 @@ topic: Builds and CI
 colors:
   index_light: "#1b1e21"
   index_dark:  "#e6f2fb"
-old_syntax_highlighting: true
 ---
 
 [GitHub Actions][actions] is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers inside GitHub's infrastructure, so there’s a lot of flexibility in what you can do.
@@ -73,7 +72,7 @@ It felt like GitHub Actions could be a good fit, and give me lots of flexibility
 ## Creating a “Hello World” Action
 
 Let’s start by creating a tiny action that just prints “hello world”.
-Working from the example in the [GitHub Actions docs][getting_started], create three files:
+Working from the example in the [GitHub Actions docs](https://developer.github.com/actions/creating-github actions/creating-a-new-action/), create three files:
 
 ```hcl
 # .github/main.workflow
@@ -137,7 +136,6 @@ What confused me is that not all CI integrations use the Checks API -- in partic
 Travis [started using the Checks API][travis_checks] nine months ago, but I missed the memo, and hadn't migrated my repos.
 Until I moved to the Checks integration, it looked as if GitHub was just ignoring my builds.
 
-[getting_started]: https://developer.github.com/actions/creating-github actions/creating-a-new-action/
 [cr_event]: https://developer.github.com/v3/activity/events/types/#checkrunevent
 [travis_checks]: https://developer.github.com/v3/activity/events/types/#checkrunevent
 
@@ -148,7 +146,7 @@ When GitHub Actions runs a container, it includes a JSON file with data from the
 It passes the path to this file as the `GITHUB_EVENT_PATH` environment variable.
 So let's open and load that file:
 
-```python {"names":{"1":"json","2":"os"}}
+```python {"names":{"1":"json","2":"os","3":"event_path","6":"event_data"}}
 import json
 import os
 
