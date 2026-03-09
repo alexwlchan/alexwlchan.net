@@ -154,7 +154,7 @@ pytest-xdist==3.8.0
     # via -r requirements.txt
 pyyaml==6.0.3
     # via -r requirements.txt
-ruff==0.15.4
+ruff==0.15.5
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
