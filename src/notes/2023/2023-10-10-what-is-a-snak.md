@@ -3,7 +3,6 @@ layout: note
 date: 2023-10-10 15:42:27 +00:00
 date_updated: 2024-06-24 07:30:47 +01:00
 title: Why the term "snak" keeps appearing in the Wikidata API
-old_syntax_highlighting: true
 topics:
 - Wikimedia Commons
 - Naming things

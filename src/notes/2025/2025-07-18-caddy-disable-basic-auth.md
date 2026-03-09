@@ -11,8 +11,6 @@ Suppose I have a web server using Caddy, and I'm protecting it with HTTP Basic A
 
 Here's a simple Caddyfile where every route requires auth:
 
-<!-- caddy -->
-
 ```caddy
 :2016 {
 	basic_auth {

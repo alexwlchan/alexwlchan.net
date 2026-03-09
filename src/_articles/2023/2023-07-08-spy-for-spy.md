@@ -8,7 +8,6 @@ colors:
   index_dark:  "#86a4c2"
   css_light:   "#214781"
   css_dark:    "#86a4c2"
-old_syntax_highlighting: true
 topic: Entertainment
 hidden_topics:
 - Theatre

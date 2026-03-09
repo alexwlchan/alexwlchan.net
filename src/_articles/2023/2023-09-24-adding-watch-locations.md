@@ -6,7 +6,6 @@ summary: My Apple Watch knows where I am, which is handy when I have a camera th
 colors:
   index_light: "#5b3527"
   index_dark:  "#f8e0bf"
-old_syntax_highlighting: true
 topic: Photo management
 ---
 

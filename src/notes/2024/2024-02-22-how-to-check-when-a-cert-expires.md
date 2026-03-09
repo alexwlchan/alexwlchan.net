@@ -2,7 +2,6 @@
 layout: note
 date: 2024-02-22 12:33:03 +00:00
 title: How to check when an HTTPS certificate expires
-old_syntax_highlighting: true
 topic: HTTP
 hidden_topics:
   - curl
