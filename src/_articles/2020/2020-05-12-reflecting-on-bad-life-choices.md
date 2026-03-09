@@ -3,7 +3,6 @@ layout: article
 date: 2020-05-12 06:57:53 +00:00
 title: Taking tuple unpacking to terrible places
 summary: I want to assign a bunch of variables to True, but I don't know how many there are. Reflection to the rescue!
-old_syntax_highlighting: true
 topics:
   - Code crimes
   - Python

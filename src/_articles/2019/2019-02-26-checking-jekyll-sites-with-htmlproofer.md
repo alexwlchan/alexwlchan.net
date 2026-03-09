@@ -2,7 +2,6 @@
 layout: article
 date: 2019-02-26 20:27:45 +00:00
 title: Checking Jekyll sites with HTMLProofer
-old_syntax_highlighting: true
 topics:
   - HTML
   - Blogging about blogging
@@ -26,7 +25,7 @@ gem "html-proofer", "~> 3.2"
 
 and then I added a small plugin to my `_plugins` directory:
 
-```ruby
+```ruby {"names":{"5":"site"}}
 require "html-proofer"
 
 Jekyll::Hooks.register :site, :post_write do |site|

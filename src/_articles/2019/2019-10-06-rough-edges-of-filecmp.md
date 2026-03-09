@@ -4,7 +4,6 @@ date: 2019-10-06 17:32:56 +00:00
 title: The rough edges of filecmp
 summary: The filecmp module has a confusing API, and it just caught me out.
 topic: Python
-old_syntax_highlighting: true
 ---
 
 I've been cleaning up some old files recently, and as part of that I'm using the [filecmp module](https://docs.python.org/3/library/filecmp.html) to find duplicates.

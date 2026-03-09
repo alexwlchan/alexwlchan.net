@@ -3,11 +3,12 @@ layout: article
 date: 2020-07-22 14:18:15 +00:00
 title: Why do programming languages have a main() function?
 summary: Lots of programming languages have a function called main() where code starts executing. Where does this come from?
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - History
 ---
+
+<!-- TODO: Update the <hr> markers to be dark mode aware -->
 
 <style>
   svg {
@@ -38,7 +39,6 @@ I'm unlikely to spend more time researching this, but I'd love to read about it 
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -57,7 +57,7 @@ It introduces the concept of a `main()` function in the first example:
 
 > In C, the program to print `“hello, world”` is
 >
-> ```
+> ```c {"names":{"2":"main"}}
 > #include <stdio.h>
 >
 > main()
@@ -89,7 +89,6 @@ So where did C get the idea?
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -121,7 +120,6 @@ If you have time, I recommend reading the whole paper.
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -148,7 +146,6 @@ Where did B get the idea?
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -170,7 +167,6 @@ There was no predecessor language A that came before B, but *The Development of 
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -193,13 +189,11 @@ The 1974 manual does have a function `Start`, but I'm not sure that's the same a
 Another [manual from 1979][bcpl_1979] has a sample program in section 2.2 with a procedure called `Main`, but I couldn't find the bit of the manual that explains why this procedure is special.
 (The perils of scanned PDFs without OCR.)
 
-```
-let Main() be
+<pre><code>let <span class="n">Main</span><span class="p">()</span> be
   [main
-        // Initialize the global vectors
-        ...
-  ]main
-```
+    <span class="c">// Initialize the global vectors</span>
+    <span class="p">...</span>
+  ]main</code></pre>
 
 1979 is after the publication of K&R, so it's possible the name `main` has floated back from C.
 
@@ -211,13 +205,11 @@ Finally, the [most recent BCPL manual][bcpl_2020], updated March this year, incl
 
 Here's one of the example programs in BCPL using this function like C uses `main`:
 
-```
-GET "libhdr"
-LET start() = VALOF
-{ writef("Hello*n")
+<pre><code>GET "libhdr"
+LET <span class="n">start</span><span class="p">()</span> = VALOF
+<span class="p">{</span> writef<span class="p">(</span><span class="s">"Hello*n"</span><span class="p">)</span>
   RESULTIS 0
-}
-```
+<span class="p">}</span></code></pre>
 
 So maybe BCPL came up with this idea, or maybe it came back from C -- I'm not sure.
 
@@ -231,7 +223,6 @@ So maybe BCPL came up with this idea, or maybe it came back from C -- I'm not su
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -246,16 +237,14 @@ K&R helped make it popular, but where did it come from?
 
 The B tutorial includes some sample programs, including this earlier version of "hello world":
 
-```
-main( ) {
-  extrn a, b, c;
-  putchar(a); putchar(b); putchar(c); putchar('!*n');
-}
+<pre><code><span class="n">main</span><span class="p">( ) {</span>
+  extrn <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+  putchar<span class="p">(</span>a<span class="p">);</span> putchar<span class="p">(</span>b<span class="p">);</span> putchar<span class="p">(</span>c<span class="p">);</span> putchar<span class="p">(</span><span class="s">'!*n'</span><span class="p">);</span>
+<span class="p">}</span>
 
-a 'hell';
-b 'o, w';
-c 'orld';
-```
+a <span class="s">'hell'</span><span class="p">;</span>
+b <span class="s">'o, w'</span><span class="p">;</span>
+c <span class="s">'orld'</span><span class="p">;</span></code></pre>
 
 (Note that unlike C, B uses the asterisk instead of a backslash for escape characters.
 Compare `\n` and `*n`.
@@ -276,7 +265,6 @@ So I'm still confused on this one.
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -311,7 +299,6 @@ Indeed, octal has fallen so out of fashion that some languages have [removed the
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
@@ -345,7 +332,6 @@ I wonder if there's an alternative timeline where we kept both statements?
 <center>
   <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="50">
     <rect x="25" y="75" width="450" height="350" fill="rgba(0, 0, 0, 0)" stroke="#f0f0f0" stroke-width="30" rx="25"/>
-
     <path d="M120 170, L200 250, L120, 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
     <path d="M250 330, L380 330" stroke-width="30" stroke="#f0f0f0" stroke-linecap="round" fill="rgba(0,0,0,0)"/>
   </svg>
