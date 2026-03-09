@@ -6,7 +6,6 @@ summary: You probably want to use version 7.
 colors:
   css_light: "#333333"
   css_dark:  "#cccccc"
-old_syntax_highlighting: true
 topic: Images and videos
 ---
 

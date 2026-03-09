@@ -3,7 +3,6 @@ layout: article
 date: 2020-04-26 17:53:53 +00:00
 title: Exploring an unknown SQL server
 summary: You're handed a SQL server which has some data, but you don't know anything about the schema. What do you do?
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - MySQL

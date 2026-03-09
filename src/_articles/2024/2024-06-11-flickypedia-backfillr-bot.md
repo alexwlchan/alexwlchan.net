@@ -9,7 +9,6 @@ link_direct: true
 colors:
   index_dark:  "#e4d186"
   index_light: "#c55c75"
-old_syntax_highlighting: true
 topics:
   - Wikimedia Commons
   - Flickr Foundation

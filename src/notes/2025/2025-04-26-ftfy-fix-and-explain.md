@@ -13,7 +13,7 @@ I wanted to fix the mangled encoding before I showed the text in my app.
 I was already aware of Robyn Speer's excellent [python-ftfy library][ftfy], which is able to fix this sort of thing.
 (The name "ftfy" literally stands for "fix text for you".)
 
-```pycon
+```pycon {"names":{"1":"ftfy","2":"title","3":"fixed"}}
 >>> import ftfy
 >>> title = "Amadeo LeÃ³n Rochaâ€™s plight"
 >>> fixed = ftfy.fix_text(title)
@@ -24,7 +24,7 @@ I was already aware of Robyn Speer's excellent [python-ftfy library][ftfy], whic
 What I learnt today is that ftfy doesn't just fix text -- it can [*explain the fixes*][explain].
 Here's an example:
 
-```pycon
+```pycon {"names":{"1":"ftfy","2":"title","3":"fixed","4":"explanation"}}
 >>> import ftfy
 >>> title = "Amadeo LeÃ³n Rochaâ€™s plight"
 >>> fixed, explanation = ftfy.fix_and_explain(title)
@@ -43,7 +43,7 @@ This will be invaluable if I want to report the errors to the upstream data prov
 This also allowed me to understand why my attempts to fix the data weren't working -- there were actually multiple encoding messes in the same data set.
 As well as some poorly encoded Windows-1252, I had some poorly encoded Latin-1:
 
-```pycon
+```pycon {"names":{"1":"title","2":"fixed","3":"explanation"}}
 >>> title = "Stockholms SpÃ¥rvÃ¤gsmuseum"
 >>> fixed, explanation = ftfy.fix_and_explain(title)
 

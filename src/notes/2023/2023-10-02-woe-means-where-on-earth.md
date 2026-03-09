@@ -2,7 +2,6 @@
 layout: note
 title: "The acronym \"woe\" in the Flickr API stands for \"Where On Earth\""
 date: 2023-10-02 17:29:30 +00:00
-old_syntax_highlighting: true
 topics:
   - Flickr
   - Naming things

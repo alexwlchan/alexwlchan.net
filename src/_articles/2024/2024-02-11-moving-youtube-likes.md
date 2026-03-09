@@ -53,7 +53,7 @@ A [Stack Overflow answer][so_answer] suggested I use `flow.run_local_server()`, 
 
 Here's the first script I got working, which is a modified version of the sample code:
 
-```python
+```python {"names":{"1":"googleapiclient","2":"discovery","3":"google_auth_oauthlib","4":"flow","5":"create_youtube_client","6":"client_secrets_file","7":"api_service_name","8":"api_version","9":"scopes","10":"flow","17":"credentials","20":"youtube","29":"youtube","32":"request","38":"response"}}
 import googleapiclient.discovery  # pip install google-api-python-client==1.7.2
 import google_auth_oauthlib.flow  # pip install google-auth-oauthlib==0.4.1
 
@@ -130,7 +130,7 @@ There are almost certainly better ways to do this, but my simplistic approach wo
 
 Here's my updated function:
 
-```python
+```python {"names":{"1":"datetime","2":"json","3":"google","4":"oauth2","5":"credentials","6":"googleapiclient","7":"discovery","8":"google_auth_oauthlib","9":"flow","10":"keyring","11":"create_youtube_client","12":"label","14":"api_service_name","15":"api_version","16":"scopes","17":"stored_credentials","22":"json_credentials","27":"expiry","38":"credentials","44":"stored_client_secrets","49":"flow","60":"credentials","68":"youtube","76":"request"}}
 import datetime
 import json
 
@@ -163,7 +163,7 @@ def create_youtube_client(label: str):
         if "expiry" in json_credentials:
             expiry = datetime.datetime.fromisoformat(json_credentials["expiry"])
             expiry = expiry.replace(tzinfo=None)
-            json_credentials["expiry"] = expir
+            json_credentials["expiry"] = expiry
 
         credentials = google.oauth2.credentials.Credentials(**json_credentials)
 
@@ -228,7 +228,7 @@ I've lost the links, but I found snippets of sample code in Google's documentati
 
 I started by wrapping the `create_youtube_client` in a class, and writing a function to list all the videos I'd liked:
 
-```python
+```python {"names":{"1":"YouTubeClient","2":"__init__","3":"label","5":"youtube","8":"create_youtube_client","9":"label","11":"get_liked_videos","12":"kwargs","13":"request","18":"response"}}
 class YouTubeClient:
     def __init__(self, label: str):
         self.youtube = self.create_youtube_client(label)
@@ -259,7 +259,7 @@ class YouTubeClient:
 This generates videos in reverse order of liking them -- the most recently liked video comes first.
 The items are large dicts which include various metadata fields about each video, of which the most interesting one to me is the ID:
 
-````python
+```python
 {'id': 'J-u2aW7T2bw', …}
 {'id': 'XPaKAh2zxgk', …}
 {'id': '-q7ZVXOU3kM', …}
@@ -268,7 +268,7 @@ The items are large dicts which include various metadata fields about each video
 Then I wrote a couple of methods which like/unlike a video.
 Because these are modifying data in YouTube, I had to change the `scopes` to `https://www.googleapis.com/auth/youtube`, replacing the `youtube.readonly` scope I'd been using previously.
 
-```python
+```python {"names":{"1":"YouTubeClient","2":"like_video","3":"video_id","4":"request","11":"response","14":"unlike_video","15":"video_id","16":"request","23":"response"}}
 class YouTubeClient:
     …
 
@@ -289,7 +289,7 @@ class YouTubeClient:
 
 Putting these functions together, I was then able to write a short script which moved my likes from one account to the other:
 
-```python
+```python {"names":{"1":"old_youtube","4":"new_youtube","7":"video","10":"video_id"}}
 old_youtube = YouTubeClient(label="old_account")
 new_youtube = YouTubeClient(label="new_account")
 

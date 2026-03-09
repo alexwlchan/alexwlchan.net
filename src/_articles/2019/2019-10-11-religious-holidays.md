@@ -2,7 +2,6 @@
 layout: article
 date: 2019-10-11 20:34:14 +00:00
 title: Adding religious holidays to my calendar
-old_syntax_highlighting: true
 topic: Inclusion and accessibility
 hidden_topics:
   - Religion

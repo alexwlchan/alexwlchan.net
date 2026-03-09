@@ -3,7 +3,6 @@ layout: article
 date: 2024-10-14 19:26:43 +00:00
 title: Making alt text more visible
 summary: I wrote a JavaScript snippet that shows alt text below all of my images, so I can see when it's missing, and review it while I'm editing.
-old_syntax_highlighting: true
 topic: Blogging about blogging
 hidden_topics:
   - Accessibility
@@ -15,7 +14,7 @@ I wanted to give it more attention, and make it part of my editing workflow.
 
 When I'm doing a local build of the site, I now add this JavaScript snippet to every page:
 
-```html
+```html {"names":{"1":"script","7":"img","15":"script"}}
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("img").forEach(function(img) {

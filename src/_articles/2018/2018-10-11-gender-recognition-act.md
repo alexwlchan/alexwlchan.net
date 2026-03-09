@@ -6,7 +6,6 @@ summary: The Government has launched a consultation on the Gender Recognition Ac
 link: https://www.gov.uk/government/consultations/reform-of-the-gender-recognition-act-2004
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: The world around us
 hidden_topics:
   - Politics

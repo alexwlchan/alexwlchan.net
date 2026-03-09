@@ -8,7 +8,6 @@ colors:
   index_dark:  "#aa9f92"
 index:
   feature: true
-old_syntax_highlighting: true
 topic: Fun stuff
 hidden_topics:
   - Twitter

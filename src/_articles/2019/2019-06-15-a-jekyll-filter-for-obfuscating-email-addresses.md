@@ -58,11 +58,7 @@ In this post, I'm going to explain how I wrote that plugin.
 
 Since the original Markdown is open source, we can look at how it does email obfuscation for inspiration:
 
-```perl
-# Taken from Markdown.pl 1.0.1, lines 1190-1239, retrieved 14 June 2019
-# Original code by John Gruber
-# Downloaded from https://daringfireball.net/projects/markdown/
-
+```perl {"names":{"1":"_EncodeEmailAddress","2":"$addr","5":"@encode","16":"$r"},"line_numbers":"1190-1239","caption":"Lines 1190–1239 of <a href='https://daringfireball.net/projects/markdown/'>Markdown.pl 1.0.1</a>. Copyright John Gruber, used under the <a href='https://daringfireball.net/projects/markdown/license'>Markdown License</a>."}
 sub _EncodeEmailAddress {
 #
 #	Input: an email address, e.g. "foo@example.com"
@@ -120,7 +116,7 @@ There's enough that I can reconstruct the logic in Ruby, and the comments really
 
 Let's start with a method to encode a single character:
 
-```ruby
+```ruby {"names":{"1":"encode_email_char","2":"char","3":"encoded_chars","14":"r"}}
 def encode_email_char(char)
   encoded_chars = [
     "&#"  + char.ord.to_s     + ";",
@@ -166,7 +162,7 @@ $ ruby run.rb | sort | uniq -c
 
 Now we can create a function to apply that to an entire string:
 
-```ruby
+```ruby {"names":{"1":"encode_email","2":"addr","6":"char"}}
 def encode_email(addr)
   addr
     .chars.map { |char| encode_email_char(char) }
@@ -185,7 +181,7 @@ puts encode_email("address@example.com")
 Now we need to wrap this in [a Jekyll plugin](https://jekyllrb.com/docs/plugins/), so we can use it from a template.
 The most appropriate plugin seems to be a filter, and the Jekyll docs have a [clear example](https://jekyllrb.com/docs/plugins/filters/) of how to use it:
 
-```ruby
+```ruby {"names":{"1":"Jekyll","2":"EmailObfuscationFilter","3":"encode_email_char","4":"char","5":"encode_email","6":"addr","10":"char"}}
 module Jekyll
   module EmailObfuscationFilter
     def encode_email_char(char)
@@ -206,9 +202,11 @@ Liquid::Template.register_filter(Jekyll::EmailObfuscationFilter)
 I've saved that in a file called `obfuscate_email.rb`, which is in the `_plugins` directory of my Jekyll site.
 It gets automatically loaded when I build the site, and I can use it in templates or source files like so:
 
+{% raw %}
 ```html
-{% raw %}<a href="{{ 'mailto:address@example.org' | encode_email }}">email</a></li>{% endraw %}
+<a href="{{ 'mailto:address@example.org' | encode_email }}">email</a></li>
 ```
+{% endraw %}
 
 This obfuscation has served me pretty well, and it's never broken anything, so I plan to keep it.
 
