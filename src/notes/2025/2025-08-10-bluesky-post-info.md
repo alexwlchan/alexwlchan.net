@@ -8,7 +8,6 @@ topics:
   - Python
 hidden_topics:
   - Bluesky
-old_syntax_highlighting: true
 ---
 I wanted to use the [Bluesky API][api] to get some basic information about posts.
 It wasn't difficult, but there were a couple of non-obvious steps I wanted to note.
