@@ -3,7 +3,6 @@ layout: article
 date: 2023-01-28 10:30:50 +00:00
 title: A bookmarklet to show which responsive image was chosen
 summary: Debugging my &lt;picture> and &lt;source> tags.
-old_syntax_highlighting: true
 topics:
   - Blogging about blogging
   - Images and videos
@@ -20,7 +19,7 @@ That's the theory, anyway.
 I've written a small bookmarklet which adds a label to show me which version of an image the browser has chosen -- this helps me check I've got my image markup correct.
 Here's the code:
 
-```javascript
+```javascript {"names":{"1":"createLabel","2":"currentSrc","11":"pso","17":"img","18":"div"}}
 /* Given the currentSrc attribute of an image, get a label.
  *
  * Ideally this should be something which identifies the image,

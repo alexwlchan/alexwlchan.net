@@ -35,7 +35,7 @@ If it isn't, the script starts Docker and waits until it's ready before forwardi
 
 This is [the script], which I've named `docker` and put before the real Docker CLI in my PATH:
 
-```bash
+```bash {"names":{"3":"is_docker_running"}}
 #!/usr/bin/env bash
 
 set -o errexit

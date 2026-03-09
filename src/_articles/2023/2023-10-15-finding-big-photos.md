@@ -6,7 +6,6 @@ summary: A quick script to help move the biggest items out of my main Photos Lib
 colors:
   index_light: "#816958"
   index_dark:  "#b2978a"
-old_syntax_highlighting: true
 topics:
   - Photo management
   - Swift

@@ -195,9 +195,10 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
 
     # Terraform: the 'resource' keyword is not worth highlighting.
     if lang == "terraform":
-        highlighted_code = highlighted_code.replace(
-            '<span class="kr">resource</span>', "resource"
-        )
+        for keyword in ("output", "resource", "variable"):
+            highlighted_code = highlighted_code.replace(
+                f'<span class="kr">{keyword}</span>', keyword
+            )
 
     # TypeScript: the 'type' keyword is not worth highlighting.
     if lang == "typescript":

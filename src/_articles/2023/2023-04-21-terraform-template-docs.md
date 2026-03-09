@@ -10,7 +10,7 @@ card_attribution: pexels-pixabay-261763.jpg, noun-pencil-5667651-FFFFFF.png
 old_syntax_highlighting: true
 topic: Terraform
 hidden_topics:
-- Documentation
+  - Documentation
 ---
 
 I've been doing a bunch of new Terraform recently, and I've started using it to document the deployments it's creating.
@@ -43,7 +43,7 @@ The sort of stuff I put in these READMEs include:
 
 To create this README, I have Terraform render a template file, and I pass in the variables:
 
-```hcl
+```terraform {"names":{"1":"local_file","2":"readme"}}
 resource "local_file" "readme" {
   content = templatefile(
     "${path.module}/README.html.tpl",
@@ -62,7 +62,7 @@ resource "local_file" "readme" {
 
 and then I tell the user about it with a Terraform output:
 
-```hcl
+```terraform {"names":{"1":"next_steps"}}
 output "next_steps" {
   value = <<EOT
 Your new API has been created at ${module.api.domain_name}
