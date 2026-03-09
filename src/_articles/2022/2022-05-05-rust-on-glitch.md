@@ -6,7 +6,6 @@ summary: Using different targets to build Rust binaries that will run in Glitch.
 colors:
   index_light: '#ff386a'
   index_dark: '#5e76fd'
-old_syntax_highlighting: true
 topics:
   - Rust
   - Builds and CI

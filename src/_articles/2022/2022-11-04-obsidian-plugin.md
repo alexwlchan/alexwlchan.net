@@ -7,7 +7,6 @@ link: https://github.com/alexwlchan/obsidian-simple-gallery
 colors:
   index_light: '#121212'
   index_dark: '#ababab'
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Obsidian

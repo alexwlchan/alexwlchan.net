@@ -6,7 +6,6 @@ summary: Git is a fundamental part of many modern developer workflows -- but how
   it really work under the hood?  In this workshop, we'll learn about the internals
   of Git.
 title: Notes on <em>A Plumber's Guide to Git</em>
-old_syntax_highlighting: true
 topics:
   - Git
   - Talks I've given

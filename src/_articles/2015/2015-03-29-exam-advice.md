@@ -4,7 +4,6 @@ date: 2015-03-29 13:30:00 +00:00
 link: http://alexwlchan.net/exams
 summary: Some advice for students sitting technical exams
 title: Some exam advice
-old_syntax_highlighting: true
 topic: Maths
 hidden_topics:
   - Academia

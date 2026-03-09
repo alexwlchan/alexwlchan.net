@@ -2,7 +2,6 @@
 layout: note
 date: 2018-10-28 14:12:26 +00:00
 title: How to set the clock on a Horstmann Electronic 7 water heater
-old_syntax_highlighting: true
 topic: Domestic life
 ---
 

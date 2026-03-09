@@ -5,7 +5,6 @@ title: Backup paranoia
 summary: Running a backup is good protection against data loss, but it's not perfect.  I take extra measures to ensure I have really safe backups.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Backups

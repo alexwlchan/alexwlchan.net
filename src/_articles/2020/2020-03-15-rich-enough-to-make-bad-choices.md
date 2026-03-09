@@ -7,7 +7,6 @@ colors:
   index_light: "#16282d"
   index_dark:  "#c98a6c"
 card_attribution: https://www.pexels.com/photo/pair-of-black-lace-up-boots-on-area-rug-1467574/
-old_syntax_highlighting: true
 topic: Inclusion and accessibility
 ---
 

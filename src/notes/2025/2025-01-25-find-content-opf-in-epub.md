@@ -2,7 +2,6 @@
 layout: note
 title: How to find the `content.opf` in an EPUB file
 date: 2025-01-25 23:21:22 +00:00
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
 - EPUB
