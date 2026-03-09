@@ -2,7 +2,6 @@
 layout: note
 date: 2023-10-16 16:45:35 +00:00
 title: Find files that use a particular SDC field
-old_syntax_highlighting: true
 topic: Wikimedia Commons
 hidden_topics:
   - SparQL
