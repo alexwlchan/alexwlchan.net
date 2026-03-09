@@ -4,21 +4,18 @@ title: Creating a reverse proxy to a multi-site server with Caddy
 date: 2024-11-21 11:29:02 +00:00
 summary:
   You need to add Host headers and HTTPS configuration to your `reverse_proxy` block.
-old_syntax_highlighting: true
 topic: Caddy
 ---
 I was setting up Caddy to run as a reverse proxy in front of the `www.flickr.org` WordPress site, which is currently hosted on WordPress VIP.
 Here's the config I needed:
 
-```
-reverse_proxy https://192.0.66.95 {
-    transport http {
-        tls_server_name "go-vip.co"
-    }
+<pre class="lng-caddy"><code>reverse_proxy <span class="n">https://192.0.66.95</span> <span class="p">{</span>
+    transport http <span class="p">{</span>
+        tls_server_name <span class="s">"go-vip.co"</span>
+    <span class="p">}</span>
 
-    header_up Host "www.flickr.org"
-}
-```
+    header_up Host <span class="s">"www.flickr.org"</span>
+<span class="p">}</span></code></pre>
 
 It took a while to work out this config, so I want to write down my debugging steps and some useful links.
 
@@ -31,11 +28,9 @@ It took a while to work out this config, so I want to write down my debugging st
 
 1.  I started with a one-line configuration of the [`reverse_proxy` directive][reverse_proxy]:
 
-    ```
-    www2.flickr.org {
+    <pre class="lng-caddy"><code><span class="n">www2.flickr.org</span> <span class="p">{</span>
         reverse_proxy https://192.0.66.95
-    }
-    ```
+    <span class="p">}</span></code></pre>
 
     This fails with an HTTP 502 Bad Gateway error.
 
@@ -45,29 +40,25 @@ It took a while to work out this config, so I want to write down my debugging st
 
     > Since (most) headers retain their original value when being proxied, it is often necessary to override the Host header with the configured upstream address when proxying to HTTPS, such that the Host header matches the TLS ServerName value:
     >
-    > <pre style="padding: 0; margin: 0; margin-bottom: 1em; border: none; background: none"><code>reverse_proxy https://example.com {</code>
-<code>    header_up Host {upstream_hostport}</code>
-<code>}</code></pre>
+    > <pre class="lng-caddy"><code>reverse_proxy <span class="n">https://example.com</span> <span class="p"></span>
+    header_up Host {upstream_hostport}
+<span class="p">}</span></code></pre>
 
     I'm not sure what `{upstream_hostport}` does, so I decided to hard-code the header instead -- I know what it's going to be:
 
-    ```
-    www2.flickr.org {
-        reverse_proxy https://192.0.66.95 {
-            header_up Host "www.flickr.org"
-        }
-    }
-    ```
+    <pre class="lng-caddy"><code><span class="n">www2.flickr.org</span> <span class="p">{</span>
+        reverse_proxy https://192.0.66.95 <span class="p">{</span>
+            header_up Host <span class="s">"www.flickr.org"</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre>
 
     This fails with another HTTP 502 Bad Gateway error.
 
 3.  I wasn't sure what was failing this time, so I enabled [debug logs in Caddy][debug]):
 
-    ```
-    {
+    <pre class="lng-caddy"><code><span class="p">{</span>
        debug
-    }
-    ```
+    <span class="p">}</span></code></pre>
 
     Then I could see all the requests being sent to the upstream proxy, including this one:
 
@@ -118,17 +109,16 @@ It took a while to work out this config, so I want to write down my debugging st
 
     I could see from the `curl` output that the server name is `go.vip.co`, so I added those lines to the config:
 
-    ```
-    www2.flickr.org {
-        reverse_proxy https://192.0.66.95 {
-            header_up Host "www.flickr.org"
+    <pre class="lng-caddy"><code><span class="n">www2.flickr.org</span> <span class="p"></span>
+        reverse_proxy https://192.0.66.95 <span class="p"></span>
+            header_up Host <span class="s">"www.flickr.org"</span>
 
-            transport http {
-                tls_server_name go-vip.co
-            }
-        }
-    }
-    ```
+            transport http <span class="p"></span>
+                tls_server_name <span class="s">"go-vip.co"</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre>
+
 
 [reverse_proxy]: https://caddyserver.com/docs/caddyfile/directives/reverse_proxy
 [https_header]: https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#https
