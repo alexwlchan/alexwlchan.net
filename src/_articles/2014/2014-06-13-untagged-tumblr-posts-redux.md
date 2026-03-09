@@ -2,7 +2,6 @@
 layout: article
 date: 2014-06-13 07:50:00 +00:00
 title: Finding untagged posts on Tumblr, redux
-old_syntax_highlighting: true
 topic: Tumblr
 ---
 

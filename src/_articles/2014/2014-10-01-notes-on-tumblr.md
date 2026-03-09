@@ -2,7 +2,6 @@
 layout: article
 date: 2014-10-01 18:34:00 +00:00
 title: Notes on Tumblr
-old_syntax_highlighting: true
 topic: Tumblr
 ---
 

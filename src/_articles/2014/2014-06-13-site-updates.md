@@ -4,7 +4,6 @@ date: 2014-06-13 00:03:00 +00:00
 title: Some site updates
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Blogging about blogging
 ---
 

@@ -5,7 +5,6 @@ summary: A strange bug with OS X's timezone handling
 title: Strange clock bug in OS X
 index:
   exclude: true
-old_syntax_highlighting: true
 topics:
   - macOS
   - Datetime shenanigans

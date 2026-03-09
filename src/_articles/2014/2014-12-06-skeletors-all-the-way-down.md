@@ -3,7 +3,6 @@ layout: article
 date: 2014-12-06 22:42:00 +00:00
 link: http://gouwens.net/skeletors-all-the-way-down
 title: Skeletors All the Way Down
-old_syntax_highlighting: true
 topic: Fun stuff
 hidden_topics:
   - Skeletor
