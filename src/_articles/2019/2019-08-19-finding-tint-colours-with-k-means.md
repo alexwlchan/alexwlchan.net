@@ -9,7 +9,6 @@ colors:
   index_dark:  "#70a15a"
 index:
   feature: true
-old_syntax_highlighting: true
 topics:
   - Colours
   - Python
@@ -60,7 +59,7 @@ My first thought was to try a very simple approach: tally all the colours used i
 The Pillow library has a [getdata() method][get_colors] that lets you get a list of all the colours in an image, along with their frequency.
 So we can find the most common colour like so:
 
-```python
+```python {"names":{"1":"collections","2":"PIL","3":"Image","4":"get_colors_by_frequency","5":"im","10":"im","13":"colors"}}
 import collections
 
 from PIL import Image
@@ -227,7 +226,7 @@ I'm going to write one here as a learning exercise, and to make sure I really un
 
 Let's start by creating a class to represent a colour in RGB space (I'm using the [attrs library][attrs] here):
 
-```python
+```python {"names":{"1":"attr","6":"RGBColor","7":"red","10":"green","13":"blue"}}
 import attr
 
 
@@ -240,7 +239,7 @@ class RGBColor:
 
 Step 1: pick *k* points at random as the initial means:
 
-```python
+```python {"names":{"1":"random","2":"kmeans","3":"colors","4":"k","5":"means"}}
 import random
 
 
@@ -254,7 +253,7 @@ We can use the [Euclidean metric][euclidean] to measure the distance between two
 If you remember [Pythagoras' theorem][pythagoras] from school, it's the same idea in a more general form.
 (There are other ways to measure [colour distance][colour_distance], but the distinction isn't important for this exercise.)
 
-```python
+```python {"names":{"1":"math","2":"euclidean_distance","3":"color1","4":"color2","19":"kmeans","20":"colors","21":"k","22":"clusters","27":"col","29":"closest_mean","33":"m"}}
 import math
 
 
@@ -287,7 +286,7 @@ We use the arithmetic mean of all the points in the cluster as the centre.
 I'm also tracking how much the means change -- by looking at this, we can tell when the clusters stop changing and when we can stop the process.
 This does a single pass:
 
-```python
+```python {"names":{"1":"calculate_new_centre","2":"colors","9":"c","18":"c","27":"c","31":"kmeans","32":"colors","34":"new_means_distance","35":"means","36":"mean","37":"colours_in_cluster","40":"new_mean"}}
 def calculate_new_centre(colors):
     return RGBColor(
         red=int(sum(c.red for c in colors) / len(colors)),
@@ -312,7 +311,7 @@ def kmeans(colors, *, k):
 
 Now we repeat the process multiple times, until the means stop moving:
 
-```python
+```python {"names":{"1":"kmeans","2":"colors","3":"k","4":"means","9":"clusters","12":"m","14":"col","16":"closest_mean","28":"new_means_distance","30":"mean","31":"colours_in_cluster","34":"new_mean"}}
 def kmeans(colors, *, k):
     means = random.sample(colors, k)
 
@@ -349,7 +348,7 @@ When I tried this on some of my images, the colour clusters converged pretty qui
 
 Putting all that code together, here's the final version:
 
-```python
+```python {"names":{"1":"math","2":"random","3":"attr","8":"RGBColor","9":"red","12":"green","15":"blue","18":"euclidean_distance","19":"color1","20":"color2","35":"calculate_new_centre","36":"colors","43":"c","52":"c","61":"c","65":"kmeans","66":"colors","67":"k","68":"means","73":"clusters","76":"m","78":"col","80":"closest_mean","84":"m","92":"new_means_distance","94":"mean","95":"colours_in_cluster","98":"new_mean"}}
 import math
 import random
 
@@ -421,7 +420,7 @@ def kmeans(colors, *, k):
 
 If you want to do something similar with scikit-learn, you can do:
 
-```python
+```python {"names":{"1":"sklearn","2":"cluster","3":"KMeans","4":"kmeans","5":"colors","6":"k"}}
 from sklearn.cluster import KMeans
 
 
@@ -442,7 +441,7 @@ Now we have a way to extract dominant colours from an image, let's return to the
 We can use our *k*-means clustering algorithm to extract dominant colours from an image.
 Combining it with the code to extract all the pixels with Pillow:
 
-```python
+```python {"names":{"1":"PIL","2":"Image","3":"sklearn","4":"cluster","5":"KMeans","6":"get_dominant_colours","7":"path","8":"count","9":"im","13":"colors"}}
 from PIL import Image
 from sklearn.cluster import KMeans
 
@@ -494,7 +493,7 @@ Eventually I struck upon the idea of using [WCAG contrast ratios][wcag].
 The WCAG recommends a minimum contrast ratio of 4.5:1 for displaying text on a web page, so the first step is to throw away all colours that don't have sufficient contrast with the background.
 There's a [Python library][py_wcag] that computes these ratios for you, so let's use that:
 
-```python
+```python {"names":{"1":"wcag_contrast_ratio","2":"contrast","3":"choose_tint_color","4":"dominant_colors","5":"background_color","6":"sufficient_contrast_colors","8":"col"}}
 import wcag_contrast_ratio as contrast
 
 
@@ -508,7 +507,7 @@ def choose_tint_color(dominant_colors, background_color):
 
 Two of the images in my test set don't have any dominant colours that pass WCAG with a white background -- as a quick workaround, add black and white to the mix and try again (every colour has a contrast ratio of 4.5:1 with at least one of black or white; [see proof](/files/2019/wcag-black-and-white.pdf)):
 
-```python
+```python {"names":{"1":"choose_tint_color","2":"dominant_colors","3":"background_color"}}
 def choose_tint_color(dominant_colors, background_color):
     ...
 
@@ -532,7 +531,7 @@ That means I get something with sufficient contrast but that isn't too dark or t
 Handily, Python includes the [colorsys module][colorsys], which lets you convert between the RGB and HSL colour spaces (although the module calls it HSV).
 Like so:
 
-```python
+```python {"names":{"1":"colorsys","2":"choose_tint_color","3":"dominant_colors","4":"background_color","5":"hsv_background","9":"hsv_candidates","14":"rgb_col","16":"candidates_by_brightness_diff","21":"rgb_col","22":"hsv_col","25":"rgb_choice","31":"t"}}
 import colorsys
 
 
@@ -584,7 +583,7 @@ The colours it selects are never visually jarring.
 
 This is the complete code, wrapped in a script that lets you run it standalone against an image:
 
-```python
+```python {"names":{"1":"colorsys","2":"PIL","3":"Image","4":"sklearn","5":"cluster","6":"KMeans","7":"wcag_contrast_ratio","8":"contrast","9":"get_dominant_colours","10":"path","11":"count","12":"im","22":"colors","26":"r","27":"g","28":"b","37":"choose_tint_color","38":"dominant_colors","39":"background_color","40":"sufficient_contrast_colors","42":"col","54":"hsv_background","58":"hsv_candidates","64":"rgb_col","66":"candidates_by_brightness_diff","71":"rgb_col","72":"hsv_col","75":"rgb_choice","81":"t","86":"sys","87":"path","93":"dominant_colors","97":"tint_color","107":"v"}}
 #!/usr/bin/env python
 # -*- encoding: utf-8
 
