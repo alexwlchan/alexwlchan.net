@@ -2,9 +2,10 @@
 Tests for `mosaic.page_types.notes`.
 """
 
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+import pytest
 
 from mosaic.page_types import Article, BreadcrumbEntry
 
@@ -42,3 +43,36 @@ def test_article_with_no_topics_has_bare_breadcrumb(src_dir: Path) -> None:
     assert a.breadcrumb() == [
         BreadcrumbEntry(label="articles", href="/articles/"),
     ]
+
+
+@pytest.mark.parametrize(
+    "date",
+    [
+        datetime.now(tz=timezone.utc),
+        datetime.now(tz=timezone.utc) - timedelta(days=1),
+        datetime.now(tz=timezone.utc) - timedelta(days=13),
+        datetime.now(tz=timezone.utc) - timedelta(days=21),
+    ],
+)
+def test_recent_days_are_new(src_dir: Path, date: datetime) -> None:
+    """
+    An article published in the last 21 days is new.
+    """
+    a = Article(md_path=src_dir / "_articles/example.md", src_dir=src_dir, date=date)
+    assert a.is_new
+
+
+@pytest.mark.parametrize(
+    "date",
+    [
+        datetime.now(tz=timezone.utc) - timedelta(days=22),
+        datetime.now(tz=timezone.utc) - timedelta(days=28),
+        datetime.now(tz=timezone.utc) - timedelta(days=365),
+    ],
+)
+def test_older_days_are_new(src_dir: Path, date: datetime) -> None:
+    """
+    An article published more than 14 days ago is not new.
+    """
+    a = Article(md_path=src_dir / "_articles/example.md", src_dir=src_dir, date=date)
+    assert not a.is_new
