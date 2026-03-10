@@ -3,7 +3,6 @@ layout: article
 date: 2015-07-27 20:36:00 +00:00
 link: http://redsymbol.net/articles/bash-exit-traps/
 title: 'Useful Bash features: exit traps'
-old_syntax_highlighting: true
 topic: Shell scripting
 ---
 
@@ -17,15 +16,13 @@ As part of my day job, I've been doing some tests to monitor the performance imp
 
 At the end of the test, I want to save a copy of the logs, so that I can correlate events with the load on the system. I was doing it by hand, but I would often forget. Then I found exit traps, and the solution was simple. I added a few lines to my monitoring script:
 
-```bash
-function save_logs {
-    if [[ -f /var/log/calico/felix.log ]]; then
-        mv /var/log/calico/felix.log "$TESTID"_felix.log
+<pre class="lng-bash"><code>function <span class="n">save_logs</span> <span class="p">{</span>
+    if [[ -f /var/log/calico/felix.log ]]<span class="p">;</span> then
+        mv /var/log/calico/felix.log <span class="s">"$TESTID"_felix.log</span>
     fi
-}
+<span class="p">}</span>
 
-trap save_logs exit
-```
+trap save_logs exit</code></pre>
 
 and now I get a set of saved logs after every test.
 It's reliable, robust, and one less thing for me to think about.

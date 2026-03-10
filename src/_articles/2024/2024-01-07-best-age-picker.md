@@ -5,7 +5,6 @@ title: The best way to tell a website your age
 summary: Using SVG animations to create a fun and exciting new input UI.
 index:
   exclude: true
-old_syntax_highlighting: true
 topics:
 - Code crimes
 - Drawing things

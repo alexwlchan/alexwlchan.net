@@ -2,7 +2,6 @@
 layout: article
 date: 2019-07-08 21:44:29 +00:00
 title: Creating preview thumbnails of PDF documents
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - PDF

@@ -6,8 +6,8 @@ summary: |
   To see exactly what HTTP requests were being made, I modified the library so that betamax would record requests.
 old_syntax_highlighting: true
 topics:
-  - Wikimedia Commons
   - Python
+  - Wikimedia Commons
 ---
 I was trying to debug an issue in some code for interacting with Wikimedia Commons (see [village pump discussion][vpump]).
 I had my broken code using httpx, and another Wikimedian had given me working code with pywikibot.
@@ -21,7 +21,7 @@ And in the documentation [for `comms.http`][comms.http], it explains that you ca
 
 If you combine this with the [betamax library][betamax], you can get an instance of pywikibot that will record all its HTTP requests:
 
-```python
+```python {"names":{"1":"betamax","2":"requests","3":"pywikibot","4":"pywikibot","5":"comms","6":"http","7":"RecordingSession","10":"request","11":"args","12":"kwargs","13":"recorder","27":"site"}}
 import betamax
 import requests
 import pywikibot

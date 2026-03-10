@@ -6,7 +6,6 @@ summary: How I make images that load quickly and look good for readers, and whic
 colors:
   css_light: "#df1b4a"
   css_dark:  "#fd96af"
-old_syntax_highlighting: true
 topics: 
   - Blogging about blogging
   - Images and videos
@@ -30,7 +29,8 @@ For bitmap images, I wrote a [custom Jekyll plugin][plugin].
 Usually my original image is a JPEG or a PNG.
 I save it in `_images`, and then I include my custom `{% raw %}{% picture %}{% endraw %}` tag in the Markdown source:
 
-```{% raw %}
+{% raw %}
+```
 {%
   picture
   filename="IMG_9016.jpg"
@@ -38,7 +38,8 @@ I save it in `_images`, and then I include my custom `{% raw %}{% picture %}{% e
   class="photo"
   alt="A collection of hot pink flowers, nestled among some dark green leaves in a greenhouse."
 %}
-{% endraw %}```
+```
+{% endraw %}
 
 This expands into a larger chunk of HTML, which refers to several different variants of the image:
 
