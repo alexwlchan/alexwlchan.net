@@ -4,7 +4,6 @@ date: 2016-08-31 20:05:00 +00:00
 title: 'Python snippet: dealing with query strings in URLs'
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Python
 ---
 
@@ -12,9 +11,7 @@ I spend a lot of time dealing with URLs: in particular, with URL [query strings]
 The query string is the set of key-value pairs that comes after the question mark in a URL.
 For example:
 
-<pre>
-http://example.net?<strong>name=alex&amp;color=red</strong>
-</pre>
+<pre><code>http://example.net?<mark>name=alex&amp;color=red</mark></code></pre>
 
 Typically I want to do one of two things: get the value(s) associated with a particular key, or create a new URL with a different key-value pair.
 
@@ -28,15 +25,13 @@ It's easy to imagine a query string as like a Python dict: it's a series of key-
 But unlike a dictionary, the same key can appear twice in the same query string.
 For example, this is perfectly legal:
 
-<pre>
-http://example.net?<strong>name=alex&amp;name=anna</strong>
-</pre>
+<pre><code>http://example.net?<mark>name=alex&amp;name=anna</mark></code></pre>
 
 So we might have a single value associated with a given key, or multiple values.
 The most flexible approach is to return a list of values associated with a key, and let the caller decide which (if any of them) they care about.
 Doing so requires chaining together a couple of standard library functions, and looks like this:
 
-```python
+```python {"names":{"1":"urllib","2":"parse","3":"parse_qs","4":"urlparse","5":"get_query_field","6":"url","7":"field"}}
 from urllib.parse import parse_qs, urlparse
 
 
@@ -54,7 +49,7 @@ I used the term "field" rather than "key" because that's what the [Wikipedia art
 Setting a value takes slightly more work: quite a few calls into bits of `urllib`, then constructing an entirely new tuple of URL components to "unparse".
 This is what the code looks like:
 
-```python
+```python {"names":{"1":"urllib","2":"parse","3":"parse_qsl","4":"urlencode","5":"urlparse","6":"urlunparse","7":"set_query_field","8":"url","9":"field","10":"value","12":"components","15":"query_pairs","33":"new_query_str","36":"new_components"}}
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 

@@ -4,10 +4,9 @@ date: 2024-04-02 18:55:13 +01:00
 title: Checking if a URL has changed when you fetch it over HTTP
 summary: |
   When you make an HTTP request, you can use the `If-Modified-Since` header to get a 304 Not Modified if nothing has changed since your last request.
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
-- HTTP
+  - HTTP
 ---
 I was writing a small crawler for my RSS feed, and I know my RSS feed doesn't change that often, so I was looking for a way to speed up fetches when nothing has changed.
 

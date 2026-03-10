@@ -3,7 +3,6 @@ layout: article
 date: 2019-11-06 07:54:27 +00:00
 title: An AWS costs graph that works for me
 summary: How I get a Cost Explorer graph for the last 30 days of spending, broken down by service.
-old_syntax_highlighting: true
 topic: AWS
 ---
 
@@ -16,9 +15,9 @@ I have a Python script that opens a graph that I find useful:
 
 [Cost Explorer]: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
 
-```python
+```python {"names":{"1":"datetime","2":"dt","3":"urllib","4":"parse","5":"urlencode","6":"urlparse","7":"urlunparse","8":"webbrowser","9":"today","13":"query_dict","21":"parts"}}
 #!/usr/bin/env python
-# -*- encoding: utf-8
+#-*- encoding: utf-8
 
 import datetime as dt
 from urllib.parse import urlencode, urlparse, urlunparse

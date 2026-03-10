@@ -2,7 +2,6 @@
 layout: page
 title: Bookmarklets
 date_updated: 2024-09-25 20:29:52 +01:00
-old_syntax_highlighting: true
 ---
 I love [bookmarklets](https://en.wikipedia.org/wiki/Bookmarklet).
 They're a useful way to add functionality to browsers without extensions, and to me they represent the spirit of the web that encourages exploration and tinkering.

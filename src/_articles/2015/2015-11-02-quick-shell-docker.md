@@ -3,7 +3,6 @@ layout: article
 date: 2015-11-02 22:07:00 +00:00
 summary: A Bash function for quickly getting shell access to Docker containers.
 title: Quick shell access for Docker containers
-old_syntax_highlighting: true
 topics:
   - Docker
   - Shell scripting
@@ -22,15 +21,13 @@ It's only short, but it gets tedious if you're doing it regularly &ndash; this i
 Most of the time, I'm shelling into my most recently started container.
 So I wrote this short function, and put it in my bash_profile:
 
-```bash
-function docker-sh {
-    if [[ $# -eq 0 ]]; then
+<pre class="lng-bash"><code>function <span class="n">docker-sh</span> <span class="p">{</span>
+    if [[ $# -eq <span class="m">0</span> ]]<span class="p">;</span> then
         docker exec -it $(docker ps -l -q) sh
     else
         docker exec -it $1 sh
     fi
-}
-```
+<span class="p">}</span></code></pre>
 
 If I invoke it without any arguments, it will shell into my most recent container:
 
