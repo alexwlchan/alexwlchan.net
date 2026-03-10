@@ -4,7 +4,6 @@ date: 2015-11-30 22:39:00 +00:00
 summary: The Docker folder on your computer can quickly fill up space. Don't forget
   to exclude it from backups.
 title: Backups and Docker
-old_syntax_highlighting: true
 topic: Docker
 hidden_topics:
   - Backups

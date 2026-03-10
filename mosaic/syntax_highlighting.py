@@ -201,9 +201,9 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             flags=re.MULTILINE,
         )
 
-    # Terraform: the 'resource' keyword is not worth highlighting.
+    # Terraform: these keywords are not worth highlighting.
     if lang == "terraform":
-        for keyword in ("output", "resource", "variable"):
+        for keyword in ("data", "module", "output", "resource", "variable"):
             highlighted_code = highlighted_code.replace(
                 f'<span class="kr">{keyword}</span>', keyword
             )

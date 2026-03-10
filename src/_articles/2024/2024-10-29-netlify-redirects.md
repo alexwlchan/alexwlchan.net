@@ -7,7 +7,6 @@ summary: |
 topic: Blogging about blogging
 hidden_topics:
   - Netlify
-old_syntax_highlighting: true
 ---
 I've changed the URL design on this website a couple of times.
 The current structure seems to be working fairly well, but I made some dubious decisions when I started out that really didn't scale.
@@ -24,16 +23,14 @@ I can write comments by starting a line with `#`, and leave empty lines to make 
 
 Here are a few examples from my `_redirects` file:
 
-```
-# Move images into per-year folders
+<pre><code><span class="c"># Move images into per-year folders</span>
 /images/wiki-squares.png      /images/2016/wiki-squares.png
 
-# Fix a typo in the slug of this blog post
+<span class="c"># Fix a typo in the slug of this blog post</span>
 /2021/01/what-year-it-it/     /2021/what-year-is-it/
 
-# Changing the name of the list of articles
-/all-posts/                   /articles/
-```
+<span class="c"># Changing the name of the list of articles</span>
+/all-posts/                   /articles/</code></pre>
 
 I wanted to make sure this file is always redirecting to valid URLs -- there's no point redirecting somebody to a broken URL!
 
@@ -50,7 +47,7 @@ This has already caught several typos and mistakes that I'd otherwise have misse
 First I needed some code that could extract my list of redirects from the `_redirects` file.
 I wrote a basic parsing function:
 
-```ruby
+```ruby {"names":{"1":"parse_netlify_redirects","2":"path","8":"line","13":"line","19":"line","20":"lineno"}}
 # Parse a Netlify `_redirects` file.
 #
 # The syntax of this file is described in Netlify's docs:
@@ -124,7 +121,7 @@ _site
 
 This is the code that takes the list of redirects, and checks each of them points to a file that actually exists in that folder:
 
-```ruby
+```ruby {"names":{"1":"publish_dir","2":"broken_redirects","6":"redirect","7":"target_file","23":"redirect"}}
 publish_dir = '_site'
 
 # Build a list of redirects that point to a file which doesn't exist in

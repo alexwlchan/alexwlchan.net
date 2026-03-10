@@ -9,7 +9,6 @@ colors:
   css_light:   "#3a5781"
   css_dark:    "#cfe7f7"
 card_attribution: by Todd Cravens, https://unsplash.com/photos/QnBrjY-nFUs
-old_syntax_highlighting: true
 topics:
 - Docker
 - Shell scripting

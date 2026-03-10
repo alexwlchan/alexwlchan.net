@@ -41,7 +41,7 @@ Note: I'm still using Acorn 5, so these commands might be slightly different if 
 If we have the path to an image, the Acorn dictionary makes it quite simple to open that file and save it to a new path.
 Working in Script Editor:
 
-```applescript
+```applescript {"names":{"2":"theDocument"}}
 tell application "Acorn"
   set theDocument to (open "/Users/alexwlchan/Desktop/chui.acorn")
   save theDocument in "/Users/alexwlchan/Desktop/chui.png"
@@ -59,7 +59,7 @@ It'd be nicer if it closed the windows when it's done.
 
 Closing a document is a small addition:
 
-```applescript
+```applescript {"names":{"2":"theDocument"}}
 tell application "Acorn"
   set theDocument to (open "/Users/alexwlchan/Desktop/chui.acorn")
   save theDocument in "/Users/alexwlchan/Desktop/chui.png"
@@ -78,7 +78,7 @@ This takes a bit more code.
 
 AppleScript gives us a way to iterate over the windows of an application:
 
-```applescript
+```applescript {"names":{"3":"theWindow"}}
 tell application "Acorn"
   repeat with theWindow in (every window)
     -- do stuff with the window
@@ -99,7 +99,7 @@ Each window can have an associated document, which is the file open in that wind
 But we have to be careful -- every document is in a window, but not every window has a document.
 For example, the Acorn tools palette and the colour picker both appear in this loop, but neither of them have an open document.
 
-```applescript
+```applescript {"names":{"1":"theDocument"}}
 set theDocument to (document of theWindow)
 if theDocument is not missing value then
   -- do stuff with the document
@@ -110,7 +110,7 @@ In turn, a document has an associated path, which is the location of the documen
 But that might be empty, if this is a new document that I haven't saved yet -- so we need to check for that too.
 
 
-```applescript
+```applescript {"names":{"1":"thePath"}}
 set thePath to (file of theDocument)
 if thePath is not missing value then
   -- do stuff with the path
@@ -145,7 +145,7 @@ The `return` statement means the script will exit once it's done the export.
 
 Stepping back, let's see what those nested loops look like put together:
 
-```applescript
+```applescript {"names":{"1":"originalPath","2":"exportPath","5":"theWindow","8":"theDocument","13":"thePath","26":"theDocument"}}
 set originalPath to "/Users/alexwlchan/Desktop/chui.acorn"
 set exportPath to "/Users/alexwlchan/Desktop/chui.png"
 
@@ -192,7 +192,7 @@ You should hear your Mac speaking to you!
 
 In a similar way, we can copy our code into a file, and add a shebang that says it should be run with `osascript`:
 
-```applescript
+```applescript {"names":{"1":"originalPath","2":"exportPath"}}
 #!/usr/bin/env osascript
 
 set originalPath to "/Users/alexwlchan/Desktop/chui.acorn"
@@ -209,7 +209,7 @@ What about parsing some command-line arguments?
 If you wrap your entire script in `on run argv`, you then get access to command-line arguments.
 Like so:
 
-```applescript
+```applescript {"names":{"2":"argv","8":"arg1","11":"arg2","14":"workingDir","17":"originalPath","19":"originalPath","23":"exportPath","25":"exportPath"}}
 on run argv
   if (count of argv) is not 2
     log "Usage: " & (name of me) &" <ORIGINAL_PATH> <EXPORT_PATH>"
@@ -261,7 +261,7 @@ This code is definitely fragile, but it works well enough for me in my limited t
 
 This is the final script, including a comment at the top explaining how to use it:
 
-```applescript
+```applescript {"names":{"2":"argv","8":"arg1","11":"arg2","14":"workingDir","17":"originalPath","19":"originalPath","23":"exportPath","25":"exportPath","30":"theWindow","33":"theDocument","38":"thePath","51":"theDocument"}}
 #!/usr/bin/env osascript
 
 -- Convert an Acorn file to another format (for example, PNG or JPEG)

@@ -6,7 +6,6 @@ summary: A couple of functions I use to get access to CloudFront logs as easy-to
 colors:
   css_light: "#673ABB"
   css_dark:  "#C9ABFF"
-old_syntax_highlighting: true
 topics:
   - AWS
   - Python
@@ -20,7 +19,7 @@ The first is a parsing function, which gets the individual log entries from a si
 This takes a file-like object in binary mode, so works the same whether I'm reading the file from a local disk or directly from S3.
 This is what it looks like:
 
-```python
+```python {"names":{"1":"datetime","2":"urllib","3":"parse","4":"parse_cloudfront_logs","5":"log_file","8":"header","11":"field_names","14":"name","18":"numeric_fields","25":"url_encoded_fields","26":"nullable_fields","27":"line","29":"values","34":"log_data","39":"name","48":"name","49":"value","57":"name","58":"converter_function"}}
 import datetime
 import urllib.parse
 
@@ -128,7 +127,7 @@ A couple of the values are converted to more meaningful types than strings -- fo
 
 This is how it gets used:
 
-```python
+```python {"names":{"1":"log_entry"}}
 for log_entry in parse_cloudfront_logs(log_file):
     print(log_entry)
     # {'c-ip': '1.2.3.4', 'c-port': '9962', 'cs-cookie': None, ...}
@@ -137,7 +136,7 @@ for log_entry in parse_cloudfront_logs(log_file):
 And then I can use my regular Python tools for analysing iterable data.
 For example, if I wanted to count the most commonly-requested URIs in a log file:
 
-```python
+```python {"names":{"1":"collections","2":"tally","6":"log_entry","9":"pprint","10":"pprint"}}
 import collections
 
 tally = collections.Counter(
@@ -163,7 +162,7 @@ For that, I have a couple of additional functions which handle combining log ent
 If I'm going to be working offline or I know I'm going to be running lots of different bits of analysis on the same set of log files, sometimes I download the log fields directly to my local disk.
 Then I use my [function for walking a file tree][snake-walker] to get a single iterator for all the entries in a folder full of log files:
 
-```python
+```python {"names":{"1":"gzip","2":"get_cloudfront_logs_from_dir","3":"root","4":"path","11":"log_file","14":"log_entry"}}
 import gzip
 
 
@@ -191,7 +190,7 @@ CloudFront logs are stored in S3, so if I'm running inside AWS, it can be faster
 For this I have a function that lists all the S3 keys within a given prefix, then opens the individual objects and parses their log entries.
 This gives me a single iterator for all the log entries in a given S3 prefix:
 
-```python
+```python {"names":{"1":"boto3","2":"gzip","3":"list_s3_objects","4":"sess","5":"kwargs","6":"s3","9":"page","16":"get_cloudfront_logs_from_s3","17":"sess","18":"Bucket","19":"kwargs","20":"s3","23":"s3_obj","29":"Key","31":"body","41":"log_file","44":"sess","47":"log_entry"}}
 import boto3
 import gzip
 

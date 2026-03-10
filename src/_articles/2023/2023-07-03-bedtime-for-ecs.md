@@ -7,7 +7,6 @@ colors:
   css_light: "#9a255e"
   css_dark:  "#ff3d9c"
 card_attribution: https://www.pexels.com/photo/analog-clock-sketch-in-black-surface-745365/
-old_syntax_highlighting: true
 topic: AWS
 ---
 
@@ -30,7 +29,7 @@ I tried rolling that pattern out to our ECS services, and it worked very well.
 The core logic sits in a pair of EventBridge Schedules, created with the `aws_scheduler_schedule` resource.
 One schedule turns a service off in the evening; another turns it back on the next morning.
 
-```hcl
+```terraform {"names":{"1":"aws_scheduler_schedule","2":"turn_off_in_the_evening","18":"aws_scheduler_schedule","19":"turn_on_in_the_morning","36":"cluster","38":"service_name","40":"desired_task_count"}}
 resource "aws_scheduler_schedule" "turn_off_in_the_evening" {
   name       = "${var.service_name}-turn_off_in_the_evening"
 
@@ -100,7 +99,7 @@ We've already got a variant of these schedules that turns an EC2 instance off/on
 Alongside the two schedules, you need an IAM role that allows EventBridge to modify your ECS services when it runs.
 This is how our IAM role is defined:
 
-```hcl
+```terraform {"names":{"1":"aws_iam_role","2":"scheduler","6":"aws_iam_policy_document","7":"assume_role","14":"aws_iam_policy_document","15":"allow_update_service","20":"aws_iam_role_policy","21":"allow_update_service","26":"service_arn","28":"service_name"}}
 resource "aws_iam_role" "scheduler" {
   name               = "${var.service_name}-office-hours-scaling"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
@@ -144,7 +143,7 @@ Then we create an IAM policy document that allows calling the UpdateService API 
 This isn't a lot of Terraform, but it would be annoying to copy/paste this for every service we have.
 To save ourselves the hassle, it's included it in our standard ECS service module, and services can opt-in to this behaviour with a single flag:
 
-```hcl
+```terraform {"names":{"1":"service"}}
 module "service" {
    source = "git::github.com/wellcomecollection/terraform-aws-ecs-service.git//modules/service?ref=v3.15.3"
    name   = "staging-site"
