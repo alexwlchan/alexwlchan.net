@@ -3,7 +3,6 @@ layout: note
 date: 2024-03-24 15:26:20 +00:00
 title: How to change the name of an internal link in an Obsidian table
 summary: Escaping the pipe like `[[filename\|display text]]` allows you to customise the of a link in a table.
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Obsidian

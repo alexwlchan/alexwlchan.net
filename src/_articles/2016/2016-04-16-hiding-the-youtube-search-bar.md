@@ -5,7 +5,6 @@ summary: I’ve adapted my bookmarklet for tidying up Google Maps to hide the Yo
 title: Hiding the YouTube search bar
 index:
   exclude: true
-old_syntax_highlighting: true
 topics:
   - YouTube
   - JavaScript
@@ -23,7 +22,7 @@ If we do "Inspect Element" on a YouTube page, we can find the element that conta
 So we want to toggle the visibility of this element.
 Since it's only one item, we can write a much smaller JavaScript snippet for toggling the visibility:
 
-```javascript
+```javascript {"names":{"1":"search_bar","4":"hidden"}}
 var search_bar = document.getElementById("yt-masthead-container");
 
 // Check if it's already hidden
