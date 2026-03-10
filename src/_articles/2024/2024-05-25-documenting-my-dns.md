@@ -8,7 +8,6 @@ colors:
   index_light: "#c53f70"
   index_dark:  "#bbc660"
 card_attribution: https://www.pexels.com/photo/close-up-shot-of-a-hummingbird-4838540/
-old_syntax_highlighting: true
 topics:
   - DNS
   - Blogging about blogging
@@ -56,7 +55,7 @@ This adds a safety net that makes me feel more comfortable making changes, and o
 This project started when I learnt about Alex Dalitz's gem [dnsruby], which lets you list DNS records in Ruby.
 Here's a simple example:
 
-```ruby
+```ruby {"names":{"2":"dns"}}
 require 'dnsruby'  # dnsruby (1.72.1)
 
 dns = Dnsruby::DNS.new
@@ -74,7 +73,7 @@ This is a limitation of DNS, not the dnsruby gem.
 But that's not an issue for me, because I know what subdomains and record types I'm using -- I can read them out of my web dashboard.
 By iterating over the possible domains and record types, I wrote a script that gets all my DNS records and saves them to a YAML file:
 
-```ruby
+```ruby {"names":{"4":"get_dns_records","5":"domain","6":"record_type","7":"dns","11":"records","19":"domains_to_check","20":"dns_records","23":"domain","24":"record_types","27":"rt","33":"now","42":"domain","43":"rt","44":"resources"}}
 require 'date'
 require 'yaml'
 
@@ -144,18 +143,16 @@ And now I have my DNS records in a plaintext file, I can add comments.
 I started rearranging one of these YAML snapshots, grouping similar records from different domains and adding comments to explain what they're for.
 For example, I can add a comment to remind me where the IP address `75.2.60.5` comes from:
 
-```
-# == Netlify DNS records ==
+<pre><code><span class="c"># == Netlify DNS records ==
 #
 # These are DNS records that allow me to use my own domains with my sites
 # hosted on Netlify.
 #
-# See https://docs.netlify.com/domains-https/custom-domains/configure-external-dns/
+# See https://docs.netlify.com/domains-https/custom-domains/configure-external-dns/</span>
 
-alexwlchan.net A:   [ "75.2.60.5", ]
-alexwlchan.com A:   [ "75.2.60.5", ]
-alexwlchan.co.uk A: [ "75.2.60.5", ]
-```
+alexwlchan.net A:   [ <span class="s">"75.2.60.5"</span><span class="p">,</span> ]
+alexwlchan.com A:   [ <span class="s">"75.2.60.5"</span><span class="p">,</span> ]
+alexwlchan.co.uk A: [ <span class="s">"75.2.60.5"</span><span class="p">,</span> ]</code></pre>
 
 I went through the snapshot and added a comment for every DNS record -- now I know why created each record.
 It took a while, but now I have a much better understanding of what my DNS is doing, and what's safe to change in the future.
@@ -164,7 +161,7 @@ This file is now the canonical statement of what my DNS records should be.
 
 I wrote a second script that can compare two YAML snapshots: do my live DNS records match this canonical statement?
 
-```ruby
+```ruby {"names":{"2":"expected_records","6":"actual_records","21":"k"}}
 require 'yaml'
 
 expected_records = YAML.load_file(ARGV[0])
@@ -221,7 +218,7 @@ When you do a DNS lookup for my domain, it asks `ns1.hover.com` for the DNS reco
 
 But I can tell dnsruby to ignore that, and to ask Linode's nameserver instead:
 
-```ruby
+```ruby {"names":{"2":"dns","6":"records"}}
 require 'dnsruby'
 
 dns = Dnsruby::DNS.new({:nameserver => ["ns1.linode.com"]})
@@ -256,4 +253,3 @@ I can also run the check on demand, if I'm actively making changes.
 
 This doesn't change anything in Hover or the way I manage my DNS records, but it's done wonders for my peace of mind.
 I now have some written documentation about all of my DNS records are for, and I have an edit history so I can easily revert any breaking changes.
-

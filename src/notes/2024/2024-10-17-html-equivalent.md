@@ -4,7 +4,6 @@ title: HTML strings may not be equivalent if you minify them
 summary: |
   There's a lot of whitespace in HTML which looks irrelevant at first glance, but may be significant and cause the document to render differently.
 date: 2024-10-17 09:54:59 +01:00
-old_syntax_highlighting: true
 topic: HTML
 ---
 I was working on some HTML templates, and I wanted to test they were creating the right HTML.
@@ -70,7 +69,7 @@ And then it hit me: I can't prove these two HTML elements are equivalent, becaus
 They may render the same right now, but that's because my browser is collapsing the whitespace.
 But consider what happens if I tell the browser to treat the whitespace as significant:
 
-```
+```css {"names":{"1":"li"}}
 li { white-space: pre; }
 ```
 

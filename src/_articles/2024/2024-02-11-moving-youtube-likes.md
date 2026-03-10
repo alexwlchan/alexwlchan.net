@@ -6,7 +6,6 @@ summary: Some experimenting with the YouTube API to merge two accounts into one.
 colors:
   index_light: "#ff0000"
   index_dark:  "#ff4242"
-old_syntax_highlighting: true
 topics:
   - YouTube
   - Python

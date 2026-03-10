@@ -7,7 +7,6 @@ colors:
   index_light: "#595c80"
   index_dark:  "#797da7"
 card_attribution: https://support.apple.com/en-gb/HT210539
-old_syntax_highlighting: true
 topics:
   - AppleScript
   - Inclusion and accessibility
@@ -35,7 +34,7 @@ It quits System Preferences when it's done, which I find mildly annoying -- I'd 
 I've modified the script to leave System Preferences running (if it's open), and even return you to whatever pane you were using.
 Here's my script:
 
-```applescript
+```applescript {"names":{"3":"systemPreferencesIsAlreadyRunning","5":"theCurrentPaneId","11":"systemPreferencesIsAlreadyRunning"}}
 tell application "System Preferences"
   if it is running then
     set systemPreferencesIsAlreadyRunning to true

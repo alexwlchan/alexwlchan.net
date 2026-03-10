@@ -3,7 +3,6 @@ layout: article
 date: 2017-01-07 23:10:00 +00:00
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python, it might not be necessary.
 title: Experiments with AO3 and Python
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - AO3
@@ -32,7 +31,7 @@ You can get to a lot of pages without having an AO3 account &ndash; which includ
 If you want to get data from those pages, you can use any HTTP client to download the HTML, then parse or munge it as much as you like.
 For example, in Python:
 
-```python
+```python {"names":{"1":"requests","2":"req"}}
 import requests
 
 req = requests.get('http://archiveofourown.org/works/9079264')
@@ -60,7 +59,7 @@ Normally, this state is managed by your browser: in Python, we can do the same t
 
 After a bit of poking at [the AO3 login form][login], I've got the following code that seems to work:
 
-```python
+```python {"names":{"1":"requests","2":"sess","10":"req"}}
 import requests
 
 sess = requests.Session()

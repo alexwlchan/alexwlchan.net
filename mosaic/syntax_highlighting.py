@@ -203,7 +203,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
 
     # Terraform: these keywords are not worth highlighting.
     if lang == "terraform":
-        for keyword in ("data", "module", "output", "resource", "variable"):
+        for keyword in ("data", "module", "output", "provider", "resource", "variable"):
             highlighted_code = highlighted_code.replace(
                 f'<span class="kr">{keyword}</span>', keyword
             )

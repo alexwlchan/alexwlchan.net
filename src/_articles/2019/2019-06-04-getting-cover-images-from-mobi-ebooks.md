@@ -3,7 +3,6 @@ layout: article
 date: 2019-06-04 19:43:14 +00:00
 link: https://github.com/alexwlchan/get-mobi-cover-image
 title: A script for getting cover images from mobi ebooks
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Ebooks

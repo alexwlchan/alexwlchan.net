@@ -3,7 +3,6 @@ layout: article
 date: 2026-01-12 18:01:38 +00:00
 title: Using perceptual distance to create better headers
 summary: I started picking colours for my site headers with a more perceptually uniform approach, so their colours look more correct to the human eye.
-old_syntax_highlighting: true
 topics:
   - Colours
   - Drawing things

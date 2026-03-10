@@ -4,7 +4,6 @@ date: 2024-05-12 11:46:34 +01:00
 title: Get a Palette colour as a command-line argument with Clap
 summary: |
   Wrapping a `Palette:Srgb` in a struct and implementing `FromStr` for the struct allows you to take hexadecimal colours as command-line inputs.
-old_syntax_highlighting: true
 topics:
   - Rust
   - Colours
@@ -21,7 +20,7 @@ It has built-in implementations of this trait for certain common types.
 
 For example, here's a simple program that takes a single argument which is validated as and converted to a `usize`:
 
-```rust
+```rust {"names":{"1":"clap","2":"Arg","3":"Command","4":"main","5":"arg","11":"m","17":"count"}}
 use clap::{Arg, Command};
 
 fn main() {
@@ -47,7 +46,7 @@ Initially I was looking at how to implement `ValueParser` for the `Srgb` type, b
 
 Initially I considered writing my own wrapper type and implementing `FromStr` myself, but then I remember that I can use `from_str()` [to parse hex codes as Palette colours](/notes/2022/how-to-use-hex-colours-with-the-palette-crate/), which means it already implements `FromStr` -- I get the behaviour I want "for free":
 
-```rust
+```rust {"names":{"1":"clap","2":"Arg","3":"Command","4":"palette","5":"Srgb","6":"main","7":"arg","14":"m","20":"wrapper"}}
 use clap::{Arg, Command};
 use palette::Srgb;
 

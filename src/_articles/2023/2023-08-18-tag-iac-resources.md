@@ -9,7 +9,6 @@ colors:
   css_light: "#016d01"
   css_dark:  "#88a284"
 card_attribution: https://www.pexels.com/photo/blank-white-tags-with-blue-ribbon-8058551/
-old_syntax_highlighting: true
 topic: Terraform
 ---
 
@@ -32,7 +31,7 @@ At work, we're managing AWS resources defined in Terraform.
 The Terraform AWS Provider supports setting [default tags] -- you write them once, and then they get applied to every resource that can be tagged.
 This is what that looks like for us:
 
-```hcl
+```terraform {"names":{"1":"aws"}}
 provider "aws" {
   default_tags {
     tags = {

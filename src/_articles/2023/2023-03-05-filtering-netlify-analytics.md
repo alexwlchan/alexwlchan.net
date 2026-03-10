@@ -7,7 +7,6 @@ colors:
   index_light: "#73714B"
   index_dark:  "#c9ba8d"
 card_attribution: https://www.pexels.com/photo/large-elephants-near-lake-86413/, CC0
-old_syntax_highlighting: true
 topic: Blogging about blogging
 hidden_topics:
 - Netlify
