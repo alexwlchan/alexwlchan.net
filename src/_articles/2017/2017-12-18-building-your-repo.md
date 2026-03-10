@@ -3,7 +3,6 @@ layout: article
 date: 2017-12-18 08:40:30 +00:00
 title: Your repo should be easy to build, and how
 summary: Making your repo easy to clone and build is very important. This post explains why, and how I'm using Make and Docker to achieve that goal.
-old_syntax_highlighting: true
 topic: Builds and CI
 ---
 
@@ -95,7 +94,7 @@ $ sbt "project api" ";dockerComposeUp;test;dockerComposeStop"
 
 The first thing we can do is write a Makefile, and a Make rule that wraps this command:
 
-```make
+```make {"names":{"1":"api-test"}}
 # Makefile
 
 api-test:
@@ -111,7 +110,7 @@ And if the test command ever changes, you only have to edit the Makefile once, a
 If you already know how Make works, you can skip to the next section.
 If you're unfamiliar with Make, there's a quick primer below.
 
-```make
+```make {"names":{"1":"target"}}
 target: [dependency dependency ...]
     [command 1]
     ...
@@ -177,14 +176,14 @@ The [Dockerfile reference][dockerfile] explains the syntax in much more detail.
 
 We can build this image with `docker build`, which we'll wrap inside a Make rule:
 
-```make
+```make {"names":{"1":"build-sbt-docker-image"}}
 build-sbt-docker-image:
     docker build --tag sbt_wrapper --file sbt_wrapper.Dockerfile .
 ```
 
 And then we can modify our first Make rule to use the Docker image:
 
-```make
+```make {"names":{"1":"api-test"}}
 api-test:
     docker run \
         --volume $$(pwd):/repo \
@@ -220,7 +219,7 @@ If we add dependencies after the colon, Make will try to build those first befor
 
 So we can tell Make that *api-test* depends on *build-sbt-docker-image* like so:
 
-```make
+```make {"names":{"1":"api-test"}}
 api-test: build-sbt-docker-image
     ...
 ```
@@ -248,7 +247,7 @@ The next time Make runs, it'll see the marker, know the image has already been b
 
 This is the pattern I typically use:
 
-```make
+```make {"names":{"1":".docker/sbt_wrapper","4":"api-test"}}
 .docker/sbt_wrapper: sbt_wrapper.Dockerfile
     docker build --tag sbt_wrapper --file sbt_wrapper.Dockerfile .
     mkdir -p .docker

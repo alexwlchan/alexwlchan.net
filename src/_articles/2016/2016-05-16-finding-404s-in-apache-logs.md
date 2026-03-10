@@ -4,7 +4,6 @@ date: 2016-05-16 21:02:00 +00:00
 summary: A Python script for finding 404 errors in my Apache web logs - and by extension,
   broken pages.
 title: Finding 404s and broken pages in my Apache logs
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Apache
@@ -26,7 +25,7 @@ So I wrote a script that looks for 404 errors in my Apache logs, and prints the 
 The full script is [on GitHub][github], along with some instructions.
 Below I'll walk through the part that actually does the hard work.
 
-```python
+```python {"names":{"1":"page_tally","4":"line","8":"hit","14":"page","21":"time","25":"date","40":"page","41":"count"}}
 page_tally = collections.Counter()
 
 for line in sys.stdin:

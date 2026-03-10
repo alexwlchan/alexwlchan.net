@@ -579,3 +579,15 @@ def test_caddy_highlighting() -> None:
     )
 
     assert apply_syntax_highlighting(src, lang="caddy") == html
+
+
+def test_rust_std_str() -> None:
+    """
+    I can highlight names in a `std::str::FromStr` import.
+    """
+    html = apply_syntax_highlighting(
+        "use std::str::FromStr;\n",
+        lang="rust",
+        names={1: "std", 2: "str", 3: "FromStr"},
+    )
+    assert '<span class="n">str</span>' in html

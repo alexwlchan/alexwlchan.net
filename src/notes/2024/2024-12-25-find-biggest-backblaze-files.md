@@ -4,7 +4,6 @@ title: How to find the biggest files backed up by Backblaze
 date: 2024-12-25 23:28:50 +00:00
 summary: |
   Look at the file <code>/Library<wbr>/Backblaze.bzpkg<wbr>/bzdata<wbr>/bzfilelists<wbr>/bigfilelist.dat</code>.
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Backblaze

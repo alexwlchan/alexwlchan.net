@@ -244,7 +244,7 @@ For this simple example I'm going to use [Python f-strings][f_strings], but the 
 
 Let's start by defining a function that gives us the $x$- and $y$-components for a set of triangular coordinates in an SVG-compatible format:
 
-```python
+```python {"names":{"1":"math","2":"x_component","3":"triangular_x","4":"triangular_y","5":"result","13":"y_component","14":"triangular_x","15":"triangular_y","16":"result","23":"xy_position","24":"triangular_x","25":"triangular_y"}}
 import math
 
 

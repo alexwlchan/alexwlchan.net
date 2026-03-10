@@ -6,7 +6,6 @@ summary: A script to work out which camera I use most often on my iPhone, and wh
 colors:
   index_light: "#353335"
   index_dark:  "#a2a09e"
-old_syntax_highlighting: true
 topic: Photo management
 ---
 

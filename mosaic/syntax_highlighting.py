@@ -227,6 +227,13 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="gp">$</span><span class="w"> </span>',
         )
 
+    # Rust: `str` is a name if it's part of an import from `std`.
+    if lang == "rust":
+        highlighted_code = highlighted_code.replace(
+            '<span class="p">::</span><span class="kt">str</span>',
+            '<span class="p">::</span><span class="n">str</span>',
+        )
+
     return highlighted_code
 
 
