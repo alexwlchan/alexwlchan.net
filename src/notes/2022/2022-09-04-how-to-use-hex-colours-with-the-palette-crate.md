@@ -4,7 +4,6 @@ date: 2022-09-04 11:20:59 +01:00
 title: How to use hex colours with the palette crate
 summary: |
   You can use `Srgb::from_str()` to parse a hexadecimal string as a colour in the palette crate.
-old_syntax_highlighting: true
 topics:
 - Rust
 - Colours

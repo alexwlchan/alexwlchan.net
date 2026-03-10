@@ -3,7 +3,6 @@ layout: article
 date: 2019-06-15 21:49:44 +00:00
 title: A Jekyll filter for obfuscating email addresses
 summary: The original Markdown implementation would do randomised hex/decimal encoding to help obscure email addresses, and I do the same in Jekyll.
-old_syntax_highlighting: true
 topic: Blogging about blogging
 hidden_topics:
   - Jekyll

@@ -49,7 +49,7 @@ Here's how to construct the header in various languages:
 
 *   Python:
 
-    ```python
+    ```python {"names":{"1":"datetime","2":"now","8":"if_modified_since"}}
     import datetime
 
     now = datetime.datetime.now(datetime.UTC)  # GMT and UTC are the same
@@ -58,7 +58,7 @@ Here's how to construct the header in various languages:
 
 *   Bash/shell scripting:
 
-    ```shell
+    ```shell {"names":{"1":"TZ"}}
     TZ=GMT date +"%a, %d %b %Y %H:%M:%S %Z"
     ```
 
@@ -68,7 +68,7 @@ I was writing my feed crawler in Python, so I ended up building this behaviour a
 
 Here's a little snippet I wrote to test this behaviour:
 
-```python
+```python {"names":{"1":"datetime","2":"httpx","3":"client","6":"resp","11":"now","21":"resp"}}
 import datetime
 
 import httpx

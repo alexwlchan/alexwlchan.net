@@ -4,7 +4,6 @@ date: 2018-12-13 08:57:16 +00:00
 summary: A script that creates temporary credentials for an assumed IAM role, and
   stores them in ~/.aws/credentials.
 title: Getting credentials for an assumed IAM Role
-old_syntax_highlighting: true
 topics:
   - AWS
   - Python
@@ -34,11 +33,9 @@ According to [the AWS docs](https://docs.aws.amazon.com/cli/latest/userguide/cli
 
 This example shows a role profile called `dns_editor_profile`.
 
-```
-[profile dns_editor_profile]
-role_arn = arn:aws:iam::123456789012:role/dns_editor
-source_profile = user1
-```
+<pre><code>[profile <span class="n">dns_editor_profile</span>]
+role_arn = <span class="s">arn:aws:iam::123456789012:role/dns_editor</span>
+source_profile = <span class="s">user1</span></code></pre>
 
 When I use this profile, the CLI automatically creates temporary credentials for the `dns_editor` role, and uses those during my session.
 When the credentials expire, it renews them.
@@ -66,7 +63,7 @@ You get a set of temporary credentials by calling [the `assume_role()` API](http
 Let's suppose we already have the account ID (the 13-digit number in the role ARN above) and the role name.
 We can get some temporary credentials like so:
 
-```python
+```python {"names":{"1":"boto3","2":"get_credentials","3":"account_id","4":"role_name","5":"sts_client","8":"role_arn","11":"role_session_name","12":"resp"}}
 import boto3
 
 
@@ -90,7 +87,7 @@ If multiple people assume a role at the same time, we want to distinguish the di
 You can put any alphanumeric string there (no spaces, but a few punctuation characters).
 I use my IAM username and the details of the role I'm assuming, so it's easy to understand in audit logs:
 
-```python
+```python {"names":{"1":"iam_client","4":"username","7":"role_session_name"}}
     iam_client = boto3.client("iam")
     username = iam_client.get_user()["User"]["UserName"]
     role_session_name = f"{username}@{role_name}.{account_id}"
@@ -105,16 +102,14 @@ Note that I'm using two Python 3 features here: [f-strings for interpolation](ht
 
 The format of the credentials file is something like this:
 
-```
-[profile_name]
-aws_access_key_id=ABCDEFGHIJKLM1234567890
-aws_secret_access_key=ABCDEFGHIJKLM1234567890
+<pre><code>[<span class="n">profile_name</span>]
+aws_access_key_id=<span class="s">ABCDEFGHIJKLM1234567890</span>
+aws_secret_access_key=<span class="s">ABCDEFGHIJKLM1234567890</span>
 
-[another_profile]
-aws_access_key_id=ABCDEFGHIJKLM1234567890
-aws_secret_access_key=ABCDEFGHIJKLM1234567890
-aws_session_token=ABCDEFGHIJKLM1234567890
-```
+[<span class="n">another_profile</span>]
+aws_access_key_id=<span class="s">ABCDEFGHIJKLM1234567890</span>
+aws_secret_access_key=<span class="s">ABCDEFGHIJKLM1234567890</span>
+aws_session_token=<span class="s">ABCDEFGHIJKLM1234567890</span></code></pre>
 
 Each section is a new AWS profile, and contains an access key, a secret key, and optionally a session token.
 That session token is tied to the `RoleSessionName` we gave when assuming the role.
@@ -126,7 +121,7 @@ If it's present, we replace it; if not, we create it.
 Then we store the new credentials, and rewrite the file.
 Like so:
 
-```python
+```python {"names":{"1":"configparser","2":"os","3":"update_credentials_file","4":"profile_name","5":"credentials","6":"aws_dir","12":"credentials_path","17":"config"}}
 import configparser
 import os
 
@@ -159,7 +154,7 @@ Finally, we need to get some command-line parameters to tell us what the account
 Recently I've been trying [click](https://palletsprojects.com/p/click/) for command-line parameters, and I quite like it.
 Here's the code:
 
-```python
+```python {"names":{"1":"click","12":"save_assumed_role_credentials","13":"account_id","14":"role_name","15":"profile_name","19":"credentials"}}
 import click
 
 
@@ -207,7 +202,7 @@ and this command now runs with the credentials for that profile.
 
 If you just want the code, here's the final copy of the script:
 
-```python
+```python {"names":{"1":"configparser","2":"os","3":"sys","4":"boto3","5":"click","6":"get_credentials","7":"account_id","8":"role_name","9":"iam_client","12":"sts_client","15":"username","18":"role_arn","21":"role_session_name","25":"resp","33":"update_credentials_file","34":"profile_name","35":"credentials","36":"aws_dir","42":"credentials_path","47":"config","86":"save_assumed_role_credentials","87":"account_id","88":"role_name","89":"profile_name","93":"credentials"}}
 # issue_temporary_credentials.py
 
 import configparser

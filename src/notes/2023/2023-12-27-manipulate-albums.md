@@ -2,14 +2,13 @@
 layout: note
 title: How to delete albums
 date: 2023-12-27 23:15:50 +00:00
-old_syntax_highlighting: true
 topics:
   - Photo management
   - Swift
 ---
 You can delete albums with the [deleteAssetCollections] API, for example:
 
-```swift
+```swift {"names":{"1":"Photos","2":"deleteAlbum","3":"album"}}
 import Photos
 
 func deleteAlbum(_ album: PHAssetCollection) -> Void {
@@ -22,7 +21,7 @@ func deleteAlbum(_ album: PHAssetCollection) -> Void {
 
 There are lots of ways to find instances of `PHAssetCollection` to pass to this function; for example, you could use [fetchTopLevelUserCollections] and filter for albums with a particular name or which are empty:
 
-```swift
+```swift {"names":{"1":"Photos","5":"collection","6":"index","7":"stop","9":"album"}}
 import Photos
 
 PHCollectionList

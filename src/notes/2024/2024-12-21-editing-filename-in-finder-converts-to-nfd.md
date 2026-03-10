@@ -4,7 +4,6 @@ title: Editing a filename in Finder will convert it to NFD
 date: 2024-12-21 21:10:06 +00:00
 summary: |
   Even if the filename looks the same, it may be invisibly converted to a different sequence of bytes.
-old_syntax_highlighting: true
 topics:
   - macOS
   - Text and Unicode
@@ -13,7 +12,7 @@ I noticed this while working on a file called `Besźel.jpg`.
 
 The file had been written as `Bes\xc5\xbael.jpg`, but editing the filename in Finder would convert it to NFD.
 
-```pycon
+```pycon {"names":{"1":"unicodedata"}}
 >>> import unicodedata
 >>> unicodedata.normalize('NFC', 'Besźel').encode('utf8')
 b'Bes\xc5\xbael'

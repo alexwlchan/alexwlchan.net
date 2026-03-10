@@ -4,7 +4,6 @@ title: What does Flickr return in the `flickr.photo.getSizes` API for videos?
 date: 2025-02-07 11:54:45 +00:00
 summary: |
   The video's owner will get the URL to the original video file as "Video Original", otherwise you should look for the largest video size.
-old_syntax_highlighting: true
 topic: Flickr
 ---
 Flickr's help page about [downloading content][help] mentions some limitations on downloading video:
