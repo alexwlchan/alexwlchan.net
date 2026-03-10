@@ -2,7 +2,6 @@
 layout: note
 title: Getting and setting the cover image from an EPUB file
 date: 2025-01-25 23:23:52 +00:00
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
 - EPUB

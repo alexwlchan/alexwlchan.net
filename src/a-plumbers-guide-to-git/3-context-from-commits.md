@@ -5,7 +5,6 @@ title: "Part 3: Context from commits"
 part_of:
   url: /a-plumbers-guide-to-git/
   label: "A Plumber's Guide to Git"
-old_syntax_highlighting: true
 ---
 
 If you've got this far, you should have finished [part 1][part 1] and [part 2] -- if not, return to those first.

@@ -2,7 +2,6 @@
 layout: article
 date: 2020-07-26 17:31:36 +00:00
 title: Getting a Markdown link to a window in Safari
-old_syntax_highlighting: true
 topic: macOS
 hidden_topics:
   - Safari
@@ -10,7 +9,7 @@ hidden_topics:
 
 Here's an AppleScript I wrote today, which gets a Markdown-formatted link to whatever's in my frontmost Safari window:
 
-```shell
+```applescript {"names":{"2":"theName","6":"theURL"}}
 tell application "Safari"
   set theName to get name of tab 1 of window 1
   set theURL to get URL of tab 1 of window 1

@@ -2,7 +2,6 @@
 layout: note
 title: Create solid-colour image placeholders to show before an image loads
 date: 2024-07-24 22:39:41 +01:00
-old_syntax_highlighting: true
 topics:
   - CSS
   - Images and videos
@@ -30,7 +29,7 @@ This is the HTML and CSS I use to achieve this effect:
 </div>
 ```
 
-```css
+```css {"names":{"1":"--width","2":"--height","3":"--color","4":".thumbnail_wrapper","12":".thumbnail_wrapper","13":"img"}}
 --width:  …;
 --height: …;
 --color:  …;

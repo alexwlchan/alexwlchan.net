@@ -5,7 +5,6 @@ title: Creating short-lived, temporary roles for experimenting with AWS IAM poli
   documents
 link: https://github.com/alexwlchan/iam-policy-document-tester
 summary: Create short-lived, temporary roles for experimenting with AWS IAM policy documents
-old_syntax_highlighting: true
 topic: AWS
 ---
 
@@ -13,7 +12,7 @@ As part of some recent work, I was experimenting with IAM roles in AWS, and I ca
 
 It goes something like this:
 
-```python
+```python {"names":{"4":"credentials"}}
 with temporary_iam_credentials(admin_role_arn, policy_document) as credentials:
     # do stuff with your credentials, which are precisely scoped to
     # the provided IAM policy document.

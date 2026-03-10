@@ -10,12 +10,12 @@
       }
 
       .tick {
-        fill: #1cb011;
+        fill: var(--green);
         font-size: 40px;
       }
 
       .cross {
-        fill: #d01c11;
+        fill: var(--red);
         font-size: 40px;
       }
 

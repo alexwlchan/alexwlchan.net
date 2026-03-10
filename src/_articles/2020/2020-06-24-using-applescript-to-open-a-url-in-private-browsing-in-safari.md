@@ -2,7 +2,6 @@
 layout: article
 date: 2020-06-24 20:02:44 +00:00
 title: Using AppleScript to open a URL in Private Browsing in Safari
-old_syntax_highlighting: true
 topics:
   - AppleScript
   - macOS
@@ -23,7 +22,7 @@ Many of the results are broken, slow, or incomplete (they open the private brows
 
 Rather than wade through more Google results, I came up with my own script for doing it, which opens the window *and* the URL:
 
-```applescript
+```applescript {"names":{"1":"openPrivateBrowsingWindow","2":"urlToOpen","22":"argv"}}
 #!/usr/bin/env osascript
 
 on openPrivateBrowsingWindow(urlToOpen)

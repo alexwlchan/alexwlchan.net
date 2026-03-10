@@ -7,7 +7,6 @@ title: Get images from the iTunes/App/Mac App Stores with Alfred
 colors:
   index_light: "#333333"
   index_dark:  "#a1a5b1"
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Alfred
@@ -42,7 +41,7 @@ When Alfred calls the script, it passes an undocumented `--alfred` flag.
 Although docopt is nominally passing the command-line flags, it doesn't know about this one.
 Instead, I intercept the flags before docopt sees them, and rearrange them if I detect the script is being called by Alfred:
 
-```python
+```python {"names":{"3":"media_type","4":"search_term"}}
 if sys.argv[1] == '--alfred':
     media_type, search_term = sys.argv[2].split(' ', 1)
     if media_type in ('ios', 'mac', 'album', 'film', 'tv', 'book', 'narration'):

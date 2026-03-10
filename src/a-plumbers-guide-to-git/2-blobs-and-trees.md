@@ -5,7 +5,6 @@ title: "Part 2: Blobs and trees"
 part_of:
   url: /a-plumbers-guide-to-git/
   label: "A Plumber's Guide to Git"
-old_syntax_highlighting: true
 ---
 
 I'm assuming you've already read and completed [part 1][part 1], which explains how to store and retrieve single files.
