@@ -4,7 +4,6 @@ title: How to get a user's email address with the Flickr API
 summary: |
   The `flickr.profile.getProfile` API returns somebody's email address, but only if you're allowed to see it.
 date: 2024-10-23 09:29:15 +01:00
-old_syntax_highlighting: true
 topic: Flickr
 ---
 Flickr members can control who can see their email address in the "Who can see what" part of the [Privacy & Permissions](https://www.flickr.com/account/privacy) settings.

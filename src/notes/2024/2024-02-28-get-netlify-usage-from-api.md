@@ -3,7 +3,6 @@ layout: note
 date: 2024-02-28 10:15:24 +00:00
 date_updated: 2024-06-12 10:58:07 +01:00
 title: Get my Netlify bandwidth usage from the API
-old_syntax_highlighting: true
 topic: Computers and code
 hidden_topics:
   - Netlify

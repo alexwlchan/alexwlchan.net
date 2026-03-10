@@ -3,7 +3,6 @@ layout: article
 date: 2020-03-04 09:42:35 +00:00
 title: A Jekyll filter for adding non-breaking spaces
 summary: A way to avoid awkward line breaks in the middle of phrases.
-old_syntax_highlighting: true
 topic: Blogging about blogging
 hidden_topics:
   - Ruby
@@ -53,7 +52,7 @@ Here's what it looks like:
 
 [Jekyll filter]: https://jekyllrb.com/docs/plugins/filters/
 
-```ruby
+```ruby {"names":{"1":"Jekyll","2":"AddNonBreakingSpacesFilter","3":"add_non_breaking_spaces","4":"input","5":"text"}}
 module Jekyll
   module AddNonBreakingSpacesFilter
     def add_non_breaking_spaces(input)
