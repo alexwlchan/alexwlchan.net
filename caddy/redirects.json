@@ -112,9 +112,6 @@
   "/2015/operation-fortitude/": [
     "/2015/11/operation-fortitude/"
   ],
-  "/2015/persistent-ipython-notebooks/": [
-    "/2015/06/persistent-ipython-notebooks/"
-  ],
   "/2015/pretty-print/": [
     "/2015/12/pretty-print/"
   ],
@@ -2519,11 +2516,6 @@
     "/2013/rss-podcasts-tumblr/",
     "/2013/05/rss-podcasts-tumblr/"
   ],
-  "/notes/2014/custom-css-resophnotes/": [
-    "/2014/custom-css-resophnotes/",
-    "/2014/11/custom-css-resophnotes/",
-    "/notes/custom-css-resophnotes/"
-  ],
   "/notes/2016/german-telephone-numbers/": [
     "/til/2016/german-telephone-numbers/"
   ],
@@ -3259,9 +3251,6 @@
   ],
   "/terraform/": [
     "/systems/terraform/"
-  ],
-  "/windows/": [
-    "/systems/windows/"
   ],
   "/work/": [
     "/day-job/"

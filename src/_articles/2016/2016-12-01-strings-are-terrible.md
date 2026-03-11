@@ -3,7 +3,6 @@ layout: article
 date: 2016-12-01 07:43:00 +00:00
 title: Another example of why strings are terrible
 summary: "Pop quiz: if I lowercase a string, does it still have the same length as the original string?"
-old_syntax_highlighting: true
 topic: Text and Unicode
 hidden_topics:
   - Hypothesis
@@ -13,7 +12,7 @@ Here's a programming assumption I used to make, that until today I'd never reall
 
 Now, thanks to [Hypothesis](http://hypothesis.works), I know better:
 
-```pycon
+```pycon {"names":{"1":"x"}}
 >>> x = u'İ'
 >>> len(x)
 1
@@ -26,7 +25,7 @@ I'm not going to pretend I understand enough about Unicode or Python's string ha
 I discovered this while testing a moderately fiddly normalisation routine &ndash; this routine would normalise the string to lowercase, unexpectedly tripping a check that it was the right length.
 If you'd like to see this for yourself, here's a minimal example:
 
-```python
+```python {"names":{"1":"hypothesis","2":"given","3":"strategies","4":"st","8":"test_changing_case_preserves_length","9":"xs"}}
 from hypothesis import given, strategies as st
 
 @given(st.text())

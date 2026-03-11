@@ -179,11 +179,6 @@
     "parent": "Computers and code"
   },
   {
-    "name": "Windows",
-    "href": "/windows/",
-    "parent": "Computers and code"
-  },
-  {
     "name": "Tailscale",
     "href": "/systems/tailscale/",
     "parent": "Computers and code"

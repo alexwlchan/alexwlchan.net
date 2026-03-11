@@ -8,7 +8,6 @@ title: Treat regular expressions as code, not magic
 colors:
   index_light: "#000000"
   index_dark:  "#bbbbbb"
-old_syntax_highlighting: true
 topic: Regular expressions
 ---
 
@@ -23,7 +22,7 @@ This post has a few of my tips for making regexes that are more readable.
 
 Here's a non-trivial regex that we'd like to read:
 
-```python
+```python {"names":{"1":"MYSTERY"}}
 MYSTERY = r'^v?([0-9]+)(\.([0-9]+)(\.([0-9]+[a-z]))?)?$'
 ```
 
@@ -46,7 +45,7 @@ Regexes are an extreme version of clever one-liners.
 Splitting a regex over multiple lines can highlight the natural groups, and make it easier to parse.
 Here's what our regex looks like, with some newlines and indentation:
 
-```python
+```python {"names":{"1":"MYSTERY"}}
 MYSTERY = (
     r'^v?'
     r'([0-9]+)'
@@ -81,7 +80,7 @@ Regexes are a form of code, and should be commented as such.
 I like to have an overall comment that explains the overall purpose of the regex, as well as individual comments for the broken-down parts of the regex.
 Here's what I'd write for our example:
 
-```python
+```python {"names":{"1":"VERSION_REGEX"}}
 # Regex for matching version strings of the form vXX.YY.ZZa, where
 # everything except the major version XX is optional, and the final
 # letter can be any character a-z.
@@ -123,7 +122,7 @@ In this example:
 
 In Python, we can look up the value of these groups with the `.groups()` method, like so:
 
-```pycon
+```pycon {"names":{"1":"re","2":"m"}}
 >>> import re
 >>> m = re.match(VERSION_REGEX, "v2.0.3b")
 >>> m.groups()
@@ -140,7 +139,7 @@ We can still use it to organise the regex, but the value isn't saved.
 
 I've changed two groups to be non-capturing in our example:
 
-```python
+```python {"names":{"1":"NON_CAPTURING_VERSION_REGEX"}}
 # Regex for matching version strings of the form vXX.YY.ZZa, where
 # everything except the major version XX is optional, and the final
 # letter can be any character a-z.
@@ -161,7 +160,7 @@ NON_CAPTURING_VERSION_REGEX = (
 
 Now when we extract the group values, we'll only get the components that we're interested in:
 
-```pycon
+```pycon {"names":{"1":"m"}}
 >>> m = re.match(NON_CAPTURING_VERSION_REGEX, "v2.0.3b")
 >>> m.groups()
 ('2', '0', '3b')
@@ -194,7 +193,7 @@ In Python, the syntax is `(?P<name>...)` – it varies slightly from language to
 
 If we add named groups to our expression:
 
-```python
+```python {"names":{"1":"NAMED_CAPTURING_VERSION_REGEX"}}
 # Regex for matching version strings of the form vXX.YY.ZZa, where
 # everything except the major version XX is optional, and the final
 # letter can be any character a-z.
@@ -215,7 +214,7 @@ NAMED_CAPTURING_VERSION_REGEX = (
 
 We can now look up the attributes by name, or indeed access the entire collection with the `groupdict` attributed.
 
-```pycon
+```pycon {"names":{"1":"m"}}
 >>> m = re.match(NAMED_CAPTURING_VERSION_REGEX, "v2.0.3b")
 >>> m.groups()
 ('2', '0', '3b')

@@ -100,6 +100,14 @@ handle /2014/12/mathis-cars {
 	error 410
 }
 
+handle /2014/11/custom-css-resophnotes/ {
+	error 410
+}
+
+handle /2014/11/custom-css-resophnotes {
+	error 410
+}
+
 handle /2014/12/pelican-linkposts/ {
 	error 410
 }
@@ -113,6 +121,14 @@ handle /2014/12/war-on-christmas/ {
 }
 
 handle /2014/12/war-on-christmas {
+	error 410
+}
+
+handle /2014/custom-css-resophnotes/ {
+	error 410
+}
+
+handle /2014/custom-css-resophnotes {
 	error 410
 }
 
@@ -244,6 +260,26 @@ handle /2015/05/raft-algorithm {
 	error 410
 }
 
+handle /2014/11/custom-css-resophnotes/ {
+	error 410
+}
+
+handle /2014/11/custom-css-resophnotes {
+	error 410
+}
+
+handle /2014/custom-css-resophnotes/ {
+	error 410
+}
+
+handle /2014/custom-css-resophnotes {
+	error 410
+}
+
+handle /2015/06/persistent-ipython-notebooks {
+	error 410
+}
+
 handle /2015/09/http2-by-stealth/ {
 	error 410
 }
@@ -324,6 +360,14 @@ handle /2015/nvalt-and-marked {
 	error 410
 }
 
+handle /2015/persistent-ipython-notebooks/ {
+	error 410
+}
+
+handle /2015/persistent-ipython-notebooks {
+	error 410
+}
+
 handle /2015/python-firewall/ {
 	error 410
 }
@@ -380,6 +424,14 @@ handle /2016/05/os-x-hates-textmate {
 	error 410
 }
 
+handle /2016/06/reading-web-pages-on-my-kindle/ {
+	error 410
+}
+
+handle /2016/06/reading-web-pages-on-my-kindle {
+	error 410
+}
+
 handle /2016/06/toothbrush-subscriptions/ {
 	error 410
 }
@@ -409,6 +461,14 @@ handle /2016/os-x-hates-textmate/ {
 }
 
 handle /2016/os-x-hates-textmate {
+	error 410
+}
+
+handle /2016/reading-web-pages-on-my-kindle/ {
+	error 410
+}
+
+handle /2016/reading-web-pages-on-my-kindle {
 	error 410
 }
 
@@ -473,22 +533,6 @@ handle /2017/12/armed-police/ {
 }
 
 handle /2017/12/armed-police {
-	error 410
-}
-
-handle /2016/06/reading-web-pages-on-my-kindle/ {
-	error 410
-}
-
-handle /2016/06/reading-web-pages-on-my-kindle {
-	error 410
-}
-
-handle /2016/reading-web-pages-on-my-kindle/ {
-	error 410
-}
-
-handle /2016/reading-web-pages-on-my-kindle {
 	error 410
 }
 
@@ -780,6 +824,14 @@ handle /2020/survivors-guilt {
 	error 410
 }
 
+handle /2021/09/safari-15-favicons/ {
+	error 410
+}
+
+handle /2021/09/safari-15-favicons {
+	error 410
+}
+
 handle /2021/safari-15-favicons/ {
 	error 410
 }
@@ -828,6 +880,22 @@ handle /images/talks/worst_intent.png {
 	error 410
 }
 
+handle /notes/2014/custom-css-resophnotes/ {
+	error 410
+}
+
+handle /notes/2014/custom-css-resophnotes {
+	error 410
+}
+
+handle /notes/custom-css-resophnotes/ {
+	error 410
+}
+
+handle /notes/custom-css-resophnotes {
+	error 410
+}
+
 handle /projects/ {
 	error 410
 }
@@ -836,15 +904,15 @@ handle /projects {
 	error 410
 }
 
+handle /systems/windows/ {
+	error 410
+}
+
+handle /systems/windows {
+	error 410
+}
+
 handle /talks/campug_git.pdf {
-	error 410
-}
-
-handle /til/2025/redirect-log-printf/ {
-	error 410
-}
-
-handle /til/2025/redirect-log-printf {
 	error 410
 }
 
@@ -856,6 +924,14 @@ handle /talks/hypothesis_cover.png {
 	error 410
 }
 
+handle /til/2025/redirect-log-printf/ {
+	error 410
+}
+
+handle /til/2025/redirect-log-printf {
+	error 410
+}
+
 handle /talks/pyconuk2016_cover.png {
 	error 410
 }
@@ -864,4 +940,12 @@ handle /theme/style-sample {
 	error 410
 }
 
-#[[[end]]] (sum: L8G4lj6utV)
+handle /windows/ {
+	error 410
+}
+
+handle /windows {
+	error 410
+}
+
+#[[[end]]] (sum: y7MMp8/hzh)

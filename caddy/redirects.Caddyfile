@@ -130,8 +130,6 @@ redir /2015/05/one-step-paste-simulator/ /2015/one-step-paste-simulator/ permane
 redir /2015/05/one-step-paste-simulator /2015/one-step-paste-simulator/ permanent
 redir /2015/11/operation-fortitude/ /2015/operation-fortitude/ permanent
 redir /2015/11/operation-fortitude /2015/operation-fortitude/ permanent
-redir /2015/06/persistent-ipython-notebooks/ /2015/persistent-ipython-notebooks/ permanent
-redir /2015/06/persistent-ipython-notebooks /2015/persistent-ipython-notebooks/ permanent
 redir /2015/12/pretty-print/ /2015/pretty-print/ permanent
 redir /2015/12/pretty-print /2015/pretty-print/ permanent
 redir /2015/03/pygmentizr/ /2015/pygmentizr/ permanent
@@ -1549,12 +1547,6 @@ redir /2013/rss-podcasts-tumblr/ /notes/2013/rss-podcasts-tumblr/ permanent
 redir /2013/rss-podcasts-tumblr /notes/2013/rss-podcasts-tumblr/ permanent
 redir /2013/05/rss-podcasts-tumblr/ /notes/2013/rss-podcasts-tumblr/ permanent
 redir /2013/05/rss-podcasts-tumblr /notes/2013/rss-podcasts-tumblr/ permanent
-redir /2014/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ permanent
-redir /2014/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
-redir /2014/11/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ permanent
-redir /2014/11/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
-redir /notes/custom-css-resophnotes/ /notes/2014/custom-css-resophnotes/ permanent
-redir /notes/custom-css-resophnotes /notes/2014/custom-css-resophnotes/ permanent
 redir /til/2016/german-telephone-numbers/ /notes/2016/german-telephone-numbers/ permanent
 redir /til/2016/german-telephone-numbers /notes/2016/german-telephone-numbers/ permanent
 redir /til/2016/rust-safe-macro-expansion/ /notes/2016/rust-safe-macro-expansion/ permanent
@@ -2071,8 +2063,6 @@ redir /tags/aws/ /aws permanent
 redir /tags/aws /aws permanent
 redir /systems/terraform/ /terraform/ permanent
 redir /systems/terraform /terraform/ permanent
-redir /systems/windows/ /windows/ permanent
-redir /systems/windows /windows/ permanent
 redir /day-job/ /work/ permanent
 redir /day-job /work/ permanent
 redir /digital-preservation/flickr-foundation/ /work/flickr-foundation/ permanent
@@ -2081,4 +2071,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: 2yH9RgNqYl)
+#[[[end]]] (sum: Vvnx2RPMke)

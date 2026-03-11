@@ -5,7 +5,6 @@ title: aspell, a command-line spell checker
 colors:
   index_light: "#022833"
   index_dark:  "#a7b3b4"
-old_syntax_highlighting: true
 topic: Computers and code
 ---
 
