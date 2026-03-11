@@ -66,7 +66,4 @@ class Article(BaseHtmlPage):
         """
         Returns True if this page was published recently, False otherwise.
         """
-        if self.date is None:
-            return False
-        else:
-            return (datetime.now(tz=timezone.utc) - self.date).days <= 21
+        return (datetime.now(tz=timezone.utc) - self.date).days <= 21

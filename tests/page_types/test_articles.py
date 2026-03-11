@@ -76,3 +76,15 @@ def test_older_days_are_new(src_dir: Path, date: datetime) -> None:
     """
     a = Article(md_path=src_dir / "_articles/example.md", src_dir=src_dir, date=date)
     assert not a.is_new
+
+
+def test_articles_can_be_hashed(src_dir: Path) -> None:
+    """
+    Articles can be hashed.
+    """
+    a = Article(
+        md_path=src_dir / "_articles/example.md",
+        src_dir=src_dir,
+        date=datetime.now(tz=timezone.utc),
+    )
+    hash(a)
