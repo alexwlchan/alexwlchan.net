@@ -39,7 +39,7 @@ with maxminddb.open_database('GeoLite2-Country_20240116/GeoLite2-Country.mmdb') 
 
 Note that this method can sometimes return `None`, if the IP address isn't in the database -- or in this case, if it's an IP address reserved for testing purposes.
 
-```python {"names":{"1":"maxminddb","4":"reader"}}
+```python {"names":{"3":"reader"}}
 with maxminddb.open_database('GeoLite2-Country_20240116/GeoLite2-Country.mmdb') as reader:
     print(reader.get('192.0.2.0'))
     # None

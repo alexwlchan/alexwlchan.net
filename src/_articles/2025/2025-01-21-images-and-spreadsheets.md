@@ -3,7 +3,6 @@ layout: article
 date: 2025-01-21 09:33:48 +00:00
 title: Looking at images in a spreadsheet
 summary: The `IMAGE` and `HYPERLINK` functions allow me to use a spreadsheet as a lightweight, collaborative space for dealing with images.
-old_syntax_highlighting: true
 topics:
   - Spreadsheets
   - Images and videos
@@ -25,9 +24,7 @@ The best tool I've found is Google Sheets -- not something I usually associate w
 I'm using Google Sheets, and I use [the IMAGE function][image_sheets], which inserts an image into a cell.
 For example:
 
-```
-=IMAGE("https://www.google.com/images/srpr/logo3w.png")
-```
+<pre><code>=IMAGE<span class="p">(</span><span class="s">"https://www.google.com/images/srpr/logo3w.png"</span><span class="p">)</span></code></pre>
 
 There's a similar function in [Microsoft Excel][image_excel], but not in Apple Numbers.
 

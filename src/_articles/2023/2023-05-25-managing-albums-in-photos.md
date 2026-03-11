@@ -6,7 +6,6 @@ summary: AppleScript only allows us to add photos to an album; dipping into Swif
 colors:
   index_light: "#4f4f4f"
   index_dark:  "#9da3a8"
-old_syntax_highlighting: true
 topics:
 - Photo management
 - AppleScript
@@ -48,7 +47,7 @@ In the snippets below, I'm going to assume you already know the local identifier
 I started by looking at the AppleScript dictionary for Photos, which includes an `add` verb.
 You pass it a list of media items and an album, like so:
 
-```applescript
+```applescript {"names":{"2":"thePhoto","6":"theAlbum"}}
 tell application "Photos"
   set thePhoto to {media item id "A6A67A86-F931-4178-97E2-9F1DAD57A65C/L0/001"}
   set theAlbum to album id "6C568ABA-C5D2-459B-999D-DC4C2EBEDF5C/L0/040"
@@ -58,7 +57,7 @@ end tell
 
 You can extend this to add multiple photos to an album, by adding to the list, for example:
 
-```applescript
+```applescript {"names":{"2":"thePhoto","12":"theAlbum"}}
 tell application "Photos"
   set thePhoto to {¬
     media item id "A6A67A86-F931-4178-97E2-9F1DAD57A65C/L0/001", ¬
@@ -104,7 +103,7 @@ Although most people use PhotoKit in a full-sized app, you can also use it in Sw
 I'm not trying to write an entire app, I'm trying to write some small automations.
 Here's an example script using PhotoKit:
 
-```swift
+```swift {"names":{"1":"Photos","2":"options","3":"assets"}}
 #!/usr/bin/env swift
 
 import Photos
@@ -130,7 +129,7 @@ Now let's put it to work!
 
 This is more complicated than the AppleScript:
 
-```swift
+```swift {"names":{"1":"Photos","2":"photos","6":"album","13":"changeAlbum"}}
 #!/usr/bin/env swift
 
 import Photos
@@ -184,7 +183,7 @@ This method blocks, and it won't complete until the photo has been added to the 
 
 This is almost identical to the code above, with just a single change: we call removeAssets instead of addAssets.
 
-```swift
+```swift {"names":{"3":"changeAlbum"}}
 …
 
 try PHPhotoLibrary.shared().performChangesAndWait {

@@ -2,7 +2,6 @@
 layout: note
 title: "Using TransportAPI and geopy to get the distance between stations"
 date: 2019-05-03 08:40:51 +00:00
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - Trains
@@ -13,7 +12,7 @@ One thing that quickly becomes clear running this code is that searching for sta
 
 TransportAPI has a free tier that allows you to make 30 requests a day without paying, which is why I tried it for this experiment.
 
-```python
+```python {"names":{"1":"typing","2":"geopy","3":"distance","4":"httpx","5":"APP_ID","6":"APP_KEY","7":"client","13":"lookup_station","14":"station_name","18":"resp","25":"members","38":"distance_between","39":"station1","40":"station2","41":"pos1","44":"pos2","52":"leighton_buzzard","54":"brighton_and_hove"}}
 import typing
 
 import geopy.distance  # pip install geopy==2.4.1
