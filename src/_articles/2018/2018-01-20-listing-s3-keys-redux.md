@@ -3,7 +3,6 @@ layout: article
 date: 2018-01-20 20:25:33 +00:00
 summary: Python functions for getting a list of keys and objects in an S3 bucket.
 title: Listing keys in an S3 bucket with Python, redux
-old_syntax_highlighting: true
 topics:
   - AWS
   - Python
@@ -27,7 +26,7 @@ In this post, I'll walk through the changes I've made in the newer versions of t
 
 As a quick reminder, this is the code we had at the end of the last post:
 
-```python
+```python {"names":{"1":"boto3","2":"get_matching_s3_keys","3":"bucket","4":"prefix","5":"suffix","6":"s3","9":"kwargs","16":"resp","20":"obj","22":"key"}}
 import boto3
 
 
@@ -68,22 +67,20 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 
 First, let's see what happens if you use this code and there aren't any matching keys:
 
-```pycon
->>> for key in get_matching_s3_keys(bucket='empty-bucket'):
-...     print(key)
-...
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "matching_s3_objects.py", line 27, in get_matching_s3_keys
-    for obj in resp['Contents']:
-KeyError: 'Contents'
-```
+<pre class="lng-pycon"><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> get_matching_s3_keys<span class="p">(</span>bucket<span class="o">=</span><span class="s1">'empty-bucket'</span><span class="p">):</span>
+<span class="gp">... </span>    print<span class="p">(</span>key<span class="p">)</span>
+<span class="gp">...</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span>
+<span class="gr">  File "matching_s3_objects.py", line 27, in get_matching_s3_keys</span>
+<span class="gr">    for obj in resp['Contents']:</span>
+<span class="gr">KeyError: 'Contents'</span></code></pre>
 
 If there aren't any matching keys, the ListObjects API doesn't include a "Contents" key in the response -- if that happens, we should return immediately.
 
 We can fix this by checking that "Contents" is in the response before we try to iterate over it:
 
-```python
+```python {"names":{"1":"contents","4":"obj"}}
 try:
     contents = resp['Contents']
 except KeyError:
@@ -108,7 +105,7 @@ That way, if I want extra info, I can just use the output of the first generator
 
 To modify the generator to spit out objects, I can rename it to `get_matching_s3_objects`, and modify the yield as follows:
 
-```python
+```python {"names":{"1":"obj","3":"key"}}
 for obj in resp['Contents']:
     key = obj['Key']
     if key.startswith(prefix) and key.endswith(suffix):
@@ -117,7 +114,7 @@ for obj in resp['Contents']:
 
 Then I can write a second generator that produces keys:
 
-```python
+```python {"names":{"1":"get_matching_s3_keys","2":"bucket","3":"prefix","4":"suffix","5":"obj"}}
 def get_matching_s3_keys(bucket, prefix='', suffix=''):
     for obj in get_matching_s3_objects(bucket, prefix, suffix):
         yield obj['Key']
@@ -125,7 +122,7 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 
 Putting all that together, here's my latest version of the code:
 
-```python
+```python {"names":{"1":"boto3","2":"get_matching_s3_objects","3":"bucket","4":"prefix","5":"suffix","6":"s3","9":"kwargs","16":"resp","20":"contents","23":"obj","25":"key","37":"get_matching_s3_keys","38":"bucket","39":"prefix","40":"suffix","41":"obj"}}
 import boto3
 
 

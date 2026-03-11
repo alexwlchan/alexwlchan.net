@@ -6,7 +6,6 @@ index:
 summary: I use Python-Markdown to render posts for my site. Here are a few examples
   of the extensions I'm using.
 title: A few examples of extensions in Python-Markdown
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - Markdown
