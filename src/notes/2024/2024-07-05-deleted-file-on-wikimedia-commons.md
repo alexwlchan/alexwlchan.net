@@ -2,7 +2,6 @@
 layout: note
 date: 2024-07-05 12:41:56 +01:00
 title: Using the Wikimedia Commons API to tell if a file has been deleted
-old_syntax_highlighting: true
 topic: Wikimedia Commons
 ---
 Flickypedia Backfillr Bot will occasionally try to get structured data for files which have been deleted from Wikimedia Commons.

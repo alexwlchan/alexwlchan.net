@@ -3,7 +3,6 @@ layout: article
 date: 2019-06-09 10:36:43 +00:00
 title: Converting Acorn images on the command-line
 summary: I wrote some AppleScript to help me do batch conversion of Acorn images into formats like PNG and JPEG.
-old_syntax_highlighting: true
 topic: Images and videos
 hidden_topics:
   - Acorn

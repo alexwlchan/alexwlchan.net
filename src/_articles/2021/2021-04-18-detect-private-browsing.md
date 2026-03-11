@@ -2,7 +2,6 @@
 layout: article
 date: 2021-04-18 12:35:57 +00:00
 title: Using AppleScript to detect if a Safari window uses Private Browsing
-old_syntax_highlighting: true
 topics:
   - AppleScript
   - macOS
@@ -46,7 +45,7 @@ It works even if there's a single tab (or no tab) in the window – the menu ite
 
 Here's what the code looks like:
 
-```applescript
+```applescript {"names":{"1":"isFrontmostSafariWindowPrivateBrowsing","5":"theWindowMenu"}}
 on isFrontmostSafariWindowPrivateBrowsing()
   -- If you don't activate Safari, the results are sometimes wrong.
   -- In particular, System Events doesn't have the most up-to-date

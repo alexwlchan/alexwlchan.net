@@ -2,7 +2,6 @@
 layout: article
 date: 2021-04-29 09:02:12 +00:00
 title: Drawing coloured squares/text in my terminal with Python
-old_syntax_highlighting: true
 topics:
   - Python
   - Colours
