@@ -10,7 +10,7 @@ topics:
 ---
 I was [having an issue][issue] where an image I'd exported from my Photos Library was being rotated when I opened and saved it:
 
-```python
+```python {"names":{"1":"PIL","2":"Image","3":"im"}}
 from PIL import Image  # pip install Pillow==10.1.0
 
 im = Image.open("cross_stitch.jpg")
@@ -35,7 +35,7 @@ There are two ways to ensure the orientation is preserved when I open and save w
 
 1.  Use Pillow to "bake in" the rotation, where you apply the transformation to the pixels:
 
-    ```python
+    ```python {"names":{"1":"PIL","2":"Image","3":"ImageOps","4":"im"}}
     from PIL import Image, ImageOps
 
     im = Image.open("cross_stitch")
@@ -47,7 +47,7 @@ There are two ways to ensure the orientation is preserved when I open and save w
 
 2.  Copy the EXIF data into the new photo:
 
-    ```python
+    ```python {"names":{"1":"PIL","2":"Image","3":"im"}}
     from PIL import Image
 
     im = Image.open("cross_stitch.jpg")
@@ -61,7 +61,7 @@ There are two ways to ensure the orientation is preserved when I open and save w
 
 I was trying to write a regression test for this issue that checked the image dimensions were preserved upon saving -- because if the image is rotated, the dimensions must have changed: 
 
-```python
+```python {"names":{"1":"PIL","2":"Image","3":"im","8":"saved_im"}}
 from PIL import Image
 
 im = Image.open("cross_stitch.jpg")

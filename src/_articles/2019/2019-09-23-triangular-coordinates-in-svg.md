@@ -7,7 +7,6 @@ title: Drawing with triangular coordinates in SVG
 colors:
   index_light: "#000000"
   index_dark:  "#b6beb3"
-old_syntax_highlighting: true
 topics:
   - SVG
   - Drawing things
