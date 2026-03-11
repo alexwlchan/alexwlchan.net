@@ -7,7 +7,6 @@ title: Drawing ASCII bar charts
 colors:
   index_light: "#000000"
   index_dark:  "#cccccc"
-old_syntax_highlighting: true
 topics:
 - Drawing things
 - Python
@@ -17,7 +16,7 @@ When I'm writing scripts, I often have some tabular data that I need to present.
 This data might show the number of website hits per day, or which pages had the most errors.
 Here's [an example][ieref] of the sort of tabular data I mean:
 
-```python
+```python {"names":{"1":"data"}}
 data = [
     ('Clare',            64),
     ('Donegal',          48),
@@ -39,7 +38,7 @@ There are probably libraries that can do this for you, but I found it simpler to
 
 Like so:
 
-```python
+```python {"names":{"1":"max_value","5":"count","7":"increment","9":"longest_label_length","16":"label","17":"count","19":"bar_chunks","20":"remainder","25":"bar"}}
 max_value = max(count for _, count in data)
 increment = max_value / 25
 

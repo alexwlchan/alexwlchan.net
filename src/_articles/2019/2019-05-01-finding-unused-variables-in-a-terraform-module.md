@@ -4,7 +4,6 @@ date: 2019-05-01 20:59:07 +00:00
 title: Finding unused variables in a Terraform module
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Terraform
 ---
 
@@ -33,7 +32,7 @@ If you just want the script, you can [skip to the end](#putting-it-all-together)
 There's a Python module [for parsing HCL][pyhcl] (the Terraform markup language), so let's use that -- much easier and more accurate than trying to detect variables manually.
 Here's what that looks like:
 
-```python
+```python {"names":{"1":"hcl","2":"get_variables_in_file","3":"path","6":"tf","7":"tf_definitions","12":"err"}}
 import hcl
 
 
@@ -56,7 +55,7 @@ Within the dictionary for each element, you get every instance of that element i
 
 For example, the following Terraform definition:
 
-```hcl
+```terraform {"names":{"1":"queue_name","3":"aws_sqs_queue","4":"q","8":"aws_sqs_queue","9":"dlq"}}
 variable "queue_name" {
   description = "Name of the SQS queue to create"
 }
@@ -102,7 +101,7 @@ Once we can get the variables defined by a single file, we can get all the varia
 
 A module is a collection of Terraform files in the same directory, so we can find them by using `os.listdir`, like so:
 
-```python
+```python {"names":{"1":"os","2":"tf_files_in_module","3":"dirname","4":"f","11":"get_variables_in_module","12":"dirname","13":"all_variables","14":"f","17":"varname"}}
 import os
 
 
@@ -134,7 +133,7 @@ It's a bit crude, but seems to work.
 
 Here's the code:
 
-```python
+```python {"names":{"1":"find_unused_variables_in_module","2":"dirname","3":"unused_variables","6":"f","10":"tf_src","18":"varname"}}
 def find_unused_variables_in_module(dirname):
     unused_variables = get_variables_in_module(dirname)
 
@@ -172,7 +171,7 @@ For a quick speedup, we can look for filenames ending with `.tf` to decide if a 
 
 Here's some code:
 
-```python
+```python {"names":{"1":"find_unused_variables_in_tree","2":"root","3":"mod_root","5":"filenames","12":"f","14":"unused_variables","20":"varname","21":"filename"}}
 def find_unused_variables_in_tree(root):
     for mod_root, _, filenames in os.walk(root):
         if not any(f.endswith(".tf") for f in filenames):
@@ -189,7 +188,7 @@ def find_unused_variables_in_tree(root):
 
 And I wrap that in a little main block:
 
-```python
+```python {"names":{"1":"sys","2":"root","6":"root"}}
 import sys
 
 
@@ -212,7 +211,7 @@ This means I can pass a directory to the script, and it looks for unused modules
 
 Here's the final version of the code:
 
-```python
+```python {"names":{"1":"os","2":"sys","3":"hcl","4":"get_variables_in_file","5":"path","8":"tf","9":"tf_definitions","14":"err","23":"tf_files_in_module","24":"dirname","25":"f","32":"get_variables_in_module","33":"dirname","34":"all_variables","35":"f","38":"varname","49":"find_unused_variables_in_module","50":"dirname","51":"unused_variables","54":"f","58":"tf_src","66":"varname","74":"find_unused_variables_in_tree","75":"root","76":"mod_root","78":"filenames","85":"f","87":"unused_variables","93":"varname","94":"filename","105":"root","109":"root"}}
 import os
 import sys
 
