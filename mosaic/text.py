@@ -29,6 +29,7 @@ def strip_html(text: str) -> str:
     return STRIP_HTML_RE.sub("", text)
 
 
+@functools.cache
 def smartify(text: str) -> str:
     """
     Add curly quotes and smart dashes to a string.
@@ -209,6 +210,7 @@ def markdownify_oneline(text: str) -> str:
     return markdownify(text).replace("<p>", "").replace("</p>", "").strip()
 
 
+@functools.cache
 def cleanup_text(text: str) -> str:
     """
     Apply all my cleanup rules to text.
