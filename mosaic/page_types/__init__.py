@@ -30,7 +30,6 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
 
     layout = front_matter.pop("layout")
 
-    # TODO: Assert common parents
     if (
         "topic" in front_matter
         and "topics" not in front_matter
@@ -69,7 +68,7 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
     for md_path in find_paths_under(src_dir, suffix=".md"):
         try:
             result.append(read_page_from_markdown(src_dir, md_path))
-        except Exception as exc:
+        except Exception as exc:  # pragma: no cover
             print(termcolor.colored(f"error reading {md_path}: {exc}", "red"))
             raise
 
