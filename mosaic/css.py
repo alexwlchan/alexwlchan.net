@@ -69,6 +69,7 @@ def get_inline_styles(html: str) -> ParsedStyles:
 
     # If removing the <style> tags has rendered a set of <defs> empty,
     # just remove them.
-    html = EMPTY_DEFS_RE.sub("", html)
+    if "<defs" in html:
+        html = EMPTY_DEFS_RE.sub("", html)
 
     return {"html": html, "styles": "".join(styles)}
