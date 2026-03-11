@@ -4,7 +4,6 @@ title: How to do offline geo-lookups of IP addresses
 summary: |
   MaxMind offer databases you can do to look up IP addresses without sending the address off to a remote service.
 date: 2024-01-19 10:25:34 +00:00
-old_syntax_highlighting: true
 topic: Python
 hidden_topics:
   - Networking
@@ -30,7 +29,7 @@ I was able to download a free country database from their site, which is about 6
 
 I can then use [the maxminddb Python library][maxminddb] to open the database and look up IP addresses:
 
-```python
+```python {"names":{"1":"maxminddb","4":"reader"}}
 import maxminddb
 
 with maxminddb.open_database('GeoLite2-Country_20240116/GeoLite2-Country.mmdb') as reader:
@@ -40,7 +39,7 @@ with maxminddb.open_database('GeoLite2-Country_20240116/GeoLite2-Country.mmdb') 
 
 Note that this method can sometimes return `None`, if the IP address isn't in the database -- or in this case, if it's an IP address reserved for testing purposes.
 
-```python
+```python {"names":{"1":"maxminddb","4":"reader"}}
 with maxminddb.open_database('GeoLite2-Country_20240116/GeoLite2-Country.mmdb') as reader:
     print(reader.get('192.0.2.0'))
     # None

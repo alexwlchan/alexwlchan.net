@@ -4,7 +4,6 @@ date: 2024-04-12 14:48:47 +01:00
 title: How to see the HTTP requests being made by pywikibot
 summary: |
   To see exactly what HTTP requests were being made, I modified the library so that betamax would record requests.
-old_syntax_highlighting: true
 topics:
   - Python
   - Wikimedia Commons

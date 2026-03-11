@@ -2,7 +2,6 @@
 layout: note
 date: 2023-12-08 20:58:33 +00:00
 title: Go between M-IDs and filenames on Wikimedia Commons
-old_syntax_highlighting: true
 topic: Wikimedia Commons
 ---
 Every file on Wikimedia Commons has two identifiers:
