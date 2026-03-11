@@ -9,7 +9,7 @@ import yaml
 
 from mosaic.fs import find_paths_under
 
-from ._base import BreadcrumbEntry, BaseHtmlPage
+from ._base import BreadcrumbEntry, BaseHtmlPage, IndexInfo
 from .articles import Article
 from .book_reviews import BookReview
 from .generic_pages import Page
@@ -80,6 +80,7 @@ __all__ = [
     "BaseHtmlPage",
     "BookReview",
     "BreadcrumbEntry",
+    "IndexInfo",
     "Note",
     "Page",
     "TopicPage",

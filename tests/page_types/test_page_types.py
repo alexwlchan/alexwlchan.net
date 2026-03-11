@@ -11,6 +11,7 @@ from mosaic.page_types import (
     Article,
     BaseHtmlPage,
     BookReview,
+    IndexInfo,
     Note,
     Page,
     TopicPage,
@@ -275,3 +276,21 @@ def test_out_path() -> None:
         content="Contact me",
     )
     assert page.out_path(out_dir=Path("_out")) == Path("_out/contact/index.html")
+
+
+@pytest.mark.parametrize("is_featured", [True, False])
+def test_is_featured(is_featured: bool) -> None:
+    """
+    Test the is_featured convenience attribute.
+    """
+    p = Page(index=IndexInfo(feature=is_featured))
+    assert p.is_featured == is_featured
+
+
+@pytest.mark.parametrize("is_excluded", [True, False])
+def test_is_excluded(is_excluded: bool) -> None:
+    """
+    Test the is_excluded convenience attribute.
+    """
+    p = Page(index=IndexInfo(exclude=is_excluded))
+    assert p.is_excluded == is_excluded
