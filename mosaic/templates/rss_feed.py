@@ -17,6 +17,12 @@ def xml_escape(text: str) -> str:
     return text
 
 
+YOUTUBE_IFRAME_RE = re.compile(
+    r'<iframe\s+class="youtube"\s+id="youtube_(?P<video_id>[^"]+)"(.*?)</iframe>',
+    flags=re.DOTALL | re.MULTILINE,
+)
+
+
 def fix_youtube_iframes(html: str) -> str:
     """
     Replace YouTube iframes in the RSS feed with links.
@@ -24,11 +30,10 @@ def fix_youtube_iframes(html: str) -> str:
     This is based on https://github.com/rubys/feedvalidator, which says
     that embedding an <iframe> in an RSS feed can be a security risk.
     """
-    while m := re.search(
-        r'<iframe\s+class="youtube"\s+id="youtube_(?P<video_id>[^"]+)"(.*?)</iframe>',
-        html,
-        re.DOTALL | re.MULTILINE,
-    ):
+    if "<iframe" not in html:
+        return html
+
+    while m := YOUTUBE_IFRAME_RE.search(html):
         url = f"https://www.youtube.com/watch?v={m.group('video_id')}"
         html = html.replace(m.group(0), f'<p><a href="{url}">{url}</a></p>')
 

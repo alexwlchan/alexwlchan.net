@@ -59,16 +59,18 @@ def get_inline_styles(html: str) -> ParsedStyles:
     while m := STYLE_RE.search(html):
         css = m.group("css")
 
-        while use_m := SCSS_USE_RE.search(css):
-            use_path = Path("css") / (use_m.group("name") + ".css")
-            use_css = use_path.read_text()
-            css = css.replace(use_m.group(0), use_css)
+        if "@use" in css:
+            while use_m := SCSS_USE_RE.search(css):
+                use_path = Path("css") / (use_m.group("name") + ".css")
+                use_css = use_path.read_text()
+                css = css.replace(use_m.group(0), use_css)
 
         styles[css] = None
         html = html.replace(m.group(0), "")
 
     # If removing the <style> tags has rendered a set of <defs> empty,
     # just remove them.
-    html = EMPTY_DEFS_RE.sub("", html)
+    if "<defs" in html:
+        html = EMPTY_DEFS_RE.sub("", html)
 
     return {"html": html, "styles": "".join(styles)}
