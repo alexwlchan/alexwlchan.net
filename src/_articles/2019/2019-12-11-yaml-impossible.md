@@ -6,7 +6,6 @@ summary: YAML allows you to execute arbitrary code in a parser, even if you real
 colors:
   index_light: "#527ab2"
   index_dark:  "#8ebaec"
-old_syntax_highlighting: true
 topics:
   - Code crimes
   - Python
@@ -74,7 +73,7 @@ If you trust your YAML, this is less of an issue -- but if you're parsing YAML f
 For a long time, the default `load()` function in the [PyYAML module][pyyaml] was unsafe, and would run any Python code in the YAML it received.
 This meant you could call system functions from YAML:
 
-```python
+```python {"names":{"1":"yaml"}}
 import yaml
 
 yaml.load("!!python/object/new:os.system [echo BOOM!]")
@@ -217,7 +216,7 @@ action:
 
 If Jim Phelps parses this using his special IMF-approved message reader:
 
-```python
+```python {"names":{"1":"yaml","3":"f","4":"message"}}
 import yaml  # PyYAML < 5.1
 
 with open("message.yml") as f:

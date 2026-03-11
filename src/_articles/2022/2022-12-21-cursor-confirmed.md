@@ -6,7 +6,6 @@ summary: Party like it's 1996! A trailing checkmark cursor will make your Brand 
 colors:
   css_light: '#0e558b'
   css_dark: '#55acee'
-old_syntax_highlighting: true
 topics:
   - Code crimes
   - JavaScript
@@ -125,7 +124,7 @@ If you want to use it, upload [the JavaScript file][js] somewhere and load it in
 <script src="verifiedCursor.js"></script>
 
 <script>
-  window.addEventListener('load', (event) => {
+  window.addEventListener('load', () => {
     verifiedCursor({
       // make it bigger or smaller
       size: 2,

@@ -6,7 +6,6 @@ summary: Some Python code for turning MRI scans of fruit and veg into animated G
 colors:
   index_light: '#5c5a30'
   index_dark: '#cdca78'
-old_syntax_highlighting: true
 topics:
   - Fun stuff
   - Drawing things
@@ -73,7 +72,7 @@ So we want to cut out the individual frames from this image, put them in the rig
 
 First we load the image with Pillow:
 
-```python
+```python {"names":{"1":"PIL","2":"Image","3":"im"}}
 from PIL import Image
 
 im = Image.open("artichoke.jpg")
@@ -82,7 +81,7 @@ im = Image.open("artichoke.jpg")
 We can crop a rectangle from an image using [the `crop()` function][crop_function], which takes the four corners of the area we want to crop.
 For example, this code:
 
-```python
+```python {"names":{"1":"im_cropped"}}
 im_cropped = im.crop((500, 1000, 800, 700))
 ```
 
@@ -98,7 +97,7 @@ will extract this part of the image:
 I started by writing a function that produces the 4-tuples that are passed to the `crop()` function.
 It moves from left-to-right, top-to-bottom, finding the coordinates of the crops:
 
-```python
+```python {"names":{"1":"get_crops","2":"im","3":"columns","4":"rows","5":"column_width","9":"row_height","13":"r","16":"c","19":"x","22":"y"}}
 def get_crops(im, *, columns, rows):
     column_width = im.width // columns
     row_height = im.height // rows
@@ -112,7 +111,7 @@ def get_crops(im, *, columns, rows):
 
 and then I get the individual images like so:
 
-```python
+```python {"names":{"1":"individual_scans","5":"c"}}
 individual_scans = [
     im.crop(c)
     for c in get_crops(im, columns=7, rows=4)

@@ -152,11 +152,6 @@ class BaseHtmlPage(ABC, BaseModel):
     # this post might be filed in future.
     hidden_topics: list[str] = Field(default_factory=lambda: list())
 
-    # This tracks progress on alexwlchan/alexwlchan.net#1138
-    # As I confirm posts are fixed, I can delete this setting and eventually
-    # I'll know everything has been spot checked.
-    old_syntax_highlighting: bool = False
-
     def __repr__(self) -> str:  # pragma: no cover
         """
         Returns a debugging representation of this page.

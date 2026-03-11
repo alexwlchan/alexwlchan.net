@@ -8,7 +8,6 @@ colors:
   index_dark: '#eb7028'
 index:
   feature: true
-old_syntax_highlighting: true
 topics:
   - Code crimes
   - HTML

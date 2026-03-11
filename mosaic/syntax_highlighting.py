@@ -268,8 +268,11 @@ def apply_syntax_highlighting(
         print(repr(html))
 
     # Find all the names which are highlighted as part of this code.
+    # n = Name.*
+    # cp = Comment.Preproc
+    # vg = Variable.Global
     name_matches = re.finditer(
-        r'<span class="(n[a-z0]?|cp)">(?P<varname>[^<]+)</span>', html
+        r'<span class="(n[a-z0]?|cp|vg)">(?P<varname>[^<]+)</span>', html
     )
 
     # Un-highlight any names that aren't explicitly labelled as worth

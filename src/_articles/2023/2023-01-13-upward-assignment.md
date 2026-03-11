@@ -8,7 +8,6 @@ colors:
   css_dark:  "#dd363f"
 index:
   feature: true
-old_syntax_highlighting: true
 topics:
 - Code crimes
 - Ruby
@@ -17,7 +16,7 @@ topics:
 Ruby has had leftward assignment (`x = 4`) since its [first public release][first], and a few years ago it added [rightward assignment][ruby3] (`4 => x`).
 Then at RubyConf 2021, Kevin Kuchta explained [how to abuse Ruby features][kevin] to build a downward assignment operator (yes, this really works):
 
-```ruby
+```ruby {"names":{"1":"x"}}
 4
 ‖
 x
@@ -25,7 +24,7 @@ x
 
 It's a good talk that I recommend watching, and if you get to the end you'll see he poses a further challenge: build an *upward* assigment operator:
 
-```ruby
+```ruby {"names":{"1":"x"}}
 x
 ⇑
 4
@@ -71,7 +70,7 @@ The rest of the program proceeds as normal, unaware that this variable was assig
 Unfortunately we can't use this trick for upwards assignment, because Ruby will never get to what I'm calling the "uequals" operator (denoted `⇑`).
 It will fail on the line above, because it doesn't know about the variable we're trying to assign:
 
-```ruby
+```ruby {"names":{"1":"x"}}
 x  # => undefined local variable or method `x' (NameError)
 ⇑
 4
@@ -119,7 +118,7 @@ To create a tracepoint, you write `Tracepoint.new` and the name of the event you
 Once you've created your tracepoint, you have to explicitly enable it before anything happens.
 Here's a simple example, which prints a message on every line of code:
 
-```ruby
+```ruby {"names":{"1":"tracepoint","4":"tp"}}
 tracepoint = TracePoint.new(:line) do |tp|
   puts "calling the tracepoint!"
 end
@@ -153,7 +152,7 @@ tp.path    # => example.rb
 This information is meant to be useful for debugging.
 For example, we can use build a simple tool to measure line coverage:
 
-```ruby
+```ruby {"names":{"1":"$covered_lines","2":"coverage_tracker","5":"tp"}}
 $covered_lines = []
 
 coverage_tracker = TracePoint.new(:line) do |tp|
@@ -177,7 +176,7 @@ tp.line    # => NameError
 
 but that's not actually an issue, because we have all the information we need to get it ourselves, and none of the restraint that would stop us:
 
-```ruby
+```ruby {"names":{"1":"line"}}
 # note: tracepoint line numbers are 1-indexed, so they match what you
 # see in your text editor, but File.readlines is 0-indexed.
 line = File.readlines(tp.path)[tp.lineno - 1]
@@ -257,7 +256,7 @@ Fortunately we have access to the original text in `token`, so we can just track
 
 By breaking the line into tokens with `Ripper.lex`, and filtering for tokens which have type `:on_ident`, we can find the identifiers -- which include both the variable names and the arrows.
 
-```ruby
+```ruby {"names":{"1":"find_identifiers_in_line","2":"source_code","3":"lexed_line","7":"column","8":"result","11":"_positions","12":"type","13":"token","14":"_state"}}
 def find_identifiers_in_line(source_code)
   lexed_line = Ripper.lex(source_code)
 
@@ -294,7 +293,7 @@ Each identifier has two keys: `:token` is the source code, and `:range` tells us
 
 We can put this in a tracepoint, and Ruby will print a list of identifiers it finds on every line:
 
-```ruby
+```ruby {"names":{"1":"id_printer","4":"tp","5":"line"}}
 id_printer = TracePoint.new(:line) do |tp|
   line = File.readlines(tp.path)[tp.lineno - 1]
   puts find_identifiers_in_line(line)
@@ -321,7 +320,7 @@ Now we need to work out which identifiers are interesting.
 
 We can put together what we've done so far to find all the identifiers on a line that have an upward assignment arrow below them:
 
-```ruby
+```ruby {"names":{"1":"arrow_finder","4":"tp","5":"line","12":"identifiers","15":"arrow_line","24":"arrows","28":"id","32":"var","33":"arrow_below","49":"x"}}
 arrow_finder = TracePoint.new(:line) { |tp|
   line = File.readlines(tp.path)[tp.lineno - 1]
   identifiers = find_identifiers_in_line(line)
@@ -367,7 +366,7 @@ It's not complicated, but it can be fiddly to get the inequalities the right way
 
 This finds the last arrow operator that’s under an identifier, so that if a identifier sits above multiple arrows, the rightmost arrow takes precedence:
 
-```ruby
+```ruby {"names":{"1":"best_number_of_cats"}}
 best_number_of_cats
  ⇑  ⇑  ⇑  ⇑  ⇑  ⇑
  0  1  2  3  4  5
@@ -396,7 +395,7 @@ There are lots of different types of value; for now I'm going to just handle a f
 
 We can find values with a lightly modified variant of `find_identifiers_in_line`:
 
-```ruby
+```ruby {"names":{"1":"find_values_in_line","2":"source_code","3":"lexed_line","7":"column","8":"result","11":"_positions","12":"type","13":"token","14":"_state"}}
 def find_values_in_line(source_code)
   lexed_line = Ripper.lex(source_code)
 
@@ -432,7 +431,7 @@ puts find_values_in_line('name = "Alex"').inspect
 
 Then we drop this into our tracepoint, and look below the arrow we found in the previous step:
 
-```ruby
+```ruby {"names":{"1":"value_finder","4":"tp","7":"value_line","16":"values","19":"value_below","22":"v","35":"x"}}
 value_finder = TracePoint.new(:line) { |tp|
   …
   unless arrow_below.nil?
@@ -493,7 +492,7 @@ This gives us a way to break a bunch of rules.
 
 Here's an example of a program that doesn't work:
 
-```ruby
+```ruby {"names":{"1":"greet","2":"name","3":"first_name","4":"last_name"}}
 def greet(name)
   first_name, last_name = name.split()
   puts "Hello #{first_name}!"
@@ -511,7 +510,7 @@ This is the behaviour we're used to:
 
 But if I create a binding inside the function, and then return that, now I can can get to that variable in the top-level:
 
-```ruby
+```ruby {"names":{"1":"greet","2":"name","3":"first_name","4":"last_name","10":"b"}}
 def greet(name)
   first_name, last_name = name.split()
   puts "Hello #{first_name}!"
@@ -530,7 +529,7 @@ And as they say, power is a corrupting influence.
 When I first read the docs for the Binding class, I thought maybe I could use the [`local_variable_set` method][local_variable_set].
 You can use it to update the value of an existing variable, and that gets reflected outside the binding:
 
-```ruby
+```ruby {"names":{"1":"colour"}}
 colour = 'blue'
 
 binding.local_variable_set(:colour, 'red')
@@ -541,7 +540,7 @@ puts colour                               # => red
 
 but if you try to set a variable that doesn't exist yet, it's only available inside the binding:
 
-```ruby
+```ruby {"names":{"1":"b"}}
 b = binding
 b.local_variable_set(:shape, 'square')
 
@@ -576,7 +575,7 @@ Scopes can have references to variables in other scopes, and any changes to the 
 This is how variables get passed into functions – the function scope gets a reference to the variable in the parent scope.
 We can see this when a function mutates a variable that gets passed in:
 
-```ruby
+```ruby {"names":{"1":"add_square","2":"shapes","3":"new_shape","6":"colours","7":"shapes"}}
 def add_square(shapes)
   new_shape = 'square'
   shapes << new_shape
@@ -661,7 +660,7 @@ greet  # => Hello world
 
 We can also do this on the binding we get inside a tracepoint, and because the tracepoint runs before the line, the new method is available when the line runs:
 
-```ruby
+```ruby {"names":{"1":"tracepoint","4":"tp"}}
 tracepoint = TracePoint.new(:line) do |tp|
   tp.binding.receiver.define_singleton_method(:greet) { puts 'Hello world' }
 end
@@ -692,7 +691,7 @@ Methods and variables aren't quite the same, and they have slightly different be
 When we found the value below each arrow, we got back a token from Ripper.lex, which isn't a value we can assign in a method.
 But we can turn it into one:
 
-```ruby
+```ruby {"names":{"1":"convert_to_value","2":"token"}}
 def convert_to_value(token)
   case token[:type]
   when :on_int
@@ -710,7 +709,7 @@ I suspect there's a neater way to do it by fiddling with bindings, but I have to
 
 We can drop this into our tracepoint, and our upward assignment operator springs into life:
 
-```ruby
+```ruby {"names":{"1":"upwards_assignment","4":"tp","7":"var","8":"arrow_below","9":"value_below","15":"args"}}
 upwards_assignment = TracePoint.new(:line) { |tp|
   …
 
@@ -744,7 +743,7 @@ Now when we use our uequals operator, it will create the variable we want.
 We need a couple more tweaks to get this working: we need to define an empty method for `⇑` so it doesn't throw a NameError, and further fiddling with bindings, but it does basically work.
 I've wrapped it in a Uequals class (like Kevin's [Vequals class][vequals]), and it works like so:
 
-```ruby
+```ruby {"names":{"3":"x"}}
 Uequals.enable
 
 x
@@ -756,7 +755,7 @@ puts x  # => 4
 
 You can chain instances of the uequals operator:
 
-```ruby
+```ruby {"names":{"1":"x","2":"y"}}
 x
 ⇑
 y
@@ -772,7 +771,7 @@ There's more explanation in the source code.
 
 You can also do parallel assignment:
 
-```ruby
+```ruby {"names":{"1":"x","2":"y"}}
   x
 y ⇑
 ⇑ 5
@@ -784,7 +783,7 @@ puts y  # => 6
 
 Unfortunately there are still some rough edges, and it starts to break down when you combine it with other assignment operators:
 
-```ruby
+```ruby {"names":{"1":"x","2":"y","3":"z"}}
 x
 ⇑
 y

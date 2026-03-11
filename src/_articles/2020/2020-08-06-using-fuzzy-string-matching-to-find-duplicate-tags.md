@@ -2,7 +2,6 @@
 layout: article
 date: 2020-08-06 11:14:20 +00:00
 title: Using fuzzy string matching to find duplicate tags
-old_syntax_highlighting: true
 topics:
   - Python
   - Text and Unicode
@@ -43,7 +42,7 @@ To find all possible pairs of tags in a collection, I use [itertools.combination
 
 Putting itertools and RapidFuzz together, here's the function I use:
 
-```python
+```python {"names":{"1":"itertools","2":"rapidfuzz","3":"fuzz","4":"find_similar_pairs","5":"tags","6":"required_similarity","7":"t1","8":"t2"}}
 import itertools
 
 from rapidfuzz import fuzz
@@ -72,7 +71,7 @@ When I call this function, I usually have a tally-like dictionary as input.
 For each similar pair, I print the number of times I've used the tag, which helps me see what the canonical spelling of a duplicate tag is.
 If I've used one spelling once, and one spelling 50 times, I know which way to correct.
 
-```python
+```python {"names":{"1":"tags","3":"t1","4":"t2"}}
 if __name__ == "__main__":
     tags = get_tags()  # {"Amazon S3": 50, "amazon-s3": 1, …}
 

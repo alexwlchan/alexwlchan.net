@@ -5,7 +5,6 @@ title: 'Preparing for Terraform 0.12: fixing module sources'
 summary: I wanted a quick way to find Terraform modules that had values that would break in 0.12. I used a Python script to do it.
 index:
   exclude: true
-old_syntax_highlighting: true
 topic: Terraform
 ---
 
@@ -22,7 +21,7 @@ For example, maybe you're creating some S3 buckets, and you want every bucket to
 You could define a module that creates an S3 bucket with the right policy, which takes the name of the bucket as a variable.
 Then you'd use the module to create all your buckets:
 
-```hcl
+```terraform {"names":{"1":"important_bukkit"}}
 module "important_bukkit" {
   source = "./s3_bucket"
 
@@ -45,7 +44,7 @@ One of the changes in Terraform 0.12 is that it's stricter about how you declare
 Previously, if you put a raw string as the source, it would treat it as a local path.
 So this example would be fine, and use the module defined in the `s3_bucket` directory:
 
-```hcl
+```terraform {"names":{"1":"important_bukkit"}}
 module "important_bukkit" {
   source = "s3_bucket"
 
@@ -79,7 +78,7 @@ It walks a directory tree, and generates tuples `(dirpath, dirnames, filenames)`
 
 Here's how to use it, printing a path to every Terraform file under the current directory:
 
-```python
+```python {"names":{"1":"os","2":"dirpath","4":"filenames","7":"f","11":"path"}}
 import os
 
 
@@ -96,7 +95,7 @@ If you run this, you might see lots of entries in a `.terraform` directory.
 This is a local cache of all the modules you're using, created by `terraform get`.
 It's not important for this task, so let's skip it.
 
-```python
+```python {"names":{"1":"os","2":"dirpath","4":"filenames","8":"f","12":"path"}}
 import os
 
 
@@ -115,7 +114,7 @@ for dirpath, _, filenames in os.walk("."):
 
 At this point, it's tempting to start doing work inside the body of the inner loop, but I prefer to pull it into its own function, which is a standalone generator of paths to Terraform files:
 
-```python
+```python {"names":{"1":"get_all_tf_paths","2":"dirpath","4":"filenames","8":"f","17":"path"}}
 def get_all_tf_paths():
     """
     Generates paths to all the .tf files under the current directory.
@@ -152,7 +151,7 @@ Let's open those files and see what they contain.
 
 There's a PyPI module for parsing Terraform syntax ([pyhcl]), so let's use that:
 
-```python
+```python {"names":{"1":"hcl","2":"path","4":"tf"}}
 import hcl
 
 
@@ -175,7 +174,7 @@ You get an output that looks something like this:
 The first key is the type of Terraform object you're creating (`output`, `resource`, `module`, and so on), the second key is the name of the object, the third key is the inputs being passed to that object.
 This example comes from the following Terraform source:
 
-```hcl
+```terraform {"names":{"1":"topic_arn"}}
 output "topic_arn" {
   value = "${module.reindex_worker.topic_arn}"
 }
@@ -183,7 +182,7 @@ output "topic_arn" {
 
 We can look up the modules in a file like so:
 
-```python
+```python {"names":{"1":"path","3":"tf","8":"modules"}}
 for path in get_all_tf_paths():
     tf = hcl.load(open(path))
 
@@ -205,7 +204,7 @@ If you run this over the whole repo, you might get a ValueError on the `hcl.load
 This means the file has invalid Terraform syntax, so pyhcl can't parse it.
 This could be a malformed file, or it could be one that's already been upgraded to 0.12 (so it's already fine) -- either way, we can't do anything useful, so let's skip it:
 
-```python
+```python {"names":{"1":"sys","2":"path","4":"tf","10":"err"}}
 import sys
 
 
@@ -232,7 +231,7 @@ If I was running in a big codebase, I could split the messages about invalid HCL
 Now we have the modules, we can loop over them and check the `source` field.
 Something like:
 
-```python
+```python {"names":{"1":"path","3":"mod_name","4":"mod_inputs","7":"mod_source"}}
 for path in get_all_tf_paths():
     ...
 
@@ -249,7 +248,7 @@ Let's filter out module sources that we know are fine.
 
 To do this, I glanced at the output, and started writing checks to filter out common patterns:
 
-```python
+```python {"names":{"1":"path","3":"mod_name","4":"mod_inputs","7":"mod_source"}}
 for path in get_all_tf_paths():
     ...
 
@@ -273,9 +272,8 @@ I've fixed all the ambiguous module sources, in a script that only took me a few
 Below is the final version of the script.
 It's a bit neater than what I actually ran, because I've tidied it up for the blog post, but it's the same basic structure.
 
-```python
+```python {"names":{"1":"os","2":"sys","3":"hcl","4":"get_all_tf_paths","5":"dirpath","7":"filenames","11":"f","20":"get_all_modules","21":"path","23":"tf","29":"err","36":"modules","39":"mod_name","40":"mod_inputs","46":"path","47":"mod_name","48":"mod_inputs","50":"mod_source"}}
 #!/usr/bin/env python
-# -*- encoding: utf-8
 
 import os
 import sys
