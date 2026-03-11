@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
 import re
-from typing import Any, Self, TypedDict
+from typing import Self, TypedDict
 
 from jinja2 import Environment
 import minify_html
@@ -139,9 +139,6 @@ class BaseHtmlPage(ABC, BaseModel):
     # TODO(2026-01-20): Actually use this information.
     card_attribution: str | None = None
 
-    # Extra variables which are specific to this page or template.
-    extra_variables: dict[str, Any] = Field(default_factory=lambda: dict())
-
     card_path: Path | None = None
 
     # The single topic where this page is saved, which will be used
@@ -244,15 +241,6 @@ class BaseHtmlPage(ABC, BaseModel):
         out_path.write_text(html)
 
         return out_path
-
-    def __getattr__(self, name: str) -> Any:
-        """
-        Look up an attribute, trying in extra_variables first.
-        """
-        try:
-            return self.extra_variables[name]
-        except KeyError:
-            return super().__getattr__(name)  # type: ignore
 
     @property
     def is_featured(self) -> bool:
