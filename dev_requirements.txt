@@ -171,7 +171,7 @@ soupsieve==2.8.3
     #   beautifulsoup4
 termcolor==3.3.0
     # via -r requirements.txt
-tornado==6.5.4
+tornado==6.5.5
     # via
     #   -r requirements.txt
     #   livereload
