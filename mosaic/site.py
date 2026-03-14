@@ -169,7 +169,6 @@ class Site(BaseModel):
         env.globals.update(
             {
                 "css_url": css_url,
-                "environment": "production",
                 "site": self,
                 "enable_analytics": enable_analytics,
                 "all_topics": rebuild_topics_by_name(),
