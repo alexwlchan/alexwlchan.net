@@ -30,18 +30,24 @@ def test_xml_escape(text: str, escaped_xml: str) -> None:
     assert xml_escape(text) == escaped_xml
 
 
-def test_fix_youtube_iframes(env: Environment) -> None:
+@pytest.mark.parametrize(
+    "md, cleaned_html",
+    [
+        (
+            '{% youtube "https://www.youtube.com/watch?v=Ej2EJVMkTKw" %}',
+            '<p><a href="https://www.youtube.com/watch?v=Ej2EJVMkTKw">'
+            "https://www.youtube.com/watch?v=Ej2EJVMkTKw</a></p>",
+        ),
+        ("Hello world", "Hello world"),
+    ],
+)
+def test_fix_youtube_iframes(env: Environment, md: str, cleaned_html: str) -> None:
     """
     Test that my YouTube embeds are replaced with inline links.
     """
-    md = '{% youtube "https://www.youtube.com/watch?v=Ej2EJVMkTKw" %}'
-
     html = env.from_string(md).render()
 
-    assert fix_youtube_iframes(html).strip() == (
-        '<p><a href="https://www.youtube.com/watch?v=Ej2EJVMkTKw">'
-        "https://www.youtube.com/watch?v=Ej2EJVMkTKw</a></p>"
-    )
+    assert fix_youtube_iframes(html).strip() == cleaned_html
 
 
 class TestFixHtmlForFeedReaders:
