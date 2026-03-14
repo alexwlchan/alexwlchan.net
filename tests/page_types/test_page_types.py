@@ -315,3 +315,15 @@ def test_is_excluded(is_excluded: bool) -> None:
     """
     p = Page(index=IndexInfo(exclude=is_excluded))
     assert p.is_excluded == is_excluded
+
+
+def test_sort_date() -> None:
+    """
+    The sort date is the date of the post, unless it's been updated,
+    in which case it's the date updated.
+    """
+    p = Page(date=datetime(2001, 1, 1))
+    assert p.sort_date == datetime(2001, 1, 1)
+
+    p.date_updated = datetime(2002, 2, 2)
+    assert p.sort_date == datetime(2002, 2, 2)
