@@ -370,6 +370,42 @@ class TestPictureExtension:
         with pytest.raises(AssertionError, match="non-sRGB profile"):
             env.from_string(md).render(page=page)
 
+    def test_dst_prefix(self, src_dir: Path, out_dir: Path, env: Environment) -> None:
+        """
+        Test a {% picture %} tag which includes a dst_prefix".
+        """
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        page = StubPage(date=datetime(2026, 1, 1))
+
+        md = (
+            '{% picture filename="truchet-tiles-800x400.png" '
+            'width="400" dst_prefix="t/26/" alt="Red and black tiles" %}'
+        )
+
+        html = env.from_string(md).render(page=page).strip()
+        assert minify_html.minify(html) == (
+            "<picture>"
+            "<source "
+            'srcset="/t/26_1x.avif 400w,/t/26_2x.avif 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/avif>"
+            '<source srcset="/t/26_1x.webp 400w,/t/26_2x.webp 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/webp>"
+            '<source srcset="/t/26_1x.png 400w,/t/26_2x.png 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/png>"
+            '<img alt="Red and black tiles" style="aspect-ratio: 2" '
+            "src=/t/26_1x.png width=400></picture>"
+        )
+
+        for name in (
+            "26_1x.avif",
+            "26_2x.avif",
+            "26_1x.webp",
+            "26_2x.webp",
+            "26_1x.png",
+            "26_2x.png",
+        ):
+            assert (out_dir / "t" / name).exists()
+
 
 class TestChooseTargetWidth:
     """
