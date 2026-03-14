@@ -31,4 +31,16 @@ def env(src_dir: Path, out_dir: Path) -> Environment:
     """
     Creates a basic instance of the Jinja2 environment.
     """
-    return t.get_jinja_environment(src_dir, out_dir)
+    ev = t.get_jinja_environment(src_dir, out_dir)
+    ev.globals.update(
+        {
+            "css_url": "/test/style.test.css",
+            "site": {
+                "url": "http://localhost.test",
+                "title": "alexwlchan’s test site",
+                "description": "alexwlchan’s site, created in unit tests",
+            },
+            "enable_analytics": False,
+        }
+    )
+    return ev

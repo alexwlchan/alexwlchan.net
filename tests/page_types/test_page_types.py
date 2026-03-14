@@ -5,6 +5,7 @@ Tests for `mosaic.html_page`.
 from datetime import datetime, timezone
 from pathlib import Path
 
+from jinja2 import Environment
 import pytest
 
 from mosaic.page_types import (
@@ -211,57 +212,77 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         read_page_from_markdown(src_dir, md_path)
 
 
-@pytest.mark.parametrize(
-    "page, url",
-    [
-        (
-            Page(
-                src_dir=Path("src"),
-                md_path=Path("src/contact.md"),
-                title="Contact",
-                content="Contact me",
-            ),
-            "/contact/",
+PAGE_EXAMPLES = [
+    {
+        "page": Page(
+            src_dir=Path("src"),
+            md_path=Path("src/contact.md"),
+            title="Contact",
+            content="Contact me",
         ),
-        (
-            Page(
-                src_dir=Path("src"),
-                md_path=Path("src/index.md"),
-                title="Homepage",
-                content="This is my homepage",
-            ),
-            "/",
+        "url": "/contact/",
+        "out_path": Path("contact/index.html"),
+    },
+    {
+        "page": Page(
+            src_dir=Path("src"),
+            md_path=Path("src/index.md"),
+            title="Homepage",
+            content="This is my homepage",
         ),
-        (
-            Page(
-                src_dir=Path("src"),
-                md_path=Path("src/a-plumbers-guide-to-git/index.md"),
-                title="A Plumber’s Guide to Git",
-                content="This is a workshop about Git",
-            ),
-            "/a-plumbers-guide-to-git/",
+        "url": "/",
+        "out_path": Path("index.html"),
+    },
+    {
+        "page": Page(
+            src_dir=Path("src"),
+            md_path=Path("src/a-plumbers-guide-to-git/index.md"),
+            title="A Plumber’s Guide to Git",
+            content="This is a workshop about Git",
         ),
-        (
-            Article(
-                src_dir=Path("src"),
-                md_path=Path("src/2013/2013-02-13-darwin.md"),
-                date=datetime(2013, 2, 13),
-                title="Darwin",
-                content="This is a post about Darwin",
-            ),
-            "/2013/darwin/",
+        "url": "/a-plumbers-guide-to-git/",
+        "out_path": Path("a-plumbers-guide-to-git/index.html"),
+    },
+    {
+        "page": Article(
+            src_dir=Path("src"),
+            md_path=Path("src/2013/2013-02-13-darwin.md"),
+            date=datetime(2013, 2, 13),
+            title="Darwin",
+            content="This is a post about Darwin",
         ),
-        (
-            Page(title="Posts tagged with ‘python’", url="/tags/python/"),
-            "/tags/python/",
-        ),
-    ],
-)
+        "url": "/2013/darwin/",
+        "out_path": Path("2013/darwin/index.html"),
+    },
+    {
+        "page": Page(title="Posts tagged with ‘python’", url="/tags/python/"),
+        "url": "/tags/python/",
+        "out_path": Path("tags/python/index.html"),
+    },
+]
+
+
+@pytest.mark.parametrize("page, url", [(p["page"], p["url"]) for p in PAGE_EXAMPLES])
 def test_url(page: BaseHtmlPage, url: str) -> None:
     """
     Check the URL for every page.
     """
     assert page.url == url
+
+
+@pytest.mark.parametrize(
+    "page, out_path", [(p["page"], p["out_path"]) for p in PAGE_EXAMPLES]
+)
+def test_writes_page(
+    page: BaseHtmlPage, env: Environment, out_dir: Path, out_path: Path
+) -> None:
+    """
+    Check the correct path gets written for every page.
+    """
+    p = page.write(env, out_dir)
+    assert p == out_dir / out_path
+    assert p.exists()
+    assert page.title in p.read_text()
 
 
 def test_out_path() -> None:
