@@ -88,3 +88,67 @@ def test_articles_can_be_hashed(src_dir: Path) -> None:
         date=datetime.now(tz=timezone.utc),
     )
     hash(a)
+
+
+class TestChooseSharingCard:
+    """
+    Tests for a sharing card for a post.
+    """
+
+    def test_no_card_dir(self, src_dir: Path) -> None:
+        """
+        If there's no per-year card directory for this post, there's no
+        sharing card.
+        """
+        a = Article(
+            md_path=src_dir / "3030-03-03-article.md",
+            src_dir=src_dir,
+            date=datetime(3030, 3, 3),
+        )
+        assert a.card_path is None
+
+    def test_matching_card(self, src_dir: Path) -> None:
+        """
+        If we look in the card directory and there's a single matching
+        card for this post, use that as the sharing card.
+        """
+        (src_dir / "_images/cards/2001").mkdir(parents=True)
+        (src_dir / "_images/cards/2001/article.jpg").write_text("JPEG")
+
+        a = Article(
+            md_path=src_dir / "2001-01-01-article.md",
+            src_dir=src_dir,
+            date=datetime(2001, 1, 1),
+        )
+        assert a.card_path == Path("_images/cards/2001/article.jpg")
+
+    def test_no_matching_card(self, src_dir: Path) -> None:
+        """
+        If we look in the card directory and there are no matching cards,
+        there's no sharing card.
+        """
+        (src_dir / "_images/cards/2001").mkdir(parents=True)
+        (src_dir / "_images/cards/2001/different-article.jpg").write_text("JPEG")
+
+        a = Article(
+            md_path=src_dir / "2001-01-01-article.md",
+            src_dir=src_dir,
+            date=datetime(2001, 1, 1),
+        )
+        assert a.card_path is None
+
+    def test_ambiguous_matching_cards(self, src_dir: Path) -> None:
+        """
+        If we look in the card directory and there are multiple matching
+        cards, we get a ValueError.
+        """
+        (src_dir / "_images/cards/2001").mkdir(parents=True)
+        (src_dir / "_images/cards/2001/article.jpg").write_text("JPEG")
+        (src_dir / "_images/cards/2001/article.png").write_text("PNG")
+
+        with pytest.raises(ValueError, match="multiple matching cards"):
+            Article(
+                md_path=src_dir / "2001-01-01-article.md",
+                src_dir=src_dir,
+                date=datetime(2001, 1, 1),
+            )

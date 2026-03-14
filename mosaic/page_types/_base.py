@@ -184,14 +184,16 @@ class BaseHtmlPage(ABC, BaseModel):
         assert self.src_dir is not None
 
         card_dir = self.src_dir / "_images/cards" / str(self.date.year)
-        if not card_dir.exists():
+
+        try:
+            matching_cards = [
+                p.relative_to(self.src_dir)
+                for p in find_paths_under(card_dir)
+                if p.stem == self.slug
+            ]
+        except FileNotFoundError:
             return self
 
-        matching_cards = [
-            p.relative_to(self.src_dir)
-            for p in find_paths_under(card_dir)
-            if p.stem == self.slug
-        ]
         if len(matching_cards) == 0:
             return self
         elif len(matching_cards) == 1:
