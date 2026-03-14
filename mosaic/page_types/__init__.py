@@ -11,7 +11,7 @@ from mosaic.fs import find_paths_under
 
 from ._base import BreadcrumbEntry, BaseHtmlPage, IndexInfo
 from .articles import Article
-from .book_reviews import BookReview
+from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
 from .notes import Note
 from .topic_pages import TopicPage
@@ -78,11 +78,14 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
 __all__ = [
     "Article",
     "BaseHtmlPage",
+    "BookContributor",
+    "BookInfo",
     "BookReview",
     "BreadcrumbEntry",
     "IndexInfo",
     "Note",
     "Page",
+    "ReviewInfo",
     "TopicPage",
     "read_markdown_files",
 ]
