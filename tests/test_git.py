@@ -417,3 +417,62 @@ class TestChangedFiles:
         """
         with pytest.raises(CommitNotFoundError):
             repo.changed_files(commit_id="123456890abcdef123456890abcdef123456890a")
+
+
+class TestGetFileContents:
+    """
+    Tests for `get_file_contents`.
+    """
+
+    def test_get_file_contents(
+        self, git: GitFn, repo: Repository, repo_root: Path
+    ) -> None:
+        """
+        Look up a file at different commit IDs.
+        """
+        (repo_root / "greeting.txt").write_text("hello")
+        git("add", "greeting.txt")
+        git("commit", "-m", "initial commit")
+        commit1 = git("rev-parse", "HEAD")
+
+        (repo_root / "greeting.txt").write_text("hello world")
+        git("add", "greeting.txt")
+        git("commit", "-m", "add 'hello'")
+        commit2 = git("rev-parse", "HEAD")
+
+        assert repo.get_file_contents(name="greeting.txt") == "hello world"
+        assert repo.get_file_contents(name="greeting.txt", commit_id=commit1) == "hello"
+        assert (
+            repo.get_file_contents(name="greeting.txt", commit_id=commit2)
+            == "hello world"
+        )
+
+        # Test with truncated Git IDs
+        assert (
+            repo.get_file_contents(name="greeting.txt", commit_id=commit1[:7])
+            == "hello"
+        )
+        assert (
+            repo.get_file_contents(name="greeting.txt", commit_id=commit2[:7])
+            == "hello world"
+        )
+
+    def test_missing_file(self, git: GitFn, repo: Repository, repo_root: Path) -> None:
+        """
+        Looking up a non-existent file is an error.
+        """
+        (repo_root / "greeting.txt").write_text("hello world")
+        git("add", "greeting.txt")
+        git("commit", "-m", "initial commit")
+
+        with pytest.raises(FileNotFoundError):
+            repo.get_file_contents(name="README.md")
+
+    def test_bad_reference(self, repo: Repository) -> None:
+        """
+        Looking up a non-existent commit is an error.
+        """
+        with pytest.raises(CommitNotFoundError):
+            repo.get_file_contents(
+                name="README.md", commit_id="123456890abcdef123456890abcdef123456890a"
+            )

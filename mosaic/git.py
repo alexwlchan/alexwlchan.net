@@ -12,7 +12,12 @@ import pygit2
 from pygit2.enums import SortMode
 
 
-__all__ = ["ChangedFile", "Commit", "CommitNotFoundError", "Repository"]
+__all__ = [
+    "ChangedFile",
+    "Commit",
+    "CommitNotFoundError",
+    "Repository",
+]
 
 
 def as_hex(oid: pygit2.Oid) -> str:
@@ -186,3 +191,29 @@ class Repository(BaseModel):
         diff = self.underlying.diff(old, new)
         diff.find_similar()
         return [changed_file_from_patch(d) for d in diff]
+
+    def get_file_contents(self, name: str, commit_id: str = "") -> str:
+        """
+        Return the contents of a file at a given reference.
+        """
+        if not commit_id:
+            commit_id = str(self.underlying.head.target)
+        assert isinstance(commit_id, str) and commit_id, (
+            f"bad commit ID: {repr(commit_id)}"
+        )
+
+        obj = self.underlying.get(commit_id)
+        if obj is None:
+            raise CommitNotFoundError(commit_id)
+        assert isinstance(obj, pygit2.Commit), obj
+
+        try:
+            file_obj = obj.tree / name
+        except KeyError:
+            raise FileNotFoundError(name)
+
+        # TODO: Deal with trees
+        assert isinstance(file_obj, pygit2.Blob)
+        return file_obj.data.decode("utf8")
+
+    # TODO: Handle truncated commit IDs
