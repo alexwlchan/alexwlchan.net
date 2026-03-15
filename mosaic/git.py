@@ -7,6 +7,7 @@ import codecs
 from datetime import datetime, timezone
 from pathlib import Path
 import tarfile
+from typing import Literal
 import uuid
 
 from pydantic import BaseModel
@@ -19,6 +20,7 @@ __all__ = [
     "Commit",
     "CommitNotFoundError",
     "Repository",
+    "TreeEntry",
 ]
 
 
@@ -139,6 +141,22 @@ def changed_file_from_patch(patch: pygit2.Patch) -> ChangedFile:
         )
 
 
+class TreeEntry(BaseModel):
+    """
+    Represents an entry in a tree: either a file or a nested folder.
+    """
+
+    type: Literal["file", "folder"]
+    name: str
+
+    def __hash__(self) -> int:
+        """
+        Use the name as the hash -- these are only created and used in
+        the context of a single folder, where the names are unique.
+        """
+        return hash(self.name)
+
+
 class Repository(BaseModel):
     """
     Wrapper around a Git repository.
@@ -194,7 +212,7 @@ class Repository(BaseModel):
         diff.find_similar()
         return [changed_file_from_patch(d) for d in diff]
 
-    def get_file_contents(self, name: str, commit_id: str = "") -> str:
+    def lookup_name(self, name: str, commit_id: str = "") -> str | set[TreeEntry]:
         """
         Return the contents of a file at a given reference.
         """
@@ -209,14 +227,27 @@ class Repository(BaseModel):
             raise CommitNotFoundError(commit_id)
         assert isinstance(obj, pygit2.Commit), obj
 
-        try:
-            file_obj = obj.tree / name
-        except KeyError:
-            raise FileNotFoundError(name)
+        file_obj: pygit2.Blob | pygit2.Tree
+        if name == ".":
+            file_obj = obj.tree
+        else:
+            try:
+                file_obj = obj.tree / name
+            except KeyError:
+                raise FileNotFoundError(name)
 
-        # TODO: Deal with trees
-        assert isinstance(file_obj, pygit2.Blob)
-        return file_obj.data.decode("utf8")
+        if isinstance(file_obj, pygit2.Blob):
+            return file_obj.data.decode("utf8")
+        elif isinstance(file_obj, pygit2.Tree):
+            return {
+                TreeEntry(
+                    type="folder" if obj.type_str == "tree" else "file",
+                    name=assert_str(obj.name),
+                )
+                for obj in file_obj
+            }
+        else:  # pragma: no cover
+            raise TypeError(f"unexpected file_obj: {file_obj}")
 
     def create_archive(self, folder: Path) -> Path:
         """
@@ -239,3 +270,11 @@ class Repository(BaseModel):
         return out_path
 
     # TODO: Handle truncated commit IDs
+
+
+def assert_str(s: str | None) -> str:
+    """
+    Asserts that `s` is a string.
+    """
+    assert isinstance(s, str)
+    return s
