@@ -189,7 +189,7 @@ types-requests==2.32.4.20260107
     # via
     #   -r requirements.txt
     #   types-tqdm
-types-tqdm==4.67.3.20260205
+types-tqdm==4.67.3.20260303
     # via -r requirements.txt
 typing-extensions==4.15.0
     # via

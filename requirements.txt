@@ -137,7 +137,7 @@ types-pyyaml==6.0.12.20250915
     # via -r requirements.in
 types-requests==2.32.4.20260107
     # via types-tqdm
-types-tqdm==4.67.3.20260205
+types-tqdm==4.67.3.20260303
     # via -r requirements.in
 typing-extensions==4.15.0
     # via
