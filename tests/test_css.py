@@ -13,7 +13,8 @@ def test_css_has_no_imports() -> None:
     """
     The generated CSS has resolved all the @import statements.
     """
-    assert "@import" not in create_base_css("css/style.css")
+    _, css = create_base_css()
+    assert "@import" not in css
 
 
 @pytest.mark.parametrize(

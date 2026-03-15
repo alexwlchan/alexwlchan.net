@@ -11,6 +11,7 @@ minify-html
 mistune
 Pillow
 pydantic
+pygit2
 Pygments
 PyYAML
 smartypants

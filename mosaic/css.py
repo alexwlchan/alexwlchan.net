@@ -3,19 +3,32 @@ Code for dealing with CSS and website styles.
 """
 
 from collections import OrderedDict
+import hashlib
 from pathlib import Path
 import re
 from typing import TypedDict
 
 import lightningcss
 
+from .git import git_root
 
-def create_base_css(css_path: str | Path) -> str:
+
+__all__ = ["CSS_DIR", "create_base_css", "get_inline_styles"]
+
+
+CSS_DIR = git_root() / "css"
+
+
+def create_base_css() -> tuple[str, str]:
     """
     Return the contents of the base CSS file for the site.
 
     This resolves all @import rules into a single stylesheet.
+
+    Returns the filename and new CSS.
     """
+    css_path = CSS_DIR / "style.css"
+
     css = lightningcss.bundle_css(str(css_path), minify=True)
 
     # The lightningcss minifier collapses these text-decoration styles
@@ -25,7 +38,13 @@ def create_base_css(css_path: str | Path) -> str:
         "text-decoration:underline;text-decoration-thickness:4px",
     )
 
-    return css
+    # Using three characters of hash gives me 16^3 = 4096 bits of entropy.
+    # Given I cache CSS for a year and only change it a handful of times,
+    # that should be plenty.
+    h = hashlib.md5(css.encode("utf8")).hexdigest()
+    h = h[:3]
+
+    return f"style.{h}.css", css
 
 
 ParsedStyles = TypedDict("ParsedStyles", {"html": str, "styles": str})

@@ -9,6 +9,7 @@ from typing import Self
 from pydantic import BaseModel, field_validator, model_validator
 
 from .colormath import get_contrast_ratio
+from .css import CSS_DIR
 from .favicons import create_favicon
 from .header_images import draw_header_image
 
@@ -149,11 +150,11 @@ class TintColours(BaseModel):
         im.save(out_path)
 
 
-def get_default_tint_colours(css_dir: Path) -> TintColours:
+def get_default_tint_colours() -> TintColours:
     """
     Return the default tint colours used by pages that don't set their own.
     """
-    variables_css = (css_dir / "base/variables.css").read_text()
+    variables_css = (CSS_DIR / "base/variables.css").read_text()
 
     m = re.search(
         "--default-primary-color-light:[ ]+(?P<colour>#[0-9a-f]{6});", variables_css

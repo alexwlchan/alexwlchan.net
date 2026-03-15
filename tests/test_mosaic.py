@@ -16,7 +16,6 @@ def test_build_base_css_file(tmp_path: Path) -> None:
     # Generate a new CSS file
     out_dir = tmp_path / "_out"
     s = Site(
-        css_path=Path("css/style.css"),
         src_dir=Path("src"),
         out_dir=out_dir,
         all_pages=[],

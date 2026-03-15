@@ -5,7 +5,6 @@ Build system for alexwlchan.net.
 from collections import Counter
 from datetime import datetime, timezone
 import filecmp
-import hashlib
 import itertools
 from pathlib import Path
 import shutil
@@ -27,7 +26,7 @@ from .page_types import (
 )
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
-from .tint_colours import get_default_tint_colours, TintColours
+from .tint_colours import get_default_tint_colours
 from .topics import rebuild_topics_by_name
 
 
@@ -36,7 +35,6 @@ class Site(BaseModel):
     Wraps the whole site build process.
     """
 
-    css_path: Path = Path("css/style.css")
     src_dir: Path = Path("src")
     out_dir: Path = Path("_out")
 
@@ -110,12 +108,9 @@ class Site(BaseModel):
         assert duplicate_urls == {}, duplicate_urls
 
         # Work out all the tint colours being used.
-        tint_colours: list[TintColours] = [
-            get_default_tint_colours(css_dir=self.css_path.parent)
+        tint_colours = [get_default_tint_colours()] + [
+            p.colors for p in self.all_pages if p.colors is not None
         ]
-        for p in self.all_pages:
-            if p.colors is not None:
-                tint_colours.append(p.colors)
 
         # Ordering: add a numeric "order" attribute to every article,
         # which is used for sorting on /articles/.
@@ -220,15 +215,9 @@ class Site(BaseModel):
         This includes a short hash in the filename to ensure cache busting
         when the CSS changes.
         """
-        base_css = create_base_css(self.css_path)
+        css_filename, base_css = create_base_css()
 
-        # Using three characters of hash gives me 16^3 = 4096 bits of entropy.
-        # Given I cache CSS for a year and only change it a handful of times,
-        # that should be plenty.
-        h = hashlib.md5(base_css.encode("utf8")).hexdigest()
-        h = h[:3]
-
-        out_path = self.static_dir / f"style.{h}.css"
+        out_path = self.static_dir / css_filename
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(base_css)
 

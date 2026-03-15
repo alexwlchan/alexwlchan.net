@@ -15,7 +15,7 @@ def test_get_default_tint_colours() -> None:
     """
     Test for get_default_tint_colours.
     """
-    c = get_default_tint_colours(css_dir=Path("css"))
+    c = get_default_tint_colours()
     assert c.css_light == "#d01c11"
     assert c.css_dark == "#ff4a4a"
 
