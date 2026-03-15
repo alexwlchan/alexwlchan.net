@@ -10,7 +10,14 @@ from typing import TypeAlias
 
 import pytest
 
-from mosaic.git import Commit, CommitNotFoundError, Repository
+from mosaic.git import (
+    ChangedBinaryFile,
+    ChangedTextFile,
+    ChangedTextFileHunk,
+    Commit,
+    CommitNotFoundError,
+    Repository,
+)
 
 
 @pytest.fixture
@@ -22,7 +29,7 @@ def repo_root(tmp_path: Path) -> Path:
     return tmp_path
 
 
-GitFn: TypeAlias = Callable[..., None]
+GitFn: TypeAlias = Callable[..., str]
 
 
 @pytest.fixture
@@ -31,12 +38,14 @@ def git(repo_root: Path) -> GitFn:
     Returns a wrapper function for running Git commands in the temp repo.
     """
 
-    def inner(*args: str) -> None:
-        subprocess.check_call(
+    def inner(*args: str) -> str:
+        output = subprocess.check_output(
             ["git"] + list(args),
             cwd=repo_root,
             env={"GIT_COMMITTER_DATE": "Mon 1 Jan 2001 01:01:01 GMT"},
+            text=True,
         )
+        return output.strip()
 
     inner("init", ".")
     inner("config", "user.name", "E. X. Ample")
@@ -104,9 +113,307 @@ def test_history(git: GitFn, repo: Repository, repo_root: Path) -> None:
     ]
 
 
-def test_changed_files_of_bad_commit(repo: Repository) -> None:
+class TestChangedFiles:
     """
-    Looking up the changed files of a non-existent commit is an error.
+    Tests for `changed_files`.
     """
-    with pytest.raises(CommitNotFoundError):
-        repo.changed_files(commit_id="123456890abcdef123456890abcdef123456890a")
+
+    def test_initial_commit(
+        self, git: GitFn, repo: Repository, repo_root: Path
+    ) -> None:
+        """
+        Get the diff for an initial commit.
+        """
+        (repo_root / "greeting.txt").write_text("hello world\ntoday is monday\n")
+        (repo_root / "cat.jpg").write_bytes(b"\x00\x01\x02\x03\x04\x05")
+        git("add", "greeting.txt", "cat.jpg")
+        git("commit", "-m", "initial commit")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert diff == [
+            ChangedBinaryFile(
+                old_path=None, new_path=Path("cat.jpg"), old_size=0, new_size=6
+            ),
+            ChangedTextFile(
+                old_path=None,
+                new_path=Path("greeting.txt"),
+                old_size=0,
+                new_size=28,
+                lines_added=2,
+                lines_deleted=0,
+                hunks=[
+                    ChangedTextFileHunk(
+                        header="@@ -0,0 +1,2 @@",
+                        lines=["+hello world\n", "+today is monday\n"],
+                    )
+                ],
+            ),
+        ]
+
+    def test_add_file(self, git: GitFn, repo: Repository, repo_root: Path) -> None:
+        """
+        An added file is a single `ChangedFile` where `old_path` is None.
+        """
+        (repo_root / "greeting.txt").write_text("hello world\n")
+        git("add", "greeting.txt")
+        git("commit", "-m", "initial commit")
+
+        (repo_root / "added_text.txt").write_text("hello world\n")
+        (repo_root / "added_binary.bin").write_bytes(b"\x00\x01\x02\x03\x04")
+        git("add", "added_text.txt", "added_binary.bin")
+        git("commit", "-m", "add two new files")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert diff == [
+            ChangedBinaryFile(
+                old_path=None, new_path=Path("added_binary.bin"), old_size=0, new_size=5
+            ),
+            ChangedTextFile(
+                old_path=None,
+                new_path=Path("added_text.txt"),
+                old_size=0,
+                new_size=12,
+                lines_added=1,
+                lines_deleted=0,
+                hunks=[
+                    ChangedTextFileHunk(
+                        header="@@ -0,0 +1 @@", lines=["+hello world\n"]
+                    )
+                ],
+            ),
+        ]
+
+    def test_delete_file(self, git: GitFn, repo: Repository, repo_root: Path) -> None:
+        """
+        A deleted file is a `ChangedFile` where `new_path` is None.
+        """
+        (repo_root / "myfile.txt").write_text("hello world\n")
+        (repo_root / "myfile.bin").write_bytes(b"\x00\x01\x02\x03\x04")
+        git("add", "myfile.txt", "myfile.bin")
+        git("commit", "-m", "initial commit")
+
+        git("rm", "myfile.txt", "myfile.bin")
+        git("commit", "-m", "delete both files")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert diff == [
+            ChangedBinaryFile(
+                old_path=Path("myfile.bin"), new_path=None, old_size=5, new_size=0
+            ),
+            ChangedTextFile(
+                old_path=Path("myfile.txt"),
+                new_path=None,
+                old_size=12,
+                new_size=0,
+                lines_added=0,
+                lines_deleted=1,
+                hunks=[
+                    ChangedTextFileHunk(
+                        header="@@ -1 +0,0 @@", lines=["-hello world\n"]
+                    )
+                ],
+            ),
+        ]
+
+    def test_modified_file(self, git: GitFn, repo: Repository, repo_root: Path) -> None:
+        """
+        Test a modified file.
+        """
+        (repo_root / "myfile.txt").write_text("\n".join(f"{i}\n" for i in range(50)))
+        (repo_root / "myfile.bin").write_bytes(b"\x00\x01\x02\x03\x04")
+        git("add", "myfile.txt", "myfile.bin")
+        git("commit", "-m", "initial commit")
+
+        (repo_root / "myfile.txt").write_text(
+            "\n".join(f"{i}\n" if i % 15 != 0 else "fizzbuzz" for i in range(50))
+        )
+        (repo_root / "myfile.bin").write_bytes(b"\x04\x03\x02\x01\x00")
+        git("add", "myfile.txt", "myfile.bin")
+        git("commit", "-m", "change both files")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert diff == [
+            ChangedBinaryFile(
+                old_path=Path("myfile.bin"),
+                new_path=Path("myfile.bin"),
+                old_size=5,
+                new_size=5,
+            ),
+            ChangedTextFile(
+                old_path=Path("myfile.txt"),
+                new_path=Path("myfile.txt"),
+                old_size=189,
+                new_size=210,
+                hunks=[
+                    ChangedTextFileHunk(
+                        header="@@ -1,5 +1,4 @@",
+                        lines=["-0\n", "-\n", "+fizzbuzz\n", " 1\n", " \n", " 2\n"],
+                    ),
+                    ChangedTextFileHunk(
+                        header="@@ -28,8 +27,7 @@",
+                        lines=[
+                            " \n",
+                            " 14\n",
+                            " \n",
+                            "-15\n",
+                            "-\n",
+                            "+fizzbuzz\n",
+                            " 16\n",
+                            " \n",
+                            " 17\n",
+                        ],
+                    ),
+                    ChangedTextFileHunk(
+                        header="@@ -58,8 +56,7 @@",
+                        lines=[
+                            " \n",
+                            " 29\n",
+                            " \n",
+                            "-30\n",
+                            "-\n",
+                            "+fizzbuzz\n",
+                            " 31\n",
+                            " \n",
+                            " 32\n",
+                        ],
+                    ),
+                    ChangedTextFileHunk(
+                        header="@@ -88,8 +85,7 @@",
+                        lines=[
+                            " \n",
+                            " 44\n",
+                            " \n",
+                            "-45\n",
+                            "-\n",
+                            "+fizzbuzz\n",
+                            " 46\n",
+                            " \n",
+                            " 47\n",
+                        ],
+                    ),
+                ],
+                lines_added=4,
+                lines_deleted=8,
+            ),
+        ]
+
+    def test_rename_file(self, git: GitFn, repo: Repository, repo_root: Path) -> None:
+        """
+        Test renaming a file without changes.
+        """
+        (repo_root / "myfile.txt").write_text("\n".join(f"{i}\n" for i in range(50)))
+        (repo_root / "myfile.bin").write_bytes(b"\x00\x01\x02\x03\x04")
+        git("add", "myfile.txt", "myfile.bin")
+        git("commit", "-m", "initial commit")
+
+        git("mv", "myfile.txt", "mynewfile.txt")
+        git("mv", "myfile.bin", "mynewfile.bin")
+        git("commit", "-m", "rename both files")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert diff == [
+            ChangedBinaryFile(
+                old_path=Path("myfile.bin"),
+                new_path=Path("mynewfile.bin"),
+                old_size=5,
+                new_size=5,
+            ),
+            ChangedTextFile(
+                old_path=Path("myfile.txt"),
+                new_path=Path("mynewfile.txt"),
+                old_size=189,
+                new_size=189,
+                hunks=[],
+                lines_added=0,
+                lines_deleted=0,
+            ),
+        ]
+
+    def test_rename_file_with_minor_chnages(
+        self, git: GitFn, repo: Repository, repo_root: Path
+    ) -> None:
+        """
+        Test renaming a file with minor changes.
+        """
+        (repo_root / "myfile.txt").write_text("\n".join(f"{i}\n" for i in range(50)))
+        (repo_root / "myfile.bin").write_bytes(b"\x00\x01\x02\x03\x04" * 10)
+        git("add", "myfile.txt", "myfile.bin")
+        git("commit", "-m", "initial commit")
+
+        (repo_root / "myfile.txt").write_text(
+            "\n".join(f"{i}\n" if i != 42 else "the answer\n" for i in range(50))
+        )
+        (repo_root / "myfile.bin").write_bytes(b"\x00\x01\x02\x03\x04" * 9)
+        git("mv", "myfile.txt", "mynewfile.txt")
+        git("mv", "myfile.bin", "mynewfile.bin")
+        git("add", "mynewfile.txt")
+        git("add", "mynewfile.bin")
+
+        git("commit", "-m", "rename and modify both files")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert diff == [
+            ChangedBinaryFile(
+                old_path=Path("myfile.bin"),
+                new_path=Path("mynewfile.bin"),
+                old_size=50,
+                new_size=45,
+            ),
+            ChangedTextFile(
+                old_path=Path("myfile.txt"),
+                new_path=Path("mynewfile.txt"),
+                old_size=189,
+                new_size=197,
+                hunks=[
+                    ChangedTextFileHunk(
+                        header="@@ -82,7 +82,7 @@",
+                        lines=[
+                            " \n",
+                            " 41\n",
+                            " \n",
+                            "-42\n",
+                            "+the answer\n",
+                            " \n",
+                            " 43\n",
+                            " \n",
+                        ],
+                    )
+                ],
+                lines_added=1,
+                lines_deleted=1,
+            ),
+        ]
+
+    def test_nested_file(self, git: GitFn, repo: Repository, repo_root: Path) -> None:
+        """
+        Paths are correct for nested files.
+        """
+        (repo_root / "1/2/3").mkdir(parents=True)
+        (repo_root / "1/2/3/myfile.txt").write_text("hello world")
+        git("add", "1/2/3/myfile.txt")
+        git("commit", "-m", "initial commit")
+
+        commit_id = git("rev-parse", "HEAD")
+        diff = repo.changed_files(commit_id)
+
+        assert len(diff) == 1
+        assert diff[0].new_path == Path("1/2/3/myfile.txt")
+
+    def test_bad_commit(self, repo: Repository) -> None:
+        """
+        Looking up the changed files of a non-existent commit is an error.
+        """
+        with pytest.raises(CommitNotFoundError):
+            repo.changed_files(commit_id="123456890abcdef123456890abcdef123456890a")

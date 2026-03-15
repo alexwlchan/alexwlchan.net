@@ -12,7 +12,7 @@ import pygit2
 from pygit2.enums import SortMode
 
 
-__all__ = ["Commit", "CommitNotFoundError", "Repository"]
+__all__ = ["ChangedFile", "Commit", "CommitNotFoundError", "Repository"]
 
 
 def as_hex(oid: pygit2.Oid) -> str:
@@ -40,19 +40,96 @@ class CommitNotFoundError(FileNotFoundError):
     """
 
 
-class FileDiff(BaseModel):
+class ChangedTextFileHunk(BaseModel):
     """
-    Represents a changed file in a Git commit.
+    Represents a single "hunk" of change in a commit.
+    """
+
+    header: str
+    lines: list[str]
+
+    @classmethod
+    def from_hunk(self, diff_hunk: pygit2.DiffHunk) -> "ChangedTextFileHunk":
+        """
+        Create a new instance of ChangedFile from a `pygit2.DiffHunk`.
+        """
+        return ChangedTextFileHunk(
+            header=diff_hunk.header.strip(),
+            lines=[ln.origin + ln.content for ln in diff_hunk.lines],
+        )
+
+
+class ChangedBinaryFile(BaseModel):
+    """
+    Represents a changed binary file in a Git commit.
     """
 
     # The path to the file, relative to the repo root
-    path: Path
+    old_path: Path | None
+    new_path: Path | None
 
-    # The old code, or None if the file was added in this diff
-    old_code: str | None
+    # The size of the file before/after the diff
+    old_size: int
+    new_size: int
 
-    # The new code, or None if the file was deleted in this diff
-    new_code: str | None
+
+class ChangedTextFile(BaseModel):
+    """
+    Represents a changed text file in a Git commit.
+    """
+
+    # The path to the file, relative to the repo root
+    old_path: Path | None
+    new_path: Path | None
+
+    # The size of the file before/after the diff
+    old_size: int
+    new_size: int
+
+    # A list of changed hunks
+    hunks: list[ChangedTextFileHunk]
+
+    # Get the line counts for the patch
+    lines_added: int
+    lines_deleted: int
+
+
+ChangedFile = ChangedBinaryFile | ChangedTextFile
+
+
+def changed_file_from_patch(patch: pygit2.Patch) -> ChangedFile:
+    """
+    Create a new instance of ChangedFile from a `pygit2.Patch`.
+    """
+    old_size = patch.delta.old_file.size
+    old_path: Path | None = None
+    if old_size > 0:
+        old_path = Path(patch.delta.old_file.path)
+
+    new_size = patch.delta.new_file.size
+    new_path: Path | None = None
+    if new_size > 0:
+        new_path = Path(patch.delta.new_file.path)
+
+    _, lines_added, lines_deleted = patch.line_stats
+
+    if patch.delta.is_binary:
+        return ChangedBinaryFile(
+            old_path=old_path,
+            new_path=new_path,
+            old_size=old_size,
+            new_size=new_size,
+        )
+    else:
+        return ChangedTextFile(
+            old_path=old_path,
+            new_path=new_path,
+            old_size=old_size,
+            new_size=new_size,
+            lines_added=lines_added,
+            lines_deleted=lines_deleted,
+            hunks=[ChangedTextFileHunk.from_hunk(hk) for hk in patch.hunks],
+        )
 
 
 class Repository(BaseModel):
@@ -89,7 +166,7 @@ class Repository(BaseModel):
             for commit in walker
         ]
 
-    def changed_files(self, commit_id: str) -> list[FileDiff]:
+    def changed_files(self, commit_id: str) -> list[ChangedFile]:
         """
         Return a list of changed files for a given commit.
         """
@@ -97,6 +174,15 @@ class Repository(BaseModel):
         if not isinstance(obj, pygit2.Commit):
             raise CommitNotFoundError(commit_id)
 
-        # binary/text
-        # added/deleted/changed+same name/changed+renamed
-        # for
+        # This is the commit ID of an empty tree, which is useful when
+        # we're looking at the initial commit.
+        empty_tree = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+
+        if not obj.parents:
+            old, new = empty_tree, commit_id
+        else:
+            old, new = f"{commit_id}^", commit_id
+
+        diff = self.underlying.diff(old, new)
+        diff.find_similar()
+        return [changed_file_from_patch(d) for d in diff]
