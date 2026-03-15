@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
-<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/til/atom.xml">
+<link type="application/atom+xml" rel="alternate" href="https://alexwlchan.net/atom.xml">
+<link type="application/atom+xml" rel="alternate" href="https://alexwlchan.net/notes/atom.xml">
 
 {% if page.canonical_url is defined and page.canonical_url %}
 <link rel="canonical" href="{{ page.canonical_url }}">
@@ -11,9 +11,9 @@
 {% endif %}
 
 {% set safe_title = page.title | markdownify_oneline | strip_html %}
-<title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title }}</title>
+<title>{% if page.title and page.title != "alexwlchan" and page.title != "" %}{{ safe_title }} &ndash; {% endif %}alexwlchan</title>
 
-<meta name="description" content="{{ page.summary | default(site.description, true) | escape }}">
+<meta name="description" content="{{ page.summary | default('Alex Chan’s personal website', true) | escape }}">
 
 {% if page.colors is defined
    and page.colors

@@ -43,7 +43,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 ## Writing
 
-{% set writing_entries = site.data["elsewhere"]["writing"] | sort(attribute="date", reverse=True) %}
+{% set writing_entries = elsewhere["writing"] | sort(attribute="date", reverse=True) %}
 
 ### Last Week in AWS
 
@@ -99,7 +99,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 ## Talks and workshops
 
-{% set talk_entries = site.data["elsewhere"]["talks"] | sort(attribute="date", reverse=True) %}
+{% set talk_entries = elsewhere["talks"] | sort(attribute="date", reverse=True) %}
 
 <table class="archive" id="talks_archive">
   {%- for talk in talk_entries -%}
@@ -126,7 +126,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 ## Podcasts
 
-{% set podcast_entries = site.data["elsewhere"]["podcasts"] | sort(attribute="date", reverse=True) %}
+{% set podcast_entries = elsewhere["podcasts"] | sort(attribute="date", reverse=True) %}
 
 <table class="archive">
   {% for entry in podcast_entries %}

@@ -9,7 +9,6 @@ import hashlib
 import itertools
 from pathlib import Path
 import shutil
-from typing import Any
 
 from jinja2 import Environment
 from pydantic import BaseModel, Field
@@ -44,13 +43,6 @@ class Site(BaseModel):
     all_pages: list[BaseHtmlPage] = Field(default_factory=lambda: list())
 
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
-
-    title: str = "alexwlchan"
-    description: str = "Alex Chan's personal website"
-    url: str = "https://alexwlchan.net"
-    email: str = "alex@alexwlchan.net"
-
-    data: Any = None
 
     @property
     def articles(self) -> list[page_types.Article]:
@@ -162,16 +154,13 @@ class Site(BaseModel):
         # TODO(2026-01-21): Figure out how to handle global varibales better.
         env = get_jinja_environment(self.src_dir, self.out_dir)
 
-        self.data = {
-            "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
-        }
-
         env.globals.update(
             {
                 "css_url": css_url,
                 "site": self,
                 "enable_analytics": enable_analytics,
                 "all_topics": rebuild_topics_by_name(),
+                "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
             }
         )
 

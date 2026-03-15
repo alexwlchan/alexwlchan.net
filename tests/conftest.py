@@ -35,11 +35,6 @@ def env(src_dir: Path, out_dir: Path) -> Environment:
     ev.globals.update(
         {
             "css_url": "/test/style.test.css",
-            "site": {
-                "url": "http://localhost.test",
-                "title": "alexwlchan’s test site",
-                "description": "alexwlchan’s site, created in unit tests",
-            },
             "enable_analytics": False,
         }
     )

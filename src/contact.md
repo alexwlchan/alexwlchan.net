@@ -8,7 +8,7 @@ colors:
 I love it when people tell me they enjoyed something I made.
 A nice message can make my day!
 
-The best way to get in touch with me is by email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+The best way to get in touch with me is by email: <a href="mailto:alex@alexwlchan.net">alex@alexwlchan.net</a>
 
 (I'm slow at replying to emails, but I'm trying to get better!)
 
