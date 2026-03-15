@@ -19,7 +19,7 @@ certifi==2026.1.4
     #   httpx
 cogapp==3.6.0
     # via -r dev_requirements.in
-coverage==7.13.1
+coverage[toml]==7.13.1
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
@@ -61,7 +61,7 @@ iniconfig==2.3.0
     #   -r uptime_tests/requirements.txt
     #   pytest
 inquirerpy==0.3.4
-    # via -r dev_requirements.in
+    # via -r requirements.txt
 jinja2==3.1.6
     # via -r requirements.txt
 librt==0.7.8
@@ -110,7 +110,9 @@ pathspec==1.0.3
     #   -r uptime_tests/requirements.txt
     #   mypy
 pfzy==0.3.4
-    # via inquirerpy
+    # via
+    #   -r requirements.txt
+    #   inquirerpy
 pillow==12.1.1
     # via -r requirements.txt
 pluggy==1.6.0
@@ -121,7 +123,9 @@ pluggy==1.6.0
     #   pytest
     #   pytest-cov
 prompt-toolkit==3.0.52
-    # via inquirerpy
+    # via
+    #   -r requirements.txt
+    #   inquirerpy
 pydantic==2.12.5
     # via -r requirements.txt
 pydantic-core==2.41.5
@@ -192,7 +196,6 @@ typing-extensions==4.15.0
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-    #   anyio
     #   beautifulsoup4
     #   mypy
     #   pydantic
@@ -209,4 +212,6 @@ urllib3==2.6.3
     #   -r requirements.txt
     #   types-requests
 wcwidth==0.6.0
-    # via prompt-toolkit
+    # via
+    #   -r requirements.txt
+    #   prompt-toolkit
