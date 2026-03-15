@@ -240,6 +240,9 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
 # Matches whitespace tokens, e.g. <span class="w"> </span>
 WHITESPACE_RE = re.compile(r'<span class="w">(?P<space>[\s]+)</span>')
 
+# Matches name tokens, e.g. <span class="n">greeting</span>
+NAME_RE = re.compile(r'<span class="(n[a-z0]?|cp|vg)">(?P<varname>[^<]+)</span>')
+
 
 def apply_syntax_highlighting(
     src: str,
@@ -263,73 +266,7 @@ def apply_syntax_highlighting(
         html = format_with_pygments(src, lang)
 
     html = apply_manual_fixes(html, lang)
-
-    if debug:
-        print(repr(html))
-
-    # Find all the names which are highlighted as part of this code.
-    # n = Name.*
-    # cp = Comment.Preproc
-    # vg = Variable.Global
-    name_matches = re.finditer(
-        r'<span class="(n[a-z0]?|cp|vg)">(?P<varname>[^<]+)</span>', html
-    )
-
-    # Un-highlight any names that aren't explicitly labelled as worth
-    # highlighting.
-    if names is not None:
-        names_to_highlight = names
-    else:
-        names_to_highlight = {}
-
-    for idx, m in reversed(list(enumerate(name_matches, start=1))):
-        # In HTML, all tags and attributes get highlighted in blue;
-        # skip doing any name cleanup.
-        if (lang in {"caddy", "html", "xml"}) and names is None and not debug:
-            continue
-
-        varname = m.group("varname")
-        start, end = m.start(), m.end()
-
-        # If we're in debug mode, add a checkbox and a <label> that can
-        # be used to toggle names.
-        #
-        # This allows me to build the colouring interactively.
-        if debug:
-            form_id = f"{idx}:{varname}"
-            html = (
-                html[:start]
-                + (
-                    f'<label for="{form_id}">{varname}'
-                    f'<input class="codeName" type="checkbox" id="{form_id}" '
-                    f'data-idx="{idx}" data-varname="{varname}" '
-                    f'onChange="recalculateVariables()"/></label>'
-                )
-                + html[end:]
-            )
-            continue
-
-        # If this isn't a name we want to highlight, remove the
-        # <span class="n*"> and continue.
-        if names_to_highlight.get(idx) is None:
-            html = html[:start] + varname + html[end:]
-
-        # If this is one of the names we want to highlight but the variable
-        # name doesn't match, throw an error.
-        #
-        # In Terraform, it's okay to omit the wrapping quotes because it
-        # makes the JSON escaping trickier.
-        elif (
-            lang == "terraform"
-            and "&quot;" + names_to_highlight[idx] + "&quot;" != varname
-        ) or (lang != "terraform" and names_to_highlight[idx] != varname):
-            raise ValueError(
-                f"got bad name at {idx}: want {names_to_highlight[idx]}, got {varname}"
-            )
-
-        # Rewrap in <span class="n">, so the name is highlighted.
-        else:
-            html = html[:start] + f'<span class="n">{varname}</span>' + html[end:]
+    html = apply_name_highlighting(html, lang, names, debug)
 
     # Remove the wrapper <div> applied by Pygments
     html = re.sub(r'^<div class="highlight">', "", html)
@@ -408,6 +345,84 @@ def apply_syntax_highlighting(
               }
             </script>
         """)
+
+    return html
+
+
+def apply_name_highlighting(
+    html: str, lang: str, names: dict[int, str] | None, debug: bool
+) -> str:
+    """
+    Change the highlighting so only names which I've explicitly selected
+    are highlighted in blue.
+
+    In hand-written snippets, I only highlight names when a variable is
+    defined or first used.
+    """
+    if debug:
+        print(repr(html))
+
+    # Find all the names which are highlighted as part of this code.
+    # n = Name.*
+    # cp = Comment.Preproc
+    # vg = Variable.Global
+    name_matches = NAME_RE.finditer(html)
+
+    # Un-highlight any names that aren't explicitly labelled as worth
+    # highlighting.
+    if names is not None:
+        names_to_highlight = names
+    else:
+        names_to_highlight = {}
+
+    for idx, m in reversed(list(enumerate(name_matches, start=1))):
+        # In HTML, all tags and attributes get highlighted in blue;
+        # skip doing any name cleanup.
+        if (lang in {"caddy", "html", "xml"}) and names is None and not debug:
+            continue
+
+        varname = m.group("varname")
+        start, end = m.start(), m.end()
+
+        # If we're in debug mode, add a checkbox and a <label> that can
+        # be used to toggle names.
+        #
+        # This allows me to build the colouring interactively.
+        if debug:
+            form_id = f"{idx}:{varname}"
+            html = (
+                html[:start]
+                + (
+                    f'<label for="{form_id}">{varname}'
+                    f'<input class="codeName" type="checkbox" id="{form_id}" '
+                    f'data-idx="{idx}" data-varname="{varname}" '
+                    f'onChange="recalculateVariables()"/></label>'
+                )
+                + html[end:]
+            )
+            continue
+
+        # If this isn't a name we want to highlight, remove the
+        # <span class="n*"> and continue.
+        if names_to_highlight.get(idx) is None:
+            html = html[:start] + varname + html[end:]
+
+        # If this is one of the names we want to highlight but the variable
+        # name doesn't match, throw an error.
+        #
+        # In Terraform, it's okay to omit the wrapping quotes because it
+        # makes the JSON escaping trickier.
+        elif (
+            lang == "terraform"
+            and "&quot;" + names_to_highlight[idx] + "&quot;" != varname
+        ) or (lang != "terraform" and names_to_highlight[idx] != varname):
+            raise ValueError(
+                f"got bad name at {idx}: want {names_to_highlight[idx]}, got {varname}"
+            )
+
+        # Rewrap in <span class="n">, so the name is highlighted.
+        else:
+            html = html[:start] + f'<span class="n">{varname}</span>' + html[end:]
 
     return html
 
