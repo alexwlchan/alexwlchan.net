@@ -2,7 +2,6 @@
 
 beautifulsoup4
 httpx
-inquirerpy
 jinja2
 lightningcss
 livereload
