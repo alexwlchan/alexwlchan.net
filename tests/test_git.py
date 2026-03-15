@@ -6,6 +6,7 @@ from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
+import tarfile
 from typing import TypeAlias
 
 import pytest
@@ -26,7 +27,9 @@ def repo_root(tmp_path: Path) -> Path:
     Returns the root of a temporary Git repository, which will only exist
     for the duration of a single test.
     """
-    return tmp_path
+    root = tmp_path / "repo"
+    root.mkdir()
+    return root
 
 
 GitFn: TypeAlias = Callable[..., str]
@@ -476,3 +479,30 @@ class TestGetFileContents:
             repo.get_file_contents(
                 name="README.md", commit_id="123456890abcdef123456890abcdef123456890a"
             )
+
+
+def test_create_archive(
+    git: GitFn, repo: Repository, repo_root: Path, tmp_path: Path
+) -> None:
+    """
+    Create a tar.gz archive with the `create_archive` function.
+    """
+    (repo_root / "greeting.txt").write_text("hello world")
+    git("add", "greeting.txt")
+
+    (repo_root / "1/2/3").mkdir(parents=True)
+    (repo_root / "1/2/3/nested.txt").write_text("this is a nested file")
+    git("add", "1/2/3/nested.txt")
+
+    git("commit", "-m", "initial commit")
+
+    for _ in range(3):
+        out_path = repo.create_archive(folder=tmp_path / "out")
+        assert out_path.exists()
+
+        with tarfile.open(out_path) as tf:
+            assert set(tf.getnames()) == {"1/2/3/nested.txt", "greeting.txt"}
+
+            f = tf.extractfile("greeting.txt")
+            assert f is not None
+            assert f.read() == b"hello world"

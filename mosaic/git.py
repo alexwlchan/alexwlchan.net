@@ -6,6 +6,8 @@ information about bare repositories.
 import codecs
 from datetime import datetime, timezone
 from pathlib import Path
+import tarfile
+import uuid
 
 from pydantic import BaseModel
 import pygit2
@@ -215,5 +217,25 @@ class Repository(BaseModel):
         # TODO: Deal with trees
         assert isinstance(file_obj, pygit2.Blob)
         return file_obj.data.decode("utf8")
+
+    def create_archive(self, folder: Path) -> Path:
+        """
+        Create a downloadable tar.gz archive of the repo HEAD inside
+        the given folder.
+        """
+        name = self.root.name
+        commit_id = str(self.underlying.head.target)
+        out_path = folder / f"{name}-{commit_id}.tar.gz"
+
+        if out_path.exists():
+            return out_path
+
+        tmp_path = out_path.with_suffix(f".{uuid.uuid4()}.tmp")
+        tmp_path.parent.mkdir(exist_ok=True, parents=True)
+        with tarfile.open(tmp_path, "x") as out_file:
+            self.underlying.write_archive(self.underlying.head.target, out_file)
+        tmp_path.move(out_path)
+
+        return out_path
 
     # TODO: Handle truncated commit IDs
