@@ -10,7 +10,7 @@ from typing import TypeAlias
 
 import pytest
 
-from mosaic.git import Commit, Repository
+from mosaic.git import Commit, CommitNotFoundError, Repository
 
 
 @pytest.fixture
@@ -46,7 +46,7 @@ def git(repo_root: Path) -> GitFn:
 
 
 @pytest.fixture
-def repo(repo_root: Path) -> Repository:
+def repo(repo_root: Path, git: GitFn) -> Repository:
     """
     Returns an instance of `Repository` rooted in the temp repo.
     """
@@ -102,3 +102,11 @@ def test_history(git: GitFn, repo: Repository, repo_root: Path) -> None:
             parent_ids=[],
         ),
     ]
+
+
+def test_changed_files_of_bad_commit(repo: Repository) -> None:
+    """
+    Looking up the changed files of a non-existent commit is an error.
+    """
+    with pytest.raises(CommitNotFoundError):
+        repo.changed_files(commit_id="123456890abcdef123456890abcdef123456890a")
