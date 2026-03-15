@@ -12,6 +12,7 @@ import minify_html
 from PIL import UnidentifiedImageError
 import pytest
 
+from mosaic.page_types import Article
 from mosaic.templates import pictures as tp
 
 
@@ -22,17 +23,18 @@ class StubPage:
     date: datetime | None
 
 
+def copy_fixture_image(path: Path) -> None:
+    """
+    Copy a fixture image into `src_subdir`.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(Path("tests/fixtures") / path.name, path)
+
+
 class TestPictureExtension:
     """
     Tests for PictureExtension.
     """
-
-    def copy_fixture_image(self, path: Path) -> None:
-        """
-        Copy a fixture image into `src_subdir`.
-        """
-        path.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(Path("tests/fixtures") / path.name, path)
 
     def test_render_picture(
         self, src_dir: Path, out_dir: Path, env: Environment
@@ -40,7 +42,7 @@ class TestPictureExtension:
         """
         Test the basic usage of the {% picture %} tag.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -84,7 +86,7 @@ class TestPictureExtension:
         """
         Picking an equivalent target width/height returns the same HTML.
         """
-        self.copy_fixture_image(src_dir / "_images/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/truchet-tiles-800x400.png")
 
         md_width = (
             '{% picture filename="truchet-tiles-800x400.png" width="400" '
@@ -105,7 +107,7 @@ class TestPictureExtension:
         """
         Test a picture on a page without a date.
         """
-        self.copy_fixture_image(src_dir / "_images/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/truchet-tiles-800x400.png")
         page = StubPage(date=None)
 
         md = '{% picture filename="truchet-tiles-800x400.png" width="400" %}'
@@ -168,7 +170,7 @@ class TestPictureExtension:
         """
         If the image is a PNG screenshot, there's only a PNG derivative.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -193,7 +195,7 @@ class TestPictureExtension:
         """
         If the image is a JPEG screenshot, there's only a JPEG derivative.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/palymyra-500x525.jpg")
+        copy_fixture_image(src_dir / "_images/2026/palymyra-500x525.jpg")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -216,7 +218,7 @@ class TestPictureExtension:
         """
         An image can link to the original version.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -232,7 +234,7 @@ class TestPictureExtension:
         """
         An image can link to a different page.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -248,7 +250,7 @@ class TestPictureExtension:
         """
         Test when the source image is a JPEG.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/palymyra-500x525.jpg")
+        copy_fixture_image(src_dir / "_images/2026/palymyra-500x525.jpg")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = '{% picture filename="palymyra-500x525.jpg" width="250" %}'
@@ -276,8 +278,8 @@ class TestPictureExtension:
         """
         Test a picture with light and dark variants.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.dark.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.dark.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = '{% picture filename="truchet-tiles-800x400.png" width="400" %}'
@@ -345,7 +347,7 @@ class TestPictureExtension:
         """
         Characters that look like HTML or Markdown get escaped in the alt text.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -362,7 +364,7 @@ class TestPictureExtension:
         """
         Pictures with an unrecognised colour profile are rejected.
         """
-        self.copy_fixture_image(src_dir / "_images/2026/Webkit-logo-P3.png")
+        copy_fixture_image(src_dir / "_images/2026/Webkit-logo-P3.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = '{% picture filename="Webkit-logo-P3.png" width="250" %}'
@@ -374,7 +376,7 @@ class TestPictureExtension:
         """
         Test a {% picture %} tag which includes a dst_prefix".
         """
-        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -501,3 +503,62 @@ class TestChooseTargetWidth:
         )
 
         assert width == 109
+
+
+def test_article_card_image(env: Environment, src_dir: Path, out_dir: Path) -> None:
+    """
+    Create a sharing card image with the article_card_image filter.
+    """
+    copy_fixture_image(src_dir / "_images/2026/mosaic.jpg")
+
+    page = Article(
+        md_path=src_dir / "_articles/2026/2026-02-03-example-article.md",
+        src_dir=src_dir,
+        date=datetime.now(),
+        topics=["Python"],
+        card_path=Path("_images/2026/mosaic.jpg"),
+        card_short_name="ex",
+    )
+
+    md = "{{ page | article_card_image }}"
+
+    html = env.from_string(md).render(page=page).strip()
+    assert minify_html.minify(html) == (
+        "<picture>"
+        "<source "
+        'srcset="/c/26/ex_1x.avif 450w,/c/26/ex_2x.avif 900w,/c/26/ex_3x.avif 1350w" '
+        "sizes=(max-width:450px)100vw,450px type=image/avif>"
+        "<source "
+        'srcset="/c/26/ex_1x.webp 450w,/c/26/ex_2x.webp 900w,/c/26/ex_3x.webp 1350w" '
+        "sizes=(max-width:450px)100vw,450px type=image/webp>"
+        '<source srcset="/c/26/ex_1x.jpg 450w,/c/26/ex_2x.jpg 900w,'
+        '/c/26/ex_3x.jpg 1350w" '
+        "sizes=(max-width:450px)100vw,450px type=image/jpeg>"
+        '<img style="aspect-ratio: 2" data-proofer-ignore '
+        "src=/c/26/ex_1x.jpg width=450>"
+        "</picture>"
+    )
+
+
+def test_article_card_with_bad_aspect_ratio(
+    env: Environment, src_dir: Path, out_dir: Path
+) -> None:
+    """
+    Creating a sharing card image which doesn't have a 2/1 aspect ratio
+    is an error.
+    """
+    copy_fixture_image(src_dir / "_images/2026/header_008800.png")
+
+    page = Article(
+        md_path=src_dir / "_articles/2026/2026-02-03-example-article.md",
+        src_dir=src_dir,
+        date=datetime.now(),
+        topics=["Python"],
+        card_path=Path("_images/2026/header_008800.png"),
+        card_short_name="ex",
+    )
+
+    md = "{{ page | article_card_image }}"
+
+    with pytest.raises(ValueError, match="expected 2/1 aspect ratio for sharing card"):
+        env.from_string(md).render(page=page).strip()

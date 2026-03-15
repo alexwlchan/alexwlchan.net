@@ -81,6 +81,7 @@ import collections
 from fractions import Fraction
 from io import BytesIO
 from pathlib import Path
+import re
 from typing import Any, Literal
 
 from jinja2 import pass_context
@@ -92,6 +93,9 @@ from mosaic import page_types
 from mosaic.text import assert_is_invariant_under_markdown
 
 from .jinja_extensions import KwargsExtensionBase
+
+
+__all__ = ["article_card_image", "render_picture", "PictureExtension"]
 
 
 ImageFormat = Literal["avif", "webp", "jpg", "png"]
@@ -547,4 +551,13 @@ def article_card_image(context: Context, article: page_types.Article) -> str:
         ),
     )
     html = html.replace("<img", "<img data-proofer-ignore")
+
+    aspect_ratio = re.search(r"aspect-ratio: (?P<ratio>[0-9/]+)", html)
+    assert aspect_ratio is not None
+    if aspect_ratio.group("ratio") != "2":
+        raise ValueError(
+            f"expected 2/1 aspect ratio for sharing card {article.card_path.name}, "
+            f"got {aspect_ratio}"
+        )
+
     return html
