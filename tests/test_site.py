@@ -7,8 +7,11 @@ import functools
 from pathlib import Path
 import random
 
+from jinja2 import Environment
+
 from mosaic.page_types import (
     Article,
+    BaseHtmlPage,
     BookContributor,
     BookInfo,
     BookReview,
@@ -85,3 +88,25 @@ def test_page_properties(src_dir: Path) -> None:
     assert page_crafts in site.pages
     assert page_github in site.pages
     assert page_python in site.pages
+
+
+def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> None:
+    """
+    Tests generating the RSS feeds for the site.
+    """
+    (out_dir / "notes").mkdir(parents=True)
+
+    all_pages: list[BaseHtmlPage] = [
+        Article(src_dir=src_dir, md_path=src_dir / "article.md", date=datetime.now())
+        for _ in range(3)
+    ] + [
+        Note(src_dir=src_dir, md_path=src_dir / "article.md", date=datetime.now())
+        for _ in range(3)
+    ]
+
+    site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=all_pages)
+    env.globals.update({"site": site})
+    site.generate_rss_feeds(env)
+
+    assert (out_dir / "atom.xml").exists()
+    assert (out_dir / "notes/atom.xml").exists()

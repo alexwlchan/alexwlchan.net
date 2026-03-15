@@ -201,7 +201,7 @@ class Site(BaseModel):
         #
         # This must occur after generating the pages, so the `html_content`
         # attribute is populated.
-        self.generate_rss_feeds(env, self.articles, self.notes)
+        self.generate_rss_feeds(env)
 
         # Clean up HTML files that weren't written as part of this build;
         # this usually indicates a renamed or deleted page.
@@ -286,19 +286,14 @@ class Site(BaseModel):
 
                 pbar.update(1)
 
-    def generate_rss_feeds(
-        self,
-        env: Environment,
-        articles: list[Article],
-        notes: list[Note],
-    ) -> None:
+    def generate_rss_feeds(self, env: Environment) -> None:
         """
         Generate the RSS feeds for the site.
         """
         atom_template = env.get_template("atom.xml")
-        atom_xml = atom_template.render(articles=articles)
+        atom_xml = atom_template.render(articles=self.articles)
         (self.out_dir / "atom.xml").write_text(atom_xml)
 
         notes_atom_template = env.get_template("notes_atom.xml")
-        notes_atom_xml = notes_atom_template.render(notes=notes)
+        notes_atom_xml = notes_atom_template.render(notes=self.notes)
         (self.out_dir / "notes/atom.xml").write_text(notes_atom_xml)
