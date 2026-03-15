@@ -243,6 +243,10 @@ class Site(BaseModel):
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(base_css)
 
+        # This isn't necessary for the main site, but it's useful for
+        # the Git browser to have this
+        (self.static_dir / "style.css").write_text(base_css)
+
         return "/" + str(out_path.relative_to(self.out_dir))
 
     def copy_static_files(self) -> None:  # pragma: no cover
