@@ -6,6 +6,7 @@ from datetime import datetime
 import json
 from pathlib import Path
 import random
+import subprocess
 from typing import TypeVar
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -31,12 +32,20 @@ from .table_of_contents import TableOfContentsExtension
 from .updates import UpdateExtension
 
 
-def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
+def get_jinja_environment(
+    src_dir: Path = Path("src"), out_dir: Path = Path("_out")
+) -> Environment:
     """
     Create a Jinja2 environment which looks in the "templates" directory.
     """
+    git_root = Path(
+        subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"], text=True
+        ).strip()
+    )
+
     env = Environment(
-        loader=FileSystemLoader("templates"),
+        loader=FileSystemLoader(git_root / "templates"),
         autoescape=False,
         undefined=StrictUndefined,
         extensions=[

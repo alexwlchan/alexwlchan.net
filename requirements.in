@@ -1,6 +1,7 @@
 -r uptime_tests/requirements.txt
 
 beautifulsoup4
+Flask
 httpx
 inquirerpy
 jinja2

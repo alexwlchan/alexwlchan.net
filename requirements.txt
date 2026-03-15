@@ -8,6 +8,8 @@ anyio==4.12.1
     #   httpx
 beautifulsoup4==4.14.3
     # via -r requirements.in
+blinker==1.9.0
+    # via flask
 certifi==2026.1.4
     # via
     #   -r uptime_tests/requirements.txt
@@ -15,12 +17,16 @@ certifi==2026.1.4
     #   httpx
 cffi==2.0.0
     # via pygit2
+click==8.3.1
+    # via flask
 coverage==7.13.1
     # via
     #   -r uptime_tests/requirements.txt
     #   pytest-cov
 execnet==2.1.2
     # via pytest-xdist
+flask==3.1.3
+    # via -r requirements.in
 h11==0.16.0
     # via
     #   -r uptime_tests/requirements.txt
@@ -46,8 +52,12 @@ iniconfig==2.3.0
     #   pytest
 inquirerpy==0.3.4
     # via -r requirements.in
+itsdangerous==2.2.0
+    # via flask
 jinja2==3.1.6
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   flask
 librt==0.7.8
     # via
     #   -r uptime_tests/requirements.txt
@@ -61,7 +71,10 @@ lxml==6.0.2
 lxml-stubs==0.5.1
     # via -r requirements.in
 markupsafe==3.0.3
-    # via jinja2
+    # via
+    #   flask
+    #   jinja2
+    #   werkzeug
 minify-html==0.18.1
     # via -r requirements.in
 mistune==3.2.0
@@ -161,3 +174,5 @@ urllib3==2.6.3
     # via types-requests
 wcwidth==0.6.0
     # via prompt-toolkit
+werkzeug==3.1.6
+    # via flask
