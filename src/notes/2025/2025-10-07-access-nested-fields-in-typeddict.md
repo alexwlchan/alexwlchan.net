@@ -3,6 +3,8 @@ layout: note
 title: Look at the `__annotations__` to learn about the definition of a TypedDict
 date: 2025-10-07 21:52:13 +01:00
 topic: Python
+hidden_topics:
+  - Typing in Python
 ---
 Here's a TypedDict from my code:
 

@@ -3,7 +3,7 @@ layout: note
 title: Using the Tumblr v1 API doesn't require auth
 summary: You can get information from `https://{username}.tumblr.com/api/read`.
 date: 2025-10-04 06:46:34 +01:00
-topic: Preserving social media
+topic: Tumblr
 ---
 I'm working on a project to get some data from Tumblr, and I wanted to use the Tumblr API.
 

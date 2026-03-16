@@ -5,7 +5,9 @@ summary: It was added in May 2004, it's the first new symbol since the Second Wo
 date: 2025-08-28 22:48:59 +01:00
 topics:
   - The world around us
-  - Interesting words
+  - Naming things
+hidden_topics:
+  - History
 ---
 At the weekend, a friend spotted a "fun fact" at a café: that the @ symbol was added to Morse code in 2009, and was the first new addition since World War II.
 This fact goes around the Internet periodically, but it's only half-right.

@@ -3,6 +3,8 @@ layout: note
 title: Group nodes in a Mermaid flowchart by putting them in a subgraph
 date: 2025-07-06 19:54:31 +01:00
 topic: Drawing things
+hidden_topics:
+  - Mermaid
 ---
 I was drawing a flowchart with [Mermaid][mermaid], and I wanted to draw a box around several items to group them together.
 

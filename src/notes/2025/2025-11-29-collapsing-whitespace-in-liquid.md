@@ -4,6 +4,8 @@ title: Collapsing whitespace in a Liquid template
 summary: Output an empty string with stripped whitespace, that is `{{- "" -}}`.
 date: 2025-11-29 08:39:07 +00:00
 topic: Ruby
+hidden_topics:
+  - Liquid
 ---
 Here's an excerpt from one of my Liquid templates:
 

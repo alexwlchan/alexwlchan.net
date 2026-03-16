@@ -24,9 +24,6 @@
     "tumblr",
     "python"
   ],
-  "src/_posts/2013/2013-08-20-google-maps.md": [
-    "javascript"
-  ],
   "src/_posts/2013/2013-11-13-textmate-quick-look.md": [
     "textmate",
     "os-x"
@@ -1629,79 +1626,5 @@
   ],
   "src/_til/2025/2025-07-04-poison-centers.md": [
     "healthcare"
-  ],
-  "src/_til/2025/2025-07-06-combine-arrows-mermaid.md": [
-    "mermaid",
-    "drawing things"
-  ],
-  "src/_til/2025/2025-07-06-mermaid-box-in-flowchart.md": [
-    "mermaid",
-    "drawing things"
-  ],
-  "src/_til/2025/2025-07-08-css-tab-size.md": [
-    "css",
-    "golang"
-  ],
-  "src/_til/2025/2025-07-16-collect-pytest-markers-from-failing-tests.md": [
-    "python",
-    "python:pytest"
-  ],
-  "src/_til/2025/2025-08-28-arobase-in-morse-code.md": [
-    "history",
-    "naming things"
-  ],
-  "src/_til/2025/2025-08-28-discard-in-js-spread.md": [
-    "javascript"
-  ],
-  "src/_til/2025/2025-08-29-timelord-at-cam.md": [
-    "naming things",
-    "datetime shenanigans"
-  ],
-  "src/_til/2025/2025-09-10-exclusive-write-in-go.md": [
-    "golang"
-  ],
-  "src/_til/2025/2025-09-18-get-jq-values-in-array.md": [
-    "jq"
-  ],
-  "src/_til/2025/2025-09-18-see-tailscale-node-keys.md": [
-    "tailscale"
-  ],
-  "src/_til/2025/2025-09-21-go-test-verbose.md": [
-    "golang",
-    "software testing"
-  ],
-  "src/_til/2025/2025-10-04-tumblr-api-sans-auth.md": [
-    "tumblr"
-  ],
-  "src/_til/2025/2025-10-05-instagram-avatar-url.md": [
-    "gallery-dl",
-    "instagram"
-  ],
-  "src/_til/2025/2025-10-07-access-nested-fields-in-typeddict.md": [
-    "python",
-    "python:typing"
-  ],
-  "src/_til/2025/2025-10-07-disable-handoff-icons-in-dock.md": [
-    "macos"
-  ],
-  "src/_til/2025/2025-10-19-remove-microsecond-precision-in-python.md": [
-    "python",
-    "datetime shenanigans"
-  ],
-  "src/_til/2025/2025-10-22-pygments-html-classes.md": [
-    "python",
-    "datetime shenanigans"
-  ],
-  "src/_til/2025/2025-11-01-python-and-rot13.md": [
-    "python"
-  ],
-  "src/_til/2025/2025-11-27-s3-multipart-upload-date.md": [
-    "aws:amazon s3"
-  ],
-  "src/_til/2025/2025-11-29-collapsing-whitespace-in-liquid.md": [
-    "liquid"
-  ],
-  "src/_til/2025/2025-12-24-ignore-ai-scaled-videos.md": [
-    "yt-dlp"
   ]
 }

@@ -3,6 +3,8 @@ layout: note
 title: Combine arrows in Mermaid by using an invisible node
 date: 2025-07-06 09:37:21 +01:00
 topic: Drawing things
+hidden_topics:
+  - Mermaid
 ---
 <style>
   @media screen and (min-width: 500px) {
