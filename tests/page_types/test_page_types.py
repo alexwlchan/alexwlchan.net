@@ -61,8 +61,8 @@ def test_read_article(src_dir: Path) -> None:
     """
     Read an article from Markdown.
     """
-    src_dir.mkdir()
-    md_path = src_dir / "example.md"
+    (src_dir / "_articles/2001").mkdir(parents=True)
+    md_path = src_dir / "_articles/2001/2001-02-03-example.md"
 
     md_path.write_text(
         "---\n"
@@ -85,8 +85,8 @@ def test_read_note(src_dir: Path) -> None:
     """
     Read a note from Markdown.
     """
-    src_dir.mkdir()
-    md_path = src_dir / "note.md"
+    (src_dir / "notes/2001").mkdir(parents=True)
+    md_path = src_dir / "notes/2001/2001-02-03-note.md"
 
     md_path.write_text(
         "---\n"
@@ -179,12 +179,12 @@ def test_read_multiple_markdown_files(src_dir: Path) -> None:
     """
     Read multiple Markdown files.
     """
-    path1 = src_dir / "dir1/example1.md"
-    path2 = src_dir / "example2.md"
-    path3 = src_dir / "dir3/example3.md"
+    (src_dir / "_articles/2001").mkdir(parents=True)
+    path1 = src_dir / "_articles/2001/2001-02-03-example1.md"
+    path2 = src_dir / "_articles/2001/2001-02-03-example2.md"
+    path3 = src_dir / "_articles/2001/2001-02-03-example3.md"
 
     for p in [path1, path2, path3]:
-        p.parent.mkdir(exist_ok=True, parents=True)
         p.write_text(
             "---\n"
             "layout: article\n"
@@ -246,7 +246,7 @@ PAGE_EXAMPLES = [
     {
         "page": Article(
             src_dir=Path("src"),
-            md_path=Path("src/2013/2013-02-13-darwin.md"),
+            md_path=Path("src/_articles/2013/2013-02-13-darwin.md"),
             date=datetime(2013, 2, 13),
             title="Darwin",
             content="This is a post about Darwin",

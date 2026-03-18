@@ -514,7 +514,7 @@ def test_article_card_image(env: Environment, src_dir: Path, out_dir: Path) -> N
     page = Article(
         md_path=src_dir / "_articles/2026/2026-02-03-example-article.md",
         src_dir=src_dir,
-        date=datetime.now(),
+        date=datetime(2026, 2, 3),
         topics=["Python"],
         card_path=Path("_images/2026/mosaic.jpg"),
         card_short_name="ex",
@@ -547,14 +547,14 @@ def test_article_card_with_bad_aspect_ratio(
     Creating a sharing card image which doesn't have a 2/1 aspect ratio
     is an error.
     """
-    copy_fixture_image(src_dir / "_images/2026/header_008800.png")
+    copy_fixture_image(src_dir / "_images/2001/header_008800.png")
 
     page = Article(
-        md_path=src_dir / "_articles/2026/2026-02-03-example-article.md",
+        md_path=src_dir / "_articles/2001/2001-01-01-example-article.md",
         src_dir=src_dir,
-        date=datetime.now(),
+        date=datetime(2001, 1, 1),
         topics=["Python"],
-        card_path=Path("_images/2026/header_008800.png"),
+        card_path=Path("_images/2001/header_008800.png"),
         card_short_name="ex",
     )
 

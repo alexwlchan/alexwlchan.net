@@ -4,6 +4,9 @@ Models for notes.
 
 from datetime import datetime
 from pathlib import Path
+from typing import Self
+
+from pydantic import model_validator
 
 from mosaic.topics import get_topic_by_name
 
@@ -48,3 +51,18 @@ class Note(BaseHtmlPage):
             BreadcrumbEntry(label=t.name, href=t.href)
             for t in get_topic_by_name(self.topics[0]).breadcrumb
         ]
+
+    @model_validator(mode="after")
+    def check_md_path(self) -> Self:
+        """
+        Notes should be saved in the per-year subfolder of `notes`.
+        """
+        expected_filename = self.date.strftime("%Y-%m-%d-") + self.slug + ".md"
+        expected_path = self.src_dir / "notes" / str(self.date.year) / expected_filename
+
+        if self.md_path != expected_path:
+            raise ValueError(
+                f"wrong path: expected {expected_path!r}, got {self.md_path!r}"
+            )
+
+        return self
