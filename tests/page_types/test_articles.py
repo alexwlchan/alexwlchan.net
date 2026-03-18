@@ -58,7 +58,12 @@ def test_recent_days_are_new(src_dir: Path, date: datetime) -> None:
     """
     An article published in the last 21 days is new.
     """
-    a = Article(md_path=src_dir / "_articles/example.md", src_dir=src_dir, date=date)
+    a = Article(
+        md_path=src_dir
+        / f"_articles/{date.year}/{date.strftime('%Y-%m-%d')}-example.md",
+        src_dir=src_dir,
+        date=date,
+    )
     assert a.is_new
 
 
@@ -74,7 +79,12 @@ def test_older_days_are_new(src_dir: Path, date: datetime) -> None:
     """
     An article published more than 14 days ago is not new.
     """
-    a = Article(md_path=src_dir / "_articles/example.md", src_dir=src_dir, date=date)
+    a = Article(
+        md_path=src_dir
+        / f"_articles/{date.year}/{date.strftime('%Y-%m-%d')}-example.md",
+        src_dir=src_dir,
+        date=date,
+    )
     assert not a.is_new
 
 
@@ -83,11 +93,29 @@ def test_articles_can_be_hashed(src_dir: Path) -> None:
     Articles can be hashed.
     """
     a = Article(
-        md_path=src_dir / "_articles/example.md",
+        md_path=src_dir / "_articles/2001/2001-01-01-example.md",
         src_dir=src_dir,
-        date=datetime.now(tz=timezone.utc),
+        date=datetime(2001, 1, 1),
     )
     hash(a)
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        "articles/2001/2001-01-01-example.md",
+        "_articles/2010/2001-01-01-example.md",
+        "_articles/2001/2010-01-01-example.md",
+        "_articles/2001/example.md",
+        "2001/2001-01-01-example.md",
+    ],
+)
+def test_invalid_article_path(src_dir: Path, path: str) -> None:
+    """
+    Article paths that don't match the metadata are rejected.
+    """
+    with pytest.raises(ValueError, match="wrong path"):
+        Article(md_path=src_dir / path, src_dir=src_dir, date=datetime(2001, 1, 1))
 
 
 class TestChooseSharingCard:
@@ -101,7 +129,7 @@ class TestChooseSharingCard:
         sharing card.
         """
         a = Article(
-            md_path=src_dir / "3030-03-03-article.md",
+            md_path=src_dir / "_articles/3030/3030-03-03-article.md",
             src_dir=src_dir,
             date=datetime(3030, 3, 3),
         )
@@ -116,7 +144,7 @@ class TestChooseSharingCard:
         (src_dir / "_images/cards/2001/article.jpg").write_text("JPEG")
 
         a = Article(
-            md_path=src_dir / "2001-01-01-article.md",
+            md_path=src_dir / "_articles/2001/2001-01-01-article.md",
             src_dir=src_dir,
             date=datetime(2001, 1, 1),
         )
@@ -131,7 +159,7 @@ class TestChooseSharingCard:
         (src_dir / "_images/cards/2001/different-article.jpg").write_text("JPEG")
 
         a = Article(
-            md_path=src_dir / "2001-01-01-article.md",
+            md_path=src_dir / "_articles/2001/2001-01-01-article.md",
             src_dir=src_dir,
             date=datetime(2001, 1, 1),
         )

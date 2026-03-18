@@ -26,12 +26,21 @@ def test_page_properties(src_dir: Path) -> None:
     """
     Tests for the per-page type properties of `Site`.
     """
-    make_article = functools.partial(
-        Article, src_dir=src_dir, md_path=src_dir / "article.md"
+    article1 = Article(
+        src_dir=src_dir,
+        date=datetime(2001, 1, 1),
+        md_path=src_dir / "_articles/2001/2001-01-01-article.md",
     )
-    article1 = make_article(date=datetime(2001, 1, 1))
-    article2 = make_article(date=datetime(2002, 2, 2))
-    article3 = make_article(date=datetime(2003, 3, 3))
+    article2 = Article(
+        src_dir=src_dir,
+        date=datetime(2002, 2, 2),
+        md_path=src_dir / "_articles/2002/2002-02-02-article.md",
+    )
+    article3 = Article(
+        src_dir=src_dir,
+        date=datetime(2003, 3, 3),
+        md_path=src_dir / "_articles/2003/2003-03-03-article.md",
+    )
 
     def make_book_review(date_read: datetime) -> BookReview:
         return BookReview(
@@ -50,10 +59,21 @@ def test_page_properties(src_dir: Path) -> None:
     book_review5 = make_book_review(date_read=datetime(2005, 5, 5))
     book_review6 = make_book_review(date_read=datetime(2006, 6, 6))
 
-    make_note = functools.partial(Note, src_dir=src_dir, md_path=src_dir / "note.md")
-    note7 = make_note(date=datetime(2007, 7, 7))
-    note8 = make_note(date=datetime(2008, 8, 8))
-    note9 = make_note(date=datetime(2009, 9, 9))
+    note7 = Note(
+        src_dir=src_dir,
+        date=datetime(2007, 7, 7),
+        md_path=src_dir / "notes/2007/2007-07-07-note.md",
+    )
+    note8 = Note(
+        src_dir=src_dir,
+        date=datetime(2008, 8, 8),
+        md_path=src_dir / "notes/2008/2008-08-08-note.md",
+    )
+    note9 = Note(
+        src_dir=src_dir,
+        date=datetime(2009, 9, 9),
+        md_path=src_dir / "notes/2009/2009-09-09-note.md",
+    )
 
     make_topic = functools.partial(
         TopicPage, src_dir=src_dir, md_path=src_dir / "topic.md"
@@ -97,10 +117,18 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
     (out_dir / "notes").mkdir(parents=True)
 
     all_pages: list[BaseHtmlPage] = [
-        Article(src_dir=src_dir, md_path=src_dir / "article.md", date=datetime.now())
+        Article(
+            src_dir=src_dir,
+            md_path=src_dir / "_articles/2001/2001-01-01-article.md",
+            date=datetime(2001, 1, 1),
+        )
         for _ in range(3)
     ] + [
-        Note(src_dir=src_dir, md_path=src_dir / "article.md", date=datetime.now())
+        Note(
+            src_dir=src_dir,
+            md_path=src_dir / "notes/2002/2002-02-02-note.md",
+            date=datetime(2002, 2, 2),
+        )
         for _ in range(3)
     ]
 
