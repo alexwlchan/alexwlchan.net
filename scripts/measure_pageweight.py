@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # fmt: off
     print("Homepage (/):\t\t",        pprint_filesize(out_dir / "index.html"))
     print("Articles (/articles/):\t", pprint_filesize(out_dir / "articles/index.html"))
-    print("TIL (/til):\t\t",          pprint_filesize(out_dir / "til/index.html"))
+    print("Notes (/notes):\t\t",          pprint_filesize(out_dir / "notes/index.html"))
     # fmt: on
 
     sizes = [
