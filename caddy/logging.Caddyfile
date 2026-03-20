@@ -2,17 +2,33 @@ log {
 	format filter {
 		fields {
 			request>client_ip delete
+
 			request>headers>Accept delete
 			request>headers>Accept-Encoding delete
+			request>headers>Accept-Language delete
+			request>headers>A-Im delete
+			request>headers>Cache-Control delete
 			request>headers>Connection delete
+			request>headers>Cookie delete
+			request>headers>Dnt delete
+			request>headers>From delete
 			request>headers>If-None-Match delete
 			request>headers>If-Modified-Since delete
+			request>headers>Pragma delete
+			request>headers>Priority delete
+			request>headers>Sec-Ch-Ua delete
 			request>headers>Sec-Ch-Ua-Mobile delete
 			request>headers>Sec-Ch-Ua-Platform delete
 			request>headers>Sec-Fetch-Dest delete
 			request>headers>Sec-Fetch-Mode delete
 			request>headers>Sec-Fetch-Site delete
 			request>headers>Sec-Fetch-User delete
+			request>headers>Sec-Gpc delete
+			request>headers>Sentry-Trace delete
+			request>headers>Upgrade-Insecure-Requests delete
+			request>headers>X-Requested-With delete
+			request>headers>X-Request-Id delete
+
 			request>proto delete
 			request>remote_port delete
 			request>tls delete
