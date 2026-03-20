@@ -2,7 +2,7 @@ log {
 	format filter {
 		fields {
 			request>client_ip delete
-      request>remote_ip delete
+			request>remote_ip delete
 
 			request>headers>Accept delete
 			request>headers>Accept-Encoding delete
