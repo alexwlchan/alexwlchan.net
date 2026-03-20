@@ -11,8 +11,6 @@ import tomllib
 DOMAINS_TO_CHECK = {
     # alexwlchan.net
     "alexwlchan.net": ["NS", "MX", "A", "TXT"],
-    "_acme-challenge.analytics.alexwlchan.net": ["TXT"],
-    "analytics.alexwlchan.net": ["A"],
     "books.alexwlchan.net": ["A"],
     "social.alexwlchan.net": ["CNAME"],
     "til.alexwlchan.net": ["A"],

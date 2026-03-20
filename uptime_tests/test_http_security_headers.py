@@ -15,7 +15,6 @@ def test_alexwlchan() -> None:
         "default-src 'self' 'unsafe-inline' https://youtube-nocookie.com "
         "https://www.youtube-nocookie.com; "
         "script-src 'self' 'unsafe-inline'; "
-        "connect-src https://analytics.alexwlchan.net; "
         "img-src 'self' 'unsafe-inline' data:"
     )
     assert resp.headers["Permissions-Policy"] == (

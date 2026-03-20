@@ -62,7 +62,6 @@
 "books.alexwlchan.net A"        = [ "178.79.134.59" ]
 "www.alexwlchan.net A"          = [ "178.79.134.59" ]
 "til.alexwlchan.net A"          = [ "178.79.134.59" ]
-"analytics.alexwlchan.net A"    = [ "178.79.134.59" ]
 
 "finduntaggedtumblrposts.com A" = [ "178.79.134.59" ]
 
@@ -78,18 +77,6 @@
 "mail.alexwlchan.com CNAME"   = [ "mail.hover.com.cust.hostedemail.com." ]
 "alexwlchan.co.uk MX"         = [ "10 mx.hover.com.cust.hostedemail.com." ]
 "mail.alexwlchan.co.uk CNAME" = [ "mail.hover.com.cust.hostedemail.com." ]
-
-
-
-# == Let's Encrypt DNS records ==
-#
-# This record is used to verify I own the analytics.alexwlchan.net domain
-# when I create certificates with Let's Encrypt.
-
-"_acme-challenge.analytics.alexwlchan.net TXT" = [
-  # Added when renewing the certificate on 31 August 2024
-  "\"BCRme-5n56EHhIpLTvNt2fb97kMJx_9nPqc9mKXnJMM\""
-]
 
 
 

@@ -37,7 +37,6 @@ def https_expiry_date(hostname: str) -> datetime:
     [
         "alexwlchan.net",
         "books.alexwlchan.net",
-        "analytics.alexwlchan.net",
         "www.alexwlchan.net",
         "alexwlchan.com",
         "www.alexwlchan.com",
