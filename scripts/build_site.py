@@ -12,9 +12,7 @@ from mosaic import Site
 
 if __name__ == "__main__":
     site = Site()
-    result = site.build_site(
-        incremental="--incremental" in sys.argv[1:], enable_analytics=True
-    )
+    result = site.build_site(incremental="--incremental" in sys.argv[1:])
     if result:
         print("success!")
     else:

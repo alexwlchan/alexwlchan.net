@@ -1,10 +1,10 @@
-import /home/alexwlchan/repos/analytics.alexwlchan.net/Caddyfile
 import /home/alexwlchan/repos/finduntaggedtumblrposts.com/Caddyfile
 
 import caddy/book_redirects.Caddyfile
 import caddy/til_redirects.Caddyfile
 
 alexwlchan.net {
+	import caddy/logging.Caddyfile
 	import caddy/redirects.Caddyfile
 	import caddy/gone.Caddyfile
 

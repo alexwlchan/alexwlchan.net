@@ -1,0 +1,35 @@
+log {
+	format filter {
+		fields {
+			request>client_ip delete
+			request>headers>Accept delete
+			request>headers>Accept-Encoding delete
+			request>headers>Connection delete
+			request>headers>If-None-Match delete
+			request>headers>If-Modified-Since delete
+			request>headers>Sec-Ch-Ua-Mobile delete
+			request>headers>Sec-Ch-Ua-Platform delete
+			request>headers>Sec-Fetch-Dest delete
+			request>headers>Sec-Fetch-Mode delete
+			request>headers>Sec-Fetch-Site delete
+			request>headers>Sec-Fetch-User delete
+			request>proto delete
+			request>remote_port delete
+			request>tls delete
+			resp_headers delete
+			user_id delete
+		}
+
+		wrap json {
+			time_format iso8601
+		}
+	}
+
+	output file /var/log/access.log {
+		mode 644
+
+		# Roll the logs at midnight, and keep a fortnight's worth of logs
+		roll_at 00:00
+		roll_keep 14
+	}
+}

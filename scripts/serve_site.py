@@ -22,14 +22,14 @@ def build_and_reload() -> None:
     """
     try:
         print("🔨 Rebuilding site...")
-        SITE.build_site(incremental=True, enable_analytics=False)
+        SITE.build_site(incremental=True)
         print("✅ Build successful.")
     except Exception as e:
         print(f"❌ Build failed with error: {e}")
 
 
 if __name__ == "__main__":
-    SITE.build_site(enable_analytics=False)
+    SITE.build_site()
 
     server = Server()
 

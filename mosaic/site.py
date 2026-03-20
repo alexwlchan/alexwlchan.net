@@ -91,9 +91,7 @@ class Site(BaseModel):
             and not isinstance(p, Note)
         ]
 
-    def build_site(
-        self, incremental: bool = False, enable_analytics: bool = False
-    ) -> bool:  # pragma: no cover
+    def build_site(self, incremental: bool = False) -> bool:  # pragma: no cover
         """
         Build a complete copy of the site.
 
@@ -153,7 +151,6 @@ class Site(BaseModel):
             {
                 "css_url": css_url,
                 "site": self,
-                "enable_analytics": enable_analytics,
                 "all_topics": rebuild_topics_by_name(),
                 "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
             }
