@@ -7,7 +7,7 @@ to site outages or link rot.
 
 To embed a post, use a tag of the form:
 
-    {% mastodon https://code4lib.social/@linguistory/113924700205617006 %}
+    {% mastodon "https://code4lib.social/@linguistory/113924700205617006" %}
 
 == How it works ==
 
