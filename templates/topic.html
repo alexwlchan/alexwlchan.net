@@ -65,7 +65,7 @@
 
     {{ content | cleanup_text }}
     
-    {%- if page.title != "Books I've read" -%}
+    {%- if page.title != "Books I've read" and page.title != "Monki Gras" -%}
       {%- from "partials/topic_entries.html" import topic_entries -%}
       {{- topic_entries(topic_name=page.title) -}}
     {%- endif -%}
