@@ -5,15 +5,16 @@ date_updated: 2026-02-02T23:11:36.206984+00:00
 book:
   title: How to be Ace
   contributors:
-  - name: Rebecca Burgess
+    - name: Rebecca Burgess
   genres:
-  - '!ace-book-club'
-  - '!from-the-library'
-  - asexuality
-  - queer-rep
-  - graphic-novel
+    - '!from-the-library'
+    - asexuality
+    - queer-rep
+    - graphic-novel
   publication_year: 2021
   isbn13: 9 781787 752153
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-02-26

@@ -7,12 +7,13 @@ book:
   contributors:
   - name: Elizabeth Hopkinson
   genres:
-  - fiction
-  - mythological fiction
-  - asexuality
-  - fairy-tales
-  - '!ace-book-club'
+    - fiction
+    - mythological fiction
+    - asexuality
+    - fairy-tales
   publication_year: 2019
+
+topic: London Ace Book Club
 
 review:
   date_read: 2022-11-22

@@ -5,12 +5,13 @@ date_updated: 2026-02-02T22:26:47.919172+00:00
 book:
   title: Ending the Pursuit
   contributors:
-  - name: Michael Paramo
+    - name: Michael Paramo
   genres:
-  - '!ace-book-club'
-  - asexuality
-  - non-fiction
+    - asexuality
+    - non-fiction
   publication_year: 2024
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-04-19

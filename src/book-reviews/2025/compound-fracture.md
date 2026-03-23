@@ -5,15 +5,16 @@ date_updated: 2026-02-02T20:30:23.469534+00:00
 book:
   title: Compound Fracture
   contributors:
-  - name: Andrew Joseph White
+    - name: Andrew Joseph White
   genres:
-  - '!ace-book-club'
-  - '!from-the-library'
-  - trans rep
-  - autistic rep
-  - fiction
+    - '!from-the-library'
+    - trans rep
+    - autistic rep
+    - fiction
   publication_year: 2024
   isbn13: 978-1-8378407-5-5
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-10-26

@@ -3,18 +3,19 @@ layout: book_review
 date_updated: 2026-02-02T20:30:24.837884+00:00
 
 book:
-  title: "Don\u2019t Let the Forest In"
+  title: "Don't Let the Forest In"
   contributors:
-  - name: CG Drews
+    - name: CG Drews
   genres:
-  - fiction
-  - horror
-  - thriller
-  - '!ace-book-club'
-  - '!from-the-library'
-  - queer representation
+    - fiction
+    - horror
+    - thriller
+    - '!from-the-library'
+    - queer representation
   publication_year: 2024
   isbn13: 978-1-444-97804-9
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-04-22

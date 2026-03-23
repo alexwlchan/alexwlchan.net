@@ -5,13 +5,14 @@ date_updated: 2026-02-02T22:45:01.750375+00:00
 book:
   title: Hopeless Aromantic
   contributors:
-  - name: Samantha Rendle
+    - name: Samantha Rendle
   genres:
-  - non-fiction
-  - asexuality
-  - aromanticism
-  - '!ace-book-club'
+    - non-fiction
+    - asexuality
+    - aromanticism
   publication_year: 2023
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-01-23

@@ -5,14 +5,15 @@ date_updated: 2026-02-02T22:26:48.025253+00:00
 book:
   title: Breasts and Eggs
   contributors:
-  - name: Mieko Kawakami
-  - name: Sam Bett and David Boyd
-    role: translator
+    - name: Mieko Kawakami
+    - name: Sam Bett and David Boyd
+      role: translator
   genres:
-  - fiction
-  - '!from-the-library'
-  - '!ace-book-club'
+    - fiction
+    - '!from-the-library'
   publication_year: 2021
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-07-22

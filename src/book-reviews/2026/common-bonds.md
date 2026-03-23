@@ -12,6 +12,8 @@ book:
     - queer rep
   publication_year: 2021
 
+topic: London Ace Book Club
+
 review:
   date_read: 2026-01-27
   format: ebook

@@ -5,14 +5,15 @@ date_updated: 2026-02-02T23:11:38.089248+00:00
 book:
   title: Aces Wild
   contributors:
-  - name: Amanda DeWitt
+    - name: Amanda DeWitt
   genres:
-  - '!ace-book-club'
-  - queer-rep
-  - fiction
-  - asexuality
-  - heist
+    - queer-rep
+    - fiction
+    - asexuality
+    - heist
   publication_year: 2022
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-10-24

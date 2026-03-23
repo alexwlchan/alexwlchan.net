@@ -5,13 +5,14 @@ date_updated: 2026-02-02T23:10:54.152240+00:00
 book:
   title: Elatsoe
   contributors:
-  - name: Darcie Little Badger
+    - name: Darcie Little Badger
   genres:
-  - '!ace-book-club'
-  - fiction
-  - fantasy
+    - fiction
+    - fantasy
   publication_year: 2020
   isbn13: 978-1-74714-005-3
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-04-24

@@ -5,13 +5,14 @@ date_updated: 2026-02-02T23:17:33.910559+00:00
 book:
   title: Beyond the Black Door
   contributors:
-  - name: A. M. Strickland
+    - name: A. M. Strickland
   genres:
-  - '!ace-book-club'
-  - queer-rep
-  - fantasy
-  - fiction
+    - queer-rep
+    - fantasy
+    - fiction
   publication_year: 2019
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-07-25

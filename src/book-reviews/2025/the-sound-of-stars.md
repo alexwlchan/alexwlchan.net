@@ -5,13 +5,14 @@ date_updated: 2026-02-02T20:30:24.498563+00:00
 book:
   title: The Sound of Stars
   contributors:
-  - name: Alechia Dow
+    - name: Alechia Dow
   genres:
-  - fiction
-  - sci-fi
-  - romance
-  - '!ace-book-club'
+    - fiction
+    - sci-fi
+    - romance
   publication_year: 2020
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-08-25

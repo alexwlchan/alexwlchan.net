@@ -5,16 +5,17 @@ date_updated: 2026-02-02T20:30:23.940764+00:00
 book:
   title: Second Chances in New Port Stephen
   contributors:
-  - name: TJ Alexander
+    - name: TJ Alexander
   genres:
-  - '!ace-book-club'
-  - '!from-the-library'
-  - romance
-  - trans rep
-  - queer rep
-  - fiction
+    - '!from-the-library'
+    - romance
+    - trans rep
+    - queer rep
+    - fiction
   publication_year: 2023
   isbn13: 978-1-3985-3133-8
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-11-25

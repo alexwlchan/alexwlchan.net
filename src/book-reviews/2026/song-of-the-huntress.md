@@ -6,7 +6,6 @@ book:
   contributors:
     - name: Lucy Holland
   genres:
-    - '!ace book club'
     - fantasy
     - fiction
     - mythological fiction
@@ -14,6 +13,8 @@ book:
   isbn13: 978-1529077438
   publication_year: '2024'
   title: Song of the Huntress
+
+topic: London Ace Book Club
 
 review:
   date_read: '2026-03-14'

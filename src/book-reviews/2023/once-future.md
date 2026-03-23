@@ -5,15 +5,16 @@ date_updated: 2026-02-02T23:15:28.158187+00:00
 book:
   title: Once & Future
   contributors:
-  - name: Amy Rose Capetta and Cori McCarthy
+    - name: Amy Rose Capetta and Cori McCarthy
   genres:
-  - '!ace-book-club'
-  - '!from-the-library'
-  - fantasy
-  - fiction
-  - sci-fi
+    - '!from-the-library'
+    - fantasy
+    - fiction
+    - sci-fi
   publication_year: 2019
   isbn13: 978-1-78607-654-0
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-06-25

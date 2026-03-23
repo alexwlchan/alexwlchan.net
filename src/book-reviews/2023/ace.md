@@ -5,14 +5,15 @@ date_updated: 2026-02-02T23:14:24.136642+00:00
 book:
   title: Ace
   contributors:
-  - name: Angela Chen
+    - name: Angela Chen
   genres:
-  - '!ace-book-club'
-  - asexuality
-  - queer-rep
-  - non-fiction
+    - asexuality
+    - queer-rep
+    - non-fiction
   publication_year: 2020
   isbn13: 978-0-8070-1473-8
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-07-02

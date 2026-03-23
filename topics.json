@@ -324,5 +324,10 @@
   {
     "name": "Monki Gras",
     "href": "/monki-gras/"
+  },
+  {
+    "name": "London Ace Book Club",
+    "href": "/ace-book-club/",
+    "parent": "Books I've read"
   }
 ]

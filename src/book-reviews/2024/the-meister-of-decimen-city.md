@@ -5,13 +5,14 @@ date_updated: 2026-02-02T22:26:47.863565+00:00
 book:
   title: The Meister of Decimen City
   contributors:
-  - name: Brenna Raney
+    - name: Brenna Raney
   genres:
-  - sci-fi
-  - fiction
-  - queer-rep
-  - '!ace-book-club'
+    - sci-fi
+    - fiction
+    - queer-rep
   publication_year: 2023
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-11-24

@@ -5,13 +5,14 @@ date_updated: 2026-02-02T20:30:25.849728+00:00
 book:
   title: Every Heart a Doorway
   contributors:
-  - name: Seanan McGuire
+    - name: Seanan McGuire
   genres:
-  - fiction
-  - fantasy
-  - '!ace-book-club'
-  - queer-rep
+    - fiction
+    - fantasy
+    - queer-rep
   publication_year: 2016
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-01-28

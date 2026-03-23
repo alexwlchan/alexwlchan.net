@@ -5,13 +5,14 @@ date_updated: 2026-02-02T23:11:37.564267+00:00
 book:
   title: Ace Voices
   contributors:
-  - name: Eris Young
+    - name: Eris Young
   genres:
-  - '!ace-book-club'
-  - queer-rep
-  - non-fiction
-  - asexuality
+    - queer-rep
+    - non-fiction
+    - asexuality
   publication_year: 2022
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-03-27

@@ -7,12 +7,13 @@ book:
   contributors:
   - name: Chuck Tingle
   genres:
-  - '!ace-book-club'
-  - queer-rep
-  - fiction
-  - horror
-  - '!from-the-library'
+    - queer-rep
+    - fiction
+    - horror
+    - '!from-the-library'
   publication_year: 2024
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-01-28

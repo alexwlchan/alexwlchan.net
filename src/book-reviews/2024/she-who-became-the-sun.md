@@ -1,19 +1,19 @@
 ---
 layout: book_review
-date_updated: 2026-02-02T20:30:27.064412+00:00
+date_updated: 2026-02-02T20:30:27Z
 
 book:
   title: She Who Became the Sun
   contributors:
-  - name: Shelley Parker-Chan
+    - name: Shelley Parker-Chan
   genres:
-  - fiction
-  - fantasy
-  - historical
-  - '!from-the-library'
-  - '!ace-book-club'
+    - fiction
+    - fantasy
+    - historical
+    - '!from-the-library'
   publication_year: 2021
-  isbn13: ???
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-06-25

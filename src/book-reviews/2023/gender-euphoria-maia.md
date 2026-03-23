@@ -5,14 +5,15 @@ date_updated: 2026-02-02T23:15:18.991595+00:00
 book:
   title: Gender Euphoria
   contributors:
-  - name: Maia Kobabe
+    - name: Maia Kobabe
   genres:
-  - '!ace-book-club'
-  - gender
-  - queer-rep
-  - graphic-novel
-  - memoirs
+    - gender
+    - queer-rep
+    - graphic-novel
+    - memoirs
   publication_year: 2019
+
+topic: London Ace Book Club
 
 review:
   date_read: 2023-08-22

@@ -5,14 +5,15 @@ date_updated: 2026-02-02T20:30:23.760547+00:00
 book:
   title: How You Get the Girl
   contributors:
-  - name: Anita Kelly
+    - name: Anita Kelly
   genres:
-  - fiction
-  - romance
-  - sapphic romance
-  - '!ace book club'
+    - fiction
+    - romance
+    - sapphic romance
   publication_year: 2024
   isbn13: 978-1-4722-8608-6
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-06-24

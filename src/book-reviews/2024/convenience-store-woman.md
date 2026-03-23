@@ -5,16 +5,17 @@ date_updated: 2026-02-02T22:20:46.137390+00:00
 book:
   title: Convenience Store Woman
   contributors:
-  - name: Sayaka Murata
-  - name: Ginny Tapley Takemori
-    role: translator
+    - name: Sayaka Murata
+    - name: Ginny Tapley Takemori
+      role: translator
   genres:
-  - fiction
-  - japan
-  - '!from-the-library'
-  - '!ace-book-club'
+    - fiction
+    - japan
+    - '!from-the-library'
   publication_year: 2016
   isbn13: 978-1-84627-684-2
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-02-27

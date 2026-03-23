@@ -5,15 +5,16 @@ date_updated: 2026-02-02T22:26:47.565768+00:00
 book:
   title: How To Be a Normal Person
   contributors:
-  - name: TJ Klune
+    - name: TJ Klune
   genres:
-  - fiction
-  - romance
-  - queer-rep
-  - asexuality
-  - '!ace-book-club'
+    - fiction
+    - romance
+    - queer-rep
+    - asexuality
   publication_year: 2019
   isbn13: '9781734233902'
+
+topic: London Ace Book Club
 
 review:
   date_read: 2024-03-30

@@ -5,13 +5,14 @@ date_updated: 2026-02-02T20:30:24.218837+00:00
 book:
   title: The Heartbreak Bakery
   contributors:
-  - name: A.R. Capetta
+    - name: A.R. Capetta
   genres:
-  - fiction
-  - romance
-  - queer rep
-  - '!ace-book-club'
+    - fiction
+    - romance
+    - queer rep
   publication_year: 2021
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-03-07

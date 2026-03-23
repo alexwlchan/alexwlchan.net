@@ -5,13 +5,14 @@ date_updated: 2026-02-02T20:30:23.875096+00:00
 book:
   title: The End Crowns All
   contributors:
-  - name: Bea Fitzgerald
+    - name: Bea Fitzgerald
   genres:
-  - fiction
-  - mythological fiction
-  - '!ace book club'
-  - queer rep
+    - fiction
+    - mythological fiction
+    - queer rep
   publication_year: 2024
+
+topic: London Ace Book Club
 
 review:
   date_read: 2025-09-21

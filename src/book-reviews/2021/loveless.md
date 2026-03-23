@@ -14,6 +14,8 @@ book:
   - queer-rep
   publication_year: 2018
 
+topic: London Ace Book Club
+
 review:
   date_read: 2021-06-14
   format: audiobook
