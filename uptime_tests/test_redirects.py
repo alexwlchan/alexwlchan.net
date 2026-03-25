@@ -2,7 +2,9 @@
 Tests for redirects.
 """
 
-import httpx
+from ssl import SSLContext
+import urllib.request
+
 import pytest
 
 
@@ -22,18 +24,15 @@ import pytest
         ("https://alexwlchan.net/all-posts/", "/articles/"),
     ],
 )
-def test_redirect(src: str, dst: str) -> None:
+def test_redirect(ssl_context: SSLContext, src: str, dst: str) -> None:
     """
     Pages are redirected correctly.
     """
-    resp = httpx.get(src)
-    assert resp.status_code == 301
-    assert resp.headers["location"] == dst
-
-    resp = httpx.get(src, follow_redirects=True)
-    assert resp.status_code == 200
-
     if dst.startswith("/"):
-        assert resp.url == "https://alexwlchan.net" + dst
+        expected_url = "https://alexwlchan.net" + dst
     else:
-        assert resp.url == dst
+        expected_url = dst
+
+    with urllib.request.urlopen(src, context=ssl_context) as resp:
+        assert resp.getcode() == 200
+        assert resp.geturl() == expected_url
