@@ -5,10 +5,9 @@ redir /page/*                                                         /articles/
 # Redirects for my Mastodon instance
 #
 # See https://jacobian.org/til/my-mastodon-instance/
-redir /.well-known/host-meta*                                           https://social.alexwlchan.net/.well-known/host-meta permanent
-redir /.well-known/webfinger*                                           https://social.alexwlchan.net/.well-known/webfinger permanent
-redir /.well-known/nodeinfo*                                            https://social.alexwlchan.net/.well-known/nodeinfo permanent
-
+redir /.well-known/host-meta*  https://social.alexwlchan.net/.well-known/host-meta?{query} permanent
+redir /.well-known/webfinger*  https://social.alexwlchan.net/.well-known/webfinger?{query} permanent
+redir /.well-known/nodeinfo*   https://social.alexwlchan.net/.well-known/nodeinfo?{query} permanent
 
 
 # Redirects for common RSS-like URLs, or RSS URLs I've used in the past
