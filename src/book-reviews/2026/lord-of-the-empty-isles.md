@@ -84,6 +84,10 @@ Chapter three, in one of the few hints that Remy is aro-ace:
 > Cam fell in love with a new person each month. The boy in the garden with the sharp jawline and soft words. The blacksmith's daughter with her reckless grin and laughter like poetry. The tall artist by the shore with their black hair twisted in a silky bun and fingers stained with clay.
 > For Cam, the answer to the question of attraction was *all of the above*. For Remy, it's always been *none*, and his life has been no less rich for it. He's never longed to be desired---not how people like Fluora expect him to---so it seems useless to choke himself with clothes other people might like to see him in. Wearing what he loves and having someone who understands him at his side is enough.
 
+Chapter five, when they're raiding a Protectorate ship, Remy sounds the alarm, and Idrian kills a contact who he thought sold them out:
+
+> Delaciel walks like he didn't just kill a man. Remy tries to walk like he didn't watch someone die.
+
 Chapter nine, when Remy finds Beni's corpse (Beni is a young girl he met in the prison colony who died in a block collapse):
 
 > Beni is so much smaller than Cameron was, but the weight of a body is just the same. Some people talk like the wasted ones are light, but Remy has never held anything heavier than a corpse. Living limbs are so easy to lift, even when they're trying not to be. A body with no one inside it is unspeakable, as painful as a tether with no one on the other end Remy wonders if she died afraid, if there's anyone living who will ache for her.
