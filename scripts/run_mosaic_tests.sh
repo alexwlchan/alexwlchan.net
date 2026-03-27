@@ -7,8 +7,8 @@ print_info() {
     echo -e "\033[34m$1\033[0m"
 }
 
-print_info "-> ruff format mosaic scripts tests"
-ruff format mosaic scripts tests
+print_info "-> ruff format mosaic scripts tests uptime_tests"
+ruff format mosaic scripts tests uptime_tests
 
 echo ""
 
@@ -20,13 +20,18 @@ then
   echo ""
 fi
 
-print_info "-> ruff check --fix mosaic scripts tests"
-ruff check --fix mosaic scripts tests
+print_info "-> ruff check --fix mosaic scripts tests uptime_tests"
+ruff check --fix mosaic scripts tests uptime_tests
 
 echo ""
 
 print_info "-> mypy mosaic scripts tests"
 mypy mosaic scripts tests
+
+echo ""
+
+print_info "-> mypy uptime_tests"
+mypy uptime_tests
 
 echo ""
 

@@ -6,11 +6,13 @@ Create a new post.
 from datetime import datetime, timezone
 import os
 from pathlib import Path
+import ssl
 import subprocess
 import sys
 from typing import Any
+import urllib.request
 
-import httpx
+import certifi
 from InquirerPy import inquirer
 import termcolor
 import yaml
@@ -143,10 +145,10 @@ if __name__ == "__main__":
         cover_path.parent.mkdir(exist_ok=True)
 
         try:
-            resp = httpx.get(cover_url)
-            resp.raise_for_status()
-            with open(cover_path, "xb") as out_cover:
-                out_cover.write(resp.content)
+            ssl_context = ssl.create_default_context(cafile=certifi.where())
+            with urllib.request.urlopen(cover_url, context=ssl_context) as resp:
+                with open(cover_path, "xb") as out_cover:
+                    out_cover.write(resp.read())
 
             css_light = get_tint_colour(cover_path, background="white")
             css_dark = get_tint_colour(cover_path, background="black")

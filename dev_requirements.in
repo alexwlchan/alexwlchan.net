@@ -7,4 +7,3 @@
 -r uptime_tests/requirements.txt
 
 cogapp
-httpx

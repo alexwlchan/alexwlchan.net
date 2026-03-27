@@ -2,34 +2,49 @@
 Test my error pages.
 """
 
-import httpx
+from ssl import SSLContext
+import urllib.request
+
+import pytest
 
 
-def test_unknown_url_is_404() -> None:
+def test_error_page(ssl_context: SSLContext) -> None:
     """
     Loading a page that doesn't exist returns my 404 page.
     """
-    resp = httpx.get("https://alexwlchan.net/doesnotexist/")
+    url = "https://alexwlchan.net/doesnotexist/"
 
-    assert resp.status_code == 404
-    assert "404 Not Found" in resp.text
+    with pytest.raises(urllib.error.HTTPError) as excinfo:
+        urllib.request.urlopen(url, context=ssl_context)
+
+    assert excinfo.value.code == 404
+    assert b"404 Not Found" in excinfo.value.read()
+    excinfo.value.close()
 
 
-def test_removed_page_is_410() -> None:
+def test_removed_page_is_410(ssl_context: SSLContext) -> None:
     """
     Loading a page that I removed gets my 410 Gone page.
     """
-    resp = httpx.get("https://alexwlchan.net/2015/bbfc-podcast/")
+    url = "https://alexwlchan.net/2015/bbfc-podcast/"
 
-    assert resp.status_code == 410
-    assert "410 Gone" in resp.text
+    with pytest.raises(urllib.error.HTTPError) as excinfo:
+        urllib.request.urlopen(url, context=ssl_context)
+
+    assert excinfo.value.code == 410
+    assert b"410 Gone" in excinfo.value.read()
+    excinfo.value.close()
 
 
-def test_wp_login_is_400() -> None:
+def test_wp_login_is_400(ssl_context: SSLContext) -> None:
     """
     Loading my non-existent WordPress login returns a minimal 400 page.
     """
-    resp = httpx.get("https://alexwlchan.net/wp-login.php")
+    url = "https://alexwlchan.net/wp-login.php"
 
-    assert resp.status_code == 400
-    assert resp.text == "400 Bad Request"
+    with pytest.raises(urllib.error.HTTPError) as excinfo:
+        urllib.request.urlopen(url, context=ssl_context)
+
+    assert excinfo.value.code == 400
+    assert excinfo.value.read() == b"400 Bad Request"
+    excinfo.value.close()
