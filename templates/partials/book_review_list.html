@@ -21,8 +21,8 @@
       and replace it with 1x/2x for the sizes attribute
     -#}
     <figure>
-      {% set bk_index = (reviews|count) - loop.index0 %}
-      {% set parent = "/images/" + rev.review.date_read.year|string %}
+      {%- set bk_index = (reviews|count) - loop.index0 -%}
+      {%- set parent = "/images/" + rev.review.date_read.year|string -%}
       
       {% if page.url == "/book-reviews/" %}
         {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + bk_index|string %}
