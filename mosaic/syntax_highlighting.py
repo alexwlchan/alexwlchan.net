@@ -91,7 +91,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
 
     # Python: dotted imports should be replaced with names split by
     # namespace. nn = Name.Namespace
-    if lang == "python":
+    if lang == "python" or lang == "pycon":
         for m in re.finditer(
             r'<span class="nn">(?P<name>[a-zA-Z0-9_]+\.[a-zA-Z0-9_\.]+)</span>',
             highlighted_code,
@@ -391,7 +391,7 @@ def apply_syntax_highlighting(
                 if (typeof window.LiveReload !== 'undefined') {
                   window.LiveReload.shutDown();
                 }
-                  
+
                 debugNames = document.querySelector("code#debugNames");
 
                 var selectedNames = {};
