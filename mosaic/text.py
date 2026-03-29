@@ -8,10 +8,10 @@ import json
 import re
 from typing import Any, Match
 
+from chives.text import smartify
 import minify_html
 import mistune
 from mistune.core import BlockState
-import smartypants
 
 from .syntax_highlighting import apply_syntax_highlighting
 
@@ -27,31 +27,6 @@ def strip_html(text: str) -> str:
     input, but should be fine for my site.
     """
     return STRIP_HTML_RE.sub("", text)
-
-
-@functools.cache
-def smartify(text: str) -> str:
-    """
-    Add curly quotes and smart dashes to a string.
-    """
-    # Undo some escaping from Mistune.
-    text = text.replace("&quot;", '"')
-
-    attrs = (
-        # normal quotes (" and ') to curly ones
-        smartypants.Attr.q
-        |
-        # typewriter dashes (--) to en-dashes and dashes (---) to em-dashes
-        smartypants.Attr.D
-        |
-        # dashes (...) to ellipses
-        smartypants.Attr.e
-        |
-        # output Unicode chars instead of numeric character references
-        smartypants.Attr.u
-    )
-
-    return smartypants.smartypants(text, attrs)
 
 
 class AlexwlchanRenderer(mistune.HTMLRenderer):

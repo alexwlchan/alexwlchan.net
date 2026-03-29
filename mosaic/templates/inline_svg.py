@@ -27,11 +27,12 @@ import re
 from typing import Any, Literal
 
 from bs4 import BeautifulSoup, Comment
+from chives.text import smartify
 from jinja2 import pass_context
 from jinja2.runtime import Context
 
 from .jinja_extensions import KwargsExtensionBase
-from mosaic.text import assert_is_invariant_under_markdown, smartify
+from mosaic.text import assert_is_invariant_under_markdown
 
 
 class InlineSvgExtension(KwargsExtensionBase):

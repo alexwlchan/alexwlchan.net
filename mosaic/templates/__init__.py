@@ -8,6 +8,7 @@ from pathlib import Path
 import random
 from typing import TypeVar
 
+from chives.text import smartify
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from mosaic import page_types
@@ -16,7 +17,6 @@ from mosaic.text import (
     cleanup_text,
     markdownify,
     markdownify_oneline,
-    smartify,
     strip_html,
 )
 from mosaic.topics import get_topic_by_name

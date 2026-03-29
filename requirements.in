@@ -1,5 +1,6 @@
 -r uptime_tests/requirements.txt
 
+alexwlchan-chives[text]
 beautifulsoup4
 certifi
 inquirerpy
@@ -14,7 +15,6 @@ pydantic
 pygit2
 Pygments
 PyYAML
-smartypants
 termcolor
 tqdm
 unidecode
