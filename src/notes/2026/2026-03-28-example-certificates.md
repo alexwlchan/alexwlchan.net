@@ -1,6 +1,7 @@
 ---
 layout: note
 date: 2026-03-28 10:23:58 +00:00
+date_updated: 2026-03-29 08:49:56 +01:00
 title: Why can't Python connect to example.com?
 summary: The Python SSL libraries only know about the certificates sent by the server and in my local store. They can't retrieve missing certificates.
 topic: Python
@@ -73,6 +74,14 @@ I also found a [CPython issue][cpython-62817] where Authority Information Access
 
 I still don't really understand HTTPS or TLS certificates and I'm not sure how to fix this if I encounter another misconfigured website -- but I only use `example.com` for testing, so for now I can just pick another website to test instead.
 
+## Why wasn't this caught by my tests?
+
+I use [vcrpy to test my HTTP code][vcrpy], but it doesn't do anything with TLS certificates, just unencrypted HTTP responses.
+I didn't catch this until I tried regenerating my recorded cassettes, and discovered that the HTTPS certificate issues meant I could no longer do so.
+
+Perhaps I need a procedure for regenerating vcrpy cassettes when I upgrade my dependencies, or on a fixed schedule?
+
 [certifi-393]: https://github.com/certifi/python-certifi/issues/393
 [certifi-347]: https://github.com/certifi/python-certifi/pull/347/changes
 [cpython-62817]: https://github.com/python/cpython/issues/62817
+[vcrpy]: /2025/testing-with-vcrpy/

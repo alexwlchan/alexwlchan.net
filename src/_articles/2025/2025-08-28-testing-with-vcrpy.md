@@ -215,7 +215,7 @@ It's useful for debugging later -- you can see that a value was replaced, and ea
 
 [filters]: https://vcrpy.readthedocs.io/en/latest/advanced.html#filter-sensitive-data-from-the-request
 
-### Improving the human readability of cassettes
+### Decompressing responses for human readability
 
 If you look at the first two cassette files, you'll notice that the response body is stored as base64-encoded binary data:
 
