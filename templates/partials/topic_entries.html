@@ -22,29 +22,25 @@
   {{ topic_section(featured, "article_cards") }}
 {%- endmacro -%}
 
-{%- macro remaining_articles(topic_name) -%}
+{%- macro remaining_posts(topic_name) -%}
   {% set articles = site.articles
     | rejectattr("is_featured")
     | rejectattr("is_excluded")
-    | filter_for_topic(topic_name)
-    | sort(attribute="sort_date", reverse=True) %}
+    | filter_for_topic(topic_name) %}
   
-  {{ topic_section(articles, "article_links", title={'singular': 'article', 'plural': 'articles'}) }}
-{%- endmacro -%}
-
-{%- macro notes(topic_name) -%}
   {% set notes = site.notes
     | rejectattr("is_excluded")
-    | filter_for_topic(topic_name)
+    | filter_for_topic(topic_name) %}
+  
+  {% set posts = articles + notes 
     | sort(attribute="sort_date", reverse=True) %}
   
-  {{ topic_section(notes, "article_links", title={'singular': 'note', 'plural': 'notes'}) }}
+  {{ topic_section(notes, "article_links") }}
 {%- endmacro -%}
 
 {%- macro topic_entries(topic_name) -%}
 <div id="topic_entries">
   {{ featured_articles(topic_name) }}
-  {{ remaining_articles(topic_name) }}
-  {{ notes(topic_name) }}
+  {{ remaining_posts(topic_name) }}
 </div>
 {%- endmacro -%}
