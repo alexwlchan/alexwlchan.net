@@ -6,6 +6,7 @@ Create a new post.
 from datetime import datetime, timezone
 import os
 from pathlib import Path
+import re
 import ssl
 import subprocess
 import sys
@@ -26,15 +27,11 @@ def slugify(u: str) -> str:
     """
     Convert Unicode string into blog slug.
 
-    From https://leancrew.com/all-this/2014/10/asciifying/
+    Based on https://leancrew.com/all-this/2014/10/asciifying/
     """
-    import re
-
-    from unidecode import unidecode
-
     # fmt: off
     u = re.sub(u'[–—/:;,.]', '-', u)  # replace separating punctuation
-    a = unidecode(u).lower()          # best ASCII substitutions, lowercased
+    a = u.lower()
     a = re.sub(r'[^a-z0-9 -]', '', a) # delete any other characters
     a = a.replace(' ', '-')           # spaces to hyphens
     a = re.sub(r'-+', '-', a)         # condense repeated hyphens

@@ -17,7 +17,6 @@ Pygments
 PyYAML
 termcolor
 tqdm
-unidecode
 
 # For Mosaic tests
 hypothesis
