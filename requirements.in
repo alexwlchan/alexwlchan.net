@@ -25,6 +25,4 @@ mypy
 pytest-cov
 pytest-xdist
 ruff
-types-Pygments
-types-PyYAML
 types-tqdm

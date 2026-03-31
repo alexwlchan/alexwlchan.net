@@ -161,14 +161,6 @@ tornado==6.5.5
     #   livereload
 tqdm==4.67.3
     # via -r requirements.txt
-types-docutils==0.22.3.20260322
-    # via
-    #   -r requirements.txt
-    #   types-pygments
-types-pygments==2.19.0.20251121
-    # via -r requirements.txt
-types-pyyaml==6.0.12.20250915
-    # via -r requirements.txt
 types-requests==2.32.4.20260324
     # via
     #   -r requirements.txt
