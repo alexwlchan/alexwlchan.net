@@ -4,16 +4,13 @@ Create a new post.
 """
 
 from datetime import datetime, timezone
-import os
 from pathlib import Path
 import re
-import ssl
 import subprocess
 import sys
 from typing import Any
-import urllib.request
 
-import certifi
+from chives.fetch import download_image
 from InquirerPy import inquirer
 import termcolor
 import yaml
@@ -136,23 +133,17 @@ if __name__ == "__main__":
         ).count("★")
         cover_url = ask_for_text("Cover URL:")
 
-        cover_path = (Path("src/_images") / year / slug).with_suffix(
-            os.path.splitext(cover_url)[-1]
-        )
-        cover_path.parent.mkdir(exist_ok=True)
-
         try:
-            ssl_context = ssl.create_default_context(cafile=certifi.where())
-            with urllib.request.urlopen(cover_url, context=ssl_context) as resp:
-                with open(cover_path, "xb") as out_cover:
-                    out_cover.write(resp.read())
+            cover_path = download_image(
+                url=cover_url, out_prefix=Path("src/_images") / year / slug
+            )
 
             css_light = get_tint_colour(cover_path, background="white")
             css_dark = get_tint_colour(cover_path, background="black")
         except Exception as exc:
             print(
                 termcolor.colored(
-                    f"could not download cover to {cover_path}: {exc}", "red"
+                    f"could not download cover from {cover_url}: {exc}", "red"
                 )
             )
             css_light = "#000000"

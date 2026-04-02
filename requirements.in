@@ -1,8 +1,7 @@
 -r uptime_tests/requirements.txt
 
-alexwlchan-chives[text]
+alexwlchan-chives[fetch,text]
 beautifulsoup4
-certifi
 inquirerpy
 jinja2
 lightningcss
