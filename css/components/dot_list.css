@@ -10,7 +10,7 @@
  *
  */
 ul.dot_list {
-  list-style-type: none;
+  list-style-type: "";
   padding: 0;
   
   li {

@@ -92,7 +92,7 @@ I start by resetting some default styles: removing the bullet point and whitespa
 
 ```css {"names":{"1":"#movies","2":"figure"}}
 #movies {
-  list-style-type: none;
+  list-style-type: "";
   padding: 0;
   margin:  0;
   
@@ -101,6 +101,12 @@ I start by resetting some default styles: removing the bullet point and whitespa
   }
 }
 ```
+
+{% update date="2026-04-02" %}
+  The original version of this post used `list-style-type: none`, but Jeremy Driver emailed me to point out that this [removes the list semantics](https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html).
+  
+  I've changed it to `list-style-type: ""`, which hides the bullet points but [preserves the list semantics](https://www.matuzo.at/blog/2023/removing-list-styles-without-affecting-semantics).
+{% endupdate %}
 
 Then I create a grid that creates columns which are 200px wide, as many columns as will fit on the screen.
 The column width was an arbitrary choice and caused some layout issues -- I'll explain how to choose this properly in the next step.
@@ -483,7 +489,7 @@ body {
 }
 
 #movies {
-  list-style-type: none;
+  list-style-type: "";
   padding: 0;
   margin:  0;
   

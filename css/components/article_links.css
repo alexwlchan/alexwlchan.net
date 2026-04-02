@@ -8,7 +8,7 @@
 }
 
 .alinks {
-  list-style-type: none;
+  list-style-type: "";
   padding: 0;
   
   h4 {

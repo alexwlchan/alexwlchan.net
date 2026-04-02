@@ -6,7 +6,7 @@
  */
 
 .acards {
-  list-style-type: none;
+  list-style-type: "";
   padding-left: 0px !important;
   display: grid;
   grid-gap: 1em;
