@@ -250,6 +250,8 @@ def test_highlighting_name() -> None:
         ("p { margin: -3px; }", {}, '<span class="mi">-3px</span>'),
         ("p { transform: rotate(45deg) }", {}, '<span class="mi">45deg</span>'),
         ("p { height: 50vh; }", {}, '<span class="mi">50vh</span>'),
+        ("p { height: -2.1px; }", {}, '<span class="mf">-2.1px</span>'),
+        ("p { height: 3.1em; }", {}, '<span class="mf">3.1em</span>'),
     ],
 )
 def test_css_highlighting(src: str, names: dict[int, str], must_include: str) -> None:
