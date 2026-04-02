@@ -1,0 +1,186 @@
+{#
+  We want to intersperse two types of post:
+
+  * featured articles (shown as cards)
+  * everything else (shown as links)
+  
+  I want to maintain loose chronological order, but it's not strict.
+  
+  The idea is the page goes
+  
+    [card][card]
+    - link
+    - link
+    - link
+    [card][card]
+    - link
+    - link
+    - link
+    - link
+    [card][card]
+  
+  Here's the algorithm:
+  
+  - Go through the list of posts, and build a running list of featured/other
+  - Whenever you have enough featured articles to show, check how many
+    other posts are remaining
+    
+      - if ≥3, show the other posts and then the featured articles
+      - if <3, keep them and wait for another opportunity to show them
+  
+  - At the end, show anything not yet displayed
+  
+#}
+
+{% from "macros/article_cards.html" import article_cards %}
+{% from "macros/post_links.html" import post_links %}
+
+{%- macro list_of_posts(posts) -%}
+<style>
+  @use "components/list_of_posts";
+</style>
+
+<div id="list_of_posts">
+  {% set add_article_order = true %}
+  {% set ns = namespace(featured_posts=[], remaining_posts=[]) %}
+
+  {% for p in posts %}
+    {% if p.index.exclude %}
+      {% continue %}
+    {% endif %}
+  
+    {% if p.index.feature %}
+      {% do ns.featured_posts.append(p) %}
+    {% else %}
+      {% do ns.remaining_posts.append(p) %}
+    {% endif %}
+    
+    {% if ns.featured_posts|count != 2 %}
+      {% continue %}
+    {% endif %}
+    
+    <section class="cards">{{- article_cards(articles=ns.featured_posts) -}}</section>
+    {% set ns.featured_posts = [] %}
+    
+    {% if ns.remaining_posts|count >= 3 %}
+      <section>{{- post_links(posts=ns.remaining_posts) -}}</section>
+      {% set ns.remaining_posts = [] %}
+    {% endif %}
+  {% endfor %}
+  
+  <section class="cards">{{ article_cards(articles=ns.featured_posts) }}</section>
+  <section>{{ post_links(posts=ns.remaining_posts) }}</section>
+</div>
+
+<script>
+  function arrangeCards() {
+    console.debug("Calling arrangeCards()");
+
+    /* https://stackoverflow.com/a/11744120/1558022 */
+    const width = window.innerWidth || document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
+    const cardCount = width < 1000 ? 2 : 3;
+    console.debug(`Based on window width, show ${cardCount} cards in a row`);
+
+    if (Number(document.querySelector("#list_of_posts").getAttribute("data-card-count")) === cardCount) {
+      console.debug("This is the same as the existing layout; do nothing");
+      return;
+    }
+
+    console.debug("This is different to the existing layout; change the page");
+
+   /* First reconstruct the "site.posts" array based on the HTML already
+    * on the page.  We're going to just shuffle the HTML elements around;
+    * not rearrange the whole thing. */
+   const allFeaturedPosts = [...document.querySelectorAll('.acards > li')]
+     .map(function(elem) {
+       return {
+         'elem': elem,
+         'type': 'featured',
+         'order': Number(elem.getAttribute('data-d'))
+       };
+     });
+   const allRemainingPosts = [...document.querySelectorAll('.alinks > li')]
+     .map(function(elem) {
+       return {
+         'elem': elem,
+         'type': 'remaining',
+         'order': Number(elem.getAttribute('data-d'))
+       };
+     });
+
+   const posts = allFeaturedPosts.concat(allRemainingPosts)
+     .sort((a, b) => b.order - a.order);
+
+   /* Now re-implement the sorting logic. */
+   const container = document.createElement("div");
+   container.setAttribute("id", "list_of_posts");
+
+   var featuredPosts = [];
+   var remainingPosts = [];
+
+   posts.forEach(function(p) {
+     // note: why am I not using an elif here?
+     // to satisfy `minify_html`
+     // see https://github.com/wilsonzlin/minify-html/issues/242
+     if (p.type === 'featured') {
+       featuredPosts.push(p);
+     }
+
+     if (p.type !== 'featured') {
+       remainingPosts.push(p);
+     }
+
+     if (featuredPosts.length !== cardCount) {
+       return;
+     }
+
+     var cardsSec = document.createElement("section");
+     cardsSec.classList.add("cards");
+     var cardsList = document.createElement("ul");
+     cardsList.setAttribute('class', 'acards');
+     featuredPosts.forEach(p => cardsList.appendChild(p.elem));
+     cardsSec.appendChild(cardsList);
+     container.appendChild(cardsSec);
+     featuredPosts = [];
+
+     /* If we display three cards horizontally, we want at least five links
+      * between them.
+      *
+      * If we display two cards horizontally, we only need three links
+      * between a row of cards.
+      */
+     const linksBetweenCards = cardCount === 3 ? 5 : 3;
+
+     if (remainingPosts.length >= linksBetweenCards) {
+       var articleLinks = document.createElement("ul");
+       articleLinks.setAttribute('class', 'alinks');
+       remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
+       container.appendChild(articleLinks);
+       remainingPosts = [];
+     }
+   });
+
+   if (featuredPosts.length > 0) {
+     var articleCards = document.createElement("ul");
+     articleCards.setAttribute('class', 'acards');
+     featuredPosts.forEach(p => articleCards.appendChild(p.elem));
+     container.appendChild(articleCards);
+   }
+
+   if (remainingPosts.length > 0) {
+     var articleLinks = document.createElement("ul");
+     articleLinks.setAttribute('class', 'alinks');
+     remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
+     container.appendChild(articleLinks);
+   }
+
+   document.querySelector('#list_of_posts').replaceWith(container);
+   document.querySelector('#list_of_posts').setAttribute("data-card-count", cardCount);
+  }
+
+  window.addEventListener("DOMContentLoaded", arrangeCards);
+  window.addEventListener("resize", arrangeCards);
+</script>
+{%- endmacro -%}

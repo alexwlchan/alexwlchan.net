@@ -2,13 +2,14 @@
 Models for book reviews.
 """
 
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Literal, Self
+from typing import Any, Literal, Self
 
 from pydantic import BaseModel, model_validator
 
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from ._base import BreadcrumbEntry
+from .posts import Post
 
 
 class BookContributor(BaseModel):
@@ -46,21 +47,31 @@ class ReviewInfo(BaseModel):
     from_the_library: bool = False
 
 
-class BookReview(BaseHtmlPage):
+class BookReview(Post):
     """
     A book review is my notes on a book I've read.
     """
-
-    # Properties inherited from BaseHtmlPage which are guaranteed
-    # to be set for a BookReview.
-    md_path: Path
-    src_dir: Path
 
     # Information about the book itself
     book: BookInfo
 
     # Information about my review and opinions
     review: ReviewInfo
+
+    def __init__(self, *args: Any, **kwargs: Any):
+        """
+        Create a new book review. Default `date` to midnight on the
+        day I read the book if not otherwise specified.
+
+        TODO: Backfill `date` for all book reviews.
+        """
+        if "date" in kwargs:
+            super().__init__(*args, **kwargs)
+        else:  # pragma: no cover
+            d = datetime.combine(kwargs["review"]["date_read"], datetime.min.time())
+            if d.tzinfo is None:
+                d = d.replace(tzinfo=timezone.utc)
+            super().__init__(*args, **kwargs, date=d)
 
     @property
     def attribution_line(self) -> str:

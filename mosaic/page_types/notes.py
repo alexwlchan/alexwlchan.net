@@ -2,28 +2,21 @@
 Models for notes.
 """
 
-from datetime import datetime
-from pathlib import Path
 from typing import Self
 
 from pydantic import model_validator
 
 from mosaic.topics import get_topic_by_name
 
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from ._base import BreadcrumbEntry
+from .posts import Post
 
 
-class Note(BaseHtmlPage):
+class Note(Post):
     """
     A note is a short-form piece of writing, something often without
     original thought, just meant as a reference.
     """
-
-    # Properties inherited from BaseHtmlPage which are guaranteed
-    # to be set for a BookReview.
-    md_path: Path
-    src_dir: Path
-    date: datetime
 
     @property
     def template_name(self) -> str:

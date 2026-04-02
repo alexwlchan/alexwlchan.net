@@ -7,6 +7,7 @@
 <ul class="reviews">
 {%- for rev in reviews -%}
   <li{% if not rev.review.summary %} class=" ns"{% endif %} style="--c-lt: {{ rev.colors.css_light }}; --c-dk: {{ rev.colors.css_dark }}">
+    {{- "" -}}
     <a href="{{ rev.url }}">
     {#-
       The cover images get renamed, similar to the article cards,
@@ -20,30 +21,29 @@
       TODO: We can make the <picture> quite a bit shorter here,
       and replace it with 1x/2x for the sizes attribute
     -#}
-    <figure>
-      {%- set bk_index = (reviews|count) - loop.index0 -%}
-      {%- set parent = "/images/" + rev.review.date_read.year|string -%}
-      
-      {% if page.url == "/book-reviews/" %}
-        {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + bk_index|string %}
-      {% else %}
-        {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + rev.slug %}
-      {% endif %} 
-      {%- set cover_image -%}
-      {%
-        picture
-        filename=rev.cover_image.name
-        height="75"
-        parent=parent
-        alt=""
-        loading="lazy"
-        dst_prefix=dst_prefix
-        max_pixel_density=2
-        size_based_on="density"
-      %}
-      {%- endset -%}
-      {{- cover_image -}}
-    </figure>{{- "" -}}
+    {%- set bk_index = (reviews|count) - loop.index0 -%}
+    {%- set parent = "/images/" + rev.review.date_read.year|string -%}
+    
+    {%- if page.url == "/book-reviews/" %}
+      {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + bk_index|string %}
+    {% else %}
+      {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + rev.slug %}
+    {% endif %} 
+    {%- set cover_image -%}
+    {%
+      picture
+      filename=rev.cover_image.name
+      height="75"
+      parent=parent
+      alt=""
+      loading="lazy"
+      dst_prefix=dst_prefix
+      max_pixel_density=2
+      size_based_on="density"
+    %}
+    {%- endset -%}
+    {{- cover_image -}}
+    {{- "" -}}
     </a>
   
     {{- "" -}}

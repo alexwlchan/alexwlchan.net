@@ -3,26 +3,20 @@ Models for articles.
 """
 
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Self
 
 from pydantic import model_validator
 
 from mosaic.topics import get_topic_by_name
 
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from ._base import BreadcrumbEntry
+from .posts import Post
 
 
-class Article(BaseHtmlPage):
+class Article(Post):
     """
     An article is a long-form piece of writing, usually with original thought.
     """
-
-    # Properties inherited from BaseHtmlPage which are guaranteed
-    # to be set for a BookReview.
-    md_path: Path
-    src_dir: Path
-    date: datetime
 
     # What order is this in the list of all articles?
     order: int = -1
