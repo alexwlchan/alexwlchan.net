@@ -16,7 +16,7 @@ from .caddy import parse_caddy_redirects
 from .fs import find_paths_under
 
 
-def check_no_broken_html(html_str: str) -> list[str]:
+def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
     """
     Check an HTML file doesn't have any <p> tags followed by unexpected
     HTML, which is often a sign of a rendering error.
@@ -45,7 +45,22 @@ def check_no_broken_html(html_str: str) -> list[str]:
         errors.append(f"malformed tag following <p>: {m.group(0)}")
 
     for m in re.finditer(r"&lt;/(?:picture|code|pre)>", html_str):
-        errors.append(f"malformed closing tag <p>: {m.group(0)}")
+        errors.append(f"malformed closing tag following <p>: {m.group(0)}")
+
+    for s in soup.find_all("style"):
+        if any(v in s.text for v in ("@use", "<p>", "<br>", "<br/>")):
+            errors.append(f"malformed <style> tag: <style>{s.text}</style>")
+
+        # Note(2026-04-06): the `checkbox-text-adventure/index.html` file
+        # gets a false error here, because Beautiful Soup sees a <style>
+        # string in the middle of some JavaScript.
+        #
+        # The actual <style> tags are fine, so just ignore this one file.
+        if (
+            s.find_parent("head") is None
+            and "You find yourself standing in a room" not in html_str
+        ):
+            errors.append(f"<style> tag outside <head>: <style>{s.text}</style>")
 
     return errors
 

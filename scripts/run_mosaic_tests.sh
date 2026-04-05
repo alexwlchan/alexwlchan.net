@@ -16,7 +16,7 @@ if [[ "${CI:-}" == "true" ]]
 then
   print_info "-> git diff --exit-code"
   git diff --exit-code
-  
+
   echo ""
 fi
 
@@ -30,6 +30,8 @@ mypy mosaic scripts tests
 
 echo ""
 
+# These have to be separate so Mypy doesn't get confused by the two
+# files named `conftest.py`
 print_info "-> mypy uptime_tests"
 mypy uptime_tests
 

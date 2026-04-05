@@ -72,7 +72,7 @@ if __name__ == "__main__":
     for p, (html_str, soup) in tqdm(html_files.items(), desc="linting html"):
         try:
             if "testing-javascript-without-a-framework" not in p.parts:
-                all_errors[p] += check_no_broken_html(html_str)
+                all_errors[p] += check_no_broken_html(html_str, soup)
 
             if "files" not in p.parts:
                 all_errors[p] += check_images_have_alt_text(soup)
