@@ -44,6 +44,7 @@ def test_page_properties(src_dir: Path) -> None:
 
     def make_book_review(date_read: datetime) -> BookReview:
         return BookReview(
+            date=date_read,
             src_dir=src_dir,
             md_path=src_dir / "book_review.md",
             book=BookInfo(

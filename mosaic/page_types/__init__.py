@@ -14,6 +14,7 @@ from .articles import Article
 from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
 from .notes import Note
+from .posts import Post
 from .topic_pages import TopicPage
 
 
@@ -85,6 +86,7 @@ __all__ = [
     "IndexInfo",
     "Note",
     "Page",
+    "Post",
     "ReviewInfo",
     "TopicPage",
     "read_markdown_files",

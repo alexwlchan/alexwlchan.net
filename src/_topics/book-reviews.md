@@ -11,11 +11,18 @@ It's where I met my partner; we bonded over our love of books.
 
 This page is where I keep notes on all the books I've read:
 
+{%- from "macros/article_cards.html" import article_cards -%}
 
-{% from "partials/topic_entries.html" import featured_articles %}
+<style>
+  @use "components/list_of_posts";
+</style>
 
-<div id="topic_entries">
-  {{ featured_articles(topic_name="Books I've read") }}
+<div id="list_of_posts">
+  {% set end_of_year_faves = site.articles
+    | selectattr("is_featured")
+    | filter_for_topic("Books I've read") %}
+  
+  <section class="cards">{{- article_cards(articles=end_of_year_faves) -}}</section>
 
   {% set per_year_reviews =
       site.book_reviews

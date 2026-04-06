@@ -1,0 +1,32 @@
+{% macro post_links(posts) -%}
+  <style type="x-text/scss">
+    @use "components/article_links";
+  </style>
+
+  <ul class="alinks">
+  {%- for p in posts -%}
+    <li data-d="{{ p.date.strftime('%y%m%d') }}">
+      {{- "" -}}
+      <h4><a href="{% if p.link_direct %}{{ p.link }}{% else %}{{ p.url }}{% endif %}">
+        {{- p.title | markdownify_oneline -}}
+      </a>
+      <span class="meta">
+      {% if p.topics %}{{- " · " -}}
+      {{ p.topics[0]|smartify }}{% endif %}
+      {{- " · " -}}
+      {%- with date = p.date -%}
+      {%- with date_format = '%-d %b %Y' -%}
+        {%- include "partials/timestamp.html" -%}
+      {%- endwith -%}
+      {%- endwith -%}</span>
+      </h4>
+
+      {%- if p.summary -%}
+        <p>
+          {{- p.summary | markdownify_oneline -}}
+        </p>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+  </ul>
+{% endmacro %}

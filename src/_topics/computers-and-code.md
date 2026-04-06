@@ -8,12 +8,13 @@ This blog started as a way for me to share code snippets, and writing about my c
 
 These entries cover the range of development work: from writing code to running it in production.
 
-Sub-topics:
-
-<ul>
-  {%- for c in get_topic_by_name(page.title).children | sort(attribute="name") -%}
-  <li>
-    <a href="{{ c.href }}">{{ c.name }}</a>
-  </li>
-  {%- endfor -%}
-</ul>
+<p>
+  Sub-topics:
+  <ul class="dot_list">
+    {%- for c in get_topic_by_name(page.title).children | sort(attribute="name") -%}
+    <li>
+      <a href="{{ c.href }}">{{ c.name }}</a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</p>

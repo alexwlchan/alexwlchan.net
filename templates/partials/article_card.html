@@ -13,9 +13,7 @@
       --dk: {{- article.colors.index_dark -}}
     "
   {% endif %}
-  {% if add_article_order is defined %}
-  data-o="{{ article.order }}"
-  {% endif %}
+  data-d="{{ article.date.strftime('%y%m%d') }}"
 >
   <a href="{{ article.url }}">
 

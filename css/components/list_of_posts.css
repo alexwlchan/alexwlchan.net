@@ -1,0 +1,78 @@
+#list_of_posts {
+  margin-top: 1.5em;
+}
+
+section {    
+  h2 {
+    margin-top: 0;
+  }
+  
+  .alinks:last-child {
+    margin-bottom: 0;
+  }
+}
+
+section.cards {
+  background: rgba(153, 153, 153, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  section.cards {
+    background: rgba(43, 43, 43, 0.55);
+  }
+}
+
+/* The width of the window is 100vw, the width of <main> is 100%.
+ *
+ * When we expand <section>s to break out of <main>, we need to add
+ * a negative left margin to move it against the edge of the window,
+ * then re-add our padding.
+ *
+ *    |                   |
+ *    |    +++++++++++    | 
+ *    |    +++++++++++    | 
+ *    |                   |
+ *
+ *         <!- 100% ->
+ *     <----- 100vw ----->
+ *
+ */
+#list_of_posts section {
+  padding:     1.5em var(--default-padding);
+  width:       calc(100vw);
+  margin-left: calc(50% - 50vw);
+  
+  & > * {
+    max-width: var(--max-width);
+    width: calc(100% - 2*var(--default-padding));
+    margin: 0 auto;
+    padding: 0 var(--default-padding);
+  }
+}
+
+@media screen and (width<=750px) {
+  #list_of_posts section {
+    & > * {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (width>=1000px) {
+  #list_of_posts section.cards > * {
+    width: calc(100% + 199px);
+    max-width: calc(949px);
+  }
+}
+
+/* Tidy up the padding if there are two blocks of article cards next
+ * to each other. */
+#list_of_posts {
+  section.cards:has( + .cards) {
+    padding-bottom: 1em;
+  }
+
+  section.cards + .cards {
+    padding-top: 0;
+  }
+}

@@ -22,6 +22,7 @@ from .page_types import (
     BaseHtmlPage,
     BookReview,
     Note,
+    Post,
     read_markdown_files,
 )
 from .templates import get_jinja_environment
@@ -43,16 +44,24 @@ class Site(BaseModel):
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
     @property
+    def posts(self) -> list[page_types.Post]:
+        """
+        Return the posts on the site, sorted in decreasing date order
+        (newest first).
+        """
+        return sorted(
+            (p for p in self.all_pages if isinstance(p, Post)),
+            key=lambda p: p.date,
+            reverse=True,
+        )
+
+    @property
     def articles(self) -> list[page_types.Article]:
         """
         Return the articles on the site, sorted in decreasing date order
         (newest first).
         """
-        return sorted(
-            (p for p in self.all_pages if isinstance(p, Article)),
-            key=lambda art: art.date,
-            reverse=True,
-        )
+        return [p for p in self.posts if isinstance(p, Article)]
 
     @property
     def book_reviews(self) -> list[page_types.BookReview]:
@@ -60,11 +69,7 @@ class Site(BaseModel):
         Return the book reviews on the site, sorted in decreasing date order
         (newest first).
         """
-        return sorted(
-            (p for p in self.all_pages if isinstance(p, BookReview)),
-            key=lambda br: br.review.date_read,
-            reverse=True,
-        )
+        return [p for p in self.posts if isinstance(p, BookReview)]
 
     @property
     def notes(self) -> list[page_types.Note]:
@@ -72,11 +77,7 @@ class Site(BaseModel):
         Return the notes on the site, sorted in decreasing date order
         (newest first).
         """
-        return sorted(
-            (p for p in self.all_pages if isinstance(p, Note)),
-            key=lambda n: n.date,
-            reverse=True,
-        )
+        return [p for p in self.posts if isinstance(p, Note)]
 
     @property
     def pages(self) -> list[page_types.BaseHtmlPage]:
