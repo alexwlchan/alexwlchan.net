@@ -25,20 +25,74 @@ class TestCheckNoBrokenHtml:
     """
 
     @pytest.mark.parametrize(
-        "html", ["<p><table>", "<p>&lt;pre&gt;", "<p><p>", "<picture>&lt;/picture>"]
+        "html",
+        [
+            "<p><table>",
+            "<p>&lt;pre&gt;",
+            "<p><p>",
+            "<picture>&lt;/picture>",
+        ],
     )
     def test_spots_bad_tag_after_p(self, html: str) -> None:
         """
-        The lint catches examples of malformed HTML.
+        The lint catches a <p> tag which is followed by something unexpected.
         """
-        assert check_no_broken_html(html)
+        soup = BeautifulSoup(html, "html.parser")
+        errors = check_no_broken_html(html, soup)
 
-    @pytest.mark.parametrize("html", ["<p><em>", "<p>Abc"])
+        assert len(errors) == 1
+        assert "following <p>" in errors[0]
+
+    @pytest.mark.parametrize(
+        "html",
+        [
+            "<head><style>p { color: red; }\n<br/>\nspan { color: blue; }</style></head>",
+            (
+                "<head><style>p { color: red; }\n<p>\nspan { color: blue; }</p>\n"
+                "div { color: green; }</style></head>"
+            ),
+            '<head><style>@use "components/tables"</style></head>',
+        ],
+    )
+    def test_spots_style_contains_html(self, html: str) -> None:
+        """
+        The lint catches a <style> tag which contains HTML, which is
+        a common symptom of the Markdown parser parsing whitespace
+        inside a <style> tag.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        errors = check_no_broken_html(html, soup)
+
+        assert len(errors) == 1
+        assert errors[0].startswith("malformed <style> tag")
+
+    @pytest.mark.parametrize(
+        "html",
+        [
+            "<html><style>p { color: red; }</style></html>",
+            "<body><style>p { color: red; }</style></body>",
+        ],
+    )
+    def test_spots_style_outside_head(self, html: str) -> None:
+        """
+        The lint catches a <style> tag which is outside the <head> of
+        the document.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        errors = check_no_broken_html(html, soup)
+
+        assert len(errors) == 1
+        assert errors[0].startswith("<style> tag outside <head>")
+
+    @pytest.mark.parametrize(
+        "html", ["<p><em>", "<p>Abc", "<head><style>p { color: red; }</style></head>"]
+    )
     def test_allows_inline_tag_after_p(self, html: str) -> None:
         """
         The lint ignores examples of valid HTML.
         """
-        assert check_no_broken_html(html) == []
+        soup = BeautifulSoup(html, "html.parser")
+        assert check_no_broken_html(html, soup) == []
 
 
 class TestCheckNoLocalhostLinks:

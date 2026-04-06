@@ -2,28 +2,32 @@
 <html lang="en">
 
   {% set content %}
-      {% block content %}
-      {% endblock %}
+    {% block content %}
+    {% endblock %}
   {% endset %}
-
-  {% set parsed_content = content | get_inline_styles %}
-
-  <head>
-    {% include "partials/head.html" %}
-
-    {% if parsed_content.styles != "" %}
-      <style>{{ parsed_content.styles }}</style>
-    {% endif %}
-  </head>
-  <body>
+  
+  {% set body %}
     <a class="skip-main" href="#main">Skip to main content</a>
 
     {% include "partials/nav.html" %}
 
     <main id="main" tabindex="-1">
-      {{ parsed_content.html }}
+      {{ content }}
     </main>
 
     {% include "partials/footer.html" %}
+  {% endset %}
+
+  {% set parsed_body = body | get_inline_styles %}
+
+  <head>
+    {% include "partials/head.html" %}
+
+    {% if parsed_body.styles != "" %}
+      <style>{{ parsed_body.styles }}</style>
+    {% endif %}
+  </head>
+  <body>
+    {{ parsed_body.html }}
   </body>
 </html>
