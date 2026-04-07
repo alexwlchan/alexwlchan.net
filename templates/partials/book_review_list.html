@@ -58,7 +58,7 @@
     {{- "" -}}
   
     <p>
-      <a href="{{ rev.url }}"><em>{{ rev.book.title | smartify }}</em></a>, {{ rev.attribution_line }} 
+      <a href="{{ rev.url }}">{{ rev.book.title | smartify }}</a>, {{ rev.attribution_line }} 
       {%- if page.url == "/ace-book-club/" and rev.slug == "song-of-the-huntress" %}
         {{ " " }}(February 2026)
       {%- elif page.url == "/ace-book-club/" and rev.slug == "how-to-be-a-normal-person" %}

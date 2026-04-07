@@ -48,6 +48,10 @@
   /* book title */
   p:nth-child(2) {
     margin-top: auto;
+    
+    a {
+      font-style: italic;
+    }
   }
   
   /* summary */
