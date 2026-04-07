@@ -6,42 +6,51 @@
 
 <ul class="reviews">
 {%- for rev in reviews -%}
-  <li{% if not rev.review.summary %} class=" ns"{% endif %} style="--c-lt: {{ rev.colors.css_light }}; --c-dk: {{ rev.colors.css_dark }}">
+
+{#-
+  The cover images get renamed, similar to the article cards,
+  to reduce the overall size of the page.
+
+  The bk_index counts the order in which I read the book that
+  year, and then they're filed in a per-year folder.
+
+  For example: images/b26/4 is the 4th book I read in 2026.
+
+  TODO: We can make the <picture> quite a bit shorter here,
+  and replace it with 1x/2x for the sizes attribute
+-#}
+{%- set bk_index = (reviews|count) - loop.index0 -%}
+{%- set parent = "/images/" + rev.review.date_read.year|string -%}
+{%- if page.url == "/book-reviews/" %}
+  {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + bk_index|string %}
+{% else %}
+  {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + rev.slug %}
+{% endif %} 
+{%- set cover_image -%}
+{%-
+  picture
+  filename=rev.cover_image.name
+  height="75"
+  parent=parent
+  alt=""
+  loading="lazy"
+  dst_prefix=dst_prefix
+  max_pixel_density=2
+  size_based_on="density"
+-%}
+{%- endset -%}
+
+{#
+  Extract the aspect ratio into a variable to be used in the `style` attribute
+  on the <li> rather than the <img>. Given the number of images in this page,
+  this shaves ~5% off the overall page weight.
+#}
+{% set aspect_ratio = cover_image.split('style="aspect-ratio:')[1].split('"')[0] %}
+{% set cover_image = cover_image.split('style="aspect-ratio:')[0] + cover_image.split('style="aspect-ratio:')[1].split('"', 1)[1] %}
+
+  <li{% if not rev.review.summary %} class=" ns"{% endif %} style="--c-lt: {{ rev.colors.css_light }}; --c-dk: {{ rev.colors.css_dark }}; --ar: {{ aspect_ratio }}">
     {{- "" -}}
     <a href="{{ rev.url }}">
-    {#-
-      The cover images get renamed, similar to the article cards,
-      to reduce the overall size of the page.
-    
-      The bk_index counts the order in which I read the book that
-      year, and then they're filed in a per-year folder.
-    
-      For example: images/b26/4 is the 4th book I read in 2026.
-    
-      TODO: We can make the <picture> quite a bit shorter here,
-      and replace it with 1x/2x for the sizes attribute
-    -#}
-    {%- set bk_index = (reviews|count) - loop.index0 -%}
-    {%- set parent = "/images/" + rev.review.date_read.year|string -%}
-    
-    {%- if page.url == "/book-reviews/" %}
-      {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + bk_index|string %}
-    {% else %}
-      {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + rev.slug %}
-    {% endif %} 
-    {%- set cover_image -%}
-    {%-
-      picture
-      filename=rev.cover_image.name
-      height="75"
-      parent=parent
-      alt=""
-      loading="lazy"
-      dst_prefix=dst_prefix
-      max_pixel_density=2
-      size_based_on="density"
-    -%}
-    {%- endset -%}
     {{- cover_image -}}
     {{- "" -}}
     </a>
