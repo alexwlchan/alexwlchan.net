@@ -383,10 +383,11 @@ I hope you like it!
 
 <section id="recent_articles">
 <h2>Recent articles</h2>
+
+{% from "macros/post_links.html" import post_links %}
+
 {%- set articles = (site.articles | sort(attribute="date", reverse=True))[:5] -%}
-{%- with include_topic = true -%}
-  {%- include "partials/article_links.html" -%}
-{%- endwith -%}
+{{ post_links(articles) }}
 <p><a href="/articles/" style="color: var(--text-color);">Read more articles</a> &rarr;</p>
 </section>
 

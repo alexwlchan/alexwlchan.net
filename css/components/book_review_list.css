@@ -36,6 +36,10 @@
     }
   }
   
+  img {
+    aspect-ratio: var(--ar);
+  }
+  
   p {
     margin: 0;
     grid-column: 2 / 2;
@@ -44,6 +48,10 @@
   /* book title */
   p:nth-child(2) {
     margin-top: auto;
+    
+    a {
+      font-style: italic;
+    }
   }
   
   /* summary */

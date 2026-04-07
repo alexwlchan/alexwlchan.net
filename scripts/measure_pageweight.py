@@ -28,11 +28,15 @@ def pprint_size(size: int) -> str:
 if __name__ == "__main__":
     out_dir = Path("_out")
 
-    # fmt: off
-    print("Homepage (/):\t\t",        pprint_filesize(out_dir / "index.html"))
-    print("Articles (/articles/):\t", pprint_filesize(out_dir / "articles/index.html"))
-    print("Notes (/notes):\t\t",          pprint_filesize(out_dir / "notes/index.html"))
-    # fmt: on
+    print("Homepage (/):\t\t\t", pprint_filesize(out_dir / "index.html"))
+    print(
+        "Articles (/articles/):\t\t", pprint_filesize(out_dir / "articles/index.html")
+    )
+    print("Notes (/notes/):\t\t", pprint_filesize(out_dir / "notes/index.html"))
+    print(
+        "Book reviews (/book-reviews/):\t",
+        pprint_filesize(out_dir / "book-reviews/index.html"),
+    )
 
     sizes = [
         p.stat().st_size
@@ -40,4 +44,4 @@ if __name__ == "__main__":
         if "files" not in p.parts
     ]
     average = round(sum(sizes) / len(sizes))
-    print("Global average:\t\t", pprint_size(average))
+    print("Global average:\t\t\t", pprint_size(average))
