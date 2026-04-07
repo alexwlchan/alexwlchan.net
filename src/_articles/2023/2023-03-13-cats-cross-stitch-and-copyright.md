@@ -117,7 +117,7 @@ These issues aside, I really am thrilled with this latest piece – it was fun t
 [Shutterstock]: https://www.shutterstock.com/image-illustration/cute-cheetah-watercolor-illustration-african-animal-292143374
 [Dreamstime]: https://www.dreamstime.com/stock-illustration-cheetah-t-shirt-graphics-african-animals-cheetah-illustration-splash-watercolor-textured-background-unusual-illustration-w-image56129690
 
-<style type="x-text/scss">
+<style>
   #school_project {
     display: grid;
     grid-template-columns: 

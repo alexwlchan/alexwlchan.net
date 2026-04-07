@@ -10,7 +10,7 @@ topics:
 One thing I've come to learn is that there is no "one" regex syntax, and it varies across different languages.
 Today I learnt another difference!
 
-<style type="x-text/scss">
+<style>
   @use "components/tables";
   
   table {

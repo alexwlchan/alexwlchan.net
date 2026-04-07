@@ -1,5 +1,5 @@
 <svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="0 0 376.296875 278" style="max-width: 376.297px;" class="flowchart mermaid" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid2">
-  <style type="x-text/scss">
+  <style>
     @use "components/mermaid";
 
     #mermaid2 .join span{height:0!important;width:0!important;}

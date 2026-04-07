@@ -171,7 +171,7 @@ I displayed them as subtle, monochrome icons, to avoid overwhelming the footer w
 I thought it would be fun to show the site's brand colour when you hovered over the icon.
 If, say, you hover over the bird icon and see Twitter's shade of blue, it's a subtle confirmation that this is indeed a link to my Twitter profile.
 
-<style type="x-text/scss">
+<style>
   /* Colour the icons correctly.
    *
    * Each icon contains two shapes:

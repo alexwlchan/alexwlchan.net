@@ -80,7 +80,7 @@ def render_slide(
     )
 
     return (
-        '<style type="x-text/scss">\n'
+        "<style>\n"
         '  @use "components/slides";\n'
         "</style>\n"
         '<figure class="slide">\n' + picture_html + figcaption_html + "</figure>"

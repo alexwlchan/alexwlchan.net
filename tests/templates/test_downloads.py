@@ -37,7 +37,7 @@ class TestDownloadExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
-            '<style type=x-text/scss>@use "components/download";</style>'
+            '<style>@use "components/download";</style>'
             "<a class=download href=/files/2026/example.zip>"
             "<picture>"
             "<source "

@@ -44,7 +44,7 @@ I'd been gradually saving towards its replacement, and now was the time.
 I broke out the toolbox and reduced the wardrobe to a pile of parts.
 I took great glee in disassembling something which has been a source of countless minor irritations.
 
-<style type="x-text/scss">
+<style>
   #wardrobe {
     display: grid;
     grid-template-columns: auto auto;

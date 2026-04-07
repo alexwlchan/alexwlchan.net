@@ -141,14 +141,14 @@ def test_block_elements_are_preserved(md: str) -> None:
         (
             "<h1>LaTeX</h1>",
             "<h1>"
-            '<style type="x-text/scss">@use "components/latex";</style>'
+            '<style>@use "components/latex";</style>'
             '<span class="visually-hidden">LaTeK</span>'
             '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
             "</h1>",
         ),
         (
             "LaTeX",
-            '<style type="x-text/scss">@use "components/latex";</style>'
+            '<style>@use "components/latex";</style>'
             '<span class="visually-hidden">LaTeK</span>'
             '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>',
         ),

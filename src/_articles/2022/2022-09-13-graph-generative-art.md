@@ -8,7 +8,7 @@ index:
   feature: true
 ---
 
-<style type="x-text/scss">
+<style>
   @use "components/checkerboard";
 </style>
 

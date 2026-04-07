@@ -35,7 +35,7 @@ class TestTableOfContentsExtension:
 
         html = env.from_string(md).render(page=StubPage(content=md)).strip()
         assert minify_html.minify(html) == (
-            '<style type=x-text/scss>@use "components/table_of_contents";</style>'
+            '<style>@use "components/table_of_contents";</style>'
             "<nav aria-labelledby=toc-heading class=table_of_contents>"
             "<h3 id=toc-heading>Table of contents</h3>"
             "<ul><li>"
@@ -65,7 +65,7 @@ class TestTableOfContentsExtension:
 
         html = env.from_string(md).render(page=StubPage(content=md)).strip()
         assert minify_html.minify(html) == (
-            '<style type=x-text/scss>@use "components/table_of_contents";</style>'
+            '<style>@use "components/table_of_contents";</style>'
             "<nav aria-labelledby=toc-heading class=table_of_contents>"
             "<h3 id=toc-heading>Table of contents</h3>"
             "<ul><li><a href=#heading1>My first heading</a>"

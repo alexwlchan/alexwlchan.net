@@ -10,7 +10,7 @@ colors:
   index_dark:  "#a86da8"
 ---
 
-<style type="x-text/scss">
+<style>
   #grid-container {
     display: grid;
     grid-template-columns: 66% 32%;
