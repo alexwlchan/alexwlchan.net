@@ -36,7 +36,7 @@ When I first enabled AVIF support, I thought I'd broken something, because a 5x 
 
 I had it all tested and working, so imagine my dismay when I opened [my latest post](/2023/upward-assignment/) on my phone and discovered the images were broken:
 
-<style type="x-text/scss">
+<style>
   #avif_comparison {
     display: grid;
     grid-template-columns: auto auto;

@@ -20,7 +20,7 @@ But I don't find the syntax especially intuitive -- I can never remember exactly
 
 To help me out, I've written a small bookmarklet to generate these URLs:
 
-<style type="x-text/scss">
+<style>
   @use "components/bookmarklets";
 </style>
 

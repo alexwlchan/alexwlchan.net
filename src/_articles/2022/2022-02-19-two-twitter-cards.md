@@ -9,7 +9,7 @@ colors:
   index_dark:  "#77c8fe"
 ---
 
-<style type="x-text/scss">
+<style>
   #card_comparison {
     width: 700px;
 
@@ -50,7 +50,7 @@ If you let Twitter pick the crop, they pick a 2:1 rectangle from the middle of t
 They used to use machine learning to pick the "interesting" part of the image, but apparently [it got phased out][phased_out] after accusations of bias.
 This can give some unfortunate results:
 
-<style type="x-text/scss">
+<style>
   #card_comparison {
     width: 700px;
 

@@ -12,7 +12,7 @@ colors:
   index_dark:  "#d89c35"
 ---
 
-<style type="x-text/scss">
+<style>
   h2, h3 {
     &:hover {
       & > a.anchor {

@@ -105,7 +105,7 @@ The second issue was in the rendered HTML page, where the Unicode characters aff
 In particular, I wanted to show the characters for 1, 2, 3, 4, in that order, so I wrote the four entities -- but the browser uses a [bidirectional algorithm][w3-bdi] and renders the sequence of characters as right-to-left.
 That's the opposite of what I wanted:
 
-<style type="x-text/scss">
+<style>
   @use "components/tables";
 </style>
 

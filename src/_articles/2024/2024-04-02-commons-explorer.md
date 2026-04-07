@@ -23,7 +23,7 @@ There are lots of cool photos to find!
 
 You can try the new Commons Explorer at [commons.flickr.org](https://commons.flickr.org), or you can learn more in [our introductory blog post](https://www.flickr.org/new-flickr-commons-explorer/).
 
-<style type="x-text/scss">
+<style>
   #grid {
     display: grid;
     grid-template-columns: 3fr 2fr;

@@ -26,7 +26,7 @@ Fortunately, computers.
 After my meeting, I cracked out Python and started experimenting.
 I wrote some scripts to generate SVG images -- I'm bashing lines and curves together, and I've done [similar stuff before](/2022/graph-generative-art/).
 
-<style type="x-text/scss">
+<style>
   @use "components/checkerboard";
   @use "components/hero_grid";
 

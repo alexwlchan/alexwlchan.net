@@ -16,7 +16,7 @@ I decided to take him at his word, and spent an hour or so finding a way to de-c
 
 Drag this bookmark to your bookmarks bar:
 
-<style type="x-text/scss">
+<style>
   @use "components/bookmarklets";
 </style>
 

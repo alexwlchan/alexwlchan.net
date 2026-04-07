@@ -19,7 +19,7 @@ However, there is one point of contention: how should websites ask for your age?
 I've done some thinking, and I've come up with a proposal.
 We all know the best way to tell somebody's age is to count the candles on their birthday cake, so I've built a cake-based interface.
 
-<style type="x-text/scss">
+<style>
   #cakeInput {
     --width: calc(
       100vw
@@ -236,7 +236,7 @@ I started with a little pencil-drawn sketch to work out the rough geometry, then
 I still find it vaguely relaxing to create pictures from code.
 This is what I came up with:
 
-<style type="x-text/scss">
+<style>
   #two_columns {
     display: grid;
     grid-template-columns: 2fr 1fr;

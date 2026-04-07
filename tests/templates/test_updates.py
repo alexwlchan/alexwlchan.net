@@ -17,7 +17,7 @@ def test_render_update(env: Environment) -> None:
 
     html = env.from_string(md).render().strip()
     assert html == (
-        '<style type="x-text/scss">\n'
+        "<style>\n"
         '  @use "components/updates";\n'
         "</style>\n"
         '<aside class="update" role="note" id="update-2001-02-03">\n'

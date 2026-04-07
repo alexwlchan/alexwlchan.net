@@ -6,7 +6,7 @@ colors:
   css_dark:  "#5ff042"
 ---
 
-<style type="x-text/scss">
+<style>
   img#headshot {
     border-radius: 50%;
     margin-left:   var(--default-padding);

@@ -37,7 +37,7 @@ Usually the distinction is pretty clear-cut, but occasionally there’s some ove
 For example, I learn about AWS in the course of my work.
 If I learn something which is generically useful and not specific to my employer's setup, I'll put the notes in my personal vault rather than the work vault.
 
-<style type="x-text/scss">
+<style>
   #screenshots {
     display: grid;
     grid-template-columns: auto;
@@ -85,7 +85,7 @@ I use a similar set of colour-based themes to help me distinguish between Slack 
 
 ---
 
-<style type="x-text/css">
+<style>
   @media screen and (min-width: 500px) {
     #obsidian_tags {
       display: inline-block;
