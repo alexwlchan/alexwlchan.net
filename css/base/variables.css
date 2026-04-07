@@ -65,6 +65,9 @@
 
   --screenshot-border-light: #f0f0f0;
   --screenshot-border-dark:  #3f3f3f;
+  
+  --section-background-light: rgba(153, 153, 153, 0.12);
+  --section-background-dark:  rgba(43, 43, 43, 0.55);
 
   /* A collection of named colours I can use. */
   --white:   #fafafa;
@@ -103,6 +106,7 @@
     --background-image:   var(--background-texture-light);
     --background-color:   var(--background-color-light);
     --nav-bg-image:       var(--nav-bg-image-light);
+    --section-bg-color:   var(--section-background-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -122,6 +126,7 @@
     --background-image:    var(--background-texture-dark);
     --background-color:    var(--background-color-dark);
     --nav-bg-image:        var(--nav-bg-image-dark);
+    --section-bg-color:   var(--section-background-dark);
   }
 }
 

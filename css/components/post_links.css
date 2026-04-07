@@ -1,0 +1,16 @@
+.plinks ul {
+  list-style-type: "";
+  padding: 0;
+  
+  h4 {
+    font-weight: normal;
+    margin-bottom: 7px;
+  }
+  
+  p {  /* description */
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 85%;
+    line-height: 1.45em;
+  }
+}

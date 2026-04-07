@@ -59,20 +59,20 @@
       {% continue %}
     {% endif %}
     
-    <section class="cards">{{- article_cards(articles=ns.featured_posts) -}}</section>
+    {{- article_cards(articles=ns.featured_posts) -}}
     {% set ns.featured_posts = [] %}
     
     {% if ns.remaining_posts|count >= 3 %}
-      <section>{{- post_links(posts=ns.remaining_posts) -}}</section>
+      <section class="links">{{- post_links(posts=ns.remaining_posts) -}}</section>
       {% set ns.remaining_posts = [] %}
     {% endif %}
   {% endfor %}
   
-  <section class="cards">{{ article_cards(articles=ns.featured_posts) }}</section>
-  <section>{{ post_links(posts=ns.remaining_posts) }}</section>
+  {{ article_cards(articles=ns.featured_posts) }}
+  <section class="links">{{ post_links(posts=ns.remaining_posts) }}</section>
 </div>
 
-<script>
+<script>  
   function arrangeCards() {
     console.debug("Calling arrangeCards()");
 
@@ -93,7 +93,7 @@
    /* First reconstruct the "site.posts" array based on the HTML already
     * on the page.  We're going to just shuffle the HTML elements around;
     * not rearrange the whole thing. */
-   const allFeaturedPosts = [...document.querySelectorAll('.acards > li')]
+   const allFeaturedPosts = [...document.querySelectorAll('.acards ul > li')]
      .map(function(elem) {
        return {
          'elem': elem,
@@ -101,7 +101,7 @@
          'order': Number(elem.getAttribute('data-d'))
        };
      });
-   const allRemainingPosts = [...document.querySelectorAll('.alinks > li')]
+   const allRemainingPosts = [...document.querySelectorAll('.plinks ul > li')]
      .map(function(elem) {
        return {
          'elem': elem,
@@ -136,13 +136,7 @@
        return;
      }
 
-     var cardsSec = document.createElement("section");
-     cardsSec.classList.add("cards");
-     var cardsList = document.createElement("ul");
-     cardsList.setAttribute('class', 'acards');
-     featuredPosts.forEach(p => cardsList.appendChild(p.elem));
-     cardsSec.appendChild(cardsList);
-     container.appendChild(cardsSec);
+     createArticleCards(container, featuredPosts);
      featuredPosts = [];
 
      /* If we display three cards horizontally, we want at least five links
@@ -154,30 +148,63 @@
      const linksBetweenCards = cardCount === 3 ? 5 : 3;
 
      if (remainingPosts.length >= linksBetweenCards) {
-       var articleLinks = document.createElement("ul");
-       articleLinks.setAttribute('class', 'alinks');
-       remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
-       container.appendChild(articleLinks);
+       container.appendChild(createPostLinks(remainingPosts));
        remainingPosts = [];
      }
    });
 
    if (featuredPosts.length > 0) {
-     var articleCards = document.createElement("ul");
-     articleCards.setAttribute('class', 'acards');
-     featuredPosts.forEach(p => articleCards.appendChild(p.elem));
-     container.appendChild(articleCards);
+     createArticleCards(container, featuredPosts);
    }
 
    if (remainingPosts.length > 0) {
-     var articleLinks = document.createElement("ul");
-     articleLinks.setAttribute('class', 'alinks');
-     remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
-     container.appendChild(articleLinks);
+     container.appendChild(createPostLinks(remainingPosts));
    }
 
    document.querySelector('#list_of_posts').replaceWith(container);
    document.querySelector('#list_of_posts').setAttribute("data-card-count", cardCount);
+  }
+  
+  /* Given a list of <li> elements for article cards, create a new <section>
+   * element that contains those cards.
+   *
+   * This mirrors the `article_cards.html` template.
+   */
+  function createArticleCards(container, posts) {
+    // If the last thing we added to the container was a list of cards,
+    // continue appending to that list; otherwise, create a new list.
+    const lastChild = container.lastChild;
+    
+    var ul;
+    if (lastChild !== null && lastChild.classList.contains("acards")) {
+      ul = lastChild.querySelector("ul");
+    } else {
+      const section = document.createElement("section");
+      section.classList.add("acards");
+      container.appendChild(section)
+    
+      ul = document.createElement("ul");
+      section.appendChild(ul);
+    }
+    
+    posts.forEach(p => ul.appendChild(p.elem));
+  }
+  
+  /* Given a list of <li> elements for post links, create a new <section>
+   * element that contains those cards.
+   *
+   * This mirrors the `post_links.html` template.
+   */
+  function createPostLinks(posts) {
+    const section = document.createElement("section");
+    section.classList.add("plinks");
+    
+    const ul = document.createElement("ul");
+    section.appendChild(ul);
+    
+    posts.forEach(p => ul.appendChild(p.elem));
+    
+    return section;
   }
 
   window.addEventListener("DOMContentLoaded", arrangeCards);

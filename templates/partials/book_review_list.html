@@ -30,7 +30,7 @@
       {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + rev.slug %}
     {% endif %} 
     {%- set cover_image -%}
-    {%
+    {%-
       picture
       filename=rev.cover_image.name
       height="75"
@@ -40,7 +40,7 @@
       dst_prefix=dst_prefix
       max_pixel_density=2
       size_based_on="density"
-    %}
+    -%}
     {%- endset -%}
     {{- cover_image -}}
     {{- "" -}}
@@ -49,7 +49,7 @@
     {{- "" -}}
   
     <p>
-      <a href="{{ rev.url }}"><em>{{ rev.book.title }}</em></a>, {{ rev.attribution_line }} 
+      <a href="{{ rev.url }}"><em>{{ rev.book.title | smartify }}</em></a>, {{ rev.attribution_line }} 
       {%- if page.url == "/ace-book-club/" and rev.slug == "song-of-the-huntress" %}
         {{ " " }}(February 2026)
       {%- elif page.url == "/ace-book-club/" and rev.slug == "how-to-be-a-normal-person" %}
@@ -76,15 +76,20 @@
     <p>
       {%- if rev.review.summary -%}
         {{- rev.review.summary | smartify -}}
-        {% if rev.review.rating %}
-          {{ " " }}{{ star_rating(rev.review.rating) }}
-        {% endif %}
-      {%- elif rev.review.rating -%}
+        {{ " " }}
+      {%- endif -%}
+      {%- if rev.review.date_read -%}
+        {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
+        {{ " " }}
+        {{- rev.review.date_read.strftime('%-d %B %Y') -}}.
+        {{ " " }}
+      {%- endif -%}
+      {%- if not rev.review.did_not_finish -%}
         {{- star_rating(rev.review.rating) -}}
       {%- endif -%}
     </p>
     {%- endset -%}
-  
+
     {{- description
         | replace('<p><span class="sr">★★☆☆☆</span></p>',
                   '<p class="sr">★★☆☆☆</p>')

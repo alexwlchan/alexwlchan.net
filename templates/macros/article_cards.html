@@ -3,9 +3,11 @@
     @use "components/article_cards";
   </style>
 
-  <ul class="acards acards--{{ articles|count }}">
+<section class="acards">
+  <ul>
   {% for article in articles %}
     {% include "partials/article_card.html" %}
   {% endfor %}
   </ul>
+</section>
 {% endmacro %}

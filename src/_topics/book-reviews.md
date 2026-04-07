@@ -17,12 +17,18 @@ This page is where I keep notes on all the books I've read:
   @use "components/list_of_posts";
 </style>
 
+<style>
+  #list_of_posts section:nth-child(2n + 1) {
+    background: var(--section-bg-color);
+  }
+</style>
+
 <div id="list_of_posts">
   {% set end_of_year_faves = site.articles
     | selectattr("is_featured")
     | filter_for_topic("Books I've read") %}
   
-  <section class="cards">{{- article_cards(articles=end_of_year_faves) -}}</section>
+  {{- article_cards(articles=end_of_year_faves) -}}
 
   {% set per_year_reviews =
       site.book_reviews
@@ -31,9 +37,16 @@ This page is where I keep notes on all the books I've read:
         | sort(reverse=True) %}
 
   {%- for year, reviews in per_year_reviews -%}
-    <section>
+    <section class="plinks">
       <div>
-        <h2>Books I read in {{ year }}</h2>
+        {%- if loop.index == 1 -%}
+        <ul class="dot_list">
+          {%- for year, _ in per_year_reviews -%}
+          <li><a href="#books-{{ year }}">{{ year }}</a></li>
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+        <h2 id="books-{{ year }}">Books I read in {{ year }}</h2>
         <p>
           {%- if site.time.year == year -%}
           I’ve read {{ reviews|count }} book{% if reviews|count > 1 %}s{% endif %} so far this year:
