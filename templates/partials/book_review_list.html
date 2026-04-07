@@ -2,7 +2,7 @@
   @use "components/book_review_list";
 </style>
 
-{%- from "partials/star_rating.html" import star_rating -%}
+{%- from "macros/star_rating.html" import star_rating -%}
 
 <ul class="reviews">
 {%- for rev in reviews -%}
@@ -76,9 +76,6 @@
     <p>
       {%- if rev.review.summary -%}
         {{- rev.review.summary | smartify -}}
-        {%- with rating = (rev.review.rating, 5) -%}
-          {%- include "partials/star_rating.html" -%}
-        {%- endwith -%}
         {% if rev.review.rating %}
           {{ " " }}{{ star_rating(rev.review.rating) }}
         {% endif %}
