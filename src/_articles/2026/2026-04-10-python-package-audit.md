@@ -1,6 +1,6 @@
 ---
 layout: article
-date: 2026-04-10 08:12:19 +01:00
+date: 2026-04-10 18:00:35 +01:00
 title: Auditing my local Python packages
 summary: Python's virtual environments mean I can have many versions of the same package scattered across my machine. I've started keeping a list of my environments so I can see exactly what's installed, and where.
 topic: Python
