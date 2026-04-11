@@ -7,7 +7,7 @@ from collections.abc import Iterator
 import os
 from pathlib import Path
 import re
-from urllib.parse import urlparse, urlsplit
+from urllib.parse import unquote, urlparse, urlsplit
 
 from bs4 import BeautifulSoup
 
@@ -300,8 +300,15 @@ def check_links_are_consistent(
                 errors.append((pth, tag_name, url))
                 continue
 
+            # If the fragment points to a page ID, check the ID exists.
+            # If the fragment points to some text on the page, check the
+            # page contains that text.
             fragment = urlsplit(url).fragment
-            if fragment and not pages[expected_path].find(id=fragment):
+            if fragment and fragment.startswith(":~:text="):
+                expected_text = unquote(fragment[len(":~:text=") :])
+                if expected_text not in pages[expected_path].text:
+                    errors.append((pth, tag_name, url))
+            elif fragment and not pages[expected_path].find(id=fragment):
                 errors.append((pth, tag_name, url))
 
     # 3. Reorganise the errors into the final output

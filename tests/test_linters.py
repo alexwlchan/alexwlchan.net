@@ -381,6 +381,7 @@ class TestCheckLinksAreConsistent:
             '<a href="tel:0123456789">phone call</a>',
             '<a href="#main">go to main</a><div id="main">main section</div>',
             '<a href="../cat.jpg">relative URL</a>',
+            '<a href="/other_page/#:~:text=some%20text">link to text fragment</a>',
         ],
     )
     def test_good_page(self, out_dir: Path, html: str) -> None:
@@ -397,7 +398,11 @@ class TestCheckLinksAreConsistent:
         html_soup = BeautifulSoup(html, "html.parser")
 
         other_html = (
-            '<h1 id="heading1">heading1</h1>\n\n<h2 id="heading2">heading2</h2>'
+            '<h1 id="heading1">heading1</h1>\n'
+            "\n"
+            '<h2 id="heading2">heading2</h2>\n'
+            "\n"
+            "<p>here is some text on the other page</p>"
         )
         other_path = out_dir / "other_page/index.html"
         other_path.write_text(other_html)
@@ -408,32 +413,34 @@ class TestCheckLinksAreConsistent:
         assert check_links_are_consistent(out_dir, pages) == {}
 
     @pytest.mark.parametrize(
-        "html, tag, url",
+        "html, url",
         [
             (
                 '<a href="/f/17823e-32x32.svg">static file</a>',
-                "a",
                 "/f/17823e-32x32.svg",
             ),
-            ('<a href="#main">fragment</a>', "a", "#main"),
-            ('<img src="/doesnotexist.jpg">', "img", "/doesnotexist.jpg"),
-            ('<a href="/doesnotexist/">', "a", "/doesnotexist/"),
-            ('<a href="relativepath.gif">', "a", "relativepath.gif"),
-            ('<a href="/doesnotexist.html">', "a", "/doesnotexist.html"),
+            ('<a href="#main">fragment</a>', "#main"),
+            ('<img src="/doesnotexist.jpg">', "/doesnotexist.jpg"),
+            ('<a href="/doesnotexist/">', "/doesnotexist/"),
+            ('<a href="relativepath.gif">', "relativepath.gif"),
+            ('<a href="/doesnotexist.html">', "/doesnotexist.html"),
             (
                 '<a href="/other/index.html#heading1">',
-                "a",
                 "/other/index.html#heading1",
             ),
-            ('<a href="/other/#heading1">', "a", "/other/#heading1"),
+            ('<a href="/other/#heading1">', "/other/#heading1"),
+            (
+                '<a href="/other/#:~:text=not%20on%20page">',
+                "/other/#:~:text=not%20on%20page",
+            ),
         ],
     )
-    def test_link_to_bad_page(
-        self, out_dir: Path, html: str, tag: str, url: str
-    ) -> None:
+    def test_link_to_bad_page(self, out_dir: Path, html: str, url: str) -> None:
         """
         Linking to a non-existent resource gets flagged as an error.
         """
+        tag = html.split()[0].replace("<", "")
+
         out_dir.mkdir()
         html_path = out_dir / "example.html"
         html_path.write_text(html)
