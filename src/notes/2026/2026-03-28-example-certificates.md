@@ -8,7 +8,7 @@ topic: Python
 ---
 I've been experimenting with Python HTTP libraries, and I ran into an unexpected error connecting to `example.com`:
 
-```pycon {"names":{"1":"certifi","2":"ssl","3":"urllib","4":"request","5":"ssl_context"}}
+```pycon {"names":{"1":"certifi","2":"ssl","3":"urllib","4":"request","5":"ssl_context"},"wrap":true}
 >>> import certifi, ssl, urllib.request
 >>> ssl_context = ssl.create_default_context(cafile=certifi.where())
 >>> urllib.request.urlopen("https://example.com", context=ssl_context)
@@ -20,7 +20,7 @@ During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   […]
-urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>```
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>
 ```
 
 I get similar errors if I use `httpx` or `requests`.
