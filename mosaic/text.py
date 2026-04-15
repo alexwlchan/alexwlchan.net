@@ -6,7 +6,7 @@ import collections
 import functools
 import json
 import re
-from typing import Any, Match
+from typing import Any, Literal, Match
 
 from chives.text import smartify
 import minify_html
@@ -442,3 +442,22 @@ def find_unique_prefixes(strings: set[str]) -> dict[str, str]:
     assert result.keys() == strings, strings - set(result.keys())
 
     return result
+
+
+def coloured(text: str, colour: Literal["red", "yellow", "green", "blue"]) -> str:
+    """
+    Add ANSI escape codes to print text in a colour.
+    """
+    try:
+        start_code = {
+            "red": "\033[91m",
+            "yellow": "\033[93m",
+            "green": "\033[92m",
+            "blue": "\033[94m",
+        }[colour]
+    except KeyError:  # pragma: no cover
+        raise TypeError(f"unrecognised colour: {colour!r}")
+
+    end_code = "\033[0m"
+
+    return start_code + text + end_code

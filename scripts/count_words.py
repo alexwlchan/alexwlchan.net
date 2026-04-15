@@ -7,11 +7,11 @@ import collections
 from pathlib import Path
 import sys
 
-import termcolor
 
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.page_types import Article, read_markdown_files
+from mosaic.text import coloured
 
 
 def count_words(content: str) -> int:
@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     print("====== ======== ======== ========")
     print(
-        termcolor.colored(
+        coloured(
             f"TOTAL\t"
             f"{articles_total:7,}\t "
             f"{remaining_total:7,}  "

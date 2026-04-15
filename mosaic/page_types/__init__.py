@@ -4,10 +4,10 @@ Models for different types of page that appear on the site.
 
 from pathlib import Path
 
-import termcolor
 import yaml
 
 from mosaic.fs import find_paths_under
+from mosaic.text import coloured
 
 from ._base import BreadcrumbEntry, BaseHtmlPage, IndexInfo
 from .articles import Article
@@ -70,7 +70,7 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
         try:
             result.append(read_page_from_markdown(src_dir, md_path))
         except Exception as exc:  # pragma: no cover
-            print(termcolor.colored(f"error reading {md_path}: {exc}", "red"))
+            print(coloured(f"error reading {md_path}: {exc}", "red"))
             raise
 
     return result

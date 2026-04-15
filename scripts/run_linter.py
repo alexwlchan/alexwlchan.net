@@ -9,7 +9,6 @@ import sys
 
 from bs4 import BeautifulSoup
 from lxml import etree
-import termcolor
 from tqdm import tqdm
 
 sys.path.append(str(Path(__file__).parent.parent))
@@ -23,6 +22,7 @@ from mosaic.linters import (
     check_no_localhost_links,
     check_redirects,
 )
+from mosaic.text import coloured
 
 
 def read_single_html_file(p: Path) -> BeautifulSoup:
@@ -122,10 +122,10 @@ if __name__ == "__main__":
     all_errors = {p: errors for p, errors in all_errors.items() if errors}
 
     if not all_errors:
-        print(termcolor.colored("no errors found!", "green"))
+        print(coloured("no errors found!", "green"))
     else:
         print("")
-        print(termcolor.colored(f"found errors in {len(all_errors)} file(s):", "red"))
+        print(coloured(f"found errors in {len(all_errors)} file(s):", "red"))
 
         for label, errors in all_errors.items():
             print("")

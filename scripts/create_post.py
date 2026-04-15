@@ -12,12 +12,12 @@ from typing import Any
 
 from chives.fetch import download_image
 from InquirerPy import inquirer
-import termcolor
 import yaml
 
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.page_types import BookReview, read_markdown_files
+from mosaic.text import coloured
 
 
 def slugify(u: str) -> str:
@@ -141,11 +141,7 @@ if __name__ == "__main__":
             css_light = get_tint_colour(cover_path, background="white")
             css_dark = get_tint_colour(cover_path, background="black")
         except Exception as exc:
-            print(
-                termcolor.colored(
-                    f"could not download cover from {cover_url}: {exc}", "red"
-                )
-            )
+            print(coloured(f"could not download cover from {cover_url}: {exc}", "red"))
             css_light = "#000000"
             css_dark = "#ffffff"
 
