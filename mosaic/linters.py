@@ -176,11 +176,19 @@ def check_all_urls_are_hackable(redir_path: Path, out_dir: Path) -> list[str]:
     # e.g. {'/writing', '/til'}
     #
     redirect_urls = {r.source for r in parse_caddy_redirects(redir_path)}
-    html_urls = {
-        f"/{p.parent.relative_to(out_dir)}/".replace("/./", "/")
-        for p in find_paths_under(out_dir, suffix=".html")
-        if not p.is_relative_to(out_dir / "files")
-    }
+    html_urls = set()
+
+    for p in find_paths_under(out_dir, suffix=".html"):
+        # The /files/ directory is just a grab bag of HTML files, and
+        # I don't expect it to be hackable.
+        if p.is_relative_to(out_dir / "files"):  # pragma: no cover
+            continue
+
+        if p.name == "index.html":
+            html_urls.add(f"/{p.parent.relative_to(out_dir)}/".replace("/./", "/"))
+        else:
+            html_urls.add(f"/{p.relative_to(out_dir)}")
+
     assert "/" in html_urls
 
     reachable_urls = redirect_urls.union(html_urls)
@@ -217,6 +225,10 @@ def get_all_hackable_urls(url: str) -> Iterator[str]:
             yield url
         else:
             yield url + "/"
+
+
+for p in get_all_hackable_urls("/dir2/dos.html"):
+    print(p)
 
 
 def check_links_are_consistent(

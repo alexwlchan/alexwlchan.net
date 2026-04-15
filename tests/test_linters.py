@@ -327,6 +327,24 @@ class TestCheckAllUrlsAreHackable:
             "url can be hacked but won’t resolve: '/old-notes/'",
         ]
 
+    def test_requires_index_html_to_be_hackable(
+        self, redirects_path: Path, out_dir: Path
+    ) -> None:
+        """
+        A URL can only be reached if there's an `index.html` file.
+        """
+        redirects_path.write_text("")
+
+        self.create_html_files(
+            out_dir / "index.html",
+            out_dir / "dir1/uno.html",
+            out_dir / "dir2/index.html",
+        )
+
+        assert check_all_urls_are_hackable(redirects_path, out_dir) == [
+            "url can be hacked but won’t resolve: '/dir1/'",
+        ]
+
 
 class TestCheckLinksAreConsistent:
     """
