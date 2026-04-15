@@ -227,10 +227,6 @@ def get_all_hackable_urls(url: str) -> Iterator[str]:
             yield url + "/"
 
 
-for p in get_all_hackable_urls("/dir2/dos.html"):
-    print(p)
-
-
 def check_links_are_consistent(
     out_dir: Path, pages: dict[Path, BeautifulSoup]
 ) -> dict[Path, list[str]]:
