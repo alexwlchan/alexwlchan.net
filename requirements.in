@@ -14,7 +14,6 @@ pydantic
 pygit2
 Pygments
 PyYAML
-termcolor
 tqdm
 
 # For Mosaic tests
