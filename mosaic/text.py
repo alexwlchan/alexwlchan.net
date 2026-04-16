@@ -94,7 +94,7 @@ class AlexwlchanRenderer(mistune.HTMLRenderer):
 
 class MosaicBlockParser(mistune.BlockParser):
     """
-    Overrides the default block parser so it considers more tags to
+    Override the default block parser so it considers more tags to
     be pre tags (treat contents as-is, don't parse as Markdown).
 
     The default implementation only considers pre, script, style, and
@@ -103,7 +103,7 @@ class MosaicBlockParser(mistune.BlockParser):
 
     def parse_raw_html(self, m: Match[str], state: BlockState) -> int | None:
         """
-        Overrides the parent method of the same name, with extra cases
+        Override the parent method of the same name, with extra cases
         for elements I use.
         """
         from mistune.block_parser import _parse_html_to_end

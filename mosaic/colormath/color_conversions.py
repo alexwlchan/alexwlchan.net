@@ -51,7 +51,7 @@ def Lab_to_XYZ(lab: LabColor) -> XYZColor:
 
 def XYZ_to_Lab(xyz: XYZColor) -> LabColor:
     """
-    Converts XYZ to Lab.
+    Convert from XYZ to Lab.
     """
     temp_x = xyz.xyz_x / ILLUMINANT_2_65["X"]
     temp_y = xyz.xyz_y / ILLUMINANT_2_65["Y"]

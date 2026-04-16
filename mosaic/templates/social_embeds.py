@@ -50,7 +50,7 @@ with open("social_embeds/data.json") as in_file:
 
 class SocialExtension(Extension):
     """
-    Defines the {% social %} extension.
+    Define the {% social %} extension.
     """
 
     tags = {"bluesky", "mastodon", "tweet", "youtube"}
@@ -160,7 +160,7 @@ def avatar_url(post_data: SocialEmbedData) -> str:
 
 def create_base64_avatar(avatar_path: Path, *, size: int) -> str:
     """
-    Converts a square avatar to a base64-encoded data URI at the given size.
+    Convert a square avatar to a base64-encoded data URI at the given size.
     """
     with Image.open(avatar_path) as im:
         assert im.width == im.height

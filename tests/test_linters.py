@@ -168,7 +168,7 @@ class TestCheckImagesHaveAltText:
 @pytest.fixture
 def redirects_path(tmp_path: Path) -> Path:
     """
-    Returns the path to a redirects Caddyfile.
+    Return the path to a redirects Caddyfile.
     """
     return tmp_path / "redirects.Caddyfile"
 

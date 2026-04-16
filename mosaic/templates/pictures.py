@@ -482,7 +482,7 @@ def create_image_sizes(
 
 def has_srgb_colour_profile(path: Path) -> bool:
     """
-    Returns True if this image has an sRGB colour profile.
+    Return True if this image has an sRGB colour profile.
 
     I block using images with non-standard colour profiles because they
     render inconsistently in web browsers, and I'm not doing anything
@@ -520,7 +520,7 @@ def has_srgb_colour_profile(path: Path) -> bool:
 @pass_context
 def article_card_image(context: Context, article: page_types.Article) -> str:
     """
-    Renders an article card image.
+    Render an article card image.
     """
     # TODO: Handle alt sizes for article cards. Here's a comment from
     # the Jekyll code:

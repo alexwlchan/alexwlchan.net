@@ -34,21 +34,30 @@ class Note(Post):
         relative_dir = self.md_path.parent.relative_to(self.src_dir)
         return f"/{relative_dir}/{self.slug}/".replace("./", "")
 
+    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.
         """
-        if not self.topics:
-            raise ValueError(f"no topics in {self.md_path}")
         return [
             BreadcrumbEntry(label=t.name, href=t.href)
             for t in get_topic_by_name(self.topics[0]).breadcrumb
         ]
 
     @model_validator(mode="after")
+    def check_has_topics(self) -> Self:
+        """
+        Check that a note has at least one topic.
+        """
+        if not self.topics:
+            raise ValueError(f"no topics in {self.md_path}")
+
+        return self
+
+    @model_validator(mode="after")
     def check_md_path(self) -> Self:
         """
-        Notes should be saved in the per-year subfolder of `notes`.
+        Check that notes are saved in the per-year subfolder of `notes`.
         """
         expected_filename = self.date.strftime("%Y-%m-%d-") + self.slug + ".md"
         expected_path = self.src_dir / "notes" / str(self.date.year) / expected_filename

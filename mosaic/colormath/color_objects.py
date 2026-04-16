@@ -19,7 +19,7 @@ class LabColor:
 
     def get_value_tuple(self) -> tuple[float, float, float]:
         """
-        Returns a tuple of the color's values (in order).
+        Return a tuple of the color's values (in order).
         """
         return (self.lab_l, self.lab_a, self.lab_b)
 
@@ -36,7 +36,7 @@ class XYZColor:
 
     def get_value_tuple(self) -> tuple[float, float, float]:
         """
-        Returns a tuple of the color's values (in order).
+        Return a tuple of the color's values (in order).
         """
         return (self.xyz_x, self.xyz_y, self.xyz_z)
 
@@ -53,14 +53,14 @@ class RGBColor:
 
     def get_value_tuple(self) -> tuple[float, float, float]:
         """
-        Returns a tuple of the color's values (in order).
+        Return a tuple of the color's values (in order).
         """
         return (self.rgb_r, self.rgb_g, self.rgb_b)
 
     @classmethod
     def new_from_rgb_hex(cls, hex_str: str) -> "RGBColor":
         """
-        Converts an RGB hex string like #RRGGBB and assigns the values to
+        Convert an RGB hex string like #RRGGBB and assigns the values to
         this RGBColor object.
         """
         colorstring = hex_str.strip()

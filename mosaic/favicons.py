@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 def colourise_image(template: "PIL.Image.Image", tint_colour: str) -> "PIL.Image.Image":
     """
-    Takes a greyscale image with an alpha channel and applies a tint colour.
+    Apply a tint colour to a greyscale image with an alpha channel.
     """
     # Create solid colour images for each of the RGB components of
     # the tint colour.

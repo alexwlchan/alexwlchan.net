@@ -47,6 +47,7 @@ class Page(BaseHtmlPage):
                 relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
             return f"/{relative_path}/".replace("./", "")
 
+    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.

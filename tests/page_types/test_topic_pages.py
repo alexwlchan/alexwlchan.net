@@ -20,6 +20,6 @@ def test_topic_page_properties(src_dir: Path) -> None:
 
     assert tp.template_name == "topic.html"
     assert tp.url == "/python/"
-    assert tp.breadcrumb() == [
+    assert tp.breadcrumb == [
         BreadcrumbEntry(label="Computers and code", href="/computers-and-code/")
     ]

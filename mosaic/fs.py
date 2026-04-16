@@ -8,7 +8,7 @@ from pathlib import Path
 
 def find_paths_under(root: Path, *, suffix: str = "") -> Iterator[Path]:
     """
-    Generates the absolute paths to every matching file under ``root``.
+    Generate the absolute paths to every matching file under ``root``.
     """
     if root.exists() and not root.is_dir():
         raise ValueError(f"Cannot find files under non-directory: {root!r}")
