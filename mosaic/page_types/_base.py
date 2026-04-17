@@ -6,13 +6,12 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
 import re
-from typing import Self, TypedDict
+from typing import TypedDict
 
 from jinja2 import Environment
 import minify_html
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field
 
-from mosaic.fs import find_paths_under
 from mosaic.tint_colours import TintColours
 from mosaic.text import markdownify
 from mosaic.topics import get_topic_by_name
@@ -172,35 +171,6 @@ class BaseHtmlPage(ABC, BaseModel):
         Returns the path where this HTML file should be written.
         """
         return out_dir / self.url.strip("/") / "index.html"
-
-    @model_validator(mode="after")
-    def set_sharing_card(self) -> Self:
-        """
-        Find a sharing card for this post.
-        """
-        if self.md_path is None or self.date is None:
-            return self
-
-        assert self.src_dir is not None
-
-        card_dir = self.src_dir / "_images/cards" / str(self.date.year)
-
-        try:
-            matching_cards = [
-                p.relative_to(self.src_dir)
-                for p in find_paths_under(card_dir)
-                if p.stem == self.slug
-            ]
-        except FileNotFoundError:
-            return self
-
-        if len(matching_cards) == 0:
-            return self
-        elif len(matching_cards) == 1:
-            self.card_path = matching_cards[0]
-            return self
-        else:
-            raise ValueError(f"multiple matching cards for {self.md_path}")
 
     @property
     def slug(self) -> str:
