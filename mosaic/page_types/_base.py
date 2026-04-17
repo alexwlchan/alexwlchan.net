@@ -5,7 +5,6 @@ The model for an HTML page which is going to be rendered in the site.
 from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
-import re
 from typing import TypedDict
 
 from jinja2 import Environment
@@ -171,17 +170,6 @@ class BaseHtmlPage(ABC, BaseModel):
         Returns the path where this HTML file should be written.
         """
         return out_dir / self.url.strip("/") / "index.html"
-
-    @property
-    def slug(self) -> str:
-        """
-        Returns a URL slug for the post.
-        """
-        assert self.md_path is not None
-
-        # Remove the YYYY-MM-DD prefix which is required by Jekyll.
-        # TODO(2026-01-20): Get rid of the requirement for this prefix.
-        return re.sub(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}\-", "", self.md_path.stem)
 
     def write(self, env: Environment, out_dir: Path) -> Path:
         """
