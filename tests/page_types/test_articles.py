@@ -23,7 +23,7 @@ def test_article_properties(src_dir: Path) -> None:
 
     assert a.template_name == "article.html"
     assert a.url == "/2026/example-article/"
-    assert a.breadcrumb() == [
+    assert a.breadcrumb == [
         BreadcrumbEntry(label="Computers and code", href="/computers-and-code/"),
         BreadcrumbEntry(label="Python", href="/python/"),
     ]
@@ -40,7 +40,7 @@ def test_article_with_no_topics_has_bare_breadcrumb(src_dir: Path) -> None:
         topics=[],
     )
 
-    assert a.breadcrumb() == [
+    assert a.breadcrumb == [
         BreadcrumbEntry(label="articles", href="/articles/"),
     ]
 

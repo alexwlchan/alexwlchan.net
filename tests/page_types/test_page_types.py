@@ -93,6 +93,7 @@ def test_read_note(src_dir: Path) -> None:
         "layout: note\n"
         "title: My first post\n"
         "date: 2001-02-03 04:05:06 +00:00\n"
+        "topic: My topic\n"
         "---\n"
         "This is my first note"
     )

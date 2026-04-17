@@ -20,7 +20,7 @@ def test_page_properties(src_dir: Path) -> None:
 
     assert p.template_name == "page.html"
     assert p.url == "/subtopic/example-page/"
-    assert p.breadcrumb() == []
+    assert p.breadcrumb == []
 
 
 @pytest.mark.parametrize(

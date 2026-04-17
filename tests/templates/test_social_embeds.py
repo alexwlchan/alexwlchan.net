@@ -19,7 +19,7 @@ with open("social_embeds/data.json") as in_file:
 @pytest.fixture
 def env(out_dir: Path) -> Environment:
     """
-    Creates a basic instance of the Jinja2 environment.
+    Create a basic instance of the Jinja2 environment.
     """
     return t.get_jinja_environment(src_dir=Path("src"), out_dir=out_dir)
 

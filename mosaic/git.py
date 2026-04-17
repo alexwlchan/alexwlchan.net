@@ -12,7 +12,7 @@ __all__ = ["git_root"]
 
 def git_root() -> Path:
     """
-    Returns the root of the current Git checkout.
+    Return the root of the current Git checkout.
 
     This expects to be run in a non-bare checkout, and returns the root
     of the checkout -- so `.git` is a subdirectory.

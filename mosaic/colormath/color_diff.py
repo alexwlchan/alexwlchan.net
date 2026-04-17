@@ -10,7 +10,7 @@ from .color_objects import LabColor
 
 def delta_e_cie2000(colour1: LabColor, colour2: LabColor) -> float:
     """
-    Calculates the Delta E (CIE2000) of two colours.
+    Calculate the Delta E (CIE2000) of two colours.
     """
     # Weighting factors
     Kl = Kc = Kh = 1

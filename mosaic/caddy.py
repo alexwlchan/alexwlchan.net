@@ -20,7 +20,7 @@ class Redirect:
 
 def parse_caddy_redirects(redir_path: Path) -> list[Redirect]:
     """
-    Returns a list of my configured redirects.
+    Return a list of my configured redirects.
     """
     result: list[Redirect] = []
     current_domain = ""

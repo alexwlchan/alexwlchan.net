@@ -46,6 +46,7 @@ class Article(Post):
         """
         return f"/{self.date.year}/{self.slug}/"
 
+    @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.

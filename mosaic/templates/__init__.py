@@ -85,14 +85,14 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
 
 def format_date(date_string: str, format: str) -> str:
     """
-    Reads an ISO-formatted date, and reformats it in the specified format.
+    Reformat an ISO-formatted date in the specified format.
     """
     return datetime.fromisoformat(date_string).strftime(format)
 
 
 def absolute_url(path: str) -> str:
     """
-    Returns the absolute URL for this path.
+    Return the absolute URL for this path.
     """
     if path.startswith("/"):
         return "https://alexwlchan.net" + path
@@ -129,6 +129,6 @@ def filter_for_topic(
     pages: list[page_types.BaseHtmlPage], topic_name: str
 ) -> list[page_types.BaseHtmlPage]:
     """
-    Returns a list of pages that match a particular topic.
+    Return a list of pages that match a particular topic.
     """
     return [p for p in pages if p.belongs_to_topic(topic_name)]

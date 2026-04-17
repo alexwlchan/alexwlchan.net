@@ -41,7 +41,7 @@ def test_book_review_properties(src_dir: Path) -> None:
     assert review.template_name == "book_review.html"
     assert review.url == "/book-reviews/ship-happens/"
     assert review.cover_image == src_dir / "_images/2001/ship-happens.jpg"
-    assert review.breadcrumb() == [
+    assert review.breadcrumb == [
         page_types.BreadcrumbEntry(label="books I've read", href="/book-reviews/")
     ]
 

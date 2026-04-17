@@ -23,25 +23,23 @@ def test_note_properties(src_dir: Path) -> None:
 
     assert n.template_name == "note.html"
     assert n.url == "/notes/2026/example-note/"
-    assert n.breadcrumb() == [
+    assert n.breadcrumb == [
         BreadcrumbEntry(label="Computers and code", href="/computers-and-code/"),
         BreadcrumbEntry(label="Python", href="/python/"),
     ]
 
 
-def test_note_with_no_topics_has_no_breadcrumb(src_dir: Path) -> None:
+def test_note_must_have_topics(src_dir: Path) -> None:
     """
-    Getting the breadcrumb of a note with no topics is a ValueError.
+    Creating a note with no topics is a ValueError.
     """
-    n = Note(
-        md_path=src_dir / "notes/2026/2026-02-03-example-note.md",
-        src_dir=src_dir,
-        date=datetime(2026, 2, 3),
-        topics=[],
-    )
-
     with pytest.raises(ValueError, match="no topics"):
-        n.breadcrumb()
+        Note(
+            md_path=src_dir / "notes/2026/2026-02-03-example-note.md",
+            src_dir=src_dir,
+            date=datetime(2026, 2, 3),
+            topics=[],
+        )
 
 
 @pytest.mark.parametrize(
@@ -59,4 +57,9 @@ def test_invalid_note_path(src_dir: Path, path: str) -> None:
     Note paths that don't match the metadata are rejected.
     """
     with pytest.raises(ValueError, match="wrong path"):
-        Note(md_path=src_dir / path, src_dir=src_dir, date=datetime(2001, 1, 1))
+        Note(
+            md_path=src_dir / path,
+            src_dir=src_dir,
+            date=datetime(2001, 1, 1),
+            topics=["Example topic"],
+        )

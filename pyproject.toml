@@ -18,4 +18,11 @@ strict = true
 
 [tool.ruff.lint]
 select = ["D", "E", "F"]
-ignore = ["D200", "D203", "D204", "D205", "D212", "D401"]
+ignore = [
+    "D200",  # unnecessary-multiline-docstring
+    "D203",  # incorrect-blank-line-before-class
+    "D205",  # missing-blank-line-after-summary
+    "D211",  # blank-line-before-class
+    "D212",  # multi-line-summary-first-line
+]
+

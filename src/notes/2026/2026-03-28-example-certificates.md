@@ -81,6 +81,12 @@ I didn't catch this until I tried regenerating my recorded cassettes, and discov
 
 Perhaps I need a procedure for regenerating vcrpy cassettes when I upgrade my dependencies, or on a fixed schedule?
 
+{% update date="2026-04-16" %}
+  I tried again today, and Python can once again connect to `example.com`.
+
+  If I need to test how my software behaves with bad TLS certificate chains, I can use `badssl.com` for something more reliably broken.
+{% endupdate %}
+
 [certifi-393]: https://github.com/certifi/python-certifi/issues/393
 [certifi-347]: https://github.com/certifi/python-certifi/pull/347/changes
 [cpython-62817]: https://github.com/python/cpython/issues/62817

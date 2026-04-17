@@ -64,6 +64,7 @@ class BaseHtmlPage(ABC, BaseModel):
         The output URL of this page.
         """
 
+    @property
     @abstractmethod
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
@@ -72,7 +73,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
     def belongs_to_topic(self, topic_name: str) -> bool:
         """
-        Checks whether this post is part of a topic.
+        Check whether this post is part of a topic.
         """
         if not self.topics:
             return False
@@ -149,7 +150,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
     def __repr__(self) -> str:  # pragma: no cover
         """
-        Returns a debugging representation of this page.
+        Return a debugging representation of this page.
         """
         if self.md_path is not None:
             return f"<{type(self).__name__} md_path={self.md_path!r}>"
@@ -159,7 +160,7 @@ class BaseHtmlPage(ABC, BaseModel):
     @property
     def sort_date(self) -> datetime:
         """
-        Returns the sort date for this item.
+        Return the sort date for this item.
         """
         d = self.date_updated or self.date
         assert d is not None
@@ -167,7 +168,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
     def out_path(self, out_dir: Path) -> Path:
         """
-        Returns the path where this HTML file should be written.
+        Return the path where this HTML file should be written.
         """
         return out_dir / self.url.strip("/") / "index.html"
 
