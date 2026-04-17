@@ -7,7 +7,7 @@ from collections.abc import Iterator
 import os
 from pathlib import Path
 import re
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlsplit
 
 from bs4 import BeautifulSoup
 from tqdm import tqdm
@@ -284,68 +284,55 @@ def check_links_are_consistent(
 
     # 2. Go through each URL in turn, and check if it exists.
     for pth, tag_name, url in tqdm(linked_urls, desc="checking links"):
-        u = urlparse(url)
-
-        # Skip URLs for external sites or other schemes that are pointing
-        # to something other than a remote resource.
-        if (
-            u.scheme in {"http", "https", "data", "mailto", "javascript", "tel"}
-            and u.netloc != "alexwlchan"
-        ):
-            continue
-
-        # Query-only URLs, e.g. "?tag=preservation".
-        if not u.path and not u.fragment:
-            continue
-
-        # Static file: check if a corresponding file exists in the out_dir.
-        # Example: /f/17823e-32x32.svg
-        if u.path.startswith("/") and not u.path.endswith("/") and not u.fragment:
-            expected_path = out_dir / u.path.lstrip("/")
+        if expected_path := get_expected_path(out_dir, pth, url):
             if not expected_path.exists():
                 errors.append((pth, tag_name, url))
-            continue
+                continue
 
-        # Static file relative to the current page
-        # Example: qunit/qunit-2.24.1.css
-        if not u.path.endswith("/") and not u.fragment:
-            expected_path = pth.parent / u.path
-            if not expected_path.exists():
+            fragment = urlsplit(url).fragment
+            if fragment and not pages[expected_path].find(id=fragment):
                 errors.append((pth, tag_name, url))
-            continue
-
-        # HTML file with fragment
-        if u.path.startswith("/") and not u.path.endswith("/") and u.fragment:
-            expected_path = out_dir / u.path.lstrip("/")
-            if not expected_path.exists() or not pages[expected_path].find(
-                id=u.fragment
-            ):
-                errors.append((pth, tag_name, url))
-            continue
-
-        # Fragment: check if a document with the corresponding ID exists
-        # in the HTML file.
-        # Example: #main
-        if not u.path and not u.query and u.fragment:
-            if not pages[pth].find(id=u.fragment):
-                errors.append((pth, tag_name, url))
-            continue
-
-        # HTML page: check if there's a corresponding HTML page somewhere
-        # in the out_dir.
-        # Examples: /, /tags/, /2020/example-post/
-        if u.path.startswith("/") and u.path.endswith("/"):
-            expected_path = out_dir / u.path.lstrip("/") / "index.html"
-            if not expected_path.exists() or (
-                u.fragment and not pages[expected_path].find(id=u.fragment)
-            ):
-                errors.append((pth, tag_name, url))
-            continue
-
-        raise NotImplementedError(url)  # pragma: no cover
 
     # 3. Reorganise the errors into the final output
     result = collections.defaultdict(list)
     for pth, tag_name, url in errors:
         result[pth].append(f"broken url in <{tag_name}>: {url}")
     return result
+
+
+def get_expected_path(out_dir: Path, page_path: Path, url: str) -> Path | None:
+    """
+    Return the expected local path for a URL which is linked from a page,
+    or None if the URL doesn't exist locally.
+    """
+    u = urlsplit(url)
+
+    # Skip URLs for external sites or other schemes that are pointing
+    # to something other than a remote resource.
+    if (
+        u.scheme in {"http", "https", "data", "mailto", "javascript", "tel"}
+        and u.netloc != "alexwlchan"
+    ):
+        return None
+
+    # Query-only URLs, e.g. "?tag=preservation".
+    if not u.path:
+        return page_path
+
+    # Static file: check if a corresponding file exists in the out_dir.
+    # Example: /f/17823e-32x32.svg
+    if u.path.startswith("/") and not u.path.endswith("/"):
+        return out_dir / u.path.lstrip("/")
+
+    # Static file relative to the current page
+    # Example: qunit/qunit-2.24.1.css
+    if not u.path.endswith("/") and not u.fragment:
+        return page_path.parent / u.path
+
+    # HTML page: check if there's a corresponding HTML page somewhere
+    # in the out_dir.
+    # Examples: /, /tags/, /2020/example-post/
+    if u.path.startswith("/") and u.path.endswith("/"):
+        return out_dir / u.path.lstrip("/") / "index.html"
+
+    raise NotImplementedError(url)  # pragma: no cover
