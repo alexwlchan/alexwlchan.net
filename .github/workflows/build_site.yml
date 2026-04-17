@@ -32,7 +32,7 @@ on:
       - '.github/workflows/run_plugin_tests.yml'
 
   schedule:
-    - cron: "30 7 * * *"
+    - cron: "30 * * * *"
 
 jobs:
   build:

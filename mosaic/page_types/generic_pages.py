@@ -14,6 +14,8 @@ class Page(BaseHtmlPage):
     Ideally I should have very few of these.
     """
 
+    template_name: str = "page.html"
+
     # Allow the constructor to set an explicit URL.
     _url: str | None = None
 
@@ -23,13 +25,6 @@ class Page(BaseHtmlPage):
         """
         super().__init__(**kwargs)
         self._url = url
-
-    @property
-    def template_name(self) -> str:
-        """
-        The name of HTML file used as a template for this type of page.
-        """
-        return "page.html"
 
     @property
     def url(self) -> str:

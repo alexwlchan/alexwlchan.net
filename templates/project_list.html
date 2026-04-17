@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .commit_details {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: 1em;
+      grid-row-gap: 3px;
+      margin-bottom: 0;
+      padding-bottom: var(--default-padding);
+      border-bottom: 0.5px solid var(--primary-color);
+
+      dt::after {
+        content: ":";
+        text-align: right;
+      }
+
+      dd {
+        margin: 0;
+        font-weight: bold;
+      }
+
+      dd > pre {
+        background: none;
+        border:     none;
+        padding: 0;
+        margin:  0;
+      }
+    }
+
+    .custom-details {
+      max-width: 620px;
+      overflow-x: scroll;
+    }
+
+    .custom-details summary {
+      list-style: none; /* Standard */
+      cursor: pointer;
+    }
+
+    /* For Safari support */
+    .custom-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* 2. Add your own triangle after the text */
+    .custom-details summary::after {
+      padding-left: 10px;
+      content: "►"; /* You can use an SVG or any icon here */
+      transition: transform 0.2s ease;
+    }
+
+    /* 3. Rotate the triangle when the details are open */
+    .custom-details[open] summary::after {
+      content: "▼";
+    }
+  </style>
+
+  <article>
+    <hgroup>
+      <h2>
+        Commit <code>{{ page.commit_id[:7] }}</code> – {{ page.commit_message.splitlines()[0] | markdownify_oneline }}
+      </h2>
+    </hgroup>
+
+    <dl class="commit_details">
+      <dt>ID</dt>
+      <dd><code>{{ page.commit_id[:7] }}</code></dd>
+
+      <dt>date</dt>
+      <dd><code>{{ page.date }}</code></dd>
+
+      <dt>author</dt>
+      <dd><code>{{ page.author|escape }}</code></dd>
+
+      {% if page.parent_ids %}
+      <dt>parent{% if page.parent_ids|count > 1 %}s{% endif %}</dt>
+      <dd>{% for p in page.parent_ids %}<a href="/projects/{{ page.project_slug }}/commits/{{ p }}/"><code>{{ p[:7] }}</code></a>{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+      {% endif %}
+
+      <dt>message</dt>
+      <dd><pre><code>{{ page.commit_message }}</code></pre></dd>
+
+      <dt>changed files</dt>
+      <dd>
+        <details class="custom-details">
+          <summary><code>5 files, +33 lines, –22 lines</code></summary>
+
+          <ul>
+          {% for cf in page.changed_files %}
+            <li><a href="#file{{ loop.index }}"><code>{{ cf.delta.new_file.path }}</code></a></li>
+          {% endfor %}
+          </ul>
+        </details>
+      </dd>
+    </dl>
+
+    <h3>Changed files</h3>
+
+    {% for cf in page.changed_files %}
+    <section id="file{{ loop.index }}"></section>
+    <p>
+      <code>{{ cf.delta.old_file.path }}</code> ({{ cf.delta.old_file.size }}) &rarr; <code>{{ cf.delta.new_file.path }}</code> ({{ cf.delta.new_file.size }})
+    </p>
+
+    <!-- {{ cf.hunks }} -->
+    <pre class="lng-diff"><code>{% for line in cf.text.splitlines() %}
+{% if line.startswith('@') %}<span class="gu">{% elif line.startswith('+') %}<span class="gi">{% elif line.startswith('-') %}<span class="gd">{% else %}<span>{% endif %}{{ line|escape }}</span>
+{% endfor %}</code></pre>
+    {% endfor %}
+
+    </section>
+  </article>
+{% endblock %}

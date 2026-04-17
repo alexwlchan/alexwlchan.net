@@ -1,4 +1,4 @@
-certifi
+alexwlchan-chives[fetch]
 mypy
 pytest-cov
 ruff

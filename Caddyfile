@@ -7,6 +7,7 @@ alexwlchan.net {
 	import caddy/logging.Caddyfile
 	import caddy/redirects.Caddyfile
 	import caddy/gone.Caddyfile
+	import caddy/projects.Caddyfile
 
 	# Enable compression for responses
 	encode zstd gzip

@@ -18,6 +18,8 @@ class Article(Post):
     An article is a long-form piece of writing, usually with original thought.
     """
 
+    template_name: str = "article.html"
+
     # What order is this in the list of all articles?
     order: int = -1
 
@@ -31,13 +33,6 @@ class Article(Post):
         working out the short names for cards.
         """
         return hash(repr(self))
-
-    @property
-    def template_name(self) -> str:
-        """
-        The name of HTML file used as a template for this type of page.
-        """
-        return "article.html"
 
     @property
     def url(self) -> str:

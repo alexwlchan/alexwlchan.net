@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    <h2>
+      <code>{{ page.file_path }}</code>
+    </h2>
+    
+    <ul class="dot_list">
+      <li>XXX bytes</li>
+      <li><a href="/projects/{{ page.slug }}/raw/{{ page.file_path }}">View raw</a></li>
+    </ul>
+
+    <pre><code>{{ page.file_contents }}</code></pre>
+  </article>
+{% endblock %}

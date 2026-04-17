@@ -125,9 +125,9 @@ pre {
 }
 
 .lng-diff {
-  .gh { color: var(--blue);  }  /* Generic.Heading  */
-  .gd { color: var(--red);   }  /* Generic.Deleted  */
-  .gi { color: var(--green); }  /* Generic.Inserted */
+  .gh, .gu { color: var(--blue);  }  /* Generic.{Heading, Subheading}  */
+  .gd      { color: var(--red);   }  /* Generic.Deleted  */
+  .gi      { color: var(--green); }  /* Generic.Inserted */
 }
 
 .lng-pycon {

@@ -52,13 +52,6 @@ class BaseHtmlPage(ABC, BaseModel):
 
     @property
     @abstractmethod
-    def template_name(self) -> str:
-        """
-        The name of HTML file used as a template for this type of page.
-        """
-
-    @property
-    @abstractmethod
     def url(self) -> str:
         """
         The output URL of this page.
@@ -84,6 +77,9 @@ class BaseHtmlPage(ABC, BaseModel):
                 self.belongs_to_topic(topic_name=c.name)
                 for c in get_topic_by_name(topic_name).children
             )
+
+    # The name of the HTML file used as a template for this page.
+    template_name: str
 
     # The source directory to the Markdown source file.
     src_dir: Path | None = None

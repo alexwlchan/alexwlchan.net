@@ -17,18 +17,34 @@ import yaml
 from . import page_types
 from .css import create_base_css
 from .fs import find_paths_under
+from .git import GitRepository
 from .page_types import (
     Article,
     BaseHtmlPage,
     BookReview,
     Note,
     Post,
+    ProjectCommit,
+    ProjectHomepage,
+    ProjectLog,
+    ProjectSingleFile,
+    ProjectTags,
+    ProjectTree,
     read_markdown_files,
 )
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours
 from .topics import rebuild_topics_by_name
+
+
+GIT_REPOS = [
+    GitRepository(
+        name="chives",
+        description="Utility functions for working with my local media archives",
+        repo_root=Path.home() / "repos/chives",
+    )
+]
 
 
 class Site(BaseModel):
@@ -153,12 +169,16 @@ class Site(BaseModel):
                 "css_url": css_url,
                 "site": self,
                 "all_topics": rebuild_topics_by_name(),
+                "git_repos": GIT_REPOS,
                 "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
             }
         )
 
         if not incremental:
             self.copy_static_files()
+
+            for repo in GIT_REPOS:
+                self.prepare_project_pages(env, repo)
 
         # Create all the tint colour assets
         for tc in tint_colours:
@@ -273,3 +293,43 @@ class Site(BaseModel):
         notes_atom_template = env.get_template("notes_atom.xml")
         notes_atom_xml = notes_atom_template.render(notes=self.notes)
         (self.out_dir / "notes/atom.xml").write_text(notes_atom_xml)
+
+    def prepare_project_pages(
+        self, env: Environment, repo: GitRepository
+    ) -> None:  # pragma: no cover
+        """
+        Generate the /projects/ folder from my Git repos.
+        """
+        archive_path = repo.write_archive(out_dir=self.out_dir / "projects")
+        archive_url = "/" + str(archive_path.relative_to(self.out_dir))
+
+        self.all_pages.append(ProjectHomepage(repo=repo, archive_url=archive_url))
+        self.all_pages.append(ProjectLog(repo=repo))
+        self.all_pages.append(ProjectTags(repo=repo))
+        self.all_pages.append(ProjectTree(repo=repo))
+
+        for commit in repo.commits.values():
+            self.all_pages.append(ProjectCommit(repo=repo, commit=commit))
+
+        # TODO: Clear out the old `raw` directory
+
+        for file_path, is_binary, file_data in repo.iterfiles():
+            out_path = self.out_dir / "projects" / repo.name / "raw" / file_path
+            out_path.parent.mkdir(exist_ok=True, parents=True)
+            out_path.write_bytes(file_data)
+
+            # TODO: If I show per-file history on file pages, render
+            # a page for all binary files which previews the file
+            # and/or just says "binary file".
+            if not is_binary:
+                self.all_pages.append(
+                    ProjectSingleFile(
+                        repo=repo,
+                        file_path=file_path,
+                        file_contents=file_data.decode("utf8"),
+                    )
+                )
+
+        repo.create_clone_for_serving(
+            out_dir=self.out_dir / f"projects/{repo.name}.git"
+        )

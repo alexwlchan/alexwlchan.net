@@ -1,5 +1,5 @@
 """
-Tests for `mosaic.html_page`.
+Tests for `mosaic.page_types`.
 """
 
 from datetime import datetime, timezone

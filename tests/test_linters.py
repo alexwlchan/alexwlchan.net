@@ -16,6 +16,7 @@ from mosaic.linters import (
     check_no_localhost_links,
     check_redirects,
     get_all_hackable_urls,
+    get_expected_path,
 )
 
 
@@ -451,3 +452,26 @@ class TestCheckLinksAreConsistent:
         expected = {html_path: [f"broken url in <{tag}>: {url}"]}
 
         assert actual == expected
+
+
+@pytest.mark.parametrize(
+    ["page_path", "url", "expected_path"],
+    [
+        (
+            Path("_out/projects/chives/index.html"),
+            "/projects/chives/files/CHANGELOG.md",
+            Path("_out/projects/chives/files/CHANGELOG.md.html"),
+        ),
+        (
+            Path("_out/index.html"),
+            "/f/17823e-32x32.svg",
+            Path("_out/f/17823e-32x32.svg"),
+        ),
+    ],
+)
+def test_get_expected_path(page_path: Path, url: str, expected_path: Path) -> None:
+    """
+    Tests for get_expected_path.
+    """
+    out_dir = Path("_out")
+    assert get_expected_path(out_dir, page_path, url) == expected_path

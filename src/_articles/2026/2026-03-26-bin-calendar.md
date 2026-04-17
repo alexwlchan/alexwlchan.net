@@ -7,6 +7,17 @@ topics:
   - Domestic life
   - Python
 ---
+```diff
+@@ -3,6 +3,6 @@
+ build
+ mypy
+ pytest-cov
++pytest-vcr
+ ruff
+-silver-nitrate[cassettes]
+ twine
+```
+
 {#
   Sharing card: https://www.pexels.com/photo/colorful-recycling-bins-lined-up-on-street-36086364/
 #}
