@@ -264,19 +264,12 @@ class Site(BaseModel):
         """
         Generate the RSS feeds for the site.
         """
-        assert all(a.html_content for a in self.articles), (
-            "html_content has not been set for all articles"
-        )
-        assert all((n.html_content or not n.content.strip()) for n in self.notes), (
-            "html_content has not been set for all notes"
-        )
-
         atom_template = env.get_template("atom.xml")
-        atom_xml = atom_template.render(articles=self.articles)
+        atom_xml = atom_template.render(env=env, articles=self.articles)
         (self.out_dir / "atom.xml").write_text(atom_xml)
 
         notes_atom_template = env.get_template("notes_atom.xml")
-        notes_atom_xml = notes_atom_template.render(notes=self.notes)
+        notes_atom_xml = notes_atom_template.render(env=env, notes=self.notes)
         (self.out_dir / "notes/atom.xml").write_text(notes_atom_xml)
 
     def prepare_project_pages(

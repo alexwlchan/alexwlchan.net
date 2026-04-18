@@ -90,9 +90,6 @@ class BaseHtmlPage(ABC, BaseModel):
     # The content of the Markdown source file
     content: str = ""
 
-    # The HTML content of the file
-    html_content: str = ""
-
     # The title of the page or post
     title: str = ""
 
@@ -168,23 +165,25 @@ class BaseHtmlPage(ABC, BaseModel):
         """
         return out_dir / self.url.strip("/") / "index.html"
 
-    def write(self, env: Environment, out_dir: Path) -> Path:
+    def render_body_html(self, env: Environment) -> str:
         """
-        Write this HTML file to disk, and return the path of the
-        newly-written file.
+        Return the HTML-ified content from the page.
+
+        This is the content unique to the page; it doesn't include any
+        of the shared template code.
         """
-        out_path = self.out_path(out_dir)
+        # Expanding any Jinja2 plugins and templates, then convert
+        # the Markdown to HTML. The Jinja2 expansion has to come first
+        # so anything in the Jinja2 elements doesn't get Markdown-ified.
+        return markdownify(env.from_string(self.content).render(page=self))
 
-        # Steps to render HTML:
-        #
-        #   1. Run the HTML through the Jinja2 templates, so plugins
-        #      and embeds are expanded
-        #   2. Convert the Markdown to HTML
-        #
-        self.html_content = markdownify(env.from_string(self.content).render(page=self))
-
+    def render_full_html(self, env: Environment) -> str:
+        """
+        Return the HTML to be written to disk.
+        """
+        html_content = self.render_body_html(env)
         template = env.get_template(self.template_name)
-        html = template.render(page=self, content=self.html_content)
+        html = template.render(page=self, content=html_content)
 
         html = minify_html.minify(
             html,
@@ -194,6 +193,16 @@ class BaseHtmlPage(ABC, BaseModel):
             minify_js=True,
         )
 
+        return html
+
+    def write(self, env: Environment, out_dir: Path) -> Path:
+        """
+        Write this HTML file to disk, and return the path of the
+        newly-written file.
+        """
+        html = self.render_full_html(env)
+
+        out_path = self.out_path(out_dir)
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(html)
 
