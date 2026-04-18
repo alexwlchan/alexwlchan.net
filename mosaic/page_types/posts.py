@@ -38,7 +38,7 @@ class Post(BaseHtmlPage):
         """
         Find a sharing card for this post.
         """
-        card_dir = self.src_dir / "_images/cards" / str(self.date.year)
+        card_dir = self.src_dir / "images/cards" / str(self.date.year)
 
         try:
             matching_cards = [

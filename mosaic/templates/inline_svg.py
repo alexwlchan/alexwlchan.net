@@ -62,7 +62,7 @@ def render_inline_svg(
     """
     src_dir = context["src_dir"]
     out_dir = context["out_dir"]
-    images_dir = src_dir / "_images"
+    images_dir = src_dir / "images"
 
     # Discard the caller argument sent by Jinja2, which I don't use.
     kwargs.pop("caller")

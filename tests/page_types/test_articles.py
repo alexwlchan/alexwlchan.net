@@ -140,23 +140,23 @@ class TestChooseSharingCard:
         If we look in the card directory and there's a single matching
         card for this post, use that as the sharing card.
         """
-        (src_dir / "_images/cards/2001").mkdir(parents=True)
-        (src_dir / "_images/cards/2001/article.jpg").write_text("JPEG")
+        (src_dir / "images/cards/2001").mkdir(parents=True)
+        (src_dir / "images/cards/2001/article.jpg").write_text("JPEG")
 
         a = Article(
             md_path=src_dir / "_articles/2001/2001-01-01-article.md",
             src_dir=src_dir,
             date=datetime(2001, 1, 1),
         )
-        assert a.card_path == Path("_images/cards/2001/article.jpg")
+        assert a.card_path == Path("images/cards/2001/article.jpg")
 
     def test_no_matching_card(self, src_dir: Path) -> None:
         """
         If we look in the card directory and there are no matching cards,
         there's no sharing card.
         """
-        (src_dir / "_images/cards/2001").mkdir(parents=True)
-        (src_dir / "_images/cards/2001/different-article.jpg").write_text("JPEG")
+        (src_dir / "images/cards/2001").mkdir(parents=True)
+        (src_dir / "images/cards/2001/different-article.jpg").write_text("JPEG")
 
         a = Article(
             md_path=src_dir / "_articles/2001/2001-01-01-article.md",
@@ -170,9 +170,9 @@ class TestChooseSharingCard:
         If we look in the card directory and there are multiple matching
         cards, we get a ValueError.
         """
-        (src_dir / "_images/cards/2001").mkdir(parents=True)
-        (src_dir / "_images/cards/2001/article.jpg").write_text("JPEG")
-        (src_dir / "_images/cards/2001/article.png").write_text("PNG")
+        (src_dir / "images/cards/2001").mkdir(parents=True)
+        (src_dir / "images/cards/2001/article.jpg").write_text("JPEG")
+        (src_dir / "images/cards/2001/article.png").write_text("PNG")
 
         with pytest.raises(ValueError, match="multiple matching cards"):
             Article(

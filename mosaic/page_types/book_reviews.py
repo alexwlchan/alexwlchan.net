@@ -116,7 +116,7 @@ class BookReview(Post):
         matching_paths = [
             p
             for p in (
-                self.src_dir / "_images" / str(self.review.date_read.year)
+                self.src_dir / "images" / str(self.review.date_read.year)
             ).iterdir()
             if p.stem == self.md_path.stem
         ]

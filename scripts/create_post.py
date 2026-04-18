@@ -135,7 +135,7 @@ if __name__ == "__main__":
 
         try:
             cover_path = download_image(
-                url=cover_url, out_prefix=Path("src/_images") / year / slug
+                url=cover_url, out_prefix=Path("src/images") / year / slug
             )
 
             css_light = get_tint_colour(cover_path, background="white")

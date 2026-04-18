@@ -16,9 +16,9 @@ This is how to use the tag:
       caption="Image from Pexels, CC0"
     %}
 
-It looks for the image in a subdirectory of `_images` based on the
+It looks for the image in a subdirectory of `images` based on the
 year and slug of the post, e.g. if this is a 2018 post `anti-social-media`,
-then it looks for the image in `_images/2018/anti-social-media/slide82.png`
+then it looks for the image in `images/2018/anti-social-media/slide82.png`
 
 The `caption` field is optional, and displays below the image.  It's useful
 for attribution or sourcing that doesn't fit on the slide.
