@@ -1060,6 +1060,8 @@ redir /files/2024/looped_squares/ /fun-stuff/looped-squares/ permanent
 redir /files/2024/looped_squares /fun-stuff/looped-squares/ permanent
 redir /systems/git/ /git/ permanent
 redir /systems/git /git/ permanent
+redir /tags/git/ /git/ permanent
+redir /tags/git /git/ permanent
 redir /systems/go/ /go/ permanent
 redir /systems/go /go/ permanent
 redir /systems/html/ /html/ permanent
@@ -2070,4 +2072,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: Vvnx2RPMke)
+#[[[end]]] (sum: 2AX+0dFnz9)

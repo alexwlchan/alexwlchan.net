@@ -1279,7 +1279,8 @@
     "/files/2024/looped_squares/"
   ],
   "/git/": [
-    "/systems/git/"
+    "/systems/git/",
+    "/tags/git/"
   ],
   "/go/": [
     "/systems/go/"
