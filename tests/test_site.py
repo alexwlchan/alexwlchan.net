@@ -20,6 +20,7 @@ from mosaic.page_types import (
     TopicPage,
 )
 from mosaic.site import Site
+from mosaic.templates import get_jinja_environment
 
 
 def test_page_properties(src_dir: Path) -> None:
@@ -157,6 +158,63 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
     assert "Note posted in 2050" in notes_rss
     assert "Note posted in 2026" in notes_rss
     assert "Note posted in 2025" not in notes_rss
+
+
+def test_writing_page_repeatedly(
+    env: Environment, src_dir: Path, out_dir: Path
+) -> None:
+    """
+    Test writing a page multiple times.
+
+    This tests the caching logic for generating the page HTML; rather than
+    generating it fresh every time, it's cached in the database and only
+    regenerated when the page content or template changes.
+    """
+    a = Article(
+        src_dir=src_dir,
+        md_path=src_dir / "_articles/2001/2001-01-01-article.md",
+        date=datetime(2001, 1, 1),
+        content="An example article",
+    )
+
+    env = get_jinja_environment(src_dir, out_dir)
+    env.globals.update({"css_url": "/static/style.css"})
+
+    out_path1 = a.write(env, out_dir)
+    out_body1 = a.render_body_html(env)
+    out_text1 = out_path1.read_text()
+    assert out_path1 == out_dir / "2001/article/index.html"
+
+    out_path2 = a.write(env, out_dir)
+    out_body2 = a.render_body_html(env)
+    out_text2 = out_path2.read_text()
+    assert out_path1 == out_path2
+    assert out_body1 == out_body2
+    assert out_text1 == out_text2
+
+
+def test_writing_page_checks_for_deletion(
+    env: Environment, src_dir: Path, out_dir: Path
+) -> None:
+    """
+    If a page was written previously but no longer exists, it gets re-written.
+    """
+    a = Article(
+        src_dir=src_dir,
+        md_path=src_dir / "_articles/2001/2001-01-01-article.md",
+        date=datetime(2001, 1, 1),
+        content="An example article",
+    )
+
+    env = get_jinja_environment(src_dir, out_dir)
+    env.globals.update({"css_url": "/static/style.css"})
+
+    out_path1 = a.write(env, out_dir)
+    assert out_path1.exists()
+    out_path1.unlink()
+
+    out_path2 = a.write(env, out_dir)
+    assert out_path2.exists()
 
 
 def test_copy_static_files(src_dir: Path, out_dir: Path) -> None:

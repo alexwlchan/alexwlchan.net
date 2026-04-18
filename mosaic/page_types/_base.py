@@ -8,11 +8,11 @@ from pathlib import Path
 from typing import TypedDict
 
 from jinja2 import Environment
-import minify_html
 from pydantic import BaseModel, Field
 
+from mosaic import cache
 from mosaic.tint_colours import TintColours
-from mosaic.text import markdownify
+from mosaic.text import markdownify, md5, minify_html
 from mosaic.topics import get_topic_by_name
 
 
@@ -172,26 +172,29 @@ class BaseHtmlPage(ABC, BaseModel):
         This is the content unique to the page; it doesn't include any
         of the shared template code.
         """
+        cache_ns = "render_body_html"
+        cache_key = f"{self.md_path}:{md5(self.content)}"
+
+        if body := cache.get(cache_ns, cache_key):
+            return body
+
         # Expanding any Jinja2 plugins and templates, then convert
         # the Markdown to HTML. The Jinja2 expansion has to come first
         # so anything in the Jinja2 elements doesn't get Markdown-ified.
-        return markdownify(env.from_string(self.content).render(page=self))
+        body = markdownify(env.from_string(self.content).render(page=self))
+
+        cache.set(cache_ns, cache_key, body)
+
+        return body
 
     def render_full_html(self, env: Environment) -> str:
         """
         Return the HTML to be written to disk.
         """
-        html_content = self.render_body_html(env)
+        html_body = self.render_body_html(env)
         template = env.get_template(self.template_name)
-        html = template.render(page=self, content=html_content)
-
-        html = minify_html.minify(
-            html,
-            keep_html_and_head_opening_tags=True,
-            keep_closing_tags=True,
-            minify_css=True,
-            minify_js=True,
-        )
+        html = template.render(page=self, content=html_body)
+        html = minify_html(html)
 
         return html
 
@@ -200,9 +203,27 @@ class BaseHtmlPage(ABC, BaseModel):
         Write this HTML file to disk, and return the path of the
         newly-written file.
         """
-        html = self.render_full_html(env)
-
         out_path = self.out_path(out_dir)
+
+        # The cache key includes the path and modified time of the template.
+        # This means the cache could contain stale data if a template partial
+        # has changed but the main template didn't; I'll see if that becomes
+        # an issue in practice.
+        cache_ns = "render_full_html"
+        template_mtime = (Path("templates") / self.template_name).stat().st_mtime
+        cache_key = f"{self.md_path}:{template_mtime}:{md5(self.content)}"
+
+        # If the HTML exists in the cache, we don't need to regenerate it
+        # and we can skip writing if the file already exists.
+        if html := cache.get(cache_ns, cache_key):
+            if not out_path.exists():
+                out_path.parent.mkdir(exist_ok=True, parents=True)
+                out_path.write_text(html)
+            return out_path
+
+        html = self.render_full_html(env)
+        cache.set(cache_ns, cache_key, html)
+
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(html)
 

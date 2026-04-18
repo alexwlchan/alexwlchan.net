@@ -4,12 +4,13 @@ Utilities for dealing with text.
 
 import collections
 import functools
+import hashlib
 import json
 import re
 from typing import Any, Literal, Match
 
 from chives.text import smartify
-import minify_html
+import minify_html as minify_html_lib
 import mistune
 from mistune.core import BlockState
 
@@ -27,6 +28,19 @@ def strip_html(text: str) -> str:
     input, but should be fine for my site.
     """
     return STRIP_HTML_RE.sub("", text)
+
+
+def minify_html(html: str) -> str:
+    """
+    Minify an HTML string.
+    """
+    return minify_html_lib.minify(
+        html,
+        keep_html_and_head_opening_tags=True,
+        keep_closing_tags=True,
+        minify_css=True,
+        minify_js=True,
+    )
 
 
 class AlexwlchanRenderer(mistune.HTMLRenderer):
@@ -168,7 +182,6 @@ def _parse_to_end_of_svg(state: BlockState, start_pos: int) -> int:
 markdown = mistune.Markdown(renderer=AlexwlchanRenderer(), block=MosaicBlockParser())
 
 
-@functools.cache
 def markdownify(text: str) -> str:
     """
     Format text using Markdown.
@@ -185,7 +198,6 @@ def markdownify_oneline(text: str) -> str:
     return markdownify(text).replace("<p>", "").replace("</p>", "").strip()
 
 
-@functools.cache
 def cleanup_text(text: str) -> str:
     """
     Apply all my cleanup rules to text.
@@ -396,9 +408,9 @@ def assert_is_invariant_under_markdown(html: str) -> None:
         markdownified = markdownified.replace("<p>", "", 1)
         markdownified = re.sub(r"</p>$", "", markdownified)
 
-    assert minify_html.minify(markdownified) == minify_html.minify(html), (
-        minify_html.minify(markdownified),
-        minify_html.minify(html),
+    assert minify_html(markdownified) == minify_html(html), (
+        minify_html(markdownified),
+        minify_html(html),
     )
 
 
@@ -461,3 +473,11 @@ def coloured(text: str, colour: Literal["red", "yellow", "green", "blue"]) -> st
     end_code = "\033[0m"
 
     return start_code + text + end_code
+
+
+@functools.cache
+def md5(s: str) -> str:
+    """
+    Return the hex-encoded MD5 hash of a string.
+    """
+    return hashlib.md5(s.encode("utf8")).hexdigest()
