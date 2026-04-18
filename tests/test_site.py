@@ -6,6 +6,7 @@ from datetime import datetime
 import functools
 from pathlib import Path
 import random
+import time
 
 from jinja2 import Environment
 
@@ -245,6 +246,7 @@ def test_copy_static_files(src_dir: Path, out_dir: Path) -> None:
 
     # Update one of the binary files, and check the updated version is
     # copied to the out_dir.
+    time.sleep(2)
     (src_dir / "images/123.bin").write_bytes(b"this image has been updated")
     site.copy_static_files()
     assert (out_dir / "images/123.bin").read_bytes() == b"this image has been updated"
