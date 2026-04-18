@@ -4,7 +4,9 @@ Build system for alexwlchan.net.
 
 from collections import Counter
 from datetime import datetime, timezone
+import glob
 import itertools
+import os
 from pathlib import Path
 import shutil
 
@@ -241,24 +243,35 @@ class Site(BaseModel):
         """
         Copy all the static files from the src to the dst directory.
         """
+        print("Copying static files...")
+
         # A list of (src, dst) static files to be copied.
-        static_files: list[tuple[Path, Path]] = []
+        static_files: list[tuple[str, str]] = []
 
-        for src_p in find_paths_under(self.src_dir):
-            if src_p.suffix == ".md":
+        for src_p in glob.glob(f"{self.src_dir}/**/*", recursive=True):
+            if src_p.endswith(".md"):
                 continue
-            static_files.append((src_p, self.out_dir / src_p.relative_to(self.src_dir)))
+            if not os.path.isfile(src_p):
+                continue
 
-        # Actually copy the files. Use the cache to record the mtime
-        # of the source file when it's copied, to skip copying files
-        # which haven't changed.
-        with tqdm(desc="static files", total=len(static_files)) as pbar:
-            for src_p, out_p in static_files:
-                if not out_p.exists() or src_p.stat().st_mtime != out_p.stat().st_mtime:
-                    out_p.parent.mkdir(exist_ok=True, parents=True)
-                    shutil.copy2(src_p, out_p)
+            out_p = os.path.join(
+                self.out_dir, os.path.relpath(src_p, start=self.src_dir)
+            )
 
-                pbar.update(1)
+            # If the files have the same size and modification time,
+            # assume they're the same and we don't need to copy again.
+            if (
+                os.path.exists(out_p)
+                and os.stat(src_p).st_size == os.stat(out_p).st_size
+                and os.stat(src_p).st_mtime == os.stat(out_p).st_mtime
+            ):
+                continue
+
+            static_files.append((src_p, out_p))
+
+        for src_p, out_p in static_files:
+            os.makedirs(os.path.dirname(out_p), exist_ok=True)
+            shutil.copy2(src_p, out_p)
 
     def generate_rss_feeds(self, env: Environment) -> None:
         """
