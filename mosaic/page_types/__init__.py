@@ -2,11 +2,11 @@
 Models for different types of page that appear on the site.
 """
 
+import glob
 from pathlib import Path
 
 import yaml
 
-from mosaic.fs import find_paths_under
 from mosaic.text import coloured
 
 from ._base import BreadcrumbEntry, BaseHtmlPage, IndexInfo
@@ -26,14 +26,22 @@ from .projects import (
 from .topic_pages import TopicPage
 
 
-def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
+def read_page_from_markdown(src_dir: Path, md_path: str | Path) -> BaseHtmlPage:
     """
     Read a Markdown file and parse the YAML front matter.
     """
+    with open(md_path) as in_file:
+        raw = in_file.read()
+
+    # The YAML front matter is delimited by `---\n` at the start
+    # and `\n---\n` at the end. Extract the front matter string
+    # from the body.
+    #
+    # TODO: Use TOML; it's in the standard library and is slightly
+    # faster than parsing YAML.
     try:
-        raw = md_path.read_text()
         _, front_matter_str, content = raw.split("---\n", 2)
-        front_matter = yaml.safe_load(front_matter_str)
+        front_matter = yaml.load(front_matter_str, Loader=yaml.CSafeLoader)
     except Exception as exc:
         raise RuntimeError(f"error reading md file {md_path!r}: {exc}")
 
@@ -74,7 +82,7 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
     """
     result = []
 
-    for md_path in find_paths_under(src_dir, suffix=".md"):
+    for md_path in glob.glob(f"{src_dir}/**/*.md", recursive=True):
         try:
             result.append(read_page_from_markdown(src_dir, md_path))
         except Exception as exc:  # pragma: no cover

@@ -207,7 +207,9 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
     """
     An error reading the Markdown file includes the filename.
     """
+    src_dir.mkdir()
     md_path = src_dir / "example.md"
+    md_path.write_text("this file doesn't have any YAML front matter")
 
     with pytest.raises(RuntimeError, match=str(md_path)):
         read_page_from_markdown(src_dir, md_path)
