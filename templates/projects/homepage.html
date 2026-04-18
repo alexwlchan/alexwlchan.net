@@ -82,12 +82,47 @@
           <li><a href="{{ page.url }}tags/">Tags</a></li>
           <li><a href="{{ page.url }}files/CHANGELOG.md">Changelog</a></li>
           <li><a href="{{ page.url }}files/LICENSE">License</a></li>
-          <li><a href="/projects/{{ repo.name }}.git">Clone</a></li>
+          <li><a href=# id="openClone">Clone</a></li>
           <li><a href="{{ page.archive_url }}">Download</a></li>
           <li style="white-space: nowrap;">Last updated {{ timestamp(repo.last_updated) }}</li>
         </ul>
+        
+        <noscript>
+          <p>You can clone this repository with the following command:</p>
+          <pre class="wrap"><code>git clone git://alexwlchan.net/projects/chives.git</code></pre>
+        </noscript>
+        
+        <dialog id="clone-info">
+          <p>You can clone this repository with the following command:</p>
+          <pre class="wrap"><code>git clone git://alexwlchan.net/projects/chives.git</code></pre>
+          <button commandfor="clone-info" command="close">Close</button>
+        </dialog>
       </nav>
     </header>
+
+    <style>
+      dialog {
+        border-radius: var(--border-radius);
+        border: var(--border-width) var(--border-style) var(--primary-color);
+    
+        p:first-child {
+          margin-top: 0;
+        };
+      }
+    </style>
+
+    <script>
+      const modal = document.querySelector('dialog#clone-info');
+      const openBtn = document.querySelector('a#openClone');
+      const closeBtn = document.querySelector('dialog#clone-info button')
+  
+      openBtn.addEventListener('click', () => {
+        modal.showModal();
+      });
+      closeBtn.addEventListener('click', () => {
+        modal.close();
+      });
+    </script>
 
     <pre class="wrap"><code>{{ page.repo.readme_contents() }}</code></pre>
   </article>

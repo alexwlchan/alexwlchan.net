@@ -174,11 +174,11 @@ class Site(BaseModel):
             }
         )
 
+        for repo in GIT_REPOS:
+            self.prepare_project_pages(env, repo)
+
         if not incremental:
             self.copy_static_files()
-
-            for repo in GIT_REPOS:
-                self.prepare_project_pages(env, repo)
 
         # Create all the tint colour assets
         for tc in tint_colours:
