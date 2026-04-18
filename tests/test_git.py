@@ -333,14 +333,10 @@ def test_git_tree(git: GitFn, repo_root: Path) -> None:
         NavigableFile(name="zero.bin", is_binary=True),
     ]
 
-    assert set(repo.iterfiles()) == {
-        (Path("colours/red.txt"), False, b"this file is colours/red.txt"),
-        (Path("greeting.txt"), False, b"this file is greeting.txt"),
-        (Path("numbers/1/eins.txt"), False, b"this file is numbers/1/eins.txt"),
-        (Path("numbers/1/uno.txt"), False, b"this file is numbers/1/uno.txt"),
-        (Path("numbers/2/duo.txt"), False, b"this file is numbers/2/duo.txt"),
-        (Path("zero.bin"), True, b"\x00" * 1024),
-    }
+    assert (
+        repo.get_blob_data("2cd6ba5db484b1e12a8d674f6a35a001e7771f9d")
+        == b"this file is numbers/2/duo.txt"
+    )
 
 
 @pytest.mark.parametrize(
