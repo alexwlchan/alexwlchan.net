@@ -464,7 +464,9 @@ class GitRepository(BaseModel):
         # Garbage collect the existing repo, which will clear up orphaned
         # objects and create packfiles which can be served more efficiently
         # than tiny per-object files.
-        subprocess.check_call(["git", "gc", "--aggressive"], cwd=self.repo_root)
+        subprocess.check_call(
+            ["git", "gc", "--aggressive"], cwd=self.repo_root, stderr=subprocess.DEVNULL
+        )
 
         # Clear the existing folder
         try:
