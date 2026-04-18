@@ -125,7 +125,7 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
             src_dir=src_dir,
             md_path=src_dir / f"_articles/{year}/{year}-01-01-article.md",
             date=datetime(year, 1, 1),
-            html_content=f"Article posted in {year}",
+            content=f"Article posted in {year}",
         )
         for year in range(2000, 2051)
     ] + [
@@ -134,7 +134,7 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
             md_path=src_dir / f"notes/{year}/{year}-02-02-note.md",
             date=datetime(year, 2, 2),
             topics=["Topic 1", "Topic 2", "Topic 3"],
-            html_content=f"Note posted in {year}",
+            content=f"Note posted in {year}",
         )
         for year in range(2000, 2051)
     ]
