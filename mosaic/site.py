@@ -17,7 +17,6 @@ import yaml
 
 from . import cache, page_types
 from .css import create_base_css
-from .fs import find_paths_under
 from .git import GitRepository
 from .page_types import (
     Article,
@@ -182,17 +181,17 @@ class Site(BaseModel):
         for tc in tint_colours:
             tc.create_assets(self.out_dir)
 
-        written_html_paths = set()
-
         if incremental:
             all_pages = self.all_pages
         else:
             all_pages = tqdm(self.all_pages, desc="writing html")  # type: ignore
 
+        written_html_paths: set[str] = set()
+
         for pg in all_pages:
             try:
                 out_path = pg.write(env, out_dir=self.out_dir)
-                written_html_paths.add(out_path)
+                written_html_paths.add(str(out_path))
             except Exception as exc:  # pragma: no cover
                 print(f"error writing {pg!r}: {exc}")
                 raise
@@ -205,15 +204,17 @@ class Site(BaseModel):
 
         # Clean up HTML files that weren't written as part of this build;
         # this usually indicates a renamed or deleted page.
-        for pth in find_paths_under(self.out_dir, suffix=".html"):  # pragma: no cover
-            if "files" in pth.parts or "fun-stuff" in pth.parts:
+        for p in glob.glob(
+            f"{self.out_dir}/**/*.html", recursive=True
+        ):  # pragma: no cover
+            if p in written_html_paths:
                 continue
 
-            if pth in written_html_paths:
+            if "/files/" in p or "/fun-stuff/" in p:
                 continue
 
-            print(f"delete stale HTML file: {pth}")
-            pth.unlink()
+            print(f"delete stale HTML file: {p}")
+            os.unlink(p)
 
         return True
 
