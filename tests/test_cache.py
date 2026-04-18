@@ -6,6 +6,7 @@ from collections.abc import Iterator
 
 import pytest
 
+from mosaic import cache as c
 from mosaic.cache import SQLiteCache
 
 
@@ -30,3 +31,27 @@ def test_basic_cache(cache: SQLiteCache) -> None:
 
     assert cache.get(namespace="fibonacci", key="10") == "55"
     assert cache.get(namespace="fibonacci", key="11") is None
+
+
+def test_register() -> None:
+    """
+    Test the register wrapper.
+    """
+
+    @c.register
+    def upper(s: str) -> str:
+        return s.upper()
+
+    @c.register
+    def lower(s: str) -> str:
+        return s.lower()
+
+    assert c.get("upper", "aBcDe") is None
+    assert c.get("lower", "aBcDe") is None
+
+    assert upper("aBcDe") == "ABCDE"
+
+    assert c.get("upper", "aBcDe") == "ABCDE"
+    assert c.get("lower", "aBcDe") is None
+
+    assert upper("aBcDe") == "ABCDE"

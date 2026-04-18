@@ -4,6 +4,8 @@ Filters for producing the RSS feed.
 
 from bs4 import BeautifulSoup, Comment, Tag
 
+from mosaic import cache
+
 
 def xml_escape(text: str) -> str:
     """
@@ -36,6 +38,7 @@ def fix_relative_url(tag: Tag, attribute_name: str) -> None:
     tag[attribute_name] = ", ".join(new_values)
 
 
+@cache.register
 def fix_html_for_feed_readers(html: str) -> str:
     """
     Apply some clean-ups for HTML embedded in the RSS feed.

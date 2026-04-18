@@ -2,7 +2,9 @@
 SQLite-based caching for common operations, to speed up the site build.
 """
 
+from collections.abc import Callable
 from datetime import datetime, timezone
+import functools
 from pathlib import Path
 import sqlite3
 import sys
@@ -11,7 +13,7 @@ from typing import cast, Literal
 from .git import git_root
 
 
-__all__ = ["SQLiteCache"]
+__all__ = ["SQLiteCache", "register"]
 
 
 class SQLiteCache:
@@ -70,6 +72,25 @@ class SQLiteCache:
             return cast(str, value)
         except TypeError:
             return None
+
+
+def register(f: Callable[[str], str]) -> Callable[[str], str]:
+    """
+    Wrap a function so its return values are stored in the default cache.
+    """
+
+    @functools.wraps(f)
+    def wrapper(key: str) -> str:
+        namespace = f.__name__
+
+        if value := _cache.get(namespace, key):
+            return value
+
+        value = f(key)
+        _cache.set(namespace, key, value)
+        return value
+
+    return wrapper
 
 
 if "pytest" in sys.modules:
