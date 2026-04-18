@@ -4,3 +4,5 @@ _site
 .coverage*
 .hypothesis
 _out
+
+.mosaic_cache.db
