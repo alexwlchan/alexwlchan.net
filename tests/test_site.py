@@ -143,3 +143,44 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
 
     assert (out_dir / "atom.xml").exists()
     assert (out_dir / "notes/atom.xml").exists()
+
+
+def test_copy_static_files(src_dir: Path, out_dir: Path) -> None:
+    """
+    Test copying static files between the two directories.
+    """
+    site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=[])
+
+    # Create three images in the source directory, and check that the
+    # two binary files are copied but the Markdown file is not.
+    files = [
+        ("my-article.md", b"this article should not be copied"),
+        ("images/123.bin", b"this image should be copied"),
+        ("files/2017/456.bin", b"this file should also be copied"),
+    ]
+
+    for path, contents in files:
+        (src_dir / path).parent.mkdir(parents=True, exist_ok=True)
+        (src_dir / path).write_bytes(contents)
+
+    site.copy_static_files()
+
+    assert not (out_dir / "my-article.md").exists()
+    assert (out_dir / "images/123.bin").read_bytes() == b"this image should be copied"
+    assert (
+        out_dir / "files/2017/456.bin"
+    ).read_bytes() == b"this file should also be copied"
+
+    # Update one of the binary files, and check the updated version is
+    # copied to the out_dir.
+    (src_dir / "images/123.bin").write_bytes(b"this image has been updated")
+    site.copy_static_files()
+    assert (out_dir / "images/123.bin").read_bytes() == b"this image has been updated"
+
+    # Remove one of the files from the output directory, and check it's
+    # replaced on the next run.
+    (out_dir / "files/2017/456.bin").unlink()
+    site.copy_static_files()
+    assert (
+        out_dir / "files/2017/456.bin"
+    ).read_bytes() == b"this file should also be copied"
