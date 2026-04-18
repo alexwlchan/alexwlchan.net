@@ -5,6 +5,7 @@ it whenever something changes.
 
 from pathlib import Path
 import sys
+import time
 
 from livereload import Server
 
@@ -22,8 +23,10 @@ def build_and_reload() -> None:
     """
     try:
         print("🔨 Rebuilding site...")
+        now = time.time()
         SITE.build_site(incremental=True)
-        print("✅ Build successful.")
+        elapsed = time.time() - now
+        print(f"✅ Build successful in {elapsed:.1f}s.")
     except Exception as e:
         print(f"❌ Build failed with error: {e}")
 
