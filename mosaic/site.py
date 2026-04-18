@@ -4,7 +4,6 @@ Build system for alexwlchan.net.
 
 from collections import Counter
 from datetime import datetime, timezone
-import filecmp
 import itertools
 from pathlib import Path
 import shutil
@@ -177,8 +176,7 @@ class Site(BaseModel):
         for repo in GIT_REPOS:
             self.prepare_project_pages(env, repo)
 
-        if not incremental:
-            self.copy_static_files()
+        self.copy_static_files()
 
         # Create all the tint colour assets
         for tc in tint_colours:
@@ -241,25 +239,26 @@ class Site(BaseModel):
 
         return "/" + str(out_path.relative_to(self.out_dir))
 
-    def copy_static_files(self) -> None:  # pragma: no cover
+    def copy_static_files(self) -> None:
         """
         Copy all the static files from the src to the dst directory.
         """
-        static_files = []
+        # A list of (src, dst) static files to be copied.
+        static_files: list[tuple[Path, Path]] = []
 
         for src_p in find_paths_under(self.src_dir):
-            if src_p.suffix == ".md" and "files" not in src_p.parts:
+            if src_p.suffix == ".md":
                 continue
-            else:
-                static_files.append(
-                    (src_p, self.out_dir / src_p.relative_to(self.src_dir))
-                )
+            static_files.append((src_p, self.out_dir / src_p.relative_to(self.src_dir)))
 
+        # Actually copy the files. Use the cache to record the mtime
+        # of the source file when it's copied, to skip copying files
+        # which haven't changed.
         with tqdm(desc="static files", total=len(static_files)) as pbar:
             for src_p, out_p in static_files:
-                if not out_p.exists() or not filecmp.cmp(src_p, out_p, shallow=False):
+                if not out_p.exists() or src_p.stat().st_mtime != out_p.stat().st_mtime:
                     out_p.parent.mkdir(exist_ok=True, parents=True)
-                    shutil.copyfile(src_p, out_p)
+                    shutil.copy2(src_p, out_p)
 
                 pbar.update(1)
 
