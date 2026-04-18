@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field
 from tqdm import tqdm
 import yaml
 
-from . import page_types
+from . import cache, page_types
 from .css import create_base_css
 from .fs import find_paths_under
 from .git import GitRepository
@@ -308,6 +308,16 @@ class Site(BaseModel):
                     )
                 )
 
-        repo.create_clone_for_serving(
-            out_dir=self.out_dir / f"projects/{repo.name}.git"
-        )
+        # Create a version of the repo that be cloned.
+        #
+        # This is quite a slow operation, so cached the HEAD ID that was
+        # used for the clone; if the HEAD hasn't changed since we did the
+        # last clone, assume it's up-to-date.
+        cache_ns = "git:clone_for_serving"
+        clone_dir = self.out_dir / f"projects/{repo.name}.git"
+
+        if not clone_dir.exists() or cache.get(cache_ns, repo.name) != repo.head:
+            repo.create_clone_for_serving(
+                out_dir=self.out_dir / f"projects/{repo.name}.git"
+            )
+            cache.set(cache_ns, repo.name, repo.head)
