@@ -57,6 +57,8 @@ class Site(BaseModel):
 
     all_pages: list[BaseHtmlPage] = Field(default_factory=lambda: list())
 
+    written_html_paths: set[str] = Field(default_factory=lambda: set())
+
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
     @property
@@ -186,12 +188,10 @@ class Site(BaseModel):
         else:
             all_pages = tqdm(self.all_pages, desc="writing html")  # type: ignore
 
-        written_html_paths: set[str] = set()
-
         for pg in all_pages:
             try:
                 out_path = pg.write(env, out_dir=self.out_dir)
-                written_html_paths.add(str(out_path))
+                self.written_html_paths.add(str(out_path))
             except Exception as exc:  # pragma: no cover
                 print(f"error writing {pg!r}: {exc}")
                 raise
@@ -207,7 +207,7 @@ class Site(BaseModel):
         for p in glob.glob(
             f"{self.out_dir}/**/*.html", recursive=True
         ):  # pragma: no cover
-            if p in written_html_paths:
+            if p in self.written_html_paths:
                 continue
 
             if "/files/" in p or "/fun-stuff/" in p:
@@ -303,24 +303,51 @@ class Site(BaseModel):
         for commit in repo.commits.values():
             self.all_pages.append(ProjectCommit(repo=repo, commit=commit))
 
-        # TODO: Clear out the old `raw` directory
+        # Write a per-file page for every file in the tree, and write
+        # the raw file if it hasn't been written already.
+        #
+        # Record the blob ID that was written, so we can record the last
+        # version we wrote in the cache, and skip writing it again if
+        # we're already up to data. Reading the blob data is slow, so we
+        # want to avoid it if we can.
+        #
+        # TODO: Clear out stale entries from the `raw` directory
+        for f in repo.tree.files:
+            raw_path = self.out_dir / "projects" / repo.name / "raw" / f.path
+            html_path = ProjectSingleFile(
+                repo=repo, file_path=f.path, file_contents=""
+            ).out_path(self.out_dir)
 
-        for file_path, is_binary, file_data in repo.iterfiles():
-            out_path = self.out_dir / "projects" / repo.name / "raw" / file_path
-            out_path.parent.mkdir(exist_ok=True, parents=True)
-            out_path.write_bytes(file_data)
+            cache_ns = "git.write_raw_file"
+            cache_id = f"{raw_path}:{env.globals['css_url']}:{f.blob_id}"
+
+            if (
+                raw_path.exists()
+                and (html_path.exists() or f.is_binary)
+                and cache.get(cache_ns, cache_id)
+            ):
+                if f.is_binary:
+                    self.written_html_paths.add(str(html_path))
+                continue
+
+            file_data = repo.get_blob_data(f.blob_id)
+
+            raw_path.parent.mkdir(exist_ok=True, parents=True)
+            raw_path.write_bytes(file_data)
 
             # TODO: If I show per-file history on file pages, render
             # a page for all binary files which previews the file
             # and/or just says "binary file".
-            if not is_binary:
+            if not f.is_binary:
                 self.all_pages.append(
                     ProjectSingleFile(
                         repo=repo,
-                        file_path=file_path,
+                        file_path=f.path,
                         file_contents=file_data.decode("utf8"),
                     )
                 )
+
+            cache.set(cache_ns, cache_id)
 
         # Create a version of the repo that be cloned.
         #

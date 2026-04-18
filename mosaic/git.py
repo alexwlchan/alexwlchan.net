@@ -3,7 +3,7 @@ Functions for interacting with Git.
 """
 
 from collections import OrderedDict
-from collections.abc import Iterable, Iterator
+from collections.abc import Iterable
 import codecs
 from datetime import datetime, timezone
 from pathlib import Path
@@ -404,19 +404,15 @@ class GitRepository(BaseModel):
 
         return readme.data.decode("utf8")
 
-    def iterfiles(self) -> Iterator[tuple[Path, bool, bytes]]:
+    def get_blob_data(self, blob_id: str) -> bytes:
         """
-        Iterate over the files in the HEAD, yielding their path, whether
-        they're a binary file, and heir data.
+        Return the contents of a given blob.
         """
         repo = pygit2.Repository(self.repo_root)
 
-        for f in self.tree.files:
-            blob = repo.get(f.blob_id)
-            assert isinstance(blob, pygit2.Blob), blob
-            assert blob.size == f.size and blob.is_binary == f.is_binary, (blob, f)
-
-            yield (f.path, f.is_binary, blob.data)
+        blob = repo.get(blob_id)
+        assert isinstance(blob, pygit2.Blob), blob
+        return blob.data
 
     def write_archive(self, out_dir: Path) -> Path:
         """
