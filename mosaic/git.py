@@ -371,6 +371,7 @@ class GitRepository(BaseModel):
             tree=tree,
         )
 
+    @property
     def navigable_tree(self) -> NavigableTree:
         """
         Return a navigable tree for the /files/ page.

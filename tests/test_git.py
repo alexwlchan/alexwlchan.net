@@ -328,7 +328,7 @@ def test_git_tree(git: GitFn, repo_root: Path) -> None:
             is_binary=True,
         ),
     ]
-    assert repo.tree.navigable_tree.files == [
+    assert repo.navigable_tree.files == [
         NavigableFile(name="greeting.txt"),
         NavigableFile(name="zero.bin", is_binary=True),
     ]
