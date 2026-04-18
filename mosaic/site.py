@@ -128,9 +128,7 @@ class Site(BaseModel):
 
         # Ordering: add a numeric "order" attribute to every article,
         # which is used for sorting on /articles/.
-        for order, art in enumerate(
-            sorted(self.articles, key=lambda art: art.date), start=1
-        ):
+        for order, art in enumerate(reversed(self.articles), start=1):
             art.order = order
 
         # Article cards: pick a short name for every article card.
