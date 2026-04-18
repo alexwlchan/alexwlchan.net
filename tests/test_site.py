@@ -123,18 +123,20 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
     all_pages: list[BaseHtmlPage] = [
         Article(
             src_dir=src_dir,
-            md_path=src_dir / "_articles/2001/2001-01-01-article.md",
-            date=datetime(2001, 1, 1),
+            md_path=src_dir / f"_articles/{year}/{year}-01-01-article.md",
+            date=datetime(year, 1, 1),
+            html_content=f"Article posted in {year}",
         )
-        for _ in range(3)
+        for year in range(2000, 2051)
     ] + [
         Note(
             src_dir=src_dir,
-            md_path=src_dir / "notes/2002/2002-02-02-note.md",
-            date=datetime(2002, 2, 2),
+            md_path=src_dir / f"notes/{year}/{year}-02-02-note.md",
+            date=datetime(year, 2, 2),
             topics=["Topic 1", "Topic 2", "Topic 3"],
+            html_content=f"Note posted in {year}",
         )
-        for _ in range(3)
+        for year in range(2000, 2051)
     ]
 
     site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=all_pages)
@@ -143,6 +145,18 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
 
     assert (out_dir / "atom.xml").exists()
     assert (out_dir / "notes/atom.xml").exists()
+
+    articles_rss = (out_dir / "atom.xml").read_text()
+    notes_rss = (out_dir / "notes/atom.xml").read_text()
+
+    # Check they both contain the most recent 25 posts
+    assert "Article posted in 2050" in articles_rss
+    assert "Article posted in 2026" in articles_rss
+    assert "Article posted in 2025" not in articles_rss
+
+    assert "Note posted in 2050" in notes_rss
+    assert "Note posted in 2026" in notes_rss
+    assert "Note posted in 2025" not in notes_rss
 
 
 def test_copy_static_files(src_dir: Path, out_dir: Path) -> None:

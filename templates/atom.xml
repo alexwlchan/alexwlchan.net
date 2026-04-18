@@ -7,9 +7,7 @@
   <title type="html">alexwlchan</title>
   <subtitle>{{ "Alex Chan’s personal website"| xml_escape }}</subtitle>
 
-  {% set selected_articles = articles | sort(attribute="date", reverse=True) %}
-
-  {% for post in selected_articles[:25] %}
+  {% for post in articles[:25] %}
     {% include "partials/rss_feed_entry.xml" %}
   {% endfor %}
 {% endblock %}

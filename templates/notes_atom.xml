@@ -7,9 +7,7 @@
   <title type="html">{{ "alexwlchan’s notes" | xml_escape }}</title>
   <subtitle>{{ "Alex Chan’s Notes" | xml_escape }}</subtitle>
 
-  {% set selected_notes = notes | sort(attribute="date", reverse=True) %}
-
-  {% for post in selected_notes[:25] %}
+  {% for post in notes[:25] %}
     {% include "partials/rss_feed_entry.xml" %}
   {% endfor %}
 {% endblock %}
