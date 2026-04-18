@@ -3,7 +3,6 @@ Code for dealing with CSS and website styles.
 """
 
 from collections import OrderedDict
-import hashlib
 from pathlib import Path
 import re
 from typing import TypedDict
@@ -11,6 +10,7 @@ from typing import TypedDict
 import lightningcss
 
 from .git import git_root
+from .text import md5
 
 
 __all__ = ["CSS_DIR", "create_base_css", "get_inline_styles"]
@@ -41,8 +41,7 @@ def create_base_css() -> tuple[str, str]:
     # Using three characters of hash gives me 16^3 = 4096 bits of entropy.
     # Given I cache CSS for a year and only change it a handful of times,
     # that should be plenty.
-    h = hashlib.md5(css.encode("utf8")).hexdigest()
-    h = h[:3]
+    h = md5(css)[:3]
 
     return f"style.{h}.css", css
 
