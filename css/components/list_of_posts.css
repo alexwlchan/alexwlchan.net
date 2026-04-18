@@ -29,7 +29,7 @@ section {
  */
 #list_of_posts section.plinks {
   padding:     1.5em var(--default-padding);
-  width:       calc(100vw);
+  width:       calc(100vw - 2*var(--default-padding));
   margin-left: calc(50% - 50vw);
   
   & > * {
