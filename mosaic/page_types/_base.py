@@ -211,7 +211,8 @@ class BaseHtmlPage(ABC, BaseModel):
         # an issue in practice.
         cache_ns = "render_full_html"
         template_mtime = (Path("templates") / self.template_name).stat().st_mtime
-        cache_key = f"{self.md_path}:{template_mtime}:{md5(self.content)}"
+        css_url = env.globals["css_url"]
+        cache_key = f"{self.md_path}:{css_url}:{template_mtime}:{md5(self.content)}"
 
         # If the HTML exists in the cache, we don't need to regenerate it
         # and we can skip writing if the file already exists.
