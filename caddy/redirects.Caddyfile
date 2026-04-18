@@ -1036,8 +1036,6 @@ redir /videos/crossness_flywheel.mp4 /files/2017/crossness_flywheel.mp4 permanen
 redir /slides/docopt/docopt_slides.pdf /files/2017/docopt_slides.pdf permanent
 redir /talks/hypothesis_qcon17.pdf /files/2017/hypothesis_qcon17.pdf permanent
 redir /slides/privilege_inclusion/privilege_inclusion_slides.pdf /files/2017/privilege_inclusion_slides.pdf permanent
-redir /files/tweet_templates.key /files/2017/tweet_templates.key permanent
-redir /files/tweet_templates.ppt /files/2017/tweet_templates.ppt permanent
 redir /slides/anti_social_media/anti_social_media_slides.pdf /files/2018/anti_social_media_slides.pdf permanent
 redir /slides/assume_worst_intent.pdf /files/2018/assume_worst_intent.pdf permanent
 redir /files/assume_worst_intent.pdf /files/2018/assume_worst_intent.pdf permanent
@@ -2072,4 +2070,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: 2AX+0dFnz9)
+#[[[end]]] (sum: YA31/x+JvF)

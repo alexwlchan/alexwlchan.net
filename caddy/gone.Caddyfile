@@ -868,6 +868,14 @@ handle /files/rock-crushers.txt {
 	error 410
 }
 
+handle /files/2017/tweet_templates.key {
+	error 410
+}
+
+handle /files/2017/tweet_templates.ppt {
+	error 410
+}
+
 handle /images/talks/oxford_git.jpg {
 	error 410
 }
@@ -940,4 +948,4 @@ handle /windows {
 	error 410
 }
 
-#[[[end]]] (sum: EKpXQyXynC)
+#[[[end]]] (sum: uMu4wnzYYM)
