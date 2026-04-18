@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% macro tree_files(tree, parent="") -%}
+<ul class="tree">
+  {% for name, folder in tree.folders.items() %}
+  <li class="folder">
+    <details class="custom-details">
+      <summary><code>{{ name }}/</code></summary>
+      
+      {{ tree_files(folder, parent=parent + name|string + "/") }}
+    </details>
+  </li>
+  {% endfor %}
+  {% for f in tree.files %}
+  <li><a href="{% if f.is_binary %}../raw/{% endif %}{{ parent }}{{ f.name }}"><span style="text-decoration: none;">📄 </span><code>{{ f.name }}</code></a></li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+
+
+{% block content %}
+  <style>
+    ul.tree {
+      list-style-type: "";
+      overflow-x: scroll;
+    }
+
+    summary {
+      list-style: none; /* Hide default in most browsers */
+    }
+    summary::-webkit-details-marker {
+      display: none; /* Hide default in Chromium */
+    }
+    summary::before {
+      content: '📁';
+      display: inline-block;
+      margin-right: 10px;
+      transition: transform 0.2s;
+    }
+    details[open] > summary::before {
+      content: '📂';
+    }
+    article > ul.tree > li > details[open] {
+      padding: 8px;
+      margin: -8px;
+      border-radius: var(--border-radius);
+      margin-bottom: 16px;
+    }
+    article > ul.tree > li:first-child > details[open] {
+      margin-top: 8px;
+    }
+    
+    details[open] ul {
+      padding-left: 10px;
+      border-left: var(--border-width) solid var(--accent-grey);
+      margin-left: 8px;
+    }
+    
+    details[open] {
+      background: rgba(25, 25, 25, 0.04);
+    }
+    
+    details[open]:hover:not(:has(details[open]:hover)) {
+/*      background: rgba(25, 25, 25, 0.25);*/
+      
+      ul {
+        border-left: var(--border-width) solid var(--primary-color);
+      }
+    }
+  </style>
+  
+  {% set repo = page.repo %}
+  {% set tree = repo.navigable_tree() %}
+
+  <article>
+    <h1 class="title">Files</h1>
+    
+    {{ tree_files(tree) }}
+  </article>
+{% endblock %}

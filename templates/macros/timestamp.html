@@ -1,0 +1,17 @@
+{#-
+  Render a timestamp on the page.  This will wrap dates in a <time> tag
+  and print them in my preferred format (e.g. 1 February 2003).
+  
+  Usage:
+  
+    {% from "macros/timestamp.html" import timestamp %}
+
+    {{ timestamp(date) }}
+
+-#}
+
+{%- macro timestamp(date, date_format='%-d %B %Y') -%}
+<time datetime="{{ date.strftime('%Y-%m-%d') }}">
+  {{- date.strftime(date_format) -}}
+</time>
+{%- endmacro -%}

@@ -37,7 +37,7 @@ mypy uptime_tests
 
 echo ""
 
-print_info "-> python3 -m pytest --cov=mosaic -n=auto"
+print_info "-> python3 -m pytest tests --cov=mosaic -n=auto"
 python3 -m pytest tests --cov=mosaic -n=auto
 
 echo ""

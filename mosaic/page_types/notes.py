@@ -18,12 +18,7 @@ class Note(Post):
     original thought, just meant as a reference.
     """
 
-    @property
-    def template_name(self) -> str:
-        """
-        The name of HTML file used as a template for this type of page.
-        """
-        return "note.html"
+    template_name: str = "note.html"
 
     @property
     def url(self) -> str:

@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .commit_details {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: 1em;
+      grid-row-gap: 3px;
+      margin-bottom: 0;
+      padding-bottom: var(--default-padding);
+      border-bottom: 0.5px solid var(--primary-color);
+
+      dt::after {
+        content: ":";
+        text-align: right;
+      }
+
+      dd {
+        margin: 0;
+        font-weight: bold;
+      }
+
+      dd > pre {
+        background: none;
+        border:     none;
+        padding: 0;
+        margin:  0;
+      }
+    }
+
+    .custom-details {
+      max-width: 620px;
+      overflow-x: scroll;
+    }
+
+    .custom-details summary {
+      list-style: none; /* Standard */
+      cursor: pointer;
+    }
+
+    /* For Safari support */
+    .custom-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* 2. Add your own triangle after the text */
+    .custom-details summary::after {
+      padding-left: 10px;
+      content: "►"; /* You can use an SVG or any icon here */
+      transition: transform 0.2s ease;
+    }
+
+    /* 3. Rotate the triangle when the details are open */
+    .custom-details[open] summary::after {
+      content: "▼";
+    }
+  </style>
+  
+  {% set repo = page.repo %}
+  {% set commit = page.commit %}
+
+  <article>
+    <hgroup>
+      <h2>{{ commit.summary | markdownify_oneline }}</h2>
+    </hgroup>
+
+    <dl class="commit_details">
+      <dt>ID</dt>
+      <dd><code>{{ commit.id[:7] }}</code></dd>
+
+      <dt>date</dt>
+      <dd><code>{{ commit.date }}</code></dd>
+
+      <dt>author</dt>
+      <dd><code>{{ commit.author|escape }}</code></dd>
+
+      {% if commit.parent_ids %}
+      <dt>parent{% if commit.parent_ids|count > 1 %}s{% endif %}</dt>
+      <dd>{% for p in commit.parent_ids %}<a href="/projects/{{ page.slug }}/commits/{{ p }}/"><code>{{ p[:7] }}</code></a>{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+      {% endif %}
+
+      <dt>message</dt>
+      <dd><pre><code>{{ commit.message }}</code></pre></dd>
+
+      <dt>changed files</dt>
+      <dd>
+        <details class="custom-details">
+          {% set file_count = commit.changed_files|count %}
+          {% set additions = commit.stats.additions %}
+          {% set deletions = commit.stats.deletions %}
+          <summary><code>
+            {{- file_count }} file{% if file_count > 1 %}s{% endif %}          
+            {%- if additions -%}
+              , {{ additions }} addition{% if additions > 1 %}s{% endif %}
+            {%- endif %}
+            {%- if deletions -%}
+              , {{ deletions }} deletion{% if deletions > 1 %}s{% endif %}
+            {%- endif %}
+          </code></summary>
+
+          {#
+            TODO: Show stats for changed individual files
+          #}
+          <ul>
+          {% for cf in commit.changed_files %}
+            <li><a href="#file{{ loop.index }}"><code>{{ cf.new_path }}</code></a></li>
+          {% endfor %}
+          </ul>
+        </details>
+      </dd>
+    </dl>
+
+    <h3>Changed files</h3>
+
+    {% for cf in commit.changed_files %}
+    <section id="file{{ loop.index }}"></section>
+    <p>
+      <code>{{ cf.old_path }}</code> ({{ cf.old_size }}) &rarr; <code>{{ cf.new_path }}</code> ({{ cf.new_size }})
+    </p>
+
+    <pre class="lng-diff"><code>{% for line in cf.diff_text.splitlines() %}
+{% if line.startswith('@') %}<span class="gu">{% elif line.startswith('+') %}<span class="gi">{% elif line.startswith('-') %}<span class="gd">{% else %}<span>{% endif %}{{ line|escape }}</span>
+{% endfor %}</code></pre>
+    {% endfor %}
+
+    </section>
+  </article>
+{% endblock %}

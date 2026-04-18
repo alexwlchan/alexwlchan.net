@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .commits li {
+      margin-bottom: 6px;
+    }
+
+    hgroup {
+      padding-bottom: var(--default-padding);
+    }
+  </style>
+
+  {% set repo = page.repo %}
+
+  <article>
+    <h1 class="title">
+      {{- page.title | markdownify_oneline -}}
+    </h1>
+
+    {% for year, year_commits in repo.commits.values()|groupby(attribute='date.year')|reverse %}
+      {% for month, month_commits in year_commits|groupby(attribute='date.month')|reverse %}
+      <p>{{ month_commits[0].date.strftime('%B %Y') }}:</p>
+
+      <ul class="commits">
+      {%- for c in month_commits -%}
+        <li>
+          {{- "" -}}
+          <a href="/projects/{{ page.slug }}/commits/{{ c.id }}/">
+            {{- c.summary | markdownify_oneline -}}
+          </a><br/>
+          <span class="meta">
+          <code>{{ c.id[:7] }}</code>
+          {{- " · " -}}
+          {%- with date = c.date -%}
+          {%- with date_format = '%-d %B' -%}
+            {%- include "partials/timestamp.html" -%}
+          {%- endwith -%}
+          {%- endwith -%}
+          {%- if c.author != "Alex Chan <alex@alexwlchan.net>" -%}
+            {{- " · " -}}
+            {{ c.author | escape }}
+          {%- endif -%}
+          {{- " · " -}}
+          {{ c.stats }}
+          </span>
+        </li>
+      {%- endfor -%}
+      </ul>
+
+      {% endfor %}
+    {% endfor %}
+  </article>
+{% endblock %}

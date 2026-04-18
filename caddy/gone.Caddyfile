@@ -896,14 +896,6 @@ handle /notes/custom-css-resophnotes {
 	error 410
 }
 
-handle /projects/ {
-	error 410
-}
-
-handle /projects {
-	error 410
-}
-
 handle /systems/windows/ {
 	error 410
 }
@@ -948,4 +940,4 @@ handle /windows {
 	error 410
 }
 
-#[[[end]]] (sum: y7MMp8/hzh)
+#[[[end]]] (sum: EKpXQyXynC)

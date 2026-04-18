@@ -52,6 +52,8 @@ class BookReview(Post):
     A book review is my notes on a book I've read.
     """
 
+    template_name: str = "book_review.html"
+
     # Information about the book itself
     book: BookInfo
 
@@ -79,13 +81,6 @@ class BookReview(Post):
         Returns the one-line attribution based on the contributor.
         """
         return attribution_line(contributors=self.book.contributors)
-
-    @property
-    def template_name(self) -> str:
-        """
-        The name of HTML file used as a template for this type of page.
-        """
-        return "book_review.html"
 
     @property
     def url(self) -> str:

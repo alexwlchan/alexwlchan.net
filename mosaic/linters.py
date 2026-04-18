@@ -179,15 +179,26 @@ def check_all_urls_are_hackable(redir_path: Path, out_dir: Path) -> list[str]:
     html_urls = set()
 
     for p in find_paths_under(out_dir, suffix=".html"):
+        relative_path = p.relative_to(out_dir)
+
         # The /files/ directory is just a grab bag of HTML files, and
         # I don't expect it to be hackable.
-        if p.is_relative_to(out_dir / "files"):  # pragma: no cover
+        if relative_path.is_relative_to("files"):  # pragma: no cover
+            continue
+
+        # If it's a subdirectory of /files/ in the /projects/ folder,
+        # ignore it -- these all get redirected back to /files/
+        if (
+            relative_path.is_relative_to("projects")
+            and len(relative_path.parts) >= 5
+            and relative_path.parts[2] == "files"
+        ):  # pragma: no cover
             continue
 
         if p.name == "index.html":
-            html_urls.add(f"/{p.parent.relative_to(out_dir)}/".replace("/./", "/"))
+            html_urls.add(f"/{relative_path.parent}/".replace("/./", "/"))
         else:
-            html_urls.add(f"/{p.relative_to(out_dir)}")
+            html_urls.add(f"/{relative_path}")
 
     assert "/" in html_urls
 
@@ -309,15 +320,20 @@ def get_expected_path(out_dir: Path, page_path: Path, url: str) -> Path | None:
 
     # Skip URLs for external sites or other schemes that are pointing
     # to something other than a remote resource.
-    if (
-        u.scheme in {"http", "https", "data", "mailto", "javascript", "tel"}
-        and u.netloc != "alexwlchan"
-    ):
+    if u.scheme in {"http", "https", "data", "mailto", "javascript", "tel"}:
         return None
 
     # Query-only URLs, e.g. "?tag=preservation".
     if not u.path:
         return page_path
+
+    # HTML page under /projects/…/files/ subdirectory of a project.
+    if (
+        u.path.startswith("/projects/")
+        and "/files/" in u.path
+        and not u.path.endswith("/files/")
+    ):
+        return out_dir / (u.path.lstrip("/") + ".html")
 
     # Static file: check if a corresponding file exists in the out_dir.
     # Example: /f/17823e-32x32.svg

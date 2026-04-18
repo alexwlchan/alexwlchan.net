@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    <h1 class="title">Tags</h1>
+    
+    {% set repo = page.repo %}
+
+    <ul>
+      {% for tag_name, commit_id in repo.tags.items() %}
+        <li><a href="/projects/{{ repo.name }}/commits/{{ commit_id }}/">{{ tag_name }}</a></li>
+      {% endfor %}
+    </ul>
+  </article>
+{% endblock %}

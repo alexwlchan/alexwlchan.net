@@ -1,0 +1,23 @@
+# On most of my website, the file for a URL is served from an `index.html`
+# in a directory that matches the URL.
+#
+# For example, /tags/python is in /tags/python/index.html.
+#
+# For files in my Git repo browser, I want them to be available at a URL
+# without a trailing slash, so I save them with a `.html` suffix and
+# tell Caddy to look there instead.
+#
+# For example, .github/workflow.yml is in /files/.github/workflow.yml.html
+#
+@gitFiles {
+	path_regexp git ^/projects/([^/]+)/files/(.+)$
+}
+route @gitFiles {
+	@tryHtml file {path}.html
+	handle @tryHtml {
+		rewrite {path}.html
+		file_server
+	}
+
+	redir * /projects/{re.git.1}/files/?missing={re.git.2}
+}

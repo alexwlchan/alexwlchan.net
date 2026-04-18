@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% from "macros/timestamp.html" import timestamp %}
+
+{% block content %}
+  <style>
+    .title {
+      text-wrap: balance;
+    }
+
+    .title .bk_title {
+      font-style: italic;
+    }
+
+    header {
+      display: grid;
+      padding: var(--default-padding);
+
+      border: var(--border-width) var(--border-style) var(--primary-color);
+      border-radius: var(--border-radius);
+      background: var(--background-color);
+
+      margin-top: var(--default-padding);
+
+      h1 {
+        margin-top: 5px;
+      }
+
+      .summary {
+        font-weight: bold;
+      }
+
+      .repo_metadata {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: 1em;
+        grid-row-gap: 3px;
+        margin: 0;
+
+        dt::after {
+          content: ":";
+        }
+
+        dd {
+          margin: 0;
+        }
+      }
+
+      nav {
+        border-top: 0.5px solid var(--primary-color);
+      }
+
+      nav ul {
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and (min-width: 820px) {
+      header {
+        margin-left:  calc(-1 * var(--default-padding));
+        margin-right: calc(-1 * var(--default-padding));
+
+        margin-bottom: calc(2 * var(--default-padding));
+      }
+    }
+  </style>
+  
+  {% set repo = page.repo %}
+
+  <article>
+    <header>
+      <hgroup>
+        <h1>{{ repo.name }}</h1>
+        <p class="summary">
+          {{ repo.description }}
+        </p>
+      </hgroup>
+      <nav>
+        <ul class="dot_list">
+          <li><a href="{{ page.url }}commits/">Log</a></li>
+          <li><a href="{{ page.url }}files/">Files</a></li>
+          <li><a href="{{ page.url }}tags/">Tags</a></li>
+          <li><a href="{{ page.url }}files/CHANGELOG.md">Changelog</a></li>
+          <li><a href="{{ page.url }}files/LICENSE">License</a></li>
+          <li><a href="/projects/{{ repo.name }}.git">Clone</a></li>
+          <li><a href="{{ page.archive_url }}">Download</a></li>
+          <li style="white-space: nowrap;">Last updated {{ timestamp(repo.last_updated) }}</li>
+        </ul>
+      </nav>
+    </header>
+
+    <pre class="wrap"><code>{{ page.repo.readme_contents() }}</code></pre>
+  </article>
+{% endblock %}

@@ -15,6 +15,14 @@ from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
 from .notes import Note
 from .posts import Post
+from .projects import (
+    ProjectCommit,
+    ProjectHomepage,
+    ProjectLog,
+    ProjectSingleFile,
+    ProjectTags,
+    ProjectTree,
+)
 from .topic_pages import TopicPage
 
 
@@ -87,6 +95,12 @@ __all__ = [
     "Note",
     "Page",
     "Post",
+    "ProjectCommit",
+    "ProjectHomepage",
+    "ProjectLog",
+    "ProjectSingleFile",
+    "ProjectTags",
+    "ProjectTree",
     "ReviewInfo",
     "TopicPage",
     "read_markdown_files",

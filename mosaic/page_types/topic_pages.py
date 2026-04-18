@@ -14,17 +14,12 @@ class TopicPage(BaseHtmlPage):
     A page which shows you everything I've published about a topic.
     """
 
+    template_name: str = "topic.html"
+
     # Properties inherited from BaseHtmlPage which are guaranteed
     # to be set for a TopicPage.
     md_path: Path
     src_dir: Path
-
-    @property
-    def template_name(self) -> str:
-        """
-        The name of HTML file used as a template for this type of page.
-        """
-        return "topic.html"
 
     @property
     def url(self) -> str:
