@@ -16,7 +16,7 @@
     {%- if post.template_name == "note.html" and post.summary -%}
       <p><strong>{{ post.summary | markdownify_oneline | fix_html_for_feed_readers }}</strong></p>
     {%- endif -%}
-    {{- post.render_body_html(env) | cleanup_text | fix_html_for_feed_readers | fix_youtube_iframes }}
+    {{- post.render_body_html(env) | cleanup_text | fix_html_for_feed_readers }}
 
     <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.url | absolute_url | xml_escape }}?ref=rss">visit the original article</a>]</p>
     ]]>

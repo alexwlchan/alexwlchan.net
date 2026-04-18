@@ -2,8 +2,6 @@
 Filters for producing the RSS feed.
 """
 
-import re
-
 from bs4 import BeautifulSoup, Comment, Tag
 
 
@@ -15,29 +13,6 @@ def xml_escape(text: str) -> str:
         text = text.replace(old, new)
 
     return text
-
-
-YOUTUBE_IFRAME_RE = re.compile(
-    r'<iframe\s+class="youtube"\s+id="youtube_(?P<video_id>[^"]+)"(.*?)</iframe>',
-    flags=re.DOTALL | re.MULTILINE,
-)
-
-
-def fix_youtube_iframes(html: str) -> str:
-    """
-    Replace YouTube iframes in the RSS feed with links.
-
-    This is based on https://github.com/rubys/feedvalidator, which says
-    that embedding an <iframe> in an RSS feed can be a security risk.
-    """
-    if "<iframe" not in html:
-        return html
-
-    while m := YOUTUBE_IFRAME_RE.search(html):
-        url = f"https://www.youtube.com/watch?v={m.group('video_id')}"
-        html = html.replace(m.group(0), f'<p><a href="{url}">{url}</a></p>')
-
-    return html
 
 
 def fix_relative_url(tag: Tag, attribute_name: str) -> None:
@@ -109,8 +84,25 @@ def fix_html_for_feed_readers(html: str) -> str:
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         comment.extract()
 
+    # 7. Replace YouTube <iframes> with links.
+    #
+    # This is based on https://github.com/rubys/feedvalidator, which says
+    # that embedding an <iframe> in an RSS feed can be a security risk.
+    for iframe in soup.find_all("iframe", attrs={"class": "youtube"}):
+        iframe_id = iframe.attrs["id"]
+        assert isinstance(iframe_id, str)
+        video_id = iframe_id.replace("youtube_", "")
+        url = f"https://www.youtube.com/watch?v={video_id}"
+
+        paragraph = soup.new_tag("p")
+        link = soup.new_tag("a", href=url)
+        link.string = url
+        paragraph.append(link)
+
+        iframe.replace_with(paragraph)
+
     # 7. Convert back to string and remove empty paragraphs
     # We use .decode_contents() to get just the inner HTML without
     # the body tags
     output = soup.body.decode_contents() if soup.body else str(soup)
-    return output.replace("<p></p>", "")
+    return output.replace("<p></p>", "").strip()

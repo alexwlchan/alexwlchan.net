@@ -7,7 +7,6 @@ import pytest
 
 from mosaic.templates.rss_feed import (
     fix_html_for_feed_readers,
-    fix_youtube_iframes,
     xml_escape,
 )
 
@@ -28,26 +27,6 @@ def test_xml_escape(text: str, escaped_xml: str) -> None:
     Text in XML is escaped correctly.
     """
     assert xml_escape(text) == escaped_xml
-
-
-@pytest.mark.parametrize(
-    "md, cleaned_html",
-    [
-        (
-            '{% youtube "https://www.youtube.com/watch?v=Ej2EJVMkTKw" %}',
-            '<p><a href="https://www.youtube.com/watch?v=Ej2EJVMkTKw">'
-            "https://www.youtube.com/watch?v=Ej2EJVMkTKw</a></p>",
-        ),
-        ("Hello world", "Hello world"),
-    ],
-)
-def test_fix_youtube_iframes(env: Environment, md: str, cleaned_html: str) -> None:
-    """
-    Test that my YouTube embeds are replaced with inline links.
-    """
-    html = env.from_string(md).render()
-
-    assert fix_youtube_iframes(html).strip() == cleaned_html
 
 
 class TestFixHtmlForFeedReaders:
@@ -141,3 +120,23 @@ class TestFixHtmlForFeedReaders:
         Relative URLs are replaced with their absolute counterparts.
         """
         assert expected_url in fix_html_for_feed_readers(html)
+
+    @pytest.mark.parametrize(
+        "md, cleaned_html",
+        [
+            (
+                '{% youtube "https://www.youtube.com/watch?v=Ej2EJVMkTKw" %}',
+                '<p><a href="https://www.youtube.com/watch?v=Ej2EJVMkTKw">'
+                "https://www.youtube.com/watch?v=Ej2EJVMkTKw</a></p>",
+            ),
+        ],
+    )
+    def test_fix_youtube_iframes(
+        self, env: Environment, md: str, cleaned_html: str
+    ) -> None:
+        """
+        YouTube embeds are replaced with inline links.
+        """
+        html = env.from_string(md).render()
+
+        assert fix_html_for_feed_readers(html) == cleaned_html

@@ -24,7 +24,7 @@ from mosaic.topics import get_topic_by_name
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .pictures import article_card_image, PictureExtension
-from .rss_feed import fix_html_for_feed_readers, fix_youtube_iframes, xml_escape
+from .rss_feed import fix_html_for_feed_readers, xml_escape
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
 from .table_of_contents import TableOfContentsExtension
@@ -62,7 +62,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "escape_attribute_value": escape_attribute_value,
             "filter_for_topic": filter_for_topic,
             "fix_html_for_feed_readers": fix_html_for_feed_readers,
-            "fix_youtube_iframes": fix_youtube_iframes,
             "format_date": format_date,
             "get_inline_styles": get_inline_styles,
             "jsonify": json.dumps,
