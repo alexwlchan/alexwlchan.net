@@ -250,16 +250,6 @@ class Site(BaseModel):
         for src_p in find_paths_under(self.src_dir):
             if src_p.suffix == ".md" and "files" not in src_p.parts:
                 continue
-
-            if src_p.is_relative_to(self.src_dir / "_images"):
-                static_files.append(
-                    (
-                        src_p,
-                        self.out_dir
-                        / "images"
-                        / src_p.relative_to(self.src_dir / "_images"),
-                    )
-                )
             else:
                 static_files.append(
                     (src_p, self.out_dir / src_p.relative_to(self.src_dir))

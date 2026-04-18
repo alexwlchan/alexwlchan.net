@@ -20,8 +20,8 @@ def test_book_review_properties(src_dir: Path) -> None:
     """
     Test the `BookReview` page type.
     """
-    (src_dir / "_images/2001").mkdir(parents=True)
-    (src_dir / "_images/2001/ship-happens.jpg").write_text("JPEG;placeholder")
+    (src_dir / "images/2001").mkdir(parents=True)
+    (src_dir / "images/2001/ship-happens.jpg").write_text("JPEG;placeholder")
 
     review = page_types.BookReview(
         md_path=src_dir / "book_reviews/2001/ship-happens.md",
@@ -40,7 +40,7 @@ def test_book_review_properties(src_dir: Path) -> None:
     assert review.attribution_line == "by James T. Kink"
     assert review.template_name == "book_review.html"
     assert review.url == "/book-reviews/ship-happens/"
-    assert review.cover_image == src_dir / "_images/2001/ship-happens.jpg"
+    assert review.cover_image == src_dir / "images/2001/ship-happens.jpg"
     assert review.breadcrumb == [
         page_types.BreadcrumbEntry(label="books I've read", href="/book-reviews/")
     ]

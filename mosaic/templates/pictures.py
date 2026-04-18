@@ -181,11 +181,11 @@ def render_picture(
     #   - If the parent page has a date, look in the per-year folder
     #   - Otherwise, look in the `images` folder
     #
-    images_dir = src_dir / "_images"
+    images_dir = src_dir / "images"
 
     # TODO: Tidy up some of the `parent` handling logic?
     if parent is not None:
-        lt_src_path = src_dir / str(parent).replace("/images", "_images") / filename
+        lt_src_path = src_dir / parent.lstrip("/") / filename
     else:
         if context["page"].date:
             lt_src_path = images_dir / str(context["page"].date.year) / filename
@@ -269,9 +269,7 @@ def render_picture(
 
     # Work out where to link to (if any)
     if link_to == "original":
-        link_target: str | None = "/images/" + str(
-            lt_src_path.relative_to(src_dir / "_images")
-        )
+        link_target: str | None = f"/{lt_src_path.relative_to(src_dir)}"
     else:
         link_target = link_to
 
@@ -370,8 +368,7 @@ def create_image_derivatives(
     the image you should prefer as the default.
     """
     if dst_prefix is None:
-        out_path = Path("images") / src_path.relative_to(src_dir / "_images")
-        dst_prefix = out_path.with_suffix("")
+        dst_prefix = src_path.relative_to(src_dir).with_suffix("")
 
     # Choose what format we should use for this image, in order of preference.
     if is_screenshot and src_path.suffix.lower() == ".jpg":

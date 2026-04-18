@@ -28,10 +28,10 @@ class TestSlideExtension:
         """
         Test the basic usage of the {% slide %} tag.
         """
-        (src_dir / "_images/2026/truchet-tiles").mkdir(parents=True)
+        (src_dir / "images/2026/truchet-tiles").mkdir(parents=True)
         shutil.copyfile(
             "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles/slide1-800x400.png",
+            src_dir / "images/2026/truchet-tiles/slide1-800x400.png",
         )
         page = StubPage(date=datetime(2026, 1, 1), slug="truchet-tiles")
 
@@ -63,10 +63,10 @@ class TestSlideExtension:
         """
         Test a slide which includes a caption.
         """
-        (src_dir / "_images/2026/truchet-tiles").mkdir(parents=True)
+        (src_dir / "images/2026/truchet-tiles").mkdir(parents=True)
         shutil.copyfile(
             "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles/slide1-800x400.png",
+            src_dir / "images/2026/truchet-tiles/slide1-800x400.png",
         )
         page = StubPage(date=datetime(2026, 1, 1), slug="truchet-tiles")
 

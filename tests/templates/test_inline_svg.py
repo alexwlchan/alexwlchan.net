@@ -26,8 +26,8 @@ class TestInlineSvgExtension:
         """
         Test the basic usage of the {% inline_svg %} tag.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text(
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '  <rect width="200" height="200" fill="yellow"/>\n'
             "</svg>"
@@ -46,10 +46,10 @@ class TestInlineSvgExtension:
 
     def test_page_without_date(self, src_dir: Path, env: Environment) -> None:
         """
-        An inline SVG in a page without a date looks in the `_images` dir.
+        An inline SVG in a page without a date looks in the `images` dir.
         """
-        (src_dir / "_images").mkdir(parents=True)
-        (src_dir / "_images/example.svg").write_text(
+        (src_dir / "images").mkdir(parents=True)
+        (src_dir / "images/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '  <rect width="200" height="200" fill="yellow"/>\n'
             "</svg>"
@@ -70,8 +70,8 @@ class TestInlineSvgExtension:
         """
         Alt text is processed with SmartyPants.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text(
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '  <text x="10" y="10">some text</text>\n'
             "</svg>"
@@ -96,8 +96,8 @@ class TestInlineSvgExtension:
         """
         I can render inline SVGs with nested <svg> tags.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text(
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '  <svg x="10" y="10">\n'
             '    <text x="10" y="10">some text</text>\n'
@@ -136,10 +136,10 @@ class TestInlineSvgExtension:
         """
         You can have multiple SVGs in a page which all link to the original.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
+        (src_dir / "images/2026").mkdir(parents=True)
 
         for colour in ("red", "green", "blue"):
-            (src_dir / f"_images/2026/rect_{colour}.svg").write_text(
+            (src_dir / f"images/2026/rect_{colour}.svg").write_text(
                 f'<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
                 f'  <rect width="200" height="200" fill="{colour}"/>\n'
                 f"</svg>"
@@ -173,8 +173,8 @@ class TestInlineSvgExtension:
         """
         Extra attributes are added dirctly to the <svg>.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text(
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '  <rect width="200" height="200" fill="yellow"/>\n'
             "</svg>"
@@ -199,8 +199,8 @@ class TestInlineSvgExtension:
         """
         Comments in the original SVG are removed.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text(
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '  <rect width="200" height="200" fill="blue"/>\n'
             "  <!-- This is a comment -->"
@@ -224,8 +224,8 @@ class TestInlineSvgExtension:
         """
         <style> tags in the original SVG are minified.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text(
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             "  <defs>\n"
             "    <style>\n"
@@ -259,8 +259,8 @@ class TestInlineSvgExtension:
         """
         Using an SVG file which doesn't contain an <svg> is an error.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        (src_dir / "_images/2026/example.svg").write_text("Hello world!")
+        (src_dir / "images/2026").mkdir(parents=True)
+        (src_dir / "images/2026/example.svg").write_text("Hello world!")
 
         page = StubPage(date=datetime(2026, 1, 1))
         md = '{% inline_svg filename="example.svg" %}\n'
