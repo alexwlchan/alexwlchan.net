@@ -4,6 +4,7 @@ Build a complete copy of the site.
 
 from pathlib import Path
 import sys
+import time
 
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -12,8 +13,10 @@ from mosaic import Site
 
 if __name__ == "__main__":
     site = Site()
+    now = time.time()
     result = site.build_site(incremental="--incremental" in sys.argv[1:])
+    elapsed = time.time() - now
     if result:
-        print("success!")
+        print(f"✅ Build successful in {elapsed:.1f}s.")
     else:
-        print("error!", file=sys.stderr)
+        print("❌ Build failed!", file=sys.stderr)

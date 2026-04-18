@@ -28,7 +28,7 @@ def build_and_reload() -> None:
         elapsed = time.time() - now
         print(f"✅ Build successful in {elapsed:.1f}s.")
     except Exception as e:
-        print(f"❌ Build failed with error: {e}")
+        print(f"❌ Build failed with error: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":
