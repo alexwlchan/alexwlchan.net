@@ -135,20 +135,20 @@ class TestChooseSharingCard:
         )
         assert a.card_path is None
 
-    def test_matching_card(self, src_dir: Path) -> None:
+    @pytest.mark.parametrize("filename", ["article.png", "article.jpg"])
+    def test_matching_card(self, src_dir: Path, filename: str) -> None:
         """
-        If we look in the card directory and there's a single matching
-        card for this post, use that as the sharing card.
+        A PNG image with the right filename can be a sharing card.
         """
         (src_dir / "images/cards/2001").mkdir(parents=True)
-        (src_dir / "images/cards/2001/article.jpg").write_text("JPEG")
+        (src_dir / "images/cards/2001" / filename).write_text("CARD")
 
         a = Article(
             md_path=src_dir / "_articles/2001/2001-01-01-article.md",
             src_dir=src_dir,
             date=datetime(2001, 1, 1),
         )
-        assert a.card_path == Path("images/cards/2001/article.jpg")
+        assert a.card_path == Path("images/cards/2001") / filename
 
     def test_no_matching_card(self, src_dir: Path) -> None:
         """
