@@ -60,7 +60,7 @@ def register_task(label: str) -> Any:
         @functools.wraps(f)
         def wrapper(site: "Site", *args: Any, **kwargs: Any) -> Any:
             if site.build_options.profile:  # pragma: no cover
-                print(f"{label}...".ljust(30), end=" ")
+                print(f"{label}...".ljust(30), end=" ", flush=True)
                 t0 = time.time()
                 result = f(site, *args, **kwargs)
                 elapsed = time.time() - t0
