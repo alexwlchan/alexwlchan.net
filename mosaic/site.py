@@ -102,6 +102,8 @@ class Site(BaseModel):
 
     build_options: BuildOptions = BuildOptions()
 
+    css_url: str = ""
+
     # The time the site was built. This is used in the RSS feed.
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
@@ -330,7 +332,17 @@ class Site(BaseModel):
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(base_css)
 
-        return "/" + str(out_path.relative_to(self.out_dir))
+        css_url = "/" + str(out_path.relative_to(self.out_dir))
+
+        # If the CSS URL has changed, invalidate the cache of every page,
+        # because they all encode the CSS ID in their <head>.
+        css_changed = bool(self.css_url != "" and css_url != self.css_url)
+        if css_changed:  # pragma: no cover
+            for page in self.all_pages:
+                page.clear_cache(clear_body=False)
+
+        self.css_url = css_url
+        return css_url
 
     @register_task("write html files")  # type: ignore
     def write_html_files(self, env: Environment) -> None:
@@ -467,7 +479,7 @@ class Site(BaseModel):
             ).out_path(self.out_dir)
 
             cache_ns = "git.write_raw_file"
-            cache_id = f"{raw_path}:{env.globals['css_url']}:{f.blob_id}"
+            cache_id = f"{raw_path}:{f.blob_id}"
 
             if (
                 raw_path.exists()

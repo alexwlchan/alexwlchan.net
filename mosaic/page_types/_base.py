@@ -211,8 +211,7 @@ class BaseHtmlPage(ABC, BaseModel):
         # an issue in practice.
         cache_ns = "render_full_html"
         template_mtime = (Path("templates") / self.template_name).stat().st_mtime
-        css_url = env.globals["css_url"]
-        cache_key = f"{self.url}:{css_url}:{template_mtime}:{md5(self.content)}"
+        cache_key = f"{self.url}:{template_mtime}:{md5(self.content)}"
 
         # If the HTML exists in the cache, we don't need to regenerate it
         # and we can skip writing if the file already exists.
@@ -232,12 +231,13 @@ class BaseHtmlPage(ABC, BaseModel):
 
         return out_path
 
-    def clear_cache(self) -> None:  # pragma: no cover
+    def clear_cache(self, clear_body: bool = True) -> None:  # pragma: no cover
         """
         Clear the HTML cache for this page, so it will be rebuilt from
         scratch on the next build.
         """
-        cache.purge(namespace="render_body_html", prefix=f"{self.url}:")
+        if clear_body:
+            cache.purge(namespace="render_body_html", prefix=f"{self.url}:")
         cache.purge(namespace="render_full_html", prefix=f"{self.url}:")
 
     @property
