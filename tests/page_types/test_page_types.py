@@ -16,9 +16,18 @@ from mosaic.page_types import (
     Note,
     Page,
     TopicPage,
-    read_page_from_markdown,
     read_markdown_files,
 )
+
+
+def read_single_markdown_file(src_dir: Path) -> BaseHtmlPage:
+    """
+    Read exactly one Markdown file from src_dir, or error if there isn't
+    exactly one Markdown file.
+    """
+    pages = read_markdown_files(src_dir)
+    assert len(pages) == 1, f"expected exactly one page, got {pages}"
+    return pages[0]
 
 
 def test_read_page_from_file(src_dir: Path) -> None:
@@ -32,11 +41,12 @@ def test_read_page_from_file(src_dir: Path) -> None:
         "---\nlayout: page\ntitle: Contact\n---\nThis is my contact page"
     )
 
-    page = read_page_from_markdown(src_dir, md_path)
+    page = read_single_markdown_file(src_dir)
 
     assert page.md_path == md_path
     assert page.title == "Contact"
     assert page.content == "This is my contact page"
+    assert page.card_path is None
 
 
 @pytest.mark.parametrize("topics_yml", ["topic: Python\n", "topics:\n- Python\n"])
@@ -53,7 +63,7 @@ def test_single_topic_can_be_str_or_list(src_dir: Path, topics_yml: str) -> None
         "title: Example\n" + topics_yml + "---\n" + "This is an example page"
     )
 
-    page = read_page_from_markdown(src_dir, md_path)
+    page = read_single_markdown_file(src_dir)
     assert page.topics == ["Python"]
 
 
@@ -73,12 +83,12 @@ def test_read_article(src_dir: Path) -> None:
         "This is my first blog post"
     )
 
-    page = read_page_from_markdown(src_dir, md_path)
+    article = read_single_markdown_file(src_dir)
 
-    assert isinstance(page, Article)
-    assert page.md_path == md_path
-    assert page.title == "My first post"
-    assert page.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
+    assert isinstance(article, Article)
+    assert article.md_path == md_path
+    assert article.title == "My first post"
+    assert article.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
 
 
 def test_read_note(src_dir: Path) -> None:
@@ -98,12 +108,12 @@ def test_read_note(src_dir: Path) -> None:
         "This is my first note"
     )
 
-    page = read_page_from_markdown(src_dir, md_path)
+    note = read_single_markdown_file(src_dir)
 
-    assert isinstance(page, Note)
-    assert page.md_path == md_path
-    assert page.title == "My first post"
-    assert page.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
+    assert isinstance(note, Note)
+    assert note.md_path == md_path
+    assert note.title == "My first post"
+    assert note.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
 
 
 def test_read_book_review(src_dir: Path) -> None:
@@ -132,7 +142,7 @@ def test_read_book_review(src_dir: Path) -> None:
         "Some thoughts on the book"
     )
 
-    page = read_page_from_markdown(src_dir, md_path)
+    page = read_single_markdown_file(src_dir)
 
     assert isinstance(page, BookReview)
     assert page.md_path == md_path
@@ -150,7 +160,7 @@ def test_read_topic(src_dir: Path) -> None:
         "---\nlayout: topic\ntitle: Python\n---\nIntro to the Python topic"
     )
 
-    page = read_page_from_markdown(src_dir, md_path)
+    page = read_single_markdown_file(src_dir)
 
     assert isinstance(page, TopicPage)
     assert page.md_path == md_path
@@ -169,11 +179,11 @@ def test_read_unrecognised_layout(src_dir: Path) -> None:
         "layout: unrecognised\n"
         "title: What is this page?\n"
         "---\n"
-        "This page has an unecognised layout"
+        "This page has a bad layout"
     )
 
     with pytest.raises(ValueError, match="unrecognised layout"):
-        read_page_from_markdown(src_dir, md_path)
+        read_single_markdown_file(src_dir)
 
 
 def test_read_multiple_markdown_files(src_dir: Path) -> None:
@@ -212,7 +222,7 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
     md_path.write_text("this file doesn't have any YAML front matter")
 
     with pytest.raises(RuntimeError, match=str(md_path)):
-        read_page_from_markdown(src_dir, md_path)
+        read_single_markdown_file(src_dir)
 
 
 PAGE_EXAMPLES = [
@@ -330,3 +340,48 @@ def test_sort_date() -> None:
 
     p.date_updated = datetime(2002, 2, 2)
     assert p.sort_date == datetime(2002, 2, 2)
+
+
+class TestChooseSharingCard:
+    """
+    Tests for a sharing card for a post.
+    """
+
+    @pytest.fixture
+    def article_md(self, src_dir: Path) -> Path:
+        """
+        Create a stub article in the /_articles/ directory.
+        """
+        article_path = src_dir / "_articles/2001/2001-02-03-article.md"
+
+        article_path.parent.mkdir(parents=True)
+        article_path.write_text(
+            "---\n"
+            "layout: article\n"
+            "title: My first post\n"
+            "date: 2001-02-03 04:05:06 +00:00\n"
+            "---\n"
+            "This is my first article"
+        )
+
+        return article_path
+
+    def test_no_card_dir(self, src_dir: Path, article_md: Path) -> None:
+        """
+        If there aren't any card images, then this article doesn't have a card.
+        """
+        article = read_single_markdown_file(src_dir)
+        assert article.card_path is None
+
+    @pytest.mark.parametrize("filename", ["article.png", "article.jpg"])
+    def test_matching_card(
+        self, src_dir: Path, article_md: Path, filename: str
+    ) -> None:
+        """
+        An image with the right filename can be a sharing card.
+        """
+        (src_dir / "images/cards/2001").mkdir(parents=True)
+        (src_dir / "images/cards/2001" / filename).write_text("CARD")
+
+        article = read_single_markdown_file(src_dir)
+        assert article.card_path == Path("images/cards/2001") / filename

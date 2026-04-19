@@ -3,6 +3,7 @@ Models for different types of page that appear on the site.
 """
 
 import glob
+import os
 from pathlib import Path
 
 import yaml
@@ -80,14 +81,36 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
     """
     Read all the Markdown source files.
     """
+    # Search for all the cards in the card directory and build a lookup,
+    # so we can efficiently assign cards to posts when reading the Markdown.
+    card_lookup = {}
+    for img_path in glob.glob(f"{src_dir}/images/cards/**/*", recursive=True):
+        if not os.path.isfile(img_path) or not img_path.endswith((".jpg", ".png")):
+            continue
+
+        year = int(os.path.basename(os.path.dirname(img_path)))
+        slug, _ = os.path.splitext(os.path.basename(img_path))
+        assert (year, slug) not in card_lookup, (
+            f"duplicate card found for year={year}, slug={slug}"
+        )
+        card_lookup[(year, slug)] = Path(img_path).relative_to(src_dir)
+
     result = []
 
     for md_path in glob.glob(f"{src_dir}/**/*.md", recursive=True):
         try:
-            result.append(read_page_from_markdown(src_dir, md_path))
+            page = read_page_from_markdown(src_dir, md_path)
         except Exception as exc:  # pragma: no cover
             print(coloured(f"error reading {md_path}: {exc}", "red"))
             raise
+
+        if isinstance(page, Post):
+            try:
+                page.card_path = card_lookup[(page.date.year, page.slug)]
+            except KeyError:
+                pass
+
+        result.append(page)
 
     return result
 
