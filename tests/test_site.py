@@ -9,6 +9,7 @@ import random
 import time
 
 from jinja2 import Environment
+import pytest
 
 from mosaic.page_types import (
     Article,
@@ -22,6 +23,7 @@ from mosaic.page_types import (
 )
 from mosaic.site import Site
 from mosaic.templates import get_jinja_environment
+from mosaic.tint_colours import TintColours
 
 
 def test_page_properties(src_dir: Path) -> None:
@@ -48,7 +50,7 @@ def test_page_properties(src_dir: Path) -> None:
         return BookReview(
             date=date_read,
             src_dir=src_dir,
-            md_path=src_dir / "book_review.md",
+            md_path=src_dir / f"book_review_{date_read.day}.md",
             book=BookInfo(
                 title="Example book",
                 contributors=[BookContributor(name="Jane Smith")],
@@ -84,8 +86,8 @@ def test_page_properties(src_dir: Path) -> None:
     make_topic = functools.partial(
         TopicPage, src_dir=src_dir, md_path=src_dir / "topic.md"
     )
-    page_crafts = make_topic(title="Crafts")
-    page_github = make_topic(title="GitHub")
+    page_sqlite = make_topic(title="SQLite")
+    page_docker = make_topic(title="Docker")
     page_python = make_topic(title="Python")
 
     all_pages = [
@@ -98,9 +100,9 @@ def test_page_properties(src_dir: Path) -> None:
         note7,
         note8,
         note9,
-        page_crafts,
+        page_sqlite,
         page_python,
-        page_github,
+        page_docker,
     ]
     random.shuffle(all_pages)
 
@@ -111,8 +113,8 @@ def test_page_properties(src_dir: Path) -> None:
     assert site.notes == [note9, note8, note7]
 
     assert len(site.pages) == 3
-    assert page_crafts in site.pages
-    assert page_github in site.pages
+    assert page_sqlite in site.pages
+    assert page_docker in site.pages
     assert page_python in site.pages
 
 
@@ -258,3 +260,91 @@ def test_copy_static_files(src_dir: Path, out_dir: Path) -> None:
     assert (
         out_dir / "files/2017/456.bin"
     ).read_bytes() == b"this file should also be copied"
+
+
+class TestSite:
+    """
+    Tests for methods on Site.
+    """
+
+    @pytest.fixture
+    def pages(self, src_dir: Path) -> list[BaseHtmlPage]:
+        """
+        Return a set of three pages to use in the site.
+        """
+        article = Article(
+            src_dir=src_dir,
+            date=datetime(2001, 1, 1),
+            md_path=src_dir / "_articles/2001/2001-01-01-article.md",
+        )
+        note = Note(
+            src_dir=src_dir,
+            date=datetime(2002, 2, 2),
+            md_path=src_dir / "notes/2002/2002-02-02-note.md",
+            topics=["Python"],
+        )
+        page = TopicPage(src_dir=src_dir, md_path=src_dir / "topic.md", title="Python")
+
+        return [article, note, page]
+
+    def test_check_for_duplicate_urls(
+        self, src_dir: Path, out_dir: Path, pages: list[BaseHtmlPage]
+    ) -> None:
+        """
+        Duplicate URLs are detected and rejected.
+        """
+        # Check that the initial list is fine
+        site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=pages)
+        site.check_for_duplicate_urls()
+
+        # Now send every item in the list twice, and check the site fails
+        # validation.
+        site.all_pages = pages + pages
+        with pytest.raises(RuntimeError, match="multiple pages write to the same URL"):
+            site.check_for_duplicate_urls()
+
+    def test_create_tint_colour_assets(
+        self, src_dir: Path, out_dir: Path, pages: list[BaseHtmlPage]
+    ) -> None:
+        """
+        Tint colour assets are created for every page's tint colour.
+        """
+        pages[0].colors = TintColours(css_light="#ab5326", css_dark="#f49d61")
+        pages[1].colors = TintColours(css_light="#4d27A8", css_dark="#955df4")
+
+        site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=pages)
+        site.create_all_tint_colour_assets()
+
+        headers_dir = out_dir / "h"
+        assert set(headers_dir.iterdir()) == {
+            headers_dir / "ab5326.png",
+            headers_dir / "f49d61.png",
+            headers_dir / "4d27a8.png",
+            headers_dir / "955df4.png",
+            headers_dir / "d01c11.png",
+            headers_dir / "ff4a4a.png",
+        }
+
+        favicons_dir = out_dir / "f"
+        for name in [
+            "ab5326.ico",
+            "f49d61.ico",
+            "4d27a8.ico",
+            "955df4.ico",
+            "d01c11.ico",
+            "ff4a4a.ico",
+        ]:
+            assert (favicons_dir / name).exists()
+
+    def test_write_html_files(
+        self, src_dir: Path, out_dir: Path, env: Environment, pages: list[BaseHtmlPage]
+    ) -> None:
+        """
+        Test for the write_html_files function.
+        """
+        site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=pages)
+        site.write_html_files(env)
+
+        assert (out_dir / "2001/article/index.html").exists()
+        assert (out_dir / "notes/2002/note/index.html").exists()
+        assert (out_dir / "python/index.html").exists()

@@ -14,7 +14,7 @@ from mosaic import Site
 if __name__ == "__main__":
     site = Site()
     now = time.time()
-    result = site.build_site(incremental="--incremental" in sys.argv[1:])
+    result = site.build_site()
     elapsed = time.time() - now
     if result:
         print(f"✅ Build successful in {elapsed:.1f}s.")
