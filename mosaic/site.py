@@ -78,6 +78,7 @@ class BuildOptions(BaseModel):
     incremental_read: bool = False
     copy_static_files: bool = True
     cleanup_leftover_files: bool = True
+    create_tint_colour_assets: bool = True
 
 
 class Site(BaseModel):
@@ -117,7 +118,8 @@ class Site(BaseModel):
 
         self.time = datetime.now(tz=timezone.utc)
 
-        self.create_all_tint_colour_assets()
+        if self.build_options.create_tint_colour_assets:
+            self.create_tint_colour_assets()
         if self.build_options.copy_static_files:
             self.copy_static_files()
         self.write_git_repos(env)
@@ -141,18 +143,22 @@ class Site(BaseModel):
             self.all_pages = read_markdown_files(self.src_dir)
             return
 
+        need_new_tint_colour_assets = False
+
         updated_pages = []
-        for p in self.all_pages:
-            if p.md_path is None:
+        for old_p in self.all_pages:
+            if old_p.md_path is None:
                 continue
-            if self.skip_because_incremental(p.md_path):
-                updated_pages.append(p)
+            if self.skip_because_incremental(old_p.md_path):
+                updated_pages.append(old_p)
             else:
-                updated_pages.append(
-                    read_page_from_markdown(self.src_dir, md_path=p.md_path)
-                )
+                new_p = read_page_from_markdown(self.src_dir, md_path=old_p.md_path)
+                if old_p.colors != new_p.colors:
+                    need_new_tint_colour_assets = True
+                updated_pages.append(new_p)
 
         self.all_pages = updated_pages
+        self.build_options.create_tint_colour_assets = need_new_tint_colour_assets
 
     def skip_because_incremental(self, p: Path | str) -> bool:  # pragma: no cover
         """
@@ -234,7 +240,7 @@ class Site(BaseModel):
         return self
 
     @register_task("create tint colour assets")  # type: ignore
-    def create_all_tint_colour_assets(self) -> None:
+    def create_tint_colour_assets(self) -> None:
         """
         Create the tint colour assets.
         """

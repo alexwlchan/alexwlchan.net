@@ -313,7 +313,7 @@ class TestSite:
         pages[1].colors = TintColours(css_light="#4d27A8", css_dark="#955df4")
 
         site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=pages)
-        site.create_all_tint_colour_assets()
+        site.create_tint_colour_assets()
 
         headers_dir = out_dir / "h"
         assert set(headers_dir.iterdir()) == {
