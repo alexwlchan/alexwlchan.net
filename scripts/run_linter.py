@@ -9,7 +9,6 @@ import sys
 
 from bs4 import BeautifulSoup
 from lxml import etree
-from tqdm import tqdm
 
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -64,12 +63,11 @@ if __name__ == "__main__":
 
     html_paths = list(find_paths_under(out_dir, suffix=".html"))
 
-    html_files = {
-        p: (p.read_text(), read_single_html_file(p))
-        for p in tqdm(html_paths, desc="parsing html")
-    }
+    print("parsing html...")
+    html_files = {p: (p.read_text(), read_single_html_file(p)) for p in html_paths}
 
-    for p, (html_str, soup) in tqdm(html_files.items(), desc="linting html"):
+    print("linting html...")
+    for p, (html_str, soup) in html_files.items():
         try:
             if "testing-javascript-without-a-framework" not in p.parts:
                 all_errors[p] += check_no_broken_html(html_str, soup)

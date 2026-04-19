@@ -14,7 +14,6 @@ pydantic
 pygit2
 Pygments
 PyYAML
-tqdm
 
 # For Mosaic tests
 hypothesis
@@ -23,4 +22,3 @@ mypy
 pytest-cov
 pytest-xdist
 ruff
-types-tqdm

@@ -10,7 +10,6 @@ import re
 from urllib.parse import urlparse, urlsplit
 
 from bs4 import BeautifulSoup
-from tqdm import tqdm
 
 from .caddy import parse_caddy_redirects
 from .fs import find_paths_under
@@ -294,7 +293,8 @@ def check_links_are_consistent(
             linked_urls.append((p, meta.name, meta["content"]))  # type: ignore
 
     # 2. Go through each URL in turn, and check if it exists.
-    for pth, tag_name, url in tqdm(linked_urls, desc="checking links"):
+    print("checking links...")
+    for pth, tag_name, url in linked_urls:
         if expected_path := get_expected_path(out_dir, pth, url):
             if not expected_path.exists():
                 errors.append((pth, tag_name, url))

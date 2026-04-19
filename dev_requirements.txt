@@ -159,14 +159,6 @@ tornado==6.5.5
     # via
     #   -r requirements.txt
     #   livereload
-tqdm==4.67.3
-    # via -r requirements.txt
-types-requests==2.32.4.20260324
-    # via
-    #   -r requirements.txt
-    #   types-tqdm
-types-tqdm==4.67.3.20260303
-    # via -r requirements.txt
 typing-extensions==4.15.0
     # via
     #   -r dns/requirements.txt
@@ -181,10 +173,6 @@ typing-inspection==0.4.2
     # via
     #   -r requirements.txt
     #   pydantic
-urllib3==2.6.3
-    # via
-    #   -r requirements.txt
-    #   types-requests
 wcwidth==0.6.0
     # via
     #   -r requirements.txt
