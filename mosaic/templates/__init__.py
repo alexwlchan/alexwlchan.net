@@ -23,6 +23,7 @@ from mosaic.text import (
 )
 from mosaic.topics import get_topic_by_name
 
+from . import tree_icons
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .pictures import article_card_image, PictureExtension
@@ -30,6 +31,7 @@ from .rss_feed import fix_html_for_feed_readers, xml_escape
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
 from .table_of_contents import TableOfContentsExtension
+from .tree_icons import svg_data_uri
 from .updates import UpdateExtension
 
 
@@ -75,11 +77,17 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "sample": random.sample,
             "smartify": smartify,
             "strip_html": strip_html,
+            "svg_data_uri": svg_data_uri,
             "xml_escape": xml_escape,
         }
     )
     env.globals.update(
-        {"src_dir": src_dir, "out_dir": out_dir, "get_topic_by_name": get_topic_by_name}
+        {
+            "src_dir": src_dir,
+            "out_dir": out_dir,
+            "get_topic_by_name": get_topic_by_name,
+            "tree_icons": tree_icons,
+        }
     )
 
     return env

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+
+
 {% macro tree_files(tree, parent="") -%}
 <ul class="tree">
   {% for name, folder in tree.folders.items() %}
@@ -12,60 +14,163 @@
   </li>
   {% endfor %}
   {% for f in tree.files %}
-  <li><a href="{% if f.is_binary %}../raw/{% endif %}{{ parent }}{{ f.name }}"><span style="text-decoration: none;">📄 </span><code>{{ f.name }}</code></a></li>
+  <li class="file"><a href="{% if f.is_binary %}../raw/{% endif %}{{ parent }}{{ f.name }}"><code>{{ f.name }}</code></a></li>
   {% endfor %}
 </ul>
 {% endmacro %}
 
 
+
 {% block content %}
+  {% set text_light = '#202020' %}
+  {% set bg_light   = '#fafafa' %}
+  {% set tint_light = '#d01c11' %}
+
+  {% set text_dark  = '#c7c7c7' %}
+  {% set bg_dark    = '#0d0d0d' %}
+  {% set tint_dark  = '#ff4a4a' %}
+
   <style>
+    /* Remove the default list and summary decorations. */
     ul.tree {
       list-style-type: "";
-      overflow-x: scroll;
     }
-
     summary {
-      list-style: none; /* Hide default in most browsers */
+      list-style: none;
     }
     summary::-webkit-details-marker {
-      display: none; /* Hide default in Chromium */
+      display: none;
     }
+    
+    /* Add a bit of spacing between the items */
+    ul.tree li {
+      padding-bottom: 2px;
+    }
+    
+    /* Top-level tree should be left-aligned with the headings. */
+    article > ul.tree {
+      margin-left: -6px;
+      padding-left: 6px;
+    }
+    
+    /* Define all the icons */
+    :root {
+      --closed-folder-icon:       url("{{ tree_icons.closed_folder_icon(text_light) | svg_data_uri }}");
+      --closed-folder-icon-hover: url("{{ tree_icons.closed_folder_icon(tint_light) | svg_data_uri }}");
+      --open-folder-icon:         url("{{ tree_icons.open_folder_icon(text_light, bg_light) | svg_data_uri }}");
+      --open-folder-icon-hover:   url("{{ tree_icons.open_folder_icon(tint_light, bg_light) | svg_data_uri }}");
+      --file-icon:                url("{{ tree_icons.file_icon(text_light, bg_light) | svg_data_uri }}");
+      --file-icon-hover:          url("{{ tree_icons.file_icon(tint_light, bg_light) | svg_data_uri }}");
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --closed-folder-icon:       url("{{ tree_icons.closed_folder_icon(text_dark) | svg_data_uri }}");
+        --closed-folder-icon-hover: url("{{ tree_icons.closed_folder_icon(tint_dark) | svg_data_uri }}");
+        --open-folder-icon:         url("{{ tree_icons.open_folder_icon(text_dark, bg_dark) | svg_data_uri }}");
+        --open-folder-icon-hover:   url("{{ tree_icons.open_folder_icon(tint_dark, bg_dark) | svg_data_uri }}");
+        --file-icon:                url("{{ tree_icons.file_icon(text_dark, bg_dark) | svg_data_uri }}");
+        --file-icon-hover:          url("{{ tree_icons.file_icon(tint_dark, bg_dark) | svg_data_uri }}");
+      }
+    }
+        
+    /* Show an icon next to each of the different elements. */
     summary::before {
-      content: '📁';
-      display: inline-block;
-      margin-right: 10px;
-      transition: transform 0.2s;
+      content: var(--closed-folder-icon);
     }
     details[open] > summary::before {
-      content: '📂';
+      content: var(--open-folder-icon);
     }
-    article > ul.tree > li > details[open] {
-      padding: 8px;
-      margin: -8px;
-      border-radius: var(--border-radius);
-      margin-bottom: 16px;
+    details:not([open]):hover {
+      & > summary {
+        color: var(--primary-color);
+      }
+      & > summary::before {
+        content: var(--closed-folder-icon-hover);
+      }
     }
-    article > ul.tree > li:first-child > details[open] {
-      margin-top: 8px;
+    li.file a::before {
+      content: var(--file-icon);
+    }
+    li.file a:hover::before {
+      content: var(--file-icon-hover);
     }
     
-    details[open] ul {
-      padding-left: 10px;
-      border-left: var(--border-width) solid var(--accent-grey);
-      margin-left: 8px;
+    li.file a {
+      color: var(--body-text);
+    }
+    li.file a:hover {
+      color: var(--link-color);
     }
     
+    summary::before, li.file a::before {
+      width:  20px;
+      height: 20px;
+      background-size: 20px 20px;
+      display: inline;
+      margin-right: 8px;
+      position: relative;
+      top: 2px;
+    }
+    
+    li.file a::before {
+      top: 4px;
+    }
+    
+    /* When a <details> element is opened, add a line next to the list
+     * of files. */
     details[open] {
-      background: rgba(25, 25, 25, 0.04);
+      padding-bottom: 8px;
+      
+      & > ul.tree {
+        padding-left: 10px;
+        margin-left: 8px;
+        border-left: var(--border-width) solid var(--accent-grey);
+      }
     }
     
-    details[open]:hover:not(:has(details[open]:hover)) {
-/*      background: rgba(25, 25, 25, 0.25);*/
+    /* When you hover over a folder, highlight the side line in a bright
+     * colour and the folder icon. */
+    li.folder:hover:has(> details[open]:hover):not(:has(details[open]:hover details[open]:hover)) {      
+      & > details[open] > summary::before {
+        content: var(--open-folder-icon-hover);
+      }
       
-      ul {
+      & > details[open] > ul {
         border-left: var(--border-width) solid var(--primary-color);
       }
+    }
+    
+    /* Reduce the padding on nested folders, so it doesn't clash. */
+    li.tree > li.folder:hover:has(> details[open]:hover):not(:has(details[open]:hover details[open]:hover)) {
+      margin-left: -8px;
+      padding-left: 8px;
+    }
+    
+    /* If a filename is too wide, scroll within the tree */
+    a {
+      white-space: nowrap;
+    }
+    ul.tree {
+      overflow-x: scroll;
+    }
+    
+    /* Force the browser to load the hover SVGs even though they're not
+     * displayed yet; this means it doesn't need to parse them on hover.
+     *
+     * This avoids some jank in Firefox where hovering over an unloaded icon
+     * causes a brief flash on the page. */
+    ul.tree::after {
+      content: var(--open-folder-icon-hover);
+      display: none;
+    }
+    summary::after {
+      content: var(--closed-folder-icon-hover);
+      display: none;
+    }
+    li.file::after {
+      content: var(--file-icon-hover);
+      display: none;
     }
   </style>
   
