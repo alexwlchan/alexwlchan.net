@@ -135,4 +135,5 @@ __all__ = [
     "ReviewInfo",
     "TopicPage",
     "read_markdown_files",
+    "read_page_from_markdown",
 ]
