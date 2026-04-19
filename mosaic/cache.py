@@ -57,6 +57,19 @@ class SQLiteCache:
         )
         self.conn.commit()
 
+    def contains(self, namespace: str, key: str) -> bool:
+        """
+        Return True if a key is in the cache, or False if not.
+        """
+        cursor = self.conn.cursor()
+        res = cursor.execute(
+            "SELECT EXISTS(SELECT 1 FROM cache_entries WHERE namespace=? AND key=?)",
+            (namespace, key),
+        )
+
+        (value,) = res.fetchone()
+        return bool(value == 1)
+
     def get(self, namespace: str, key: str) -> str | None:
         """
         Retrieve a key from the cache, or return None if it's not present.
@@ -99,4 +112,5 @@ else:  # pragma: no cover
     _cache = SQLiteCache(database=git_root() / ".mosaic_cache.db")
 
 set = _cache.set
+contains = _cache.contains
 get = _cache.get

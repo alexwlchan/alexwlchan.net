@@ -422,7 +422,7 @@ class Site(BaseModel):
             if (
                 raw_path.exists()
                 and (html_path.exists() or f.is_binary)
-                and cache.get(cache_ns, cache_id)
+                and cache.contains(cache_ns, cache_id)
             ):
                 if f.is_binary:
                     self.written_html_paths.add(str(html_path))
