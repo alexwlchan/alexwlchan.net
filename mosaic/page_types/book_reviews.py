@@ -2,9 +2,9 @@
 Models for book reviews.
 """
 
-from datetime import date, datetime, timezone
+from datetime import date
 from pathlib import Path
-from typing import Any, Literal, Self
+from typing import Literal, Self
 
 from pydantic import BaseModel, model_validator
 
