@@ -58,11 +58,14 @@ def register_task(label: str) -> Any:
     def decorator(f: Any) -> Any:
         @functools.wraps(f)
         def wrapper(site: "Site", *args: Any, **kwargs: Any) -> Any:
-            print(f"{label}...".ljust(30), end=" ")
-            t0 = time.time()
-            result = f(site, *args, **kwargs)
-            elapsed = time.time() - t0
-            print(f"{elapsed:.2f}s")
+            if site.build_options.verbose:
+                print(f"{label}...".ljust(30), end=" ")
+                t0 = time.time()
+                result = f(site, *args, **kwargs)
+                elapsed = time.time() - t0
+                print(f"{elapsed:.2f}s")
+            else:  # pragma: no cover
+                result = f(site, *args, **kwargs)
             return result
 
         return wrapper
@@ -79,6 +82,7 @@ class BuildOptions(BaseModel):
     copy_static_files: bool = True
     cleanup_leftover_files: bool = True
     create_tint_colour_assets: bool = True
+    verbose: bool = True
 
 
 class Site(BaseModel):
