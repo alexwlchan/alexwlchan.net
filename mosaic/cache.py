@@ -82,6 +82,15 @@ class SQLiteCache:
         except TypeError:
             return None
 
+    def purge(self, namespace: str, prefix: str) -> None:
+        """
+        Purge any keys matching this prefix from the cache.
+        """
+        self.conn.execute(
+            "DELETE FROM cache_entries WHERE namespace=? AND key LIKE ?",
+            (namespace, f"{prefix}%"),
+        )
+
 
 def register(f: Callable[[str], str]) -> Callable[[str], str]:
     """
@@ -110,3 +119,4 @@ else:  # pragma: no cover
 set = _cache.set
 contains = _cache.contains
 get = _cache.get
+purge = _cache.purge

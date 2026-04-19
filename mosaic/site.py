@@ -25,6 +25,7 @@ from .page_types import (
     BaseHtmlPage,
     BookReview,
     Note,
+    Page,
     Post,
     ProjectCommit,
     ProjectHomepage,
@@ -147,31 +148,68 @@ class Site(BaseModel):
             self.all_pages = read_markdown_files(self.src_dir)
             return
 
+        cur_md_paths = set(glob.glob(f"{self.src_dir}/**/*.md", recursive=True))
+        known_md_paths = {str(p.md_path) for p in self.all_pages if p.md_path}
+
+        needs_new_index_pages = False
         need_new_tint_colour_assets = False
 
         updated_pages = []
         for old_p in self.all_pages:
+            # Skip a page which doesn't correspond to a Markdown file --
+            # it will be regenerated later.
             if old_p.md_path is None:
                 continue
-            if self.skip_because_incremental(old_p.md_path):
+
+            # Skip a file which has been deleted from disk
+            if str(old_p.md_path) not in cur_md_paths:
+                continue
+
+            # Use the existing page if the Markdown file hasn't been
+            # changed recently, or read it from disk if it's changed.
+            if not self.has_changed_since_last_read(old_p.md_path):
                 updated_pages.append(old_p)
             else:
+                print(f"re-reading {old_p.md_path}")
                 new_p = read_page_from_markdown(self.src_dir, md_path=old_p.md_path)
                 if old_p.colors != new_p.colors:
                     need_new_tint_colour_assets = True
+                if (
+                    old_p.title != new_p.title
+                    or old_p.summary != new_p.summary
+                    or old_p.topics != new_p.topics
+                    or old_p.date != new_p.date
+                ) or isinstance(new_p, BookReview):
+                    needs_new_index_pages = True
                 updated_pages.append(new_p)
+                new_p.clear_cache()
+
+        # Read any Markdown files which have been written since we last
+        # read the source folder.
+        for p in cur_md_paths - known_md_paths:
+            print(f"reading {p}")
+            page = read_page_from_markdown(self.src_dir, md_path=Path(p))
+            if page.colors is not None:
+                need_new_tint_colour_assets = True
+            updated_pages.append(page)
+            needs_new_index_pages = True
 
         self.all_pages = updated_pages
         self.build_options.create_tint_colour_assets = need_new_tint_colour_assets
 
-    def skip_because_incremental(self, p: Path | str) -> bool:  # pragma: no cover
+        if needs_new_index_pages:
+            for page in self.all_pages:
+                if isinstance(page, Page):
+                    page.clear_cache()
+
+    def has_changed_since_last_read(self, p: Path | str) -> bool:  # pragma: no cover
         """
-        Check if a file is old enough that we can skip it during
-        an incremental read and use a cached value.
+        Check if a file has changed since the last time we built the site.
         """
         if not self.build_options.incremental_read:
-            return False
-        return os.stat(p).st_mtime < self.time.timestamp() - 10
+            return True
+
+        return os.stat(p).st_mtime > self.time.timestamp() - 10
 
     @property
     def posts(self) -> list[page_types.Post]:
@@ -321,7 +359,7 @@ class Site(BaseModel):
 
             # If this is an incremental build and the original file hasn't
             # changed recently, don't bother doing another copy.
-            if self.skip_because_incremental(src_p):  # pragma: no cover
+            if not self.has_changed_since_last_read(src_p):  # pragma: no cover
                 continue
 
             out_p = os.path.join(
