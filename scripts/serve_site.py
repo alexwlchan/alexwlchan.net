@@ -48,11 +48,7 @@ def build_and_reload(
 
 if __name__ == "__main__":
     now = time.time()
-    SITE.build_site(
-        options=BuildOptions(
-            profile="--profile" in sys.argv,
-        )
-    )
+    SITE.build_site(options=BuildOptions(profile=True))
     elapsed = time.time() - now
     print(f"✅ Initial build successful in {elapsed:.2f}s")
 

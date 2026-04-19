@@ -210,8 +210,7 @@ class BaseHtmlPage(ABC, BaseModel):
         # has changed but the main template didn't; I'll see if that becomes
         # an issue in practice.
         cache_ns = "render_full_html"
-        template_mtime = (Path("templates") / self.template_name).stat().st_mtime
-        cache_key = f"{self.url}:{template_mtime}:{md5(self.content)}"
+        cache_key = f"{self.url}:{md5(self.content)}"
 
         # If the HTML exists in the cache, we don't need to regenerate it
         # and we can skip writing if the file already exists.

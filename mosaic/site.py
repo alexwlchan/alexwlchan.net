@@ -120,6 +120,7 @@ class Site(BaseModel):
         self.read_markdown_files()
         self.check_for_duplicate_urls()
         self.set_article_attributes()
+        self.check_if_html_cache_needs_refreshing()
 
         css_url = self.build_base_css_file()
 
@@ -319,6 +320,46 @@ class Site(BaseModel):
 
         return env
 
+    css_cache_mtime: float = 0
+    template_cache_mtime: float = 0
+
+    def check_if_html_cache_needs_refreshing(self) -> None:  # pragma: no cover
+        """
+        Check if any of the templates or CSS have changed since the last
+        build, and if so, clear the cache for all the HTML pages.
+        """
+        css_mtime = max(
+            os.stat(p).st_mtime for p in glob.glob("css/**/*.css", recursive=True)
+        )
+        template_mtime = max(
+            os.stat(p).st_mtime
+            for p in glob.glob("templates/**/*.html", recursive=True)
+        )
+
+        clear_cache = False
+        if (
+            template_mtime > self.template_cache_mtime
+            and css_mtime > self.css_cache_mtime
+        ):
+            message = "detected template and css changes, rebuilding..."
+            clear_cache = True
+        elif template_mtime > self.template_cache_mtime:
+            message = "detected template changes, rebuilding..."
+            clear_cache = True
+        elif css_mtime > self.css_cache_mtime:
+            message = "detected css changes, rebuilding..."
+            clear_cache = True
+
+        if clear_cache:
+            if self.css_cache_mtime > 0:
+                print(message)
+
+            for page in self.all_pages:
+                page.clear_cache()
+
+        self.css_cache_mtime = css_mtime
+        self.template_cache_mtime = template_mtime
+
     def build_base_css_file(self) -> str:
         """
         Build the base static/style.css file for the site.
@@ -333,13 +374,6 @@ class Site(BaseModel):
         out_path.write_text(base_css)
 
         css_url = "/" + str(out_path.relative_to(self.out_dir))
-
-        # If the CSS URL has changed, invalidate the cache of every page,
-        # because they all encode the CSS ID in their <head>.
-        css_changed = bool(self.css_url != "" and css_url != self.css_url)
-        if css_changed:  # pragma: no cover
-            for page in self.all_pages:
-                page.clear_cache(clear_body=False)
 
         self.css_url = css_url
         return css_url
