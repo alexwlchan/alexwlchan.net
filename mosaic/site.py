@@ -59,7 +59,7 @@ def register_task(label: str) -> Any:
     def decorator(f: Any) -> Any:
         @functools.wraps(f)
         def wrapper(site: "Site", *args: Any, **kwargs: Any) -> Any:
-            if site.build_options.verbose:
+            if site.build_options.profile:  # pragma: no cover
                 print(f"{label}...".ljust(30), end=" ")
                 t0 = time.time()
                 result = f(site, *args, **kwargs)
@@ -83,7 +83,9 @@ class BuildOptions(BaseModel):
     copy_static_files: bool = True
     cleanup_leftover_files: bool = True
     create_tint_colour_assets: bool = True
-    verbose: bool = True
+
+    # Whether to print detailed timings about each step in the build
+    profile: bool = False
 
 
 class Site(BaseModel):

@@ -30,7 +30,7 @@ def build_and_reload(
         copy_static_files=reason == "src",
         cleanup_leftover_files=False,
         incremental_read=True,
-        verbose=False,
+        profile="--profile" in sys.argv,
     )
 
     def build() -> None:
@@ -48,7 +48,11 @@ def build_and_reload(
 
 if __name__ == "__main__":
     now = time.time()
-    SITE.build_site()
+    SITE.build_site(
+        options=BuildOptions(
+            profile="--profile" in sys.argv,
+        )
+    )
     elapsed = time.time() - now
     print(f"✅ Initial build successful in {elapsed:.2f}s")
 
