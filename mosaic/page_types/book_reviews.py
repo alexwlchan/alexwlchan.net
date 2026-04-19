@@ -60,21 +60,6 @@ class BookReview(Post):
     # Information about my review and opinions
     review: ReviewInfo
 
-    def __init__(self, *args: Any, **kwargs: Any):
-        """
-        Create a new book review. Default `date` to midnight on the
-        day I read the book if not otherwise specified.
-
-        TODO: Backfill `date` for all book reviews.
-        """
-        if "date" in kwargs:
-            super().__init__(*args, **kwargs)
-        else:  # pragma: no cover
-            d = datetime.combine(kwargs["review"]["date_read"], datetime.min.time())
-            if d.tzinfo is None:
-                d = d.replace(tzinfo=timezone.utc)
-            super().__init__(*args, **kwargs, date=d)
-
     @property
     def attribution_line(self) -> str:
         """

@@ -1,5 +1,6 @@
 ---
 layout: book_review
+date: 2022-02-24T21:31:08+00:00
 date_updated: 2026-02-02T08:35:16.985585+00:00
 
 book:
