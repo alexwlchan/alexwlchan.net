@@ -40,12 +40,6 @@ section {
   }
 }
 
-@media screen and (width>=750px) {
-  #list_of_posts section.plinks {
-    padding:     1.5em 0;
-  }
-}
-
 @media screen and (width<=750px) {
   #list_of_posts section.plinks {
     & > * {
