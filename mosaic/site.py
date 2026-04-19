@@ -4,12 +4,14 @@ Build system for alexwlchan.net.
 
 from collections import Counter
 from datetime import datetime, timezone
+import functools
 import glob
 import itertools
 import os
 from pathlib import Path
 import shutil
-from typing import Self
+import time
+from typing import Any, Self
 
 from jinja2 import Environment
 from pydantic import BaseModel, Field
@@ -31,6 +33,7 @@ from .page_types import (
     ProjectTags,
     ProjectTree,
     read_markdown_files,
+    read_page_from_markdown,
 )
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
@@ -47,6 +50,36 @@ GIT_REPOS = [
 ]
 
 
+def register_task(label: str) -> Any:
+    """
+    Annotate a build task so it will be printed and profiled in output.
+    """
+
+    def decorator(f: Any) -> Any:
+        @functools.wraps(f)
+        def wrapper(site: "Site", *args: Any, **kwargs: Any) -> Any:
+            print(f"{label}...".ljust(30), end=" ")
+            t0 = time.time()
+            result = f(site, *args, **kwargs)
+            elapsed = time.time() - t0
+            print(f"{elapsed:.2f}s")
+            return result
+
+        return wrapper
+
+    return decorator
+
+
+class BuildOptions(BaseModel):
+    """
+    Options for the site build process.
+    """
+
+    incremental_read: bool = False
+    copy_static_files: bool = True
+    cleanup_leftover_files: bool = True
+
+
 class Site(BaseModel):
     """
     Wraps the whole site build process.
@@ -59,17 +92,22 @@ class Site(BaseModel):
 
     written_html_paths: set[str] = Field(default_factory=lambda: set())
 
+    build_options: BuildOptions = BuildOptions()
+
+    # The time the site was built. This is used in the RSS feed.
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
-    def build_site(self) -> bool:  # pragma: no cover
+    def build_site(
+        self, options: BuildOptions = BuildOptions()
+    ) -> bool:  # pragma: no cover
         """
         Build a complete copy of the site.
 
         Returns True if the build succeeded, False if there were errors.
         """
-        self.time = datetime.now(tz=timezone.utc)
-        self.all_pages = read_markdown_files(self.src_dir)
+        self.build_options = options
 
+        self.read_markdown_files()
         self.check_for_duplicate_urls()
         self.set_article_attributes()
 
@@ -77,15 +115,53 @@ class Site(BaseModel):
 
         env = self.get_jinja_environment(css_url=css_url)
 
+        self.time = datetime.now(tz=timezone.utc)
+
         self.create_all_tint_colour_assets()
-        self.copy_static_files()
+        if self.build_options.copy_static_files:
+            self.copy_static_files()
         self.write_git_repos(env)
         self.write_html_files(env)
         self.generate_rss_feeds(env)
 
-        self.cleanup_leftover_files()
+        if self.build_options.cleanup_leftover_files:
+            self.cleanup_leftover_files()
 
         return True
+
+    @register_task("read markdown files")  # type: ignore
+    def read_markdown_files(self) -> None:  # pragma: no cover
+        """
+        Update the `all_pages` attribute with Markdown files from disk.
+
+        If the `incremental_read` option is selected, only read files that
+        changed since our last read.
+        """
+        if not self.build_options.incremental_read:
+            self.all_pages = read_markdown_files(self.src_dir)
+            return
+
+        updated_pages = []
+        for p in self.all_pages:
+            if p.md_path is None:
+                continue
+            if self.skip_because_incremental(p.md_path):
+                updated_pages.append(p)
+            else:
+                updated_pages.append(
+                    read_page_from_markdown(self.src_dir, md_path=p.md_path)
+                )
+
+        self.all_pages = updated_pages
+
+    def skip_because_incremental(self, p: Path | str) -> bool:  # pragma: no cover
+        """
+        Check if a file is old enough that we can skip it during
+        an incremental read and use a cached value.
+        """
+        if not self.build_options.incremental_read:
+            return False
+        return os.stat(p).st_mtime < self.time.timestamp() - 10
 
     @property
     def posts(self) -> list[page_types.Post]:
@@ -157,6 +233,7 @@ class Site(BaseModel):
 
         return self
 
+    @register_task("create tint colour assets")  # type: ignore
     def create_all_tint_colour_assets(self) -> None:
         """
         Create the tint colour assets.
@@ -205,6 +282,7 @@ class Site(BaseModel):
 
         return "/" + str(out_path.relative_to(self.out_dir))
 
+    @register_task("write html files")  # type: ignore
     def write_html_files(self, env: Environment) -> None:
         """
         Write all the HTML files to the output directory.
@@ -217,6 +295,7 @@ class Site(BaseModel):
                 print(f"error writing {pg!r}: {exc}")
                 raise
 
+    @register_task("copy static files")  # type: ignore
     def copy_static_files(self) -> None:
         """
         Copy all the static files from the src to the dst directory.
@@ -228,6 +307,11 @@ class Site(BaseModel):
             if src_p.endswith(".md"):
                 continue
             if not os.path.isfile(src_p):
+                continue
+
+            # If this is an incremental build and the original file hasn't
+            # changed recently, don't bother doing another copy.
+            if self.skip_because_incremental(src_p):  # pragma: no cover
                 continue
 
             out_p = os.path.join(
@@ -249,6 +333,7 @@ class Site(BaseModel):
             os.makedirs(os.path.dirname(out_p), exist_ok=True)
             shutil.copy2(src_p, out_p)
 
+    @register_task("generate rss feeds")  # type: ignore
     def generate_rss_feeds(self, env: Environment) -> None:
         """
         Generate the RSS feeds for the site.
@@ -291,6 +376,7 @@ class Site(BaseModel):
             for art in articles_that_year:
                 art.card_short_name = prefixes[slugs[art]]
 
+    @register_task("write git repos")  # type: ignore
     def write_git_repos(self, env: Environment) -> None:  # pragma: no cover
         """
         Write the /projects/ folder for my Git repos.
@@ -375,6 +461,7 @@ class Site(BaseModel):
             )
             cache.set(cache_ns, repo.name, repo.head)
 
+    @register_task("clean up leftover files")  # type: ignore
     def cleanup_leftover_files(self) -> None:
         """
         Clean up HTML files that weren't rewritten as part of this build.
