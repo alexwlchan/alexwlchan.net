@@ -60,6 +60,7 @@ jobs:
 
       - name: "Build the site"
         run: |
+          rm .mosaic_cache.db
           source .venv/bin/activate
           python3 scripts/build_site.py
 
