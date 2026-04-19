@@ -30,6 +30,7 @@ def build_and_reload(
         copy_static_files=reason == "src",
         cleanup_leftover_files=False,
         incremental_read=True,
+        verbose=False,
     )
 
     def build() -> None:
