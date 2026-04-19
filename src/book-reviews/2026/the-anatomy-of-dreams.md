@@ -59,7 +59,7 @@ I didn't dislike this book, but I struggled to read more than a few chapters at 
 Chapter 1 "Eureka, California, 1998", page 17.
 I like this introduction to one of Sylvie's school friends:
 
-> Hannah was the baby in a bright lineup of sisters -- sisters who knew how to braid hair, who flattened cardboard boxes and slid down the hills that surrounded their father's farm, and who handed down to Hannah a complicated mythology about boys in addition to old sweaters and winter jackets and bicycles..
+> Hannah was the baby in a bright lineup of sisters -- sisters who knew how to braid hair, who flattened cardboard boxes and slid down the hills that surrounded their father's farm, and who handed down to Hannah a complicated mythology about boys in addition to old sweaters and winter jackets and bicycles.
 
 Chapter 2 "Madiscon, Wisconsin, 2004", page 19.
 I love this description of their travel, as Sylvie abandons college to join the research project:
