@@ -36,6 +36,32 @@ def test_basic_cache(cache: SQLiteCache) -> None:
     assert not cache.contains(namespace="fibonacci", key="11")
 
 
+def test_purge(cache: SQLiteCache) -> None:
+    """
+    Purging from the cache removes elements with the given prefix in
+    the specified namespace.
+    """
+    # Populate the cache
+    cache.set(namespace="fruit", key="apple")
+    cache.set(namespace="fruit", key="apricot")
+    cache.set(namespace="fruit", key="banana")
+
+    cache.set(namespace="vegetable", key="artichoke")
+    cache.set(namespace="vegetable", key="broccoli")
+
+    # Purge fruits starting with a
+    cache.purge(namespace="fruit", prefix="a")
+
+    # Only fruits starting with 'a' should be left
+    assert not cache.contains(namespace="fruit", key="apple")
+    assert not cache.contains(namespace="fruit", key="apricot")
+    assert cache.contains(namespace="fruit", key="banana")
+
+    # Vegetables should be unaffected
+    assert cache.contains(namespace="vegetable", key="artichoke")
+    assert cache.contains(namespace="vegetable", key="broccoli")
+
+
 def test_register() -> None:
     """
     Test the register wrapper.
