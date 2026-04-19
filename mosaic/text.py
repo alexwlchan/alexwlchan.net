@@ -6,6 +6,7 @@ import collections
 import functools
 import hashlib
 import json
+import os
 import re
 from typing import Any, Literal, Match
 
@@ -14,6 +15,7 @@ import minify_html as minify_html_lib
 import mistune
 from mistune.core import BlockState
 
+from mosaic import cache
 from .syntax_highlighting import apply_syntax_highlighting
 
 
@@ -198,14 +200,28 @@ def markdownify_oneline(text: str) -> str:
     return markdownify(text).replace("<p>", "").replace("</p>", "").strip()
 
 
+# Use the mtime of this file as part of the cache key, to ensure that
+# when the definitions in this file change, the calues are recalculated
+CLEANUP_TEXT_CACHE_ID = str(os.stat(__file__).st_mtime)
+
+
 def cleanup_text(text: str) -> str:
     """
     Apply all my cleanup rules to text.
     """
+    cache_ns = "cleanup_text"
+    cache_key = f"{CLEANUP_TEXT_CACHE_ID}:{md5(text)}"
+
+    if value := cache.get(cache_ns, cache_key):
+        return value
+
     text = add_non_breaking_characters(text)
     text = add_latex_css_classes(text)
     text = force_text_footnote_markers(text)
-    return text.strip()
+    text = text.strip()
+
+    cache.set(cache_ns, cache_key, text)
+    return text
 
 
 # Words which often appear before a number
