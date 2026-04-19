@@ -9,10 +9,10 @@ import itertools
 import os
 from pathlib import Path
 import shutil
+from typing import Self
 
 from jinja2 import Environment
 from pydantic import BaseModel, Field
-from tqdm import tqdm
 import yaml
 
 from . import cache, page_types
@@ -60,6 +60,32 @@ class Site(BaseModel):
     written_html_paths: set[str] = Field(default_factory=lambda: set())
 
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
+
+    def build_site(self) -> bool:  # pragma: no cover
+        """
+        Build a complete copy of the site.
+
+        Returns True if the build succeeded, False if there were errors.
+        """
+        self.time = datetime.now(tz=timezone.utc)
+        self.all_pages = read_markdown_files(self.src_dir)
+
+        self.check_for_duplicate_urls()
+        self.set_article_attributes()
+
+        css_url = self.build_base_css_file()
+
+        env = self.get_jinja_environment(css_url=css_url)
+
+        self.create_all_tint_colour_assets()
+        self.copy_static_files()
+        self.write_git_repos(env)
+        self.write_html_files(env)
+        self.generate_rss_feeds(env)
+
+        self.cleanup_leftover_files()
+
+        return True
 
     @property
     def posts(self) -> list[page_types.Post]:
@@ -110,59 +136,47 @@ class Site(BaseModel):
             and not isinstance(p, Note)
         ]
 
-    def build_site(self, incremental: bool = False) -> bool:  # pragma: no cover
+    @property
+    def static_dir(self) -> Path:
         """
-        Build a complete copy of the site.
-
-        Returns True if the build succeeded, False if there were errors.
+        Static output directory, where static assets are saved.
         """
-        self.time = datetime.now(tz=timezone.utc)
-        self.all_pages = read_markdown_files(self.src_dir)
+        return self.out_dir / "static"
 
-        # Check none of the URLs are duplicated
+    def check_for_duplicate_urls(self) -> Self:
+        """
+        Every page should have a unique URL.
+        """
         counter = Counter(p.url for p in self.all_pages)
         duplicate_urls = {url: count for url, count in counter.items() if count > 1}
-        assert duplicate_urls == {}, duplicate_urls
 
-        # Work out all the tint colours being used.
+        if duplicate_urls:
+            raise RuntimeError(
+                f"multiple pages write to the same URL: {duplicate_urls}"
+            )
+
+        return self
+
+    def create_all_tint_colour_assets(self) -> None:
+        """
+        Create the tint colour assets.
+        """
         tint_colours = [get_default_tint_colours()] + [
             p.colors for p in self.all_pages if p.colors is not None
         ]
 
-        # Ordering: add a numeric "order" attribute to every article,
-        # which is used for sorting on /articles/.
-        for order, art in enumerate(reversed(self.articles), start=1):
-            art.order = order
+        for tc in tint_colours:
+            tc.create_assets(self.out_dir)
 
-        # Article cards: pick a short name for every article card.
-        #
-        # These filenames are repeated many times on the global articles page,
-        # so they should be as short as possible.
-        #
-        # For example, "digital-decluttering" could become "di".
-        articles_with_cards = itertools.groupby(
-            (art for art in self.articles if art.card_path),
-            key=lambda art: art.date.year,
-        )
-        for year, articles_that_year_gen in articles_with_cards:
-            articles_that_year = list(articles_that_year_gen)
-
-            # Prefix each post with the month, its slug, and delete hyphens.
-            slugs = {
-                art: f"{art.date.month}{art.slug}".replace("-", "")
-                for art in articles_that_year
-            }
-            prefixes = find_unique_prefixes(set(slugs.values()))
-
-            for art in articles_that_year:
-                art.card_short_name = prefixes[slugs[art]]
-
-        # Write the CSS file.
-        css_url = self.build_base_css_file()
-
-        # Create the Jinja2 environment.
+    def get_jinja_environment(self, css_url: str) -> Environment:
+        """
+        Create the Jinja2 environment.
+        """
         # TODO(2026-01-21): Figure out how to handle global varibales better.
         env = get_jinja_environment(self.src_dir, self.out_dir)
+
+        with open(self.src_dir / "_data/elsewhere.yml") as in_file:
+            elsewhere = yaml.safe_load(in_file)
 
         env.globals.update(
             {
@@ -170,60 +184,11 @@ class Site(BaseModel):
                 "site": self,
                 "all_topics": rebuild_topics_by_name(),
                 "git_repos": GIT_REPOS,
-                "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
+                "elsewhere": elsewhere,
             }
         )
 
-        for repo in GIT_REPOS:
-            self.prepare_project_pages(env, repo)
-
-        self.copy_static_files()
-
-        # Create all the tint colour assets
-        for tc in tint_colours:
-            tc.create_assets(self.out_dir)
-
-        if incremental:
-            all_pages = self.all_pages
-        else:
-            all_pages = tqdm(self.all_pages, desc="writing html")  # type: ignore
-
-        for pg in all_pages:
-            try:
-                out_path = pg.write(env, out_dir=self.out_dir)
-                self.written_html_paths.add(str(out_path))
-            except Exception as exc:  # pragma: no cover
-                print(f"error writing {pg!r}: {exc}")
-                raise
-
-        # Render the RSS feeds.
-        #
-        # This must occur after generating the pages, so the `html_content`
-        # attribute is populated.
-        self.generate_rss_feeds(env)
-
-        # Clean up HTML files that weren't written as part of this build;
-        # this usually indicates a renamed or deleted page.
-        for p in glob.glob(
-            f"{self.out_dir}/**/*.html", recursive=True
-        ):  # pragma: no cover
-            if p in self.written_html_paths:
-                continue
-
-            if "/files/" in p or "/fun-stuff/" in p:
-                continue
-
-            print(f"delete stale HTML file: {p}")
-            os.unlink(p)
-
-        return True
-
-    @property
-    def static_dir(self) -> Path:
-        """
-        Static output directory, where static assets are saved.
-        """
-        return self.out_dir / "static"
+        return env
 
     def build_base_css_file(self) -> str:
         """
@@ -240,12 +205,22 @@ class Site(BaseModel):
 
         return "/" + str(out_path.relative_to(self.out_dir))
 
+    def write_html_files(self, env: Environment) -> None:
+        """
+        Write all the HTML files to the output directory.
+        """
+        for pg in self.all_pages:
+            try:
+                out_path = pg.write(env, out_dir=self.out_dir)
+                self.written_html_paths.add(str(out_path))
+            except Exception as exc:  # pragma: no cover
+                print(f"error writing {pg!r}: {exc}")
+                raise
+
     def copy_static_files(self) -> None:
         """
         Copy all the static files from the src to the dst directory.
         """
-        print("Copying static files...")
-
         # A list of (src, dst) static files to be copied.
         static_files: list[tuple[str, str]] = []
 
@@ -286,11 +261,48 @@ class Site(BaseModel):
         notes_atom_xml = notes_atom_template.render(env=env, notes=self.notes)
         (self.out_dir / "notes/atom.xml").write_text(notes_atom_xml)
 
-    def prepare_project_pages(
+    def set_article_attributes(self) -> None:  # pragma: no cover
+        """
+        Set the `order` and `card_short_name` properties for articles.
+        """
+        # Ordering: add a numeric "order" attribute to every article,
+        # which is used for sorting on /articles/.
+        for order, art in enumerate(reversed(self.articles), start=1):
+            art.order = order
+
+        # These filenames are repeated many times on the global articles page,
+        # so they should be as short as possible.
+        #
+        # For example, "digital-decluttering" could become "di".
+        articles_with_cards = itertools.groupby(
+            (art for art in self.articles if art.card_path),
+            key=lambda art: art.date.year,
+        )
+        for year, articles_that_year_gen in articles_with_cards:
+            articles_that_year = list(articles_that_year_gen)
+
+            # Prefix each post with the month, its slug, and delete hyphens.
+            slugs = {
+                art: f"{art.date.month}{art.slug}".replace("-", "")
+                for art in articles_that_year
+            }
+            prefixes = find_unique_prefixes(set(slugs.values()))
+
+            for art in articles_that_year:
+                art.card_short_name = prefixes[slugs[art]]
+
+    def write_git_repos(self, env: Environment) -> None:  # pragma: no cover
+        """
+        Write the /projects/ folder for my Git repos.
+        """
+        for repo in GIT_REPOS:
+            self.write_pages_for_single_repo(env, repo)
+
+    def write_pages_for_single_repo(
         self, env: Environment, repo: GitRepository
     ) -> None:  # pragma: no cover
         """
-        Generate the /projects/ folder from my Git repos.
+        Write the /projects/ folder data for a single Git repo.
         """
         archive_path = repo.write_archive(out_dir=self.out_dir / "projects")
         archive_url = "/" + str(archive_path.relative_to(self.out_dir))
@@ -339,13 +351,13 @@ class Site(BaseModel):
             # a page for all binary files which previews the file
             # and/or just says "binary file".
             if not f.is_binary:
-                self.all_pages.append(
-                    ProjectSingleFile(
-                        repo=repo,
-                        file_path=f.path,
-                        file_contents=file_data.decode("utf8"),
-                    )
+                page = ProjectSingleFile(
+                    repo=repo,
+                    file_path=f.path,
+                    file_contents=file_data.decode("utf8"),
                 )
+                out_path = page.write(env, self.out_dir)
+                self.written_html_paths.add(str(out_path))
 
             cache.set(cache_ns, cache_id)
 
@@ -362,3 +374,21 @@ class Site(BaseModel):
                 out_dir=self.out_dir / f"projects/{repo.name}.git"
             )
             cache.set(cache_ns, repo.name, repo.head)
+
+    def cleanup_leftover_files(self) -> None:
+        """
+        Clean up HTML files that weren't rewritten as part of this build.
+
+        This usually indicates a renamed or deleted page.
+        """
+        for p in glob.glob(
+            f"{self.out_dir}/**/*.html", recursive=True
+        ):  # pragma: no cover
+            if p in self.written_html_paths:
+                continue
+
+            if "/files/" in p or "/fun-stuff/" in p:
+                continue
+
+            print(f"delete stale HTML file: {p}")
+            os.unlink(p)

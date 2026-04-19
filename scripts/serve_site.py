@@ -24,7 +24,7 @@ def build_and_reload() -> None:
     try:
         print("🔨 Rebuilding site...")
         now = time.time()
-        SITE.build_site(incremental=True)
+        SITE.build_site()
         elapsed = time.time() - now
         print(f"✅ Build successful in {elapsed:.1f}s.")
     except Exception as e:

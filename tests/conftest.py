@@ -10,8 +10,8 @@ from typing import TypeAlias
 from jinja2 import Environment
 import pytest
 
-from mosaic import templates as t
 from mosaic.git import GitRepository
+from mosaic.site import Site
 
 
 @pytest.fixture
@@ -35,9 +35,14 @@ def env(src_dir: Path, out_dir: Path) -> Environment:
     """
     Create a basic instance of the Jinja2 environment.
     """
-    ev = t.get_jinja_environment(src_dir, out_dir)
-    ev.globals.update({"css_url": "/test/style.test.css"})
-    return ev
+    # TODO: Fix the Jinja environment code so I don't need to set up
+    # this file here.
+    (src_dir / "_data").mkdir(parents=True)
+    (src_dir / "_data/elsewhere.yml").write_text("")
+
+    site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=[])
+    e = site.get_jinja_environment(css_url="/test/style.test.css")
+    return e
 
 
 @pytest.fixture
