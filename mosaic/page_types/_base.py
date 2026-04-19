@@ -216,8 +216,10 @@ class BaseHtmlPage(ABC, BaseModel):
 
         # If the HTML exists in the cache, we don't need to regenerate it
         # and we can skip writing if the file already exists.
-        if html := cache.get(cache_ns, cache_key):
+        if cache.contains(cache_ns, cache_key):
             if not out_path.exists():
+                html = cache.get(cache_ns, cache_key)
+                assert isinstance(html, str)
                 out_path.parent.mkdir(exist_ok=True, parents=True)
                 out_path.write_text(html)
             return out_path

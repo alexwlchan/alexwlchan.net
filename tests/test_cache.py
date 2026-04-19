@@ -26,11 +26,14 @@ def test_basic_cache(cache: SQLiteCache) -> None:
     Basic cache usage for SQLiteCache.
     """
     assert cache.get(namespace="fibonacci", key="10") is None
+    assert not cache.contains(namespace="fibonacci", key="10")
 
     cache.set(namespace="fibonacci", key="10", value="55")
 
     assert cache.get(namespace="fibonacci", key="10") == "55"
+    assert cache.contains(namespace="fibonacci", key="10")
     assert cache.get(namespace="fibonacci", key="11") is None
+    assert not cache.contains(namespace="fibonacci", key="11")
 
 
 def test_register() -> None:
