@@ -19,17 +19,6 @@
     - link
     [card][card]
   
-  Here's the algorithm:
-  
-  - Go through the list of posts, and build a running list of featured/other
-  - Whenever you have enough featured articles to show, check how many
-    other posts are remaining
-    
-      - if ≥3, show the other posts and then the featured articles
-      - if <3, keep them and wait for another opportunity to show them
-  
-  - At the end, show anything not yet displayed
-  
 #}
 
 {% from "macros/article_cards.html" import article_cards %}
@@ -41,35 +30,13 @@
 </style>
 
 <div id="list_of_posts">
-  {% set add_article_order = true %}
-  {% set ns = namespace(featured_posts=[], remaining_posts=[]) %}
-
-  {% for p in posts %}
-    {% if p.index.exclude %}
-      {% continue %}
-    {% endif %}
-  
-    {% if p.index.feature %}
-      {% do ns.featured_posts.append(p) %}
-    {% else %}
-      {% do ns.remaining_posts.append(p) %}
-    {% endif %}
-    
-    {% if ns.featured_posts|count != 2 %}
-      {% continue %}
-    {% endif %}
-    
-    {{- article_cards(articles=ns.featured_posts) -}}
-    {% set ns.featured_posts = [] %}
-    
-    {% if ns.remaining_posts|count >= 3 %}
-      <section class="links">{{- post_links(posts=ns.remaining_posts) -}}</section>
-      {% set ns.remaining_posts = [] %}
-    {% endif %}
-  {% endfor %}
-  
-  {{ article_cards(articles=ns.featured_posts) }}
-  <section class="links">{{ post_links(posts=ns.remaining_posts) }}</section>
+  {%- for group in posts|group_list_of_posts -%}
+    {%- if group.type == 'featured' -%}
+      {{- article_cards(articles=group.posts) -}}
+    {%- else -%}
+      <section class="links">{{- post_links(posts=group.posts) -}}</section>
+    {%- endif -%}
+  {%- endfor -%}
 </div>
 
 <script>  
