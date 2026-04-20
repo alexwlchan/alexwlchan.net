@@ -497,21 +497,29 @@ class Site(BaseModel):
         # TODO: Clear out stale entries from the `raw` directory
         for f in repo.tree.files:
             raw_path = self.out_dir / "projects" / repo.name / "raw" / f.path
-            html_path = ProjectSingleFile(
-                repo=repo, file_path=f.path, file_contents=""
-            ).out_path(self.out_dir)
+            stub_page = ProjectSingleFile(
+                repo=repo, file_path=f.path, file_size=0, file_contents=""
+            )
+            html_path = stub_page.out_path(self.out_dir)
 
             cache_ns = "git.write_raw_file"
+            mtime = (
+                f"{mosaic_mtime}"
+                f":{get_latest_mtime('css')}"
+                f":{get_latest_mtime('templates/projects')}"
+            )
             cache_id = f"{raw_path}:{f.blob_id}"
 
             if (
                 raw_path.exists()
                 and (html_path.exists() or f.is_binary)
-                and cache.contains(cache_ns, cache_id)
+                and cache.get(cache_ns, cache_id) == mtime
             ):
                 if f.is_binary:
                     self.written_html_paths.add(str(html_path))
                 continue
+            else:
+                stub_page.clear_cache()
 
             file_data = repo.get_blob_data(f.blob_id)
 
@@ -530,7 +538,7 @@ class Site(BaseModel):
                 out_path = page.write(env, self.out_dir)
                 self.written_html_paths.add(str(out_path))
 
-            cache.set(cache_ns, cache_id)
+            cache.set(cache_ns, cache_id, mtime)
 
         # Create a version of the repo that be cloned.
         #
