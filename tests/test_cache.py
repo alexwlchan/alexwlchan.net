@@ -67,6 +67,19 @@ def test_purge(cache: SQLiteCache) -> None:
     assert not cache.contains(namespace="fruit", key="banana")
 
 
+def test_overwrite_value(cache: SQLiteCache) -> None:
+    """
+    Setting a key that already exists overrides the existing value.
+    """
+    namespace = "numbers"
+    key = "favourite"
+
+    cache.set(namespace, key, value="42")
+    assert cache.get(namespace, key) == "42"
+    cache.set(namespace, key, value="43")
+    assert cache.get(namespace, key) == "43"
+
+
 def test_register() -> None:
     """
     Test the register wrapper.

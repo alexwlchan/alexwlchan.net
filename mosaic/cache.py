@@ -32,7 +32,10 @@ class SQLiteCache:
         cursor = self.conn.cursor()
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS "
-            "cache_entries(namespace, key, value, date_saved)"
+            "cache_entries("
+            "  namespace, key, value, date_saved, "
+            "  UNIQUE (namespace, key) ON CONFLICT REPLACE"
+            ")"
         )
         cursor.execute(
             "CREATE INDEX IF NOT EXISTS cache_entries_idx "
@@ -51,7 +54,7 @@ class SQLiteCache:
         Save a key in the cache.
         """
         self.conn.execute(
-            "INSERT INTO cache_entries VALUES (?,?,?,?)",
+            "INSERT OR REPLACE INTO cache_entries VALUES (?,?,?,?)",
             (namespace, key, value, datetime.now(tz=timezone.utc).isoformat()),
         )
         self.conn.commit()
