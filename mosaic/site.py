@@ -533,6 +533,7 @@ class Site(BaseModel):
                 page = ProjectSingleFile(
                     repo=repo,
                     file_path=f.path,
+                    file_size=len(file_data),
                     file_contents=file_data.decode("utf8"),
                 )
                 out_path = page.write(env, self.out_dir)

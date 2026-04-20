@@ -120,7 +120,10 @@ def test_single_file(env: Environment, repo: GitRepository, out_dir: Path) -> No
     repo.name = "example-project"
 
     p = ProjectSingleFile(
-        repo=repo, file_path=Path("README.md"), file_contents="This is my README"
+        repo=repo,
+        file_path=Path("README.md"),
+        file_size=17,
+        file_contents="This is my README",
     )
 
     assert p.url == "/projects/example-project/files/README.md"

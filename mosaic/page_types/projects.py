@@ -212,6 +212,7 @@ class ProjectSingleFile(BaseProjectPage):
 
     file_path: Path
     file_contents: str
+    file_size: int
 
     @model_validator(mode="after")
     def set_title(self) -> Self:
