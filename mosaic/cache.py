@@ -82,14 +82,20 @@ class SQLiteCache:
         except TypeError:
             return None
 
-    def purge(self, namespace: str, prefix: str) -> None:
+    def purge(self, namespace: str, prefix: str = "") -> None:
         """
         Purge any keys matching this prefix from the cache.
         """
-        self.conn.execute(
-            "DELETE FROM cache_entries WHERE namespace=? AND key LIKE ?",
-            (namespace, f"{prefix}%"),
-        )
+        if prefix:
+            self.conn.execute(
+                "DELETE FROM cache_entries WHERE namespace=? AND key LIKE ?",
+                (namespace, f"{prefix}%"),
+            )
+        else:
+            self.conn.execute(
+                "DELETE FROM cache_entries WHERE namespace=?",
+                (namespace,),
+            )
 
 
 def register(f: Callable[[str], str]) -> Callable[[str], str]:

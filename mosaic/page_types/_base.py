@@ -230,13 +230,12 @@ class BaseHtmlPage(ABC, BaseModel):
 
         return out_path
 
-    def clear_cache(self, clear_body: bool = True) -> None:  # pragma: no cover
+    def clear_cache(self) -> None:  # pragma: no cover
         """
         Clear the HTML cache for this page, so it will be rebuilt from
         scratch on the next build.
         """
-        if clear_body:
-            cache.purge(namespace="render_body_html", prefix=f"{self.url}:")
+        cache.purge(namespace="render_body_html", prefix=f"{self.url}:")
         cache.purge(namespace="render_full_html", prefix=f"{self.url}:")
 
     @property

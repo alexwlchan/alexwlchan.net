@@ -59,14 +59,13 @@ def register_task(label: str) -> Any:
     def decorator(f: Any) -> Any:
         @functools.wraps(f)
         def wrapper(site: "Site", *args: Any, **kwargs: Any) -> Any:
+            t0 = time.time()
+            result = f(site, *args, **kwargs)
+
             if site.build_options.profile:  # pragma: no cover
-                print(f"{label}...".ljust(30), end=" ", flush=True)
-                t0 = time.time()
-                result = f(site, *args, **kwargs)
                 elapsed = time.time() - t0
-                print(f"{elapsed:.2f}s")
-            else:  # pragma: no cover
-                result = f(site, *args, **kwargs)
+                print(f"{label}...".ljust(30) + f"{elapsed:.2f}s")
+
             return result
 
         return wrapper
@@ -120,7 +119,6 @@ class Site(BaseModel):
         self.read_markdown_files()
         self.check_for_duplicate_urls()
         self.set_article_attributes()
-        self.check_if_html_cache_needs_refreshing()
 
         css_url = self.build_base_css_file()
 
@@ -320,46 +318,6 @@ class Site(BaseModel):
 
         return env
 
-    css_cache_mtime: float = 0
-    template_cache_mtime: float = 0
-
-    def check_if_html_cache_needs_refreshing(self) -> None:  # pragma: no cover
-        """
-        Check if any of the templates or CSS have changed since the last
-        build, and if so, clear the cache for all the HTML pages.
-        """
-        css_mtime = max(
-            os.stat(p).st_mtime for p in glob.glob("css/**/*.css", recursive=True)
-        )
-        template_mtime = max(
-            os.stat(p).st_mtime
-            for p in glob.glob("templates/**/*.html", recursive=True)
-        )
-
-        clear_cache = False
-        if (
-            template_mtime > self.template_cache_mtime
-            and css_mtime > self.css_cache_mtime
-        ):
-            message = "detected template and css changes, rebuilding..."
-            clear_cache = True
-        elif template_mtime > self.template_cache_mtime:
-            message = "detected template changes, rebuilding..."
-            clear_cache = True
-        elif css_mtime > self.css_cache_mtime:
-            message = "detected css changes, rebuilding..."
-            clear_cache = True
-
-        if clear_cache:
-            if self.css_cache_mtime > 0:
-                print(message)
-
-            for page in self.all_pages:
-                page.clear_cache()
-
-        self.css_cache_mtime = css_mtime
-        self.template_cache_mtime = template_mtime
-
     def build_base_css_file(self) -> str:
         """
         Build the base static/style.css file for the site.
@@ -383,6 +341,33 @@ class Site(BaseModel):
         """
         Write all the HTML files to the output directory.
         """
+        # Check if anything in the CSS/templates/Mosaic has changed since
+        # the last build; if so, invalidate the HTML cache and rebuild
+        # everything from scratch.
+        cache_ns = "write_html_files"
+
+        css_mtime = str(get_latest_mtime("css"))
+        templates_mtime = str(get_latest_mtime("templates"))
+
+        cache_entries = [
+            ("mosaic", mosaic_mtime),
+            ("css", css_mtime),
+            ("templates", templates_mtime),
+        ]
+
+        bust_cache = False
+        for label, cur_value in cache_entries:  # pragma: no cover
+            cache_key = f"{label}_mtime"
+            if cache.get(cache_ns, cache_key) != cur_value:
+                if cache.contains(cache_ns, cache_key):
+                    print(f"detected changes to {label}...")
+                bust_cache = True
+
+        if bust_cache:  # pragma: no cover
+            cache.purge(namespace=cache_ns)
+            for pg in self.all_pages:
+                pg.clear_cache()
+
         for pg in self.all_pages:
             try:
                 out_path = pg.write(env, out_dir=self.out_dir)
@@ -390,6 +375,10 @@ class Site(BaseModel):
             except Exception as exc:  # pragma: no cover
                 print(f"error writing {pg!r}: {exc}")
                 raise
+
+        for label, cur_value in cache_entries:
+            cache_key = f"{label}_mtime"
+            cache.set(cache_ns, cache_key, cur_value)
 
     @register_task("copy static files")  # type: ignore
     def copy_static_files(self) -> None:
@@ -575,3 +564,17 @@ class Site(BaseModel):
 
             print(f"delete stale HTML file: {p}")
             os.unlink(p)
+
+
+def get_latest_mtime(dirname: str) -> float:
+    """
+    Return the latest modification time for the files in this directory.
+    """
+    return max(
+        os.stat(p).st_mtime for p in glob.glob(f"{dirname}/**/*", recursive=True)
+    )
+
+
+# Changes to the Mosaic code won't affect the running process, so it's
+# sufficient to get this once.
+mosaic_mtime = str(get_latest_mtime("mosaic"))

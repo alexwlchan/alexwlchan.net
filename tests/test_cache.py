@@ -61,6 +61,11 @@ def test_purge(cache: SQLiteCache) -> None:
     assert cache.contains(namespace="vegetable", key="artichoke")
     assert cache.contains(namespace="vegetable", key="broccoli")
 
+    # Purge all remaining fruits
+    cache.purge(namespace="fruit")
+
+    assert not cache.contains(namespace="fruit", key="banana")
+
 
 def test_register() -> None:
     """
