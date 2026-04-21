@@ -14,7 +14,7 @@ def test_file_page() -> None:
     Loading an individual file works correctly.
     """
     resp = fetch_url("https://alexwlchan.net/projects/chives/files/src/chives/media.py")
-    assert b"<pre>" in resp
+    assert b"<pre class=lng-python>" in resp
     assert b"Functions for interacting with images/videos." in resp
 
 
