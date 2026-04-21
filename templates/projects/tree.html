@@ -172,6 +172,11 @@
       content: var(--file-icon-hover);
       display: none;
     }
+    
+    /* Make it clear the folders are clickable. */
+    summary, summary::before {
+      cursor: pointer;
+    }
   </style>
   
   {% set repo = page.repo %}
