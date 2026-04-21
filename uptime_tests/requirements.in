@@ -1,4 +1,5 @@
 alexwlchan-chives[fetch]
+coverage
 mypy
-pytest-cov
+pytest
 ruff

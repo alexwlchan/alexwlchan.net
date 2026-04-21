@@ -16,9 +16,9 @@ Pygments
 PyYAML
 
 # For Mosaic tests
+coverage
 hypothesis
 lxml-stubs
 mypy
-pytest-cov
 pytest-xdist
 ruff

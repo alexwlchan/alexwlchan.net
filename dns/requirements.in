@@ -1,4 +1,5 @@
+coverage
 dnspython
 mypy
-pytest-cov
 ruff
+pytest

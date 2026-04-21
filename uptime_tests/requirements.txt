@@ -5,7 +5,7 @@ alexwlchan-chives==34
 certifi==2026.2.25
     # via alexwlchan-chives
 coverage==7.13.5
-    # via pytest-cov
+    # via -r requirements.in
 iniconfig==2.3.0
     # via pytest
 librt==0.8.1
@@ -19,14 +19,10 @@ packaging==26.0
 pathspec==1.0.4
     # via mypy
 pluggy==1.6.0
-    # via
-    #   pytest
-    #   pytest-cov
+    # via pytest
 pygments==2.19.2
     # via pytest
 pytest==9.0.2
-    # via pytest-cov
-pytest-cov==7.0.0
     # via -r requirements.in
 ruff==0.15.6
     # via -r requirements.in

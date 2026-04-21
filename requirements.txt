@@ -16,8 +16,8 @@ cffi==2.0.0
     # via pygit2
 coverage==7.13.5
     # via
+    #   -r requirements.in
     #   -r uptime_tests/requirements.txt
-    #   pytest-cov
 execnet==2.1.2
     # via pytest-xdist
 hypothesis==6.151.9
@@ -72,7 +72,6 @@ pluggy==1.6.0
     # via
     #   -r uptime_tests/requirements.txt
     #   pytest
-    #   pytest-cov
 prompt-toolkit==3.0.52
     # via inquirerpy
 pycparser==3.0
@@ -91,12 +90,7 @@ pygments==2.19.2
 pytest==9.0.2
     # via
     #   -r uptime_tests/requirements.txt
-    #   pytest-cov
     #   pytest-xdist
-pytest-cov==7.0.0
-    # via
-    #   -r requirements.in
-    #   -r uptime_tests/requirements.txt
 pytest-xdist==3.8.0
     # via -r requirements.in
 pyyaml==6.0.3

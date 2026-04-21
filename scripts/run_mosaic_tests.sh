@@ -24,5 +24,5 @@ run_command 'mypy mosaic scripts tests'
 # files named `conftest.py`
 run_command "mypy uptime_tests"
 
-run_command "python3 -m pytest tests --cov=mosaic -n=auto"
-run_command "coverage report --include 'mosaic/*,tests/*'"
+run_command "python3 -m coverage run -m pytest -q tests"
+run_command "python3 -m coverage report"

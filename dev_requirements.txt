@@ -25,7 +25,6 @@ coverage==7.13.5
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-    #   pytest-cov
 dnspython==2.8.0
     # via -r dns/requirements.txt
 execnet==2.1.2
@@ -101,7 +100,6 @@ pluggy==1.6.0
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
     #   pytest
-    #   pytest-cov
 prompt-toolkit==3.0.52
     # via
     #   -r requirements.txt
@@ -129,13 +127,7 @@ pytest==9.0.2
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-    #   pytest-cov
     #   pytest-xdist
-pytest-cov==7.0.0
-    # via
-    #   -r dns/requirements.txt
-    #   -r requirements.txt
-    #   -r uptime_tests/requirements.txt
 pytest-xdist==3.8.0
     # via -r requirements.txt
 pyyaml==6.0.3

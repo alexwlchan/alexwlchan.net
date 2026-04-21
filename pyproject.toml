@@ -4,6 +4,10 @@ version = "1.0"
 
 [tool.coverage.run]
 branch = true
+include = [
+  "mosaic/*",
+  "tests/*",
+]
 
 [tool.coverage.report]
 show_missing = true
