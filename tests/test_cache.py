@@ -102,3 +102,4 @@ def test_register() -> None:
     assert c.get("lower", "aBcDe") is None
 
     assert upper("aBcDe") == "ABCDE"
+    assert lower("aBcDe") == "abcde"
