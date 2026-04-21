@@ -8,7 +8,7 @@ I've been doing a couple of Go experiments, and I wanted to test if Go has lazy 
 
 I wrote the following simple program -- the first condition is true, so I'm looking for Go to print the message on line 7 rather than try to evaluate the invalid condition:
 
-```go {"names":{"1":"main","2":"main"},"linenos":true}
+```go {"names":{"1":"main","2":"main"},"line_numbers":true}
 package main
 
 import "fmt"

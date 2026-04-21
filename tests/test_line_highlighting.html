@@ -1,0 +1,253 @@
+<html>
+  <meta charset="utf-8">
+
+  <script src="../src/static/line_highlighting.js"></script>
+
+  <style>
+    .test_result {
+      margin: 0;
+    }
+
+    .success { color: green; }
+    .failure { color: red;   }
+
+    .success::before { content: '✔ '; }
+    .failure::before { content: '✘ '; }
+  </style>
+
+  <script>
+    function it(description, body_of_test) {
+      const result = document.createElement('p');
+      result.classList.add('test_result')
+
+      try {
+        body_of_test();
+        result.classList.add('success');
+        result.innerHTML = description;
+      } catch (error) {
+        result.classList.add('failure');
+        result.innerHTML = `${description}<br/><pre>${error}</pre>`;
+      }
+
+      document.body.appendChild(result);
+    }
+
+    function assertEqual(x, y) {
+      if (
+        x === y || (
+          typeof x === 'object' &&
+          typeof y === 'object' &&
+          x.length === y.length &&
+          JSON.stringify(x) === JSON.stringify(y)
+        )
+      ) {
+        return;
+      } else {
+        if (typeof x === 'object') {
+          throw new Error(`${JSON.stringify(x)} != ${JSON.stringify(y)}`);
+        } else {
+          throw new Error(`${x} != ${y}`);
+        }
+      }
+    }
+    
+    function assertTrue(x) {
+      assertEqual(x, true);
+    }
+
+    function assertFalse(x) {
+      assertEqual(x, false);
+    }
+  </script>
+
+  <body>
+    <script>
+      it("parseFragment: ''", () => {
+        assertEqual(parseFragment(''), null)
+      });
+      it("parseFragment: 'L3'", () => {
+        assertEqual(parseFragment('L3'), { start: 3, end: 3 })
+      });
+      it("parseFragment: '#L3'", () => {
+        assertEqual(parseFragment('#L3'), { start: 3, end: 3 })
+      });
+      it("parseFragment: 'L3-7'", () => {
+        assertEqual(parseFragment('L3-7'), { start: 3, end: 7 })
+      });
+      it("parseFragment: '#L3-7'", () => {
+        assertEqual(parseFragment('#L3-7'), { start: 3, end: 7 })
+      });
+      it("parseFragment: 'ABC'", () => {
+        assertEqual(parseFragment('ABC'), null)
+      });
+      it("parseFragment: '1-3-5'", () => {
+        assertEqual(parseFragment('1-3-5'), null)
+      });
+      
+      it("handles no line in the initial URL", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt'
+        );
+        
+        assertEqual(h.getLineToScrollTo(), null);
+
+        assertFalse(h.shouldBeHighlighted('L1'));
+        assertFalse(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+      });
+      
+      it("handles a single line in the initial URL", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt#L3'
+        );
+        
+        assertEqual(h.getLineToScrollTo(), null);
+
+        assertFalse(h.shouldBeHighlighted('L1'));
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+      });
+      
+      it("handles multiple line in the initial URL", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt#L3-5'
+        );
+        
+        assertEqual(h.getLineToScrollTo(), 'L3');
+
+        assertFalse(h.shouldBeHighlighted('L2'));
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertTrue(h.shouldBeHighlighted('L4'));
+        assertTrue(h.shouldBeHighlighted('L5'));
+        assertFalse(h.shouldBeHighlighted('L6'));
+      });
+      
+      it("handleClickEvent: skips events for a non-line number href", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt#L3'
+        );
+        
+        assertEqual(
+          h.handleClickEvent({ href: '#heading', shiftKey: false }),
+          { newURL: null, preventDefault: false, updateHighlighting: false }
+        );
+      });
+      
+      it("handleClickEvent: updates for a single click event, no shift", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt#L3'
+        );
+        
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L5', shiftKey: false }),
+          { newURL: null, preventDefault: false, updateHighlighting: true }
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L3'));
+        assertTrue(h.shouldBeHighlighted('L5'));
+      });
+      
+      it("handleClickEvent: updates for a single click event, with shift", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt#L3'
+        );
+        
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L5', shiftKey: true }),
+          { newURL: '#L3-5', preventDefault: true, updateHighlighting: true }
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L2'));
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertTrue(h.shouldBeHighlighted('L4'));
+        assertTrue(h.shouldBeHighlighted('L5'));
+        assertFalse(h.shouldBeHighlighted('L6'));
+      });
+      
+      it("handleClickEvent: select a range from scratch", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt'
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L3', shiftKey: true }),
+          { newURL: null, preventDefault: false, updateHighlighting: true }
+        );
+        
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L5', shiftKey: true }),
+          { newURL: '#L3-5', preventDefault: true, updateHighlighting: true }
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L2'));
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertTrue(h.shouldBeHighlighted('L4'));
+        assertTrue(h.shouldBeHighlighted('L5'));
+        assertFalse(h.shouldBeHighlighted('L6'));
+      });
+
+      it("handleClickEvent: change your selection", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt'
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L3', shiftKey: false }),
+          { newURL: null, preventDefault: false, updateHighlighting: true }
+        );
+        
+        assertTrue(h.shouldBeHighlighted('L3'));
+        assertFalse(h.shouldBeHighlighted('L5'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L5', shiftKey: false }),
+          { newURL: null, preventDefault: false, updateHighlighting: true }
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L3'));
+        assertTrue(h.shouldBeHighlighted('L5'));
+      });
+      
+      it("handleClickEvent: un-highlight a line", () => {
+        const h = new Highlighter(
+          'https://alexwlchan.net/projects/chives/files/example.txt#L5'
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L3'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L3', shiftKey: false }),
+          { newURL: null, preventDefault: false, updateHighlighting: true }
+        );
+        
+        assertTrue(h.shouldBeHighlighted('L3'));
+        
+        assertEqual(
+          h.handleClickEvent({ href: 'L3', shiftKey: false }),
+          {
+            newURL: 'https://alexwlchan.net/projects/chives/files/example.txt',
+            preventDefault: true,
+            updateHighlighting: true,
+          }
+        );
+        
+        assertFalse(h.shouldBeHighlighted('L3'));
+      });
+    </script>
+  </body>
+</html>

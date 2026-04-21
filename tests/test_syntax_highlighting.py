@@ -224,6 +224,14 @@ def test_highlighting_name() -> None:
         '<span class="mi">1</span></code></pre>'
     )
 
+    html_all_names = markdownify('```python {"names":"all"}\nx = y + 1\n```')
+    assert html_all_names == (
+        '<pre class="lng-python"><code>'
+        '<span class="n">x</span> <span class="o">=</span> '
+        '<span class="n">y</span> <span class="o">+</span> '
+        '<span class="mi">1</span></code></pre>'
+    )
+
 
 @pytest.mark.parametrize(
     "src, names, must_include",
@@ -523,11 +531,26 @@ def test_uses_default_line_numbers() -> None:
     html = apply_syntax_highlighting(
         'def greet():\n    print("hello world!")\n    ...',
         lang="python",
-        linenos=True,
+        line_numbers=True,
     )
 
-    assert '<span class="ln" style="--ln: 1">' in html
-    assert '<span class="ln" style="--ln: 3">' in html
+    assert '<span class="lineno">1</span>' in html
+    assert '<span class="lineno">3</span>' in html
+
+
+def test_link_line_numbers() -> None:
+    """
+    If you pass `link_line_numbers`, the line numbers are clickable links.
+    """
+    html = apply_syntax_highlighting(
+        'def greet():\n    print("hello world!")\n    ...',
+        lang="python",
+        line_numbers=True,
+        link_line_numbers=True,
+    )
+
+    assert '<div id="L1" class="ln"><span class="lineno"><a href="#L1">' in html
+    assert '<div id="L3" class="ln"><span class="lineno"><a href="#L3">' in html
 
 
 def test_adds_figcaption() -> None:
@@ -537,11 +560,29 @@ def test_adds_figcaption() -> None:
     html = apply_syntax_highlighting(
         'def greet():\n    print("hello world!")\n    ...',
         lang="python",
-        linenos=True,
+        line_numbers=True,
         caption="This is some example code",
     )
 
     assert "<figcaption>This is some example code</figcaption>" in html
+
+
+def test_caption_without_line_numbers() -> None:
+    """
+    Passing `caption` without `line_numbers` is an error.
+    """
+    with pytest.raises(TypeError):
+        apply_syntax_highlighting(
+            "x = 1+2", lang="python", caption="This is some example code"
+        )
+
+
+def test_link_line_numbers_without_line_numbers() -> None:
+    """
+    Passing `link_line_numbers` without `line_numbers` is an error.
+    """
+    with pytest.raises(TypeError):
+        apply_syntax_highlighting("x = 1+2", lang="python", link_line_numbers=True)
 
 
 def test_typescript() -> None:

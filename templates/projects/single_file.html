@@ -3,14 +3,70 @@
 {% block content %}
   <article>
     <h2>
-      <code>{{ page.file_path }}</code>
+      <code>{{ page.file.path }}</code>
     </h2>
     
     <ul class="dot_list">
-      <li>{{ page.file_size }} bytes</li>
-      <li><a href="/projects/{{ page.slug }}/raw/{{ page.file_path }}">View raw</a></li>
+      <li>{{ page.file.size }} bytes</li>
+      {% if page.file.label %}
+      <li>{{ page.file.label }}</li>
+      {% endif %}
+      <li><a href="/projects/{{ page.slug }}/raw/{{ page.file.path }}">View raw</a></li>
     </ul>
+    
+    {% if page.file.size == 0 %}
+      <p>(File is empty)</p>
+    {% else %}
+{% set markdown %}
+```{{ page.file.lang }} {"line_numbers":true,"link_line_numbers":true,"names":"all"}
+{{ page.file_contents }}
+```
+{% endset %}
 
-    <pre><code>{{ page.file_contents }}</code></pre>
+{{ markdown | markdownify }}
+    {% endif %}
+
+  <script src="/static/line_highlighting.js"></script>
+  <script>
+    const h = new Highlighter(window.location.href);
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      if (h.getLineToScrollTo() != null) {
+        document
+          .getElementById(h.getLineToScrollTo())
+          .scrollIntoView();
+      }
+      
+      h.updateLineHighlighting();
+    });
+
+    window.addEventListener('popstate', () => {
+      h.updateLineHighlighting();
+    });
+
+    window.addEventListener('click', (event) => {
+      // Skip clicks that aren't on <a> tags.
+      if (event.target.tagName.toLowerCase() !== 'a') {
+        return
+      }
+    
+      // Skip links that aren't for an #L fragment
+      const href = event.target.getAttribute('href').replace(/^#/, '');
+      
+      const { newURL, preventDefault, updateHighlighting } =
+        h.handleClickEvent({ href, shiftKey: event.shiftKey });
+      
+      if (newURL !== null) {
+        window.history.replaceState(null, '', newURL);
+      }
+      if (preventDefault) {
+        event.preventDefault();
+      }
+      if (updateHighlighting) {
+        h.updateLineHighlighting();
+      }
+    });
+  </script>
+
   </article>
 {% endblock %}

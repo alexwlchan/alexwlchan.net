@@ -502,3 +502,50 @@ def test_readme_contents(git: GitFn, repo_root: Path, tmp_path: Path) -> None:
     )
 
     assert repo.readme_contents() == "This is version 9 of the README"
+
+
+class TestGitFile:
+    """
+    Tests for `GitFile`.
+    """
+
+    @pytest.mark.parametrize(
+        "path, label",
+        [
+            ("README.md", "Markdown"),
+            ("src/chives/media.py", "Python"),
+            ("tests/stubs/smartypants.pyi", "Python type stub"),
+            ("pyproject.toml", "TOML"),
+            ("cassette.yml", "YAML"),
+            ("requirements.txt", "pip requirements file"),
+            ("dev_requirements.txt", "pip requirements file"),
+            ("requirements.in", "pip-compile input file"),
+            ("dev_requirements.in", "pip-compile input file"),
+            ("unknown.bin", None),
+        ],
+    )
+    def test_label(self, path: str, label: str | None) -> None:
+        """
+        Tests for `GitFile.label`.
+        """
+        f = GitFile(path=Path(path), blob_id="123", size=0, is_binary=False)
+        assert f.label == label
+
+    @pytest.mark.parametrize(
+        "path, lang",
+        [
+            ("README.md", "markdown"),
+            ("src/chives/media.py", "python"),
+            ("tests/stubs/smartypants.pyi", "python"),
+            ("pyproject.toml", "toml"),
+            ("cassette.yml", "yaml"),
+            ("requirements.txt", "text"),
+            ("unknown.bin", "text"),
+        ],
+    )
+    def test_lang(self, path: str, lang: str) -> None:
+        """
+        Tests for `GitFile.lang`.
+        """
+        f = GitFile(path=Path(path), blob_id="123", size=0, is_binary=False)
+        assert f.lang == lang

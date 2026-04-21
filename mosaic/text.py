@@ -77,7 +77,7 @@ class AlexwlchanRenderer(mistune.HTMLRenderer):
         else:
             lang, attrs = parts[0], json.loads(parts[1])
 
-        if "names" in attrs:
+        if isinstance(attrs.get("names"), dict):
             attrs["names"] = {int(idx): name for idx, name in attrs["names"].items()}
 
         return apply_syntax_highlighting(code, lang, **attrs)
