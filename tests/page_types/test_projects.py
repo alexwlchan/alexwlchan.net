@@ -6,7 +6,7 @@ from pathlib import Path
 
 from jinja2 import Environment
 
-from mosaic.git import GitRepository
+from mosaic.git import GitFile, GitRepository
 from mosaic.page_types import (
     BreadcrumbEntry,
     ProjectCommit,
@@ -121,8 +121,7 @@ def test_single_file(env: Environment, repo: GitRepository, out_dir: Path) -> No
 
     p = ProjectSingleFile(
         repo=repo,
-        file_path=Path("README.md"),
-        file_size=17,
+        file=GitFile(path=Path("README.md"), blob_id="123", size=17, is_binary=False),
         file_contents="This is my README",
     )
 

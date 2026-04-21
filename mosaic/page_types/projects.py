@@ -7,7 +7,7 @@ from typing import Self, TypedDict
 
 from pydantic import model_validator
 
-from mosaic.git import Commit, GitRepository
+from mosaic.git import Commit, GitFile, GitRepository
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
@@ -209,17 +209,15 @@ class ProjectSingleFile(BaseProjectPage):
     """
 
     template_name: str = "projects/single_file.html"
-
-    file_path: Path
+    file: GitFile
     file_contents: str
-    file_size: int
 
     @model_validator(mode="after")
     def set_title(self) -> Self:
         """
         Set the title of the page to be the file path and the project name.
         """
-        self.title = f"{self.file_path} – {self.name}"
+        self.title = f"{self.file.path} – {self.name}"
         return self
 
     @property
@@ -227,7 +225,7 @@ class ProjectSingleFile(BaseProjectPage):
         """
         The output URL of this page.
         """
-        return f"/projects/{self.slug}/files/{self.file_path}"
+        return f"/projects/{self.slug}/files/{self.file.path}"
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:

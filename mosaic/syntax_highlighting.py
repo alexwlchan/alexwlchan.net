@@ -253,18 +253,36 @@ WHITESPACE_RE = re.compile(r'<span class="w">(?P<space>[\s]+)</span>')
 def apply_syntax_highlighting(
     src: str,
     lang: str,
-    names: dict[int, str] | None = None,
+    names: dict[int, str] | Literal["all"] | None = None,
     debug: bool = False,
     wrap: bool = False,
-    linenos: bool = False,
-    line_numbers: str = "",
+    line_numbers: str | Literal[True] = "",
+    link_line_numbers: bool = False,
     caption: str = "",
 ) -> str:
     """
     Apply syntax highlighting rules to a block of code.
 
-    This has all my custom logic for adding line numbers, tidying up
-    the output HTML, and so on. It doesn't know anything about Markdown.
+    Arguments:
+        src: The raw source code to highlight.
+        lang: The Pygments lexer shortname (e.g. `python`, `js`).
+            See https://pygments.org/languages/
+            Also supports `caddy` for highlighting Caddyfiles.
+        names: Variable names to highlight in blue.
+            Accepts a dict of position/name of individual names to highlight,
+            or the string "all" to highlight everything.
+            If omitted, all variable names will be shown in black.
+        debug: If set, enables a browser-based debugging mode to interactively
+            build the parameter string for `names`.
+        wrap: Whether the code block should wrap text at newlines.
+        line_numbers: Whether to show line numbers.
+            Pass True for standard 1-N numbering, or a range string
+            (e.g., "1–3,5,7") for specific lines.
+        link_line_numbers: Whether line numbers should be hyperlinks.
+            You must enable `line_numbers` to use this option.
+        caption: A caption to display below the code block.
+            You must enable `line_numbers` to use this option.
+
     """
     if lang == "caddy":
         html = format_caddy(src)
@@ -276,69 +294,8 @@ def apply_syntax_highlighting(
     if debug:
         print(repr(html))
 
-    # Find all the names which are highlighted as part of this code.
-    # n = Name.*
-    # cp = Comment.Preproc
-    # vg = Variable.Global
-    name_matches = re.finditer(
-        r'<span class="(n[a-z0]?|cp|vg)">(?P<varname>[^<]+)</span>', html
-    )
-
-    # Un-highlight any names that aren't explicitly labelled as worth
-    # highlighting.
-    if names is not None:
-        names_to_highlight = names
-    else:
-        names_to_highlight = {}
-
-    for idx, m in reversed(list(enumerate(name_matches, start=1))):
-        # In HTML, all tags and attributes get highlighted in blue;
-        # skip doing any name cleanup.
-        if (lang in {"caddy", "html", "xml"}) and names is None and not debug:
-            continue
-
-        varname = m.group("varname")
-        start, end = m.start(), m.end()
-
-        # If we're in debug mode, add a checkbox and a <label> that can
-        # be used to toggle names.
-        #
-        # This allows me to build the colouring interactively.
-        if debug:
-            form_id = f"{idx}:{varname}"
-            html = (
-                html[:start]
-                + (
-                    f'<label for="{form_id}">{varname}'
-                    f'<input class="codeName" type="checkbox" id="{form_id}" '
-                    f'data-idx="{idx}" data-varname="{varname}" '
-                    f'onChange="recalculateVariables()"/></label>'
-                )
-                + html[end:]
-            )
-            continue
-
-        # If this isn't a name we want to highlight, remove the
-        # <span class="n*"> and continue.
-        if names_to_highlight.get(idx) is None:
-            html = html[:start] + varname + html[end:]
-
-        # If this is one of the names we want to highlight but the variable
-        # name doesn't match, throw an error.
-        #
-        # In Terraform, it's okay to omit the wrapping quotes because it
-        # makes the JSON escaping trickier.
-        elif (
-            lang == "terraform"
-            and "&quot;" + names_to_highlight[idx] + "&quot;" != varname
-        ) or (lang != "terraform" and names_to_highlight[idx] != varname):
-            raise ValueError(
-                f"got bad name at {idx}: want {names_to_highlight[idx]}, got {varname}"
-            )
-
-        # Rewrap in <span class="n">, so the name is highlighted.
-        else:
-            html = html[:start] + f'<span class="n">{varname}</span>' + html[end:]
+    if names != "all":
+        html = add_name_highlighting(html, lang, names, debug)
 
     # Remove the wrapper <div> applied by Pygments
     html = re.sub(r'^<div class="highlight">', "", html)
@@ -353,8 +310,16 @@ def apply_syntax_highlighting(
 
     html = html.replace("<span></span>", "")
 
-    if linenos or line_numbers:
-        html, lineno_digits = add_line_numbers(html, linenos, line_numbers)
+    # If a caption or line_numbers are set, wrap the whole code block
+    # in a <figure class="annotated_code"> so it picks up those styles.
+    if caption and not line_numbers:
+        raise TypeError("cannot set caption without setting line_numbers")
+
+    if link_line_numbers and not line_numbers:
+        raise TypeError("cannot set link_line_numbers without setting line_numbers")
+
+    if line_numbers:
+        html, lineno_digits = add_line_numbers(html, line_numbers, link_line_numbers)
 
         if caption:
             figcaption = f"<figcaption>{caption}</figcaption>"
@@ -421,25 +386,93 @@ def apply_syntax_highlighting(
     return html
 
 
-def add_line_numbers(html: str, linenos: bool, line_numbers: str) -> tuple[str, int]:
+def add_name_highlighting(
+    html: str, lang: str, names: dict[int, str] | None, debug: bool
+) -> str:
+    """
+    Change the syntax highlighting of names so only explicitly allowed
+    names are highlighted in blue.
+    """
+    # Find all the names which are highlighted as part of this code.
+    # n = Name.*
+    # cp = Comment.Preproc
+    # vg = Variable.Global
+    name_matches = re.finditer(
+        r'<span class="(n[a-z0]?|cp|vg)">(?P<varname>[^<]+)</span>', html
+    )
+
+    names_to_highlight = names or {}
+
+    for idx, m in reversed(list(enumerate(name_matches, start=1))):
+        # In HTML, all tags and attributes get highlighted in blue;
+        # skip doing any name cleanup.
+        if (lang in {"caddy", "html", "xml"}) and not names_to_highlight and not debug:
+            continue
+
+        varname = m.group("varname")
+        start, end = m.start(), m.end()
+
+        # If we're in debug mode, add a checkbox and a <label> that can
+        # be used to toggle names.
+        #
+        # This allows me to build the colouring interactively.
+        if debug:
+            form_id = f"{idx}:{varname}"
+            html = (
+                html[:start]
+                + (
+                    f'<label for="{form_id}">{varname}'
+                    f'<input class="codeName" type="checkbox" id="{form_id}" '
+                    f'data-idx="{idx}" data-varname="{varname}" '
+                    f'onChange="recalculateVariables()"/></label>'
+                )
+                + html[end:]
+            )
+            continue
+
+        # If this isn't a name we want to highlight, remove the
+        # <span class="n*"> and continue.
+        if names_to_highlight.get(idx) is None:
+            html = html[:start] + varname + html[end:]
+
+        # If this is one of the names we want to highlight but the variable
+        # name doesn't match, throw an error.
+        #
+        # In Terraform, it's okay to omit the wrapping quotes because it
+        # makes the JSON escaping trickier.
+        elif (
+            lang == "terraform"
+            and "&quot;" + names_to_highlight[idx] + "&quot;" != varname
+        ) or (lang != "terraform" and names_to_highlight[idx] != varname):
+            raise ValueError(
+                f"got bad name at {idx}: want {names_to_highlight[idx]}, got {varname}"
+            )
+
+        # Rewrap in <span class="n">, so the name is highlighted.
+        else:
+            html = html[:start] + f'<span class="n">{varname}</span>' + html[end:]
+
+    return html
+
+
+def add_line_numbers(
+    html: str, line_numbers: str | Literal[True], link_line_numbers: bool
+) -> tuple[str, int]:
     """
     Add line numbers to the HTML string.
 
     Returns the highlighted code and the number of digits to allocate
     for line numbering.
     """
-    assert linenos or line_numbers
-
     prefix1, prefix2, remaining = html.partition("<code>")
     inner, suffix1, suffix2 = remaining.rpartition("</code>")
     assert prefix1 + prefix2 + inner + suffix1 + suffix2 == html
 
     line_count = len(inner.splitlines())
 
-    # If we passed linenos=true but didn't set any line numbers
-    # explicitly, default the line numbers to 1–N, where N is the
-    # number of lines.
-    if not line_numbers:
+    # Use the explicit line numbers if passed, or 1–N for the number
+    # of lines if not.
+    if not isinstance(line_numbers, str):
         line_numbers = f"1-{line_count}"
 
     # Parse the line_numbers attribute.
@@ -475,10 +508,21 @@ def add_line_numbers(html: str, linenos: bool, line_numbers: str) -> tuple[str, 
 
     for line, lineno in zip(inner_lines, exact_line_numbers):
         if lineno == "…":
-            numbered_lines.append(f'<span class="ln empty p">{line}</span>')
+            numbered_lines.append(
+                f'<div class="ln"><span class="lineno empty">⋮</span>'
+                f'<span class="p">{line}</span>'
+                "</div>"
+            )
+        elif link_line_numbers:
+            numbered_lines.append(
+                f'<div id="L{lineno}" class="ln">'
+                f'<span class="lineno"><a href="#L{lineno}">{lineno}</a></span>'
+                f"{line}"
+                "</div>"
+            )
         else:
             numbered_lines.append(
-                f'<span class="ln" style="--ln: {lineno}">{line}</span>'
+                f'<div class="ln"><span class="lineno">{lineno}</span>{line}</div>'
             )
 
     assert len(numbered_lines) == len(inner_lines)

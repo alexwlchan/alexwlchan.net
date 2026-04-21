@@ -41,8 +41,14 @@ pre {
     color: var(--strings);
   }
 
-  /* Name */
-  .n { color: var(--names); }
+  /* Names:
+   *   Attribute,Builtin,Builtin.Pseudo,Class,Constant,Decorator,Entity,
+   *   …, Function,Function.Magic,Property,Label,Name,Other,Tag,
+   *   …, Variable,Variable.{Class,Global,Instance,Magic}*/
+  .n, .na, .nb, .bp, .nc, .no, .nd, .ni, .f, .py, .nl, .nn, .nx, .nt,
+  .nv, .vc, .vg, .vi, .vm {
+    color: var(--names);
+  }
 
   /* Punctuation, Generic.Output */
   .p, .go {
@@ -134,4 +140,92 @@ pre {
   .gr, .gt { /* Generic.{Error,Traceback} */
     color: var(--punctuation);
   }
+}
+
+/* These styles are for code blocks with line numbers, which are created
+ * by my `syntax_highlighting` plugin. */
+.annotated_code {
+  --line-height: 29px;
+  
+  /* Every line is wrapped in a <div> with display: block (so it can
+   * highlighted); we don't want the <pre> to insert additional newlines. */
+  pre {
+    white-space: collapse;
+  }
+  
+  .ln {
+    height:      var(--line-height);
+    line-height: var(--line-height);
+    white-space: pre;
+  }
+  
+  /* Add a yellow highlight to selected lines. */
+  .highlight {
+    background: var(--highlight);
+    margin-left: -8px;
+    padding-left: 8px;
+    border-radius: 3px;
+  }
+  
+  .highlight + .highlight {
+    border-top-left-radius:  0;
+    border-top-right-radius: 0;
+  }
+
+  .highlight:has( + .highlight) {
+    border-bottom-left-radius:  0;
+    border-bottom-right-radius: 0;
+  }
+  
+  /* Add some space at the end of the line, so when you scroll to the
+   * right it remains in view. */
+  .ln::after {
+    content: " ";
+  }
+  
+  .ln .lineno {
+    display: inline-block;
+    text-align: right;
+    width:  calc(var(--lineno-digits) * 9px);
+    color: var(--punctuation);
+
+    /* Create a solid vertical line between line numbers and the code. */
+    border-right: var(--border-width) solid var(--block-border-color);
+   
+    padding-right: 12px;
+    margin-right:  12px;
+
+    /* Disable text selection highlighting
+     * https://stackoverflow.com/a/4407335/1558022 */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+    a {
+      color: var(--punctuation);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+    }
+    
+    &.empty {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  figcaption {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  pre:has( + figcaption) {
+    margin-bottom: 4px;
+  }  
 }

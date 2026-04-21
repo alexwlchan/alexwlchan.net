@@ -497,9 +497,7 @@ class Site(BaseModel):
         # TODO: Clear out stale entries from the `raw` directory
         for f in repo.tree.files:
             raw_path = self.out_dir / "projects" / repo.name / "raw" / f.path
-            stub_page = ProjectSingleFile(
-                repo=repo, file_path=f.path, file_size=0, file_contents=""
-            )
+            stub_page = ProjectSingleFile(repo=repo, file=f, file_contents="")
             html_path = stub_page.out_path(self.out_dir)
 
             cache_ns = "git.write_raw_file"
@@ -532,8 +530,7 @@ class Site(BaseModel):
             if not f.is_binary:
                 page = ProjectSingleFile(
                     repo=repo,
-                    file_path=f.path,
-                    file_size=len(file_data),
+                    file=f,
                     file_contents=file_data.decode("utf8"),
                 )
                 out_path = page.write(env, self.out_dir)

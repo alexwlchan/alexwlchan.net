@@ -192,6 +192,47 @@ class GitFile(BaseModel):
     # Whether this is a binary file
     is_binary: bool
 
+    @property
+    def label(self) -> str | None:
+        """
+        Returns a human-readable label describing the type of this file.
+        """
+        match self.path.suffix:
+            case ".md":
+                return "Markdown"
+            case ".py":
+                return "Python"
+            case ".pyi":
+                return "Python type stub"
+            case ".toml":
+                return "TOML"
+            case ".yml":
+                return "YAML"
+
+        if self.path.name.endswith("requirements.txt"):
+            return "pip requirements file"
+
+        if self.path.name.endswith("requirements.in"):
+            return "pip-compile input file"
+
+        return None
+
+    @property
+    def lang(self) -> str:
+        """
+        Returns a Pygments lexer shortname for this file.
+        """
+        match self.path.suffix:
+            case ".md":
+                return "markdown"
+            case ".py" | ".pyi":
+                return "python"
+            case ".toml":
+                return "toml"
+            case ".yml":
+                return "yaml"
+        return "text"
+
 
 def list_files_for_tree(tree: pygit2.Tree, parent: Path = Path("")) -> list[GitFile]:
     """
