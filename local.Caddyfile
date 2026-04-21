@@ -1,0 +1,8 @@
+:5757 {
+	import caddy/redirects.Caddyfile
+	import caddy/gone.Caddyfile
+	import caddy/projects.Caddyfile
+
+	root * /Users/alexwlchan/repos/alexwlchan.net/_out
+	file_server
+}
