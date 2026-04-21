@@ -45,7 +45,7 @@ pre {
    *   Attribute,Builtin,Builtin.Pseudo,Class,Constant,Decorator,Entity,
    *   …, Function,Function.Magic,Property,Label,Name,Other,Tag,
    *   …, Variable,Variable.{Class,Global,Instance,Magic}*/
-  .n, .na, .nb, .bp, .nc, .no, .nd, .ni, .f, .py, .nl, .nn, .nx, .nt,
+  .n, .na, .nb, .bp, .nc, .no, .nd, .ni, .nf, .py, .nl, .nn, .nx, .nt,
   .nv, .vc, .vg, .vi, .vm {
     color: var(--names);
   }
