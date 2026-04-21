@@ -11,9 +11,8 @@ To deploy new Caddy config:
 
 2.  Pull the config that you want, e.g. `git pull origin main`
 
-3.  Switch to this folder and reload Caddy:
+3.  Reload Caddy:
 
     ```console
-    $ cd caddy
-    $ sudo caddy reload
+    $ caddy reload
     ```

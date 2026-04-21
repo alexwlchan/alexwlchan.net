@@ -9,7 +9,7 @@
 # To rebuild this file:
 #
 #     uv pip install cogapp
-#     cog -c r caddy/til_redirects.Caddyfile
+#     cog -c r til_redirects.Caddyfile
 #
 til.alexwlchan.net {
   #[[[cog

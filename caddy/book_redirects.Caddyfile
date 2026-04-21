@@ -9,7 +9,7 @@
 # To rebuild this file:
 #
 #     uv pip install cogapp
-#     cog -c r caddy/book_redirects.Caddyfile
+#     cog -c r book_redirects.Caddyfile
 #
 books.alexwlchan.net {
   redir / https://alexwlchan.net/book-reviews/

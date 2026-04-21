@@ -1,10 +1,15 @@
 import /home/alexwlchan/repos/finduntaggedtumblrposts.com/Caddyfile
 
+import caddy/alt_alexwlchan_domains.Caddyfile
 import caddy/book_redirects.Caddyfile
 import caddy/til_redirects.Caddyfile
 
 alexwlchan.net {
+	import caddy/caching.Caddyfile
+	import caddy/errors.Caddyfile
 	import caddy/logging.Caddyfile
+	import caddy/security_headers.Caddyfile
+
 	import caddy/redirects.Caddyfile
 	import caddy/gone.Caddyfile
 	import caddy/projects.Caddyfile
@@ -12,55 +17,7 @@ alexwlchan.net {
 	# Enable compression for responses
 	encode zstd gzip
 
-	# I can set long-lived caches on all these static assets because I treat
-	# most files as immutable by filename -- if I modify a file, I'll upload a new
-	# file with a different name, so it won't be a cache hit.
-	#
-	# The one exception is CSS files, but I cache-bust those by passing a query parameter
-	# that includes the hash of my CSS source.
-	@cached {
-		path /b/* /c/* /f/* /h/* /files/* /images/* /static/* /theme/*
-	}
-
-	header @cached {
-		Cache-Control "public, max-age=31536000"
-	}
-
-	import caddy/security_headers.Caddyfile
-
-	# If somebody gets a 4xx error, respond with my custom error pages.
-	handle_errors 404 {
-		root * /home/alexwlchan/repos/alexwlchan.net/_site
-		rewrite * 404/index.html
-		file_server
-	}
-
-	handle_errors 410 {
-		root * /home/alexwlchan/repos/alexwlchan.net/_site
-		rewrite * 410/index.html
-		file_server
-	}
-
-	# If somebody is trying to look for PHP pages on my site, and WordPress
-	# pages in particular, they probably have nefarious goals.
-	#
-	# This is mostly automated bots -- serve them my minimal 400 Bad Request
-	# error rather than the complete 404 Not Found page.
-	@spam {
-		path /.env /index.php /xmlrpc.php /wp-* /blog/wp-* /cms/wp-* /shop/wp-* /site/wp-* /test/wp-* /wordpress/wp-* /wp/wp-* /wp2/wp-* /zb_system/*
-	}
-
-	handle @spam {
-		respond "400 Bad Request" 400
-	}
-
 	# Run a static file server for anything not yet handled
 	root * /home/alexwlchan/repos/alexwlchan.net/_site
 	file_server
-}
-
-# This redirects my other domain names to my primary domain name,
-# to avoid diluting traffic between them.
-alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk, www.alexwlchan.net {
-	redir https://alexwlchan.net{uri} permanent
 }
