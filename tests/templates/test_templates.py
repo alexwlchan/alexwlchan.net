@@ -5,7 +5,7 @@ Tests for `mosaic.templates`.
 import pytest
 
 from mosaic.page_types import BaseHtmlPage, Page
-from mosaic.templates import absolute_url, filter_for_topic
+from mosaic.templates import absolute_url, filter_for_topic, naturalsize
 
 
 @pytest.mark.parametrize(
@@ -38,3 +38,21 @@ def test_filter_for_topic() -> None:
         page4,
     ]
     assert filter_for_topic(pages, topic_name="Art and creativity") == [page4, page5]
+
+
+@pytest.mark.parametrize(
+    "size, expected",
+    [
+        (1, "1 byte"),
+        (999, "999 bytes"),
+        (1024, "1.0 kB"),
+        (1234567, "1.2 MB"),
+        (1234567890, "1.2 GB"),
+        (123456789012345678901234567890, "123456.8 YB"),
+    ],
+)
+def test_naturalsize(size: int, expected: str) -> None:
+    """
+    Tests for `naturalsize`.
+    """
+    assert naturalsize(size) == expected
