@@ -7,7 +7,7 @@
     </h2>
     
     <ul class="dot_list">
-      <li>{{ page.file.size }} bytes</li>
+      <li title="{{ "{:,}".format(page.file.size) }} bytes">{{ page.file.size | naturalsize }}</li>
       {% if page.file.label %}
       <li>{{ page.file.label }}</li>
       {% endif %}

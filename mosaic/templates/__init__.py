@@ -74,6 +74,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
             "minify_json": lambda js: json.dumps(json.loads(js), separators=(",", ":")),
+            "naturalsize": naturalsize,
             "sample": random.sample,
             "smartify": smartify,
             "strip_html": strip_html,
@@ -183,3 +184,24 @@ def group_list_of_posts(posts: list[Post]) -> Iterator[PostGroup]:  # pragma: no
 
     if remaining_posts:
         yield {"type": "remaining", "posts": remaining_posts}
+
+
+def naturalsize(size: int) -> str:
+    """
+    Format a file size in a human-readable way (for example, `42 kB`).
+    """
+    suffix = ("kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+
+    base = 1000
+
+    if size == 1:
+        return "1 byte"
+    elif size < base:
+        return f"{size} bytes"
+
+    for n, suf in enumerate(suffix):
+        unit = base ** (n + 2)
+        if size < unit:
+            return f"{base * size / unit:.1f} {suf}"
+
+    return f"{base * size / unit:.1f} {suf}"
