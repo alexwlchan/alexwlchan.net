@@ -25,4 +25,4 @@ run_command 'mypy mosaic scripts tests'
 run_command "mypy uptime_tests"
 
 run_command "python3 -m coverage run -m pytest -q tests"
-run_command "python3 -m coverage report"
+run_command "python3 -m coverage report --include 'mosaic/*,tests/*'"
