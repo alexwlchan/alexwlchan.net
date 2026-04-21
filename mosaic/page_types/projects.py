@@ -3,6 +3,7 @@ Models for project/Git repo pages.
 """
 
 from pathlib import Path
+import platform
 from typing import Self, TypedDict
 
 from pydantic import model_validator
@@ -238,8 +239,15 @@ class ProjectSingleFile(BaseProjectPage):
             BreadcrumbEntry(label="files", href=f"/projects/{self.slug}/files/"),
         ]
 
-    def out_path(self, out_dir: Path) -> Path:
+    def out_path(self, out_dir: Path) -> Path:  # pragma: no cover
         """
         Return the path where this HTML file should be written.
         """
+        # For Caddy and the live website, these pages get `.html` appended
+        # so they can be served without a path.
+        #
+        # That doesn't work with the web server I use for local dev, so use
+        # the folder-based path instead.
+        if platform.system() == "Darwin":
+            return super().out_path(out_dir)
         return out_dir / (self.url.strip("/") + ".html")
