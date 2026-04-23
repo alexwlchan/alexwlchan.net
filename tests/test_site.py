@@ -181,7 +181,8 @@ def test_writing_page_repeatedly(
     )
 
     env = get_jinja_environment(src_dir, out_dir)
-    env.globals.update({"css_url": "/static/style.css"})
+    site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=[a])
+    env.globals.update({"css_url": "/static/style.css", "site": site})
 
     out_path1 = a.write(env, out_dir)
     out_body1 = a.render_body_html(env)
@@ -210,7 +211,8 @@ def test_writing_page_checks_for_deletion(
     )
 
     env = get_jinja_environment(src_dir, out_dir)
-    env.globals.update({"css_url": "/static/style.css"})
+    site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=[a])
+    env.globals.update({"css_url": "/static/style.css", "site": site})
 
     out_path1 = a.write(env, out_dir)
     assert out_path1.exists()

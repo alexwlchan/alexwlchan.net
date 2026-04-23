@@ -36,3 +36,9 @@
 {% include "partials/head/css_variables.html" %}
 
 <meta name="color-scheme" content="light dark"/>
+
+{% if site.build_options.livereload %}
+<script>
+  {% include "partials/head/livereload.js" %}
+</script>
+{% endif %}

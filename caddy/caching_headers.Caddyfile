@@ -1,0 +1,13 @@
+# I can set long-lived caches on all these static assets because I treat
+# most files as immutable by filename -- if I modify a file, I'll upload a new
+# file with a different name, so it won't be a cache hit.
+#
+# The one exception is CSS files, but I cache-bust those by passing a query parameter
+# that includes the hash of my CSS source.
+@cached {
+	path /b/* /c/* /f/* /h/* /files/* /images/* /static/* /theme/*
+}
+
+header @cached {
+	Cache-Control "public, max-age=31536000"
+}

@@ -86,6 +86,9 @@ class BuildOptions(BaseModel):
     # Whether to print detailed timings about each step in the build
     profile: bool = False
 
+    # Whether to inject the LiveReload snippet into the site
+    livereload: bool = False
+
 
 class Site(BaseModel):
     """

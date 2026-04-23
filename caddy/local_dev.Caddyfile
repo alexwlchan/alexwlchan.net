@@ -1,0 +1,14 @@
+# Run a local instance of the site on port 5757.
+#
+# This inherits the redirects and file handling behaviour of the main
+# site, but doesn't need HTTPS or alternative domains.
+
+:5757 {
+	import errors.Caddyfile
+	import gone.Caddyfile
+	import projects.Caddyfile
+	import redirects.Caddyfile
+
+	root * /Users/alexwlchan/repos/alexwlchan.net/_out
+	file_server
+}
