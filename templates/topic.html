@@ -9,11 +9,11 @@
 
       {% include "partials/meta.html" %}
     </hgroup>
-    
+
     {{- content | markdownify -}}
-    
+
     {% from "macros/list_of_posts.html" import list_of_posts %}
-    
+
     {%- if page.title != "Books I've read" and page.title != "Monki Gras" and page.title != "London Ace Book Club" -%}
       {% set posts = site.posts | filter_for_topic(page.title) %}
       {{ list_of_posts(posts) }}
