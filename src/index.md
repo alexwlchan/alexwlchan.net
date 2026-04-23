@@ -5,7 +5,6 @@ colors:
   css_light: "#098a07"
   css_dark:  "#5ff042"
 ---
-
 <style>
   img#headshot {
     border-radius: 50%;
@@ -61,12 +60,12 @@ I hope you like it!
     list-style-type: "";
     padding: 0;
     margin: 0;
-    
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap);
   }
-  
+
   @media screen and (max-width: 650px) {
     #homepage_cards {
       grid-template-columns: auto;
@@ -81,19 +80,19 @@ I hope you like it!
 
       /* In Safari 18.2, the <ul> won't automatically expand to the width
        * just because the margin is there -- we have to tell it to expand */
-  
+
       /* Why 199px and not 200px? To work around a subpixel bug in WebKit,
        * where I get a hairline crack on the right-hand side of my cards
        * in the three column view. :( */
       width: calc(100% + 199px);
     }
   }
-  
+
   .card {
     border: var(--border-width) var(--border-style) var(--primary-color);
     border-radius: var(--border-radius);
     background-color: var(--background-color);
-    
+
     h2 {
       margin: 0;
       padding: 10px;
@@ -103,13 +102,13 @@ I hope you like it!
       text-align: center;
       border-radius: calc(var(--border-radius) - 3px) calc(var(--border-radius) - 3px) 0 0;
     }
-    
+
     ul {
       list-style-type: "";
       padding: var(--default-padding);
       margin-top:  0;
       margin-left: 0;
-    
+
       li {
         text-wrap: balance;
         display: grid;
@@ -117,15 +116,15 @@ I hope you like it!
         gap: 7px;
         margin-top: 6px;
       }
-      
+
       li:first-child {
         margin-top: 0;
       }
-      
+
       a {
         color: var(--primary-color);
       }
-      
+
       svg {
         margin-top: 2px;
         margin-left: 0;
@@ -133,60 +132,60 @@ I hope you like it!
       }
     }
   }
-  
+
   #writing {
     --primary-color: var(--red);
     --card-bg:       url('/h/d01c11.png');
   }
-  
+
   #life {
     --primary-color: var(--green);
     --card-bg:       url('/h/118207.png');
   }
-  
+
   #archives {
     --primary-color: var(--blue);
     --card-bg:       url('/h/115bda.png');
   }
-  
+
   @media screen and (prefers-color-scheme: dark) {
     #homepage_cards h2 {
       color: black;
     }
-    
+
     #writing {
       --card-bg: url('/h/ff4a4a.png');
     }
-  
+
     #life {
       --card-bg: url('/h/5ff042.png');
     }
-  
+
     #archives {
       --card-bg: url('/h/40c3ff.png');
     }
   }
-  
+
   #recent_articles {
     --primary-color: var(--red);
     --link-color:    var(--red);
   }
-  
+
   path, ellipse {
     stroke: currentColor;
     stroke-linecap: round;
     fill: none;
   }
-  
+
   .border {
     stroke-width: 2;
   }
-  
+
   circle.dot {
     fill: currentColor;
     stroke: none;
   }
-  
+
   g[data-value="1"] {
     .upper, .lower, .mid { display: none; }
     .mid.center { display: block; }
@@ -200,7 +199,7 @@ I hope you like it!
     .upper, .lower, .mid { display: none; }
     .upper.right, .lower.left { display: block; }
   }
-  
+
   g[data-value="3"][data-alt="false"] {
     .upper, .lower, .mid { display: none; }
     .upper.right, .mid.center, .lower.left { display: block; }
@@ -230,24 +229,24 @@ I hope you like it!
     stroke: none;
     fill: currentColor;
   }
-  
+
   #die_outline {
     stroke: currentColor;
     stroke-linecap: round;
     fill: none;
   }
-    
+
   #homepage_cards_wrapper {
     margin-top: 2.5em;
     background: rgba(153, 153, 153, 0.12);
   }
-  
+
   @media (prefers-color-scheme: dark) {
     #homepage_cards_wrapper {
       background: rgba(43, 43, 43, 0.55);
     }
   }
-  
+
   /* The width of the window is 100vw, the width of <main> is 100%.
    *
    * When we expand <section>s to break out of <main>, we need to add
@@ -255,8 +254,8 @@ I hope you like it!
    * then re-add our padding.
    *
    *    |                   |
-   *    |    +++++++++++    | 
-   *    |    +++++++++++    | 
+   *    |    +++++++++++    |
+   *    |    +++++++++++    |
    *    |                   |
    *
    *         <!- 100% ->
@@ -267,18 +266,18 @@ I hope you like it!
     padding:     1.5em 0;
     width:       calc(100vw);
     margin-left: calc(50% - 50vw);
-    
+
     & > * {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--default-padding);
     }
   }
-  
+
   #recent_articles h2 {
     margin-top: 1.5em;
   }
-  
+
 </style>
 
 <section id="homepage_cards_wrapper">
@@ -396,17 +395,16 @@ I hope you like it!
     const elem = document.querySelector(selector);
     const chosenIndex = Math.floor(Math.random() * choices.length);
     elem.setAttribute("data-value", choices[chosenIndex]);
-    
+
     const isAlternative =
       (choices[chosenIndex] === "2" && selector === "#lowerDie") ? false
       : Math.random() < 0.5;
 
     elem.setAttribute("data-alt", isAlternative);
   }
-  
+
   document.addEventListener("DOMContentLoaded", function() {
     randomiseDieValue("#lowerDie", ["2", "3", "4", "5", "6"]);
     randomiseDieValue("#upperDie", ["1", "2", "3", "4", "5", "6"]);
   })
 </script>
-  
