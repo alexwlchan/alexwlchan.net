@@ -1,0 +1,25 @@
+# If somebody gets a 4xx error, respond with my custom error pages.
+handle_errors 404 {
+	root * /home/alexwlchan/repos/alexwlchan.net/_site
+	rewrite * 404/index.html
+	file_server
+}
+
+handle_errors 410 {
+	root * /home/alexwlchan/repos/alexwlchan.net/_site
+	rewrite * 410/index.html
+	file_server
+}
+
+# If somebody is trying to look for PHP pages on my site, and WordPress
+# pages in particular, they probably have nefarious goals.
+#
+# This is mostly automated bots -- serve them my minimal 400 Bad Request
+# error rather than the complete 404 Not Found page.
+@spam {
+	path /.env /index.php /xmlrpc.php /wp-* /blog/wp-* /cms/wp-* /shop/wp-* /site/wp-* /test/wp-* /wordpress/wp-* /wp/wp-* /wp2/wp-* /zb_system/*
+}
+
+handle @spam {
+	respond "400 Bad Request" 400
+}

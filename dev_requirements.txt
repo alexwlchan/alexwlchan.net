@@ -51,8 +51,6 @@ librt==0.8.1
     #   mypy
 lightningcss==0.3.1
     # via -r requirements.txt
-livereload==2.7.1
-    # via -r requirements.txt
 lxml==6.0.2
     # via -r requirements.txt
 lxml-stubs==0.5.1
@@ -147,10 +145,6 @@ soupsieve==2.8.3
     # via
     #   -r requirements.txt
     #   beautifulsoup4
-tornado==6.5.5
-    # via
-    #   -r requirements.txt
-    #   livereload
 typing-extensions==4.15.0
     # via
     #   -r dns/requirements.txt

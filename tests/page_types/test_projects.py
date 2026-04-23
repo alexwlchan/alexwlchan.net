@@ -3,7 +3,6 @@ Tests for `mosaic.page_types.projects`.
 """
 
 from pathlib import Path
-import platform
 
 from jinja2 import Environment
 
@@ -133,13 +132,7 @@ def test_single_file(env: Environment, repo: GitRepository, out_dir: Path) -> No
         BreadcrumbEntry(label="files", href="/projects/example-project/files/"),
     ]
 
-    if platform.system() == "Darwin":  # pragma: no cover
-        assert (
-            p.write(env, out_dir)
-            == out_dir / "projects/example-project/files/README.md/index.html"
-        )
-    else:  # pragma: no cover
-        assert (
-            p.write(env, out_dir)
-            == out_dir / "projects/example-project/files/README.md.html"
-        )
+    assert (
+        p.write(env, out_dir)
+        == out_dir / "projects/example-project/files/README.md.html"
+    )
