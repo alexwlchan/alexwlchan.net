@@ -3,6 +3,7 @@ Linter rules for verifying the final website output.
 """
 
 import collections
+from collections import Counter
 from collections.abc import Iterator
 import os
 from pathlib import Path
@@ -60,6 +61,17 @@ def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
             and "You find yourself standing in a room" not in html_str
         ):
             errors.append(f"<style> tag outside <head>: <style>{s.text}</style>")
+
+    # Look for duplicate ID attributes.
+    id_attributes: dict[str, int] = Counter()
+    for t in soup.descendants:
+        try:
+            id_attributes[t.attrs["id"]] += 1  # type: ignore
+        except (AttributeError, KeyError):
+            pass
+    duplicate_ids = {id for id, count in id_attributes.items() if count > 1}
+    if duplicate_ids:
+        errors.append(f"duplicate IDs detected: {duplicate_ids}")
 
     return errors
 

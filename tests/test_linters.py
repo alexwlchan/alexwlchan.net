@@ -25,6 +25,23 @@ class TestCheckNoBrokenHtml:
     Tests for `check_no_broken_html`.
     """
 
+    def assert_html_is_passed(self, html: str) -> None:
+        """
+        Check this HTML is passed by the linter.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        assert check_no_broken_html(html, soup) == []
+
+    def assert_html_is_rejected(self, html: str, *, expected_error: str) -> None:
+        """
+        Check this HTML is rejected by the linter with the expected error.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        errors = check_no_broken_html(html, soup)
+
+        assert len(errors) == 1
+        assert expected_error in errors[0]
+
     @pytest.mark.parametrize(
         "html",
         [
@@ -38,11 +55,7 @@ class TestCheckNoBrokenHtml:
         """
         The lint catches a <p> tag which is followed by something unexpected.
         """
-        soup = BeautifulSoup(html, "html.parser")
-        errors = check_no_broken_html(html, soup)
-
-        assert len(errors) == 1
-        assert "following <p>" in errors[0]
+        self.assert_html_is_rejected(html, expected_error="following <p>")
 
     @pytest.mark.parametrize(
         "html",
@@ -61,11 +74,7 @@ class TestCheckNoBrokenHtml:
         a common symptom of the Markdown parser parsing whitespace
         inside a <style> tag.
         """
-        soup = BeautifulSoup(html, "html.parser")
-        errors = check_no_broken_html(html, soup)
-
-        assert len(errors) == 1
-        assert errors[0].startswith("malformed <style> tag")
+        self.assert_html_is_rejected(html, expected_error="malformed <style> tag")
 
     @pytest.mark.parametrize(
         "html",
@@ -79,21 +88,48 @@ class TestCheckNoBrokenHtml:
         The lint catches a <style> tag which is outside the <head> of
         the document.
         """
-        soup = BeautifulSoup(html, "html.parser")
-        errors = check_no_broken_html(html, soup)
-
-        assert len(errors) == 1
-        assert errors[0].startswith("<style> tag outside <head>")
+        self.assert_html_is_rejected(html, expected_error="<style> tag outside <head>")
 
     @pytest.mark.parametrize(
         "html", ["<p><em>", "<p>Abc", "<head><style>p { color: red; }</style></head>"]
     )
     def test_allows_inline_tag_after_p(self, html: str) -> None:
         """
-        The lint ignores examples of valid HTML.
+        The lint passes examples of valid HTML.
         """
-        soup = BeautifulSoup(html, "html.parser")
-        assert check_no_broken_html(html, soup) == []
+        self.assert_html_is_passed(html)
+
+    def test_rejects_duplicate_ids(self) -> None:
+        """
+        The lint rejects HTML in which IDs are repeated.
+        """
+        html = """
+        <div id="a">
+            <p>
+                <span id="a">apple</span>
+                <span id="b">banana</span>
+                <span id="c">cherry</span>
+            </p>
+        </div>
+        """
+
+        self.assert_html_is_rejected(html, expected_error="duplicate IDs")
+
+    def test_allows_unique_ids(self) -> None:
+        """
+        The lint passes HTML in which all the ID attributes are unique.
+        """
+        html = """
+        <div id="wrapper">
+            <p>
+                <span id="a">apple</span>
+                <span id="b">banana</span>
+                <span id="c">cherry</span>
+            </p>
+        </div>
+        """
+
+        self.assert_html_is_passed(html)
 
 
 class TestCheckNoLocalhostLinks:
