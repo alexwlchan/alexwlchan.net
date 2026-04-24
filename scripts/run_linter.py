@@ -21,6 +21,7 @@ from mosaic.linters import (
     check_no_localhost_links,
     check_redirects,
 )
+from mosaic.page_types import Post, read_markdown_files
 from mosaic.text import coloured
 
 
@@ -54,11 +55,10 @@ def check_http_410_gone(out_dir: Path) -> list[str]:
 
 
 if __name__ == "__main__":
-    try:
-        out_dir = Path(sys.argv[1])
-    except IndexError:
-        sys.exit(f"Usage: {__file__} OUT_DIR")
+    src_dir = Path("src")
+    out_dir = Path("_out")
 
+    all_pages = read_markdown_files(src_dir)
     all_errors: dict[str | Path, list[str]] = collections.defaultdict(list)
 
     html_paths = list(find_paths_under(out_dir, suffix=".html"))
@@ -115,6 +115,13 @@ if __name__ == "__main__":
             etree.parse(in_file, parser=parser)
         except etree.XMLSyntaxError as err:
             all_errors["/til/atom.xml"].append(f"error parsing XML: {err}")
+
+    # Check that every image card has a corresponding post.
+    known_slugs = {post.slug for post in all_pages if isinstance(post, Post)}
+
+    for p in find_paths_under(src_dir / "images/cards"):
+        if p.stem not in known_slugs:
+            all_errors[p].append("no corresponding article/note")
 
     # Remove paths which don't have any errors
     all_errors = {p: errors for p, errors in all_errors.items() if errors}
