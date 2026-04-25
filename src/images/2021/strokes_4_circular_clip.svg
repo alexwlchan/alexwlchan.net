@@ -14,10 +14,10 @@
       the post because the globe in the illustration isn't quite circular.
       But it's very close to a circle, and I wanted to keep the example simple.
     -->
-    <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90"/>
+    <ellipse id="ellipse4" cx="150" cy="117.5" rx="92" ry="90"/>
 
     <clipPath id="insideCircleOnly">
-      <use xlink:href="#ellipse"/>
+      <use xlink:href="#ellipse4"/>
     </clipPath>
   </defs>
 
@@ -29,7 +29,7 @@
   <text class="operator" x="300" y="240">+</text>
 
   <svg x="300" y="-10">
-    <use xlink:href="#ellipse" class="outline4"/>
+    <use xlink:href="#ellipse4" class="outline4"/>
     <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(108 45) rotate(-20)">✂&#xFE0E;</text>
     <text x="150" y="250">circular clip</text>
   </svg>

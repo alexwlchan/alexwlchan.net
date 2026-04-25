@@ -2,7 +2,7 @@
   <defs>
     <mask id="globe7OuterOnly">
       <rect x="0" y="0" width="10000" height="100000" fill="white"/>
-      <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90" fill="black"/>
+      <ellipse cx="150" cy="117.5" rx="92" ry="90" fill="black"/>
     </mask>
   </defs>
 

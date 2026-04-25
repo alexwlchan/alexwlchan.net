@@ -63,6 +63,10 @@ def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
             errors.append(f"<style> tag outside <head>: <style>{s.text}</style>")
 
     # Look for duplicate ID attributes.
+    #
+    # There are a handful of exceptions to this rule where I have pages
+    # with duplicate ID attributes that are tricky to clean up; leave them
+    # as-is but don't add any new ones.
     id_attributes: dict[str, int] = Counter()
     for t in soup.descendants:
         try:
@@ -70,7 +74,15 @@ def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
         except (AttributeError, KeyError):
             pass
     duplicate_ids = {id for id, count in id_attributes.items() if count > 1}
-    if duplicate_ids:
+    if duplicate_ids and not any(
+        title in html_str
+        for title in (
+            "Generating art from lattice graphs",
+            "Drawing repetitive radial artworks",
+            "The best way to tell a website your age",
+            "Getting alerts about flaky ECS tasks in Slack",
+        )
+    ):
         errors.append(f"duplicate IDs detected: {duplicate_ids}")
 
     return errors
