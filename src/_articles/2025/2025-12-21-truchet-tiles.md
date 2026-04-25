@@ -359,6 +359,8 @@ One of the simplest Truchet tiles is a square made of two colours:
   </svg>
 </figure>
 
+AAA
+
 <figure style="width: 500px;" class="columns_4">
   {% set squares = ["#truchetSquare", "#truchetSquare90", "#truchetSquare180", "#truchetSquare270"] %}
   {% for tile in squares %}
@@ -402,22 +404,22 @@ These can be arranged in a regular pattern, but they also look nice when arrange
     <use href="#truchetSquare" x="300" y="300"/>
   </svg>
   <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" id="randomSquares" class="border">  
-    <use href="{{ squares | sample(1) }}"/>
-    <use href="{{ squares | sample(1) }}" x="100"/>
-    <use href="{{ squares | sample(1) }}" x="200"/>
-    <use href="{{ squares | sample(1) }}" x="300"/>
-    <use href="{{ squares | sample(1) }}"         y="100"/>
-    <use href="{{ squares | sample(1) }}" x="100" y="100"/>
-    <use href="{{ squares | sample(1) }}" x="200" y="100"/>
-    <use href="{{ squares | sample(1) }}" x="300" y="100"/>
-    <use href="{{ squares | sample(1) }}"         y="200"/>
-    <use href="{{ squares | sample(1) }}" x="100" y="200"/>
-    <use href="{{ squares | sample(1) }}" x="200" y="200"/>
-    <use href="{{ squares | sample(1) }}" x="300" y="200"/>
-    <use href="{{ squares | sample(1) }}"         y="300"/>
-    <use href="{{ squares | sample(1) }}" x="100" y="300"/>
-    <use href="{{ squares | sample(1) }}" x="200" y="300"/>
-    <use href="{{ squares | sample(1) }}" x="300" y="300"/>
+    <use href="{{ (squares | sample(1))[0] }}"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="100"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="200"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="300"/>
+    <use href="{{ (squares | sample(1))[0] }}"         y="100"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="100" y="100"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="200" y="100"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="300" y="100"/>
+    <use href="{{ (squares | sample(1))[0] }}"         y="200"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="100" y="200"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="200" y="200"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="300" y="200"/>
+    <use href="{{ (squares | sample(1))[0] }}"         y="300"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="100" y="300"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="200" y="300"/>
+    <use href="{{ (squares | sample(1))[0] }}" x="300" y="300"/>
   </svg>
 </figure>
 
