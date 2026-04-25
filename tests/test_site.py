@@ -350,3 +350,57 @@ class TestSite:
         assert (out_dir / "2001/article/index.html").exists()
         assert (out_dir / "notes/2002/note/index.html").exists()
         assert (out_dir / "python/index.html").exists()
+
+    def test_inline_svgs_not_copied_as_static(
+        self, src_dir: Path, out_dir: Path
+    ) -> None:
+        """
+        SVGs used as inline images don't get copied to the output directory.
+        """
+        (src_dir / "_articles/2001").mkdir(parents=True)
+        (src_dir / "_articles/2001/2001-01-01-article.md").write_text(
+            "---\n"
+            "layout: article\n"
+            "title: My first post\n"
+            "date: 2001-01-01 01:01:01 +00:00\n"
+            "---\n"
+            '{% inline_svg filename="example.svg" %}'
+        )
+
+        (src_dir / "notes/2002").mkdir(parents=True)
+        (src_dir / "notes/2002/2002-02-02-article.md").write_text(
+            "---\n"
+            "layout: note\n"
+            "title: My first post\n"
+            "date: 2002-02-02 02:02:02 +00:00\n"
+            "topic: Python\n"
+            "---\n"
+            "This is my first note"
+        )
+
+        (src_dir / "images/2001").mkdir(parents=True)
+        (src_dir / "images/2001/example.svg").write_text(
+            """
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="200" fill="yellow"/>
+            </svg>
+            """
+        )
+        (src_dir / "images/2001/another_image.svg").write_text(
+            """
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="200" fill="yellow"/>
+            </svg>
+            """
+        )
+
+        (src_dir / "_data").mkdir()
+        (src_dir / "_data/elsewhere.yml").write_text("")
+
+        site = Site(src_dir=src_dir, out_dir=out_dir)
+
+        for _ in range(3):
+            site.build_site()
+
+            assert not (out_dir / "images/2001/example.svg").exists()
+            assert (out_dir / "images/2001/another_image.svg").exists()
