@@ -6,7 +6,7 @@
    height="170">
 
   <defs>
-    <g id="colouredRectangle">
+    <g id="colouredRectangle4">
       <rect
          style="fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          width="11"
@@ -27,18 +27,18 @@
   <path
      style="fill:#ccffaa;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="M 0,170 L 141.42857,170 L 102.85714,80.71429 L 0,125.71429 L 0,170 z "/>
-  <use xlink:href="#colouredRectangle" x="43.892857" y="46.392857" fill="#ff0000"/>
-  <use xlink:href="#colouredRectangle" x="43.892857" y="64.25" fill="#ff0000"/>
-  <use xlink:href="#colouredRectangle" x="43.892857" y="83.535713" fill="#ff0000"/>
-  <use xlink:href="#colouredRectangle" x="158.07144" y="43.785713" fill="#0000ff"/>
-  <use xlink:href="#colouredRectangle" x="158.07144" y="62.35714" fill="#0000ff"/>
-  <use xlink:href="#colouredRectangle" x="158.07143" y="78.785713" fill="#0000ff"/>
-  <use xlink:href="#colouredRectangle" x="73.785713" y="118.07142" fill="#00ff00"/>
-  <use xlink:href="#colouredRectangle" x="73.071434" y="136.64287" fill="#00ff00"/>
-  <use xlink:href="#colouredRectangle" x="90.214287" y="150.21429" fill="#00ff00"/>
-  <use xlink:href="#colouredRectangle" x="110.21429" y="150.92857" fill="#00ff00"/>
-  <use xlink:href="#colouredRectangle" x="128.07143" y="116.64285" fill="#0000ff"/>
-  <use xlink:href="#colouredRectangle" x="128.78572" y="135.92857" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle4" x="43.892857" y="46.392857" fill="#ff0000"/>
+  <use xlink:href="#colouredRectangle4" x="43.892857" y="64.25" fill="#ff0000"/>
+  <use xlink:href="#colouredRectangle4" x="43.892857" y="83.535713" fill="#ff0000"/>
+  <use xlink:href="#colouredRectangle4" x="158.07144" y="43.785713" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle4" x="158.07144" y="62.35714" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle4" x="158.07143" y="78.785713" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle4" x="73.785713" y="118.07142" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle4" x="73.071434" y="136.64287" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle4" x="90.214287" y="150.21429" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle4" x="110.21429" y="150.92857" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle4" x="128.07143" y="116.64285" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle4" x="128.78572" y="135.92857" fill="#0000ff"/>
   <path
      style="fill:#ff0000;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none"
      d="M 82.14286 16.785713 A 7.5 6.7857141 0 1 1  67.14286,16.785713 A 7.5 6.7857141 0 1 1  82.14286 16.785713 z"

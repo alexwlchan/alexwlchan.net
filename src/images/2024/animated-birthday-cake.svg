@@ -6,7 +6,7 @@
   />
 
   <defs>
-    <mask id="upperCurlyLine">
+    <mask id="upperCurlyLineA">
       <rect x="0" y="0" width="2054" height="100" fill="white"/>
 
       <svg x="2" y="37.5">
@@ -225,7 +225,7 @@
       </svg>
     </mask>
 
-    <mask id="lowerCurlyLine">
+    <mask id="lowerCurlyLineA">
       <rect x="0" y="0" width="2054" height="100" fill="white"/>
 
       <svg x="-3" y="73">
@@ -444,7 +444,7 @@
       </svg>
     </mask>
 
-    <mask id="candles">
+    <mask id="candlesA">
       <rect x="0" y="0" width="29" height="100" fill="white">
         <animate
           attributeName="width"
@@ -455,14 +455,14 @@
       </rect>
     </mask>
 
-    <mask id="candleFlame">
+    <mask id="candleFlameA">
       <rect x="0" y="0" width="94" height="100" fill="white"/>
-      <path d="M 27 5 L 28 8 C 29 11, 25 11, 26 8 Z" mask="url(#candleFlame)" fill="black"/>
+      <path d="M 27 5 L 28 8 C 29 11, 25 11, 26 8 Z" mask="url(#candleFlameA)" fill="black"/>
     </mask>
 
-    <g id="singleCandle" fill="currentColor" stroke-linejoin="round" stroke-width="1" stroke="currentColor">
+    <g id="singleCandleA" fill="currentColor" stroke-linejoin="round" stroke-width="1" stroke="currentColor">
       <rect x="25" y="13" width="4" height="18"/>
-      <path d="M 27 2 L 29 8 C 30 11, 24 11, 25 8 Z" mask="url(#candleFlame)"/>
+      <path d="M 27 2 L 29 8 C 30 11, 24 11, 25 8 Z" mask="url(#candleFlameA)"/>
     </g>
   </defs>
 
@@ -477,7 +477,7 @@
   </g>
 
   <g class="bottomLayer">
-    <rect x="5" y="63" width="44" height="40" fill="currentColor" rx="4" mask="url(#lowerCurlyLine)">
+    <rect x="5" y="63" width="44" height="40" fill="currentColor" rx="4" mask="url(#lowerCurlyLineA)">
       <animate
         attributeName="width"
         values="44; 2034"
@@ -497,7 +497,7 @@
     <rect
       x="15" y="33"
       width="24" height="28"
-      fill="currentColor" mask="url(#upperCurlyLine)"
+      fill="currentColor" mask="url(#upperCurlyLineA)"
       rx="4">
       <animate
         attributeName="width"
@@ -514,206 +514,206 @@
     </rect>
   </g>
 
-  <g mask="url(#candles)" class="candles">
-    <use xlink:href="#singleCandle" x="0"/>
-    <use xlink:href="#singleCandle" x="10"/>
-    <use xlink:href="#singleCandle" x="20"/>
-    <use xlink:href="#singleCandle" x="30"/>
-    <use xlink:href="#singleCandle" x="40"/>
-    <use xlink:href="#singleCandle" x="50"/>
-    <use xlink:href="#singleCandle" x="60"/>
-    <use xlink:href="#singleCandle" x="70"/>
-    <use xlink:href="#singleCandle" x="80"/>
-    <use xlink:href="#singleCandle" x="90"/>
-    <use xlink:href="#singleCandle" x="100"/>
-    <use xlink:href="#singleCandle" x="110"/>
-    <use xlink:href="#singleCandle" x="120"/>
-    <use xlink:href="#singleCandle" x="130"/>
-    <use xlink:href="#singleCandle" x="140"/>
-    <use xlink:href="#singleCandle" x="150"/>
-    <use xlink:href="#singleCandle" x="160"/>
-    <use xlink:href="#singleCandle" x="170"/>
-    <use xlink:href="#singleCandle" x="180"/>
-    <use xlink:href="#singleCandle" x="190"/>
-    <use xlink:href="#singleCandle" x="200"/>
-    <use xlink:href="#singleCandle" x="210"/>
-    <use xlink:href="#singleCandle" x="220"/>
-    <use xlink:href="#singleCandle" x="230"/>
-    <use xlink:href="#singleCandle" x="240"/>
-    <use xlink:href="#singleCandle" x="250"/>
-    <use xlink:href="#singleCandle" x="260"/>
-    <use xlink:href="#singleCandle" x="270"/>
-    <use xlink:href="#singleCandle" x="280"/>
-    <use xlink:href="#singleCandle" x="290"/>
-    <use xlink:href="#singleCandle" x="300"/>
-    <use xlink:href="#singleCandle" x="310"/>
-    <use xlink:href="#singleCandle" x="320"/>
-    <use xlink:href="#singleCandle" x="330"/>
-    <use xlink:href="#singleCandle" x="340"/>
-    <use xlink:href="#singleCandle" x="350"/>
-    <use xlink:href="#singleCandle" x="360"/>
-    <use xlink:href="#singleCandle" x="370"/>
-    <use xlink:href="#singleCandle" x="380"/>
-    <use xlink:href="#singleCandle" x="390"/>
-    <use xlink:href="#singleCandle" x="400"/>
-    <use xlink:href="#singleCandle" x="410"/>
-    <use xlink:href="#singleCandle" x="420"/>
-    <use xlink:href="#singleCandle" x="430"/>
-    <use xlink:href="#singleCandle" x="440"/>
-    <use xlink:href="#singleCandle" x="450"/>
-    <use xlink:href="#singleCandle" x="460"/>
-    <use xlink:href="#singleCandle" x="470"/>
-    <use xlink:href="#singleCandle" x="480"/>
-    <use xlink:href="#singleCandle" x="490"/>
-    <use xlink:href="#singleCandle" x="500"/>
-    <use xlink:href="#singleCandle" x="510"/>
-    <use xlink:href="#singleCandle" x="520"/>
-    <use xlink:href="#singleCandle" x="530"/>
-    <use xlink:href="#singleCandle" x="540"/>
-    <use xlink:href="#singleCandle" x="550"/>
-    <use xlink:href="#singleCandle" x="560"/>
-    <use xlink:href="#singleCandle" x="570"/>
-    <use xlink:href="#singleCandle" x="580"/>
-    <use xlink:href="#singleCandle" x="590"/>
-    <use xlink:href="#singleCandle" x="600"/>
-    <use xlink:href="#singleCandle" x="610"/>
-    <use xlink:href="#singleCandle" x="620"/>
-    <use xlink:href="#singleCandle" x="630"/>
-    <use xlink:href="#singleCandle" x="640"/>
-    <use xlink:href="#singleCandle" x="650"/>
-    <use xlink:href="#singleCandle" x="660"/>
-    <use xlink:href="#singleCandle" x="670"/>
-    <use xlink:href="#singleCandle" x="680"/>
-    <use xlink:href="#singleCandle" x="690"/>
-    <use xlink:href="#singleCandle" x="700"/>
-    <use xlink:href="#singleCandle" x="710"/>
-    <use xlink:href="#singleCandle" x="720"/>
-    <use xlink:href="#singleCandle" x="730"/>
-    <use xlink:href="#singleCandle" x="740"/>
-    <use xlink:href="#singleCandle" x="750"/>
-    <use xlink:href="#singleCandle" x="760"/>
-    <use xlink:href="#singleCandle" x="770"/>
-    <use xlink:href="#singleCandle" x="780"/>
-    <use xlink:href="#singleCandle" x="790"/>
-    <use xlink:href="#singleCandle" x="800"/>
-    <use xlink:href="#singleCandle" x="810"/>
-    <use xlink:href="#singleCandle" x="820"/>
-    <use xlink:href="#singleCandle" x="830"/>
-    <use xlink:href="#singleCandle" x="840"/>
-    <use xlink:href="#singleCandle" x="850"/>
-    <use xlink:href="#singleCandle" x="860"/>
-    <use xlink:href="#singleCandle" x="870"/>
-    <use xlink:href="#singleCandle" x="880"/>
-    <use xlink:href="#singleCandle" x="890"/>
-    <use xlink:href="#singleCandle" x="900"/>
-    <use xlink:href="#singleCandle" x="910"/>
-    <use xlink:href="#singleCandle" x="920"/>
-    <use xlink:href="#singleCandle" x="930"/>
-    <use xlink:href="#singleCandle" x="940"/>
-    <use xlink:href="#singleCandle" x="950"/>
-    <use xlink:href="#singleCandle" x="960"/>
-    <use xlink:href="#singleCandle" x="970"/>
-    <use xlink:href="#singleCandle" x="980"/>
-    <use xlink:href="#singleCandle" x="990"/>
-    <use xlink:href="#singleCandle" x="1000"/>
-    <use xlink:href="#singleCandle" x="1010"/>
-    <use xlink:href="#singleCandle" x="1020"/>
-    <use xlink:href="#singleCandle" x="1030"/>
-    <use xlink:href="#singleCandle" x="1040"/>
-    <use xlink:href="#singleCandle" x="1050"/>
-    <use xlink:href="#singleCandle" x="1060"/>
-    <use xlink:href="#singleCandle" x="1070"/>
-    <use xlink:href="#singleCandle" x="1080"/>
-    <use xlink:href="#singleCandle" x="1090"/>
-    <use xlink:href="#singleCandle" x="1100"/>
-    <use xlink:href="#singleCandle" x="1110"/>
-    <use xlink:href="#singleCandle" x="1120"/>
-    <use xlink:href="#singleCandle" x="1130"/>
-    <use xlink:href="#singleCandle" x="1140"/>
-    <use xlink:href="#singleCandle" x="1150"/>
-    <use xlink:href="#singleCandle" x="1160"/>
-    <use xlink:href="#singleCandle" x="1170"/>
-    <use xlink:href="#singleCandle" x="1180"/>
-    <use xlink:href="#singleCandle" x="1190"/>
-    <use xlink:href="#singleCandle" x="1200"/>
-    <use xlink:href="#singleCandle" x="1210"/>
-    <use xlink:href="#singleCandle" x="1220"/>
-    <use xlink:href="#singleCandle" x="1230"/>
-    <use xlink:href="#singleCandle" x="1240"/>
-    <use xlink:href="#singleCandle" x="1250"/>
-    <use xlink:href="#singleCandle" x="1260"/>
-    <use xlink:href="#singleCandle" x="1270"/>
-    <use xlink:href="#singleCandle" x="1280"/>
-    <use xlink:href="#singleCandle" x="1290"/>
-    <use xlink:href="#singleCandle" x="1300"/>
-    <use xlink:href="#singleCandle" x="1310"/>
-    <use xlink:href="#singleCandle" x="1320"/>
-    <use xlink:href="#singleCandle" x="1330"/>
-    <use xlink:href="#singleCandle" x="1340"/>
-    <use xlink:href="#singleCandle" x="1350"/>
-    <use xlink:href="#singleCandle" x="1360"/>
-    <use xlink:href="#singleCandle" x="1370"/>
-    <use xlink:href="#singleCandle" x="1380"/>
-    <use xlink:href="#singleCandle" x="1390"/>
-    <use xlink:href="#singleCandle" x="1400"/>
-    <use xlink:href="#singleCandle" x="1410"/>
-    <use xlink:href="#singleCandle" x="1420"/>
-    <use xlink:href="#singleCandle" x="1430"/>
-    <use xlink:href="#singleCandle" x="1440"/>
-    <use xlink:href="#singleCandle" x="1450"/>
-    <use xlink:href="#singleCandle" x="1460"/>
-    <use xlink:href="#singleCandle" x="1470"/>
-    <use xlink:href="#singleCandle" x="1480"/>
-    <use xlink:href="#singleCandle" x="1490"/>
-    <use xlink:href="#singleCandle" x="1500"/>
-    <use xlink:href="#singleCandle" x="1510"/>
-    <use xlink:href="#singleCandle" x="1520"/>
-    <use xlink:href="#singleCandle" x="1530"/>
-    <use xlink:href="#singleCandle" x="1540"/>
-    <use xlink:href="#singleCandle" x="1550"/>
-    <use xlink:href="#singleCandle" x="1560"/>
-    <use xlink:href="#singleCandle" x="1570"/>
-    <use xlink:href="#singleCandle" x="1580"/>
-    <use xlink:href="#singleCandle" x="1590"/>
-    <use xlink:href="#singleCandle" x="1600"/>
-    <use xlink:href="#singleCandle" x="1610"/>
-    <use xlink:href="#singleCandle" x="1620"/>
-    <use xlink:href="#singleCandle" x="1630"/>
-    <use xlink:href="#singleCandle" x="1640"/>
-    <use xlink:href="#singleCandle" x="1650"/>
-    <use xlink:href="#singleCandle" x="1660"/>
-    <use xlink:href="#singleCandle" x="1670"/>
-    <use xlink:href="#singleCandle" x="1680"/>
-    <use xlink:href="#singleCandle" x="1690"/>
-    <use xlink:href="#singleCandle" x="1700"/>
-    <use xlink:href="#singleCandle" x="1710"/>
-    <use xlink:href="#singleCandle" x="1720"/>
-    <use xlink:href="#singleCandle" x="1730"/>
-    <use xlink:href="#singleCandle" x="1740"/>
-    <use xlink:href="#singleCandle" x="1750"/>
-    <use xlink:href="#singleCandle" x="1760"/>
-    <use xlink:href="#singleCandle" x="1770"/>
-    <use xlink:href="#singleCandle" x="1780"/>
-    <use xlink:href="#singleCandle" x="1790"/>
-    <use xlink:href="#singleCandle" x="1800"/>
-    <use xlink:href="#singleCandle" x="1810"/>
-    <use xlink:href="#singleCandle" x="1820"/>
-    <use xlink:href="#singleCandle" x="1830"/>
-    <use xlink:href="#singleCandle" x="1840"/>
-    <use xlink:href="#singleCandle" x="1850"/>
-    <use xlink:href="#singleCandle" x="1860"/>
-    <use xlink:href="#singleCandle" x="1870"/>
-    <use xlink:href="#singleCandle" x="1880"/>
-    <use xlink:href="#singleCandle" x="1890"/>
-    <use xlink:href="#singleCandle" x="1900"/>
-    <use xlink:href="#singleCandle" x="1910"/>
-    <use xlink:href="#singleCandle" x="1920"/>
-    <use xlink:href="#singleCandle" x="1930"/>
-    <use xlink:href="#singleCandle" x="1940"/>
-    <use xlink:href="#singleCandle" x="1950"/>
-    <use xlink:href="#singleCandle" x="1960"/>
-    <use xlink:href="#singleCandle" x="1970"/>
-    <use xlink:href="#singleCandle" x="1980"/>
-    <use xlink:href="#singleCandle" x="1990"/>
+  <g mask="url(#candlesA)" class="candlesA">
+    <use xlink:href="#singleCandleA" x="0"/>
+    <use xlink:href="#singleCandleA" x="10"/>
+    <use xlink:href="#singleCandleA" x="20"/>
+    <use xlink:href="#singleCandleA" x="30"/>
+    <use xlink:href="#singleCandleA" x="40"/>
+    <use xlink:href="#singleCandleA" x="50"/>
+    <use xlink:href="#singleCandleA" x="60"/>
+    <use xlink:href="#singleCandleA" x="70"/>
+    <use xlink:href="#singleCandleA" x="80"/>
+    <use xlink:href="#singleCandleA" x="90"/>
+    <use xlink:href="#singleCandleA" x="100"/>
+    <use xlink:href="#singleCandleA" x="110"/>
+    <use xlink:href="#singleCandleA" x="120"/>
+    <use xlink:href="#singleCandleA" x="130"/>
+    <use xlink:href="#singleCandleA" x="140"/>
+    <use xlink:href="#singleCandleA" x="150"/>
+    <use xlink:href="#singleCandleA" x="160"/>
+    <use xlink:href="#singleCandleA" x="170"/>
+    <use xlink:href="#singleCandleA" x="180"/>
+    <use xlink:href="#singleCandleA" x="190"/>
+    <use xlink:href="#singleCandleA" x="200"/>
+    <use xlink:href="#singleCandleA" x="210"/>
+    <use xlink:href="#singleCandleA" x="220"/>
+    <use xlink:href="#singleCandleA" x="230"/>
+    <use xlink:href="#singleCandleA" x="240"/>
+    <use xlink:href="#singleCandleA" x="250"/>
+    <use xlink:href="#singleCandleA" x="260"/>
+    <use xlink:href="#singleCandleA" x="270"/>
+    <use xlink:href="#singleCandleA" x="280"/>
+    <use xlink:href="#singleCandleA" x="290"/>
+    <use xlink:href="#singleCandleA" x="300"/>
+    <use xlink:href="#singleCandleA" x="310"/>
+    <use xlink:href="#singleCandleA" x="320"/>
+    <use xlink:href="#singleCandleA" x="330"/>
+    <use xlink:href="#singleCandleA" x="340"/>
+    <use xlink:href="#singleCandleA" x="350"/>
+    <use xlink:href="#singleCandleA" x="360"/>
+    <use xlink:href="#singleCandleA" x="370"/>
+    <use xlink:href="#singleCandleA" x="380"/>
+    <use xlink:href="#singleCandleA" x="390"/>
+    <use xlink:href="#singleCandleA" x="400"/>
+    <use xlink:href="#singleCandleA" x="410"/>
+    <use xlink:href="#singleCandleA" x="420"/>
+    <use xlink:href="#singleCandleA" x="430"/>
+    <use xlink:href="#singleCandleA" x="440"/>
+    <use xlink:href="#singleCandleA" x="450"/>
+    <use xlink:href="#singleCandleA" x="460"/>
+    <use xlink:href="#singleCandleA" x="470"/>
+    <use xlink:href="#singleCandleA" x="480"/>
+    <use xlink:href="#singleCandleA" x="490"/>
+    <use xlink:href="#singleCandleA" x="500"/>
+    <use xlink:href="#singleCandleA" x="510"/>
+    <use xlink:href="#singleCandleA" x="520"/>
+    <use xlink:href="#singleCandleA" x="530"/>
+    <use xlink:href="#singleCandleA" x="540"/>
+    <use xlink:href="#singleCandleA" x="550"/>
+    <use xlink:href="#singleCandleA" x="560"/>
+    <use xlink:href="#singleCandleA" x="570"/>
+    <use xlink:href="#singleCandleA" x="580"/>
+    <use xlink:href="#singleCandleA" x="590"/>
+    <use xlink:href="#singleCandleA" x="600"/>
+    <use xlink:href="#singleCandleA" x="610"/>
+    <use xlink:href="#singleCandleA" x="620"/>
+    <use xlink:href="#singleCandleA" x="630"/>
+    <use xlink:href="#singleCandleA" x="640"/>
+    <use xlink:href="#singleCandleA" x="650"/>
+    <use xlink:href="#singleCandleA" x="660"/>
+    <use xlink:href="#singleCandleA" x="670"/>
+    <use xlink:href="#singleCandleA" x="680"/>
+    <use xlink:href="#singleCandleA" x="690"/>
+    <use xlink:href="#singleCandleA" x="700"/>
+    <use xlink:href="#singleCandleA" x="710"/>
+    <use xlink:href="#singleCandleA" x="720"/>
+    <use xlink:href="#singleCandleA" x="730"/>
+    <use xlink:href="#singleCandleA" x="740"/>
+    <use xlink:href="#singleCandleA" x="750"/>
+    <use xlink:href="#singleCandleA" x="760"/>
+    <use xlink:href="#singleCandleA" x="770"/>
+    <use xlink:href="#singleCandleA" x="780"/>
+    <use xlink:href="#singleCandleA" x="790"/>
+    <use xlink:href="#singleCandleA" x="800"/>
+    <use xlink:href="#singleCandleA" x="810"/>
+    <use xlink:href="#singleCandleA" x="820"/>
+    <use xlink:href="#singleCandleA" x="830"/>
+    <use xlink:href="#singleCandleA" x="840"/>
+    <use xlink:href="#singleCandleA" x="850"/>
+    <use xlink:href="#singleCandleA" x="860"/>
+    <use xlink:href="#singleCandleA" x="870"/>
+    <use xlink:href="#singleCandleA" x="880"/>
+    <use xlink:href="#singleCandleA" x="890"/>
+    <use xlink:href="#singleCandleA" x="900"/>
+    <use xlink:href="#singleCandleA" x="910"/>
+    <use xlink:href="#singleCandleA" x="920"/>
+    <use xlink:href="#singleCandleA" x="930"/>
+    <use xlink:href="#singleCandleA" x="940"/>
+    <use xlink:href="#singleCandleA" x="950"/>
+    <use xlink:href="#singleCandleA" x="960"/>
+    <use xlink:href="#singleCandleA" x="970"/>
+    <use xlink:href="#singleCandleA" x="980"/>
+    <use xlink:href="#singleCandleA" x="990"/>
+    <use xlink:href="#singleCandleA" x="1000"/>
+    <use xlink:href="#singleCandleA" x="1010"/>
+    <use xlink:href="#singleCandleA" x="1020"/>
+    <use xlink:href="#singleCandleA" x="1030"/>
+    <use xlink:href="#singleCandleA" x="1040"/>
+    <use xlink:href="#singleCandleA" x="1050"/>
+    <use xlink:href="#singleCandleA" x="1060"/>
+    <use xlink:href="#singleCandleA" x="1070"/>
+    <use xlink:href="#singleCandleA" x="1080"/>
+    <use xlink:href="#singleCandleA" x="1090"/>
+    <use xlink:href="#singleCandleA" x="1100"/>
+    <use xlink:href="#singleCandleA" x="1110"/>
+    <use xlink:href="#singleCandleA" x="1120"/>
+    <use xlink:href="#singleCandleA" x="1130"/>
+    <use xlink:href="#singleCandleA" x="1140"/>
+    <use xlink:href="#singleCandleA" x="1150"/>
+    <use xlink:href="#singleCandleA" x="1160"/>
+    <use xlink:href="#singleCandleA" x="1170"/>
+    <use xlink:href="#singleCandleA" x="1180"/>
+    <use xlink:href="#singleCandleA" x="1190"/>
+    <use xlink:href="#singleCandleA" x="1200"/>
+    <use xlink:href="#singleCandleA" x="1210"/>
+    <use xlink:href="#singleCandleA" x="1220"/>
+    <use xlink:href="#singleCandleA" x="1230"/>
+    <use xlink:href="#singleCandleA" x="1240"/>
+    <use xlink:href="#singleCandleA" x="1250"/>
+    <use xlink:href="#singleCandleA" x="1260"/>
+    <use xlink:href="#singleCandleA" x="1270"/>
+    <use xlink:href="#singleCandleA" x="1280"/>
+    <use xlink:href="#singleCandleA" x="1290"/>
+    <use xlink:href="#singleCandleA" x="1300"/>
+    <use xlink:href="#singleCandleA" x="1310"/>
+    <use xlink:href="#singleCandleA" x="1320"/>
+    <use xlink:href="#singleCandleA" x="1330"/>
+    <use xlink:href="#singleCandleA" x="1340"/>
+    <use xlink:href="#singleCandleA" x="1350"/>
+    <use xlink:href="#singleCandleA" x="1360"/>
+    <use xlink:href="#singleCandleA" x="1370"/>
+    <use xlink:href="#singleCandleA" x="1380"/>
+    <use xlink:href="#singleCandleA" x="1390"/>
+    <use xlink:href="#singleCandleA" x="1400"/>
+    <use xlink:href="#singleCandleA" x="1410"/>
+    <use xlink:href="#singleCandleA" x="1420"/>
+    <use xlink:href="#singleCandleA" x="1430"/>
+    <use xlink:href="#singleCandleA" x="1440"/>
+    <use xlink:href="#singleCandleA" x="1450"/>
+    <use xlink:href="#singleCandleA" x="1460"/>
+    <use xlink:href="#singleCandleA" x="1470"/>
+    <use xlink:href="#singleCandleA" x="1480"/>
+    <use xlink:href="#singleCandleA" x="1490"/>
+    <use xlink:href="#singleCandleA" x="1500"/>
+    <use xlink:href="#singleCandleA" x="1510"/>
+    <use xlink:href="#singleCandleA" x="1520"/>
+    <use xlink:href="#singleCandleA" x="1530"/>
+    <use xlink:href="#singleCandleA" x="1540"/>
+    <use xlink:href="#singleCandleA" x="1550"/>
+    <use xlink:href="#singleCandleA" x="1560"/>
+    <use xlink:href="#singleCandleA" x="1570"/>
+    <use xlink:href="#singleCandleA" x="1580"/>
+    <use xlink:href="#singleCandleA" x="1590"/>
+    <use xlink:href="#singleCandleA" x="1600"/>
+    <use xlink:href="#singleCandleA" x="1610"/>
+    <use xlink:href="#singleCandleA" x="1620"/>
+    <use xlink:href="#singleCandleA" x="1630"/>
+    <use xlink:href="#singleCandleA" x="1640"/>
+    <use xlink:href="#singleCandleA" x="1650"/>
+    <use xlink:href="#singleCandleA" x="1660"/>
+    <use xlink:href="#singleCandleA" x="1670"/>
+    <use xlink:href="#singleCandleA" x="1680"/>
+    <use xlink:href="#singleCandleA" x="1690"/>
+    <use xlink:href="#singleCandleA" x="1700"/>
+    <use xlink:href="#singleCandleA" x="1710"/>
+    <use xlink:href="#singleCandleA" x="1720"/>
+    <use xlink:href="#singleCandleA" x="1730"/>
+    <use xlink:href="#singleCandleA" x="1740"/>
+    <use xlink:href="#singleCandleA" x="1750"/>
+    <use xlink:href="#singleCandleA" x="1760"/>
+    <use xlink:href="#singleCandleA" x="1770"/>
+    <use xlink:href="#singleCandleA" x="1780"/>
+    <use xlink:href="#singleCandleA" x="1790"/>
+    <use xlink:href="#singleCandleA" x="1800"/>
+    <use xlink:href="#singleCandleA" x="1810"/>
+    <use xlink:href="#singleCandleA" x="1820"/>
+    <use xlink:href="#singleCandleA" x="1830"/>
+    <use xlink:href="#singleCandleA" x="1840"/>
+    <use xlink:href="#singleCandleA" x="1850"/>
+    <use xlink:href="#singleCandleA" x="1860"/>
+    <use xlink:href="#singleCandleA" x="1870"/>
+    <use xlink:href="#singleCandleA" x="1880"/>
+    <use xlink:href="#singleCandleA" x="1890"/>
+    <use xlink:href="#singleCandleA" x="1900"/>
+    <use xlink:href="#singleCandleA" x="1910"/>
+    <use xlink:href="#singleCandleA" x="1920"/>
+    <use xlink:href="#singleCandleA" x="1930"/>
+    <use xlink:href="#singleCandleA" x="1940"/>
+    <use xlink:href="#singleCandleA" x="1950"/>
+    <use xlink:href="#singleCandleA" x="1960"/>
+    <use xlink:href="#singleCandleA" x="1970"/>
+    <use xlink:href="#singleCandleA" x="1980"/>
+    <use xlink:href="#singleCandleA" x="1990"/>
   </g>
 </svg>

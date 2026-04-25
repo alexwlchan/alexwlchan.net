@@ -183,8 +183,3 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 
 If you've used the original code, I'd recommend switching to use this updated version.
 You can download [a zip file](/files/2018/matching_s3_objects.zip) with both the code and the tests.
-
-{% update date="2019-07-03" %}
-  In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
-  If you want to use it, I'd recommend using the [updated version](/2019/listing-s3-keys/).
-{% endupdate %}

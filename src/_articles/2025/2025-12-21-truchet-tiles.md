@@ -1026,7 +1026,7 @@ Here's a drawing that uses this code to draw Carlson truchet tiles:
 
 <figure style="width: 650px;">
   <svg viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg" class="border" id="randomCarlson">
-    <g id="layer-1" transform="translate(-2 -2) ">
+    <g id="layer-demo-1" transform="translate(-2 -2) ">
       <use href="#carlsonT-r90"/>
       <use href="#carlsonFour" y="6"/>
       <use href="#carlsonX" y="12"/>
@@ -1056,7 +1056,7 @@ Here's a drawing that uses this code to draw Carlson truchet tiles:
       <use href="#carlsonSlash-r90" x="42" y="12"/>
       <use href="#carlsonFrown-r180" x="42" y="18"/>
     </g>
-    <g id="layer-2" transform="translate(-1 -1) scale(0.5)">
+    <g id="layer-demo-2" transform="translate(-1 -1) scale(0.5)">
       <use href="#carlsonX-inverted" x="6" y="36"/>
       <use href="#carlsonMinus-inverted" y="42"/>
       <use href="#carlsonSlash-r90-inverted" x="36"/>
@@ -1069,7 +1069,7 @@ Here's a drawing that uses this code to draw Carlson truchet tiles:
       <use href="#carlsonFour-inverted" x="78" y="12"/>
       <use href="#carlsonX-inverted" x="78" y="18"/>
     </g>
-    <g id="layer-3" transform="translate(-0.5 -0.5) scale(0.25)">
+    <g id="layer-demo-3" transform="translate(-0.5 -0.5) scale(0.25)">
       <use href="#carlsonFour" y="72"/>
       <use href="#carlsonX" x="6" y="72"/>
       <use href="#carlsonX" y="78"/>

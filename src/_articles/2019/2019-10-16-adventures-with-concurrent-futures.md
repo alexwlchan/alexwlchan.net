@@ -56,7 +56,8 @@ The concurrency was a key part of the script, and I realised it was worth diggin
     fill: var(--primary-color);
   }
 
-  svg #arrowhead polygon,
+  svg #arrowheadG polygon,
+  svg #arrowheadP polygon,
   svg text {
     fill: currentColor;
   }
