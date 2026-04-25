@@ -8,9 +8,10 @@ from collections.abc import Iterator
 import os
 from pathlib import Path
 import re
-from urllib.parse import unquote, urlparse, urlsplit
+from typing import Any
+from urllib.parse import unquote, urlsplit
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from .caddy import parse_caddy_redirects
 from .fs import find_paths_under
@@ -94,15 +95,9 @@ def check_no_localhost_links(html: BeautifulSoup) -> list[str]:
     """
     errors = []
 
-    for anchor in html.find_all("a"):
-        try:
-            url = anchor.attrs["href"]
-        except KeyError:
-            continue
-        assert isinstance(url, str)
-
-        if urlparse(url).netloc == "localhost:5757":
-            errors.append(f"linking to localhost URL: {url}")
+    for tag_name, url in find_all_links(html):
+        if urlsplit(url).netloc == "localhost:5757":
+            errors.append(f"linking to localhost URL in <{tag_name}>: {url}")
 
     return errors
 
@@ -261,6 +256,71 @@ def get_all_hackable_urls(url: str) -> Iterator[str]:
             yield url + "/"
 
 
+def assert_str(s: Any) -> str:
+    """
+    Type-check a string value.
+    """
+    assert isinstance(s, str), s
+    return s
+
+
+def find_all_links(html: BeautifulSoup) -> Iterator[tuple[str, str]]:
+    """
+    Find all links to external resources in this HTML.
+
+    Returns the tag name and external URL.
+    """
+    # Look for <a> and <link> tags and their `href` attribute.
+    # TODO: Should it be an error to omit the href value?
+    for anchor in html.find_all(["a", "link"]):
+        if "data-proofer-ignore" in anchor.attrs:  # pragma: no cover
+            continue
+        try:
+            yield anchor.name, assert_str(anchor.attrs["href"])
+        except KeyError:
+            pass
+
+    # Look for <img> and <script> tags and their `src` attribute
+    for tag in html.find_all(["img", "script"]):
+        try:
+            yield tag.name, assert_str(tag.attrs["src"])
+        except KeyError:
+            pass
+
+    # Look for <source> tags and their `srcset` attribute
+    for tag in html.find_all(["img", "source"]):
+        if tag.name == "img" and "srcset" not in tag.attrs:
+            continue
+
+        for srcset_entry in assert_str(tag.attrs["srcset"]).split(","):
+            parts = srcset_entry.split()
+            assert len(parts) <= 2, srcset_entry
+            url = parts[0]
+            yield tag.name, url
+
+    # Look for <meta> tags for cards
+    for meta in html.find_all("meta", {"name": "twitter:image"}):
+        yield meta.name, assert_str(meta["content"])
+    for meta in html.find_all("meta", {"name": "og:image"}):
+        yield meta.name, assert_str(meta["content"])
+
+    # Look for xlink:href or href on SVG elements
+    for svg in html.find_all("svg"):
+        for elem in svg.descendants:
+            if not isinstance(elem, Tag):
+                continue
+
+            try:
+                yield elem.name, assert_str(elem["href"])
+            except KeyError:
+                pass
+
+            try:
+                yield elem.name, assert_str(elem["xlink:href"])
+            except KeyError:
+                pass
+
+
 def check_links_are_consistent(
     out_dir: Path, pages: dict[Path, BeautifulSoup]
 ) -> dict[Path, list[str]]:
@@ -280,41 +340,8 @@ def check_links_are_consistent(
         if "fun-stuff" in p.parts or "files" in p.parts:  # pragma: no cover
             continue
 
-        # Look for <a> and <link> tags and their `href` attribute.
-        # TODO: Should it be an error to omit the href value?
-        for anchor in soup.find_all(["a", "link"]):
-            if "data-proofer-ignore" in anchor.attrs:  # pragma: no cover
-                continue
-            try:
-                entry = (p, anchor.name, anchor.attrs["href"])
-                linked_urls.append(entry)  # type: ignore
-            except KeyError:
-                pass
-
-        # Look for <img> and <script> tags and their `src` attribute
-        for tag in soup.find_all(["img", "script"]):
-            try:
-                entry = (p, tag.name, tag.attrs["src"])
-                linked_urls.append(entry)  # type: ignore
-            except KeyError:
-                pass
-
-        # Look for <source> tags and their `srcset` attribute
-        for tag in soup.find_all(["img", "source"]):
-            if tag.name == "img" and "srcset" not in tag.attrs:
-                continue
-
-            for srcset_entry in tag.attrs["srcset"].split(","):  # type: ignore
-                parts = srcset_entry.split()
-                assert len(parts) <= 2, srcset_entry
-                url = parts[0]
-                linked_urls.append((p, tag.name, url))
-
-        # Look for <meta> tags for cards
-        for meta in soup.find_all("meta", {"name": "twitter:image"}):
-            linked_urls.append((p, meta.name, meta["content"]))  # type: ignore
-        for meta in soup.find_all("meta", {"name": "og:image"}):
-            linked_urls.append((p, meta.name, meta["content"]))  # type: ignore
+        for tag_name, url in find_all_links(soup):
+            linked_urls.append((p, tag_name, url))
 
     # 2. Go through each URL in turn, and check if it exists.
     print("checking links...")

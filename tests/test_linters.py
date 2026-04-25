@@ -15,6 +15,7 @@ from mosaic.linters import (
     check_no_broken_html,
     check_no_localhost_links,
     check_redirects,
+    find_all_links,
     get_all_hackable_urls,
     get_expected_path,
 )
@@ -130,6 +131,46 @@ class TestCheckNoBrokenHtml:
         """
 
         self.assert_html_is_passed(html)
+
+
+@pytest.mark.parametrize(
+    "html, expected_links",
+    [
+        ("<p>hello world</p>", []),
+        (
+            '<a href="https://example.com">example link</a>',
+            [("a", "https://example.com")],
+        ),
+        (
+            '<a href="#heading">link to heading</a>',
+            [("a", "#heading")],
+        ),
+        ('<svg version="1.1" xmlns="http://www.w3.org/2000/svg"><rect/></svg>', []),
+        (
+            '<svg version="1.1" xmlns="http://www.w3.org/2000/svg">'
+            "<text>hello world</text></svg>",
+            [],
+        ),
+        (
+            '<svg version="1.1" '
+            'xmlns="http://www.w3.org/2000/svg" '
+            'xmlns:xlink="http://www.w3.org/1999/xlink">'
+            '<use xlink:href="#heart"/></svg>',
+            [("use", "#heart")],
+        ),
+        (
+            '<svg version="1.1" xmlns="http://www.w3.org/2000/svg">'
+            '<use href="#heart"/></svg>',
+            [("use", "#heart")],
+        ),
+    ],
+)
+def test_find_all_links(html: str, expected_links: list[tuple[str, str]]) -> None:
+    """
+    Tests for `find_all_links`.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    assert list(find_all_links(soup)) == expected_links
 
 
 class TestCheckNoLocalhostLinks:
