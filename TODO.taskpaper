@@ -1,4 +1,7 @@
 alexwlchan.net:
 
+Notes:
+- You can’t put <style> tags in a <head>
+
 Cleanup tasks:
 - Remove xlink:href prefix from all my SVGs (https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/xlink:href)
