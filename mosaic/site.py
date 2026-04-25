@@ -129,13 +129,14 @@ class Site(BaseModel):
 
         self.time = datetime.now(tz=timezone.utc)
 
+        self.write_git_repos(env)
+        self.write_html_files(env)
+        self.generate_rss_feeds(env)
+
         if self.build_options.create_tint_colour_assets:
             self.create_tint_colour_assets()
         if self.build_options.copy_static_files:
             self.copy_static_files()
-        self.write_git_repos(env)
-        self.write_html_files(env)
-        self.generate_rss_feeds(env)
 
         if self.build_options.cleanup_leftover_files:
             self.cleanup_leftover_files()
@@ -406,6 +407,13 @@ class Site(BaseModel):
                 self.out_dir, os.path.relpath(src_p, start=self.src_dir)
             )
 
+            # If this is an SVG file which is used as an inline SVG, don't
+            # copy it and clean up any existing copies.
+            if os.path.splitext(src_p)[1] == ".svg":
+                filename = os.path.relpath(src_p, start=self.src_dir)
+                if cache.contains("is_inline_svg", filename):
+                    continue
+
             # If the files have the same size and modification time,
             # assume they're the same and we don't need to copy again.
             if (
@@ -421,6 +429,8 @@ class Site(BaseModel):
             os.makedirs(os.path.dirname(out_p), exist_ok=True)
             shutil.copy2(src_p, out_p)
 
+        assert all(os.path.exists(out_p) for _, out_p in static_files)
+
     @register_task("generate rss feeds")  # type: ignore
     def generate_rss_feeds(self, env: Environment) -> None:
         """
@@ -432,6 +442,7 @@ class Site(BaseModel):
 
         notes_atom_template = env.get_template("notes_atom.xml")
         notes_atom_xml = notes_atom_template.render(env=env, notes=self.notes)
+        (self.out_dir / "notes").mkdir(exist_ok=True)
         (self.out_dir / "notes/atom.xml").write_text(notes_atom_xml)
 
     def set_article_attributes(self) -> None:  # pragma: no cover

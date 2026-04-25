@@ -22,6 +22,7 @@ References:
 
 """
 
+import os
 import shutil
 import re
 from typing import Any, Literal
@@ -31,8 +32,10 @@ from chives.text import smartify
 from jinja2 import pass_context
 from jinja2.runtime import Context
 
-from .jinja_extensions import KwargsExtensionBase
+from mosaic import cache
 from mosaic.text import assert_is_invariant_under_markdown
+
+from .jinja_extensions import KwargsExtensionBase
 
 
 class InlineSvgExtension(KwargsExtensionBase):
@@ -83,6 +86,9 @@ def render_inline_svg(
     svg_tag = soup.find("svg")
     if svg_tag is None:
         raise ValueError(f"No <svg> tag found in {src_path!r}")
+
+    # Record that this is an inline SVG.
+    cache.set("is_inline_svg", key=os.path.relpath(src_path, start=src_dir))
 
     # 3. Add the accessibility role. See "Accessible SVGs" §2.
     svg_tag["role"] = "img"
