@@ -1,5 +1,8 @@
 alexwlchan.net:
 
+Projects:
+	- Report whether files are executable/changed in commit
+
 Notes:
 - You can’t put <style> tags in a <head>
 
