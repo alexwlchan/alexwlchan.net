@@ -204,6 +204,8 @@ class GitFile(BaseModel):
                 return "Python"
             case ".pyi":
                 return "Python type stub"
+            case ".rs":
+                return "Rust"
             case ".toml":
                 return "TOML"
             case ".yml":
@@ -227,6 +229,8 @@ class GitFile(BaseModel):
                 return "markdown"
             case ".py" | ".pyi":
                 return "python"
+            case ".rs":
+                return "rust"
             case ".toml":
                 return "toml"
             case ".yml":

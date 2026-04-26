@@ -522,6 +522,7 @@ class TestGitFile:
             ("requirements.in", "pip-compile input file"),
             ("dev_requirements.in", "pip-compile input file"),
             ("unknown.bin", None),
+            ("create_thumbnail.rs", "Rust"),
         ],
     )
     def test_label(self, path: str, label: str | None) -> None:
@@ -541,6 +542,7 @@ class TestGitFile:
             ("cassette.yml", "yaml"),
             ("requirements.txt", "text"),
             ("unknown.bin", "text"),
+            ("create_thumbnail.rs", "rust"),
         ],
     )
     def test_lang(self, path: str, lang: str) -> None:

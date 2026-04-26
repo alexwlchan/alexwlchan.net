@@ -46,3 +46,21 @@ FSEventStreamSetDispatchQueue(eventStream, queue)
 FSEventStreamStart(eventStream)
 
 dispatchMain()
+
+
+// // Create a way to stop the stream
+// func stopAndCleanup() {
+//     FSEventStreamStop(eventStream)
+//     FSEventStreamInvalidate(eventStream)
+//     FSEventStreamRelease(eventStream)
+//     print("\nCleaned up and exiting.")
+//     exit(0)
+// }
+//
+// // Trap SIGINT (^C)
+// let sigintSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
+// sigintSource.setEventHandler {
+//     stopAndCleanup()
+// }
+// signal(SIGINT, SIG_IGN) // Prevent immediate termination
+// sigintSource.resume()

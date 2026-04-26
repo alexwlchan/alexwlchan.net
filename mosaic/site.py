@@ -47,7 +47,12 @@ GIT_REPOS = [
         name="chives",
         description="Utility functions for working with my local media archives",
         repo_root=Path.home() / "repos/chives",
-    )
+    ),
+    GitRepository(
+        name="create_thumbnail",
+        description="A command-line tool for creating image thumbnails",
+        repo_root=Path.home() / "repos/create_thumbnail",
+    ),
 ]
 
 
