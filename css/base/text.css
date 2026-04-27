@@ -168,3 +168,8 @@ figcaption a:visited {
 .permalink a:visited {
   color: var(--primary-color);
 }
+
+/* Don't allow linebreaks in the middle of <pre> elements. */
+time {
+  white-space: pre;
+}

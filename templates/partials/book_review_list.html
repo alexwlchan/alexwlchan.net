@@ -3,6 +3,7 @@
 </style>
 
 {%- from "macros/star_rating.html" import star_rating -%}
+{% from "macros/timestamp.html" import timestamp %}
 
 <ul class="reviews">
 {%- for rev in reviews -%}
@@ -89,8 +90,8 @@
       {%- endif -%}
       {%- if rev.review.date_read -%}
         {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
-        {{ " " }}
-        {{- rev.review.date_read.strftime('%-d %B %Y') -}}.
+        {{ "&nbsp;" }}
+        {{- timestamp(rev.review.date_read) -}}.
         {{ " " }}
       {%- endif -%}
       {%- if not rev.review.did_not_finish -%}
