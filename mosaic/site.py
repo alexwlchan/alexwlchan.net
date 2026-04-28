@@ -53,6 +53,11 @@ GIT_REPOS = [
         description="A command-line tool for creating image thumbnails",
         repo_root=Path.home() / "repos/create_thumbnail",
     ),
+    GitRepository(
+        name="randline",
+        description="Get a random selection of lines in a file using reservoir sampling",
+        repo_root=Path.home() / "repos/randline",
+    ),
 ]
 
 
