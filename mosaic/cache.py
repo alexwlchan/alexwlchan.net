@@ -34,12 +34,8 @@ class SQLiteCache:
             "CREATE TABLE IF NOT EXISTS "
             "cache_entries("
             "  namespace, key, value, date_saved, "
-            "  UNIQUE (namespace, key) ON CONFLICT REPLACE"
+            "  PRIMARY KEY (namespace, key)"
             ")"
-        )
-        cursor.execute(
-            "CREATE INDEX IF NOT EXISTS cache_entries_idx "
-            "ON cache_entries(namespace, key)"
         )
         self.conn.commit()
 
