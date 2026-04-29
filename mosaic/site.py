@@ -42,27 +42,6 @@ from .tint_colours import get_default_tint_colours
 from .topics import rebuild_topics_by_name
 
 
-GIT_REPOS = [
-    GitRepository(
-        name="chives",
-        description="Utility functions for working with my local media archives",
-        repo_root=Path.home() / "repos/chives",
-    ),
-    GitRepository(
-        name="create_thumbnail",
-        description="A command-line tool for creating image thumbnails",
-        repo_root=Path.home() / "repos/create_thumbnail",
-    ),
-    GitRepository(
-        name="randline",
-        description=(
-            "Get a random selection of lines in a file using reservoir sampling"
-        ),
-        repo_root=Path.home() / "repos/randline",
-    ),
-]
-
-
 def register_task(label: str) -> Any:
     """
     Annotate a build task so it will be printed and profiled in output.
@@ -118,6 +97,9 @@ class Site(BaseModel):
 
     css_url: str = ""
 
+    # A list of Git repos used for this site build.
+    repos: list[GitRepository] = Field(default_factory=lambda: list())
+
     # The time the site was built. This is used in the RSS feed.
     time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
@@ -131,6 +113,7 @@ class Site(BaseModel):
         """
         self.build_options = options
 
+        self.read_git_repos()
         self.read_markdown_files()
         self.check_for_duplicate_urls()
         self.set_article_attributes()
@@ -154,6 +137,31 @@ class Site(BaseModel):
             self.cleanup_leftover_files()
 
         return True
+
+    @register_task("read git repos")  # type: ignore
+    def read_git_repos(self) -> None:  # pragma: no cover
+        """
+        Read all the Git repositories from disk.
+        """
+        if self.repos:
+            return
+
+        repos = {
+            "chives": "Utility functions for working with my local media archives",
+            "create_thumbnail": "A command-line tool for creating image thumbnails",
+            "randline": (
+                "Get a random selection of lines in a file using reservoir sampling"
+            ),
+        }
+
+        self.repos = [
+            GitRepository(
+                name=name,
+                description=description,
+                repo_root=Path.home() / "repos" / name,
+            )
+            for name, description in repos.items()
+        ]
 
     @register_task("read markdown files")  # type: ignore
     def read_markdown_files(self) -> None:  # pragma: no cover
@@ -327,7 +335,7 @@ class Site(BaseModel):
                 "css_url": css_url,
                 "site": self,
                 "all_topics": rebuild_topics_by_name(),
-                "git_repos": GIT_REPOS,
+                "git_repos": self.repos,
                 "elsewhere": elsewhere,
             }
         )
@@ -492,7 +500,7 @@ class Site(BaseModel):
         """
         Write the /projects/ folder for my Git repos.
         """
-        for repo in GIT_REPOS:
+        for repo in self.repos:
             self.write_pages_for_single_repo(env, repo)
 
     def write_pages_for_single_repo(
