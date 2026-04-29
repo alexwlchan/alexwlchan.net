@@ -47,3 +47,32 @@ $ git remote -v
 origin	phaenna-mac-mini:Media/repos/chives (fetch)
 origin	linode-vps:repos/chives (push)
 ```
+
+## Setting up a new/existing repo
+
+1.  Create a bare repo on my Mac mini:
+
+    ```console
+    phaenna-mac-mini:~ $ cd ~/Media/repos
+    phaenna-mac-mini:~/Media/repos $ git init --bare chives
+    ```
+
+2.  Create a bare repo on Linode:
+
+    ```console {"wrap":true}
+    linode-vps:~ $ cd ~/repos
+    linode-vps:~/repos $ git init --bare --initial-branch=main chives
+    ```
+
+3.  Set the remotes in my working directory:
+
+    ```console {"wrap":true}
+    $ git remote set-url origin ~/Media/repos/chives/
+    $ git remote set-url --add --push origin linode-vps:repos/chives
+    ```
+
+4.  Push the existing data:
+
+    ```console {"wrap":true}
+    $ git push origin main --tags
+    ```
