@@ -4,6 +4,7 @@ Models for a generic page.
 
 from typing import Any
 
+
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
@@ -19,12 +20,20 @@ class Page(BaseHtmlPage):
     # Allow the constructor to set an explicit URL.
     _url: str | None = None
 
-    def __init__(self, url: str | None = None, **kwargs: Any):
+    _breadcrumb: list[BreadcrumbEntry] | None = None
+
+    def __init__(
+        self,
+        url: str | None = None,
+        breadcrumb: list[BreadcrumbEntry] | None = None,
+        **kwargs: Any,
+    ):
         """
         Construct a new instance of Page.
         """
         super().__init__(**kwargs)
         self._url = url
+        self._breadcrumb = breadcrumb
 
     @property
     def url(self) -> str:
@@ -47,4 +56,4 @@ class Page(BaseHtmlPage):
         """
         The breadcrumb trail for this page.
         """
-        return []
+        return self._breadcrumb or []

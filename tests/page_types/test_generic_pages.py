@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from mosaic.page_types import Page
+from mosaic.page_types import BreadcrumbEntry, Page
 
 
 def test_page_properties(src_dir: Path) -> None:
@@ -39,3 +39,14 @@ def test_page_url(
     """
     p = Page(md_path=src_dir / filename, src_dir=src_dir, url=url)
     assert p.url == expected_url
+
+
+def test_custom_breadcrumb(src_dir: Path) -> None:
+    """
+    Test setting the custom breadcrumb for a page.
+    """
+    breadcrumb = [BreadcrumbEntry(label="projects", href="/projects/")]
+    p = Page(
+        md_path=src_dir / "projects/help.md", src_dir=src_dir, breadcrumb=breadcrumb
+    )
+    assert p.breadcrumb == breadcrumb

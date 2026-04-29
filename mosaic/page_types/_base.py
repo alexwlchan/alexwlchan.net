@@ -221,7 +221,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(html)
-        
+
         cache.set(cache_ns, cache_key)
 
         return out_path

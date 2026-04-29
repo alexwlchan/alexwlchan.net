@@ -188,9 +188,19 @@ def markdownify(text: str) -> str:
     """
     Format text using Markdown.
     """
+    cache_ns = "markdownify"
+    cache_key = md5(text)
+    
+    if html := cache.get(cache_ns, cache_key):
+        return html
+    
     html = markdown(text)
     assert isinstance(html, str), f"unexpected type: {type(html)}"
-    return html.strip()
+    html = html.strip()
+    
+    cache.set(cache_ns, cache_key, html)
+    
+    return html
 
 
 def markdownify_oneline(text: str) -> str:
