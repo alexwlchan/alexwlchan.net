@@ -18,6 +18,8 @@ from pydantic import BaseModel
 import pygit2
 from pygit2.enums import ReferenceFilter, SortMode
 
+from mosaic import cache
+
 
 __all__ = ["git_root"]
 
@@ -134,6 +136,18 @@ class Commit(BaseModel):
         """
         Create a `Commit` from the pygit2 data structures.
         """
+        commit_id = as_hex(commit.id)
+
+        # Look in the cache to see if we already have data about this
+        # Git commit; this is often faster than reading the data from Git.
+        #
+        # Use the commit ID as the key; the odds of a commit ID collision
+        # among my projects is essentially nil.
+        cache_ns = "get_git_commit"
+        if commit_json := cache.get(cache_ns, commit_id):
+            commit_data = Commit.model_validate_json(commit_json)
+            return commit_id, commit_data
+
         parent = commit.parents[0] if commit.parents else None
         if parent is None:
             diff = commit.tree.diff_to_tree(swap=True)
@@ -153,9 +167,7 @@ class Commit(BaseModel):
 
         changed_files = [ChangedFile.from_pygit2_patch(patch) for patch in patches]
 
-        commit_id = as_hex(commit.id)
-
-        return commit_id, Commit(
+        commit_data = Commit(
             id=commit_id,
             message=commit.message.strip(),
             author=f"{commit.author.name} <{commit.author.email}>",
@@ -163,6 +175,10 @@ class Commit(BaseModel):
             parent_ids=[as_hex(p) for p in commit.parent_ids],
             changed_files=changed_files,
         )
+
+        cache.set(cache_ns, commit_id, commit_data.model_dump_json())
+
+        return commit_id, commit_data
 
     @property
     def stats(self) -> Stats:
@@ -343,9 +359,23 @@ class GitTree(BaseModel):
         commit = repo.get(repo.head.target)
         assert isinstance(commit, pygit2.Commit)
 
-        files = list_files_for_tree(commit.tree)
+        # Look in the cache to see if we already have data about this
+        # tree; this is often faster than reading the data from Git.
+        #
+        # Use the tree ID as the key; the odds of a tree ID collision
+        # among my projects is essentially nil.
+        tree_id = as_hex(commit.tree.id)
+        cache_ns = "get_git_tree"
+        if tree_json := cache.get(cache_ns, tree_id):
+            tree_data = GitTree.model_validate_json(tree_json)
+            return tree_data
 
-        return GitTree(files=files)
+        files = list_files_for_tree(commit.tree)
+        tree_data = GitTree(files=files)
+
+        cache.set(cache_ns, tree_id, tree_data.model_dump_json())
+
+        return tree_data
 
     @property
     def navigable_tree(self) -> NavigableTree:
