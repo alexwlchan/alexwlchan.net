@@ -104,6 +104,9 @@ class SQLiteCache:
 def register(f: Callable[[str], str]) -> Callable[[str], str]:
     """
     Wrap a function so its return values are stored in the default cache.
+
+    This uses the name of the function as the cache namespace, so you
+    can just annotate the function with `@cache.register`.
     """
 
     @functools.wraps(f)

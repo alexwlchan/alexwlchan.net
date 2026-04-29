@@ -190,16 +190,16 @@ def markdownify(text: str) -> str:
     """
     cache_ns = "markdownify"
     cache_key = md5(text)
-    
-    if html := cache.get(cache_ns, cache_key):
-        return html
-    
+
+    if cached_html := cache.get(cache_ns, cache_key):
+        return cached_html
+
     html = markdown(text)
     assert isinstance(html, str), f"unexpected type: {type(html)}"
     html = html.strip()
-    
+
     cache.set(cache_ns, cache_key, html)
-    
+
     return html
 
 
