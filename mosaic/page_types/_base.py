@@ -212,21 +212,17 @@ class BaseHtmlPage(ABC, BaseModel):
         cache_ns = "render_full_html"
         cache_key = f"{self.url}:{md5(self.content)}"
 
-        # If the HTML exists in the cache, we don't need to regenerate it
-        # and we can skip writing if the file already exists.
-        if cache.contains(cache_ns, cache_key):
-            if not out_path.exists():
-                html = cache.get(cache_ns, cache_key)
-                assert isinstance(html, str)
-                out_path.parent.mkdir(exist_ok=True, parents=True)
-                out_path.write_text(html)
+        # If we've cached this content and the file already exists, we don't
+        # need to regenerate it.
+        if cache.contains(cache_ns, cache_key) and out_path.exists():
             return out_path
 
         html = self.render_full_html(env)
-        cache.set(cache_ns, cache_key, html)
 
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(html)
+        
+        cache.set(cache_ns, cache_key)
 
         return out_path
 
