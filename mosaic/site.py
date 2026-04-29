@@ -33,6 +33,7 @@ from .page_types import (
     ProjectSingleFile,
     ProjectTags,
     ProjectTree,
+    TopicPage,
     read_markdown_files,
     read_page_from_markdown,
 )
@@ -226,7 +227,7 @@ class Site(BaseModel):
 
         if needs_new_index_pages:
             for page in self.all_pages:
-                if isinstance(page, Page):
+                if isinstance(page, (Page, TopicPage)):
                     page.clear_cache()
 
     def has_changed_since_last_read(self, p: Path | str) -> bool:  # pragma: no cover
