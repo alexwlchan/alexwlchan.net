@@ -1,17 +1,11 @@
 /* Syntax highlighting styles. */
 pre {
-  --highlight: #ffeb12b3;
-
   --comments:    var(--red);
   --literals:    var(--magenta);
   --strings:     var(--green);
   --names:       var(--blue);
   --punctuation: var(--accent-grey);
   --mark:        var(--highlight);
-
-  @media (prefers-color-scheme: dark) {
-    --highlight: #fffc42cc;
-  }
 
   /* Comment, Comment.{Multiline, Single, Special} */
   .c, .cm, .c1, .cs {

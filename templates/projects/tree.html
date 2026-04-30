@@ -48,7 +48,7 @@
     }
     
     /* Top-level tree should be left-aligned with the headings. */
-    article > ul.tree {
+    main > ul.tree {
       margin-left: -6px;
       padding-left: 6px;
     }
@@ -177,14 +177,53 @@
     summary, summary::before {
       cursor: pointer;
     }
+    
+    /* Highlight errors with yellow text and a matching background. */
+    aside.error {
+      border: var(--border-width) solid var(--yellow);
+      border-radius: var(--border-radius);
+      margin-top: var(--default-padding);
+      padding:    1em;
+      background: #ffeb1233;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      aside.error {
+        background: #fffc423c;
+      }
+    }
   </style>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const url = new URL(window.location.href);
+      const missing = url.searchParams.getAll("missing");
+      
+      if (missing.length !== 1) {
+        return;
+      }
+      
+      const missingPath = missing[0];
+      
+      const asideElem = document.createElement("aside");
+      asideElem.classList.add("error");
+      asideElem.appendChild(document.createTextNode("File not found: "));
+      const codeElem = document.createElement("code");
+      codeElem.innerText = missingPath;
+      asideElem.appendChild(codeElem);
+
+      const titleElem = document.querySelector(".title");
+      titleElem.after(asideElem);
+      
+      
+      console.log(missing);
+    });
+  </script>
   
   {% set repo = page.repo %}
   {% set tree = repo.navigable_tree %}
 
-  <article>
-    <h1 class="title">Files</h1>
-    
-    {{ tree_files(tree) }}
-  </article>
+  <h1 class="title">Files</h1>
+  
+  {{ tree_files(tree) }}
 {% endblock %}
