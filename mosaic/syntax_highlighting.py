@@ -362,9 +362,7 @@ def apply_syntax_highlighting(
               function recalculateVariables() {
                 // Prevent LiveReload from blatting the page when I'm midway
                 // through setting variables.
-                if (typeof window.LiveReload !== 'undefined') {
-                  window.LiveReload.shutDown();
-                }
+                pauseLivereload();
 
                 debugNames = document.querySelector("code#debugNames");
 

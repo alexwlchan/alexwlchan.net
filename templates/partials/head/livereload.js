@@ -1,7 +1,15 @@
+var isPaused = false;
+
 async function startListener() {
   while (true) {
     try {
       const response = await fetch('http://localhost:5656/wait-for-reload');
+      
+      if (isPaused) {
+        console.log("Detected change, but LiveReload is disabled")
+        break;
+      }
+      
       if (response.status === 200) {
         console.log("Change detected! Reloading...");
         window.location.reload();
@@ -13,3 +21,7 @@ async function startListener() {
   }
 }
 startListener();
+
+function pauseLivereload() {
+  isPaused = true;
+}
