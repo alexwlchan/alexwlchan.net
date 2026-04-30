@@ -3232,9 +3232,6 @@
   "/swift/": [
     "/systems/swift/"
   ],
-  "/systems/tailscale/": [
-    "/work/tailscale/"
-  ],
   "/topics/": [
     "/tags/",
     "/tag/"
@@ -3243,6 +3240,10 @@
     "/tags/aws/amazon-s3/",
     "/tags/amazon-s3/",
     "/tags/aws/"
+  ],
+  "/tailscale/": [
+    "/systems/tailscale/",
+    "/work/tailscale/"
   ],
   "/terraform/": [
     "/systems/terraform/"

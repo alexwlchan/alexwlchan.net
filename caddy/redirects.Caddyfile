@@ -2048,8 +2048,6 @@ redir /systems/sqlite/ /sqlite/ permanent
 redir /systems/sqlite /sqlite/ permanent
 redir /systems/swift/ /swift/ permanent
 redir /systems/swift /swift/ permanent
-redir /work/tailscale/ /systems/tailscale/ permanent
-redir /work/tailscale /systems/tailscale/ permanent
 redir /tags/ /topics/ permanent
 redir /tags /topics/ permanent
 redir /tag/ /topics/ permanent
@@ -2060,6 +2058,10 @@ redir /tags/amazon-s3/ /aws permanent
 redir /tags/amazon-s3 /aws permanent
 redir /tags/aws/ /aws permanent
 redir /tags/aws /aws permanent
+redir /systems/tailscale/ /tailscale/ permanent
+redir /systems/tailscale /tailscale/ permanent
+redir /work/tailscale/ /tailscale/ permanent
+redir /work/tailscale /tailscale/ permanent
 redir /systems/terraform/ /terraform/ permanent
 redir /systems/terraform /terraform/ permanent
 redir /day-job/ /work/ permanent
@@ -2070,4 +2072,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: YA31/x+JvF)
+#[[[end]]] (sum: +8EQiYyAvT)
