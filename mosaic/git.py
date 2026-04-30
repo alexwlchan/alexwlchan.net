@@ -21,7 +21,7 @@ from pygit2.enums import ReferenceFilter, SortMode
 from mosaic import cache
 
 
-__all__ = ["git_root"]
+__all__ = ["git_root", "GitRepository"]
 
 
 def as_hex(oid: pygit2.Oid) -> str:
@@ -582,13 +582,3 @@ def sort_tags(tags: OrderedDict[str, str]) -> OrderedDict[str, str]:
         )
     else:
         return tags
-
-
-class Project(BaseModel):
-    """
-    Defines a project to be published in my /projects/ page.
-    """
-
-    name: str
-    description: str
-    git_dir: Path
