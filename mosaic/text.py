@@ -265,6 +265,8 @@ PREFIX_RE = re.compile("(" + "|".join(PREFIX_WORDS) + r") (\d+)")
 
 # Words which can be counted, which often follow a number
 COUNTABLE_WORDS = [
+    "AD",
+    "BC",
     "bookmark",
     "byte",
     "character",
