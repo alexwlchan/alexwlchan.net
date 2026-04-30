@@ -6,15 +6,14 @@ it whenever something changes.
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 from socketserver import ThreadingMixIn
-import subprocess
 import sys
 import time
 import threading
 
-
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic import Site
+from mosaic import caddy
 from mosaic.site import BuildOptions
 from watch_folders import watch_folders
 
@@ -119,22 +118,18 @@ if __name__ == "__main__":
     reload_server = ThreadedHTTPServer(("localhost", 5656), WaitForReloadHandler)
     threading.Thread(target=reload_server.serve_forever, daemon=True).start()
 
-    cmd = ["caddy", "run", "--config", "caddy/local_dev.Caddyfile"]
-    proc = subprocess.Popen(
-        cmd, stderr=subprocess.DEVNULL, stdout=subprocess.PIPE, text=True
-    )
-    print("🌐 Listening on http://localhost:5757")
+    with caddy.local_webserver(out_dir=Path("_out")) as base_url:
+        print(f"🌐 Listening on {base_url}")
 
-    site = Site()
+        site = Site()
 
-    try:
-        now = time.time()
-        site.build_site(options=BuildOptions(profile=True, livereload=True))
-        elapsed = time.time() - now
-        print(f"✅ Initial build successful in {elapsed:.2f}s")
+        try:
+            now = time.time()
+            site.build_site(options=BuildOptions(profile=True, livereload=True))
+            elapsed = time.time() - now
+            print(f"✅ Initial build successful in {elapsed:.2f}s")
 
-        for changed_folder in watch_folders():
-            rebuild(site, changed_folder)
-    except KeyboardInterrupt:
-        proc.terminate()
-        reload_server.shutdown()
+            for changed_folder in watch_folders():
+                rebuild(site, changed_folder)
+        except KeyboardInterrupt:
+            reload_server.shutdown()

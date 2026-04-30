@@ -31,6 +31,10 @@ execnet==2.1.2
     # via
     #   -r requirements.txt
     #   pytest-xdist
+greenlet==3.4.0
+    # via
+    #   -r requirements.txt
+    #   playwright
 hypothesis==6.151.9
     # via -r requirements.txt
 iniconfig==2.3.0
@@ -92,6 +96,8 @@ pfzy==0.3.4
     #   inquirerpy
 pillow==12.1.1
     # via -r requirements.txt
+playwright==1.58.0
+    # via -r requirements.txt
 pluggy==1.6.0
     # via
     #   -r dns/requirements.txt
@@ -112,6 +118,10 @@ pydantic-core==2.41.5
     # via
     #   -r requirements.txt
     #   pydantic
+pyee==13.0.1
+    # via
+    #   -r requirements.txt
+    #   playwright
 pygit2==1.19.1
     # via -r requirements.txt
 pygments==2.19.2
@@ -154,6 +164,7 @@ typing-extensions==4.15.0
     #   mypy
     #   pydantic
     #   pydantic-core
+    #   pyee
     #   typing-inspection
 typing-inspection==0.4.2
     # via
