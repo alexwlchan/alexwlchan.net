@@ -23,6 +23,9 @@ on:
       - 'tests/**'
       - 'requirements.txt'
 
+  schedule:
+    - cron: "30 * * * *"
+
 jobs:
   mosaic_tests:
     runs-on: self-hosted
@@ -47,7 +50,13 @@ jobs:
           source .venv/bin/activate
           uv pip sync requirements.txt
 
+      - name: Install WebKit
+        run: |
+          source .venv/bin/activate
+          python3 -m playwright install webkit
+
       - name: Run tests
         run: |
           source .venv/bin/activate
+          python3 scripts/build_site.py
           bash scripts/run_mosaic_tests.sh
