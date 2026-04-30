@@ -70,7 +70,7 @@ if __name__ == "__main__":
     for p, (html_str, soup) in html_files.items():
         try:
             if "testing-javascript-without-a-framework" not in p.parts:
-                all_errors[p] += check_no_broken_html(html_str, soup)
+                all_errors[p] += check_no_broken_html(p, html_str, soup)
 
             if "files" not in p.parts:
                 all_errors[p] += check_images_have_alt_text(soup)
@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
         for label, errors in all_errors.items():
             print("")
-            print(f"{label}:")
+            print(coloured(f"{label}:", "red"))
             for e in errors:
                 print(f"  - {e}")
 

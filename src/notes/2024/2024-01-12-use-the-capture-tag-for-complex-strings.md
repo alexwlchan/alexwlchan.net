@@ -8,11 +8,13 @@ topic: Ruby
 ---
 You can use the [capture tag] to create a new variable:
 
+{% raw %}
 ```liquid
-{% raw %}{% capture variable %}
+{% capture variable %}
   value
-{% endcapture %}{% endraw %}
+{% endcapture %}
 ```
+{% endraw %}
 
 This could be quite useful for building up complex variables with several conditionals or loops, inside the template.
 

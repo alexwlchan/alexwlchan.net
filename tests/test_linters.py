@@ -30,18 +30,35 @@ class TestCheckNoBrokenHtml:
         """
         Check this HTML is passed by the linter.
         """
+        path = Path("example.html")
         soup = BeautifulSoup(html, "html.parser")
-        assert check_no_broken_html(html, soup) == []
+        assert check_no_broken_html(path, html, soup) == []
 
     def assert_html_is_rejected(self, html: str, *, expected_error: str) -> None:
         """
         Check this HTML is rejected by the linter with the expected error.
         """
         soup = BeautifulSoup(html, "html.parser")
-        errors = check_no_broken_html(html, soup)
+        path = Path("example.html")
+        errors = check_no_broken_html(path, html, soup)
 
         assert len(errors) == 1
         assert expected_error in errors[0]
+
+    @pytest.mark.parametrize(
+        "html",
+        [
+            "<p><em>",
+            "<p>Abc",
+            "<head><style>p { color: red; }</style></head>",
+            "<pre><code>def hello_world():\n    print('hello world!')</code></pre>",
+        ],
+    )
+    def test_allows_valid_html(self, html: str) -> None:
+        """
+        The lint passes examples of valid HTML.
+        """
+        self.assert_html_is_passed(html)
 
     @pytest.mark.parametrize(
         "html",
@@ -91,15 +108,6 @@ class TestCheckNoBrokenHtml:
         """
         self.assert_html_is_rejected(html, expected_error="<style> tag outside <head>")
 
-    @pytest.mark.parametrize(
-        "html", ["<p><em>", "<p>Abc", "<head><style>p { color: red; }</style></head>"]
-    )
-    def test_allows_inline_tag_after_p(self, html: str) -> None:
-        """
-        The lint passes examples of valid HTML.
-        """
-        self.assert_html_is_passed(html)
-
     def test_rejects_duplicate_ids(self) -> None:
         """
         The lint rejects HTML in which IDs are repeated.
@@ -115,6 +123,18 @@ class TestCheckNoBrokenHtml:
         """
 
         self.assert_html_is_rejected(html, expected_error="duplicate IDs")
+
+    @pytest.mark.parametrize(
+        "html",
+        [
+            "<pre><code>```\ndef greet():\n    print('hello world')```</code></pre>",
+        ],
+    )
+    def test_rejects_pre_with_markdown(self, html: str) -> None:
+        """
+        The lint rejects a <pre> tag with unexpected HTML or Markdown.
+        """
+        self.assert_html_is_rejected(html, expected_error="malformed <pre> tag")
 
     def test_allows_unique_ids(self) -> None:
         """

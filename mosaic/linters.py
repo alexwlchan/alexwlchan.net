@@ -17,7 +17,7 @@ from .caddy import parse_caddy_redirects
 from .fs import find_paths_under
 
 
-def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
+def check_no_broken_html(path: Path, html_str: str, soup: BeautifulSoup) -> list[str]:
     """
     Check an HTML file doesn't have any <p> tags followed by unexpected
     HTML, which is often a sign of a rendering error.
@@ -48,6 +48,8 @@ def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
     for m in re.finditer(r"&lt;/(?:picture|code|pre)>", html_str):
         errors.append(f"malformed closing tag following <p>: {m.group(0)}")
 
+    # Unexpected HTML tags or markup inside HTML tags can be a clue that
+    # something is broken in the rendering pipeline.
     for s in soup.find_all("style"):
         if any(v in s.text for v in ("@use", "<p>", "<br>", "<br/>")):
             errors.append(f"malformed <style> tag: <style>{s.text}</style>")
@@ -62,6 +64,25 @@ def check_no_broken_html(html_str: str, soup: BeautifulSoup) -> list[str]:
             and "You find yourself standing in a room" not in html_str
         ):
             errors.append(f"<style> tag outside <head>: <style>{s.text}</style>")
+
+    for pre in soup.find_all("pre"):
+        if path in {
+            Path("_out/2017/extensions-in-python-markdown/index.html"),
+            Path("_out/2021/console-copying/index.html"),
+            Path(
+                "_out/notes/2024/how-to-highlight-python-console-in-jekyll/index.html"
+            ),
+            Path(
+                "_out/notes/2024/use-the-raw-tag-to-describe-liquid-in-liquid/index.html"
+            ),
+        }:  # pragma: no cover
+            continue
+
+        if path.is_relative_to(Path("_out/projects")):  # pragma: no cover
+            continue
+
+        if "```" in pre.text:
+            errors.append(f"malformed <pre> tag: <pre>{pre.text}</pre>")
 
     # Look for duplicate ID attributes.
     #

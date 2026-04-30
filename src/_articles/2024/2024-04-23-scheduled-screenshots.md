@@ -78,8 +78,9 @@ There are lots of ways to run code on a schedule; I decided to use [GitHub Actio
 My code for taking scheduled screenshots is entirely contained in a single GitHub Actions workflow.
 It's in a file called [`.github/workflows/take_screenshots.yml`](https://github.com/alexwlchan/scheduled-screenshots/blob/a5c836cfcc6a3729fe53db97b34d116949fba377/.github/workflows/take_screenshots.yml), and it's only 79 lines:
 
+{% raw %}
 ```yaml
-{% raw %}name: Take screenshots
+name: Take screenshots
 
 on:
   push:
@@ -157,8 +158,9 @@ jobs:
         run: |
           git add "$screenshot_path"
           git commit -m "Add screenshot for ${{ matrix.url }} for $today" || exit 0
-          git push origin main{% endraw %}
+          git push origin main
 ```
+{% endraw %}
 
 This runs once a week on Monday mornings -- I don't update my websites that often, so I don't need more frequent screenshots.
 
