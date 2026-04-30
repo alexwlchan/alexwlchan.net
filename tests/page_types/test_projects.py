@@ -2,6 +2,7 @@
 Tests for `mosaic.page_types.projects`.
 """
 
+from collections import OrderedDict
 from pathlib import Path
 
 from jinja2 import Environment
@@ -18,19 +19,48 @@ from mosaic.page_types import (
 )
 
 
-def test_homepage(env: Environment, repo: GitRepository, out_dir: Path) -> None:
+class TestProjectHomepage:
     """
     Tests for `ProjectHomepage`.
     """
-    repo.name = "example-project"
 
-    p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
+    def test_homepage(
+        self, env: Environment, repo: GitRepository, out_dir: Path
+    ) -> None:
+        """
+        Test the basic behaviour of a homepage.
+        """
+        repo.name = "example-project"
 
-    assert p.url == "/projects/example-project/"
-    assert p.breadcrumb == [BreadcrumbEntry(label="projects", href="/projects/")]
-    assert p.title == "example-project"
+        p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
 
-    assert p.write(env, out_dir) == out_dir / "projects/example-project/index.html"
+        assert p.url == "/projects/example-project/"
+        assert p.breadcrumb == [BreadcrumbEntry(label="projects", href="/projects/")]
+        assert p.title == "example-project"
+
+        assert p.write(env, out_dir) == out_dir / "projects/example-project/index.html"
+
+    def test_omits_tags_link_if_no_tags(
+        self, env: Environment, repo: GitRepository, out_dir: Path
+    ) -> None:
+        """
+        If the repo doesn't have any tags, there's no tags link on
+        the project homepage.
+        """
+        repo.name = "example-project"
+
+        p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
+        out_path = p.write(env, out_dir)
+        html = out_path.read_text()
+        assert "<a href=/projects/example-project/tags/>Tags</a>" in html
+
+        repo.tags = OrderedDict()
+
+        p.clear_cache()
+        out_path = p.write(env, out_dir)
+        html = out_path.read_text()
+        print(html)
+        assert "<a href=/projects/example-project/tags/>Tags</a>" not in html
 
 
 def test_log(env: Environment, repo: GitRepository, out_dir: Path) -> None:

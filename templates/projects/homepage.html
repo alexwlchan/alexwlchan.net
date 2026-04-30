@@ -79,7 +79,9 @@
         <ul class="dot_list">
           <li><a href="{{ page.url }}commits/">Log</a></li>
           <li><a href="{{ page.url }}files/">Files</a></li>
+          {% if repo.tags %}
           <li><a href="{{ page.url }}tags/">Tags</a></li>
+          {% endif %}
           <li><a href="{{ page.url }}files/CHANGELOG.md">Changelog</a></li>
           <li><a href="{{ page.url }}files/LICENSE">License</a></li>
           <li><a href=# id="openClone">Clone</a></li>

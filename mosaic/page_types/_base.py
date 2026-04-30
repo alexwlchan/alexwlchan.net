@@ -226,7 +226,7 @@ class BaseHtmlPage(ABC, BaseModel):
 
         return out_path
 
-    def clear_cache(self) -> None:  # pragma: no cover
+    def clear_cache(self) -> None:
         """
         Clear the HTML cache for this page, so it will be rebuilt from
         scratch on the next build.
