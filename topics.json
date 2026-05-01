@@ -329,5 +329,10 @@
     "name": "London Ace Book Club",
     "href": "/ace-book-club/",
     "parent": "Books I've read"
+  },
+  {
+    "name": "Static websites",
+    "href": "/static-websites/",
+    "parent": "Computers and code"
   }
 ]

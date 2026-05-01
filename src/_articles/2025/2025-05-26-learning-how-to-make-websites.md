@@ -6,6 +6,7 @@ summary: How to write thoughtful HTML, new-to-me features of CSS, and some quirk
 topics:
   - Web archiving
   - Tiny archives
+  - Computers and code
 colors:
   css_light:   "#0000ff"
   css_dark:    "#00ddff"

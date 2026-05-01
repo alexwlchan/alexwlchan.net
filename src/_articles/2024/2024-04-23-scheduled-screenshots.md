@@ -7,6 +7,7 @@ summary: |
 topics: 
   - Screenshots
   - Web archiving
+  - Blogging about blogging
 colors:
   index_light: "#3d3d36"
   index_dark:  "#d4d5d2"
