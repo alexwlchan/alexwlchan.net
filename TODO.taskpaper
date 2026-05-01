@@ -3,6 +3,7 @@ alexwlchan.net:
 Projects:
 	- Report whether files are executable/changed in commit
 	- Show tags on a commit page
+  - Improve the diff view: consolidate filenames, human-readable file sizes, remove the diff header
 
 Notes:
 - You can’t put <style> tags in a <head>
