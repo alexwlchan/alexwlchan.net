@@ -2,6 +2,7 @@ alexwlchan.net:
 
 Projects:
 	- Report whether files are executable/changed in commit
+	- Show tags on a commit page
 
 Notes:
 - You can’t put <style> tags in a <head>
