@@ -5,7 +5,9 @@ title: Using static websites for tiny archives
 summary: |
   I've been creating small, hand-written websites to organise my files.
   It's a lightweight, flexible approach that I hope will last a long time.
-topic: Tiny archives
+topics:
+  - Tiny archives
+  - Static websites
 index:
   feature: true
 colors:

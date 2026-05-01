@@ -7,6 +7,7 @@ summary:
 topics:
   - Web archiving
   - Tiny archives
+  - Static websites
 index:
   feature: true
 colors:

@@ -8,7 +8,7 @@ colors:
   index_dark:  "#cecece"
 topics:
   - Tiny archives
-  - Computers and code
+  - Static websites
 index:
   feature: true
 ---
