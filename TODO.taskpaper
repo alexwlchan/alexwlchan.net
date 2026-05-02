@@ -11,3 +11,4 @@ Notes:
 Cleanup tasks:
 	- Remove xlink:href prefix from all my SVGs (https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/xlink:href)
 	- LiveReload breaks when you edit `topics.json`
+	- Linter should enforce a summary for newer articles
