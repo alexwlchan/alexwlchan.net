@@ -2,6 +2,7 @@
 layout: article
 date: 2026-05-02 07:08:53 +01:00
 title: Using Playwright to test my static sites
+summary: Playwright is a testing library that lets you control a browser and check how the page is behaving, and it's great for testing and scripting web apps.
 topics:
   - Software testing
   - Static websites
