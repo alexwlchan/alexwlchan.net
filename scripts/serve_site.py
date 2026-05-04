@@ -125,11 +125,19 @@ if __name__ == "__main__":
 
         try:
             now = time.time()
-            site.build_site(options=BuildOptions(profile=True, livereload=True))
-            elapsed = time.time() - now
-            print(f"✅ Initial build successful in {elapsed:.2f}s")
+            try:
+                site.build_site(options=BuildOptions(profile=True, livereload=True))
+            except Exception as e:
+                print(f"❌ Initial build failed with error: {e}", file=sys.stderr)
+                raise
+            else:
+                elapsed = time.time() - now
+                print(f"✅ Initial build successful in {elapsed:.2f}s")
 
             for changed_folder in watch_folders():
                 rebuild(site, changed_folder)
-        except KeyboardInterrupt:
+
+        # Note: this is a bare except because any exception, including
+        # a KeyboardInterrupt, should terminate the reload server.
+        except:  # noqa: E722
             reload_server.shutdown()

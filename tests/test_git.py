@@ -265,6 +265,31 @@ class TestGitRepository:
             proc.terminate()
             proc.wait()
 
+    def test_not_found_is_error(self, tmp_path: Path) -> None:
+        """
+        Opening a non-existent folder is an error.
+        """
+        with pytest.raises(pygit2.GitError, match="Repository not found"):
+            GitRepository(
+                name="does_not_exist",
+                description="does_not_exist",
+                repo_root=tmp_path / "does_not_exist",
+            )
+
+    def test_non_git_repo_is_error(self, tmp_path: Path) -> None:
+        """
+        Opening a folder which doesn't contain a Git repo is an error.
+        """
+        (tmp_path / "not_a_repo").mkdir()
+        (tmp_path / "not_a_repo/greeting.txt").write_text("hello world")
+
+        with pytest.raises(pygit2.GitError, match="Repository not found"):
+            GitRepository(
+                name="not_a_repo",
+                description="not_a_repo",
+                repo_root=tmp_path / "not_a_repo",
+            )
+
 
 def test_git_tree(git: GitFn, repo_root: Path) -> None:
     """

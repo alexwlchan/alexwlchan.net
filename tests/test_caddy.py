@@ -3,9 +3,12 @@ Tests for `mosaic.caddy`.
 """
 
 from pathlib import Path
+from urllib.error import URLError
 
+from chives.fetch import fetch_url
 import pytest
 
+from mosaic import caddy
 from mosaic.caddy import parse_caddy_redirects, Redirect
 
 
@@ -73,3 +76,32 @@ def test_parser_finds_domain(tmp_path: Path) -> None:
             target="/til/atom.xml",
         ),
     ]
+
+
+class TestLocalWebserver:
+    """
+    Tests for `local_webserver`.
+    """
+
+    def test_web_server(self, tmp_path: Path) -> None:
+        """
+        Test the web server starts and serves a file.
+        """
+        (tmp_path / "index.html").write_text("hello world")
+        (tmp_path / "maths.html").write_text("1 + 1 = 2")
+
+        with caddy.local_webserver(tmp_path, port=9595) as base_url:
+            assert fetch_url(base_url) == b"hello world"
+            assert fetch_url(base_url + "/maths.html") == b"1 + 1 = 2"
+
+    def test_web_server_stops(self, tmp_path: Path) -> None:
+        """
+        After you exit the context manager, the web server is stopped.
+        """
+        (tmp_path / "index.html").write_text("hello world")
+
+        with caddy.local_webserver(tmp_path, port=9596) as base_url:
+            pass
+
+        with pytest.raises(URLError, match="Connection refused"):
+            fetch_url(base_url)
