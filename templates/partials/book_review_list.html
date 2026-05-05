@@ -26,7 +26,7 @@
   {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + bk_index|string %}
 {% else %}
   {% set dst_prefix = "b/" + (rev.review.date_read.year-2000)|string + "/" + rev.slug %}
-{% endif %} 
+{% endif %}
 {%- set cover_image -%}
 {%-
   picture
@@ -55,11 +55,11 @@
     {{- cover_image -}}
     {{- "" -}}
     </a>
-  
+
     {{- "" -}}
-  
+
     <p>
-      <a href="{{ rev.url }}">{{ rev.book.title | smartify }}</a>, {{ rev.attribution_line }} 
+      <a href="{{ rev.url }}">{{ rev.book.title | smartify }}</a>, {{ rev.attribution_line }}
       {%- if page.url == "/ace-book-club/" and rev.slug == "song-of-the-huntress" %}
         {{ " " }}(February 2026)
       {%- elif page.url == "/ace-book-club/" and rev.slug == "how-to-be-a-normal-person" %}
@@ -79,9 +79,9 @@
         {{ " " }}(did not finish)
       {%- endif -%}
     </p>
-  
+
     {{- "" -}}
-  
+
     {%- set description -%}
     <p>
       {%- if rev.review.summary -%}
@@ -91,7 +91,7 @@
       {%- if rev.review.date_read -%}
         {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
         {{ "&nbsp;" }}
-        {{- timestamp(rev.review.date_read) -}}.
+        {{- timestamp(rev.review.date_read, date_format="%-d %B") -}}.
         {{ " " }}
       {%- endif -%}
       {%- if not rev.review.did_not_finish -%}
