@@ -555,7 +555,7 @@ class TestGitFile:
         Tests for `GitFile.label`.
         """
         f = GitFile(path=Path(path), blob_id="123", size=0, is_binary=False)
-        assert f.label == label
+        assert f.label(contents="<empty>") == label
 
     @pytest.mark.parametrize(
         "path, lang",
@@ -575,4 +575,17 @@ class TestGitFile:
         Tests for `GitFile.lang`.
         """
         f = GitFile(path=Path(path), blob_id="123", size=0, is_binary=False)
-        assert f.lang == lang
+        assert f.lang(contents="<empty>") == lang
+
+    def test_bash_script(self) -> None:
+        """
+        Check a bash script is recognised as such.
+        """
+        f = GitFile(path=Path("example.sh"), blob_id="123", size=0, is_binary=False)
+        script_contents = "#!/usr/bin/env bash\necho 'hello world'"
+        assert f.label(contents=script_contents) == "Bash"
+        assert f.lang(contents=script_contents) == "bash"
+
+        zsh_script_contents = "#!/usr/bin/env zsh\necho 'hello world'"
+        assert f.label(contents=zsh_script_contents) is None
+        assert f.lang(contents=zsh_script_contents) == "text"

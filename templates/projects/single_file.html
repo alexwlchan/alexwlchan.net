@@ -8,8 +8,9 @@
     
     <ul class="dot_list">
       <li title="{{ "{:,}".format(page.file.size) }} bytes">{{ page.file.size | naturalsize }}</li>
-      {% if page.file.label %}
-      <li>{{ page.file.label }}</li>
+      {% set label = page.file.label(contents=page.file_contents) %}
+      {% if label %}
+      <li>{{ label }}</li>
       {% endif %}
       <li><a href="/projects/{{ page.slug }}/raw/{{ page.file.path }}">View raw</a></li>
     </ul>
@@ -20,7 +21,7 @@
       {{
           apply_syntax_highlighting(
             page.file_contents,
-            lang=page.file.lang,
+            lang=page.file.lang(contents=page.file_contents),
             line_numbers=True,
             link_line_numbers=True,
             names="all",

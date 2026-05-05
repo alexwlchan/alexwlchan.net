@@ -208,10 +208,9 @@ class GitFile(BaseModel):
     # Whether this is a binary file
     is_binary: bool
 
-    @property
-    def label(self) -> str | None:
+    def label(self, contents: str) -> str | None:
         """
-        Returns a human-readable label describing the type of this file.
+        Return a human-readable label describing the type of this file.
         """
         match self.path.suffix:
             case ".md":
@@ -226,6 +225,9 @@ class GitFile(BaseModel):
                 return "TOML"
             case ".yml":
                 return "YAML"
+            case ".sh":
+                if contents.startswith("#!/usr/bin/env bash\n"):
+                    return "Bash"
 
         if self.path.name.endswith("requirements.txt"):
             return "pip requirements file"
@@ -235,10 +237,9 @@ class GitFile(BaseModel):
 
         return None
 
-    @property
-    def lang(self) -> str:
+    def lang(self, contents: str) -> str:
         """
-        Returns a Pygments lexer shortname for this file.
+        Return a Pygments lexer shortname for this file.
         """
         match self.path.suffix:
             case ".md":
@@ -251,6 +252,9 @@ class GitFile(BaseModel):
                 return "toml"
             case ".yml":
                 return "yaml"
+            case ".sh":
+                if contents.startswith("#!/usr/bin/env bash\n"):
+                    return "bash"
         return "text"
 
 
