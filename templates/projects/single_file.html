@@ -17,13 +17,15 @@
     {% if page.file.size == 0 %}
       <p>(File is empty)</p>
     {% else %}
-{% set markdown %}
-```{{ page.file.lang }} {"line_numbers":true,"link_line_numbers":true,"names":"all"}
-{{ page.file_contents }}
-```
-{% endset %}
-
-{{ markdown | markdownify }}
+      {{
+          apply_syntax_highlighting(
+            page.file_contents,
+            lang=page.file.lang,
+            line_numbers=True,
+            link_line_numbers=True,
+            names="all",
+          )
+      }}
     {% endif %}
 
   <script src="/static/line_highlighting.js"></script>

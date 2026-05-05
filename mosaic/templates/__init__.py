@@ -15,6 +15,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from mosaic import page_types
 from mosaic.css import get_inline_styles
 from mosaic.page_types import Post
+from mosaic.syntax_highlighting import apply_syntax_highlighting
 from mosaic.text import (
     cleanup_text,
     markdownify,
@@ -84,6 +85,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
     )
     env.globals.update(
         {
+            "apply_syntax_highlighting": apply_syntax_highlighting,
             "src_dir": src_dir,
             "out_dir": out_dir,
             "get_topic_by_name": get_topic_by_name,

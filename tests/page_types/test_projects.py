@@ -143,26 +143,70 @@ def test_tree(env: Environment, repo: GitRepository, out_dir: Path) -> None:
     )
 
 
-def test_single_file(env: Environment, repo: GitRepository, out_dir: Path) -> None:
+class TestSingleFile:
     """
     Tests for `ProjectSingleFile`.
     """
-    repo.name = "example-project"
 
-    p = ProjectSingleFile(
-        repo=repo,
-        file=GitFile(path=Path("README.md"), blob_id="123", size=17, is_binary=False),
-        file_contents="This is my README",
-    )
+    def test_single_file(
+        self, env: Environment, repo: GitRepository, out_dir: Path
+    ) -> None:
+        """
+        Test the basic properties of a ProjectSingleFile.
+        """
+        repo.name = "example-project"
 
-    assert p.url == "/projects/example-project/files/README.md"
-    assert p.breadcrumb == [
-        BreadcrumbEntry(label="projects", href="/projects/"),
-        BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
-        BreadcrumbEntry(label="files", href="/projects/example-project/files/"),
-    ]
+        p = ProjectSingleFile(
+            repo=repo,
+            file=GitFile(
+                path=Path("README.md"), blob_id="123", size=17, is_binary=False
+            ),
+            file_contents="This is my README",
+        )
 
-    assert (
-        p.write(env, out_dir)
-        == out_dir / "projects/example-project/files/README.md.html"
-    )
+        assert p.url == "/projects/example-project/files/README.md"
+        assert p.breadcrumb == [
+            BreadcrumbEntry(label="projects", href="/projects/"),
+            BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
+            BreadcrumbEntry(label="files", href="/projects/example-project/files/"),
+        ]
+
+        assert (
+            p.write(env, out_dir)
+            == out_dir / "projects/example-project/files/README.md.html"
+        )
+
+    def test_markdown_file(
+        self, env: Environment, repo: GitRepository, out_dir: Path
+    ) -> None:
+        """
+        Test a Markdown file which includes backticks.
+        """
+        file_contents = (
+            "This is some code\n"
+            "\n"
+            "```\n"
+            "def greet():\n"
+            "    print('hello world')\n"
+            "```\n"
+            "\n"
+            "This is some text after the code."
+        )
+
+        p = ProjectSingleFile(
+            repo=repo,
+            file=GitFile(
+                path=Path("README.md"),
+                blob_id="123",
+                size=len(file_contents),
+                is_binary=False,
+            ),
+            file_contents=file_contents,
+        )
+
+        html = p.render_full_html(env)
+
+        # Check there's only one closing </pre> tag on the page, and that
+        # the code in the block is formatted properly.
+        assert html.count("</pre>") == 1
+        assert "<p>def greet():" not in html
