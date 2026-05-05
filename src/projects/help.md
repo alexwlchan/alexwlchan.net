@@ -27,9 +27,11 @@ Cloning into 'chives'...
 done.
 $ cd $repo_name
 $ git remote set-url --add --push origin linode-vps:repos/$repo_name
+$ git remote set-url --add --push origin ~/Media/repos/$repo_name
 $ git remote -v
 origin	/Users/alexwlchan/Media/repos/chives (fetch)
 origin	linode-vps:repos/chives (push)
+origin	/Users/alexwlchan/Media/repos/chives (push)
 ```
 
 This means pulls will come from `phaenna-mac-mini`, and pushes will be mirrored to `linode-vps`.
@@ -43,9 +45,11 @@ Cloning into 'chives'...
 done.
 $ cd $repo_name
 $ git remote set-url --add --push origin linode-vps:repos/$repo_name
+$ git remote set-url --add --push origin phaenna-mac-mini:Media/repos/$repo_name
 $ git remote -v
 origin	phaenna-mac-mini:Media/repos/chives (fetch)
 origin	linode-vps:repos/chives (push)
+origin	phaenna-mac-mini:Media/repos/chives (push)
 ```
 
 ## Setting up a new/existing repo
