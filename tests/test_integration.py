@@ -82,3 +82,25 @@ def test_git_file_not_found(base_url: str, page: Page) -> None:
 
     expect(page.get_by_text("File not found:")).to_be_visible()
     expect(page.get_by_text("does/not/exist.txt")).to_be_visible()
+
+
+@pytest.mark.parametrize("url", ["/computers-and-code/"])
+def test_page_reflows_on_narrow_screens(
+    browser: Browser, base_url: str, url: str
+) -> None:
+    """
+    Check that on narrow screens, pages size to fit the screen.
+
+    This is a regression test for issues I've had in the past where
+    some wide element breaks the page when the window is narrower than it.
+    """
+    width = 350
+    height = 650
+
+    context = browser.new_context(viewport={"width": width, "height": height})
+    page = context.new_page()
+    page.goto(base_url + url)
+
+    scroll_width = page.evaluate("document.body.scrollWidth")
+
+    assert scroll_width == width

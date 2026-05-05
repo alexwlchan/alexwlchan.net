@@ -12,5 +12,11 @@
     margin-bottom: 0;
     font-size: 85%;
     line-height: 1.45em;
+    
+    /* There's at least one note where the description includes a long URL
+     * which can overflow the page on narrow screens; force it to wrap. */
+    code {
+      word-wrap: anywhere;
+    }
   }
 }
