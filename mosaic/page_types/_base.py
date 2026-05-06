@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import TypedDict
 
 from jinja2 import Environment
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from mosaic import cache
 from mosaic.tint_colours import TintColours
@@ -40,6 +40,8 @@ class BaseHtmlPage(ABC, BaseModel):
     never be constructed directly, but instead used to create pages
     as needed.
     """
+
+    model_config = ConfigDict(strict=True)
 
     @property
     @abstractmethod

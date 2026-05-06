@@ -27,7 +27,7 @@ from .projects import (
 from .topic_pages import TopicPage
 
 
-def read_page_from_markdown(src_dir: Path, md_path: str | Path) -> BaseHtmlPage:
+def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
     """
     Read a Markdown file and parse the YAML front matter.
     """
@@ -99,7 +99,7 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
 
     for md_path in glob.glob(f"{src_dir}/**/*.md", recursive=True):
         try:
-            page = read_page_from_markdown(src_dir, md_path)
+            page = read_page_from_markdown(src_dir, md_path=Path(md_path))
         except Exception as exc:  # pragma: no cover
             print(coloured(f"error reading {md_path}: {exc}", "red"))
             raise
