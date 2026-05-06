@@ -4,8 +4,7 @@ date: 2015-12-10 08:15:00 +00:00
 link: http://leancrew.com/all-this/2015/11/simpler-syndication/
 topic: Python
 title: Simpler syndication, by Dr. Drang
-index:
-  exclude: true
+is_excluded: true
 ---
 
 A fortnight ago, Dr. Drang wrote about his new RSS service: a Python script that polls his subscriptions once every five minutes, and renders the output as a static HTML page.

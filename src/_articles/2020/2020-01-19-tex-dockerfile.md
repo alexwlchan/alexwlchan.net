@@ -4,8 +4,7 @@ date: 2020-01-19 10:32:58 +00:00
 title: A Docker image to run LaTeX
 link: https://github.com/alexwlchan/tex-dockerfile
 topic: LaTeX
-index:
-  exclude: true
+is_excluded: true
 ---
 
 These days, I do less and less writing that needs to be printed, but when I do, my tool of choice is still LaTeX.

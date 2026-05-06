@@ -5,8 +5,7 @@ title: Drawing repetitive radial artworks
 summary: |
   Using polar coordinates to draw leaf- and flower-like patterns that repeat in circles around a point.
 topic: Generative art
-index:
-  feature: true
+is_featured: true
 ---
 I was waiting for a meeting to start the other day, and I was idly doodling in my notebook.
 I'd just had a text from a friend about an upcoming trip to Ireland, and she'd sent me the four-leafed clover emoji (🍀), so I was sketching some petal-like shapes.

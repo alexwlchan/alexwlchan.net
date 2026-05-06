@@ -9,8 +9,7 @@ topics:
 colors:
   css_dark:  "#8ec0e6"
   css_light: "#3351a3"
-index:
-  feature: true
+is_featured: true
 card_attribution: https://www.pexels.com/photo/gray-and-yellow-gravel-stones-997704/
 ---
 

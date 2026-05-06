@@ -3,8 +3,7 @@ layout: article
 date: 2014-05-12 15:53:00 +00:00
 summary: Some suggestions for second year Cambridge maths students looking for workover the summer.
 title: Brief advice for Part II
-index:
-  exclude: true
+is_excluded: true
 topic: Maths
 hidden_topics:
   - Academia

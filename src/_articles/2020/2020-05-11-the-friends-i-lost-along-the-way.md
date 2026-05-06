@@ -3,8 +3,7 @@ layout: article
 date: 2020-05-11 18:30:07 +00:00
 title: The friends I lost along the way
 topic: Personal thoughts
-index:
-  exclude: true
+is_excluded: true
 ---
 
 I've lived a lot of my life on the internet.

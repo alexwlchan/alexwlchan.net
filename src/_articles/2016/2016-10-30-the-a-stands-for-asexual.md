@@ -3,8 +3,7 @@ layout: article
 date:       2016-10-30 09:12:00 +00:00
 summary:    A brief introduction to asexuality, what it means, and why it matters.
 title:      The A stands for Asexual
-index:
-  exclude: true
+is_excluded: true
 colors:
   css_light: "#6c006c"
   css_dark:  "#cb52ff"

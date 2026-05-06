@@ -9,8 +9,7 @@ colors:
 topics:
   - Tiny archives
   - Static websites
-index:
-  feature: true
+is_featured: true
 ---
 Last year I wrote about [using static websites for tiny archives][static_sites].
 The idea is that I create tiny websites to store and describe my digital collections.

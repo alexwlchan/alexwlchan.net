@@ -7,8 +7,7 @@ title: Getting a tint colour from an image with Python and <em>k</em>-means
 colors:
   index_light: "#4A653A"
   index_dark:  "#70a15a"
-index:
-  feature: true
+is_featured: true
 topics:
   - Colours
   - Python

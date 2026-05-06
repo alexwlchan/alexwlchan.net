@@ -6,8 +6,7 @@ summary: How I reincarnated a fifteenth-century monk and taught him to use Twitt
 colors:
   index_light: "#624230"
   index_dark:  "#aa9f92"
-index:
-  feature: true
+is_featured: true
 topic: Fun stuff
 hidden_topics:
   - Twitter

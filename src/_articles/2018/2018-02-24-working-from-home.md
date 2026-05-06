@@ -3,8 +3,7 @@ layout: article
 date: 2018-02-24 06:51:45 +00:00
 title: A working from home experiment
 summary: I've recently started working from home for one day a week. In this post I explain why I made the change, some of the benefits and risks, and why I think it's worth trying.
-index:
-  exclude: true
+is_excluded: true
 topic: Work
 ---
 

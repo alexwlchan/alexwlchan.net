@@ -7,8 +7,7 @@ summary: A fun app to calculate the size of your data in terms of floppy disks.
 colors:
   index_light: "#ff47ff"
   index_dark:  "#fbabfa"
-index:
-  feature: true
+is_featured: true
 topics:
   - Fun stuff
   - Digital preservation

@@ -7,8 +7,7 @@ topics:
   - Preserving social media
   - Personal thoughts
   - Tiny archives
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#446d8d"
   css_dark:  "#b86748"

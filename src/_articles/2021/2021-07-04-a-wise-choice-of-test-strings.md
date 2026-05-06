@@ -2,8 +2,7 @@
 layout: article
 date: 2021-07-04 12:24:36 +00:00
 title: A wise choice of test strings
-index:
-  exclude: true
+is_excluded: true
 topic: Text and Unicode
 ---
 

@@ -2,8 +2,7 @@
 layout: article
 date: 2016-08-19 23:34:00 +00:00
 title: 'Python snippets: Is a URL from a Tumblr post?'
-index:
-  exclude: true
+is_excluded: true
 topics:
   - Tumblr
   - Python

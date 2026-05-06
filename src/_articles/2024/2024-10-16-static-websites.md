@@ -8,8 +8,7 @@ summary: |
 topics:
   - Tiny archives
   - Static websites
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#51514c"
   index_dark:  "#cecfc9"

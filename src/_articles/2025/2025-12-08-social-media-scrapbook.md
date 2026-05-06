@@ -6,8 +6,7 @@ summary: I don't trust platforms to preserve my memories, so I built my own scra
 topics:
   - Preserving social media
   - Tiny archives
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#366fa5"
   css_dark:  "#41a5ed"

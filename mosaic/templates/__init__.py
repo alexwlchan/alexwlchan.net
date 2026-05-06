@@ -163,10 +163,10 @@ def group_list_of_posts(posts: list[Post]) -> Iterator[PostGroup]:  # pragma: no
     remaining_posts = []
 
     for p in posts:
-        if p.index.exclude:
+        if p.is_excluded:
             continue
 
-        if p.index.feature:
+        if p.is_featured:
             featured_posts.append(p)
         else:
             remaining_posts.append(p)

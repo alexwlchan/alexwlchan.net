@@ -6,8 +6,7 @@ summary: Taking the humble &lt;marquee&gt; tag where no HTML tag has gone before
 colors:
   index_light: '#ba4220'
   index_dark: '#eb7028'
-index:
-  feature: true
+is_featured: true
 topics:
   - Code crimes
   - HTML

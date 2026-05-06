@@ -3,8 +3,7 @@ layout: article
 date: 2013-03-30 19:57:00 +00:00
 summary: A strange bug with OS X's timezone handling
 title: Strange clock bug in OS X
-index:
-  exclude: true
+is_excluded: true
 topics:
   - macOS
   - Datetime shenanigans

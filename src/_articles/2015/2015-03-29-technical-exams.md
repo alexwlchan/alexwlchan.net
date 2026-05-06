@@ -3,8 +3,7 @@ layout: article
 date: 2015-03-29 01:01:01 +00:00
 title: Some Part IA exam advice
 summary: Some advice for students sitting technical exams.
-index:
-  exclude: true
+is_excluded: true
 topic: Maths
 hidden_topics:
   - Academia

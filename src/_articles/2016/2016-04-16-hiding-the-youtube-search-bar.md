@@ -3,8 +3,7 @@ layout: article
 date: 2016-04-16 14:32:00 +00:00
 summary: I’ve adapted my bookmarklet for tidying up Google Maps to hide the YouTube search bar.
 title: Hiding the YouTube search bar
-index:
-  exclude: true
+is_excluded: true
 topics:
   - YouTube
   - JavaScript

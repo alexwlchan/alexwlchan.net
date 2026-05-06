@@ -2,8 +2,7 @@
 layout: article
 date: 2019-05-01 20:59:07 +00:00
 title: Finding unused variables in a Terraform module
-index:
-  exclude: true
+is_excluded: true
 topic: Terraform
 ---
 

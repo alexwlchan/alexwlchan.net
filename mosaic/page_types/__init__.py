@@ -15,7 +15,7 @@ from .articles import Article
 from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
 from .notes import Note
-from .posts import Post, IndexInfo
+from .posts import Post
 from .projects import (
     ProjectCommit,
     ProjectHomepage,

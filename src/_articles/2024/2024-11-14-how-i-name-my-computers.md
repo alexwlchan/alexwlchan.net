@@ -4,8 +4,7 @@ date: 2024-11-14 09:55:58 +00:00
 title: How I name my computers
 summary:
   What do flaming birds, man-eating giants, and obscure deities have in common?
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#4d3c1b"
   index_dark:  "#b7b0a4"

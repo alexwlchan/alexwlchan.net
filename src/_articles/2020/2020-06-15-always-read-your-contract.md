@@ -3,8 +3,7 @@ layout: article
 date: 2020-06-15 20:49:45 +00:00
 title: Always read your contracts
 link: https://twitter.com/alexwlchan/status/1271339259509825536
-index:
-  exclude: true
+is_excluded: true
 topic: The world around us
 ---
 

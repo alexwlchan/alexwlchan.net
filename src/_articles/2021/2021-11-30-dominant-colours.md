@@ -6,8 +6,7 @@ summary: A new tool for playing with images.
 colors:
   index_light: "#4576bb"
   index_dark:  "#88a7d3"
-index:
-  feature: true
+is_featured: true
 topics:
   - Colours
   - Images and videos

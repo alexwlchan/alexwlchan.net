@@ -9,8 +9,7 @@ topics:
 colors:
   css_light: "#742a0c"
   css_dark:  "#b7834f"
-index:
-  feature: true
+is_featured: true
 ---
 
 <style>

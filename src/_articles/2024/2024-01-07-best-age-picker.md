@@ -3,8 +3,7 @@ layout: article
 date: 2024-01-07 21:11:31 +00:00
 title: The best way to tell a website your age
 summary: Using SVG animations to create a fun and exciting new input UI.
-index:
-  exclude: true
+is_excluded: true
 topics:
 - Code crimes
 - Drawing things

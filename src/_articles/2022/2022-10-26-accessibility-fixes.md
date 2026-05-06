@@ -6,8 +6,7 @@ summary: Making the sites I work on sound a bit nicer for anyone who relies on s
 colors:
   css_light: '#075ba3'
   css_dark: '#198ff5'
-index:
-  exclude: true
+is_excluded: true
 topics:
   - Blogging about blogging
   - Inclusion and accessibility
