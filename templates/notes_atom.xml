@@ -5,7 +5,7 @@
   <link href="{{ '/notes/' | absolute_url }}" rel="alternate" type="text/html" />
   <id>{{ '/' | absolute_url | xml_escape }}</id>
   <title type="html">{{ "alexwlchan’s notes" | xml_escape }}</title>
-  <subtitle>{{ "Alex Chan’s Notes" | xml_escape }}</subtitle>
+  <subtitle>{{ "Alex Chan’s notes" | xml_escape }}</subtitle>
 
   {% for post in notes[:25] %}
     {% include "partials/rss_feed_entry.xml" %}
