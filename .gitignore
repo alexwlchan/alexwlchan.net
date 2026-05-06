@@ -6,3 +6,6 @@ _site
 _out
 
 .mosaic_cache.db*
+
+# Ignore lock files created by Caddy
+*.lock
