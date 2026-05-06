@@ -94,6 +94,8 @@ def local_webserver(out_dir: Path, port: int = 5757) -> Iterator[str]:
             else:
                 break
 
+        assert not proc.poll()
+
         yield url
 
         proc.terminate()
