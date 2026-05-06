@@ -6,6 +6,11 @@ date: 2026-03-12 14:25:03 +00:00
 topics: 
   - Computers and code
   - Personal thoughts
+colors:
+  index_light: "#2a9f2c"
+  index_dark:  "#e4ad3d"
+index:
+  feature: true
 ---
 I want my current computer to last for a decade.
 That's an eternity in the tech world, far longer than most people keep their hardware, but I don't think it's an unreasonable goal.
