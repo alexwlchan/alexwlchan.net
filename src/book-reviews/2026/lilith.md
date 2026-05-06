@@ -16,7 +16,7 @@ review:
   rating: 4
   summary: This is a modern and feminist retelling of Lilith, a character I’m not very familiar with.
 
-colors:
+colours:
   css_light: "#bf1a17"
   css_dark:  "#e3cb8a"
 

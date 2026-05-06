@@ -20,7 +20,7 @@ review:
   rating: 3
   summary: A librarian gives five people a book and a felt toy that changes their life, but not in the way they expected.
 
-colors:
+colours:
   css_light: '#3d7675'
   css_dark:  '#22ac3e'
 

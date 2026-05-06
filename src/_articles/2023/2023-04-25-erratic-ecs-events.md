@@ -4,7 +4,7 @@ date: 2023-04-25 13:40:02 +00:00
 title: Getting alerts about flaky ECS tasks in Slack
 summary: |
   When ECS is "unable to consistently start tasks successfully", we get a Slack alert that tells us to investigate.
-colors:
+colours:
   index_light: "#b24c0e"
   index_dark:  "#e7862a"
 card_attribution: https://pixabay.com/photos/light-bulb-incandescent-smoke-crack-503881/

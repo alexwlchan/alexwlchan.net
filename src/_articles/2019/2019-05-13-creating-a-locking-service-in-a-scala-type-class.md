@@ -4,7 +4,7 @@ date: 2019-05-13 10:17:13 +00:00
 title: Creating a locking service in a Scala type class
 summary: Breaking down some tricky code that allows us to lock over concurrent operations.
 topic: Scala
-colors:
+colours:
   index_light: "#276b44"
   index_dark:  "#4dc194"
 ---

@@ -6,7 +6,7 @@ summary: Showing how clips and masks work, and how they can be used to draw inne
 topics:
   - Drawing things
   - SVG
-colors:
+colours:
   index_light: "#8f6434"
   index_dark:  "#e7a355"
 is_featured: true

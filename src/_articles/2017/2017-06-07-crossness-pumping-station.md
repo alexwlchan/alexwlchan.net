@@ -4,7 +4,7 @@ date: 2017-06-07 20:50:00 +00:00
 summary: Pictures from my recent visit to Crossness, a Victorian pumping station for London's sewers.
 title: A visit to the Crossness pumping station
 topic: The world around us
-colors:
+colours:
   css_light: "#2b5750"
   css_dark:  "#5da898"
 is_featured: true

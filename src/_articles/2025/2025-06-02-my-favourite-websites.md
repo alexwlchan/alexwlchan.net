@@ -4,7 +4,7 @@ date: 2025-06-02 08:18:27 +00:00
 title: My favourite websites from my bookmark collection
 summary: Websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
 topic: Web archiving
-colors:
+colours:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
 ---

@@ -6,7 +6,7 @@ summary: |
   The new bot improves metadata for Flickr photos on Wikimedia Commons, and makes it easier to find out which photos have been copied across.
 link: https://www.flickr.org/improving-millions-of-files-on-wikimedia-commons-with-flickypedia-backfillr-bot/
 link_direct: true
-colors:
+colours:
   index_dark:  "#e4d186"
   index_light: "#c55c75"
 topics:

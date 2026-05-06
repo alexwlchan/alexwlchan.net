@@ -3,7 +3,7 @@ layout: article
 date: 2023-07-03 13:43:19 +00:00
 title: Turning off ECS tasks overnight using an EventBridge Schedule
 summary: Calling the UpdateService API on a fixed schedule allows us to turn services off in the evening, and back on again the next morning.
-colors:
+colours:
   css_light: "#9a255e"
   css_dark:  "#ff3d9c"
 card_attribution: https://www.pexels.com/photo/analog-clock-sketch-in-black-surface-745365/

@@ -19,7 +19,7 @@ review:
   summary: A psychological thriller that I enjoyed more once I realised it wasn't the sci-fi suggested by the blurb.
   from_the_library: true
   
-colors:
+colours:
   css_dark: '#d2b26a'
   css_light: '#070601'
 

@@ -6,7 +6,7 @@ summary: Swing dancing and prompt engineering are pretty different. But could le
 topics:
   - Computers and code
   - Talks I've given
-colors:
+colours:
   css_dark:  "#88FA4E"
   css_light: "#008500"
 ---

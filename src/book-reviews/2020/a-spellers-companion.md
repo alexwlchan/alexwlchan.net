@@ -19,7 +19,7 @@ review:
   format: pamphlet
   rating: 4
 
-colors:
+colours:
    css_light: '#42342f'
    css_dark:  '#fefef7'
 

@@ -6,7 +6,7 @@ summary: Preserving social media is easier said than done. What makes it so diff
 topics:
   - Preserving social media
 is_featured: true
-colors:
+colours:
   css_light: "#5366ac"
   css_dark:  "#607db9"
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: My day job
 date_updated: 2026-02-08 19:06:09 +00:00
-colors:
+colours:
   css_light: "#118207"
   css_dark:  "#5ff042"
 ---

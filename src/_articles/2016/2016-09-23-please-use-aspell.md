@@ -2,7 +2,7 @@
 layout: article
 date: 2016-09-23 07:40:00 +00:00
 title: aspell, a command-line spell checker
-colors:
+colours:
   index_light: "#022833"
   index_dark:  "#a7b3b4"
 topic: Computers and code

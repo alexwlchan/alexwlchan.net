@@ -6,7 +6,7 @@ summary: Using `from_entries` is a nicer way to deal with the list of Name/Value
 topics:
   - jq
   - AWS
-colors:
+colours:
   index_dark:  "#d4d1c0"
   index_light: "#46362e"
 card_attribution: https://www.pexels.com/photo/brown-paper-tag-lot-1111315/

@@ -6,7 +6,7 @@ summary: How to make sure you get a `Date` back when you call `JSON.parse` and `
 topics:
   - JavaScript
   - Datetime shenanigans
-colors:
+colours:
   css_light: "#662c29"
   css_dark:  "#bda9a1"
 ---

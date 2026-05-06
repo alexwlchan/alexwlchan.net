@@ -6,7 +6,7 @@ summary: When I’m on video calls, my backdrop has some maths-related art that 
 topics:
   - Art and creativity
   - Maths
-colors:
+colours:
   css_light: "#742a0c"
   css_dark:  "#b7834f"
 is_featured: true

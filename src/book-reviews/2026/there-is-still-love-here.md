@@ -20,7 +20,7 @@ review:
   summary: A short and sweet collection of poems that explore the author's identity.
   from_the_library: true
 
-colors:
+colours:
   css_dark: '#cbb0a3'
   css_light: '#193c51'
 

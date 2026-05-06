@@ -20,7 +20,7 @@ review:
   rating: 4
   summary: A young man seeking revenge realises he's fighting the wrong person, in a space opera that explores grief and loss.
 
-colors:
+colours:
   css_light: '#493078'
   css_dark:  '#cb5e57'
 

@@ -6,7 +6,7 @@ summary: If you're looking at a UUID'd file in the PhotosLibrary package, how do
 topics:
   - Images and videos
   - macOS
-colors:
+colours:
   index_light: "#1582c6"
   index_dark:  "#8fcff4"
 ---

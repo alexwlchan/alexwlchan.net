@@ -7,7 +7,7 @@ topics:
   - AWS
   - Scala
 title: Implementing parallel scan in DynamoDB with Scanamo
-colors:
+colours:
   index_light: "#2E27AD"
   index_dark:  "#66d3fa"
 ---

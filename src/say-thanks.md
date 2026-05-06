@@ -1,7 +1,7 @@
 ---
 layout: page
 title: How to say thanks
-colors:
+colours:
   css_light: "#118207"
   css_dark:  "#5ff042"
 ---

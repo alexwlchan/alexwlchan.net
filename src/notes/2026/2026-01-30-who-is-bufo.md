@@ -3,7 +3,7 @@ layout: note
 title: Who is Bufo the frog?
 date: 2026-01-30 18:30:44 +00:00
 summary: Unpicking the history of a Slack icon.
-colors:
+colours:
   css_light: "#5d7847"
   css_dark:  "#7d946a"
 topic: Fun stuff

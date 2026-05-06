@@ -20,7 +20,7 @@ review:
   did_not_finish: true
   format: audiobook
 
-colors:
+colours:
    css_light: '#296a93'
    css_dark:  '#94cee7'
 

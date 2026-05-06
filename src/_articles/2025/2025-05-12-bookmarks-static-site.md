@@ -9,7 +9,7 @@ topics:
   - Tiny archives
   - Static websites
 is_featured: true
-colors:
+colours:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
 ---

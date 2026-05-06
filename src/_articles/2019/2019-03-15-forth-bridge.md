@@ -4,7 +4,7 @@ date: 2019-03-15 22:02:51 +00:00
 title: "A day out to the Forth Bridge"
 summary: "Photographs from a trip to North Queensferry to see the Forth Bridge, the Forth Road Bridge, and an unexpected light tower."
 topic: The world around us
-colors:
+colours:
   index_light: "#3063a4"
   index_dark:  "#629de4"
 is_featured: true

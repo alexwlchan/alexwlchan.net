@@ -19,7 +19,7 @@ review:
   format: audiobook
   rating: 3
 
-colors:
+colours:
    css_light: '#345f76'
    css_dark:  '#cf5b4e'
 

@@ -20,7 +20,7 @@ review:
   did_not_finish: true
   format: paperback
 
-colors:
+colours:
    css_light: '#5f692e'
    css_dark:  '#ea746b'
 

@@ -3,7 +3,7 @@ layout: article
 date: 2018-08-26 07:10:28 +00:00
 title: Making the venue maps for PyCon UK
 summary: A quick braindump of my thoughts from drawing some venue maps for PyCon UK.
-colors:
+colours:
   index_light: "#336EAF"
   index_dark:  "#fac126"
 topics:

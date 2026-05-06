@@ -6,7 +6,7 @@ summary: Getting something that looks more like the output of the ListObjectsV2 
 topics:
   - AWS
   - Python
-colors:
+colours:
   index_light: "#117A06"
   index_dark:  "#4cdf0a"
 card_attribution: https://unsplash.com/photos/ND-5eIFKeiM

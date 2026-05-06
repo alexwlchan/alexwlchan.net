@@ -5,7 +5,7 @@ title: Always running
 summary: When the fire starts, I am already running for the exit. I run because somebody must show the way.
 topic: Art and creativity
 is_featured: true
-colors:
+colours:
   css_light: "#05802e"
   css_dark:  "#9aff91"
 ---

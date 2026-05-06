@@ -5,7 +5,7 @@ title: Mountaintop moments
 summary:
   The amazing events that let us temporarily escape from our lives, and how to deal with the emotional crash that comes afterward.
 topic: Personal thoughts
-colors:
+colours:
   css_light: "#0c59c6"
   css_dark:  "#599dfc"
 is_featured: true

@@ -3,7 +3,7 @@ layout: article
 date: 2024-01-21 11:24:04 +00:00
 title: The Collected Works of Ian Flemingo
 summary: 'A fledgling author uses a theatre trip to leave the nest. (Or: some props I made for a cosplay event.)'
-colors:
+colours:
   css_light: '#464646'
   css_dark: '#adadad'
 topics:

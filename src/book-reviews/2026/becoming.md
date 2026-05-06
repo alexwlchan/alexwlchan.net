@@ -17,7 +17,7 @@ review:
   rating: 4
   summary: A memoir about Williams finding a sense of identity and self-worth, which gets better the further you read.
 
-colors:
+colours:
   css_light: "#a65f87"
   css_dark:  "#eab0d1"
 

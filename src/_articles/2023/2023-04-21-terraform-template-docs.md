@@ -3,7 +3,7 @@ layout: article
 date: 2023-04-21 15:40:25 +00:00
 title: Using templates in Terraform to document a deployment
 summary: Terraform can fill in placeholders with exact values from your deployment, for easy copy/paste instructions.
-colors:
+colours:
   index_light: "#7B42BC"
   index_dark:  "#af75fa"
 card_attribution: pexels-pixabay-261763.jpg, noun-pencil-5667651-FFFFFF.png

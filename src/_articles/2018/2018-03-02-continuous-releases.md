@@ -7,7 +7,7 @@ topics:
   - Software testing
   - Builds and CI
 summary: How we do continuous releases of hypothesis-python, and why.
-colors:
+colours:
   index_light: "#006dad"
   index_dark:  "#2975bc"
 ---

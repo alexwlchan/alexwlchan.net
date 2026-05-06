@@ -4,7 +4,7 @@ date: 2022-04-25 21:10:40 +00:00
 title: Illustrating the cipher wheels of a Lorenz machine
 summary: Some old code I wrote to draw cam-accurate illustrations of cipher wheels.
 link: https://github.com/alexwlchan/lorenz-wheels
-colors:
+colours:
   index_light: '#423f3a'
   index_dark: '#a9a69a'
 topics:

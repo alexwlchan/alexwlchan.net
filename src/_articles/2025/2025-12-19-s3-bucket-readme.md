@@ -6,7 +6,7 @@ summary: If you create an S3 bucket in Terraform, you can also create a README t
 topics:
   - AWS
   - Terraform
-colors:
+colours:
   css_light: "#18860e"
   css_dark:  "#5ff042"
 ---

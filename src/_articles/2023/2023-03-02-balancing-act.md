@@ -6,7 +6,7 @@ summary: How do you make sure everyone gets to work with everyone else?
 topics:
   - Maths
   - Python
-colors:
+colours:
   index_light: "#8c3526"
   index_dark:  "#d7a59d"
 ---

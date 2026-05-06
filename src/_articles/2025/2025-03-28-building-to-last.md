@@ -7,7 +7,7 @@ topics:
   - Digital preservation
   - Talks I've given
 is_featured: true
-colors:
+colours:
   css_light: "#408074"
   css_dark:  "#7CF6DF"
 ---

@@ -6,7 +6,7 @@ summary: I'm resisting my temptation towards digital hoarding and "save everythi
 topics:
   - Personal thoughts
   - Digital preservation
-colors:
+colours:
   css_dark:  "#8ec0e6"
   css_light: "#3351a3"
 is_featured: true

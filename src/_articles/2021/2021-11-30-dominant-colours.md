@@ -3,7 +3,7 @@ layout: article
 date: 2021-11-30 09:30:01 +00:00
 title: dominant_colours, a CLI tool for finding dominant colours in an image
 summary: A new tool for playing with images.
-colors:
+colours:
   index_light: "#4576bb"
   index_dark:  "#88a7d3"
 is_featured: true

@@ -3,7 +3,7 @@ layout: article
 date: 2018-09-24 06:56:21 +00:00
 title: Assume worst intent (designing against the abusive ex)
 summary: How do we design services and platforms to reduce the risk of harassment and abuse from other users?
-colors:
+colours:
   index_light: "#531b93"
   index_dark:  "#b7cada"
 topics:

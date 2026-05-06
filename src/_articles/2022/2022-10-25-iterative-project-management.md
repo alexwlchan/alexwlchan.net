@@ -3,7 +3,7 @@ layout: article
 date: 2022-10-25 08:07:13 +00:00
 title: Agile and iterative project management
 summary: Notes from a talk about agile and iterative approaches to project management.
-colors:
+colours:
   css_light: '#20883f'
   css_dark: '#2fc65d'
 topic: Talks I've given

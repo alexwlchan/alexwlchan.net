@@ -6,7 +6,7 @@ summary: If we want to redefine how division works, Ruby is happy to oblige.
 topics:
   - Code crimes
   - Ruby
-colors:
+colours:
   css_light:   "#292929"
   css_dark:    "#b0b0b0"
   index_light: "#d01c11"

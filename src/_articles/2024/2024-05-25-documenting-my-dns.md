@@ -4,7 +4,7 @@ date: 2024-05-25 13:21:10 +00:00
 title: Documenting my DNS records
 summary: |
   Exporting my DNS records as YAML gives me a plaintext file where I can track changes, add comments, and feel more confident about managing my DNS.
-colors:
+colours:
   index_light: "#c53f70"
   index_dark:  "#bbc660"
 card_attribution: https://www.pexels.com/photo/close-up-shot-of-a-hummingbird-4838540/

@@ -20,7 +20,7 @@ review:
     Poetry collection by a Mincefluencer friend.
     We're not close enough for me to know the story behind each of the poems, but I can sense it from her writing.
 
-colors:
+colours:
   css_light: "#e52623"
   css_dark:  "#fcd752"
 

@@ -7,7 +7,7 @@ canonical_url: https://stacks.wellcomecollection.org/digital-preservation-at-wel
 topics:
   - Wellcome Collection
   - Digital preservation
-colors:
+colours:
   css_light: "#64573f"
   css_dark:  "#eeeab4"
 ---

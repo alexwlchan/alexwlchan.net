@@ -18,7 +18,7 @@ review:
   rating: 3
   summary: This is a romance novel, the first in a new Clover Lake series, and I found it disappointing.
 
-colors:
+colours:
   css_light: "#805c8f"
   css_dark:  "#f8c07b"
 

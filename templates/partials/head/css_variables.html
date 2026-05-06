@@ -1,11 +1,11 @@
-{% if page.colors and page.colors.css_light %}
+{% if page.colours and page.colours.css_light %}
 <style>
   :root {
-    --primary-color-light: {{ page.colors.css_light }};
-    --primary-color-dark:  {{ page.colors.css_dark  }};
+    --primary-color-light: {{ page.colours.css_light }};
+    --primary-color-dark:  {{ page.colours.css_dark  }};
 
-    --nav-bg-image-light: url('/h/{{ page.colors.css_light | replace("#", "") }}.png');
-    --nav-bg-image-dark:  url('/h/{{ page.colors.css_dark  | replace("#", "") }}.png');
+    --nav-bg-image-light: url('/h/{{ page.colours.css_light | replace("#", "") }}.png');
+    --nav-bg-image-dark:  url('/h/{{ page.colours.css_dark  | replace("#", "") }}.png');
   }
 </style>
 {% endif %}

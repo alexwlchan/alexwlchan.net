@@ -7,7 +7,7 @@ topics:
   - Web archiving
   - Tiny archives
   - Computers and code
-colors:
+colours:
   css_light:   "#0000ff"
   css_dark:    "#00ddff"
   index_light: "#2c5360"

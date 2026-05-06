@@ -1,7 +1,7 @@
 ---
 layout: page
 title: All topics
-colors:
+colours:
   css_light: "#115bda"
   css_dark:  "#40c3ff"
 ---

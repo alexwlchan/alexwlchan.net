@@ -3,7 +3,7 @@ layout: article
 date: 2023-05-30 19:41:48 +00:00
 title: Starting Docker just before I need it
 summary: I don’t keep Docker running all the time, but intercepting the `docker` command means it’s always running when I need it.
-colors:
+colours:
   index_light: "#3a5781"
   index_dark:  "#cfe7f7"
   css_light:   "#3a5781"

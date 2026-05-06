@@ -22,7 +22,7 @@ review:
   rating: 4
   summary: A love triangle set against the backdrop of early Britain and an invasion of undead kings that's slow to start but finishes with a bang.
 
-colors:
+colours:
   css_dark: '#b5c53c'
   css_light: '#180387'
 

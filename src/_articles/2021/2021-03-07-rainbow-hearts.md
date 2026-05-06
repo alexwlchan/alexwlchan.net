@@ -5,7 +5,7 @@ title: Creating pairs of interlocking rainbow hearts 🌈
 summary: A web app for creating pairs of hearts based on Pride flags.
 topic: Fun stuff
 link: https://alexwlchan.net/fun-stuff/rainbow-hearts/
-colors:
+colours:
   index_light: "#870788"
   index_dark:  "#a86da8"
 ---

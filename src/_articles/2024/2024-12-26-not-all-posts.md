@@ -4,7 +4,7 @@ date: 2024-12-26 09:54:55 +00:00
 title: Not all blog posts are created equal
 summary: Splitting my site into "articles" and "today I learned" helped me overcome writer's block and improve my writing.
 is_featured: true
-colors:
+colours:
   css_light: "#7b4ac8"
   css_dark:  "#bd94ff"
 topic: Blogging about blogging

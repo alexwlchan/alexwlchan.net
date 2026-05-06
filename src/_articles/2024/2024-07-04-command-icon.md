@@ -7,7 +7,7 @@ summary:
 topics:
   - Generative art
   - Drawing things
-colors:
+colours:
   css_light: "#014df4"
   css_dark:  "#67a7ff"
 is_featured: true

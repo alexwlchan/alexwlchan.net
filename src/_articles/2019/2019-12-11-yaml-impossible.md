@@ -3,7 +3,7 @@ layout: article
 date: 2019-12-11 08:52:40 +00:00
 title: This YAML file will self-destruct in five seconds!
 summary: YAML allows you to execute arbitrary code in a parser, even if you really really shouldn't.
-colors:
+colours:
   index_light: "#527ab2"
   index_dark:  "#8ebaec"
 topics:

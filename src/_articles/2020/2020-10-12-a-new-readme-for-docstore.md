@@ -4,7 +4,7 @@ date: 2020-10-12 06:52:55 +00:00
 title: A new README for docstore, my tool for organising scanned paperwork
 summary: Although I don't expect anyone to use it directly, there might be some interesting ideas that could apply elsewhere.
 link: https://github.com/alexwlchan/docstore
-colors:
+colours:
   index_light: "#7a2342"
   index_dark:  "#e5bcc9"
 topic: Computers and code

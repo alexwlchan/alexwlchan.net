@@ -17,7 +17,7 @@ review:
   rating: 4
   summary: A surprisingly sincere collection of advice about love and relationships which knows when to be funny and when to be serious.
 
-colors:
+colours:
   css_light: "#b24b7b"
   css_dark:  "#e5bac9"
 

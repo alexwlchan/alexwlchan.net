@@ -6,7 +6,7 @@ summary: A picture speaks a thousand words, which is why I always have pen and p
 topics:
   - AWS
   - Drawing things
-colors:
+colours:
   index_light: "#118f63"
   index_dark:  "#09c385"
 is_featured: true

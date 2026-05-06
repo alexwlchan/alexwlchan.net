@@ -4,7 +4,7 @@ date: 2022-10-05 22:35:11 +00:00
 title: Some experiments with circle-based art
 summary: Casually covering a canvas with coloured circles.
 topic: Generative art
-colors:
+colours:
   index_light: "#ae0000"
   index_dark:  "#ea0000"
 ---

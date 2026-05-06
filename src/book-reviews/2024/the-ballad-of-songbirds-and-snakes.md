@@ -18,7 +18,7 @@ review:
   format: ebook
   rating: 4
 
-colors:
+colours:
    css_light: '#254c2b'
    css_dark:  '#e6b52a'
 

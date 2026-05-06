@@ -8,7 +8,7 @@ topic: Interesting words
 hidden_topics:
   - Politics
   - History
-colors:
+colours:
   css_light: "#b26036"
   css_dark:  "#f59a53"
 ---

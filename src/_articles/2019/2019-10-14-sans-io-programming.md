@@ -6,7 +6,7 @@ summary: Code that pushes I/O to the boundary is simpler, easier to reuse and ea
 topics:
   - Computers and code
   - Talks I've given
-colors:
+colours:
   css_light: "#008921"
   css_dark:  "#54c552"
 ---

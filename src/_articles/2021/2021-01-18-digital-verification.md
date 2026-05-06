@@ -7,7 +7,7 @@ topics:
   - Digital preservation
   - Wellcome Collection
 canonical_url: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
-colors:
+colours:
   index_light: "#4c4c4c"
   index_dark:  "#aaaaaa"
 is_featured: true

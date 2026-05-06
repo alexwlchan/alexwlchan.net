@@ -2,7 +2,7 @@
 layout: page
 title: Using my code
 date_updated: 2026-02-08 19:18:34 +00:00
-colors:
+colours:
   css_light: "#118207"
   css_dark:  "#5ff042"
 ---

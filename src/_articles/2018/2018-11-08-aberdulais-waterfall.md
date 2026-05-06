@@ -3,7 +3,7 @@ layout: article
 date: 2018-11-08 12:37:19 +00:00
 title: My visit to the Aberdulais Falls
 summary: Pictures from my trip to the waterfalls and former tin plating works at Aberdulais.
-colors:
+colours:
   index_light: "#74844e"
   index_dark:  "#9bb06c"
 topic: The world around us

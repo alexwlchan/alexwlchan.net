@@ -3,7 +3,7 @@ layout: article
 date: 2023-03-05 12:33:07 +00:00
 title: Filtering out bogus requests from Netlify Analytics
 summary: Using redirects to filter out bots trying to hack my non-existent PHP installation.
-colors:
+colours:
   index_light: "#73714B"
   index_dark:  "#c9ba8d"
 card_attribution: https://www.pexels.com/photo/large-elephants-near-lake-86413/, CC0

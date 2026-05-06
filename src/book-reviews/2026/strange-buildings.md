@@ -21,7 +21,7 @@ review:
   rating: 5
   summary: A collection of mysteries and buildings that appear unrelated, but weave together into a gorgeous mystery.
 
-colors:
+colours:
   css_light: '#db392a'
   css_dark:  '#fdf01a'
 

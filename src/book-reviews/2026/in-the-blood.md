@@ -19,7 +19,7 @@ review:
   rating: 3
   summary: "Online rage as a deadly plague: a collection of clever ideas that fumbles the landing."
 
-colors:
+colours:
   css_light: '#275d9d'
   css_dark:  '#dfecf1'
 
