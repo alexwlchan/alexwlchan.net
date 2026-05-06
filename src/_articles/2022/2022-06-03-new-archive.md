@@ -6,8 +6,7 @@ summary: Using coloured cards with images and descriptions to make it easier to 
 colors:
   index_light: '#22201f'
   index_dark: '#fbfafa'
-index:
-  exclude: true
+is_excluded: true
 topic: Blogging about blogging
 ---
 

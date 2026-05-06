@@ -2,8 +2,7 @@
 layout: article
 date: 2016-08-31 20:05:00 +00:00
 title: 'Python snippet: dealing with query strings in URLs'
-index:
-  exclude: true
+is_excluded: true
 topic: Python
 ---
 

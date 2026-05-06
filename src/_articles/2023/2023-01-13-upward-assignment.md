@@ -6,8 +6,7 @@ summary: A deep dive into the internals of Ruby and metaprogramming techniques, 
 colors:
   css_light: "#c62229"
   css_dark:  "#dd363f"
-index:
-  feature: true
+is_featured: true
 topics:
 - Code crimes
 - Ruby

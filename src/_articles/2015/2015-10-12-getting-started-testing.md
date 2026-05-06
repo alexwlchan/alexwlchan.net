@@ -4,8 +4,7 @@ date: 2015-10-12 08:23:00 +00:00
 link: https://www.youtube.com/watch?v=FxSsnHeWQBY
 title: Getting Started Testing, by Ned Batchelder
 
-index:
-  exclude: true
+is_excluded: true
 topics:
   - Python
   - Software testing

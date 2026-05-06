@@ -8,8 +8,7 @@ topic: The world around us
 colors:
   index_light: "#921b2a"
   index_dark:  "#97b7c8"
-index:
-  feature: true
+is_featured: true
 card_attribution: https://www.pexels.com/photo/wall-of-car-plate-12953608/
 ---
 

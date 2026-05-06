@@ -4,8 +4,7 @@ date: 2017-10-27 08:25:34 +00:00
 summary: Slides and links for my PyCon UK 2017 talks/workshops.
 title: PyCon UK 2017 resources
 topic: Talks I've given
-index:
-  exclude: true
+is_excluded: true
 ---
 
 This post is a signpost to useful resources for my PyCon UK talks/workshops.

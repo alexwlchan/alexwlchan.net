@@ -3,8 +3,7 @@ layout: note
 title: Get the dimensions of a video file with `mediainfo`
 date: 2025-02-10 10:10:51 +00:00
 topic: Images and videos
-index:
-  exclude: true
+is_excluded: true
 ---
 Here are two examples:
 

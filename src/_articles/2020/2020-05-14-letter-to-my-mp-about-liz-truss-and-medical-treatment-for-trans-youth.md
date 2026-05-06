@@ -2,8 +2,7 @@
 layout: article
 date: 2020-05-14 21:21:55 +00:00
 title: Letter to my MP about Liz Truss and medical treatment for trans youth
-index:
-  exclude: true
+is_excluded: true
 topic: The world around us
 hidden_topics:
   - Politics

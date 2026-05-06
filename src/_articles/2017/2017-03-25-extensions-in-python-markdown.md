@@ -1,8 +1,7 @@
 ---
 layout: article
 date: 2017-03-25 11:27:00 +00:00
-index:
-  exclude: true
+is_excluded: true
 summary: I use Python-Markdown to render posts for my site. Here are a few examples
   of the extensions I'm using.
 title: A few examples of extensions in Python-Markdown

@@ -3,8 +3,7 @@ layout: article
 date: 2022-05-17 07:25:05 +00:00
 title: Changing my carbon monoxide detectors
 summary: Keeping my home safe from deadly gases.
-index:
-  exclude: true
+is_excluded: true
 topic: Domestic life
 ---
 

@@ -5,8 +5,7 @@ title: Unexpected errors in the BagIt area
 summary: |
   Exploring the many ways a BagIt bag can be invalid, and how you might want to build a process for validating bags to ensure the quality of your digital archive.
 topic: Digital preservation
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#8b623b"
   index_dark:  "#f0d0af"

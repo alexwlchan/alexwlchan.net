@@ -5,8 +5,7 @@ title: Adventures in Python with concurrent.futures
 summary: How I use concurrent.futures to speed up my batch scripting in Python.
 date_updated: 2020-05-02 20:29:25 +01:00
 topic: Python
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#367a92"
   index_dark:  "#99c7cf"

@@ -4,8 +4,7 @@ date: 2016-12-28 10:29:00 +00:00
 title: A tool for backing up your message history from Slack
 link: https://pypi.org/project/slack-history/
 topic: Preserving social media
-index:
-  exclude: true
+is_excluded: true
 ---
 
 I've just pushed a small tool to PyPI for backing up message history from Slack.

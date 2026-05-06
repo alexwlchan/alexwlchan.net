@@ -3,8 +3,7 @@ layout: article
 date: 2018-07-15 08:48:25 +00:00
 title: A tip for travel instructions
 summary: Lots of people use smartphones for mapping, so consider that when writing travel advice.
-index:
-  exclude: true
+is_excluded: true
 topic: The world around us
 hidden_topics:
   - Travel

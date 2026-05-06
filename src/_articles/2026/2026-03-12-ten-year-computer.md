@@ -9,8 +9,7 @@ topics:
 colors:
   index_light: "#2a9f2c"
   index_dark:  "#e4ad3d"
-index:
-  feature: true
+is_featured: true
 ---
 I want my current computer to last for a decade.
 That's an eternity in the tech world, far longer than most people keep their hardware, but I don't think it's an unreasonable goal.

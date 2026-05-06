@@ -3,8 +3,7 @@ layout: article
 date: 2014-05-14 21:10:00 +00:00
 summary: Some advice for IA Mathmos sitting Tripos
 title: Some Part IA exam advice
-index:
-  exclude: true
+is_excluded: true
 topic: Maths
 hidden_topics:
   - Academia

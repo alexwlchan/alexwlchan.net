@@ -4,8 +4,7 @@ date: 2026-01-14 08:38:52 +00:00
 title: The Good, the Bad, and the Gutters
 summary: A step-by-step guide to a movie poster grid that uses CSS Grid, text-wrap balanced titles, and dynamic hover states.
 topic: CSS
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#911e31"
   css_dark:  "#d64f71"

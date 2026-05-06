@@ -2,8 +2,7 @@
 layout: article
 date: 2014-06-13 00:03:00 +00:00
 title: Some site updates
-index:
-  exclude: true
+is_excluded: true
 topic: Blogging about blogging
 ---
 
