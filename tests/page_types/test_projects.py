@@ -210,3 +210,22 @@ class TestSingleFile:
         # the code in the block is formatted properly.
         assert html.count("</pre>") == 1
         assert "<p>def greet():" not in html
+
+    def test_empty_file(
+        self, env: Environment, repo: GitRepository, out_dir: Path
+    ) -> None:
+        """
+        Test an empty file doesn't render a "<pre>" block.
+        """
+        p = ProjectSingleFile(
+            repo=repo,
+            file=GitFile(
+                path=Path("README.md"), blob_id="123", size=0, is_binary=False
+            ),
+            file_contents="",
+        )
+
+        html = p.render_full_html(env)
+
+        assert "<pre>" not in html
+        assert "<p>(File is empty)</p>" in html
