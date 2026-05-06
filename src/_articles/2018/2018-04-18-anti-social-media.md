@@ -2,7 +2,7 @@
 layout: article
 date: 2018-04-18 12:00:33 +00:00
 title: (Anti) Social Media
-topic:
+topics:
   - Inclusion and accessibility
   - Talks I've given
 summary: Slides and notes for a talk about online harassment, and why you should always design with an abusive ex in mind.

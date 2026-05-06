@@ -41,7 +41,7 @@ class BaseHtmlPage(ABC, BaseModel):
     as needed.
     """
 
-    model_config = ConfigDict(strict=True)
+    model_config = ConfigDict(strict=True, extra="forbid")
 
     @property
     @abstractmethod

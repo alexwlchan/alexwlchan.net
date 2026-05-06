@@ -4,8 +4,10 @@ Tests for `mosaic.page_types`.
 
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import TypedDict
 
 from jinja2 import Environment
+import pydantic
 import pytest
 
 from mosaic.page_types import (
@@ -225,7 +227,11 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         read_single_markdown_file(src_dir)
 
 
-PAGE_EXAMPLES = [
+PageExample = TypedDict(
+    "PageExample", {"page": BaseHtmlPage, "url": str, "out_path": Path}
+)
+
+PAGE_EXAMPLES: list[PageExample] = [
     {
         "page": Page(
             src_dir=Path("src"),
@@ -298,12 +304,34 @@ def test_writes_page(
     assert page.title in p.read_text()
 
 
+@pytest.mark.parametrize(
+    "page", [p["page"] for p in PAGE_EXAMPLES if p["page"].md_path is not None]
+)
+def test_rejects_unrecognised_fields(page: BaseHtmlPage, src_dir: Path) -> None:
+    """
+    If there are unrecognised fields in the front matter, the page will
+    be rejected.
+    """
+    assert page.md_path is not None
+    assert page.src_dir is not None
+
+    md = page.md_path.read_text()
+    new_md = md.replace("---\n", "---\nunexpected: true\n")
+
+    src_dir.mkdir()
+    (src_dir / "example.md").write_text(new_md)
+
+    with pytest.raises(
+        pydantic.ValidationError, match="Extra inputs are not permitted"
+    ):
+        read_markdown_files(src_dir)
+
+
 def test_out_path() -> None:
     """
     Check the output path for a page.
     """
     page = Page(
-        layout="page",
         src_dir=Path("src"),
         md_path=Path("src/contact.md"),
         title="Contact",
