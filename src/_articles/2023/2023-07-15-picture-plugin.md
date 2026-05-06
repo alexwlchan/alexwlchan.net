@@ -3,7 +3,7 @@ layout: article
 date: 2023-07-15 06:46:12 +00:00
 title: "My custom &lt;picture&gt; plugin for Jekyll"
 summary: How I make images that load quickly and look good for readers, and which are easy for me to manage.
-colors:
+colours:
   css_light: "#df1b4a"
   css_dark:  "#fd96af"
 topics: 

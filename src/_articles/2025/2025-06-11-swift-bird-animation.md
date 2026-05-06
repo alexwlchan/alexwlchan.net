@@ -7,7 +7,7 @@ topics:
   - Drawing things
   - JavaScript
 is_featured: true
-colors:
+colours:
   index_light: "#f8631e"
   index_dark:  "#f7c057"
   css_light:   "#cd4506"

@@ -6,7 +6,7 @@ summary: Looking for search queries that came from robots, not real people.
 topics:
   - AWS
   - Python
-colors:
+colours:
   index_light: "#236abc"
   index_dark:  "#2f90ff"
   css_light:   "#236abc"

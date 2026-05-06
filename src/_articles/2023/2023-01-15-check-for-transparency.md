@@ -3,7 +3,7 @@ layout: article
 date: 2023-01-15 21:46:18 +00:00
 title: Beware of transparent backgrounds when using AVIF with ImageMagick 6
 summary: You probably want to use version 7.
-colors:
+colours:
   css_light: "#333333"
   css_dark:  "#cccccc"
 topic: Images and videos

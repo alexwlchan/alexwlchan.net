@@ -3,7 +3,7 @@ layout: article
 date: 2019-06-18 12:48:49 +00:00
 title: An inescapable conclusion
 summary: After months of introspection and soul-searching, I've had some big realisations about my identity.
-colors:
+colours:
   index_light: "#0a5b8a"
   index_dark:  "#54b8f2"
 topic: Personal thoughts

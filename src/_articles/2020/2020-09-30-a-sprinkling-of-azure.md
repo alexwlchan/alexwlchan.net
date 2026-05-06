@@ -2,7 +2,7 @@
 layout: article
 date: 2020-09-30 12:57:47 +00:00
 title: Replicating Wellcome Collection's digital archive to Azure Blob Storage
-colors:
+colours:
   css_light: "#235b99"
   css_dark:  "#82baf3"
 summary: How and why we keep copies of Wellcome's digital collections in multiple cloud storage providers.

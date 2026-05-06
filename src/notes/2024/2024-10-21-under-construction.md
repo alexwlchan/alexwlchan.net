@@ -5,7 +5,7 @@ summary: |
   Using a `repeating-linear-gradient` as the `border` gets you something that looks a bit like hazard tape.
 date: 2024-10-21 16:38:57 +01:00
 topic: CSS
-colors:
+colours:
   css_light: "#806c00"
   css_dark:  "#ffd700"
 ---

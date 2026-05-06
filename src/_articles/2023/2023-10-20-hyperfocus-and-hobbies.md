@@ -8,7 +8,7 @@ topics:
   - Art and creativity
   - Wellcome Collection
 link: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
-colors:
+colours:
   index_light: "#9e2d2e"
   index_dark:  "#d7a102"
 is_featured: true

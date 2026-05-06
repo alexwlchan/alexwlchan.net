@@ -4,7 +4,7 @@ date: 2021-02-15 19:15:19 +00:00
 title: '<em>Screaming in the Cloud</em>: Using the Cloud to Preserve the Future'
 summary: I joined Corey Quinn to discuss my DynamoDB calculator and using the cloud to preserve digital collections.
 link: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-cloud-to-preserve-the-future-with-alex-chan/
-colors:
+colours:
   index_light: "#4497b4"
   index_dark:  "#4597b4"
 topic: AWS

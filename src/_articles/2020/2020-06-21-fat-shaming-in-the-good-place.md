@@ -6,7 +6,7 @@ summary: How many good person points do you lose for making a joke about somebod
 topics:
   - Entertainment
   - Inclusion and accessibility
-colors:
+colours:
   index_light: "#653415"
   index_dark:  "#f1ba62"
 ---

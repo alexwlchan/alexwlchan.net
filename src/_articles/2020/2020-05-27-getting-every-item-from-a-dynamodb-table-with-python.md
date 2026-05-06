@@ -6,7 +6,7 @@ summary: A Python function that generates every item in a DynamoDB table.
 topics:
   - AWS
   - Python
-colors:
+colours:
   index_light: "#4b5254"
   index_dark:  "#91c6fb"
 card_attribution: https://pixabay.com/photos/solid-oak-table-2113987/

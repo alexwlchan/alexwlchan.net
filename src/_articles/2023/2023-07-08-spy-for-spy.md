@@ -3,7 +3,7 @@ layout: article
 date: 2023-07-08 06:35:17 +00:00
 title: "*Spy for Spy*"
 summary: A two-handed sapphic romance with a clever narrative twist makes for a compelling and thoughtful new play.
-colors:
+colours:
   index_light: "#214781"
   index_dark:  "#86a4c2"
   css_light:   "#214781"

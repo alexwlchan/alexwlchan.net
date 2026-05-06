@@ -6,7 +6,7 @@ summary: I wanted to learn jq's more powerful features, so I tried to filter som
 topics:
   - AWS
   - jq
-colors:
+colours:
   index_light: "#c5121f"
   index_dark:  "#ef5258"
 ---

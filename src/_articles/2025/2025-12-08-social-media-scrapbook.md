@@ -7,7 +7,7 @@ topics:
   - Preserving social media
   - Tiny archives
 is_featured: true
-colors:
+colours:
   css_light: "#366fa5"
   css_dark:  "#41a5ed"
 ---

@@ -3,7 +3,7 @@ layout: article
 date: 2018-07-01 20:12:48 +00:00
 title: My favourite iMac accessory
 summary: Adding a USB extension cable to my iMac makes a world of difference.
-colors:
+colours:
   index_light: "#857f71"
   index_dark:  "#b9b3a1"
 topic: Computers and code

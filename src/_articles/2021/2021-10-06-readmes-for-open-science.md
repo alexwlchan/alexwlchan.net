@@ -3,7 +3,7 @@ layout: article
 date: 2021-10-06 21:39:30 +00:00
 title: READMEs for Open Science
 summary: Slides for a short talk about READMEs, why they're important, and what they should contain.
-colors:
+colours:
   css_light: "#20883f"
   css_dark:  "#2fc65d"
 topic: Talks I've given

@@ -6,7 +6,7 @@ summary: "Take a regular tiling of the plane, apply a random colouring, and voil
 topics:
   - Generative art
   - Python
-colors:
+colours:
   index_light: "#98291d"
   index_dark:  "#ffd20b"
 ---

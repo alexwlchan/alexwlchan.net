@@ -7,7 +7,7 @@ summary: |
 topics:
   - The world around us
   - Digital preservation
-colors:
+colours:
   index_light: "#7d5628"
   index_dark:  "#cba369"
 ---

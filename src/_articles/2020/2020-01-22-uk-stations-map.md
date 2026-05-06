@@ -5,7 +5,7 @@ title: An interactive map of British railway stations 🚂
 summary: A map I use to plot which railway stations I've visited.
 link: https://alexwlchan.net/fun-stuff/uk-stations-map/
 topic: Fun stuff
-colors:
+colours:
   index_light: "#0b9e00"
   index_dark:  "#0b9e00"
 ---

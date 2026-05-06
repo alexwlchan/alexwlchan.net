@@ -5,7 +5,7 @@ title: "create_thumbnail: create smaller versions of images"
 summary:
   I've made a new tool that allows me to reuse my thumbnailing code across all my projects.
 topic: Images and videos
-colors:
+colours:
   index_light: "#697c13"
   index_dark:  "#b6b86c"
 is_featured: true

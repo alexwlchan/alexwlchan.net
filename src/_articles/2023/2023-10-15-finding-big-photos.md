@@ -3,7 +3,7 @@ layout: article
 date: 2023-10-15 16:12:21 +00:00
 title: Finding the biggest items in my Photos Library
 summary: A quick script to help move the biggest items out of my main Photos Library.
-colors:
+colours:
   index_light: "#816958"
   index_dark:  "#b2978a"
 topics:

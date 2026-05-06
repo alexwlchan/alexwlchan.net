@@ -8,7 +8,7 @@ topics:
   - Personal thoughts
   - Tiny archives
 is_featured: true
-colors:
+colours:
   css_light: "#446d8d"
   css_dark:  "#b86748"
 ---

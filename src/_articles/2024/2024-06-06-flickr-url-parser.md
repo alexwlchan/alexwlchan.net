@@ -7,7 +7,7 @@ link: https://www.flickr.org/the-surprising-utility-of-a-flickr-url-parser/
 topics:
   - Preserving social media
   - Flickr Foundation
-colors:
+colours:
   index_light: "#785a28"
   index_dark:  "#cdae58"
 card_attribution: https://www.flickr.com/photos/usnationalarchives/4727552068/

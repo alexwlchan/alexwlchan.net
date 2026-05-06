@@ -6,7 +6,7 @@ summary: We can use the `createWebArchiveData` method on `WKWebView` to write a 
 topics:
   - Web archiving
   - Swift
-colors:
+colours:
   index_dark:  "#e9eaec"
   index_light: "#2076cc"
 card_attribution: https://pixabay.com/photos/compass-orientation-map-address-5261062/

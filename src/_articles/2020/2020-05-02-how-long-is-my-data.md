@@ -4,7 +4,7 @@ date: 2020-05-02 08:07:18 +00:00
 title: How long is my data? 💾
 link: https://howlongismydata.glitch.me/
 summary: A fun app to calculate the size of your data in terms of floppy disks.
-colors:
+colours:
   index_light: "#ff47ff"
   index_dark:  "#fbabfa"
 is_featured: true

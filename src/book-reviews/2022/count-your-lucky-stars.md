@@ -19,7 +19,7 @@ review:
   format: paperback
   rating: 4
 
-colors:
+colours:
    css_light: '#386f82'
    css_dark:  '#eb9f81'
 

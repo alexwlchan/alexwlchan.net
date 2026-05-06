@@ -3,7 +3,7 @@ layout: article
 date: 2017-10-28 10:20:29 +00:00
 title: Lightning talks
 summary: Why I like the lottery system used to select lightning talks at PyCon UK this year.
-colors:
+colours:
   index_light: "#174346"
   index_dark:  "#e0b411"
 topic: Conferences

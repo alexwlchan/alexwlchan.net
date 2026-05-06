@@ -4,7 +4,7 @@ date: 2019-09-23 08:20:18 +00:00
 summary: Some code and trigonometry for drawing shapes that don't fit neatly into
   a rectangular grid.
 title: Drawing with triangular coordinates in SVG
-colors:
+colours:
   index_light: "#000000"
   index_dark:  "#b6beb3"
 topics:

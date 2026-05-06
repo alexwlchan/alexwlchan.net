@@ -7,7 +7,7 @@ topics:
   - Code crimes
   - AWS
   - Python
-colors:
+colours:
   index_light: "#234371"
   index_dark:  "#56abdf"
 is_featured: true

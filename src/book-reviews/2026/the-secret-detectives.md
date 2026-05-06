@@ -19,7 +19,7 @@ review:
   rating: 4
   summary: A fun children's murder mystery set on a boat travelling from Calcutta to England.
 
-colors:
+colours:
   css_dark:  '#ecdfcc'
   css_light: '#3e3c7a'
 

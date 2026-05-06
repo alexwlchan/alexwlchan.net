@@ -4,7 +4,7 @@ date: 2022-02-19 12:45:19 +00:00
 title: A tale of two Twitter cards
 summary: Some recent changes I've made to fix or improve my Twitter cards.
 topic: Blogging about blogging
-colors:
+colours:
   index_light: "#1d9bf0"
   index_dark:  "#77c8fe"
 ---

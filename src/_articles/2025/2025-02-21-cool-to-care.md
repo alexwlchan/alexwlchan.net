@@ -7,7 +7,7 @@ summary: |
 topics: 
   - Personal thoughts
   - Entertainment
-colors:
+colours:
   index_light: "#594438"
   index_dark:  "#f5db6e"
 is_featured: true

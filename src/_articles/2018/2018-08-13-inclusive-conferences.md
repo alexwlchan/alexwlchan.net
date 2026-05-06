@@ -7,7 +7,7 @@ topics:
   - Conferences
 date_updated: 2019-02-05 08:25:14 +00:00
 summary: A collection of ideas and suggestions for running conferences which are more inclusive and accessible. Based on my experiences at AlterConf, PyCon UK, and similar events.
-colors:
+colours:
   index_light: "#533f2b"
   index_dark:  "#d89c35"
 ---

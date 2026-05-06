@@ -7,7 +7,7 @@ topics:
   - Images and videos
   - Computers and code
   - macOS
-colors:
+colours:
   index_light: "#4b6ca1"
   index_dark:  "#d69e6d"
 ---

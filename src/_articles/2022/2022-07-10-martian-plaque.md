@@ -3,7 +3,7 @@ layout: article
 date: 2022-07-10 17:09:12 +00:00
 title: A Martian plaque for a made-up plot
 summary: If NASA was the first to land on Mars in <em>For All Mankind</em>, what would the commemorative plaque look like?
-colors:
+colours:
   css_light: '#495652'
   css_dark: '#aab6b2'
 topic: Entertainment

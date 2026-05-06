@@ -4,7 +4,7 @@ date: 2019-04-28 09:13:06 +00:00
 title: Reversing a t.co URL to the original tweet
 summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to take a t.co URL and find the original tweet.
 topic: Preserving social media
-colors:
+colours:
   index_light: "#273d5d"
   index_dark:  "#5fa0c1"
 ---

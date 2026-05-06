@@ -5,7 +5,7 @@ title: Google is showing outdated results from the UK's election
 summary: |
   Dozens of MPs who were re-elected to their seats are still labelled “former Member of Parliament”, days after the election results.
 topic: The world around us
-colors:
+colours:
   css_light: "#13772f"
   css_dark:  "#b4c492"
 card_attribution: https://www.parliament.uk/globalassets/house-of-commons/hoc-digital/news-story-images/dsc_6286.jpg

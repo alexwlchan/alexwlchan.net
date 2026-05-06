@@ -3,7 +3,7 @@ layout: page
 title: About the site
 summary: How I build the site, the tech underneath it, and my history of questionable design decisions.
 date_updated: 2025-06-13 22:01:39 +01:00
-colors:
+colours:
   css_light: "#118207"
   css_dark:  "#5ff042"
 ---

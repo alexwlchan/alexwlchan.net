@@ -4,7 +4,7 @@ date: 2022-06-26 23:04:52 +00:00
 title: Fictional phone numbers in *For All Mankind*
 summary: Where did this UK phone number come from?
 topic: Entertainment
-colors:
+colours:
   css_light: "#7b650e"
   css_dark:  "#efb41f"
 ---

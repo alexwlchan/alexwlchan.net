@@ -5,7 +5,7 @@ title: How I name my computers
 summary:
   What do flaming birds, man-eating giants, and obscure deities have in common?
 is_featured: true
-colors:
+colours:
   index_light: "#4d3c1b"
   index_dark:  "#b7b0a4"
 topics:

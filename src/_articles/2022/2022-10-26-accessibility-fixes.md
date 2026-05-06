@@ -3,7 +3,7 @@ layout: article
 date: 2022-10-26 18:58:54 +00:00
 title: Some small accessibility fixes
 summary: Making the sites I work on sound a bit nicer for anyone who relies on screen readers.
-colors:
+colours:
   css_light: '#075ba3'
   css_dark: '#198ff5'
 is_excluded: true

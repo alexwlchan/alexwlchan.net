@@ -9,7 +9,7 @@ topics:
   - Tiny archives
   - Static websites
 is_featured: true
-colors:
+colours:
   index_light: "#51514c"
   index_dark:  "#cecfc9"
 card_attribution: https://www.pexels.com/search/archive%20boxes/

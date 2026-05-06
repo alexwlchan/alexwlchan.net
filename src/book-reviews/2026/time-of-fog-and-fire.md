@@ -19,7 +19,7 @@ review:
   summary: A pedestrian mystery novel.
   from_the_library: true
 
-colors:
+colours:
   css_light: '#526761'
   css_dark:  '#e0745c'
 

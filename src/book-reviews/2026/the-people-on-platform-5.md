@@ -17,7 +17,7 @@ review:
   rating: 4
   summary: A story about commuters who break the stereotype and start talking to each other, with a bunch of feel-good moments toward the end.
 
-colors:
+colours:
   css_light: '#973b2a'
   css_dark:  '#edcd22'
 

@@ -3,7 +3,7 @@ layout: article
 date: 2024-09-18 06:45:46 +00:00
 title: Going between Finder and the Terminal
 summary: A few shell scripts I use to go between the Finder and the Terminal.
-colors:
+colours:
   index_light: "#565656"
   index_dark:  "#dbe3e9"
 topic: macOS

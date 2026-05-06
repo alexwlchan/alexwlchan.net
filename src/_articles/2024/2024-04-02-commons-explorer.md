@@ -4,7 +4,7 @@ date: 2024-04-02 15:40:35 +00:00
 title: The new Flickr Commons Explorer
 summary: A new way to browse the photos in the Flickr Commons programme.
 topic: Flickr Foundation
-colors:
+colours:
   css_light: "#d0395a"
   css_dark:  "#DBD4D3"
 link: https://commons.flickr.org/

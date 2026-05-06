@@ -4,7 +4,7 @@ date: 2019-03-25 21:15:36 +00:00
 title: Creating a GitHub Action to auto-merge pull requests
 summary: Saving myself the trouble of clicking that pesky "merge" button.
 topic: Builds and CI
-colors:
+colours:
   index_light: "#1b1e21"
   index_dark:  "#e6f2fb"
 ---

@@ -5,7 +5,7 @@ title: Plates and states
 summary: |
   On a recent trip to the US, I learnt a surprising amount from watching the license plates on passing cars.
 topic: The world around us
-colors:
+colours:
   index_light: "#921b2a"
   index_dark:  "#97b7c8"
 is_featured: true

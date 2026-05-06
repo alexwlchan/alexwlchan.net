@@ -6,7 +6,7 @@ summary: How do you pick the right combination of planks to lay a wooden floor? 
 topics:
   - Maths
   - Python
-colors:
+colours:
   index_light: "#5c422e"
   index_dark:  "#e5bd9e"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: ""
-colors:
+colours:
   css_light: "#098a07"
   css_dark:  "#5ff042"
 ---

@@ -19,7 +19,7 @@ review:
   rating: 5
   summary: An intersection between ace/aro experiences and broader experiences of love and relationships; it's a mix of queer theory and sociology.
 
-colors:
+colours:
   css_light: '#9d0793'
   css_dark:  '#fd4b03'
 

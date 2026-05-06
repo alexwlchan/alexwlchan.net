@@ -4,7 +4,7 @@ date: 2023-04-16 18:37:04 +00:00
 title: Publishing lots and lots of messages to SNS
 summary: Careful use of the `PublishBatch` API makes it quick and easy for me to send thousands of messages into SNS.
 topic: AWS
-colors:
+colours:
   index_light: "#B0084D"
   index_dark:  "#FF4F8B"
 card_attribution: https://www.pexels.com/photo/rainforest-surrounded-by-fog-975771/

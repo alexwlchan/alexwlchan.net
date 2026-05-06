@@ -18,7 +18,7 @@ review:
   did_not_finish: true
   format: hardback
 
-colors:
+colours:
    css_light: '#787266'
    css_dark:  '#f6f1e2'
 

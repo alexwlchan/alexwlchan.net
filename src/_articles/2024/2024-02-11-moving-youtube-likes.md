@@ -3,7 +3,7 @@ layout: article
 date: 2024-02-11 23:04:30 +00:00
 title: Moving my YouTube Likes from one account to another
 summary: Some experimenting with the YouTube API to merge two accounts into one.
-colors:
+colours:
   index_light: "#ff0000"
   index_dark:  "#ff4242"
 topics:

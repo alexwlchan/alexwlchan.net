@@ -7,7 +7,7 @@ topics:
   - Python
   - Software testing
 is_featured: true
-colors:
+colours:
   css_light: "#ab5326"
   css_dark:  "#f49d61"
 ---

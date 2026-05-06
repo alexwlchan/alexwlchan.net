@@ -3,7 +3,7 @@ layout: article
 date: 2023-07-28 05:13:02 +00:00
 title: Parsing CloudFront logs with Python
 summary: A couple of functions I use to get access to CloudFront logs as easy-to-use iterators.
-colors:
+colours:
   css_light: "#673ABB"
   css_dark:  "#C9ABFF"
 topics:

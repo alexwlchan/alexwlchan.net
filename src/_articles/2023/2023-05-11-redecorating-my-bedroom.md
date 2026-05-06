@@ -3,7 +3,7 @@ layout: article
 date: 2023-05-11 20:21:18 +00:00
 title: Redecorating my bedroom
 summary: Splashing some sunshine in the space where I sleep.
-colors:
+colours:
   css_light:   "#815701"
   index_light: "#815701"
   css_dark:    "#c79d2b"

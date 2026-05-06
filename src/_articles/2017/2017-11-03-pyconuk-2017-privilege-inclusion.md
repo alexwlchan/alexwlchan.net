@@ -6,7 +6,7 @@ summary: In the tech industry, how can we be more aware of our privilege, and us
 topics:
   - Inclusion and accessibility
   - Talks I've given
-colors:
+colours:
   css_light:   "#076e6e"
   css_dark:    "#0dcece"
   index_light: "#577b2e"

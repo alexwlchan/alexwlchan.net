@@ -20,7 +20,7 @@ review:
   format: hardback
   rating: 3
 
-colors:
+colours:
    css_light: '#d93127'
    css_dark:  '#fc362c'
 

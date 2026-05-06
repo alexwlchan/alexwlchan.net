@@ -3,7 +3,7 @@ layout: article
 date: 2021-07-09 06:27:58 +00:00
 title: A few useful GitHub searches
 summary: I have hotkeys to search GitHub in several ways, including by user, by repo, and within the work organisation.
-colors:
+colours:
   index_light: "#0e1013"
   index_dark:  "#a5a8ab"
 topic: Computers and code

@@ -3,7 +3,7 @@ layout: article
 date: 2023-08-18 08:04:30 +00:00
 title: Tag your infrastructure-as-code resources with a link to their definitions
 summary: Applying a default tag that points to the IaC definition makes it easy to go from the console to the code.
-colors:
+colours:
   index_light: "#016d01"
   index_dark:  "#88a284"
   css_light: "#016d01"

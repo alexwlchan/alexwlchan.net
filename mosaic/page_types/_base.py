@@ -110,8 +110,7 @@ class BaseHtmlPage(ABC, BaseModel):
     canonical_url: str | None = None
 
     # Tint colours for this page.
-    # TODO(2026-01-20): Rename this field to "colours".
-    colors: TintColours | None = None
+    colours: TintColours | None = None
 
     # Which section is this page part of?
     part_of: PartOf | None = None

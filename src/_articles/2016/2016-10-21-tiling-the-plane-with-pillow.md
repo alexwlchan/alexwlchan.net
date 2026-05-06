@@ -7,7 +7,7 @@ topics:
   - Generative art
   - Python
 title: Tiling the plane with Pillow
-colors:
+colours:
   index_light: "#444444"
   index_dark:  "#9e9e9e"
 ---

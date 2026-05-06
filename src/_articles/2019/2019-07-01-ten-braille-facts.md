@@ -6,7 +6,7 @@ summary: Where does braille come from? How was braille originally written? What 
 topics:
   - Inclusion and accessibility
   - The world around us
-colors:
+colours:
   index_light: "#514d45"
   index_dark:  "#b3b5b0"
 ---

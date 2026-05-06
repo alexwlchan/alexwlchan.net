@@ -3,7 +3,7 @@ layout: article
 date: 2025-02-19 13:25:45 +00:00
 title: How I create static websites for tiny archives
 summary: Start with a simple HTML file, then add features like templates, sorting, and filtering as they become useful.
-colors:
+colours:
   index_light: "#535353"
   index_dark:  "#cecece"
 topics:

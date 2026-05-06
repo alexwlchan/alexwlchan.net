@@ -20,7 +20,7 @@ review:
   rating: 3
   summary: A mixed bag of speculative fiction about aromantic experiences that I wish I'd had more time to read.
 
-colors:
+colours:
   css_light: "#4b7855"
   css_dark:  "#8db67d"
 

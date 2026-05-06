@@ -4,7 +4,7 @@ date: 2022-05-07 19:28:31 +00:00
 title: Find the dominant colours in an image in your web browser
 summary: Wrapping my CLI tool for finding dominant colours in a lightweight web app.
 link: https://dominant-colours.glitch.me/
-colors:
+colours:
   index_light: '#1b3055'
   index_dark: '#bdbdc2'
 topics:

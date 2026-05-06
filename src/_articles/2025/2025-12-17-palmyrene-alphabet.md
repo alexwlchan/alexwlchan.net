@@ -4,7 +4,7 @@ date: 2025-12-17 09:48:51 +00:00
 title: The palm tree that led to Palmyra
 summary: Palmyrene is an alphabet that was used to write Aramaic in 300–100 BCE, and I learnt about it while looking for a palm tree emoji.
 topic: The world around us
-colors:
+colours:
   css_light: "#7d6534"
   css_dark:  "#c3ab74"
 ---

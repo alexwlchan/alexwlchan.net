@@ -7,7 +7,7 @@ topics:
   - Wellcome Collection
 summary: Using cold storage tiers to reduce the cost of storing Wellcome's digital collections in the cloud.
 canonical_url: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
-colors:
+colours:
   css_light: "#704f35"
   css_dark:  "#aea6a2"
 is_featured: true

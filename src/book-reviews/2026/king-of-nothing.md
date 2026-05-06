@@ -19,7 +19,7 @@ review:
   summary: A teenager looks beyond his playground reputation, and realises that it's better to be loved than to be feared.
   from_the_library: true
 
-colors:
+colours:
   css_light: '#853f8b'
   css_dark:  '#ae96b5'
 

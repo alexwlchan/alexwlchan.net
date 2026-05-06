@@ -4,7 +4,7 @@ date: 2015-11-03 22:12:00 +00:00
 summary: Playing with a tiny computer that runs Python.
 link: http://www.bbc.co.uk/programmes/articles/4hVG2Br1W1LKCmw8nSm9WnQ/introducing-the-bbc-micro-bit
 title: Python and the BBC micro:bit
-colors:
+colours:
   index_light: "#18ab6d"
   index_dark:  "#18ab6d"
 topic: Python

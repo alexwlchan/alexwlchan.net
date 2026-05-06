@@ -4,7 +4,7 @@ date: 2018-05-26 18:57:07 +00:00
 date_updated: 2018-06-02 13:03:03 +01:00
 summary: A Python snippets for drawing bar charts in command-line applications.
 title: Drawing ASCII bar charts
-colors:
+colours:
   index_light: "#000000"
   index_dark:  "#cccccc"
 topics:

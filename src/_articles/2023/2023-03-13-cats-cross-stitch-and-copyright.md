@@ -4,7 +4,7 @@ date: 2023-03-13 13:24:57 +00:00
 title: Cats, cross-stitch, and copyright
 summary: In celebration of my favourite apex predator.
 topic: Art and creativity
-colors:
+colours:
   index_light: "#7c590f"
   index_dark:  "#debd4d"
   css_light:   "#976f02"

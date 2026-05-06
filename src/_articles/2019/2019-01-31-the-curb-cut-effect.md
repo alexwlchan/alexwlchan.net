@@ -6,7 +6,7 @@ summary: Slides and notes for my talk 'The Curb Cut Effect'. Making something be
 topics:
   - Inclusion and accessibility
   - Talks I've given
-colors:
+colours:
   css_light: "#531b93"
   css_dark:  "#b7a2d7"
 ---

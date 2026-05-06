@@ -17,7 +17,7 @@ review:
   rating: 4
   summary: A guide to personal disaster prepping that focuses on pragmatic advice over paranoia.
 
-colors:
+colours:
   css_light: '#2c6e89'
   css_dark:  '#88a9b3'
 

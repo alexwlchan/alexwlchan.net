@@ -200,7 +200,7 @@ class Site(BaseModel):
             else:
                 print(f"re-reading {old_p.md_path}")
                 new_p = read_page_from_markdown(self.src_dir, md_path=old_p.md_path)
-                if old_p.colors != new_p.colors:
+                if old_p.colours != new_p.colours:
                     need_new_tint_colour_assets = True
                 if (
                     old_p.title != new_p.title
@@ -217,7 +217,7 @@ class Site(BaseModel):
         for p in cur_md_paths - known_md_paths:
             print(f"reading {p}")
             page = read_page_from_markdown(self.src_dir, md_path=Path(p))
-            if page.colors is not None:
+            if page.colours is not None:
                 need_new_tint_colour_assets = True
             updated_pages.append(page)
             needs_new_index_pages = True
@@ -315,7 +315,7 @@ class Site(BaseModel):
         Create the tint colour assets.
         """
         tint_colours = [get_default_tint_colours()] + [
-            p.colors for p in self.all_pages if p.colors is not None
+            p.colours for p in self.all_pages if p.colours is not None
         ]
 
         for tc in tint_colours:

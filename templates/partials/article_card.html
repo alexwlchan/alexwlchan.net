@@ -7,10 +7,10 @@
   of the page.
 #}
 <li
-  {% if article.colors %}
+  {% if article.colours %}
     style="
-      --lt: {{- article.colors.index_light -}};
-      --dk: {{- article.colors.index_dark -}}
+      --lt: {{- article.colours.index_light -}};
+      --dk: {{- article.colours.index_dark -}}
     "
   {% endif %}
   data-d="{{ article.date.strftime('%y%m%d') }}"

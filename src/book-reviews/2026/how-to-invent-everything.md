@@ -19,7 +19,7 @@ review:
   rating: 4
   summary: A history of human civilisation and its key inventions, packaged as a guide for the wayward time traveller.
 
-colors:
+colours:
   css_dark:  '#e74434'
   css_light: '#30606f'
 

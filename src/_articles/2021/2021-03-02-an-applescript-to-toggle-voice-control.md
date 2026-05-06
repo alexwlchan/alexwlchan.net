@@ -3,7 +3,7 @@ layout: article
 date: 2021-03-02 13:17:55 +00:00
 title: An AppleScript to toggle Voice Control
 summary: Making it slightly easier for me to enable and disable Voice Control quickly.
-colors:
+colours:
   index_light: "#595c80"
   index_dark:  "#797da7"
 card_attribution: https://support.apple.com/en-gb/HT210539

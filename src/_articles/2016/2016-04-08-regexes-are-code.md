@@ -5,7 +5,7 @@ summary: Regexes have a reputation for being unreadable monsters, but it doesn't
   to be that way.
 title: Treat regular expressions as code, not magic
 
-colors:
+colours:
   index_light: "#000000"
   index_dark:  "#bbbbbb"
 topic: Regular expressions

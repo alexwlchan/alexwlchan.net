@@ -3,7 +3,7 @@ layout: article
 date: 2022-01-14 10:58:15 +00:00
 title: Creating animated GIFs from fruit and veg
 summary: Some Python code for turning MRI scans of fruit and veg into animated GIFs.
-colors:
+colours:
   index_light: '#5c5a30'
   index_dark: '#cdca78'
 topics:

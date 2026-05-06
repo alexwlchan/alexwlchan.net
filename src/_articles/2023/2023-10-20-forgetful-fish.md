@@ -4,7 +4,7 @@ date: 2023-10-20 23:08:51 +00:00
 title: Making the fish shell more forgetful
 summary: A few commands that help me keep unwanted entries out of my shell’s autocomplete.
 topic: Shell scripting
-colors:
+colours:
   index_light: "#c85b05"
   index_dark:  "#ff9306"
 card_attribution: https://pixabay.com/photos/veil-tail-fish-goldfish-swim-11453/

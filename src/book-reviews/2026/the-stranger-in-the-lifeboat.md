@@ -19,7 +19,7 @@ review:
   rating: 3
   summary: What looks like the mystery of a sinking ship is actually a story about faith and hope.
 
-colors:
+colours:
   css_light: '#022e55'
   css_dark:  '#e35b33'
 

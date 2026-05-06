@@ -4,7 +4,7 @@ date: 2023-07-26 16:07:14 +00:00
 title: My Python snippet for walking a file tree
 summary: A function to find all the files in a directory is one of my most-used snippets.
 topic: Python
-colors:
+colours:
   index_dark:  "#7e9327"
   index_light: "#4f5f10"
 card_attribution: https://www.pexels.com/photo/photo-of-pathway-surrounded-by-fir-trees-1578750/

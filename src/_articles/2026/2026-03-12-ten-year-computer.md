@@ -6,7 +6,7 @@ date: 2026-03-12 14:25:03 +00:00
 topics: 
   - Computers and code
   - Personal thoughts
-colors:
+colours:
   index_light: "#2a9f2c"
   index_dark:  "#e4ad3d"
 is_featured: true

@@ -4,7 +4,7 @@ date: 2020-07-13 22:20:06 +00:00
 title: What does \d match in a regex?
 topic: Regular expressions
 summary: It's more complicated than I thought.
-colors:
+colours:
   index_light: "#6d5537"
   index_dark:  "#feebac"
 card_attribution: https://wellcomecollection.org/works/s5t86we5/images?id=at4afn8j

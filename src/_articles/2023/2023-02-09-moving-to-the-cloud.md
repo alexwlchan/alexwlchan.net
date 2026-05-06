@@ -5,7 +5,7 @@ title: How moving to the cloud took Wellcome’s digital collections to new heig
 summary: Building our own platform allowed us to make decisions based on what’s best for the collections, and not the limitations of our digital infrastructure.
 topic: Wellcome Collection
 canonical_url: https://stacks.wellcomecollection.org/how-moving-to-the-cloud-took-our-digital-collections-to-new-heights-2dc5a896f0be
-colors:
+colours:
   css_light: "#563e23"
   css_dark:  "#bf8c4f"
 ---

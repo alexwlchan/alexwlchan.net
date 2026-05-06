@@ -21,7 +21,7 @@ review:
   did_not_finish: true
   format: ebook
 
-colors:
+colours:
    css_light: '#59432e'
    css_dark:  '#d99a98'
 

@@ -6,7 +6,7 @@ summary: Remembering Slipstitch, a queer-friendly yarn shop and the fortnightly 
 topics:
   - Personal thoughts
   - Cross-stitch
-colors:
+colours:
   css_light: "#34827e"
   css_dark:  "#9dd2d6"
 ---
