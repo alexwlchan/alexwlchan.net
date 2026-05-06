@@ -10,12 +10,12 @@ import yaml
 
 from mosaic.text import coloured
 
-from ._base import BreadcrumbEntry, BaseHtmlPage, IndexInfo
+from ._base import BreadcrumbEntry, BaseHtmlPage
 from .articles import Article
 from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
 from .notes import Note
-from .posts import Post
+from .posts import Post, IndexInfo
 from .projects import (
     ProjectCommit,
     ProjectHomepage,

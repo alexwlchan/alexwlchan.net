@@ -313,20 +313,30 @@ def test_out_path() -> None:
 
 
 @pytest.mark.parametrize("is_featured", [True, False])
-def test_is_featured(is_featured: bool) -> None:
+def test_is_featured(is_featured: bool, src_dir: Path) -> None:
     """
     Test the is_featured convenience attribute.
     """
-    p = Page(index=IndexInfo(feature=is_featured))
+    p = Article(
+        src_dir=src_dir,
+        md_path=src_dir / "_articles/2001/2001-01-01-post.md",
+        date=datetime(2001, 1, 1),
+        index=IndexInfo(feature=is_featured),
+    )
     assert p.is_featured == is_featured
 
 
 @pytest.mark.parametrize("is_excluded", [True, False])
-def test_is_excluded(is_excluded: bool) -> None:
+def test_is_excluded(is_excluded: bool, src_dir: Path) -> None:
     """
     Test the is_excluded convenience attribute.
     """
-    p = Page(index=IndexInfo(exclude=is_excluded))
+    p = Article(
+        src_dir=src_dir,
+        md_path=src_dir / "_articles/2001/2001-01-01-post.md",
+        date=datetime(2001, 1, 1),
+        index=IndexInfo(exclude=is_excluded),
+    )
     assert p.is_excluded == is_excluded
 
 

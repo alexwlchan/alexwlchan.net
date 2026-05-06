@@ -16,15 +16,6 @@ from mosaic.text import markdownify, md5, minify_html
 from mosaic.topics import get_topic_by_name
 
 
-class IndexInfo(BaseModel):
-    """
-    Toggles for how this page appears in the site-wide indexes.
-    """
-
-    exclude: bool = False
-    feature: bool = False
-
-
 class PartOf(TypedDict):
     """
     Which section this page is part of.
@@ -119,10 +110,6 @@ class BaseHtmlPage(ABC, BaseModel):
     # Tint colours for this page.
     # TODO(2026-01-20): Rename this field to "colours".
     colors: TintColours | None = None
-
-    # Toggles for how this page appears in the site-wide indexes.
-    # TODO(2026-01-20): Decompose this into individual booleans.
-    index: IndexInfo = Field(default_factory=lambda: IndexInfo())
 
     # Which section is this page part of?
     part_of: PartOf | None = None
@@ -233,23 +220,3 @@ class BaseHtmlPage(ABC, BaseModel):
         """
         cache.purge(namespace="render_body_html", prefix=f"{self.url}:")
         cache.purge(namespace="render_full_html", prefix=f"{self.url}:")
-
-    @property
-    def is_featured(self) -> bool:
-        """
-        Returns True if this is a featured post.
-
-        TODO(2026-01-21): Rework the index attributes so this can be
-        set directly.
-        """
-        return self.index.feature
-
-    @property
-    def is_excluded(self) -> bool:
-        """
-        Returns True if this is an excluded post.
-
-        TODO(2026-01-21): Rework the index attributes so this can be
-        set directly.
-        """
-        return self.index.exclude
