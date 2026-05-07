@@ -283,6 +283,17 @@ def test_swift_shebang_is_tagged_correctly() -> None:
     )
 
 
+def test_swift_empty_arg_is_not_a_constant() -> None:
+    """
+    An underscore for an unnamed parameter in Swift is treated as punctuation.
+    """
+    html = apply_syntax_highlighting(
+        src="func cleanupEventStream(_ eventStream: FSEventStreamRef) {\n}",
+        lang="swift",
+    )
+    assert '<span class="p">_</span>' in html
+
+
 def test_bash_functions_are_highlighted() -> None:
     """
     The shebang at the start of a bash script is punctuation.

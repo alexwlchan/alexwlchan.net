@@ -130,6 +130,12 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="ch">#!/usr/bin/env swift</span>\n',
         )
 
+    # Swift: anonymous parameters are punctuation, not constants.
+    if lang == "swift":
+        highlighted_code = highlighted_code.replace(
+            '<span class="kc">_</span>', '<span class="p">_</span>'
+        )
+
     # Bash: highlight functions as potential names
     if lang == "bash":
         highlighted_code = re.sub(

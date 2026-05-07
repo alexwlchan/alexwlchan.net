@@ -142,6 +142,12 @@ pre {
   }
 }
 
+.lng-swift {
+  .bp { /* Name.Builtin.Pseudo */
+    color: var(--text);
+  }
+}
+
 /* These styles are for code blocks with line numbers, which are created
  * by my `syntax_highlighting` plugin. */
 .annotated_code {
