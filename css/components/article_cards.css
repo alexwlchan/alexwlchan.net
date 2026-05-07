@@ -24,13 +24,26 @@
   }
 }
 
+/* If there's 3 or more cards, make them wider than the rest of the page.
+ * Otherwise, have them track the body width. */
+#list_of_posts[data-card-count="3"] {
+  .acards ul {
+    max-width: 1000px;
+  }
+}
+
+#list_of_posts:not([data-card-count="3"]) {
+  .acards ul {
+    max-width: var(--max-width);
+  }
+}
+
 .acards {
   background: var(--section-bg-color);
   width:       calc(100vw);
   margin-left: calc(50% - 50vw);
   
   ul {
-    max-width: 1000px;
     justify-content: center;
     padding: var(--default-padding);
     margin: 0 auto;

@@ -129,7 +129,7 @@
    }
 
    document.querySelector('#list_of_posts').replaceWith(container);
-   document.querySelector('#list_of_posts').setAttribute("data-card-count", cardCount);
+   document.querySelector('#list_of_posts').setAttribute("data-card-count", Math.min(allFeaturedPosts.length, cardCount));
   }
   
   /* Given a list of <li> elements for article cards, create a new <section>
