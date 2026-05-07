@@ -1,0 +1,241 @@
+<svg id="graph-284" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535 564">
+  <defs>
+    <marker id="graph-284-arrowhead" refX="7.9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M -1 0 L 10 5 L 0 10 z"></path>
+    </marker>
+    
+    <style>
+      #graph-284 {
+        --primary-color:      #8b7434;
+        --primary-fill:       #f4f1ec;
+        --note-border-color:  #d01c11;
+        --note-fill:          #f7eae8;
+        --block-border-color: #dfdfdf;
+        --block-background:   #f3f3f3;
+        --body-text:          #202020;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #graph-284 {
+          --primary-color:      #dfcf96;
+          --primary-fill:       #423d2c;
+          --red:                #ff4a4a;
+          --note-fill:          #4b1616;
+          --block-border-color: #434343;
+          --block-background:   #1d1d1d;
+          --body-text:          #c7c7c7;
+        }
+      }
+      
+      #graph-284 {
+      	font-size: 16px;
+      	fill: #333;
+        
+        .note {
+          stroke: var(--note-border-color);
+          fill: var(--note-fill);
+        }
+        
+        text {
+          text-anchor: middle;
+          dominant-baseline: bottom;
+          fill: var(--body-text)
+        }
+        
+        .actor, .note {
+          tspan {
+            dominant-baseline: middle;
+          }
+        }
+
+        .actor {
+        	stroke: var(--primary-color);
+        	fill:   var(--primary-fill);
+        	stroke-width: 3;
+        }
+
+        text.actor {
+        	fill: var(--primary-color);
+        	stroke: none;
+        }
+
+        .actor-line {
+        	stroke: var(--primary-color);
+        }
+
+        .messageLine0 {
+        	stroke-width: 1.5;
+        	stroke-dasharray: none;
+        	stroke: var(--body-text);
+        }
+
+        .messageLine1 {
+        	stroke-width: 1.5;
+        	stroke-dasharray: 2, 2;
+        	stroke: var(--body-text);
+        }
+
+        .messageText {
+        	fill: var(--body-text);
+        	stroke: none;
+        }
+        
+        .noteText {
+          fill: var(--note-border-color);
+        }
+
+        line {
+        	fill: var(--block-background);
+        	stroke-width: 2px;
+        }
+        
+        .rebuild {
+          stroke: var(--block-border-color);
+          stroke-width: 2px;
+          border-radius: 3px;
+          fill: var(--block-background);
+        }
+      }
+      
+      #graph-284-arrowhead path {
+        fill: var(--body-text);
+      }
+    </style>
+  </defs>
+  <g style="transform: matrix(0.512984, 0, 0, 0.512984, 2, 2);">
+    <rect x="73" y="433" class="rebuild" width="963" height="377" rx="7"/>
+    <g>
+      <rect x="850" y="1024" width="150" height="65" name="Python" rx="4" ry="4" class="actor actor-bottom"/>
+      <text x="925" y="1056.5" class="actor actor-box">
+        <tspan x="925" dy="0">Python script</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="456" y="1024" width="150" height="65" name="Pipe" rx="4" ry="4" class="actor actor-bottom"/>
+      <text x="531" y="1056.5" class="actor actor-box">
+        <tspan x="531" dy="0">stdout (pipe)</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="218" y="1024" width="150" height="65" name="Swift" rx="4" ry="4" class="actor actor-bottom"/>
+      <text x="293" y="1056.5" class="actor actor-box">
+        <tspan x="293" dy="0">Swift script</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="0" y="1024" width="168" height="65" name="OS" rx="4" ry="4" class="actor actor-bottom"/>
+      <text x="84" y="1056.5" class="actor actor-box">
+        <tspan x="84" dy="0">Filesystem events</tspan>
+      </text>
+    </g>
+    <g>
+      <line id="actor119" x1="925" y1="65" x2="925" y2="1024" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="Python" data-et="life-line" data-id="Python"/>
+      <g id="root-119" data-et="participant" data-type="participant" data-id="Python">
+        <rect x="850" y="0" width="150" height="65" name="Python" rx="4" ry="4" class="actor actor-top"/>
+        <text x="925" y="32.5" class="actor actor-box">
+          <tspan x="925" dy="0">Python script</tspan>
+        </text>
+      </g>
+    </g>
+    <g>
+      <line id="actor118" x1="531" y1="65" x2="531" y2="1024" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="Pipe" data-et="life-line" data-id="Pipe"/>
+      <g id="root-118" data-et="participant" data-type="participant" data-id="Pipe">
+        <rect x="456" y="0" width="150" height="65" name="Pipe" rx="4" ry="4" class="actor actor-top"/>
+        <text x="531" y="32.5" class="actor actor-box">
+          <tspan x="531" dy="0">stdout (pipe)</tspan>
+        </text>
+      </g>
+    </g>
+    <g>
+      <line id="actor117" x1="293" y1="65" x2="293" y2="1024" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="Swift" data-et="life-line" data-id="Swift"/>
+      <g id="root-117" data-et="participant" data-type="participant" data-id="Swift">
+        <rect x="218" y="0" width="150" height="65" name="Swift" rx="4" ry="4" class="actor actor-top"/>
+        <text x="293" y="32.5" class="actor actor-box">
+          <tspan x="293" dy="0">Swift script</tspan>
+        </text>
+      </g>
+    </g>
+    <g>
+      <line id="actor116" x1="84" y1="65" x2="84" y2="1024" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="OS" data-et="life-line" data-id="OS"/>
+      <g id="root-116" data-et="participant" data-type="participant" data-id="OS">
+        <rect x="0" y="0" width="168" height="65" name="OS" rx="4" ry="4" class="actor actor-top"/>
+        <text x="84" y="32.5" class="actor actor-box">
+          <tspan x="84" dy="0">Filesystem events</tspan>
+        </text>
+      </g>
+    </g>
+    <g/>
+    <g data-et="note" data-id="i0">
+      <rect x="830" y="75" width="190" height="39" class="note"/>
+      <text x="925" y="80" class="noteText" dy="1.3em">
+        <tspan x="925">sel.select() (waiting)</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i4">
+      <rect x="831.5" y="287" width="187" height="39" class="note"/>
+      <text x="925" y="292" class="noteText" dy="1.3em">
+        <tspan x="925">sel.select() unblocks</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i6">
+      <rect x="839" y="384" width="172" height="39" class="note"/>
+      <text x="925" y="389" class="noteText" dy="1.3em">
+        <tspan x="925">Yield changed files</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i8">
+      <rect x="824" y="453" width="202" height="39" class="note"/>
+      <text x="925" y="458" class="noteText" dy="1.3em">
+        <tspan x="925">Starting site rebuild...</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i13">
+      <rect x="556" y="694" width="228" height="57" class="note"/>
+      <text x="670" y="699" class="noteText" dy="1.3em">
+        <tspan x="670">Events accumulating in</tspan>
+      </text>
+      <text x="670" y="718" class="noteText" dy="1.3em">
+        <tspan x="670">stdout while site building</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i14">
+      <rect x="828.5" y="761" width="193" height="39" class="note"/>
+      <text x="925" y="766" class="noteText" dy="1.3em">
+        <tspan x="925">Site rebuild complete</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i16">
+      <rect x="830.5" y="820" width="189" height="39" class="note"/>
+      <text x="925" y="825" class="noteText" dy="1.3em">
+        <tspan x="925">Loop back to select()</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i19">
+      <rect x="839" y="965" width="172" height="39" class="note"/>
+      <text x="925" y="970" class="noteText" dy="1.3em">
+        <tspan x="925">Yield changed files</tspan>
+      </text>
+    </g>
+    <text x="187" y="129" class="messageText" dy="1.3em">File modified</text>
+    <line x1="85" y1="162" x2="289" y2="162" class="messageLine0" data-et="message" data-id="i1" data-from="OS" data-to="Swift" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="411" y="177" class="messageText" dy="1.3em">Write path to stdout</text>
+    <text x="411" y="196" class="messageText" dy="1.3em"> and fflush()</text>
+    <line x1="294" y1="229" x2="527" y2="229" class="messageLine0" data-et="message" data-id="i2" data-from="Swift" data-to="Pipe" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="727" y="244" class="messageText" dy="1.3em">Signal EVENT_READ</text>
+    <line x1="532" y1="277" x2="921" y2="277" style="stroke-dasharray: 3, 3; fill: none;" class="messageLine1" data-et="message" data-id="i3" data-from="Pipe" data-to="Python" stroke-width="2" stroke="none" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="730" y="341" class="messageText" dy="1.3em">readline()</text>
+    <line x1="924" y1="374" x2="535" y2="374" class="messageLine0" data-et="message" data-id="i5" data-from="Python" data-to="Pipe" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="187" y="507" class="messageText" dy="1.3em">File modified</text>
+    <line x1="85" y1="540" x2="289" y2="540" class="messageLine0" data-et="message" data-id="i9" data-from="OS" data-to="Swift" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="187" y="555" class="messageText" dy="1.3em">File modified</text>
+    <line x1="85" y1="588" x2="289" y2="588" class="messageLine0" data-et="message" data-id="i10" data-from="OS" data-to="Swift" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="411" y="603" class="messageText" dy="1.3em">Write path to stdout</text>
+    <line x1="294" y1="636" x2="527" y2="636" class="messageLine0" data-et="message" data-id="i11" data-from="Swift" data-to="Pipe" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="411" y="651" class="messageText" dy="1.3em">Write path to stdout</text>
+    <line x1="294" y1="684" x2="527" y2="684" class="messageLine0" data-et="message" data-id="i12" data-from="Swift" data-to="Pipe" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="727" y="874" class="messageText" dy="1.3em">Signal EVENT_READ (data in stdout (pipe))</text>
+    <line x1="532" y1="907" x2="921" y2="907" style="stroke-dasharray: 3, 3; fill: none;" class="messageLine1" data-et="message" data-id="i17" data-from="Pipe" data-to="Python" stroke-width="2" stroke="none" marker-end="url(#graph-284-arrowhead)"/>
+    <text x="730" y="922" class="messageText" dy="1.3em">readline() (drain all paths)</text>
+    <line x1="924" y1="955" x2="535" y2="955" class="messageLine0" data-et="message" data-id="i18" data-from="Python" data-to="Pipe" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-284-arrowhead)"/>
+  </g>
+</svg>
