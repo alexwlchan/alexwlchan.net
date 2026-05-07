@@ -15,7 +15,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from mosaic import Site
 from mosaic import caddy
 from mosaic.site import BuildOptions
-from watch_folders import watch_folders
+from watch_for_changed_files import watch_for_changed_files
 
 
 # All waiting pages are told to reload when this event is set to true
@@ -71,28 +71,31 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
 
 
-def rebuild(site: Site, changed_folder: Path) -> None:
+def rebuild(site: Site, changeset: set[Path]) -> None:
     """
     Build a new version of the site.
     """
     has_changes = False
+    has_src_changes = False
 
-    if any(changed_folder.is_relative_to(p) for p in ("css", "src", "templates")):
-        has_changes = True
+    root = Path(".").absolute()
 
-    if (
-        changed_folder == Path(".")
-        and Path("topics.json").stat().st_mtime > time.time() - 60
-    ):
-        has_changes = True
+    for p in changeset:
+        if p == root / "topics.json":
+            has_changes = True
+
+        if p.is_relative_to(root / "src"):
+            has_src_changes = True
+            has_changes = True
+
+        if p.is_relative_to(root / "css") or p.is_relative_to(root / "templates"):
+            has_changes = True
 
     if not has_changes:
         return
 
-    print(f"detected changes in {changed_folder}")
-
     options = BuildOptions(
-        copy_static_files=changed_folder.is_relative_to("src"),
+        copy_static_files=has_src_changes,
         cleanup_leftover_files=False,
         incremental_read=True,
         profile="--profile" in sys.argv,
@@ -104,7 +107,7 @@ def rebuild(site: Site, changed_folder: Path) -> None:
         now = time.time()
         site.build_site(options)
         elapsed = time.time() - now
-        print(f"✅ Build successful in {elapsed:.2f}s")
+        print(f"✅ Build successful in {elapsed:.3f}s")
 
         # Trigger the reload event, so any waiting browsers will refresh
         reload_event.set()
@@ -129,15 +132,19 @@ if __name__ == "__main__":
                 site.build_site(options=BuildOptions(profile=True, livereload=True))
             except Exception as e:
                 print(f"❌ Initial build failed with error: {e}", file=sys.stderr)
-                raise
+                sys.exit(1)
             else:
                 elapsed = time.time() - now
-                print(f"✅ Initial build successful in {elapsed:.2f}s")
+                print(f"✅ Initial build successful in {elapsed:.3f}s")
 
-            for changed_folder in watch_folders():
-                rebuild(site, changed_folder)
+            for changeset in watch_for_changed_files():
+                rebuild(site, changeset)
 
-        # Note: this is a bare except because any exception, including
-        # a KeyboardInterrupt, should terminate the reload server.
-        except:  # noqa: E722
+        except Exception as e:  # noqa: E722
+            print(f"❌ Incremental build failed with error: {e}", file=sys.stderr)
+            reload_server.shutdown()
+        except KeyboardInterrupt:
+            print("^C detected, stopping...")
+            reload_server.shutdown()
+        except SystemExit:
             reload_server.shutdown()

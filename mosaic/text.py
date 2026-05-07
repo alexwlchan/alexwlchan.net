@@ -277,6 +277,7 @@ COUNTABLE_WORDS = [
     "line",
     "MiB",
     "million",
+    "millisecond",
     "minute",
     "second",
     "tags",
