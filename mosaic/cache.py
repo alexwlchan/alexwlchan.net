@@ -60,11 +60,11 @@ class SQLiteCache:
         Return True if a key is in the cache, or False if not.
         """
         res = self.conn.execute(
-            "SELECT EXISTS(SELECT 1 FROM cache_entries WHERE namespace=? AND key=?)",
+            "SELECT 1 FROM cache_entries WHERE namespace=? AND key=?",
             (namespace, key),
         )
 
-        return bool(res.fetchone() == (1,))
+        return res.fetchone() is not None
 
     def get(self, namespace: str, key: str) -> str | None:
         """
