@@ -132,14 +132,12 @@ class MosaicBlockParser(mistune.BlockParser):
         # until the closing tag is pure HTML and doesn't need the Markdown
         # library to interfere.
         PRE_TAGS = [
-            "aside",
             "figure",
             "picture",
             "blockquote",
             "ol",
             "ul",
             "div",
-            "details",
         ]
 
         if open_tag == "svg":

@@ -20,7 +20,6 @@ Each API call is a single CloudTrail event, which includes lots of information:
 <details>
 <summary>Example CloudTrail event for a HeadObject call</summary>
 
-{% set md %}
 ```json
 {
   "additionalEventData": {
@@ -84,8 +83,8 @@ Each API call is a single CloudTrail event, which includes lots of information:
   },
   "vpcEndpointId": "vpce-0d4aa186edac65a21"
 }
-{% endset %}
-{{ md | markdownify }}
+```
+
 </details>
 
 CloudTrail events can be written to objects in an S3 bucket, and they typically appear within 15 minutes of the API call.

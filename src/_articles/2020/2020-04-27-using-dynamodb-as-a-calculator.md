@@ -635,8 +635,6 @@ Sure, it's all here:
 <details>
 <summary>dynamo_calculator.py</summary>
 
-{% set md %}
-
 ```python {"names":{"1":"contextlib","2":"typing","3":"Callable","4":"uuid","5":"boto3","6":"dynamodb","9":"DynamoCalculator","10":"__enter__","11":"table_name","27":"__exit__","28":"exc_type","29":"exc_value","30":"traceback","37":"row_id","38":"calculation_id","47":"__repr__","50":"add","51":"x","53":"y","57":"calculation_id","71":"subtract","72":"x","74":"y","78":"calculation_id","92":"eq","93":"x","95":"y","99":"calculation_id","109":"if_","110":"condition","112":"if_true","115":"if_false","120":"calculation_id","131":"lt","132":"x","134":"y","138":"calculation_id","148":"multiply","149":"x","151":"y","154":"if_y_non_negative","161":"if_y_negative","162":"y_pos","181":"divide","182":"x","184":"y","187":"if_y_negative","193":"if_y_positive","213":"not_","214":"condition","221":"ne","222":"x","224":"y","231":"or_","232":"condition1","234":"condition2","237":"int_1","242":"int_2","251":"le","252":"x","254":"y","264":"gt","265":"x","267":"y","274":"ge","275":"x","277":"y","284":"and_","285":"condition1","287":"condition2","290":"int_1","295":"int_2","304":"nand","305":"condition1","307":"condition2","315":"calculator","427":"p","428":"q"}}
 """
 What happens if you try to use DynamoDB as an integer calculator?
@@ -963,8 +961,6 @@ if __name__ == "__main__":
                 f"{display(calculator.nand(p, q))}"
             )
 ```
-{% endset %}
-{{ md|markdownify }}
 
 </details>
 

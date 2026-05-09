@@ -59,11 +59,8 @@ I wrote a Python script to automate this for me -- I pass the script a list of p
 It also saves a backup copy of the rules, so if anything goes wrong, I can always roll back to an old version.
 If you'd like to use the script, you can find it below:
 
-<details>
-<summary>add_backblaze_exclusions.py</summary>
-
-{% set md %}
 ```python {"names":{"1":"datetime","2":"os","3":"pathlib","4":"shutil","5":"subprocess","6":"sys","7":"typing","8":"Iterator","9":"List","10":"lxml","11":"etree","12":"get_dirs_to_exclude","13":"argv","19":"dirname","21":"path","36":"add_exclusion","37":"root","40":"exclude_dir","43":"do_backup_elements","49":"do_backup","51":"already_excluded","54":"dirname","63":"dirfilter","82":"save_backup_copy","83":"bzinfo_path","86":"today","91":"backup_path","98":"restart_backblaze","99":"cmd","106":"dirs_to_exclude","110":"bzinfo_path","111":"backup_path","116":"root","120":"exclude_dir","130":"outfile"}}
+#!/usr/bin/env python3
 """
 Script for adding one-off folder exclusions to BackBlaze.
 
@@ -198,9 +195,6 @@ if __name__ == "__main__":
     print("*** Restarting BackBlaze")
     restart_backblaze()
 ```
-{% endset %}
-{{ md|markdownify }}
-</details>
 
 Since this is messing with your backup config, you should double-check when it's done -- does the list of folder exclusions in the settings look correct?
 

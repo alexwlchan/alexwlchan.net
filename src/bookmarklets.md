@@ -33,7 +33,6 @@ This bookmarklet pops up a dialog with the exact date a post was published.
 
 <details><summary>Source code</summary>
 
-{% set md %}
 ```javascript {"names":{"1":"jsonLdElement","4":"jsonLd","9":"datePublished","12":"format"}}
 /* In the <head> of each Tumblr post is a block of JSON-LD (=Linked Data)
  * which has some machine-readable info about the post, e.g.
@@ -61,6 +60,5 @@ var format = new Intl.DateTimeFormat("en-GB", {
 
 alert(`This post was published on ${format.format(datePublished)}.`);
 ```
-{% endset %}
-{{ md|markdownify }}
+
 </details>
