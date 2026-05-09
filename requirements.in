@@ -1,6 +1,6 @@
 -r uptime_tests/requirements.txt
 
-alexwlchan-chives[fetch,text]
+alexwlchan-chives[fetch]
 beautifulsoup4
 inquirerpy
 jinja2

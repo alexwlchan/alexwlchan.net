@@ -11,8 +11,6 @@ It's where I met my partner; we bonded over our love of books.
 
 This page is where I keep notes on all the books I've read:
 
-{%- from "macros/article_cards.html" import article_cards -%}
-
 <style>
   @use "components/list_of_posts";
 </style>
@@ -22,6 +20,8 @@ This page is where I keep notes on all the books I've read:
     background: var(--section-bg-color);
   }
 </style>
+
+{%- from "macros/article_cards.html" import article_cards -%}
 
 <div id="list_of_posts">
   {% set end_of_year_faves = site.articles

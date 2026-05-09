@@ -46,6 +46,17 @@ def check_no_broken_html(path: Path, html_str: str, soup: BeautifulSoup) -> list
         errors.append(f"malformed tag following <p>: {m.group(0)}")
 
     for m in re.finditer(r"&lt;/(?:picture|code|pre)>", html_str):
+        # Note(2026-05-09): these tests have a <pre> inside a <pre>,
+        # because I'm testing how code operates on a <pre> tag.
+        # Ignore for now.
+        if path in {
+            Path(
+                "_out/projects/chives/commits/74520670083b5073a282f24992a84d1affcd13d7/index.html"
+            ),
+            Path("_out/projects/chives/files/tests/test_text.py.html"),
+        }:
+            continue  # pragma: no cover
+
         errors.append(f"malformed closing tag following <p>: {m.group(0)}")
 
     # Unexpected HTML tags or markup inside HTML tags can be a clue that
