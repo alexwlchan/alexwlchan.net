@@ -512,21 +512,51 @@ def test_navigable_tree_from_paths() -> None:
     )
 
 
-def test_readme_contents(git: GitFn, repo_root: Path, tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    "md, html",
+    [
+        pytest.param(
+            "This is my README", "<p>This is my README</p>", id="basic_markdown"
+        ),
+        pytest.param(
+            "This is a link to my website: [projects](https://alexwlchan.net/projects/)",
+            '<p>This is a link to my website: <a href="/projects/">projects</a></p>',
+            id="link_to_alexwlchan_net",
+        ),
+        pytest.param(
+            "This is a link to a file in the repo: [test_git.py](./tests/test_git.py)",
+            "<p>This is a link to a file in the repo: "
+            '<a href="/projects/example/files/tests/test_git.py">test_git.py</a></p>',
+            id="link_to_self_file",
+        ),
+        pytest.param(
+            "# example\n\nThe README removes the title, if present.",
+            "<p>The README removes the title, if present.</p>",
+            id="removes_readme_title",
+        ),
+    ],
+)
+def test_readme_contents(
+    git: GitFn, repo_root: Path, tmp_path: Path, md: str, html: str
+) -> None:
     """
     The `readme_contents()` method returns the most recent version
     of the README.md file.
     """
     for i in range(1, 10):
-        (repo_root / "README.md").write_text(f"This is version {i} of the README")
+        (repo_root / "README.md").write_text(f"This is old version {i} of the README")
         git("add", "README.md")
         git("commit", "-m", "update README")
+
+    (repo_root / "README.md").write_text(md)
+    git("add", "README.md")
+    git("commit", "-m", "update README")
 
     repo = GitRepository(
         name="example", description="example repo", repo_root=repo_root
     )
 
-    assert repo.readme_contents() == "This is version 9 of the README"
+    assert repo.readme_contents() == html
 
 
 class TestGitFile:

@@ -6,6 +6,7 @@ from collections import OrderedDict
 from collections.abc import Iterable
 import codecs
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 import re
 import shutil
@@ -14,11 +15,13 @@ import tarfile
 from typing import Self
 import uuid
 
+from bs4 import BeautifulSoup
 from pydantic import BaseModel
 import pygit2
 from pygit2.enums import ReferenceFilter, SortMode
 
 from mosaic import cache
+from mosaic.text import markdownify
 
 
 __all__ = ["git_root", "GitRepository"]
@@ -488,6 +491,34 @@ class GitRepository(BaseModel):
         """
         return self.tree.has_file(Path(p))
 
+    def render_markdown(self, md: str) -> str:
+        """
+        Render a Markdown file as HTML to show on a page.
+        """
+        html = markdownify(md)
+
+        soup = BeautifulSoup(html, "html.parser")
+
+        # Update links in the Markdown.
+        #
+        # If they're links to alexwlchan.net or another file in the repo,
+        # use a / link relative to the root of the site. This makes the
+        # links work and means I can check them with my linter.
+        for a_tag in soup.find_all("a"):
+            assert isinstance(a_tag.attrs["href"], str)
+
+            if a_tag.attrs["href"].startswith("https://alexwlchan.net/"):
+                a_tag.attrs["href"] = a_tag.attrs["href"].replace(
+                    "https://alexwlchan.net", "", 1
+                )
+
+            if a_tag.attrs["href"].startswith("./"):
+                a_tag.attrs["href"] = os.path.normpath(
+                    os.path.join("/projects", self.name, "files", a_tag.attrs["href"])
+                )
+
+        return str(soup)
+
     def readme_contents(self) -> str:
         """
         Return the contents of the README.md file in the root of the repo.
@@ -500,7 +531,10 @@ class GitRepository(BaseModel):
         readme = head.tree / "README.md"
         assert isinstance(readme, pygit2.Blob)
 
-        return readme.data.decode("utf8")
+        readme_md = readme.data.decode("utf8")
+        readme_md = re.sub(r"^# " + self.name, "", readme_md)
+
+        return self.render_markdown(readme_md)
 
     def get_blob_data(self, blob_id: str) -> bytes:
         """
