@@ -12,7 +12,7 @@ from mosaic.page_types import (
     BreadcrumbEntry,
     ProjectCommit,
     ProjectHomepage,
-    ProjectLog,
+    ProjectAllCommits,
     ProjectSingleFile,
     ProjectTags,
     ProjectTree,
@@ -65,11 +65,11 @@ class TestProjectHomepage:
 
 def test_log(env: Environment, repo: GitRepository, out_dir: Path) -> None:
     """
-    Tests for `ProjectLog`.
+    Tests for `ProjectAllCommits`.
     """
     repo.name = "example-project"
 
-    p = ProjectLog(repo=repo)
+    p = ProjectAllCommits(repo=repo)
 
     assert p.url == "/projects/example-project/commits/"
     assert p.breadcrumb == [

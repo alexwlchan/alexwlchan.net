@@ -29,7 +29,7 @@ from .page_types import (
     Post,
     ProjectCommit,
     ProjectHomepage,
-    ProjectLog,
+    ProjectAllCommits,
     ProjectSingleFile,
     ProjectTags,
     ProjectTree,
@@ -518,7 +518,7 @@ class Site(BaseModel):
         archive_url = "/" + str(archive_path.relative_to(self.out_dir))
 
         self.all_pages.append(ProjectHomepage(repo=repo, archive_url=archive_url))
-        self.all_pages.append(ProjectLog(repo=repo))
+        self.all_pages.append(ProjectAllCommits(repo=repo))
         self.all_pages.append(ProjectTags(repo=repo))
         self.all_pages.append(ProjectTree(repo=repo))
 
