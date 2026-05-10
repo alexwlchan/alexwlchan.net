@@ -353,7 +353,20 @@ class GitTree(BaseModel):
     GitTree describes all the files in the HEAD of the repo.
     """
 
-    files: list[GitFile]
+    files_by_path: dict[Path, GitFile]
+
+    @property
+    def files(self) -> Iterable[GitFile]:
+        """
+        Return a list of files in this repo.
+        """
+        return self.files_by_path.values()
+
+    def has_file(self, p: Path) -> bool:
+        """
+        Return True if the repo has a file with this path, False otherwise.
+        """
+        return p in self.files_by_path
 
     @classmethod
     def from_repo(cls, repo: pygit2.Repository) -> Self:
@@ -375,7 +388,7 @@ class GitTree(BaseModel):
             return tree_data
 
         files = list_files_for_tree(commit.tree)
-        tree_data = GitTree(files=files)
+        tree_data = GitTree(files_by_path={f.path: f for f in files})
 
         cache.set(cache_ns, tree_id, tree_data.model_dump_json())
 
@@ -468,6 +481,12 @@ class GitRepository(BaseModel):
         raise TypeError(
             "cannot get last_updated for an empty repo!"
         )  # pragma: no cover
+
+    def has_file(self, p: str | Path) -> bool:
+        """
+        Return True if the repo has a file with this path, False otherwise.
+        """
+        return self.tree.has_file(Path(p))
 
     def readme_contents(self) -> str:
         """

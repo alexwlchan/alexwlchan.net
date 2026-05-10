@@ -82,7 +82,9 @@
           {% if repo.tags %}
           <li><a href="{{ page.url }}tags/">Tags</a></li>
           {% endif %}
+          {% if repo.has_file("CHANGELOG.md") %}
           <li><a href="{{ page.url }}files/CHANGELOG.md">Changelog</a></li>
+          {% endif %}
           <li><a href="{{ page.url }}files/LICENSE">License</a></li>
           <li><a href=# id="openClone">Clone</a></li>
           <li><a href="{{ page.archive_url }}">Download</a></li>
