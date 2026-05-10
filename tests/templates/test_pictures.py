@@ -180,13 +180,12 @@ class TestPictureExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
-            "<picture>"
-            "<source "
+            "<img "
             'srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
             '/images/2026/truchet-tiles-800x400_2x.png 800w" '
-            "sizes=(max-width:400px)100vw,400px type=image/png>"
-            '<img style="aspect-ratio: 2" class=screenshot '
-            "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
+            'style="aspect-ratio: 2" class=screenshot '
+            "sizes=(max-width:400px)100vw,400px "
+            "src=/images/2026/truchet-tiles-800x400_1x.png width=400>"
         )
 
     def test_only_original_for_jpg_screenshot(
@@ -205,13 +204,12 @@ class TestPictureExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
-            "<picture>"
-            "<source "
+            "<img "
             'srcset="/images/2026/palymyra-500x525_1x.jpg 250w,'
             '/images/2026/palymyra-500x525_2x.jpg 500w" '
-            "sizes=(max-width:250px)100vw,250px type=image/jpeg>"
-            '<img style="aspect-ratio: 20/21" class=screenshot '
-            "src=/images/2026/palymyra-500x525_1x.jpg width=250></picture>"
+            'style="aspect-ratio: 20/21" class=screenshot '
+            "sizes=(max-width:250px)100vw,250px "
+            "src=/images/2026/palymyra-500x525_1x.jpg width=250>"
         )
 
     def test_link_to_original(self, src_dir: Path, env: Environment) -> None:

@@ -370,23 +370,22 @@ def create_image_derivatives(
     if dst_prefix is None:
         dst_prefix = src_path.relative_to(src_dir).with_suffix("")
 
-    # Choose what format we should use for this image, in order of preference.
-    if is_screenshot and src_path.suffix.lower() == ".jpg":
-        # TODO: I'm excluding screenshots from WebP and AVIF because
-        # they looked bad with VIPS, but they might look better in Pillow.
-        desired_formats: list[ImageFormat] = ["jpg"]
+    if src_path.suffix.lower() == ".jpg":
+        original_format: ImageFormat = "jpg"
         default_mime_type: MimeType = "image/jpeg"
-    elif is_screenshot and src_path.suffix.lower() == ".png":
-        desired_formats = ["png"]
-        default_mime_type = "image/png"
-    elif src_path.suffix.lower() == ".jpg":
-        desired_formats = ["avif", "webp", "jpg"]
-        default_mime_type = "image/jpeg"
     elif src_path.suffix.lower() == ".png":
-        desired_formats = ["avif", "webp", "png"]
+        original_format = "png"
         default_mime_type = "image/png"
     else:  # pragma: no cover
         raise ValueError(f"unrecognised image format: {src_path}")
+
+    # Choose what format we should use for this image, in order of preference.
+    # If it's a screenshot or a book review preview, just use the default
+    # format; we don't need anything else.
+    if is_screenshot or dst_prefix.parts[0] == "b":
+        desired_formats = [original_format]
+    else:
+        desired_formats = ["avif", "webp", original_format]
 
     assert target_width is not None
 
