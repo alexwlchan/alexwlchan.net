@@ -2,10 +2,19 @@
 Tests for `mosaic.templates`.
 """
 
+from datetime import datetime
+from pathlib import Path
+import uuid
+
 import pytest
 
-from mosaic.page_types import BaseHtmlPage, Page
-from mosaic.templates import absolute_url, filter_for_topic, naturalsize
+from mosaic.page_types import BaseHtmlPage, BreadcrumbEntry, Page, Post
+from mosaic.templates import (
+    absolute_url,
+    filter_for_topic,
+    group_list_of_posts,
+    naturalsize,
+)
 
 
 @pytest.mark.parametrize(
@@ -56,3 +65,56 @@ def test_naturalsize(size: int, expected: str) -> None:
     Tests for `naturalsize`.
     """
     assert naturalsize(size) == expected
+
+
+class TestGroupListOfPosts:
+    """
+    Tests for `group_list_of_posts`.
+    """
+
+    @staticmethod
+    def create_post(is_featured: bool = False, is_excluded: bool = False) -> Post:
+        """
+        Create a post.
+        """
+
+        class PostStub(Post):
+            @property
+            def url(self) -> str:  # pragma: no cover
+                raise NotImplementedError
+
+            @property
+            def breadcrumb(self) -> list[BreadcrumbEntry]:  # pragma: no cover
+                raise NotImplementedError
+
+        return PostStub(
+            md_path=Path(f"{uuid.uuid4()}.md"),
+            src_dir=Path("src"),
+            date=datetime.now(),
+            template_name="stub.html",
+            is_featured=is_featured,
+            is_excluded=is_excluded,
+        )
+
+    @pytest.mark.parametrize(
+        "featured",
+        [
+            [True, True, True],
+            [True, True, True, True],
+            [False, False, False, True, True, False],
+        ],
+    )
+    def test_groups_remaining_posts(self, featured: list[bool]) -> None:
+        """
+        After doing the first pass, if all the leftover posts are remaining,
+        they get merged with the final group.
+        """
+        # This is a regression test for a bug on the /images-and-videos/
+        # page, where two 'remaining' posts were leftover and separated
+        # from the rest of the group.
+        posts = [self.create_post(is_featured=f) for f in featured]
+
+        groups = list(group_list_of_posts(posts))
+
+        for i in range(len(groups) - 1):
+            assert groups[i]["type"] != groups[i + 1]["type"], featured

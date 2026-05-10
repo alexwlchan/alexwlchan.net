@@ -4,6 +4,7 @@ Code for dealing with HTML and XML templates.
 
 from collections.abc import Iterator
 from datetime import datetime
+import itertools
 import json
 from pathlib import Path
 import random
@@ -152,18 +153,19 @@ PostGroup = TypedDict(
 )
 
 
-def group_list_of_posts(posts: list[Post]) -> Iterator[PostGroup]:  # pragma: no cover
+def group_list_of_posts(posts: list[Post]) -> Iterator[PostGroup]:
     """
     Group a list of posts for display on a page.
 
     Always start with featured articles, then put at least 3 other posts
     between a run of featured articles.
     """
-    featured_posts = []
-    remaining_posts = []
+    result: list[PostGroup] = []
+    featured_posts: list[Post] = []
+    remaining_posts: list[Post] = []
 
     for p in posts:
-        if p.is_excluded:
+        if p.is_excluded:  # pragma: no cover
             continue
 
         if p.is_featured:
@@ -174,18 +176,24 @@ def group_list_of_posts(posts: list[Post]) -> Iterator[PostGroup]:  # pragma: no
         if len(featured_posts) != 2:
             continue
 
-        yield {"type": "featured", "posts": featured_posts}
+        result.append({"type": "featured", "posts": featured_posts})
         featured_posts = []
 
         if len(remaining_posts) >= 3:
-            yield {"type": "remaining", "posts": remaining_posts}
+            result.append({"type": "remaining", "posts": remaining_posts})
             remaining_posts = []
 
     if featured_posts:
-        yield {"type": "featured", "posts": featured_posts}
+        result.append({"type": "featured", "posts": featured_posts})
 
     if remaining_posts:
-        yield {"type": "remaining", "posts": remaining_posts}
+        result.append({"type": "remaining", "posts": remaining_posts})
+
+    for group_type, groups in itertools.groupby(result, key=lambda pg: pg["type"]):
+        yield {
+            "type": group_type,
+            "posts": list(itertools.chain(*(g["posts"] for g in groups))),
+        }
 
 
 def naturalsize(size: int) -> str:

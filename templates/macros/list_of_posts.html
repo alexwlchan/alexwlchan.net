@@ -115,7 +115,7 @@
      const linksBetweenCards = cardCount === 3 ? 5 : 3;
 
      if (remainingPosts.length >= linksBetweenCards) {
-       container.appendChild(createPostLinks(remainingPosts));
+       createPostLinks(container, remainingPosts);
        remainingPosts = [];
      }
    });
@@ -125,7 +125,7 @@
    }
 
    if (remainingPosts.length > 0) {
-     container.appendChild(createPostLinks(remainingPosts));
+     createPostLinks(container, remainingPosts);
    }
 
    document.querySelector('#list_of_posts').replaceWith(container);
@@ -162,16 +162,24 @@
    *
    * This mirrors the `post_links.html` template.
    */
-  function createPostLinks(posts) {
-    const section = document.createElement("section");
-    section.classList.add("plinks");
+  function createPostLinks(container, posts) {
+    // If the last thing we added to the container was a list of posts,
+    // continue appending to that list; otherwise, create a new list.
+    const lastChild = container.lastChild;
     
-    const ul = document.createElement("ul");
-    section.appendChild(ul);
+    var ul;
+    if (lastChild !== null && lastChild.classList.contains("plinks")) {
+      ul = lastChild.querySelector("ul");
+    } else {
+      const section = document.createElement("section");
+      section.classList.add("plinks");
+      container.appendChild(section)
+    
+      ul = document.createElement("ul");
+      section.appendChild(ul);
+    }
     
     posts.forEach(p => ul.appendChild(p.elem));
-    
-    return section;
   }
 
   window.addEventListener("DOMContentLoaded", arrangeCards);
