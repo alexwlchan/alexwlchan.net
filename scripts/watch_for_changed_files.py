@@ -26,18 +26,17 @@ def watch_for_changed_files(*dirs: str | Path) -> Iterator[set[Path]]:
 
     try:
         while True:
-            events = sel.select()
+            sel.select()
 
-            for _ in events:
-                captured_paths = set()
+            captured_paths = set()
 
-                while True:
-                    line = proc.stdout.readline()
-                    if not line:
-                        break
-                    captured_paths.add(Path(line.strip()))
+            while True:
+                line = proc.stdout.readline()
+                if not line:
+                    break
+                captured_paths.add(Path(line.strip()))
 
-                yield captured_paths
+            yield captured_paths
     finally:
         proc.terminate()
         proc.wait()

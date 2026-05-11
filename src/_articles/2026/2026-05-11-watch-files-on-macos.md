@@ -1,8 +1,8 @@
 ---
 layout: article
-date: 2026-05-07 07:27:03 +01:00
+date: 2026-05-11 07:41:24 +01:00
 title: Watching for file changes on macOS
-summary: summary goes here
+summary: I've written a Swift script that uses the FSEvents API to get notified of file changes, then I'm using stdout as a bridge to forward those notifications to Python.
 topics:
   - macOS
   - Swift
@@ -16,13 +16,12 @@ is_featured: true
   Sharing image from Pixabay: https://pixabay.com/illustrations/domino-game-set-plate-strategy-9602003/
 #}
 
-As part of building [my own static site generator][mosaic], I wanted a local server with live reload.
+When I'm working on this website, I want a local server with live reload.
 I want to be able to open the site in my web browser, make changes to the source files, and have my browser automatically refresh the page when the site is updated.
-I run a live reload server whenever I'm working on the site.
-I find it especially useful to see my writing in a different font/layout to my text editor; I spot lots of typos and mistakes that way.
+I use this whenever I'm working on the site, and I find it helpful to see my writing in a different font/layout to my text editor; I spot lots of typos and mistakes that way.
 
 When I was using Jekyll, I used the command `jekyll serve --livereload`.
-Now I have my own set of scripts, I need to build my own version.
+Now I've written [my own static site generator][mosaic], I need to build my own version.
 This was a fun challenge, because it touched a number of areas I've not worked in before -- macOS filesystem events, non-blocking I/O, and HTTP long polling.
 
 In this post I'll explain how I detect changes to source files to trigger a rebuild; in my next post I'll explain how that automatically refreshes any open pages in my browser.
@@ -35,7 +34,7 @@ First we're going to build a Swift script that detects changes using the FSEvent
 ## Rejected approaches
 
 **Using third-party libraries.**
-Initially I was using the [python-livereload library][gh-python-livereload], but I wanted to replace it with my own code -- partly to remove a dependency, partly to understand how this works.
+Initially I was using the [python-livereload library][gh-python-livereload], but I wanted to replace it with my own implementation -- partly to remove a dependency, partly to understand how this functionality works.
 There are other Python libraries that offer filesystem watching, including [fswatch][pypi-fswatch], [inotify][pypi-inotify], and [watchdog][pypi-watchdog], but I didn't want to use them for similar reasons.
 
 I have an advantage over these library authors -- while they aim to support cross-platform filesystem watching, I only have to get it working on macOS.
@@ -43,8 +42,8 @@ Specifically, the exact versions of macOS that my Macs are running, and no other
 This means I can write a smaller, more focused bit of code.
 
 **Polling the source files.**
-This is easy to write, but I have enough source files that it's surprisingly slow -- about 90ms to scan 13,000 source files, and I'm worried about reducing the lifespan of my SSD if I polled in a hot loop.
-For comparison, my final code only takes 2–4ms to detect a change and trigger a new build.
+This is easy to write, but I have enough source files that it's surprisingly slow -- about 90ms to scan 13,000 source files, and I'm worried about the effect on power consumption and the lifespan of my SSD if I polled in a hot loop.
+For comparison, my final code only takes 2–4ms to detect a change and trigger a new build, and it's very judicious about CPU cycles and disk reads.
 
 
 
@@ -54,7 +53,7 @@ For comparison, my final code only takes 2–4ms to detect a change and trigger 
 
 There are several ways to detect changes to files on macOS; I'm going to use the File System Events API (also called "FSEvents" for short).
 This allows you to receive notifications about any changes to a directory tree, or files within it.
-One of the main purposes is to allow backup software to detect incremental changes without continuously rescanning the entire tree, but we can use it for other things.
+One of the main purposes of this API is to allow backup software to detect incremental changes without continuously rescanning an entire tree, but we can use it for other things.
 
 Apple has a [File System Events Programming Guide][apple-fsevents-guide] which explains the FSEvents API in detail, and that it's exactly what I need: "The file system events API is designed for passively monitoring a large tree of files for changes".
 It mentions a couple of alternatives -- kernel extensions for getting immediate notifications and pre-empting file changes, or kqueues for monitoring changes to a single file -- but they're not what I need, so I didn't explore them further.
@@ -64,8 +63,10 @@ In [Using the File System Events API][apple-fsevents-guide-using], it explains t
 
 Let's start with a script that prints a static message whenever it sees a change -- we don't care about what file it was yet, for now we just want to know when *any* file changed.
 
+Here are the steps:
+
 1.  Create a file systems event stream using [`FSEventStreamCreate`][cs-FSEventStreamCreate].
-    This function takes a lot of arguments and you can't use named arguments, so I find it helpful to define each argument as a variable, then pass those variables names into the function.
+    This function takes a lot of arguments and you can't use named arguments, so I found it helpful to define each argument as a variable, then pass those variables into the function.
     I wrapped my `FSEventStreamCreate` call in another function:
     
     ```swift {"names":{"1":"Foundation","2":"createFSEventStream","3":"pathsToWatch","6":"callback","10":"context","13":"sinceWhen","16":"latency","17":"flags","19":"eventStream"}}
@@ -96,20 +97,24 @@ Let's start with a script that prints a static message whenever it sees a change
     }
     ```
     
-    The `callback` function is an instance of [`FSEventStreamCallback`][cs-FSEventStreamCallback], and the arguments contain information about the event which occurred.
+    The `callback` function is an instance of [`FSEventStreamCallback`][cs-FSEventStreamCallback], which will be called whenever a file changes.
+    The arguments contain information about the file which just changed.
     For now we ignore all of that information, and just print a static message.
     
     The `context` argument allows us to attach some context to the stream.
     I'm not sure what it's for -- perhaps for applications that have multiple event streams, and need to distinguish between them in the callback?
-    The docs say I can pass NULL, so that's what I've done.
+    I don't think I need this, and the docs say I can pass NULL, so that's what I've done.
     
     The `sinceWhen` argument asks for events that happened after a given event ID.
-    I imagine this is useful for long-running applications like backup software -- they can retrieve the latest event ID in a callback, record it, then ask for subsequent events if the app is relaunched.
-    That would be more efficient than rescanning the entire disk every time.
-    I just need events "since now", so I can use the `kFSEventStreamEventIdSinceNow` constant.
+    I imagine this is useful for long-running applications like backup software -- it means they can resume an event stream if the app is quit and relaunched, without rescanning the tree on every app launch.
+    I just need events from when the script started running, so I can use the `kFSEventStreamEventIdSinceNow` constant.
+    
+    The `latency` argument is how long the OS will wait to coalesce rapid-fire events into a single event.
+    A shorter latency means you get notifications faster, but you'll get more of them.
+    I'll implement my own event coalescing later, so I set this quite low and accept the stream.
     
     The `flags` modify the behaviour of the event stream.
-    We're using the defaults for now; we'll come back and revisit these later.
+    We're using the defaults for now; we'll come back and add some more later.
     
     Finally, we create the event stream by using [`FSEventStreamCreate`][cs-FSEventStreamCreate].
     This returns an `Optional` value which can be `nil` if the stream wasn't created successfully; for example, if you try to watch a directory that doesn't exist or which you don't have permission to read.
@@ -141,9 +146,9 @@ Let's start with a script that prints a static message whenever it sees a change
     ```
 
 1.  Clean up the event stream when we're done.
-    In a simple script like mine that might not be necessary -- the system might clean up an event stream if it's not used for a while -- but it's good hygiene to ensure my Mac doesn't get start tracking dozens of redundant event streams.
+    In a simple script like mine that might not be necessary -- the system probably cleans up an event stream if it's not used for a while -- but it's good hygiene and ensures my Mac doesn't start tracking dozens of redundant event streams.
     
-    First, a function to call the `FSEventStream` methods that stop, invalidate, and release references to the stream:
+    First, here's a function to call the `FSEventStream` methods that stop, invalidate, and release references to the stream:
     
     ```swift {"names":{"1":"cleanupEventStream","2":"eventStream"}}
     /// Stop a file system events stream, invalidate it, and release our
@@ -155,7 +160,7 @@ Let's start with a script that prints a static message whenever it sees a change
     }
     ```
     
-    Then, a function to create [dispatch source objects][dispatch-makeSignalSource] that watch for a termination signal (`SIGINT`, `SIGHUP`) and runs our cleanup function.
+    Then, a function to create [dispatch source objects][dispatch-makeSignalSource] that watch for a termination signal (`SIGINT`, `SIGTERM`, `SIGHUP`) and runs our cleanup function.
     We have to disable the default handlers, or they can terminate the script before we run our cleanup code:
     
     ```swift {"names":{"1":"registerCleanup","2":"eventStream","5":"signals","9":"sources","11":"sig","13":"signalSource"}}
@@ -309,8 +314,9 @@ Detected file change!
 Stopping listener...
 ```
 
-This isn't especially useful, because we don't know *which* files changed.
-Let's solve that next.
+This alone is enough to know I should kick off a site rebuild, but a full rebuild takes 10–15s.
+If I know which file had changed, I can do an incremental rebuild that would be much faster.
+Let's tackle that next.
 
 
 
@@ -321,7 +327,7 @@ This callback takes six parameters, and the fourth parameter `eventPaths` is an 
 
 The type is a bit gnarly: by default it's a raw C array of raw C strings, or we can set the [`kFSEventStreamCreateFlagUseCFTypes` flag][cs-kFSEventStreamCreateFlagUseCFTypes] to get a `CFArrayRef` of `CFStringRef` objects.
 (Here `CF` stands for Core Foundation, one of Apple's low-level frameworks.)
-I started by writing a function that converts the types into a vanilla Swift array:
+I started by setting theflag, and writing a function to converts the CFArrayRef into a vanilla Swift array:
 
 ```swift {"names":{"1":"flags","4":"convertFSEventPaths","5":"eventPaths","8":"cfArray"}}
 let flags = FSEventStreamCreateFlags(kFSEventStreamCreateFlagUseCFTypes)
@@ -335,7 +341,7 @@ func convertFSEventPaths(_ eventPaths: UnsafeRawPointer) -> [String] {
 }
 ```
 
-I can imagine that if you're working in a very performance-sensitive application, you might skip this step and operate on the C types directly, but that's not my use case.
+I can imagine that if you're working in a very performance-sensitive application, you might skip this step and operate on the C types directly, but that's not necessary for me.
 
 Then I modified the callback to parse the event paths, and print them one-by-one:
 
@@ -363,6 +369,8 @@ Stopping listener...
 ```
 
 One thing I noticed is that a single operation can sometimes emit multiple filesystem events -- for example, if I save a file in my text editor, that emits two events.
+I'm guessing that's one event to write the contents of the file, one event to update the metadata, but I'm not sure.
+
 Because I don't need fine-grained resolution of filesystem events, I use a `Set(…)` to de-duplicate events:
 
 ```swift {"names":{"1":"callback","3":"eventPaths","4":"p"}}
@@ -518,11 +526,21 @@ How can I pass this information to a Python script?
 
 ### Building a bridge with stdout and subprocess
 
-The easiest way for a Swift script to communicate with a Python script is by printing to stdout, so I'm going to start by changing the Swift script in three ways:
+I want my Python code to invoke the Swift script as a new process, specify what directories it wants to watch, and read lines from stdout to see which files changed.
+
+This means I have to change the Swift script in three ways:
 
 1.  Allow passing a list of directories to watch as command-line arguments;
 2.  Write the `Listening for changes` and `Stopping listener` messages to stderr;
 3.  Change the `Detected change` message to print just the path of the changed file.
+
+What's nice is that there's nothing Python-specific about this mechanism; you could use this to expose a stream of changed files in any language.
+(Although in practice I'll only use it in Python, which I use for the majority of my recreational coding.)
+
+I briefly considered trying to create some Python-Swift bridge, similar to what I did with [`clonefile()` last year][clonefile], but I couldn't work out how to do it without bringing in more dependencies.
+Plus, it would have been a Python-only solution.
+
+Here's the updated Swift script:
 
 <details>
 <summary><code>watch_for_changed_files.swift [DIRS...]</code></summary>
@@ -637,14 +655,7 @@ dispatchMain()
 
 </details>
 
-The Python script can start the script in a new process and read lines from stdout.
-What's nice is that there's nothing Python-specific about this mechanism; I could use this to expose a stream of changed files in any language.
-(Although in practice I'll only use it in Python, which I use for the majority of my recreational coding.)
-
-I briefly considered trying to create some Python-Swift bridge, similar to what I did with [`clonefile()` last year][clonefile], but I couldn't work out how to do it without bringing in more dependencies.
-Plus, it would have been a Python-only solution.
-
-Here's the first function I came up with:
+And here's the first Python function I came up with:
 
 ```python {"names":{"1":"collections","2":"abc","3":"Iterator","4":"pathlib","5":"Path","6":"subprocess","7":"watch_for_changed_files","8":"dirs","13":"cmd","16":"d","18":"proc","27":"line","37":"p"}}
 from collections.abc import Iterator
@@ -676,7 +687,7 @@ for p in watch_for_changed_files("/Users/alexwlchan/Desktop"):
 This function uses the [`subprocess module`][pydoc-subprocess] to start my Swift script in a new process, then it reads lines from `proc.stdout` and yields them to the caller.
 The caller gets a stream of changed file paths, and doesn't need to worry about the underlying process.
 
-The function will keep iterating over `proc.stdout` for as long as `stdout` stays open -- as long as the Swift process is running.
+The function will keep iterating over `proc.stdout` while `stdout` stays open, which lasts as long as the Swift process is running.
 It's a long-running listener that only stops when I break out of the loop (whether with an explicit `break`, an exception, or stopping the whole Python script).
 
 The `text=True` parameter means stdout will be opened in text mode rather than binary mode, and `bufsize=1` means the output will be line-buffered, so `proc.stdout` will be flushed every time the Swift script writes a newline.
@@ -684,12 +695,12 @@ The `text=True` parameter means stdout will be opened in text mode rather than b
 
 The `try … finally` construction ensures the process is stopped and cleaned up correctly when I'm done.
 
-In my live reload script, I do an incremental rebuild of the website every time a file changes.
-Because I know exactly which file changed, I can optimise the rebuild to skip unnecessary work.
+In my live reload script, I can now do an incremental rebuild that only rebuilds parts of the site that have changed.
 If I've changed the base template?
 Rebuild the entire site.
-If I've edited one article?
-Only that page needs to change.
+If I've edited an article?
+Only one page needs to change.
+This is more efficient and makes rebuilds much faster.
 
 ### Debouncing with non-blocking I/O and selectors
 
@@ -697,12 +708,11 @@ One problem with this function is that it doesn't do [debouncing][mdn-debouncing
 If I change a lot of files at once -- say, a bulk find and replace -- this function will emit every file separately, kicking off a bunch of redundant rebuilds.
 If I change ten files at once, I only need to do one rebuild, not ten.
 
-What I'd like to do is combine all the changes that have happened since the last rebuild into a single event, then use them to inform the next rebuild.
-(The technical term is "event coalescing".)
+What I'd like to do is coalesce all the changes that have happened since the last rebuild into a single event, then use them to inform the next rebuild.
 You can do some of this coalescing in Swift by tweaking the `latency` parameter, but that doesn't work here because the latency is variable.
-The length of a rebuild can vary from a hundred milliseconds to several seconds, depending on how much of the site is being rebuilt.
+The length of a rebuild can vary from a hundred milliseconds to multiple seconds, depending on how much of the site is being rebuilt.
 
-What I'd like to do is read everything that's in the `proc.stdout`, emit that to the caller, then wait for something else to be written.
+What I'd like to do is read everything that's available in `proc.stdout`, emit that to the caller, then wait for something else to be written.
 By default, reading from `proc.stdout` is a blocking operation -- if we call `read()` and there's nothing available, it waits until there's something for us to read.
 To debounce, we'll need to change this behaviour.
 
@@ -714,10 +724,10 @@ import os
 os.set_blocking(proc.stdout.fileno(), False)
 ```
 
-Then, we need to know when anything has been written to stdout, so we can read all the output and emit it to the caller.
+Then, we need to know when anything has been written to stdout, so we can read all the available output and emit it to the caller.
 We could poll `proc.stdout` repeatedly and look for non-empty output, but that would be very inefficient -- a better approach would be to use the [`selectors` module][pydoc-selectors] and get notified when something gets written.
 
-We need to create a selector that waits until there's data waiting to be read from `proc.stdout`:
+We create a selector that waits until there's data waiting to be read from `proc.stdout`:
 
 ```python {"names":{"1":"selectors","2":"sel"}}
 import selectors
@@ -726,29 +736,29 @@ sel = selectors.DefaultSelector()
 sel.register(proc.stdout, selectors.EVENT_READ)
 ```
 
-Then, we can call the [`select()` method][pydoc-selectors-select], which blocks until an event is ready.
-At that point, we can read everything that's available `proc.stdout` and deliver it as a single event to the caller:
+Then, we call the [`select()` method][pydoc-selectors-select], which blocks until an event is ready.
+At that point, we read everything that's available `proc.stdout` and deliver it as a single changeset to the caller.
+For some use cases you might want to capture and inspect the event, but here it's enough to know that an event was emitted, and start reading stdout:
 
-```python {"names":{"1":"events","6":"captured_paths","8":"line"}}
+```python {"names":{"3":"captured_paths","5":"line"}}
 while True:
-    events = sel.select()
+    sel.select()
     
-    for _ in events:
-        captured_paths = set()
-        
-        while True:
-            line = proc.stdout.readline()
-            if not line:
-                break
-            captured_paths.add(Path(line.strip()))
-        
-        yield captured_paths
+    captured_paths = set()
+  
+    while True:
+        line = proc.stdout.readline()
+        if not line:
+            break
+        captured_paths.add(Path(line.strip()))
+  
+    yield captured_paths
 ```
 
 This changes the signature of the overall function, because now we're emitting changesets instead of single files.
 Here's the updated function:
 
-```python {"names":{"1":"collections","2":"abc","3":"Iterator","4":"os","5":"pathlib","6":"Path","7":"selectors","8":"subprocess","9":"watch_for_changed_files","10":"dirs","16":"cmd","21":"proc","35":"sel","44":"events","49":"captured_paths","51":"line"}}
+```python {"names":{"1":"collections","2":"abc","3":"Iterator","4":"os","5":"pathlib","6":"Path","7":"selectors","8":"subprocess","9":"watch_for_changed_files","10":"dirs","16":"cmd","21":"proc","35":"sel","46":"captured_paths","48":"line"}}
 from collections.abc import Iterator
 import os
 from pathlib import Path
@@ -772,18 +782,17 @@ def watch_for_changed_files(*dirs: str | Path) -> Iterator[set[Path]]:
 
     try:
         while True:
-            events = sel.select()
+            sel.select()
     
-            for _ in events:
-                captured_paths = set()
-        
-                while True:
-                    line = proc.stdout.readline()
-                    if not line:
-                        break
-                    captured_paths.add(Path(line.strip()))
-        
-                yield captured_paths
+            captured_paths = set()
+    
+            while True:
+                line = proc.stdout.readline()
+                if not line:
+                    break
+                captured_paths.add(Path(line.strip()))
+    
+            yield captured_paths
     finally:
         proc.terminate()
         proc.wait()
@@ -798,6 +807,7 @@ Here's a diagram which illustrates the code we've written: the FSEvents API emit
   {%
     inline_svg
     filename="macos-file-watcher.svg"
+    alt="Sequence diagram showing the movement of messages between 'Filesystem events', 'Swift script', 'stdout (pipe)' and 'Python script'."
     link_to="original"
     class="dark_aware"
   %}
@@ -812,7 +822,7 @@ Both the Swift and the Python code pause until something interesting happens, so
 ## Closing thoughts
 
 Before I started this script, the only way I knew how to track file changes was by polling, which is undesirable for a number of reasons.
-I wasn't sure if I could do it, but now it's done, I'm proud of the result.
+I wasn't sure if I could write an alternative, but now it's done, I'm proud of the result.
 
 I learnt a lot about topics I only vaguely understood before, including the macOS FSEvents API, how blocking and non-blocking I/O works in Python, and using the `selectors` module.
 Explaining it all for this article has cemented that learning, and I understand every line of this code.
