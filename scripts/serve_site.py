@@ -3,9 +3,8 @@ Build the site and serve it at http://localhost:5757, then rebuild
 it whenever something changes.
 """
 
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from socketserver import ThreadingMixIn
 import sys
 import time
 import threading
@@ -18,57 +17,40 @@ from mosaic.site import BuildOptions
 from watch_for_changed_files import watch_for_changed_files
 
 
-# All waiting pages are told to reload when this event is set to true
-reload_event = threading.Event()
+rebuild_event = threading.Event()
 
 
-class WaitForReloadHandler(SimpleHTTPRequestHandler):
+class RebuildHandler(BaseHTTPRequestHandler):
     """
-    A basic server that only serves the `/wait-for-reload` endpoint.
+    An HTTP handler that sends one of two responses.
 
-    The page can long poll this endpoint for either:
+    Either:
 
-    - a 200 OK with 'reload' (refresh to pick up changes), or
-    - a 204 No Content (no changes in the last 30 seconds).
+    *   200 OK -- the site has changed, reload the page, or
+    *   204 No Content -- nothing has changed recently, make a new GET request
+
     """
 
     def do_GET(self) -> None:
         """
-        Handle GET requests.
+        Handle a new GET request from a browser.
         """
-        if self.path != "/wait-for-reload":
-            self.send_response(404)
-            self.end_headers()
-            return
+        try:
+            has_changes = rebuild_event.wait(timeout=20)
 
-        # We've received a request from a web browser.
-        #
-        # Wait until reload_event is set, or 30 seconds have passed.
-        # The choice of 30 seconds is arbitrary; we just don't want the
-        # browser to time out the connection if nothing changes.
-        changed = reload_event.wait(timeout=30)
+            if has_changes:
+                self.send_response(200)
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Content-type", "text/plain")
+                self.end_headers()
 
-        if changed:
-            self.send_response(200)
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-
-            try:
-                self.wfile.write(b"reload")
-            except BrokenPipeError:
-                pass
-        else:
-            self.send_response(204)
-            self.end_headers()
-
-
-class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
-    """
-    An HTTP server where each "hanging" fetch request runs in its own thread.
-    """
-
-    daemon_threads = True
+                self.wfile.write(b"reload\n")
+            else:
+                self.send_response(204)
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.end_headers()
+        except BrokenPipeError:
+            pass
 
 
 def rebuild(site: Site, changeset: set[Path]) -> None:
@@ -110,16 +92,18 @@ def rebuild(site: Site, changeset: set[Path]) -> None:
         print(f"✅ Build successful in {elapsed:.3f}s")
 
         # Trigger the reload event, so any waiting browsers will refresh
-        reload_event.set()
-        reload_event.clear()
+        rebuild_event.set()
+        rebuild_event.clear()
 
     except Exception as e:
         print(f"❌ Build failed with error: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":
-    reload_server = ThreadedHTTPServer(("localhost", 5656), WaitForReloadHandler)
-    threading.Thread(target=reload_server.serve_forever, daemon=True).start()
+    server_address = ("localhost", 5555)
+    server = ThreadingHTTPServer(server_address, RebuildHandler)
+
+    threading.Thread(target=server.serve_forever, daemon=True).start()
 
     with caddy.local_webserver(out_dir=Path("_out")) as base_url:
         print(f"🌐 Listening on {base_url}")
@@ -142,9 +126,9 @@ if __name__ == "__main__":
 
         except Exception as e:  # noqa: E722
             print(f"❌ Incremental build failed with error: {e}", file=sys.stderr)
-            reload_server.shutdown()
+            server.shutdown()
         except KeyboardInterrupt:
             print("^C detected, stopping...")
-            reload_server.shutdown()
+            server.shutdown()
         except SystemExit:
-            reload_server.shutdown()
+            server.shutdown()

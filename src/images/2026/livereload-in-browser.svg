@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="graph-592" width="100%" height="100%" viewBox="0 0 980 815">
+  <defs>
+    <marker id="graph-592-arrowhead" refX="7.9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M -1 0 L 10 5 L 0 10 z"/>
+    </marker>
+    
+    <style>
+      #graph-592 {
+        --primary-color:      #8b7434;
+        --primary-fill:       #f4f1ec;
+        --note-border-color:  #d01c11;
+        --note-fill:          #f7eae8;
+        --block-border-color: #dfdfdf;
+        --block-background:   #f3f3f3;
+        --body-text:          #202020;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #graph-592 {
+          --primary-color:      #dfcf96;
+          --primary-fill:       #423d2c;
+          --red:                #ff4a4a;
+          --note-fill:          #4b1616;
+          --block-border-color: #434343;
+          --block-background:   #1d1d1d;
+          --body-text:          #c7c7c7;
+        }
+      }
+      
+      #graph-592 {
+      	font-size: 16px;
+      	fill: #333;
+        
+        .note {
+          stroke: var(--note-border-color);
+          fill: var(--note-fill);
+        }
+        
+        text {
+          text-anchor: middle;
+          dominant-baseline: bottom;
+          fill: var(--body-text)
+        }
+        
+        .actor, .note {
+          tspan {
+            dominant-baseline: middle;
+          }
+        }
+
+        .actor {
+        	stroke: var(--primary-color);
+        	fill:   var(--primary-fill);
+        	stroke-width: 3;
+        }
+
+        text.actor {
+        	fill: var(--primary-color);
+        	stroke: none;
+        }
+
+        .actor-line {
+        	stroke: var(--primary-color);
+        }
+
+        .messageLine0 {
+        	stroke-width: 1.5;
+        	stroke-dasharray: none;
+        	stroke: var(--body-text);
+        }
+
+        .messageLine1 {
+        	stroke-width: 1.5;
+        	stroke-dasharray: 2, 2;
+        	stroke: var(--body-text);
+        }
+
+        .messageText {
+        	fill: var(--body-text);
+        	stroke: none;
+        }
+        
+        .noteText {
+          fill: var(--note-border-color);
+        }
+
+        line {
+        	fill: var(--block-background);
+        	stroke-width: 2px;
+        }
+      }
+      
+      #graph-592-arrowhead path {
+        fill: var(--body-text);
+      }
+    </style>
+  </defs>
+  <g style="transform: matrix(1.449464, 0, 0, 1.449464, 15, 4);">
+    <g>
+      <rect x="478" y="492" fill="#eaeaea" stroke="#666" width="150" height="65" name="WB" rx="3" ry="3" class="actor actor-bottom"/>
+      <text x="553" y="524.5" class="actor actor-box">
+        <tspan x="553" dy="0">Web browser</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="208.5" y="492" fill="#eaeaea" stroke="#666" width="177" height="65" name="PS" rx="3" ry="3" class="actor actor-bottom"/>
+      <text x="297" y="524.5" class="actor actor-box">
+        <tspan x="297" dy="0">Python HTTP server</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="0" y="492" fill="#eaeaea" stroke="#666" width="150" height="65" name="RB" rx="3" ry="3" class="actor actor-bottom"/>
+      <text x="75" y="524.5" class="actor actor-box">
+        <tspan x="75" dy="0">Rebuild script</tspan>
+      </text>
+    </g>
+    <g>
+      <line id="actor3626" x1="553" y1="65" x2="553" y2="492" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="WB" data-et="life-line" data-id="WB"/>
+      <g id="root-3626" data-et="participant" data-type="participant" data-id="WB">
+        <rect x="478" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="WB" rx="3" ry="3" class="actor actor-top"/>
+        <text x="553" y="32.5" class="actor actor-box">
+          <tspan x="553" dy="0">Web browser</tspan>
+        </text>
+      </g>
+    </g>
+    <g>
+      <line id="actor3625" x1="297" y1="65" x2="297" y2="492" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="PS" data-et="life-line" data-id="PS"/>
+      <g id="root-3625" data-et="participant" data-type="participant" data-id="PS">
+        <rect x="208.5" y="0" fill="#eaeaea" stroke="#666" width="177" height="65" name="PS" rx="3" ry="3" class="actor actor-top"/>
+        <text x="297" y="32.5" class="actor actor-box">
+          <tspan x="297" dy="0">Python HTTP server</tspan>
+        </text>
+      </g>
+    </g>
+    <g>
+      <line id="actor3624" x1="75" y1="65" x2="75" y2="492" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="RB" data-et="life-line" data-id="RB"/>
+      <g id="root-3624" data-et="participant" data-type="participant" data-id="RB">
+        <rect x="0" y="0" width="150" height="65" name="RB" rx="3" ry="3" class="actor actor-top"/>
+        <text x="75" y="32.5" class="actor actor-box">
+          <tspan x="75" dy="0">Rebuild script</tspan>
+        </text>
+      </g>
+    </g>
+    <g/>
+    <g data-et="note" data-id="i0">
+      <rect x="206" y="75" width="182" height="39" class="note"/>
+      <text x="297" y="80" class="noteText" dy="1.2em">
+        <tspan x="297">reload_event.wait()</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i1">
+      <rect x="447" y="124" width="212" height="39" class="note"/>
+      <text x="553" y="129" class="noteText" dy="1.2em">
+        <tspan x="553">Browser window loads</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i4">
+      <rect x="-8" y="221" width="166" height="39" class="note"/>
+      <text x="75" y="226" class="noteText" dy="1.2em">
+        <tspan x="75">Rebuild completes</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i6">
+      <rect x="206" y="318" width="182" height="57" class="note"/>
+      <text x="297" y="323" class="noteText" dy="1.2em">
+        <tspan x="297">reload_event.wait()</tspan>
+      </text>
+      <text x="297" y="342" class="noteText" dy="1.2em">
+        <tspan x="297">unblocks</tspan>
+      </text>
+    </g>
+    <g data-et="note" data-id="i9">
+      <rect x="442.5" y="433" width="221" height="39" class="note"/>
+      <text x="553" y="438" class="noteText" dy="1.2em">
+        <tspan x="553">window.location.reload()</tspan>
+      </text>
+    </g>
+    <text x="427" y="178" dy="1.2em">GET /wait-for-changes</text>
+    <line x1="552" y1="211" x2="301" y2="211" class="messageLine0" data-et="message" data-id="i2" data-from="WB" data-to="PS" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-592-arrowhead)"/>
+    <text x="183" y="275" dy="1.2em">reload_event.set()</text>
+    <line x1="76" y1="308" x2="293" y2="308" class="messageLine0" data-et="message" data-id="i5" data-from="RB" data-to="PS" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-592-arrowhead)"/>
+    <text x="426" y="390" dy="1.2em">HTTP 200 OK ("reload")</text>
+    <line x1="298" y1="423" x2="549" y2="423" class="messageLine0" data-et="message" data-id="i7" data-from="PS" data-to="WB" stroke-width="2" stroke="none" style="fill: none;" marker-end="url(#graph-592-arrowhead)"/>
+  </g>
+</svg>

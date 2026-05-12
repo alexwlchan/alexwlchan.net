@@ -31,22 +31,6 @@ First we're going to build a Swift script that detects changes using the FSEvent
 
 
 
-## Rejected approaches
-
-**Using third-party libraries.**
-Initially I was using the [python-livereload library][gh-python-livereload], but I wanted to replace it with my own implementation -- partly to remove a dependency, partly to understand how this functionality works.
-There are other Python libraries that offer filesystem watching, including [fswatch][pypi-fswatch], [inotify][pypi-inotify], and [watchdog][pypi-watchdog], but I didn't want to use them for similar reasons.
-
-I have an advantage over these library authors -- while they aim to support cross-platform filesystem watching, I only have to get it working on macOS.
-Specifically, the exact versions of macOS that my Macs are running, and no others.
-This means I can write a smaller, more focused bit of code.
-
-**Polling the source files.**
-This is easy to write, but I have enough source files that it's surprisingly slow -- about 90ms to scan 13,000 source files, and I'm worried about the effect on power consumption and the lifespan of my SSD if I polled in a hot loop.
-For comparison, my final code only takes 2–4ms to detect a change and trigger a new build, and it's very judicious about CPU cycles and disk reads.
-
-
-
 ## The macOS FSEvents API
 
 ### Setting up the event stream
@@ -798,6 +782,20 @@ def watch_for_changed_files(*dirs: str | Path) -> Iterator[set[Path]]:
         proc.wait()
 ```
 
+## Rejected approaches
+
+**Using third-party libraries.**
+Initially I was using the [python-livereload library][gh-python-livereload], but I wanted to replace it with my own implementation -- partly to remove a dependency, partly to understand how this functionality works.
+There are other Python libraries that offer filesystem watching, including [fswatch][pypi-fswatch], [inotify][pypi-inotify], and [watchdog][pypi-watchdog], but I didn't want to use them for similar reasons.
+
+I have an advantage over these library authors -- while they aim to support cross-platform filesystem watching, I only have to get it working on macOS.
+Specifically, the exact versions of macOS that my Macs are running, and no others.
+This means I can write a smaller, more focused bit of code.
+
+**Polling the source files.**
+This is easy to write, but I have enough source files that it's surprisingly slow -- about 90ms to scan 13,000 source files, and I'm worried about the effect on power consumption and the lifespan of my SSD if I polled in a hot loop.
+For comparison, my final code only takes 2–4ms to detect a change and trigger a new build, and it's very judicious about CPU cycles and disk reads.
+
 ## The result
 
 Here's a diagram which illustrates the code we've written: the FSEvents API emits an event to our Swift script, that prints the file paths to stdout, where they get read by a Python script that kicks off a site rebuild.
@@ -834,7 +832,7 @@ I'm surprised by how much this has improved my workflow.
 I was waiting 5 to 10 seconds with Jekyll; now, my browser reloads almost instantly with new changes.
 Everything feels a lot smoother, and it's renewed my interest in working on the site.
 
-In my next post, I'll explain how I combine this watcher with HTTP long polling to trigger an automatic browser refresh the moment the rebuild finishes.
+In [my next post][me-http-long-polling], I'll explain how I combine this watcher with HTTP long polling to trigger an automatic browser refresh the moment the rebuild finishes.
 
 [apple-fsevents-guide]: https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/UsingtheFSEventsFramework/UsingtheFSEventsFramework.html
 [apple-fsevents-guide-using]: https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/UsingtheFSEventsFramework/UsingtheFSEventsFramework.html#//apple_ref/doc/uid/TP40005289-CH4-SW4
@@ -846,6 +844,7 @@ In my next post, I'll explain how I combine this watcher with HTTP long polling 
 [cs-kFSEventStreamCreateFlagFileEvents]: https://developer.apple.com/documentation/coreservices/1455376-fseventstreamcreateflags/kfseventstreamcreateflagfileevents
 [dispatch-makeSignalSource]: https://developer.apple.com/documentation/dispatch/dispatchsource/makesignalsource(signal:queue:)
 [gh-python-livereload]: https://github.com/lepture/python-livereload
+[me-http-long-polling]: /2026/livereload-in-browser/
 [mosaic]: /2026/mosaic/
 [pypi-fswatch]: https://pypi.org/project/fswatch/
 [pypi-inotify]: https://pypi.org/project/inotify/

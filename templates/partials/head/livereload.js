@@ -3,10 +3,10 @@ var isPaused = false;
 async function startListener() {
   while (true) {
     try {
-      const response = await fetch('http://localhost:5656/wait-for-reload');
+      const response = await fetch('http://localhost:5555/wait-for-changes');
       
       if (isPaused) {
-        console.log("Detected change, but LiveReload is disabled")
+        console.log("Detected change, but live is disabled")
         break;
       }
       

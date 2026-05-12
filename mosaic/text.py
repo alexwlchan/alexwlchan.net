@@ -291,6 +291,7 @@ COUNTABLE_RE = re.compile(r"(\d+) (" + "|".join(COUNTABLE_WORDS) + ")")
 
 NON_BREAKING_PHRASES = [
     "<em>k</em>-means",
+    "200 OK",
     "26k items",
     "Algorithm L",
     "Algorithm R",
