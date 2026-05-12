@@ -4,9 +4,12 @@ Shared test fixtures and helpers.
 
 from collections.abc import Callable
 from pathlib import Path
+import ssl
+from ssl import SSLContext
 import subprocess
 from typing import TypeAlias
 
+import certifi
 from jinja2 import Environment
 import pytest
 
@@ -116,3 +119,11 @@ def repo(git: GitFn, repo_root: Path) -> GitRepository:
     return GitRepository(
         name="example", description="example repo", repo_root=repo_root
     )
+
+
+@pytest.fixture
+def ssl_context() -> SSLContext:
+    """
+    Create an SSL context so that urllib.request can find HTTPS certificates.
+    """
+    return ssl.create_default_context(cafile=certifi.where())

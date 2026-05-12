@@ -1,5 +1,3 @@
--r uptime_tests/requirements.txt
-
 alexwlchan-chives[fetch]
 beautifulsoup4
 inquirerpy
@@ -22,3 +20,9 @@ lxml-stubs
 mypy
 pytest-xdist
 ruff
+
+# For building Caddyfiles from templates
+cogapp
+
+# For DNS tests
+dnspython
