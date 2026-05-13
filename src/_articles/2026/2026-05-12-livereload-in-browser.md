@@ -61,9 +61,11 @@ class SlowHandler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         """
-        Handle GET requests.
+        Handle a new GET request from a client.
         """
         print("Client connected")
+        
+        # Send the initial HTTP headers.
         self.send_response(200)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
