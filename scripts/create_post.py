@@ -173,7 +173,7 @@ if __name__ == "__main__":
                     }
                 )
                 + "\n"
-                + yaml.dump({"colors": {"css_light": css_light, "css_dark": css_dark}})
+                + yaml.dump({"colours": {"css_light": css_light, "css_dark": css_dark}})
                 + "\n---\n"
             )
 
