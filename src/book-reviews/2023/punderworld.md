@@ -6,7 +6,7 @@ date_updated: 2026-02-02T23:15:49.191823+00:00
 book:
   title: Punderworld
   contributors:
-  - name: "Linda \u0160eji\u0107"
+  - name: "Linda Sejic"
   genres:
   - mythological fiction
   - fiction
