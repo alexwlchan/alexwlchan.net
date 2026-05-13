@@ -151,7 +151,7 @@
       %}
       {% if review.summary %}
         <p class="summary">
-          {{ review.summary | smartify }}
+          {{ review.summary | markdownify_oneline | smartify }}
         </p>
       {% endif %}
     </header>

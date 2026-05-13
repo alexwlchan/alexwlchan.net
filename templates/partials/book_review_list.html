@@ -86,7 +86,7 @@
     {%- set description -%}
     <p>
       {%- if rev.review.summary -%}
-        {{- rev.review.summary | smartify -}}
+        {{- rev.review.summary | markdownify_oneline | smartify -}}
         {{ " " }}
       {%- endif -%}
       {%- if rev.review.date_read -%}
