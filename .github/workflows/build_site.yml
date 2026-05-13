@@ -90,10 +90,9 @@ jobs:
             ~/repos/alexwlchan.net/_site/
 
       - name: "Run the website tests"
-        # if: github.ref == 'refs/heads/main'
         run: |
           source .venv/bin/activate
-          python3 -m pytest uptime_tests
+          bash scripts/run_alexwlchan_tests.sh
 
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/main'
