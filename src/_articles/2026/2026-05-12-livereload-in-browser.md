@@ -21,8 +21,6 @@ I'm trying to build this all myself, with no third-party dependencies.
 Once we've detected a changed file and rebuild the site, how do we automatically refresh my open browser windows?
 In this post, I'll explain how I use HTTP long polling to tell pages when it's time to reload.
 
-[me-fsevents]: /2026/watch-files-on-macos/
-
 ## HTTP long polling
 
 ### What is long polling?
@@ -31,7 +29,7 @@ In most HTTP servers I've built, when the server sends a response to a client, I
 When I'm writing HTTP clients that fetch data from servers, I expect the server to respond quickly.
 The entire interaction is handled in the initial response -- but it doesn't have to be that way.
 
-HTTP long polling is a technique where a client makes a normal HTTP request, but the server doesn't respond immediately.
+HTTP [long polling][wiki-long-polling] is a technique where a client makes a normal HTTP request, but the server doesn't respond immediately.
 Rather than closing or timing out the connection, both sides hold it open, and the server can send new data to the client over time.
 
 We can use this to trigger a reload -- open a long-lived HTTP connection from the browser when the page reloads, then the server doesn't send a response until something's changed.
@@ -42,13 +40,65 @@ Specifically, Tailscale clients use HTTP long polling to get network updates fro
 The `tailscaled` opens a long-running connection to the control plane servers, and when something changes in the network, the control plane sends the updated network information (or "netmap") down that connection.
 Clients can hold open the connection for a long time, and receive many updates on the same connection.
 
-### making a long-polling server in python
+### Sending reload events from a Python web server
 
-here's a basic python web server that writes to the connection every 1 second:
+All the scripts for my blog are written in Python, so I want to use Python to write a web server that serves a long-lived connection and tells the browser when to reload.
+For production Python web servers I'd use a proper server framework like [Gunicorn][pypi-gunicorn] or [uWSGI][pypi-uwsgi], but for a small and low-traffic local server, I can just use the standard library's [`http.server` module][pydoc-http-server].
 
-[[code]]
+To create a server, I need to create a subclass of [`BaseHTTPRequestHandler`][pydoc-http-server-BaseHTTPRequestHandler] that handles GET requests, then pass that to an instance of [`HTTPServer`][pydoc-http-server-HTTPServer].
 
-curl http://localhost:123
+Here's a basic example that receives a GET request, holds open the connection, and writes "waiting..." once every second:
+
+```python {"names":{"1":"http","2":"server","3":"HTTPServer","4":"BaseHTTPRequestHandler","5":"time","6":"SlowHandler","8":"do_GET","21":"server_address","22":"server"}}
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import time
+
+
+class SlowHandler(BaseHTTPRequestHandler):
+    """
+    A basic HTTP handler that sends "waiting..." on a long-running connection.
+    """
+
+    def do_GET(self) -> None:
+        """
+        Handle GET requests.
+        """
+        print("Client connected")
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+
+        try:
+            while True:
+                self.wfile.write(b"waiting...\n")
+                
+                # Flush to stdout to ensure the client receives the data
+                # immediately, without buffering.
+                self.wfile.flush()
+                
+                # Sleep until we're ready to write again.
+                time.sleep(1)
+              
+        # If the client closes the connection, we'll get a BrokenPipeError
+        # the next time we try to write data.
+        except BrokenPipeError:
+            print("Client disconnected")
+
+
+server_address = ("localhost", 5555)
+server = HTTPServer(server_address, SlowHandler)
+server.serve_forever()
+```
+
+If you run this script and make a GET request with curl, you'll see "waiting..." printed in a loop:
+
+```console
+$ curl http://localhost:5555/
+waiting...
+waiting...
+waiting...
+```
+
 
 we could wire this to check if there are any changes since the last write, and if so, write a different message to the response -- but now back to polling, and introduced a 1s latency into browser getting updates
 we really want to send response as soon as update ready
@@ -174,3 +224,11 @@ can work on complex layouts or templates, or edit a tricky sentence -- site look
 
 long time this sort of thing seemed insurmountable, too complicated for me
 now i understand all the moving peices
+
+[me-fsevents]: /2026/watch-files-on-macos/
+[pydoc-http-server]: https://docs.python.org/3/library/http.server.html
+[pydoc-http-server-BaseHTTPRequestHandler]: https://docs.python.org/3/library/http.server.html#http.server.BaseHTTPRequestHandler
+[pydoc-http-server-HTTPServer]: https://docs.python.org/3/library/http.server.html#http.server.HTTPServer
+[pypi-gunicorn]: https://gunicorn.org/
+[pypi-uwsgi]: https://uwsgi-docs.readthedocs.io/en/latest/
+[wiki-long-polling]: https://en.wikipedia.org/wiki/Push_technology#Long_polling
