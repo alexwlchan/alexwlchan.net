@@ -834,7 +834,7 @@ I'm surprised by how much this has improved my workflow.
 I was waiting 5 to 10 seconds with Jekyll; now, my browser reloads almost instantly with new changes.
 Everything feels a lot smoother, and it's renewed my interest in working on the site.
 
-In my next post, I'll explain how I combine this watcher with HTTP long polling to trigger an automatic browser refresh the moment the rebuild finishes.
+In [my next post][me-http-long-polling], I'll explain how I combine this watcher with HTTP long polling to trigger an automatic browser refresh the moment the rebuild finishes.
 
 [apple-fsevents-guide]: https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/UsingtheFSEventsFramework/UsingtheFSEventsFramework.html
 [apple-fsevents-guide-using]: https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/UsingtheFSEventsFramework/UsingtheFSEventsFramework.html#//apple_ref/doc/uid/TP40005289-CH4-SW4
@@ -846,6 +846,7 @@ In my next post, I'll explain how I combine this watcher with HTTP long polling 
 [cs-kFSEventStreamCreateFlagFileEvents]: https://developer.apple.com/documentation/coreservices/1455376-fseventstreamcreateflags/kfseventstreamcreateflagfileevents
 [dispatch-makeSignalSource]: https://developer.apple.com/documentation/dispatch/dispatchsource/makesignalsource(signal:queue:)
 [gh-python-livereload]: https://github.com/lepture/python-livereload
+[me-http-long-polling]: /2026/livereload-in-browser/
 [mosaic]: /2026/mosaic/
 [pypi-fswatch]: https://pypi.org/project/fswatch/
 [pypi-inotify]: https://pypi.org/project/inotify/

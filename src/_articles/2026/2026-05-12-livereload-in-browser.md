@@ -1,7 +1,7 @@
 ---
 layout: article
 date: 2026-05-12 07:25:36 +01:00
-title: Watching for file changes in my browser
+title: Waiting for website changes in my browser
 topics:
   - Computers and code
   - Blogging about blogging
@@ -10,33 +10,37 @@ colours:
   css_dark:  "#dfcf96"
 ---
 {#
-  Sharing image from Pixabay: https://pixabay.com/illustrations/domino-game-set-plate-strategy-9602003/
+  Sharing image from Pexels: https://www.pexels.com/photo/colorful-threads-on-white-background-15415991/
 #}
 
-in previous post, explained how I use FSEvents API to detect file changes on macOS
-part of livereload mechanism for local dev on this blog
-I make a change to soruce fiels,detected by FSEvents, site rebuilt, and then trigger refrehs of all open browser windows
-i'm trying to build this all myself, with no third-party deps required
+In my [previous post][me-fsevents], I explained how I use the FSEvents API to detect changed files on macOS.
+It's part of my livereload mechanism for working on this site.
+I make a change to a source file, it's detected by FSEvents, that triggers of rebuild the site, and then the development site automatically refreshes in my web browser.
+I'm trying to build this all myself, with no third-party dependencies.
 
-suppose the site has been rebuilt
-in this post i'll explain how i run a small server that serves a long-running http connection, and how i detect in browser to trigger automatic reloads
-http long polling to trigger an automatic reload in my browser
+Once we've detected a changed file and rebuild the site, how do we automatically refresh my open browser windows?
+In this post, I'll explain how I use HTTP long polling to tell pages when it's time to reload.
 
-## http long polling
+[me-fsevents]: /2026/watch-files-on-macos/
 
-### what is http long polling?
+## HTTP long polling
 
-on most http servers i've worked on, when the http server serves a response, i want it to return as quickly as possible
-when i'm writing http clients that fetch from servers, i expect the server to return in a timely fashion, or for the connection to time out
-… but it doesn't have to be that way
+### What is long polling?
 
-http long polling is a technique where a client makes an http request as noral, but the server doesn't have to respond immediately
-rather than closing or timing out the connection, both sides hold it open, until the server sends an http response with new data to the client
-we can use this to trigger a reload -- open a long-running http connection when the page loads, then the server doesn't send a response until it's time to reload the page
+In most HTTP servers I've built, when the server sends a response to a client, I want it to return as quickly as possible.
+When I'm writing HTTP clients that fetch data from servers, I expect the server to respond quickly.
+The entire interaction is handled in the initial response -- but it doesn't have to be that way.
 
-i thought of this idea because we use it very heavily at tailscale
-tailscale clients use http long polling to get netmap updates from the control plane
-specifically, the tailscaled daemon opens a long-running connection with the control plane servers, and when something changes in the network, the control plane sends the updated network information (or "netmap") through that connection
+HTTP long polling is a technique where a client makes a normal HTTP request, but the server doesn't respond immediately.
+Rather than closing or timing out the connection, both sides hold it open, and the server can send new data to the client over time.
+
+We can use this to trigger a reload -- open a long-lived HTTP connection from the browser when the page reloads, then the server doesn't send a response until something's changed.
+When the browser receives data, it knows it's time to reload the page.
+
+I thought of this idea because HTTP polling is a core mechanic at Tailscale.
+Specifically, Tailscale clients use HTTP long polling to get network updates from the control plane.
+The `tailscaled` opens a long-running connection to the control plane servers, and when something changes in the network, the control plane sends the updated network information (or "netmap") down that connection.
+Clients can hold open the connection for a long time, and receive many updates on the same connection.
 
 ### making a long-polling server in python
 
@@ -136,3 +140,37 @@ websockets
 -> used for two-way comms (e.g. Slack)
 -> more complicated to implement
 -> would need a third-party dep
+
+## the result
+
+here's the final python server:
+
+[[python server]]
+
+and here's the javascript i embed in page:
+
+[[javascript]]
+
+## closing thoughts
+
+site builder      threading.event     http server     web browser
+                        <------------wait for true
+                                        <-------------- wait for response
+
+  build completes  ---> event = true
+                          ----------> unblock wait()
+                              -++
+                                |
+            event = false <-----+
+                                          --------------> send 200 OK
+                                                          reload page
+                                      <------------------ wait for response
+
+combined with previous post, effect is near-instant reflection of changes in browser 
+(informal timing shows there's about 150 milliseconds between saving a file in my text editor + browser reloading in the changes, which is on par with fastest human reaction times)
+
+makes working on the site feel smooth
+can work on complex layouts or templates, or edit a tricky sentence -- site looks different to monospaced code of text editor, often spot new mistakes or issues that way
+
+long time this sort of thing seemed insurmountable, too complicated for me
+now i understand all the moving peices
