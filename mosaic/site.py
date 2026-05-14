@@ -147,7 +147,7 @@ class Site(BaseModel):
         if self.repos:
             return
 
-        repos = {
+        repo_details = {
             "chives": "Utility functions for working with my local media archives",
             "create_thumbnail": "A command-line tool for creating image thumbnails",
             "randline": (
@@ -159,14 +159,21 @@ class Site(BaseModel):
             ),
         }
 
-        self.repos = [
-            GitRepository(
-                name=name,
-                description=description,
-                repo_root=Path.home() / "repos" / name,
+        repos = []
+
+        # Look for repos in ~/Media/repos first, otherwise try ~/repos
+        # for local development
+        for name, description in repo_details.items():
+            media_root = Path.home() / "Media/repos" / name
+            home_root = Path.home() / "repos" / name
+
+            repo_root = media_root if media_root.exists() else home_root
+
+            repos.append(
+                GitRepository(name=name, description=description, repo_root=repo_root)
             )
-            for name, description in repos.items()
-        ]
+
+        self.repos = repos
 
     @register_task("read markdown files")  # type: ignore
     def read_markdown_files(self) -> None:  # pragma: no cover
