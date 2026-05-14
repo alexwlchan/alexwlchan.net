@@ -611,7 +611,10 @@ class Site(BaseModel):
             if p in self.written_html_paths:
                 continue
 
-            if "/files/" in p or "/fun-stuff/" in p:
+            if any(
+                f"/{part}/" in p
+                for part in ("files", "fun-stuff", "ideas-for-inclusive-events", "man")
+            ):
                 continue
 
             print(f"delete stale HTML file: {p}")
