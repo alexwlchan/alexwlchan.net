@@ -1,5 +1,9 @@
 alexwlchan.net:
 
+Deployment:
+  - Automatically reload Caddy on the server when there are changes
+  - Remove the Git repo on the server
+
 Projects:
 	- Report whether files are executable/changed in commit
 	- Show tags on a commit page
