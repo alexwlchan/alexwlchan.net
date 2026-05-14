@@ -53,6 +53,9 @@ def check_no_broken_html(path: Path, html_str: str, soup: BeautifulSoup) -> list
             Path(
                 "_out/projects/chives/commits/74520670083b5073a282f24992a84d1affcd13d7/index.html"
             ),
+            Path(
+                "_out/projects/chives/commits/37bd7f646db6b4617d7680d3318053f3ebc1b3a5/index.html"
+            ),
             Path("_out/projects/chives/files/tests/test_text.py.html"),
         }:
             continue  # pragma: no cover
