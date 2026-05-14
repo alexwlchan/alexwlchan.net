@@ -2,7 +2,6 @@
 Tests for `mosaic.page_types.projects`.
 """
 
-from collections import OrderedDict
 from pathlib import Path
 
 from jinja2 import Environment
@@ -14,7 +13,6 @@ from mosaic.page_types import (
     ProjectHomepage,
     ProjectAllCommits,
     ProjectSingleFile,
-    ProjectTags,
     ProjectTree,
 )
 
@@ -39,28 +37,6 @@ class TestProjectHomepage:
         assert p.title == "example-project"
 
         assert p.write(env, out_dir) == out_dir / "projects/example-project/index.html"
-
-    def test_omits_tags_link_if_no_tags(
-        self, env: Environment, repo: GitRepository, out_dir: Path
-    ) -> None:
-        """
-        If the repo doesn't have any tags, there's no tags link on
-        the project homepage.
-        """
-        repo.name = "example-project"
-
-        p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
-        out_path = p.write(env, out_dir)
-        html = out_path.read_text()
-        assert "<a href=/projects/example-project/tags/>Tags</a>" in html
-
-        repo.tags = OrderedDict()
-
-        p.clear_cache()
-        out_path = p.write(env, out_dir)
-        html = out_path.read_text()
-        print(html)
-        assert "<a href=/projects/example-project/tags/>Tags</a>" not in html
 
 
 def test_log(env: Environment, repo: GitRepository, out_dir: Path) -> None:
@@ -105,23 +81,6 @@ def test_commit(env: Environment, repo: GitRepository, out_dir: Path) -> None:
         p.write(env, out_dir)
         == out_dir / f"projects/example-project/commits/{commit_id}/index.html"
     )
-
-
-def test_tags(env: Environment, repo: GitRepository, out_dir: Path) -> None:
-    """
-    Tests for `ProjectTags`.
-    """
-    repo.name = "example-project"
-
-    p = ProjectTags(repo=repo)
-
-    assert p.url == "/projects/example-project/tags/"
-    assert p.breadcrumb == [
-        BreadcrumbEntry(label="projects", href="/projects/"),
-        BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
-    ]
-
-    assert p.write(env, out_dir) == out_dir / "projects/example-project/tags/index.html"
 
 
 def test_tree(env: Environment, repo: GitRepository, out_dir: Path) -> None:

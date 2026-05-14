@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    
+    <style>
+      h3 {
+        margin-top: 1.25em;
+        margin-bottom: 0;
+      }
+      
+      h3 + p {
+        margin-top: 8px;
+      }
+      
+      h3 > a {
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      
+      .meta {
+        margin-left: 5px;
+      }
+    </style>
+    
+    <h1 class="title">Releases</h1>
+    
+    {% set repo = page.repo %}
+
+    {{ repo.changelog_contents()}}
+  </article>
+{% endblock %}

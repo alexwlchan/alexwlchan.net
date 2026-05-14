@@ -18,7 +18,7 @@ import uuid
 from bs4 import BeautifulSoup
 from pydantic import BaseModel
 import pygit2
-from pygit2.enums import ReferenceFilter, SortMode
+from pygit2.enums import SortMode
 
 from mosaic import cache
 from mosaic.text import markdownify
@@ -427,10 +427,6 @@ class GitRepository(BaseModel):
     # All the commits in the repository
     commits: OrderedDict[str, Commit]
 
-    # All the tags in the repository, ordered in descending numerical order
-    # TODO(2026-04-16): Read tag annotations to make this more useful
-    tags: OrderedDict[str, str]
-
     # A working directory for the HEAD of the repository
     tree: GitTree
 
@@ -450,12 +446,6 @@ class GitRepository(BaseModel):
             ]
         )
 
-        tags = OrderedDict()
-        for t in repo.references.iterator(ReferenceFilter.TAGS):
-            assert isinstance(t.raw_target, pygit2.Oid)
-            tags[t.shorthand] = as_hex(t.raw_target)
-        tags = sort_tags(tags)
-
         tree = GitTree.from_repo(repo)
 
         super().__init__(
@@ -464,7 +454,6 @@ class GitRepository(BaseModel):
             repo_root=repo_root,
             head=head,
             commits=commits,
-            tags=tags,
             tree=tree,
         )
 
@@ -537,6 +526,75 @@ class GitRepository(BaseModel):
         readme_md = re.sub(r"^# " + self.name, "", readme_md)
 
         return self.render_markdown(readme_md)
+
+    def render_changelog_contents(self, changelog_md: str) -> str:
+        """
+        Render the CHANGELOG.md Markdown as HTML.
+        """
+        repo = pygit2.Repository(self.repo_root)
+
+        changelog_md = (
+            changelog_md.replace("# CHANGELOG\n", "")
+            .replace("# Changelog\n", "")
+            .strip()
+        )
+
+        html = self.render_markdown(changelog_md)
+
+        soup = BeautifulSoup(html, "html.parser")
+
+        for heading_elem in soup.find_all("h2"):
+            tag, date = heading_elem.text.split(" - ")
+            tag_commit, _ = repo.resolve_refish(tag)
+            assert isinstance(tag_commit, pygit2.Commit)
+
+            meta_elem = soup.new_tag("span")
+            meta_elem.attrs["class"] = "meta"
+
+            time_elem = soup.new_tag("time")
+            time_elem.attrs["datetime"] = date
+            time_elem.string = datetime.strptime(date, "%Y-%m-%d").strftime("%-d %B %Y")
+            print(time_elem)
+
+            a_elem = soup.new_tag("a")
+            a_elem.attrs["href"] = (
+                f"/projects/{self.name}/commits/{as_hex(tag_commit.id)}/"
+            )
+            a_elem.string = as_hex(tag_commit.id)[:7]
+
+            meta_elem.append(time_elem)
+            meta_elem.append(" · ")
+            meta_elem.append(a_elem)
+
+            anchor_elem = soup.new_tag("a")
+            anchor_elem.attrs["href"] = f"#{tag}"
+            anchor_elem.string = tag
+
+            heading_elem.attrs["id"] = tag
+            heading_elem.name = "h3"
+            heading_elem.string.replace_with(anchor_elem)  # type: ignore
+            heading_elem.append(" ")
+            heading_elem.append(meta_elem)
+
+        return str(soup)
+
+    def changelog_contents(self) -> str:
+        """
+        Return the contents of the CHANGELOG.md file in the root of the repo.
+
+        This is rendered as an HTML page at /releases/, with the headings
+        linking to the Git tag.
+        """
+        repo = pygit2.Repository(self.repo_root)
+
+        head = repo.get(repo.head.target)
+        assert isinstance(head, pygit2.Commit)
+
+        changelog = head.tree / "CHANGELOG.md"
+        assert isinstance(changelog, pygit2.Blob)
+
+        changelog_md = changelog.data.decode("utf8")
+        return self.render_changelog_contents(changelog_md)
 
     def get_blob_data(self, blob_id: str) -> bytes:
         """
@@ -627,17 +685,3 @@ class GitRepository(BaseModel):
             "	repositoryformatversion = 0\n"
             "	filemode = true\n"
         )
-
-
-def sort_tags(tags: OrderedDict[str, str]) -> OrderedDict[str, str]:
-    """
-    Sort the tags into human-readable numeric order.
-    """
-    if all(re.match(r"^v[0-9]+$", t) for t in tags):
-        return OrderedDict(
-            sorted(
-                tags.items(), key=lambda tc: int(tc[0].replace("v", "")), reverse=True
-            )
-        )
-    else:
-        return tags

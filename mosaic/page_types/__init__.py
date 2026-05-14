@@ -20,8 +20,8 @@ from .projects import (
     ProjectCommit,
     ProjectHomepage,
     ProjectAllCommits,
+    ProjectReleases,
     ProjectSingleFile,
-    ProjectTags,
     ProjectTree,
 )
 from .topic_pages import TopicPage
@@ -129,8 +129,8 @@ __all__ = [
     "ProjectCommit",
     "ProjectHomepage",
     "ProjectAllCommits",
+    "ProjectReleases",
     "ProjectSingleFile",
-    "ProjectTags",
     "ProjectTree",
     "ReviewInfo",
     "TopicPage",

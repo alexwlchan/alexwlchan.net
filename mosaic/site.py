@@ -28,10 +28,10 @@ from .page_types import (
     Page,
     Post,
     ProjectCommit,
+    ProjectReleases,
     ProjectHomepage,
     ProjectAllCommits,
     ProjectSingleFile,
-    ProjectTags,
     ProjectTree,
     TopicPage,
     read_markdown_files,
@@ -526,8 +526,10 @@ class Site(BaseModel):
 
         self.all_pages.append(ProjectHomepage(repo=repo, archive_url=archive_url))
         self.all_pages.append(ProjectAllCommits(repo=repo))
-        self.all_pages.append(ProjectTags(repo=repo))
         self.all_pages.append(ProjectTree(repo=repo))
+
+        if repo.has_file("CHANGELOG.md"):
+            self.all_pages.append(ProjectReleases(repo=repo))
 
         for commit in repo.commits.values():
             self.all_pages.append(ProjectCommit(repo=repo, commit=commit))

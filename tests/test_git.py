@@ -21,7 +21,6 @@ from mosaic.git import (
     NavigableFile,
     NavigableTree,
     Stats,
-    sort_tags,
 )
 
 
@@ -221,18 +220,6 @@ class TestGitRepository:
                     ],
                 ),
             }
-        )
-
-    def test_tags(self, repo: GitRepository) -> None:
-        """
-        The tags are sorted in human-readable order.
-        """
-        assert repo.tags == OrderedDict(
-            [
-                ("v10", "85ea442996d28dbac757d7080071ab20222fd76d"),
-                ("v2", "200cffd1814043a79dcc1dc334b9577a5b753cac"),
-                ("v1", "e90e5a42bd2c3b69a5abf7155bb5a3031523c5b2"),
-            ]
         )
 
     def test_clone(self, repo: GitRepository, tmp_path: Path) -> None:
@@ -444,23 +431,6 @@ class TestCommit:
 
         _, parsed_commit = Commit.from_pygit2_commit(repo, head_commit)
         assert len(parsed_commit.changed_files) == 1
-
-
-@pytest.mark.parametrize(
-    "tags, sorted_tags",
-    [
-        ([], []),
-        (["v1", "v3", "v2"], ["v3", "v2", "v1"]),
-        (["v1", "v2", "fish"], ["v1", "v2", "fish"]),
-    ],
-)
-def test_sort_tags(tags: list[str], sorted_tags: list[str]) -> None:
-    """
-    Tests for `sort_tags`.
-    """
-    input = OrderedDict([(t, "<commit>") for t in tags])
-    output = sort_tags(input)
-    assert list(output.keys()) == sorted_tags
 
 
 def test_navigable_tree_from_paths() -> None:

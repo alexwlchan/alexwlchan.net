@@ -137,19 +137,19 @@ class ProjectCommit(BaseProjectPage):
         ]
 
 
-class ProjectTags(BaseProjectPage):
+class ProjectReleases(BaseProjectPage):
     """
-    A list of tags/releases for a project.
+    A list of releases for a project.
     """
 
-    template_name: str = "projects/tags.html"
+    template_name: str = "projects/releases.html"
 
     @model_validator(mode="after")
     def set_title(self) -> Self:
         """
         Set the title of the page to be "Tags" and the project name.
         """
-        self.title = f"Tags – {self.name}"
+        self.title = f"Releases – {self.name}"
         return self
 
     @property
@@ -157,7 +157,7 @@ class ProjectTags(BaseProjectPage):
         """
         The output URL of this page.
         """
-        return f"/projects/{self.slug}/tags/"
+        return f"/projects/{self.slug}/releases/"
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
