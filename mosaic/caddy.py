@@ -70,6 +70,7 @@ def local_webserver(out_dir: Path, port: int = 5757) -> Iterator[str]:
         "SITE_ROOT": str(out_dir.absolute()),
         "PORT": str(port),
         "PATH": os.environ["PATH"],
+        "HOME": os.environ["HOME"],
     }
 
     with subprocess.Popen(cmd, env=env, stdout=PIPE, stderr=PIPE) as proc:
@@ -94,7 +95,8 @@ def local_webserver(out_dir: Path, port: int = 5757) -> Iterator[str]:
             else:
                 break
 
-        assert not proc.poll()
+        assert proc.stderr is not None
+        assert not proc.poll(), proc.stderr.read()
 
         yield url
 

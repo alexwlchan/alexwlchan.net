@@ -12,6 +12,6 @@
 	import projects.Caddyfile
 	import redirects.Caddyfile
 
-	root * {$SITE_ROOT}
+	root * "{$SITE_ROOT}"
 	file_server
 }
