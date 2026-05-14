@@ -379,46 +379,71 @@ def test_stats_str(stats: Stats, stats_str: str) -> None:
     assert str(stats) == stats_str
 
 
-def test_commit_stats() -> None:
+class TestCommit:
     """
-    The stats for a commit count all the additions and deletions
-    for every file changed in the commit.
+    Tests for Commit.
     """
-    repo = pygit2.Repository(Path.home() / "repos/chives")
 
-    commit = repo.get("aac432816394a98e493703ee814f7a8fec2390b2")
-    assert isinstance(commit, pygit2.Commit)
+    def test_commit_stats(self) -> None:
+        """
+        The stats for a commit count all the additions and deletions
+        for every file changed in the commit.
+        """
+        repo = pygit2.Repository(Path.home() / "repos/chives")
 
-    _, parsed_commit = Commit.from_pygit2_commit(repo, commit)
+        commit = repo.get("aac432816394a98e493703ee814f7a8fec2390b2")
+        assert isinstance(commit, pygit2.Commit)
 
-    assert parsed_commit.stats == Stats(additions=70, deletions=16)
+        _, parsed_commit = Commit.from_pygit2_commit(repo, commit)
 
+        assert parsed_commit.stats == Stats(additions=70, deletions=16)
 
-def test_commit_summary() -> None:
-    """
-    The summary of a commit is the first line of a commit message.
-    """
-    repo = pygit2.Repository(Path.home() / "repos/chives")
+    def test_commit_summary(self) -> None:
+        """
+        The summary of a commit is the first line of a commit message.
+        """
+        repo = pygit2.Repository(Path.home() / "repos/chives")
 
-    commit = repo.get("7fd9cd0d5c06b7b0480642bca194229a1a084ab8")
-    assert isinstance(commit, pygit2.Commit)
+        commit = repo.get("7fd9cd0d5c06b7b0480642bca194229a1a084ab8")
+        assert isinstance(commit, pygit2.Commit)
 
-    _, parsed_commit = Commit.from_pygit2_commit(repo, commit)
+        _, parsed_commit = Commit.from_pygit2_commit(repo, commit)
 
-    assert (
-        parsed_commit.summary == "all: remove the silver-nitrate and httpx dependencies"
-    )
-    assert parsed_commit.message == (
-        "all: remove the silver-nitrate and httpx dependencies\n"
-        "\n"
-        "silver-nitrate is a library I wrote while working at the Flickr Foundation,\n"
-        "but they're slowing down and it's unclear if the library will still be\n"
-        "maintained: https://www.flickr.org/looking-ahead-simplifying-our-strategy/\n"
-        "I wrote all this code, so just copy it into this project.\n"
-        "\n"
-        "It's unclear if httpx is still maintained, so replace it with standard\n"
-        "library. See https://tildeweb.nl/~michiel/httpxyz.html"
-    )
+        assert (
+            parsed_commit.summary
+            == "all: remove the silver-nitrate and httpx dependencies"
+        )
+        assert parsed_commit.message == (
+            "all: remove the silver-nitrate and httpx dependencies\n"
+            "\n"
+            "silver-nitrate is a library I wrote while working at the Flickr Foundation,\n"  # noqa: E501
+            "but they're slowing down and it's unclear if the library will still be\n"
+            "maintained: https://www.flickr.org/looking-ahead-simplifying-our-strategy/\n"
+            "I wrote all this code, so just copy it into this project.\n"
+            "\n"
+            "It's unclear if httpx is still maintained, so replace it with standard\n"
+            "library. See https://tildeweb.nl/~michiel/httpxyz.html"
+        )
+
+    def test_git_for_file_move(self, repo_root: Path, git: GitFn) -> None:
+        """
+        A renamed file is only a single ChangedFile.
+        """
+        (repo_root / "greeting.txt").write_text(
+            "Hello world\nBonjour monde\nHallo Welt\n"
+        )
+        git("add", "greeting.txt")
+        git("commit", "-m", "initial commit")
+
+        git("mv", "greeting.txt", "greeting.md")
+        git("commit", "-m", "change to a Markdown file")
+
+        repo = pygit2.Repository(repo_root)
+        head_commit = repo.head.peel()
+        assert isinstance(head_commit, pygit2.Commit)
+
+        _, parsed_commit = Commit.from_pygit2_commit(repo, head_commit)
+        assert len(parsed_commit.changed_files) == 1
 
 
 @pytest.mark.parametrize(

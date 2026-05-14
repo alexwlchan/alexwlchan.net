@@ -157,6 +157,8 @@ class Commit(BaseModel):
         else:
             diff = repo.diff(parent, commit)
 
+        diff.find_similar()
+
         # Note(2026-04-16): The type signature for the __iter__ method
         # says it returns `Patch | None`, but I've never seen an instance
         # of it returning None. I don't know when that would occur.
