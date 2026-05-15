@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
+{% from "macros/post_title.html" import post_title %}
+
 {% block content %}
   <article class="note">    
     <hgroup>
-      <h1 class="title">{{ page.title | markdownify_oneline | cleanup_text }}</h1>
+      {{- post_title(page) -}}
       {% include "partials/meta.html" %}
     </hgroup>
     

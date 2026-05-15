@@ -150,6 +150,9 @@ class Site(BaseModel):
         repo_details = {
             "chives": "Utility functions for working with my local media archives",
             "create_thumbnail": "A command-line tool for creating image thumbnails",
+            "javascript-data-files": (
+                "Work with JSON which is stored as a value in a JavaScript file"
+            ),
             "randline": (
                 "Get a random selection of lines in a file using reservoir sampling"
             ),

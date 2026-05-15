@@ -139,6 +139,12 @@ sup {
       content: "→";
     }
   }
+  &.linkpost_title:hover {
+    a {
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+    }
+  }
 }
 
 .visually-hidden {
