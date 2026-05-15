@@ -17,7 +17,7 @@ report_coverage() {
     then
         echo "100% coverage!"
     else
-        python3 -m coverage
+        python3 -m coverage report
     fi
 }
 

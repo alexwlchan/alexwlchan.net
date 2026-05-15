@@ -26,25 +26,6 @@ class TestCheckNoBrokenHtml:
     Tests for `check_no_broken_html`.
     """
 
-    def assert_html_is_passed(self, html: str) -> None:
-        """
-        Check this HTML is passed by the linter.
-        """
-        path = Path("example.html")
-        soup = BeautifulSoup(html, "html.parser")
-        assert check_no_broken_html(path, html, soup) == []
-
-    def assert_html_is_rejected(self, html: str, *, expected_error: str) -> None:
-        """
-        Check this HTML is rejected by the linter with the expected error.
-        """
-        soup = BeautifulSoup(html, "html.parser")
-        path = Path("example.html")
-        errors = check_no_broken_html(path, html, soup)
-
-        assert len(errors) == 1
-        assert expected_error in errors[0]
-
     @pytest.mark.parametrize(
         "html",
         [
@@ -52,105 +33,81 @@ class TestCheckNoBrokenHtml:
             "<p>Abc",
             "<head><style>p { color: red; }</style></head>",
             "<pre><code>def hello_world():\n    print('hello world!')</code></pre>",
+            """
+            <div id="wrapper">
+                <p>
+                    <span id="a">apple</span>
+                    <span id="b">banana</span>
+                    <span id="c">cherry</span>
+                </p>
+            </div>
+            """,
         ],
     )
     def test_allows_valid_html(self, html: str) -> None:
         """
         The lint passes examples of valid HTML.
         """
-        self.assert_html_is_passed(html)
+        path = Path("example.html")
+        soup = BeautifulSoup(html, "html.parser")
+        assert check_no_broken_html(path, html, soup) == []
 
     @pytest.mark.parametrize(
-        "html",
+        "html, expected_error",
         [
-            "<p><table>",
-            "<p>&lt;pre&gt;",
-            "<p><p>",
-            "<picture>&lt;/picture>",
-        ],
-    )
-    def test_spots_bad_tag_after_p(self, html: str) -> None:
-        """
-        The lint catches a <p> tag which is followed by something unexpected.
-        """
-        self.assert_html_is_rejected(html, expected_error="following <p>")
-
-    @pytest.mark.parametrize(
-        "html",
-        [
-            "<head><style>p { color: red; }\n<br/>\nspan { color: blue; }</style></head>",
+            ("<p><table>", "unexpected tag following <p>"),
+            ("<p>&lt;pre&gt;", "malformed tag following <p>"),
+            ("<p><p>", "unexpected tag following <p>"),
+            ("<picture>&lt;/picture>", "malformed closing tag"),
+            (
+                "<head><style>p { color: red; }\n<br/>\nspan { color: blue; }</style></head>",
+                "malformed <style> tag",
+            ),
             (
                 "<head><style>p { color: red; }\n<p>\nspan { color: blue; }</p>\n"
-                "div { color: green; }</style></head>"
+                "div { color: green; }</style></head>",
+                "malformed <style> tag",
             ),
-            '<head><style>@use "components/tables"</style></head>',
+            (
+                '<head><style>@use "components/tables"</style></head>',
+                "malformed <style> tag",
+            ),
+            (
+                "<html><style>p { color: red; }</style></html>",
+                "<style> tag outside <head>",
+            ),
+            (
+                "<body><style>p { color: red; }</style></body>",
+                "<style> tag outside <head>",
+            ),
+            (
+                """
+            <div id="a">
+                <p>
+                    <span id="a">apple</span>
+                    <span id="b">banana</span>
+                    <span id="c">cherry</span>
+                </p>
+            </div>
+            """,
+                "duplicate IDs",
+            ),
+            (
+                "<pre><code>```\ndef greet():\n    print('hello world')```</code></pre>",
+                "malformed <pre> tag",
+            ),
         ],
     )
-    def test_spots_style_contains_html(self, html: str) -> None:
+    def test_fails_invalid_html(self, html: str, expected_error: str) -> None:
         """
-        The lint catches a <style> tag which contains HTML, which is
-        a common symptom of the Markdown parser parsing whitespace
-        inside a <style> tag.
+        The linter fails examples of invalid HTML.
         """
-        self.assert_html_is_rejected(html, expected_error="malformed <style> tag")
+        soup = BeautifulSoup(html, "html.parser")
+        path = Path("example.html")
+        errors = check_no_broken_html(path, html, soup)
 
-    @pytest.mark.parametrize(
-        "html",
-        [
-            "<html><style>p { color: red; }</style></html>",
-            "<body><style>p { color: red; }</style></body>",
-        ],
-    )
-    def test_spots_style_outside_head(self, html: str) -> None:
-        """
-        The lint catches a <style> tag which is outside the <head> of
-        the document.
-        """
-        self.assert_html_is_rejected(html, expected_error="<style> tag outside <head>")
-
-    def test_rejects_duplicate_ids(self) -> None:
-        """
-        The lint rejects HTML in which IDs are repeated.
-        """
-        html = """
-        <div id="a">
-            <p>
-                <span id="a">apple</span>
-                <span id="b">banana</span>
-                <span id="c">cherry</span>
-            </p>
-        </div>
-        """
-
-        self.assert_html_is_rejected(html, expected_error="duplicate IDs")
-
-    @pytest.mark.parametrize(
-        "html",
-        [
-            "<pre><code>```\ndef greet():\n    print('hello world')```</code></pre>",
-        ],
-    )
-    def test_rejects_pre_with_markdown(self, html: str) -> None:
-        """
-        The lint rejects a <pre> tag with unexpected HTML or Markdown.
-        """
-        self.assert_html_is_rejected(html, expected_error="malformed <pre> tag")
-
-    def test_allows_unique_ids(self) -> None:
-        """
-        The lint passes HTML in which all the ID attributes are unique.
-        """
-        html = """
-        <div id="wrapper">
-            <p>
-                <span id="a">apple</span>
-                <span id="b">banana</span>
-                <span id="c">cherry</span>
-            </p>
-        </div>
-        """
-
-        self.assert_html_is_passed(html)
+        assert len(errors) == 1
+        assert expected_error in errors[0]
 
 
 @pytest.mark.parametrize(
