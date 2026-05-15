@@ -554,7 +554,6 @@ class GitRepository(BaseModel):
             time_elem = soup.new_tag("time")
             time_elem.attrs["datetime"] = date
             time_elem.string = datetime.strptime(date, "%Y-%m-%d").strftime("%-d %B %Y")
-            print(time_elem)
 
             a_elem = soup.new_tag("a")
             a_elem.attrs["href"] = (
