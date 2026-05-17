@@ -1,6 +1,7 @@
 ---
 layout: article
 date: 2026-05-14 08:51:01 +01:00
+date_updated: 2026-05-17 13:51:11 +01:00
 title: Waiting for website changes in the browser
 summary: I'm using HTTP long polling and Python's threading module to tell my browser when my site has finished rebuilding. This gives me near-instant reloading, with no third-party dependencies.
 topics:
@@ -333,6 +334,16 @@ They're capable of two-way communication -- for example, Slack uses WebSockets t
 
 I didn't use WebSockets because they're more complicated to implement on the server (there's no WebSockets server in the Python standard library), and I don't need their flexibility.
 My server--browser communication is strictly one-way, so HTTP long polling is fine.
+
+{% update date="2026-05-17" %}
+  Dion Williams [pointed out][mastodon-dion-williams] that my long polling pattern is so common, it's been formalised as a standard:
+
+  {% mastodon "https://toot.wales/@dionrhys/116574251642161508" %}
+
+  I'm not going to rewrite my code to use `EventSource` given my current code works fine and I only have a single type of message, but it's cool to know this pattern exists and is something I could use in a larger project.
+  
+  [mastodon-dion-williams]: https://toot.wales/@dionrhys/116574251642161508
+{% endupdate %}
 
 ## The result
 

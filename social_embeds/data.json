@@ -765,5 +765,36 @@
       "text": "i mean they are technically zero emissions i guess so you could probably make an argument for driving one down the cornmarket",
       "date_posted": "2025-11-20T12:09:00Z"
     }
+  },
+  "https://toot.wales/@dionrhys/116574251642161508": {
+    "site": "mastodon",
+    "id": "116574251642161508",
+    "author": {
+      "server": "toot.wales",
+      "display_name": "Dion Williams",
+      "username": "dionrhys"
+    },
+    "date_posted": "2026-05-14T18:05:15Z",
+    "text": "@alex Nice! Long polling for messaging like this has been formalised as Server-side Events for what it's worth - https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events\n\nIt lets you send various messages (like \"reload me please\") from the server with a nice event-based client-side API. This is how esbuild's Live Reload functionality works (https://esbuild.github.io/api/#live-reload):\n\n```javascript\nnew EventSource('/esbuild').addEventListener('change', () => location.reload())\n```",
+    "entities": {
+      "hashtags": [],
+      "media": [],
+      "urls": [
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+          "display_url": "developer.mozilla.org/en-US/do…"
+        },
+        {
+          "url": "https://esbuild.github.io/api/#live-reload",
+          "display_url": "esbuild.github.io/api/#live-re…"
+        }
+      ],
+      "user_mentions": [
+        {
+          "label": "alex",
+          "profile_url": "https://social.alexwlchan.net/@alex/"
+        }
+      ]
+    }
   }
 }

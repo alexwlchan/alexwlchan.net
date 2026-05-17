@@ -3,6 +3,7 @@ Template to show updates at the bottom of a post.
 """
 
 from datetime import datetime
+import re
 
 from jinja2 import nodes, pass_context
 from jinja2.ext import Extension
@@ -61,12 +62,17 @@ class UpdateExtension(Extension):
             text=markdownify(f"<strong>Update, {timestamp}:</strong> {md}"),
         )
 
+        # If there are consecutive newlines between HTML tags, collapse
+        # them so they're ignored by later Markdown rendering steps.
+        # html = re.sub(r'>\s+<', '><', html)
+
         # If there are consecutive newlines, they must have come from
         # a code block in this update.
         #
-        # Replace the newlines with <br> tags, so the Markdwon renderer
+        # Replace the newlines with <br> tags, so the Markdown renderer
         # doesn't get confused and try to insert <p> tags.
-        html = html.replace("\n\n", "<br>\n")
+        html = re.sub(r"[^>]\n\n", "<br>\n", html)
+        html = re.sub(r">\n\n", ">\n", html)
 
         # Add a trailing newline so any Markdown following this block
         # gets rendered properly.

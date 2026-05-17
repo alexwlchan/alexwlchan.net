@@ -75,8 +75,8 @@ blockquote, .table_of_contents, .update {
 }
 
 blockquote:not(.embed), .table_of_contents, .update {
-  p:first-child { margin-top:    calc(2 * var(--default-padding) / 3); }
-  p:last-child  { margin-bottom: calc(2 * var(--default-padding) / 3); }
+  & > p:first-child { margin-top:    calc(2 * var(--default-padding) / 3); }
+  & > p:last-child  { margin-bottom: calc(2 * var(--default-padding) / 3); }
 }
 
 .update {

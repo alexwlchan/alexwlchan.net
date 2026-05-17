@@ -44,3 +44,24 @@ def test_update_with_code(env: Environment) -> None:
 
     html = env.from_string(md).render()
     assert "\n\n" not in html
+
+
+def test_update_with_embed(env: Environment) -> None:
+    """
+    Test rendering an {% update %} with an embedded post.
+    """
+    md = (
+        '{% update date="2001-02-03" %}\n'
+        "  Here's some opening commentary\n"
+        "\n"
+        '  {% mastodon "https://toot.wales/@dionrhys/116574251642161508" %}\n'
+        "\n"
+        "  Here's some closing commentary\n"
+        "{% endupdate %}"
+    )
+
+    html = env.from_string(md).render()
+
+    assert "\n\n" not in html
+    assert "</p>\n<style" in html
+    assert "</blockquote>\n<p" in html
