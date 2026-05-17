@@ -17,7 +17,7 @@ NOW=$(date +'%Y-%m-%dT%H-%M-%S')
 LOG_NAME="deploy.$NOW.log"
 LOG_PATH="$TMPDIR/$LOG_NAME"
 
-echo "Running deployment"
+echo "Deploying alexwlchan.net..."
 echo "Follow logs: tail -f \$TMPDIR/$LOG_NAME"
 
 if bash "$SCRIPT_DIR/deploy.sh" > $LOG_PATH 2>&1; then
