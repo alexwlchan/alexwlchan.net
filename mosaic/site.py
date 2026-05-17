@@ -149,6 +149,10 @@ class Site(BaseModel):
 
         repo_details = {
             "chives": "Utility functions for working with my local media archives",
+            "concurrently": (
+                "A snippet for running multiple, concurrent invocations of "
+                "a Python function"
+            ),
             "create_thumbnail": "A command-line tool for creating image thumbnails",
             "javascript-data-files": (
                 "Work with JSON which is stored as a value in a JavaScript file"
