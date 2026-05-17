@@ -145,3 +145,22 @@ def check_all_ids_are_unique(html_str: str, soup: BeautifulSoup) -> list[str]:
         errors.append(f"duplicate IDs detected: {duplicate_ids}")
 
     return errors
+
+
+def check_no_unprocessed_markdown(soup: BeautifulSoup) -> list[str]:
+    """
+    Look for paragraphs that look like they contain unprocessed Markdown.
+    """
+    errors = []
+
+    for p in soup.find_all("p"):
+        if p.text.startswith(("#", "*", "_")):
+            # If the <p> starts with an <a> that starts with markup, assume
+            # it's intentional (for example, a link to a Twitter hashtag).
+            first_link = p.find("a")
+            if first_link and p.text.startswith(first_link.text):
+                continue
+
+            errors.append(f"<p> tag with unprocessed Markdown: {p}")
+
+    return errors

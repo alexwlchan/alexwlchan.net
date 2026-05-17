@@ -68,5 +68,9 @@ class UpdateExtension(Extension):
         # doesn't get confused and try to insert <p> tags.
         html = html.replace("\n\n", "<br>\n")
 
+        # Add a trailing newline so any Markdown following this block
+        # gets rendered properly.
+        html = html + "\n"
+
         assert_is_invariant_under_markdown(html)
         return html

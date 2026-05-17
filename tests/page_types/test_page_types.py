@@ -394,3 +394,29 @@ class TestChooseSharingCard:
 
         article = read_single_markdown_file(src_dir)
         assert article.card_path == Path("images/cards/2001") / filename
+
+
+class TestRenderFullHtml:
+    """
+    Tests for how the complete HTML of a page gets rendered.
+    """
+
+    def test_update_followed_by_markdown(self, env: Environment) -> None:
+        """
+        If a page contains a {% update %} block, any Markdown following
+        it gets rendered correctly.
+        """
+        p = Page(
+            url="/example/",
+            content="This is my page\n"
+            "\n"
+            '{% update date="2001-02-03" %}\n'
+            "This is my update\n"
+            "{% endupdate %}\n"
+            "\n"
+            "**This text should be bold**",
+        )
+
+        html = p.render_full_html(env)
+
+        assert "<strong>This text should be bold</strong>" in html

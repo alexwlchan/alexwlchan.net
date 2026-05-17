@@ -42,6 +42,7 @@ class TestCheckNoBrokenHtml:
                 </p>
             </div>
             """,
+            '<p><a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a> is a conference</p>',
         ],
     )
     def test_allows_valid_html(self, html: str) -> None:
@@ -95,6 +96,12 @@ class TestCheckNoBrokenHtml:
             (
                 "<pre><code>```\ndef greet():\n    print('hello world')```</code></pre>",
                 "malformed <pre> tag",
+            ),
+            ("<p>## A Markdown heading</p>", "<p> tag with unprocessed Markdown"),
+            ("<p>*emphasised text*</p>", "<p> tag with unprocessed Markdown"),
+            (
+                "<p>_differently emphasised text_</p>",
+                "<p> tag with unprocessed Markdown",
             ),
         ],
     )

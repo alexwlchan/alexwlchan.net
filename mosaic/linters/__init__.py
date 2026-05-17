@@ -18,6 +18,7 @@ from .html import (
     check_all_ids_are_unique,
     check_html_paragraphs,
     check_malformed_closing_tags,
+    check_no_unprocessed_markdown,
     check_pre_tags,
     check_style_tags,
 )
@@ -32,6 +33,7 @@ def check_no_broken_html(path: Path, html_str: str, soup: BeautifulSoup) -> list
         check_all_ids_are_unique(html_str, soup)
         + check_html_paragraphs(html_str)
         + check_malformed_closing_tags(path, html_str)
+        + check_no_unprocessed_markdown(soup)
         + check_style_tags(html_str, soup)
         + check_pre_tags(path, soup)
     )

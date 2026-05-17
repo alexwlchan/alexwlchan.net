@@ -15,7 +15,7 @@ def test_render_update(env: Environment) -> None:
         "{% endupdate %}\n"
     )
 
-    html = env.from_string(md).render().strip()
+    html = env.from_string(md).render()
     assert html == (
         "<style>\n"
         '  @use "components/updates";\n'
@@ -24,7 +24,7 @@ def test_render_update(env: Environment) -> None:
         '<p><strong>Update, <time datetime="2001-02-03">'
         "3 February 2001</time>:</strong> "
         "I am <em>really</em> excited about this change.</p>\n"
-        "</aside>"
+        "</aside>\n"
     )
 
 
@@ -42,5 +42,5 @@ def test_update_with_code(env: Environment) -> None:
         "{% endupdate %}\n"
     )
 
-    html = env.from_string(md).render().strip()
+    html = env.from_string(md).render()
     assert "\n\n" not in html
