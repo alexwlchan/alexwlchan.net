@@ -154,6 +154,9 @@ class Site(BaseModel):
                 "a Python function"
             ),
             "create_thumbnail": "A command-line tool for creating image thumbnails",
+            "dominant_colours": (
+                "A command-line tool to find the dominant colours in an image 🎨"
+            ),
             "javascript-data-files": (
                 "Work with JSON which is stored as a value in a JavaScript file"
             ),
@@ -623,7 +626,13 @@ class Site(BaseModel):
 
             if any(
                 f"/{part}/" in p
-                for part in ("files", "fun-stuff", "ideas-for-inclusive-events", "man")
+                for part in (
+                    "files",
+                    "fun-stuff",
+                    "ideas-for-inclusive-events",
+                    "man",
+                    "raw",
+                )
             ):
                 continue
 

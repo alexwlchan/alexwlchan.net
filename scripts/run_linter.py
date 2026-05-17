@@ -68,6 +68,10 @@ if __name__ == "__main__":
 
     print("linting html...")
     for p, (html_str, soup) in html_files.items():
+        # Skip raw HTML files in project folders
+        if "raw" in p.parts:
+            continue
+
         try:
             if "testing-javascript-without-a-framework" not in p.parts:
                 all_errors[p] += check_no_broken_html(p, html_str, soup)

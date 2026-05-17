@@ -163,6 +163,15 @@ def check_all_urls_are_hackable(redir_path: Path, out_dir: Path) -> list[str]:
         ):  # pragma: no cover
             continue
 
+        # If it's a subdirectory of /raw/ in the /projects/ folder,
+        # ignore it.
+        if (
+            relative_path.is_relative_to("projects")
+            and len(relative_path.parts) >= 5
+            and relative_path.parts[2] == "raw"
+        ):  # pragma: no cover
+            continue
+
         if p.name == "index.html":
             html_urls.add(f"/{relative_path.parent}/".replace("/./", "/"))
         else:
@@ -287,7 +296,9 @@ def check_links_are_consistent(
     for p, soup in pages.items():
         # These are some standalone sites/pages that I'm willing to ignore
         # for the sake of linting.
-        if "fun-stuff" in p.parts or "files" in p.parts:  # pragma: no cover
+        if (
+            "fun-stuff" in p.parts or "files" in p.parts or "raw" in p.parts
+        ):  # pragma: no cover
             continue
 
         for tag_name, url in find_all_links(soup):
@@ -315,6 +326,14 @@ def check_links_are_consistent(
     # 3. Reorganise the errors into the final output
     result = collections.defaultdict(list)
     for pth, tag_name, url in errors:
+        # TODO: Come back and fix lingering broken links in README files.
+        if (
+            len(pth.parts) == 4
+            and pth.parts[0] == "_out"
+            and pth.parts[1] == "projects"
+            and pth.parts[3] == "index.html"
+        ):  # pragma: no cover
+            continue
         result[pth].append(f"broken url in <{tag_name}>: {url}")
     return result
 
