@@ -57,8 +57,9 @@ class Stats(BaseModel):
     deletions: int
 
     def __str__(self) -> str:
-        assert self.additions > 0 or self.deletions > 0
-        if self.additions and self.deletions:
+        if self.additions == 0 and self.deletions == 0:
+            return ""
+        elif self.additions and self.deletions:
             return f"+{self.additions}, &minus;{self.deletions}"
         elif self.additions:
             return f"+{self.additions}"

@@ -385,6 +385,22 @@ class TestCommit:
 
         assert parsed_commit.stats == Stats(additions=70, deletions=16)
 
+    def test_stats_if_binary_file_move(self, repo_root: Path, git: GitFn) -> None:
+        """
+        If a commit only affects binary files, it has an empty stats string.
+        """
+        (repo_root / "example.bin").write_bytes(b"\x00" * 1024)
+        git("add", "example.bin")
+        git("commit", "-m", "initial commit")
+
+        repo = pygit2.Repository(repo_root)
+        head_commit = repo.head.peel()
+        assert isinstance(head_commit, pygit2.Commit)
+
+        parsed_commit = Commit.from_pygit2_commit(repo, head_commit)
+        assert parsed_commit.stats == Stats(additions=0, deletions=0)
+        assert str(parsed_commit.stats) == ""
+
     def test_commit_summary(self) -> None:
         """
         The summary of a commit is the first line of a commit message.

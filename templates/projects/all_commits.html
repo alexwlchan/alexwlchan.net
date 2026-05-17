@@ -41,8 +41,10 @@
             {{- " · " -}}
             {{ c.author | escape }}
           {%- endif -%}
-          {{- " · " -}}
-          {{ c.stats }}
+          {% if c.stats %}
+            {{- " · " -}}
+            {{ c.stats }}
+          {% endif %}
           </span>
         </li>
       {%- endfor -%}
