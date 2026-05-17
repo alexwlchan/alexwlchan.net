@@ -232,6 +232,8 @@ class GitFile(BaseModel):
         Return a human-readable label describing the type of this file.
         """
         match self.path.suffix:
+            case ".go":
+                return "Go"
             case ".md":
                 return "Markdown"
             case ".py":
@@ -261,6 +263,8 @@ class GitFile(BaseModel):
         Return a Pygments lexer shortname for this file.
         """
         match self.path.suffix:
+            case ".go":
+                return "go"
             case ".md":
                 return "markdown"
             case ".py" | ".pyi":
@@ -274,6 +278,7 @@ class GitFile(BaseModel):
             case ".sh":
                 if contents.startswith("#!/usr/bin/env bash\n"):
                     return "bash"
+
         return "text"
 
 

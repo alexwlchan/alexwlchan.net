@@ -153,6 +153,7 @@ class Site(BaseModel):
             "javascript-data-files": (
                 "Work with JSON which is stored as a value in a JavaScript file"
             ),
+            "q.go": "Print debugging to a dedicated file for Go",
             "randline": (
                 "Get a random selection of lines in a file using reservoir sampling"
             ),
