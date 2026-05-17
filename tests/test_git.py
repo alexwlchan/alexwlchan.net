@@ -381,7 +381,7 @@ class TestCommit:
         commit = repo.get("aac432816394a98e493703ee814f7a8fec2390b2")
         assert isinstance(commit, pygit2.Commit)
 
-        _, parsed_commit = Commit.from_pygit2_commit(repo, commit)
+        parsed_commit = Commit.from_pygit2_commit(repo, commit)
 
         assert parsed_commit.stats == Stats(additions=70, deletions=16)
 
@@ -394,7 +394,7 @@ class TestCommit:
         commit = repo.get("7fd9cd0d5c06b7b0480642bca194229a1a084ab8")
         assert isinstance(commit, pygit2.Commit)
 
-        _, parsed_commit = Commit.from_pygit2_commit(repo, commit)
+        parsed_commit = Commit.from_pygit2_commit(repo, commit)
 
         assert (
             parsed_commit.summary
@@ -429,8 +429,26 @@ class TestCommit:
         head_commit = repo.head.peel()
         assert isinstance(head_commit, pygit2.Commit)
 
-        _, parsed_commit = Commit.from_pygit2_commit(repo, head_commit)
+        parsed_commit = Commit.from_pygit2_commit(repo, head_commit)
         assert len(parsed_commit.changed_files) == 1
+
+    def test_dependabot_author(self) -> None:
+        """
+        If Dependabot is the author of a commit, the email address gets
+        tidied up for display.
+        """
+        repo = pygit2.Repository(".")
+
+        commit = repo.get("e06757db0e5f01c9eef25d118583af498e23782e")
+        assert isinstance(commit, pygit2.Commit)
+
+        assert commit.author.name == "dependabot[bot]"
+        assert (
+            commit.author.email == "49699333+dependabot[bot]@users.noreply.github.com"
+        )
+
+        parsed_commit = Commit.from_pygit2_commit(repo, commit)
+        assert parsed_commit.author == "dependabot <https://github.com/dependabot>"
 
 
 def test_navigable_tree_from_paths() -> None:

@@ -135,7 +135,7 @@ class Commit(BaseModel):
     @classmethod
     def from_pygit2_commit(
         cls, repo: pygit2.Repository, commit: pygit2.Commit
-    ) -> tuple[str, "Commit"]:
+    ) -> "Commit":
         """
         Create a `Commit` from the pygit2 data structures.
         """
@@ -148,8 +148,7 @@ class Commit(BaseModel):
         # among my projects is essentially nil.
         cache_ns = "get_git_commit"
         if commit_json := cache.get(cache_ns, commit_id):
-            commit_data = Commit.model_validate_json(commit_json)
-            return commit_id, commit_data
+            return Commit.model_validate_json(commit_json)
 
         parent = commit.parents[0] if commit.parents else None
         if parent is None:
@@ -172,10 +171,12 @@ class Commit(BaseModel):
 
         changed_files = [ChangedFile.from_pygit2_patch(patch) for patch in patches]
 
+        author = display_author(name=commit.author.name, email=commit.author.email)
+
         commit_data = Commit(
             id=commit_id,
             message=commit.message.strip(),
-            author=f"{commit.author.name} <{commit.author.email}>",
+            author=author,
             date=datetime.fromtimestamp(commit.author.time, tz=timezone.utc),
             parent_ids=[as_hex(p) for p in commit.parent_ids],
             changed_files=changed_files,
@@ -183,7 +184,7 @@ class Commit(BaseModel):
 
         cache.set(cache_ns, commit_id, commit_data.model_dump_json())
 
-        return commit_id, commit_data
+        return commit_data
 
     @property
     def stats(self) -> Stats:
@@ -194,6 +195,19 @@ class Commit(BaseModel):
         deletions = sum(cf.stats.deletions for cf in self.changed_files)
 
         return Stats(additions=additions, deletions=deletions)
+
+
+def display_author(name: str, email: str) -> str:
+    """
+    Create a display author to attribute to commits.
+    """
+    if (
+        name == "dependabot[bot]"
+        and "dependabot[bot]@users.noreply.github.com" in email
+    ):
+        return "dependabot <https://github.com/dependabot>"
+    else:
+        return f"{name} <{email}>"
 
 
 class GitFile(BaseModel):
@@ -439,12 +453,11 @@ class GitRepository(BaseModel):
         assert isinstance(repo.head.target, pygit2.Oid), repo.head.target
         head = as_hex(repo.head.target)
 
-        commits = OrderedDict(
-            [
-                Commit.from_pygit2_commit(repo, commit)
-                for commit in repo.walk(repo.head.target, SortMode.TOPOLOGICAL)
-            ]
-        )
+        parsed_commits = [
+            Commit.from_pygit2_commit(repo, commit)
+            for commit in repo.walk(repo.head.target, SortMode.TOPOLOGICAL)
+        ]
+        commits = OrderedDict([(c.id, c) for c in parsed_commits])
 
         tree = GitTree.from_repo(repo)
 
