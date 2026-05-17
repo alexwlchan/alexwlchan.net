@@ -81,7 +81,7 @@
       {% endif %}
 
       <dt>message</dt>
-      <dd><pre><code>{{ commit.message }}</code></pre></dd>
+      <dd><pre><code>{{ commit.message | escape }}</code></pre></dd>
 
       <dt>changed files</dt>
       <dd>

@@ -2,7 +2,9 @@
 Tests for `mosaic.page_types.projects`.
 """
 
+from collections.abc import Callable
 from pathlib import Path
+from typing import TypeAlias
 
 from jinja2 import Environment
 
@@ -15,6 +17,8 @@ from mosaic.page_types import (
     ProjectSingleFile,
     ProjectTree,
 )
+
+GitFn: TypeAlias = Callable[..., None]
 
 
 class TestProjectHomepage:
@@ -58,29 +62,58 @@ def test_log(env: Environment, repo: GitRepository, out_dir: Path) -> None:
     )
 
 
-def test_commit(env: Environment, repo: GitRepository, out_dir: Path) -> None:
+class TestCommit:
     """
     Tests for `ProjectCommit`.
     """
-    repo.name = "example-project"
 
-    commit = list(repo.commits.values())[0]
-    commit_id = "cb82565da2bff937855a0c53845e2dc98c58dfeb"
-    assert commit.id == commit_id
+    def test_commit(self, env: Environment, repo: GitRepository, out_dir: Path) -> None:
+        """
+        Basic tests for the page type.
+        """
+        repo.name = "example-project"
 
-    p = ProjectCommit(repo=repo, commit=commit)
+        commit = list(repo.commits.values())[0]
+        commit_id = "cb82565da2bff937855a0c53845e2dc98c58dfeb"
+        assert commit.id == commit_id
 
-    assert p.url == f"/projects/example-project/commits/{commit_id}/"
-    assert p.breadcrumb == [
-        BreadcrumbEntry(label="projects", href="/projects/"),
-        BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
-        BreadcrumbEntry(label="log", href="/projects/example-project/commits/"),
-    ]
+        p = ProjectCommit(repo=repo, commit=commit)
 
-    assert (
-        p.write(env, out_dir)
-        == out_dir / f"projects/example-project/commits/{commit_id}/index.html"
-    )
+        assert p.url == f"/projects/example-project/commits/{commit_id}/"
+        assert p.breadcrumb == [
+            BreadcrumbEntry(label="projects", href="/projects/"),
+            BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
+            BreadcrumbEntry(label="log", href="/projects/example-project/commits/"),
+        ]
+
+        assert (
+            p.write(env, out_dir)
+            == out_dir / f"projects/example-project/commits/{commit_id}/index.html"
+        )
+
+    def test_commit_message_escaped(
+        self, env: Environment, repo_root: Path, git: GitFn
+    ) -> None:
+        """
+        Test that angle brackets are escaped in the commit message.
+        """
+        (repo_root / "greeting.txt").write_text("Hello world")
+        git("add", "greeting.txt")
+        git(
+            "commit",
+            "-m",
+            "add greeting.txt\n\nSigned-off-by: Alex Chan <alex@alexwlchan.net>",
+        )
+
+        repo = GitRepository(name="example", description="example", repo_root=repo_root)
+
+        commit = list(repo.commits.values())[0]
+
+        p = ProjectCommit(repo=repo, commit=commit)
+
+        html = p.render_full_html(env)
+        print(html)
+        assert "Signed-off-by: Alex Chan &lt;alex@alexwlchan.net>" in html
 
 
 def test_tree(env: Environment, repo: GitRepository, out_dir: Path) -> None:
