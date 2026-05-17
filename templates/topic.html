@@ -4,13 +4,13 @@
   <article>
     <hgroup>
       <h1 class="title">
-        {{- page.title | markdownify_oneline -}}
+        {{- page.title | cleanup_text | markdownify_oneline -}}
       </h1>
 
       {% include "partials/meta.html" %}
     </hgroup>
 
-    {{- content | markdownify -}}
+    {{- content | cleanup_text | markdownify -}}
 
     {% from "macros/list_of_posts.html" import list_of_posts %}
 

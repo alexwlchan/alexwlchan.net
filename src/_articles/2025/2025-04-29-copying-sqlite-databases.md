@@ -77,9 +77,7 @@ $ sqlite3 explorer.db .dump | gzip -c > explorer.db.txt.gz
 
 To give you an idea of the potential savings, here's the relative disk size for one of my databases.
 
-<style>
-  @use "components/tables";
-</style>
+<link href="css/components/tables.css" rel="stylesheet"/>
 
 <table class="block">
   <thead>

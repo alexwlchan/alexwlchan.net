@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 from typing import TypedDict
 
+from bs4 import BeautifulSoup
 import lightningcss
 
 from .git import git_root
@@ -50,7 +51,7 @@ ParsedStyles = TypedDict("ParsedStyles", {"html": str, "styles": str})
 
 
 STYLE_RE = re.compile(r"\s*<style[^>]*>(?P<css>.*?)</style>\s*", re.DOTALL)
-SCSS_USE_RE = re.compile(r'@use "(?P<name>[^"]+)";')
+LINK_RE = re.compile(r"\s*(<link[^>]+>)\s*", re.DOTALL)
 EMPTY_DEFS_RE = re.compile(r"\s*<defs>\s*</defs>\s*")
 
 
@@ -62,7 +63,7 @@ def get_inline_styles(html: str) -> ParsedStyles:
     meant to go in the <head>. This file has a function that finds and extracts
     all those inline tags, so they can be moved and de-duplicated.
     """
-    if "<style" not in html:
+    if "<style" not in html and "<link" not in html:
         return {"html": html, "styles": ""}
 
     # Contents of <style> tags we've discovered.
@@ -76,12 +77,20 @@ def get_inline_styles(html: str) -> ParsedStyles:
     # changing of the behaviour or meaning of the HTML.
     while m := STYLE_RE.search(html):
         css = m.group("css")
+        styles[css] = None
+        html = html.replace(m.group(0), "")
 
-        if "@use" in css:
-            while use_m := SCSS_USE_RE.search(css):
-                use_path = Path("css") / (use_m.group("name") + ".css")
-                use_css = use_path.read_text()
-                css = css.replace(use_m.group(0), use_css)
+    # Find and remove all the <link> tags.
+    for m in LINK_RE.finditer(html):
+        link_tag = BeautifulSoup(m.group(0), "html.parser").find("link")
+        assert link_tag is not None
+
+        if link_tag.attrs["rel"] != ["stylesheet"]:
+            continue
+
+        href = link_tag.attrs["href"]
+        assert isinstance(href, str)
+        css = Path(href).read_text()
 
         styles[css] = None
         html = html.replace(m.group(0), "")

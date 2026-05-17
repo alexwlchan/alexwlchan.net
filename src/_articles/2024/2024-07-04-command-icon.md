@@ -75,10 +75,10 @@ It required a bit of trigonometry, but I was able to get some working code.
 
 Despite this simple starting point, I was able to get quite a variety of shapes:
 
-<style>
-  @use "components/checkerboard";
-  @use "components/hero_grid";
+<link href="css/components/checkerboard.css" rel="stylesheet"/>
+<link href="css/components/hero_grid.css" rel="stylesheet"/>
 
+<style>
   .hero_grid {
     --grid-light-color: #a7cdfe;
     --grid-dark-color:  #014df4;

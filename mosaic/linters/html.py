@@ -28,6 +28,7 @@ def check_html_paragraphs(html_str: str) -> list[str]:
             "img",
             "picture",
             "s",
+            "span",
             "strong",
         }:
             continue
@@ -74,7 +75,7 @@ def check_style_tags(html_str: str, soup: BeautifulSoup) -> list[str]:
     # Unexpected HTML tags or markup inside HTML tags can be a clue that
     # something is broken in the rendering pipeline.
     for s in soup.find_all("style"):
-        if any(v in s.text for v in ("@use", "<p>", "<br>", "<br/>")):
+        if any(v in s.text for v in ("<p>", "<br>", "<br/>")):
             errors.append(f"malformed <style> tag: <style>{s.text}</style>")
 
         # Note(2026-04-06): the `checkbox-text-adventure/index.html` file

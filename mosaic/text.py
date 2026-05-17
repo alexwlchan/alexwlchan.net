@@ -385,7 +385,7 @@ def add_latex_css_classes(html: str) -> str:
     """
     Make the words TeX and LaTeX display nicely in my HTML.
     """
-    latex_css = '<style>@use "components/latex";</style>'
+    latex_css = '<link href="css/components/latex.css" rel="stylesheet"/>'
     latex_hidden = '<span class="visually-hidden">LaTeK</span>'
     latex_visual = (
         '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
@@ -399,6 +399,7 @@ def add_latex_css_classes(html: str) -> str:
         f"{latex_css}{latex_hidden} {latex_visual}",
     )
     html = html.replace(">LaTeX<", f">{latex_css}{latex_hidden}{latex_visual}<")
+    html = html.replace(">LaTeX ", f">{latex_css}{latex_hidden}{latex_visual} ")
 
     html = html.replace(
         " TeX",

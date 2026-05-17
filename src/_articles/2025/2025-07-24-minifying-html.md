@@ -145,9 +145,8 @@ I'm not sure this has ever caught an issue introduced by a minifer, but it gives
 
 <h2 id="comparison">Comparing the three approaches</h2>
 
+<link href="css/components/tables.css" rel="stylesheet"/>
 <style>
-  @use "components/tables";
-
   table#sizes td:not(:first-child) {
     text-align: center;
   }

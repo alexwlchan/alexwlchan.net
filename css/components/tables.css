@@ -5,7 +5,7 @@ table.block {
   background-color: var(--block-background);
   padding: var(--default-padding);
 
-  /* Distinct table elements wrapped in <tbody> or <thead> get a border
+  /* Distinct table elements wrapped in [tbody] or [thead] get a border
    * below them. */
   tbody:not(:last-of-type),
   thead {

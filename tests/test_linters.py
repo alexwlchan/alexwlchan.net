@@ -43,6 +43,7 @@ class TestCheckNoBrokenHtml:
             </div>
             """,
             '<p><a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a> is a conference</p>',
+            '<p><span class="highlight">Fruits</span> and vegetables</p>',
         ],
     )
     def test_allows_valid_html(self, html: str) -> None:
@@ -67,10 +68,6 @@ class TestCheckNoBrokenHtml:
             (
                 "<head><style>p { color: red; }\n<p>\nspan { color: blue; }</p>\n"
                 "div { color: green; }</style></head>",
-                "malformed <style> tag",
-            ),
-            (
-                '<head><style>@use "components/tables"</style></head>',
                 "malformed <style> tag",
             ),
             (

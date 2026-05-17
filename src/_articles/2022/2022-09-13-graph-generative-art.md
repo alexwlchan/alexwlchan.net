@@ -7,9 +7,7 @@ topic: Generative art
 is_featured: true
 ---
 
-<style>
-  @use "components/checkerboard";
-</style>
+<link href="css/components/checkerboard.css" rel="stylesheet"/>
 
 A couple of weeks ago, I went to see my sister playing percussion in a brass band [at the Proms][late_prom].
 While I was on the train home, I had an idea for a fun art project.

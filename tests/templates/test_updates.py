@@ -17,9 +17,7 @@ def test_render_update(env: Environment) -> None:
 
     html = env.from_string(md).render()
     assert html == (
-        "<style>\n"
-        '  @use "components/updates";\n'
-        "</style>\n"
+        '<link href="css/components/updates.css" rel="stylesheet"/>\n'
         '<aside class="update" role="note" id="update-2001-02-03">\n'
         '<p><strong>Update, <time datetime="2001-02-03">'
         "3 February 2001</time>:</strong> "
@@ -63,5 +61,5 @@ def test_update_with_embed(env: Environment) -> None:
     html = env.from_string(md).render()
 
     assert "\n\n" not in html
-    assert "</p>\n<style" in html
+    assert "</p>\n<link" in html
     assert "</blockquote>\n<p" in html

@@ -25,10 +25,10 @@ Fortunately, computers.
 After my meeting, I cracked out Python and started experimenting.
 I wrote some scripts to generate SVG images -- I'm bashing lines and curves together, and I've done [similar stuff before](/2022/graph-generative-art/).
 
-<style>
-  @use "components/checkerboard";
-  @use "components/hero_grid";
+<link href="css/components/checkerboard.css" rel="stylesheet"/>
+<link href="css/components/hero_grid.css" rel="stylesheet"/>
 
+<style>
   .hero_grid {
     --grid-light-color: #fcdbd9;
     --grid-dark-color:  #d01c11;

@@ -141,6 +141,8 @@ You might want to try something different, like tracking valid `rowid` values se
 This is a good fit for my use case, because photos don't get removed from Flickr Commons very often.
 Once a row is written, it sticks around, and over 97% of the possible `rowid` values do exist.
 
+<link href="css/components/tables.css" rel="stylesheet"/>
+
 <style>
   table#results tr > td:nth-child(2) {
     padding-left: 1em;
@@ -149,10 +151,6 @@ Once a row is written, it sticks around, and over 97% of the possible `rowid` va
   table#results tbody tr:not(:last-child) td {
     padding-bottom: 10px;
   }
-</style>
-
-<style>
-  @use "components/tables";
 </style>
 
 ## Summary

@@ -25,9 +25,7 @@
 {% from "macros/post_links.html" import post_links %}
 
 {%- macro list_of_posts(posts) -%}
-<style>
-  @use "components/list_of_posts";
-</style>
+<link href="css/components/list_of_posts.css" rel="stylesheet"/>
 
 <div id="list_of_posts">
   {%- for group in posts|group_list_of_posts -%}

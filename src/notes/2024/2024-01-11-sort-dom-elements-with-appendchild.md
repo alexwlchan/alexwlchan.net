@@ -24,9 +24,7 @@ By calling this on every node in the list, in sorted order, the nodes get moved 
 
 Here's [a table from the MDN docs][sort_comparison] that explains what the custom sort comparison should return, which I always forget:
 
-<style>
-  @use "components/tables";
-</style>
+<link href="css/components/tables.css" rel="stylesheet"/>
 
 <table class="block">
   <thead>

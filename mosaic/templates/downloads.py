@@ -57,9 +57,7 @@ def render_download(context: Context, filename: str, caller: Any) -> str:
     picture_html = re.sub(r"<img([^>]+)>", r"<img\1 data-proofer-ignore>", picture_html)
 
     return (
-        "<style>\n"
-        '  @use "components/download";\n'
-        "</style>\n"
+        '<link href="css/components/download.css" rel="stylesheet"/>'
         f'<a href="/files/{year}/{filename}" class="download">'
         + picture_html
         + f" {filename}</a>\n\n"

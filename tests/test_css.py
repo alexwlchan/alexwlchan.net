@@ -40,10 +40,25 @@ def test_css_has_no_imports() -> None:
             },
         ),
         (
-            '<p>Hello world!</p>\n<style>@use "components/dot_list";</style>',
+            (
+                "<p>Hello world!</p>\n"
+                '<link href="css/components/dot_list.css" rel="stylesheet"/>'
+            ),
             {
                 "html": "<p>Hello world!</p>",
                 "styles": Path("css/components/dot_list.css").read_text(),
+            },
+        ),
+        (
+            '<link as="image" href="/static/2025/truchet-header-light.svg" '
+            'media="(prefers-color-scheme: light)" rel="preload" type="image/svg"/>',
+            {
+                "html": (
+                    '<link as="image" href="/static/2025/truchet-header-light.svg" '
+                    'media="(prefers-color-scheme: light)" rel="preload" '
+                    'type="image/svg"/>'
+                ),
+                "styles": "",
             },
         ),
     ],

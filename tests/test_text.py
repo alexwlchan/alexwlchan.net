@@ -39,6 +39,12 @@ from mosaic import text as t
             "<p>look for any <code>&lt;img&gt;</code> tags</p>",
         ),
         ('"It looks lovely", she said', "<p>“It looks lovely”, she said</p>"),
+        # Test that contents inside <style> tags is left as-is.
+        (
+            "<style>p { color: red; }\n\nspan { color: blue; }</style>\n\nhello world",
+            "<style>p { color: red; }\n\nspan { color: blue; }</style>\n\n"
+            "<p>hello world</p>",
+        ),
     ],
 )
 def test_markdownify(md: str, expected: str) -> None:
@@ -141,14 +147,23 @@ def test_block_elements_are_preserved(md: str) -> None:
         (
             "<h1>LaTeX</h1>",
             "<h1>"
-            '<style>@use "components/latex";</style>'
+            '<link href="css/components/latex.css" rel="stylesheet"/>'
             '<span class="visually-hidden">LaTeK</span>'
             '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
             "</h1>",
         ),
         (
+            "<p>LaTeX is a tool</p>",
+            "<p>"
+            '<link href="css/components/latex.css" rel="stylesheet"/>'
+            '<span class="visually-hidden">LaTeK</span>'
+            '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span> '
+            "is a tool"
+            "</p>",
+        ),
+        (
             "LaTeX",
-            '<style>@use "components/latex";</style>'
+            '<link href="css/components/latex.css" rel="stylesheet"/>'
             '<span class="visually-hidden">LaTeK</span>'
             '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>',
         ),

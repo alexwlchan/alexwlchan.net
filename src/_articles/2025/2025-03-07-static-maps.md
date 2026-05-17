@@ -110,9 +110,9 @@ print(out_path)
 The higher the zoom level, the more tiles you need to download, and the larger the final image will be.
 I ran this script up to zoom level 6, and this is the size of the data:
 
+<link href="css/components/tables.css" rel="stylesheet"/>
+
 <style>
-  @use "components/tables";
-  
   #zoom_levels {
     margin: 0 auto;
   }

@@ -11,10 +11,7 @@ It's where I met my partner; we bonded over our love of books.
 
 This page is where I keep notes on all the books I've read:
 
-<style>
-  @use "components/list_of_posts";
-</style>
-
+<link href="css/components/list_of_posts.css" rel="stylesheet"/>
 <style>
   #list_of_posts section:nth-child(2n + 1) {
     background: var(--section-bg-color);

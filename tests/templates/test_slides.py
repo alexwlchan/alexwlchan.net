@@ -39,7 +39,7 @@ class TestSlideExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
-            '<style>@use "components/slides";</style>'
+            "<link href=css/components/slides.css rel=stylesheet>"
             "<figure class=slide>"
             "<a href=/images/2026/truchet-tiles/slide1-800x400.png>"
             "<picture>"
