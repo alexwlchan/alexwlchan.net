@@ -58,7 +58,7 @@ The logged output in `/tmp/q.txt` includes the name of the function and the expr
 
 I usually open a terminal window running `tail -f /tmp/q.txt` to watch what gets logged by `q`.
 
-The module is only 120 lines of Go, and [available on GitHub][github-q].
+The module is only 120 lines of Go, and [available on this website][me-projects-q].
 You can copy it into your project, or it's simple enough that you could write your own version.
 It has two interesting ideas that might have broader use.
 
@@ -88,7 +88,7 @@ This avoids other approaches that would be more disruptive or annoying, like mak
 [pypi-q]: https://github.com/zestyping/q
 [q-lightning]: https://www.youtube.com/watch?v=OL3De8BAhME#t=25m15s
 [print debugging]: https://en.wikipedia.org/wiki/Debugging#:~:text=Print%20debugging%20or%20tracing
-[github-q]: https://github.com/alexwlchan/q.go/blob/main/q.go
+[me-projects-q]: /projects/q.go/files/q.go
 [go-runtime]: https://pkg.go.dev/runtime
 [go-runtime-caller]: https://pkg.go.dev/runtime#Caller
 [go-runtime-funcforpc]: https://pkg.go.dev/runtime#FuncForPC
