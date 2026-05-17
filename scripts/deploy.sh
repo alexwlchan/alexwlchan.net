@@ -12,4 +12,4 @@ run_command() {
 
 run_command 'rm -vf .mosaic_cache.db'
 run_command 'python3 scripts/build_site.py'
-run_command 'rsync --compress --recursive --delete --verbose --checksum --exclude=.DS_Store _out/ linode-vps:repos/alexwlchan.net/_site/'
+run_command 'rsync --compress --recursive --delete --verbose --checksum --exclude=.DS_Store --exclude=my-tools/library-lookup/ _out/ linode-vps:repos/alexwlchan.net/_site/'
