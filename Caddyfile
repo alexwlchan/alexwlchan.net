@@ -17,7 +17,7 @@ alexwlchan.net {
 	encode zstd gzip
 
 	# Run a static file server for anything not yet handled
-	root * /home/alexwlchan/repos/alexwlchan.net/_site
+	root * /home/alexwlchan/sites/alexwlchan.net/_out
 	file_server
 }
 

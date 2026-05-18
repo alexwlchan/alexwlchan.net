@@ -42,7 +42,7 @@ log {
 		}
 	}
 
-	output file /var/log/access.log {
+	output file /home/alexwlchan/sites/alexwlchan.net/logs/access.log {
 		mode 644
 
 		# Roll the logs at midnight, and keep a fortnight's worth of logs
