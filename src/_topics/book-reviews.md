@@ -20,7 +20,7 @@ This page is where I keep notes on all the books I've read:
 
 {%- from "macros/article_cards.html" import article_cards -%}
 
-<div id="list_of_posts">
+<div id="list_of_posts" data-card-count="3">
   {% set end_of_year_faves = site.articles
     | selectattr("is_featured")
     | filter_for_topic("Books I've read") %}

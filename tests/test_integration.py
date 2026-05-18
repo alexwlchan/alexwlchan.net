@@ -7,6 +7,7 @@ the site in `_out`.
 """
 
 from collections.abc import Iterator
+from collections import Counter
 
 from playwright.sync_api import Browser, Page, expect, sync_playwright
 import pytest
@@ -104,3 +105,27 @@ def test_page_reflows_on_narrow_screens(
     scroll_width = page.evaluate("document.body.scrollWidth")
 
     assert scroll_width == width
+
+
+def test_book_reviews_with_wide_cards(browser: Browser, base_url: str) -> None:
+    """
+    On wide screens, the list of favourite books is 3-wide and expands
+    beyond the main viewport.
+    """
+    width = 1600
+    height = 900
+
+    context = browser.new_context(viewport={"width": width, "height": height})
+    page = context.new_page()
+    page.goto(base_url + "/book-reviews/")
+
+    # Get the top position of each card on the page. If there are 3 in a row,
+    # the top of at least one row should be repeated 3 times.
+    top_positions = page.evaluate("""
+        [...document.querySelectorAll("section.acards > ul > li")]
+            .map(elem => elem.getBoundingClientRect())
+            .map(rect => rect.top)
+    """)
+    tally = Counter(top_positions)
+
+    assert max(tally.values()) == 3
