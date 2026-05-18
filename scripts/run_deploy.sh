@@ -11,8 +11,6 @@ set -o nounset
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR/.."
 
-git pull origin main
-
 source .venv/bin/activate
 
 NOW=$(date +'%Y-%m-%dT%H-%M-%S')
