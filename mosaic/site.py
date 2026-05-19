@@ -160,6 +160,9 @@ class Site(BaseModel):
             "dominant_colours": (
                 "A command-line tool to find the dominant colours in an image 🎨"
             ),
+            "emptydir": (
+                "Look for empty (or nearly empty) directories and delete them"
+            ),
             "javascript-data-files": (
                 "Work with JSON which is stored as a value in a JavaScript file"
             ),
