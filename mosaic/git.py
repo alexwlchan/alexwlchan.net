@@ -131,7 +131,7 @@ class Commit(BaseModel):
         """
         The first line of the commit message.
         """
-        return self.message.splitlines()[0]
+        return self.message.splitlines()[0].lstrip("#").strip()
 
     @classmethod
     def from_pygit2_commit(

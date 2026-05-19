@@ -177,6 +177,9 @@ class Site(BaseModel):
             "randline": (
                 "Get a random selection of lines in a file using reservoir sampling"
             ),
+            "scripts": (
+                "My collection of helpful scripts, personal tools, and shell config"
+            ),
             "yt-dlp_alexwlchan": (
                 "A personal wrapper around yt-dlp that downloads and returns info "
                 "in my preferred format"

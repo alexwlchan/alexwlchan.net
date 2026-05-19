@@ -401,32 +401,43 @@ class TestCommit:
         assert parsed_commit.stats == Stats(additions=0, deletions=0)
         assert str(parsed_commit.stats) == ""
 
-    def test_commit_summary(self) -> None:
+    @pytest.mark.parametrize(
+        "message, summary",
+        [
+            (
+                "all: remove the silver-nitrate and httpx dependencies\n"
+                "\n"
+                "I'm trying to remove dependencies and these are the next\n"
+                "two to go\n"
+                "chives / 7fd9cd0d5c06b7b0480642bca194229a1a084ab8",
+                "all: remove the silver-nitrate and httpx dependencies",
+            ),
+            (
+                "# Check if we're running in a Terminal -- only pretty print the response\n"  # noqa: E501
+                "# with colours if so.",
+                "Check if we're running in a Terminal -- only pretty print the response",  # noqa: E501
+            ),
+        ],
+    )
+    def test_commit_summary(
+        self, message: str, summary: str, repo_root: Path, git: GitFn
+    ) -> None:
         """
         The summary of a commit is the first line of a commit message.
         """
-        repo = pygit2.Repository(Path.home() / "repos/chives")
+        (repo_root / "message.txt").write_text(message)
+        git("add", "message.txt")
+        git("commit", "-m", message)
 
-        commit = repo.get("7fd9cd0d5c06b7b0480642bca194229a1a084ab8")
-        assert isinstance(commit, pygit2.Commit)
+        repo = pygit2.Repository(repo_root)
 
-        parsed_commit = Commit.from_pygit2_commit(repo, commit)
+        head = repo.head.peel()
+        assert isinstance(head, pygit2.Commit)
 
-        assert (
-            parsed_commit.summary
-            == "all: remove the silver-nitrate and httpx dependencies"
-        )
-        assert parsed_commit.message == (
-            "all: remove the silver-nitrate and httpx dependencies\n"
-            "\n"
-            "silver-nitrate is a library I wrote while working at the Flickr Foundation,\n"  # noqa: E501
-            "but they're slowing down and it's unclear if the library will still be\n"
-            "maintained: https://www.flickr.org/looking-ahead-simplifying-our-strategy/\n"
-            "I wrote all this code, so just copy it into this project.\n"
-            "\n"
-            "It's unclear if httpx is still maintained, so replace it with standard\n"
-            "library. See https://tildeweb.nl/~michiel/httpxyz.html"
-        )
+        parsed_commit = Commit.from_pygit2_commit(repo, head)
+
+        assert parsed_commit.message == message
+        assert parsed_commit.summary == summary
 
     def test_git_for_file_move(self, repo_root: Path, git: GitFn) -> None:
         """

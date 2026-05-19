@@ -60,6 +60,9 @@ def check_malformed_closing_tags(path: Path, html_str: str) -> list[str]:
     }:  # pragma: no cover
         return []
 
+    if str(path).startswith("_out/projects/scripts/"):  # pragma: no cover
+        return []
+
     return [
         f"malformed closing tag: {m.group(0)}"
         for m in re.finditer(r"&lt;/(?:picture|code|pre)>", html_str)
@@ -148,10 +151,13 @@ def check_all_ids_are_unique(html_str: str, soup: BeautifulSoup) -> list[str]:
     return errors
 
 
-def check_no_unprocessed_markdown(soup: BeautifulSoup) -> list[str]:
+def check_no_unprocessed_markdown(path: Path, soup: BeautifulSoup) -> list[str]:
     """
     Look for paragraphs that look like they contain unprocessed Markdown.
     """
+    if str(path).startswith("_out/projects/scripts/"):  # pragma: no cover
+        return []
+
     errors = []
 
     for p in soup.find_all("p"):
