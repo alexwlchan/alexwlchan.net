@@ -563,6 +563,16 @@ def test_navigable_tree_from_paths() -> None:
             "<p>The README removes the title, if present.</p>",
             id="removes_readme_title",
         ),
+        pytest.param(
+            '<img src="example.png">',
+            '<img src="/projects/example/raw/example.png"/>',
+            id="fixes_image_link",
+        ),
+        pytest.param(
+            '<img src="https://example.com/dog.png">',
+            '<img src="https://example.com/dog.png"/>',
+            id="ignores_http_image_link",
+        ),
     ],
 )
 def test_readme_contents(

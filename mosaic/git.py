@@ -527,6 +527,17 @@ class GitRepository(BaseModel):
                     os.path.join("/projects", self.name, "files", a_tag.attrs["href"])
                 )
 
+        # Update images in the Markdown.
+        for img_tag in soup.find_all("img"):
+            assert isinstance(img_tag.attrs["src"], str)
+
+            if not img_tag.attrs["src"].startswith("http"):
+                img_tag.attrs["src"] = os.path.normpath(
+                    os.path.join(
+                        "/projects", self.name, "raw", img_tag.attrs["src"].lstrip("/")
+                    )
+                )
+
         return str(soup)
 
     def readme_contents(self) -> str:
