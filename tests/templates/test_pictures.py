@@ -532,7 +532,7 @@ def test_article_card_image(env: Environment, src_dir: Path, out_dir: Path) -> N
         '<source srcset="/c/26/ex_1x.jpg 450w,/c/26/ex_2x.jpg 900w,'
         '/c/26/ex_3x.jpg 1350w" '
         "sizes=(max-width:450px)100vw,450px type=image/jpeg>"
-        '<img style="aspect-ratio: 2" data-proofer-ignore '
+        '<img style="aspect-ratio: 2" alt '
         "src=/c/26/ex_1x.jpg width=450>"
         "</picture>"
     )

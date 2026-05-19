@@ -213,7 +213,6 @@ class TestCheckImagesHaveAltText:
         [
             "<p></p>",
             "<img alt='ocelot' src='ocelot.png'>",
-            "<img data-proofer-ignore src='hippo.tif'>",
         ],
     )
     def test_allows_inline_tag_after_p(self, html: str) -> None:

@@ -119,8 +119,6 @@ def tweet_image(context: Context, media: MediaEntity) -> str:
         link_to=media.url,
     )
 
-    html = html.replace('alt=""', "data-proofer-ignore")
-
     return html
 
 

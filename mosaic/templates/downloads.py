@@ -8,7 +8,6 @@ TODO: Should I just get rid of this plugin?
 """
 
 import os
-import re
 from typing import Any
 
 from jinja2 import pass_context
@@ -52,9 +51,6 @@ def render_download(context: Context, filename: str, caller: Any) -> str:
         alt="",
         size_based_on="density",
     )
-
-    # Add the data-proofer-ignore tag
-    picture_html = re.sub(r"<img([^>]+)>", r"<img\1 data-proofer-ignore>", picture_html)
 
     return (
         '<link href="css/components/download.css" rel="stylesheet"/>'

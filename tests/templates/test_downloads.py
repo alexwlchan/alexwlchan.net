@@ -55,7 +55,7 @@ class TestDownloadExtension:
             "/images/icons/download_zip_2x.png 2x,"
             '/images/icons/download_zip_3x.png 3x" '
             "type=image/png>"
-            '<img style="aspect-ratio: 1" alt data-proofer-ignore '
+            '<img style="aspect-ratio: 1" alt '
             "src=/images/icons/download_zip_1x.png width=64>"
             "</picture> example.zip</a>"
         )

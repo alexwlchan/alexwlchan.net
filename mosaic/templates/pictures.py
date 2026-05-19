@@ -308,10 +308,6 @@ def render_picture(
         extra_attributes=kwargs,
     )
 
-    # Remove an empty attribute which tells html-proofer to ignore it.
-    # TODO: Remove all instances of this attribute.
-    html = html.replace('data-proofer-ignore="None"', "data-proofer-ignore")
-
     return html
 
 
@@ -540,12 +536,12 @@ def article_card_image(context: Context, article: page_types.Article) -> str:
         filename=article.card_path.name,
         parent=str(article.card_path.parent),
         width=450,
+        alt="",
         # e.g. /c/25
         dst_prefix=(
             Path("c") / str(article.date.year - 2000) / article.card_short_name
         ),
     )
-    html = html.replace("<img", "<img data-proofer-ignore")
 
     aspect_ratio = re.search(r"aspect-ratio: (?P<ratio>[0-9/]+)", html)
     assert aspect_ratio is not None

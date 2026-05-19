@@ -59,9 +59,6 @@ def check_images_have_alt_text(html: BeautifulSoup) -> list[str]:
     errors = []
 
     for img in html.find_all("img"):
-        if "data-proofer-ignore" in img.attrs:
-            continue
-
         if img.attrs.get("alt") is None:
             errors.append(f"image is missing alt text: {img.attrs['src']}")
 
