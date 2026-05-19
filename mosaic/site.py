@@ -170,6 +170,9 @@ class Site(BaseModel):
             "javascript-data-files": (
                 "Work with JSON which is stored as a value in a JavaScript file"
             ),
+            "nextjs-pageweight-analyser": (
+                "A script for analysing the page weight and props of Next.js apps"
+            ),
             "q.go": "Print debugging to a dedicated file for Go",
             "randline": (
                 "Get a random selection of lines in a file using reservoir sampling"
