@@ -164,6 +164,9 @@ class Site(BaseModel):
             "emptydir": (
                 "Look for empty (or nearly empty) directories and delete them"
             ),
+            "get_live_text": (
+                'Get text from an image using Apple’s built-in "Live Text" feature'
+            ),
             "javascript-data-files": (
                 "Work with JSON which is stored as a value in a JavaScript file"
             ),
