@@ -238,7 +238,7 @@ class ProjectSingleFile(BaseProjectPage):
             BreadcrumbEntry(label="files", href=f"/projects/{self.slug}/files/"),
         ]
 
-    def out_path(self, out_dir: Path) -> Path:  # pragma: no cover
+    def out_path(self, out_dir: Path) -> Path:
         """
         Return the path where this HTML file should be written.
         """

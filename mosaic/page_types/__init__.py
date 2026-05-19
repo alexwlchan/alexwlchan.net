@@ -14,6 +14,7 @@ from ._base import BreadcrumbEntry, BaseHtmlPage
 from .articles import Article
 from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
+from .manpages import ManPage
 from .notes import Note
 from .posts import Post
 from .projects import (
@@ -123,6 +124,7 @@ __all__ = [
     "BookReview",
     "BreadcrumbEntry",
     "IndexInfo",
+    "ManPage",
     "Note",
     "Page",
     "Post",

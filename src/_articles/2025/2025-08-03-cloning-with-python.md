@@ -125,7 +125,7 @@ Here's what that looks like:
 $ cp -c src.txt dst.txt
 ```
 
-[cp]: https://alexwlchan.net/man/man1/cp.html
+[cp]: /man/man1/cp.html
 
 <h3 id="howto-c-function">Using the <code>clonefile()</code> function</h3>
 
@@ -176,7 +176,7 @@ clonefile failed: File exists
 
 But I don't use C in any of my projects -- can I call this function from Python instead?
 
-[clonefile2]: https://alexwlchan.net/man/man2/clonefile.html
+[clonefile2]: /man/man2/clonefile.html
 
 
 
@@ -257,7 +257,7 @@ Following the documentation for `ctypes`, these are the steps:
     I worked out that I need to load <code>libSystem.B.dylib</code> by looking at other examples of <code>ctypes</code> code on GitHub.
     I couldn't find an explanation of it in Apple's documentation.
     
-    I later discovered that I can use <a href="https://alexwlchan.net/man/man1/otool.html"><code>otool</code></a> to see the shared libraries that a compiled executable is linking to.
+    I later discovered that I can use <a href="/man/man1/otool.html"><code>otool</code></a> to see the shared libraries that a compiled executable is linking to.
     For example, I can see that <code>cp</code> is linking to the same <code>libSystem.B.dylib</code>:
     
     ```console
@@ -270,7 +270,7 @@ Following the documentation for `ctypes`, these are the steps:
     If I run this code on my Debian web server, I get an error: <em>OSError: libSystem.B.dylib: cannot open shared object file: No such file or directory</em>.
 
 2.  **Tell <code>ctypes</code> about the function signature.**
-    If we look at the [man page for <a href="https://alexwlchan.net/man/man2/clonefile.html"><code>clonefile()</code></a>, we see the signature of the C function:
+    If we look at the [man page for <a href="/man/man2/clonefile.html"><code>clonefile()</code></a>, we see the signature of the C function:
     
     ```c {"names":{"1":"clonefile","2":"src","3":"dst","4":"flags"}}
     int clonefile(const char * src, const char * dst, int flags);

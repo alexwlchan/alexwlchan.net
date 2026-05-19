@@ -17,13 +17,14 @@ from jinja2 import Environment
 from pydantic import BaseModel, Field
 import yaml
 
-from . import cache, page_types
+from . import cache, manpages, page_types
 from .css import create_base_css
 from .git import GitRepository
 from .page_types import (
     Article,
     BaseHtmlPage,
     BookReview,
+    ManPage,
     Note,
     Page,
     Post,
@@ -116,8 +117,10 @@ class Site(BaseModel):
 
         self.read_git_repos()
         self.read_markdown_files()
-        self.check_for_duplicate_urls()
         self.set_article_attributes()
+        self.prepare_man_pages()
+
+        self.check_for_duplicate_urls()
 
         css_url = self.build_base_css_file()
 
@@ -526,6 +529,39 @@ class Site(BaseModel):
         for repo in self.repos:
             self.write_pages_for_single_repo(env, repo)
 
+    written_man_pages: set[manpages.Command] = Field(default_factory=lambda: set())
+
+    @register_task("prepare man pages")  # type: ignore
+    def prepare_man_pages(self) -> None:  # pragma: no cover
+        """
+        Work out what man pages are required for this site, and add them
+        to the list of HTML pages to publish.
+        """
+        new_man_pages = set()
+
+        # Go through all the pages which aren't man pages, and find links
+        # to man pages.
+        for p in self.all_pages:
+            if isinstance(p, ManPage):
+                continue
+
+            for command in manpages.find_manpage_urls(p.content):
+                new_man_pages.add(command)
+
+        # For each man page which is directly linked, create a new HTML page
+        # for it.
+        for command in new_man_pages:
+            if command in self.written_man_pages:
+                continue
+
+            content = manpages.get_manpage_contents(*command)
+            page = ManPage(
+                section=command.section, command_name=command.name, content=content
+            )
+
+            self.all_pages.append(page)
+            self.written_man_pages.add(command)
+
     def write_pages_for_single_repo(
         self, env: Environment, repo: GitRepository
     ) -> None:  # pragma: no cover
@@ -630,7 +666,6 @@ class Site(BaseModel):
                     "files",
                     "fun-stuff",
                     "ideas-for-inclusive-events",
-                    "man",
                     "raw",
                 )
             ):

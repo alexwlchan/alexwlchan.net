@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  html {
+  	font-family: Menlo, DevaVuSansMono, sans-serif;
+  	font-size: 12pt;
+  }
+  pre {
+  	font-family: Menlo, DevaVuSansMono, sans-serif;
+  	margin: 0 auto;
+  	max-width: 760px;
+    line-height: 1.35em;
+  }
+  a {
+  	font-weight: bold;
+  	color: blue;
+  }
+  
+  @media screen and (prefers-color-scheme: dark) {
+    body {
+      background: black;
+      color: white;
+    }
+    
+    a {
+      color: turquoise;
+    }
+  }
+</style>
+<title>{{ page.command_name }}({{ page.section }}) man page</title>
+</head>
+<body>
+<pre>
+{{ page.content }}
+</pre>
+</body>
+</html>

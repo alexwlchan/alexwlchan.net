@@ -26,5 +26,5 @@ $ tailscale exit-node list | { head -n 3; echo ' […]'; tail -n 5; }
 ```
 
 [bash-command-grouping]: https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html
-[head1]: https://alexwlchan.net/man/man1/head.html
-[tail1]: https://alexwlchan.net/man/man1/tail.html
+[head1]: /man/man1/head.html
+[tail1]: /man/man1/tail.html

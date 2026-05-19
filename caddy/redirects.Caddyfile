@@ -1491,6 +1491,14 @@ redir /tags/jq/ /jq/ permanent
 redir /tags/jq /jq/ permanent
 redir /systems/macos/ /macos/ permanent
 redir /systems/macos /macos/ permanent
+redir /man/man1/ /man/ permanent
+redir /man/man1 /man/ permanent
+redir /man/man2/ /man/ permanent
+redir /man/man2 /man/ permanent
+redir /man/man3/ /man/ permanent
+redir /man/man3 /man/ permanent
+redir /man/man8/ /man/ permanent
+redir /man/man8 /man/ permanent
 redir /til/atom.xml /notes/atom.xml permanent
 redir /notes/2013/ /notes/ permanent
 redir /notes/2013 /notes/ permanent
@@ -2072,4 +2080,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: +8EQiYyAvT)
+#[[[end]]] (sum: dCoDIgja0C)

@@ -24,4 +24,4 @@ In some informal testing as I was writing this post, I downloaded the same 10 vi
 One-by-one: 3m&nbsp;30s.
 In parallel: 35s.
 
-[xargs]: https://alexwlchan.net/man/man1/xargs.html
+[xargs]: /man/man1/xargs.html

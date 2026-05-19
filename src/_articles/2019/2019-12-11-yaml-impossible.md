@@ -119,7 +119,7 @@ We could, say, look up the ID of the parent process (the Python interpreter that
 ]
 ```
 
-[lsof]: https://alexwlchan.net/man/man8/lsof.html
+[lsof]: /man/man8/lsof.html
 
 And if we can see what files a process has open, well, we could see what YAML file it has open for parsing, and delete it.
 I tried to write something like this:

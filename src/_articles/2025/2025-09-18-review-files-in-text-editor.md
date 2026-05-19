@@ -71,7 +71,7 @@ There are three parts to this command:
     $ git diff … | xargs open -a "Visual Studio Code"
     ```
 
-    The <a href="https://alexwlchan.net/man/man1/xargs.html"><code>xargs</code> command</a> is super useful for doing the same thing repeatedly – in this case, opening a bunch of files in VS Code.
+    The <a href="/man/man1/xargs.html"><code>xargs</code> command</a> is super useful for doing the same thing repeatedly – in this case, opening a bunch of files in VS Code.
     You feed it a space-delimited string, it splits the string into different pieces, and runs the same command on each of them, one-by-one.
     It’s equivalent to running:
     
@@ -81,7 +81,7 @@ There are three parts to this command:
     open -a "Visual Studio Code" "src/_images/2025/exif_orientation.svg"
     ```
 
-    The <a href="https://alexwlchan.net/man/man1/open.html"><code>open</code> command</a> opens files, and the <code>-a</code> flag tells it which application to use.
+    The <a href="/man/man1/open.html"><code>open</code> command</a> opens files, and the <code>-a</code> flag tells it which application to use.
     We mostly use VS Code at work, but you could pass any text editor here.
 
     Reading the manpage for <code>open</code>, I'm reminded that you can open multiple files at once, so I could have done this without using <code>xargs</code>.

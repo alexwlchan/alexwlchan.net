@@ -2477,6 +2477,12 @@
   "/macos/": [
     "/systems/macos/"
   ],
+  "/man/": [
+    "/man/man1/",
+    "/man/man2/",
+    "/man/man3/",
+    "/man/man8/"
+  ],
   "/notes/atom.xml": [
     "/til/atom.xml"
   ],

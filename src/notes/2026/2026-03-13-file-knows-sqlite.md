@@ -80,7 +80,7 @@ A couple of fields stood out to me:
     
     This lookup comes from a `sql` "magic" file [which ships with file(1)][file1-magic], embedding all the values from SQLite's `magic.txt` and many more besides.
 
-[file1]: https://alexwlchan.net/man/man1/file.html
+[file1]: /man/man1/file.html
 [file1-magic]: https://github.com/file/file/blob/fac0603d48af08d53547b795385abef4337d6d5f/magic/Magdir/sql#L207-L214
 [magic-txt]: https://sqlite.org/src/artifact?ci=trunk&filename=magic.txt
 [percy]: https://github.com/oxtoacart

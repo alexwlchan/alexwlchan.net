@@ -4,7 +4,6 @@ Models for a generic page.
 
 from typing import Any
 
-
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
