@@ -36,3 +36,17 @@ The worldbuilding is also a little too complicated: as well as the house system,
 And it's barely a fantasy, despite being marketed as such.
 
 Overall I enjoyed it, and it's different to what I'd usually read, so I'm glad the book club put it in my path.
+
+## Quotes and highlights
+
+On page 216, I like the idea of relationships being described as "seasons" -- something to celebrate even if they don't last forever.
+
+> "I'm not a season."
+>
+> "Yes you are." Luca was sleepy, lulled by contentment. He hadn't meant that to come out. For a moment he hoped Matti would let it go, or wouldn't understand what he'd meant, but Matti could be perceptive when Luca didn't want him to be.
+>
+> "You're saying you'll move on."
+>
+> "Yes. I'm a season in your life, and you're a season in mine."
+>
+> "Don't go anywhere tonight." Matti brushed a kiss into Luca's hair. "Please?"
