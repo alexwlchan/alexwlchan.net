@@ -1,0 +1,48 @@
+{% macro card(title, description, meta, url, date, card_image, is_new, colours) -%}
+
+{#
+  Note: in general I lean towards long, descriptive names for
+  my CSS classes and variables, but this is a "hot" component
+  which is used a lot, especially on the articles page.
+
+  I'm going for shorter names here to reducde the overall size
+  of the page.
+#}
+<li
+  {% if colours %}
+    style="--lt: {{- colours.index_light -}}; --dk: {{- colours.index_dark -}}"
+  {% endif %}
+  data-d="{{ date.strftime('%y%m%d') }}"
+>
+  <a href="{{ url }}">
+
+    {{- "" -}}
+
+    <div class="c_im{% if is_new %} n{% endif %}">
+      {{ card_image }}
+      {%- if is_new -%}
+        <div class="new_banner">NEW</div>
+      {%- endif -%}
+    </div>
+
+    {{- "" -}}
+
+    <p class="c_t">
+      {{- title | markdownify_oneline | cleanup_text -}}
+    </p>
+
+    {{- "" -}}
+
+    <p class="c_d">
+      {{- description | markdownify_oneline | cleanup_text -}}
+    </p>
+
+    {{- "" -}}
+    
+    <p class="meta">
+      {{- meta -}}
+    </p>
+  </a>
+</li>
+
+{%- endmacro -%}

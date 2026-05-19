@@ -1,10 +1,36 @@
+{% from "macros/card.html" import card %}
+
 {% macro article_cards(articles) -%}
 <link href="css/components/article_cards.css" rel="stylesheet"/>
 
 <section class="acards">
   <ul>
   {% for article in articles %}
-    {% include "partials/article_card.html" %}
+    {%- set article_meta -%}
+      {%- if article.topics -%}{{ article.topics[0] | smartify | cleanup_text }}{{- " · " -}}{%- endif -%}
+      {%- with date_format = '%-d %b %Y' -%}
+      {%- with date = article.date -%}
+        {%- include "partials/timestamp.html" -%}
+      {%- endwith -%}
+      {%- endwith -%}
+    {%- endset -%}
+
+    {%- set article_image -%}
+      {{- article | article_card_image -}}
+    {%- endset -%}
+
+    {{
+      card(
+        title=article.title,
+        description=article.summary,
+        meta=article_meta,
+        url=article.url,
+        date=article.date,
+        card_image=article_image,
+        is_new=article.is_new,
+        colours=article.colours,
+      )
+    }}
   {% endfor %}
   </ul>
 </section>
