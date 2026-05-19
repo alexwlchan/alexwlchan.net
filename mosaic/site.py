@@ -177,6 +177,9 @@ class Site(BaseModel):
             "randline": (
                 "Get a random selection of lines in a file using reservoir sampling"
             ),
+            "safari-webarchiver": (
+                "Save web pages as Safari webarchive files from the command line"
+            ),
             "scripts": (
                 "My collection of helpful scripts, personal tools, and shell config"
             ),
