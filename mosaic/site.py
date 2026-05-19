@@ -183,6 +183,7 @@ class Site(BaseModel):
             "scripts": (
                 "My collection of helpful scripts, personal tools, and shell config"
             ),
+            "snippets": "My text expansion snippets for faster typing",
             "yt-dlp_alexwlchan": (
                 "A personal wrapper around yt-dlp that downloads and returns info "
                 "in my preferred format"
