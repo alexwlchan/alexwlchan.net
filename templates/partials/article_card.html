@@ -20,15 +20,7 @@
     {{- "" -}}
 
     <div class="c_im{% if article.is_new %} n{% endif %}">
-      {% if article.card_path %}
-        {{ article | article_card_image }}
-      {% else %}
-        <img
-          src="/images/default-card.png"
-          alt=""
-          loading="lazy"
-        />
-      {% endif %}
+      {{ article | article_card_image }}
       {%- if article.is_new -%}
         <div class="new_banner">NEW</div>
       {%- endif -%}
