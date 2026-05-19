@@ -152,6 +152,7 @@ class Site(BaseModel):
 
         repo_details = {
             "chives": "Utility functions for working with my local media archives",
+            "colour-scheme": "Theme files for my personal colour scheme",
             "concurrently": (
                 "A snippet for running multiple, concurrent invocations of "
                 "a Python function"
