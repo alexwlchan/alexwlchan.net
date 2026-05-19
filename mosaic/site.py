@@ -374,7 +374,6 @@ class Site(BaseModel):
                 "css_url": css_url,
                 "site": self,
                 "all_topics": rebuild_topics_by_name(),
-                "git_repos": self.repos,
                 "elsewhere": elsewhere,
             }
         )
