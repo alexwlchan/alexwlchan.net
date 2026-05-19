@@ -662,12 +662,7 @@ class Site(BaseModel):
 
             if any(
                 f"/{part}/" in p
-                for part in (
-                    "files",
-                    "fun-stuff",
-                    "ideas-for-inclusive-events",
-                    "raw",
-                )
+                for part in ("files", "fun-stuff", "ideas-for-inclusive-events", "raw")
             ):
                 continue
 
