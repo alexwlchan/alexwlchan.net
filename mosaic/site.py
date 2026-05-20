@@ -151,6 +151,10 @@ class Site(BaseModel):
             return
 
         repo_details = {
+            "blink-photo-reviewer": (
+                "Reviewing my photos from Photos.app with blink diffs and "
+                "keyboard shortcuts"
+            ),
             "chives": "Utility functions for working with my local media archives",
             "colour-scheme": "Theme files for my personal colour scheme",
             "concurrently": (

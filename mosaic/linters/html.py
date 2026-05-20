@@ -63,6 +63,9 @@ def check_malformed_closing_tags(path: Path, html_str: str) -> list[str]:
     if str(path).startswith("_out/projects/scripts/"):  # pragma: no cover
         return []
 
+    if str(path).startswith("_out/projects/blink-photo-reviewer/"):  # pragma: no cover
+        return []
+
     return [
         f"malformed closing tag: {m.group(0)}"
         for m in re.finditer(r"&lt;/(?:picture|code|pre)>", html_str)
