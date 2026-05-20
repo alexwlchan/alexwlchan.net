@@ -188,6 +188,10 @@ class Site(BaseModel):
                 "My collection of helpful scripts, personal tools, and shell config"
             ),
             "snippets": "My text expansion snippets for faster typing",
+            "web-page-template": (
+                "A template to use when I create new web pages, including "
+                "an HTML skeleton and my default layout"
+            ),
             "yt-dlp_alexwlchan": (
                 "A personal wrapper around yt-dlp that downloads and returns info "
                 "in my preferred format"

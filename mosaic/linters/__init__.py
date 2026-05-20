@@ -164,7 +164,7 @@ def check_all_urls_are_hackable(redir_path: Path, out_dir: Path) -> list[str]:
         # ignore it.
         if (
             relative_path.is_relative_to("projects")
-            and len(relative_path.parts) >= 5
+            and len(relative_path.parts) >= 3
             and relative_path.parts[2] == "raw"
         ):  # pragma: no cover
             continue
