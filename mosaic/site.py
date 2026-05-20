@@ -155,6 +155,10 @@ class Site(BaseModel):
                 "Reviewing my photos from Photos.app with blink diffs and "
                 "keyboard shortcuts"
             ),
+            "brightness_adjust": (
+                "A command-line tool to show a selection of darker/lighter "
+                "variants of a given colour"
+            ),
             "chives": "Utility functions for working with my local media archives",
             "colour-scheme": "Theme files for my personal colour scheme",
             "concurrently": (
