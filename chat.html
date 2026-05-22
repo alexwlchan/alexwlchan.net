@@ -1,0 +1,94 @@
+<meta charset="utf-8">
+
+corner-shape, border-shape?
+
+https://bsky.app/profile/hazelweakly.me/post/3mle7zt2kbc2b
+
+<style>
+  .conversation {
+    width: 600px;
+    border: 1px solid black;
+    padding: 1em;
+  }
+  
+  .message-group {
+    margin-bottom: 1em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+      align-items: flex-start;
+  }
+  
+  .message-group > blockquote {
+    border: 2px solid green;
+    background: #00ff0022;
+    margin: 0;
+    border-radius: 15px;
+    margin-bottom: 4px;
+    padding: 7px;
+
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .message-group:not([data-sender="Jackrum"]) {
+    & > blockquote:has(+ cite) {
+      border-bottom-left-radius: 0;
+    }
+  }
+  
+  .message-group[data-sender="Jackrum"] {
+    margin-left: auto;
+    align-items: flex-end;
+    
+    & > blockquote:has(+ cite) {
+      border-bottom-right-radius: 0;
+    }
+  }
+</style>
+
+<div class="conversation">
+  <div class="message-group" data-sender="Wazzer">
+    <blockquote>
+      The Duchess says your path takes you further
+    </blockquote>
+    <cite>Wazzer</cite>
+  </div>
+  <div class="message-group" data-sender="Jackrum">
+    <blockquote>
+      Oh yeah? And where’s that, then?
+    </blockquote>
+    <blockquote>
+      Somewhere with a good pub, I hope!
+    </blockquote>
+    <cite>Jackrum</cite>
+  </div>
+  <div class="message-group" data-sender="Wazzer">
+    <blockquote>
+      The Duchess says
+    </blockquote>
+    <blockquote>
+      um
+    </blockquote>
+    <blockquote>
+      it should lead to the town of Scritz
+    </blockquote>
+    <cite>Wazzer</cite>
+  </div>
+  <div class="message-group" data-sender="Jackrum">
+    <blockquote>
+      Scritz? Nothing there
+    </blockquote>
+    <blockquote>
+      Dull town
+    </blockquote>
+    <cite>Jackrum</cite>
+  </div>
+  <div class="message-group" data-sender="Polly">
+    <blockquote>
+      …
+    </blockquote>
+    <cite>Polly</cite>
+  </div>
+</div>
