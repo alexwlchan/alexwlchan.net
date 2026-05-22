@@ -15,6 +15,52 @@ filterwarnings = ["error"]
 
 [tool.mypy]
 strict = true
+exclude = [
+  "assets/2019/2019-09-svg-coordinates/render_svg_template.py",
+  "assets/make_macos_command.py",
+  "assets/pride-hearts/colors.py",
+  "assets/pride-hearts/generate_heart.py",
+  "assets/pride-hearts/heart_coords.py",
+  "assets/pride-hearts/test_colors.py",
+]
+
+[tool.ruff]
+exclude = [
+  "assets/2019/2019-07-braille/braille_decades_svg.py",
+  "assets/2019/2019-09-svg-coordinates/render_svg_template.py",
+  "assets/2025/exif_orientation.py",
+  "assets/make_macos_command.py",
+  "assets/pride-hearts/colors.py",
+  "assets/pride-hearts/generate_heart.py",
+  "assets/pride-hearts/heart_coords.py",
+  "assets/pride-hearts/test_colors.py",
+  "src/files/2013/find_untagged_posts.py",
+  "src/files/2014/curlparser.py",
+  "src/files/2016/send_to_kindle.py",
+  "src/files/2015/readinglist.py",
+  "src/files/2015/safeutil.py",
+  "src/files/2016/tilings.py",
+  "src/files/2020/download_ao3_bookmarks_from_pinboard.py",
+  "src/files/2020/redrive_sqs_queue.py",
+  "src/files/2021/extract_images_from_pdf.py",
+  "src/files/2021/find_dangling_cloudwatch_alarms.py",
+  "src/files/2021/ignore_folders_in_spotlight.py",
+  "src/files/2021/kempisbot.py",
+  "src/files/2021/see_journal_progress.py",
+  "src/files/2021/test_for_noncommutative_strings.py",
+  "src/files/2021/test_for_noncommutative_strings_in_perl.py",
+  "src/files/2021/transfer_s3_objects_with_progress_bar.py",
+  "src/files/2022/create_circular_arc_paths.py",
+  "src/files/2022/extract_alt_text.py",
+  "src/files/2022/make_artichoke_gif.py",
+  "src/files/2022/save_tweets_by_id.py",
+  "src/files/2023/bulk_sns_publish.py",
+  "src/files/2023/describe_iam_access_keys.py",
+  "src/files/2023/normalised_key_dictionary.py",
+  "src/files/2025/draw_basic_cover.py",
+  "src/fun-stuff/uk-stations-map/scripts/get_station_coordinates.py",
+  "src/fun-stuff/uk-stations-map/scripts/minify_assets.py",
+]
 
 [tool.ruff.lint]
 select = ["D", "E", "F"]
