@@ -63,7 +63,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
         ).replace('<span class="err">}</span>', '<span class="p">}</span>')
 
         # Reclassify nested selectors which have been labelled as properties
-        for tag in ("a", "figcaption", "figure", "img", "li"):
+        for tag in ("a", "blockquote", "figcaption", "figure", "img", "li"):
             if tag not in highlighted_code:
                 continue
 
@@ -76,7 +76,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             )
 
         highlighted_code = re.sub(
-            r'<span class="err">(?P<classname>\.[a-z]+)</span>',
+            r'<span class="err">(?P<classname>\.[a-z\-]+)</span>',
             r'<span class="nn">\g<classname></span>',
             highlighted_code,
         )

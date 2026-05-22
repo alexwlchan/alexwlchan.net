@@ -1,0 +1,97 @@
+<meta charset="utf-8">
+
+<style>
+  .conversation {
+    width: 450px;
+    padding: 1em;
+    
+    .message-group {
+      &:not(:last-child) {
+        margin-bottom: 1.5em;
+      }
+      
+      blockquote {
+        border: 2px solid green;
+        background: palegreen;
+        
+        margin: 0;
+        border-radius: 15px;
+        margin-bottom:  4px;
+        padding:        7px;
+        
+        width: max-content;
+        max-width: 60%;
+        box-sizing: border-box;
+        
+        text-wrap: balance;
+      }
+      
+      &:not([data-sender="Jackrum"]) {
+        blockquote:has(+ cite) {
+          border-bottom-left-radius: 0;
+        }
+      }
+      
+      &[data-sender="Jackrum"] {
+        blockquote {
+          border: 2px solid grey;
+          background: lightgrey;
+          
+          margin-left: auto;
+        }
+        
+        blockquote:has(+ cite) {
+          border-bottom-right-radius: 0;
+        }
+        
+        cite {
+          display: block;
+          text-align: right;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  function shrinkWrap(elem) {
+    const range = document.createRange();
+    range.selectNodeContents(elem);
+
+    const bbox = range.getBoundingClientRect();
+    elem.style.width = `${bbox.width}px`;
+    elem.style.boxSizing = "content-box";
+  }
+  
+  window.addEventListener("load", () =>
+    document
+      .querySelectorAll(".message-group blockquote")
+      .forEach(shrinkWrap)
+  );
+</script>
+
+<div class="conversation">
+  <div class="message-group" data-sender="Wazzer">
+    <blockquote>The Duchess says your path takes you further further</blockquote>
+    <cite>Wazzer</cite>
+  </div>
+  <div class="message-group" data-sender="Jackrum">
+    <blockquote>Oh yeah? And where’s that, then? Somewhere with a good pub, I hope! </blockquote>
+    <cite>Jackrum</cite>
+  </div>
+  <div class="message-group" data-sender="Wazzer">
+    <blockquote>The Duchess says</blockquote>
+    <blockquote>um</blockquote>
+    <blockquote>it should lead to the town of Scritz</blockquote>
+    <cite>Wazzer</cite>
+  </div>
+  <div class="message-group" data-sender="Jackrum">
+    <blockquote>Scritz? Nothing there</blockquote>
+    <blockquote>Dull town</blockquote>
+    <cite>Jackrum</cite>
+  </div>
+  <div class="message-group" data-sender="Polly">
+    <blockquote>…</blockquote>
+    <cite>Polly</cite>
+  </div>
+</div>

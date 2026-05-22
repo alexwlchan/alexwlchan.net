@@ -17,14 +17,20 @@ Here's a screenshot of the design:
   npx playwright screenshot -b webkit --viewport-size '1520,830' file:///Users/alexwlchan/repos/alexwlchan.net/src/_files/2026/movie-poster-css/demo7-final.html /Users/alexwlchan/repos/alexwlchan.net/src/_images/2026/movie-poster-hero.png
 -->
 
-{%
-  picture
-  filename="movie-poster-hero.png"
-  width="750"
-  alt="A grid of portrait-sized posters for made-up movies. There are two rows of six posters, and each poster is the same height. The posters line up horiozntally, and below each poster is the title of the movie."
-  class="screenshot dark_aware"
-  link_to="original"
-%}
+<figure>
+  {%
+    picture
+    filename="movie-poster-hero.png"
+    width="750"
+    alt="A grid of portrait-sized posters for made-up movies. There are two rows of six posters, and each poster is the same height. The posters line up horiozntally, and below each poster is the title of the movie."
+    class="screenshot dark_aware"
+    link_to="original"
+  %}
+  <figcaption>
+    Don’t recognise these movies?
+    Check out my follow-up post: <a href="/2026/parody-movie-posters/">Parody posters for made-up movies</a>.
+  </figcaption>
+</figure>
 
 This scrolling grid of posters is something I'd like to reuse for other media collections -- books, comics, and TV shows.
 

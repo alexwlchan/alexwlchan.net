@@ -252,6 +252,11 @@ def test_highlighting_name() -> None:
             '<span class="n">a</span><span class="o">,</span> '
             '<span class="n">img</span>',
         ),
+        (
+            ".conversation { .message-group { color: blue; } }",
+            {1: ".conversation", 2: ".message-group"},
+            '<span class="n">.message-group</span>',
+        ),
         #
         # Units should be highlighted as part of a number.
         ("p { margin: 5px; }", {}, '<span class="mi">5px</span>'),
