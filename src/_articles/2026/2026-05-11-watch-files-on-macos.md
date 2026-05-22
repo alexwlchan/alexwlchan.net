@@ -311,7 +311,7 @@ This callback takes six parameters, and the fourth parameter `eventPaths` is an 
 
 The type is a bit gnarly: by default it's a raw C array of raw C strings, or we can set the [`kFSEventStreamCreateFlagUseCFTypes` flag][cs-kFSEventStreamCreateFlagUseCFTypes] to get a `CFArrayRef` of `CFStringRef` objects.
 (Here `CF` stands for Core Foundation, one of Apple's low-level frameworks.)
-I started by setting theflag, and writing a function to converts the CFArrayRef into a vanilla Swift array:
+I started by setting the flag, and writing a function to converts the CFArrayRef into a vanilla Swift array:
 
 ```swift {"names":{"1":"flags","4":"convertFSEventPaths","5":"eventPaths","8":"cfArray"}}
 let flags = FSEventStreamCreateFlags(kFSEventStreamCreateFlagUseCFTypes)
