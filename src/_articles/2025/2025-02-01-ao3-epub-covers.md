@@ -38,7 +38,7 @@ The new covers show the title and author in large text on a coloured background,
   alt="Another row of four document thumbnails, each of which has a coloured background with the title in large white text, and the author name in slightly lighter text."
 %}
 
-If you'd find this helpful, you can use it at [alexwlchan.net/my-tools/add-cover-to-ao3-epubs/](https://alexwlchan.net/my-tools/add-cover-to-ao3-epubs/)
+If you'd find this helpful, you can use it at [alexwlchan.net/my-tools/add-cover-to-ao3-epubs/](/my-tools/add-cover-to-ao3-epubs/)
 Otherwise, I'm going to explain how it works, and what I learnt from building it.
 
 There are three steps to this process:
@@ -374,7 +374,7 @@ If other people like it, that's a nice bonus, but I'm really thinking about that
 
 Normally the one person I'm writing software for is me, so it's extra nice when I can do it for somebody else.
 
-If you want to try this tool yourself, go to [alexwlchan.net/my-tools/add-cover-to-ao3-epubs/](https://alexwlchan.net/my-tools/add-cover-to-ao3-epubs/)
+If you want to try this tool yourself, go to [alexwlchan.net/my-tools/add-cover-to-ao3-epubs/](/my-tools/add-cover-to-ao3-epubs/)
 
 If you want to read the code, it's all [on GitHub].
 
