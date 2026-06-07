@@ -24,7 +24,7 @@ I was on the Lego website recently, and I enjoyed their animation on their age p
   <figcaption>
     Recorded from <a href="https://identity.lego.com/en-GB/age">identity.lego.com/en-GB/age</a>, 6 June 2026.
     Lego was founded in 1932 by Ole Kirk Christiansen.
-    He purchased the first plastic moulding machine in 1947, and patented the stub-and-tube coupling system in 1958.
+    He purchased the first plastic moulding machine in 1947, and patented the stud-and-tube coupling system in 1958.
   </figcaption>
 </figure>
 
