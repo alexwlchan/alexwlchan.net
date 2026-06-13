@@ -45,6 +45,13 @@ The sounds of bricks snapping together is half the fun!
 A quick search suggests there are ways to record screen audio in QuickTime Player, but they all require installing third-party plugins to make my Mac's audio available as a pseudo-microphone.
 I'm very picky about what I install, and making a fun video doesn't justify a new app.
 
+{% update date="2026-06-13" %}
+  [Venkat pointed out][mstdn-venkat] that Apple is adding system audio capture in macOS 27 Golden Gate, which was announced the day after I published this post.
+  This has always felt like a weird limitation, and I'll be excited to use this in QuickTime Player when I upgrade to the public release.
+  
+  [mstdn-venkat]: https://social.alexwlchan.net/@venkatasg@mastodon.social/116720968719109038
+{% endupdate %}
+
 ## Rejected option #2: use Playwright video recording
 
 One tool I have installed already is [Playwright][playwright], a framework for automating browsers.
