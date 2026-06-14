@@ -51,6 +51,8 @@ redir /theme/apple-touch-icon.png                                       /static/
 #             cog.outl(f"redir {old_path.rstrip('/')} {new_path} permanent")
 # 
 #]]]
+redir /notes/2026/cornishment-176/ /notes/2026/cornishman-176/ permanent
+redir /notes/2026/cornishment-176 /notes/2026/cornishman-176/ permanent
 redir /about/ / permanent
 redir /about / permanent
 redir /2013/03/candybar/ /2013/candybar/ permanent
@@ -2080,4 +2082,4 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: dCoDIgja0C)
+#[[[end]]] (sum: k1UCkgtEx/)
