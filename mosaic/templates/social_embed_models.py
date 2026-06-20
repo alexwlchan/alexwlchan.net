@@ -17,6 +17,14 @@ __all__ = [
 ]
 
 
+class User(BaseModel):
+    """
+    A user who posted something on social media.
+    """
+
+    avatar_path: str
+
+
 class MediaEntity(BaseModel):
     """
     A media entity on a microblog post.
@@ -50,7 +58,7 @@ class Entities(BaseModel):
     user_mentions: list[str]
 
 
-class BlueskyUser(BaseModel):
+class BlueskyUser(User):
     """
     Information about a user on Bluesky.
     """
@@ -72,7 +80,7 @@ class BlueskyEmbed(BaseModel):
     quoted_post: Optional["BlueskyEmbed"] = None
 
 
-class MastodonUser(BaseModel):
+class MastodonUser(User):
     """
     Information about a user on Mastodon.
     """
@@ -115,7 +123,7 @@ class MastodonEmbed(BaseModel):
     entities: MastodonEntities | None = None
 
 
-class TwitterUser(BaseModel):
+class TwitterUser(User):
     """
     Information about a user on Twitter.
     """

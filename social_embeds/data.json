@@ -37,7 +37,8 @@
     "author": {
       "server": "code4lib.social",
       "display_name": "James Truitt (he/him)",
-      "username": "linguistory"
+      "username": "linguistory",
+      "avatar_path": "social_embeds/avatars/[mastodon]_linguistory.jpg"
     },
     "date_posted": "2025-01-31T19:49:29Z",
     "text": "Do any #digipres folks happen to have a handy repo of small invalid bags for testing purposes?\n\nI'm trying to automate our ingest process, and want to make sure I'm accounting for as many broken expectations as possible.",
@@ -56,7 +57,8 @@
     "author": {
       "server": "fedi.simonwillison.net",
       "display_name": "Simon Willison",
-      "username": "simon"
+      "username": "simon",
+      "avatar_path": "social_embeds/avatars/[mastodon]_simonwillison.jpg"
     },
     "date_posted": "2024-03-15T14:55:24Z",
     "text": "I wonder how much of an impact this had on the invisible Mastodon infrastructure...\n\nEvery time someone I follow posted in the past 24 hours their instance would have tried and failed to deliver to my instance - how hard do these things get retried?\n\nAm I about to see a massive flood of incoming deliveries that finally work?"
@@ -67,7 +69,8 @@
     "author": {
       "server": "flipboard.social",
       "display_name": "Jason Culverhouse",
-      "username": "JsonCulverhouse"
+      "username": "JsonCulverhouse",
+      "avatar_path": "social_embeds/avatars/[mastodon]_JsonCulverhouse.jpg"
     },
     "date_posted": "2024-03-15T18:40:14Z",
     "text": "@clifff @simon \n\nHere is the retry algorithm, if you were down a day.  They will trickle in vs a massive flood\n\n(0..16).each do |count|\n&nbsp;&nbsp;delay = (count**4) + 15\n&nbsp;&nbsp;jitter = rand(0.5 * (count**4))\n&nbsp;&nbsp;total_delay = delay + jitter\n&nbsp;&nbsp;puts \"Retry #{count}: #{total_delay} seconds\"\nend\n\nRetry 0: 15.713002155688077 seconds\nRetry 1: 16.48915648567112 seconds\nRetry 2: 31 seconds\nRetry 3: 124 seconds\nRetry 4: 382 seconds\nRetry 5: 938 seconds\nRetry 6: 1319 seconds\nRetry 7: 2617 seconds\nRetry 8: 6006 seconds\nRetry 9: 9468 seconds\nRetry 10: 12612 seconds\nRetry 11: 19804 seconds\nRetry 12: 26167 seconds\nRetry 13: 31795 seconds\nRetry 14: 55286 seconds\nRetry 15: 67782 seconds\nRetry 16: 89823 seconds\n\nhttps://github.com/mastodon/mastodon/blob/71e5f0f48c3bc95a894fa3ad2c5a34f05c584482/app/workers/activitypub/delivery_worker.rb/#L13-L21",
@@ -98,7 +101,8 @@
     "author": {
       "server": "shakedown.social",
       "display_name": "clifff",
-      "username": "clifff"
+      "username": "clifff",
+      "avatar_path": "social_embeds/avatars/[mastodon]_clifff.png"
     },
     "date_posted": "2024-03-15T14:59:02Z",
     "text": "@simon by default, sidekiq jobs that throw an error will be retried 25 times over the course of 20 days https://github.com/sidekiq/sidekiq/wiki/Error-Handling#automatic-job-retry\n\nit's possible mastodon has customized this but I haven't specifically looked. would expect you'll get more traffic than usual but shouldn't be all at once",
@@ -125,7 +129,8 @@
     "text": "WE ARE GOING TO LIST OUR ROMANTIC PREFERENCE THEN OUR SEXUAL PREFERENCE THEN EXPLAIN A LIL BIT FOR ASEXUAL AWARENESS WEEK",
     "author": {
       "name": "Asexual Problems",
-      "screen_name": "AsexualAndProud"
+      "screen_name": "AsexualAndProud",
+      "avatar_path": "social_embeds/avatars/[twitter]_AsexualAndProud.jpg"
     },
     "site": "twitter"
   },
@@ -135,7 +140,8 @@
     "id": "301278574533554176",
     "author": {
       "name": "she-hulk.",
-      "screen_name": "milkbutnotsugar"
+      "screen_name": "milkbutnotsugar",
+      "avatar_path": "social_embeds/avatars/[twitter]_milkbutnotsugar.jpg"
     },
     "site": "twitter"
   },
@@ -160,7 +166,8 @@
     },
     "author": {
       "name": "Kim Witten",
-      "screen_name": "iamkimiam"
+      "screen_name": "iamkimiam",
+      "avatar_path": "social_embeds/avatars/[twitter]_iamkimiam.jpg"
     },
     "site": "twitter"
   },
@@ -185,7 +192,8 @@
     },
     "author": {
       "name": "Brooke Cottrell",
-      "screen_name": "BrookeCottrell_"
+      "screen_name": "BrookeCottrell_",
+      "avatar_path": "social_embeds/avatars/[twitter]_BrookeCottrell_.jpg"
     },
     "site": "twitter"
   },
@@ -195,7 +203,8 @@
     "id": "1461848209769197573",
     "author": {
       "name": "Laurie Voss",
-      "screen_name": "seldo"
+      "screen_name": "seldo",
+      "avatar_path": "social_embeds/avatars/[twitter]_seldo.jpg"
     },
     "site": "twitter"
   },
@@ -205,7 +214,8 @@
     "text": "Thought of a useful Safari extension: change any UL/OL elements on the page into checkboxes, for when you're working through a tutorial.",
     "author": {
       "name": "Matt Gemmell",
-      "screen_name": "mattgemmell"
+      "screen_name": "mattgemmell",
+      "avatar_path": "social_embeds/avatars/[twitter]_mattgemmell.jpg"
     },
     "site": "twitter"
   },
@@ -215,7 +225,8 @@
     "text": "Trans friends: we’re trying to improve Wellcome’s policies around trans inclusion and support for employees who are transitioning at work.\n\nTell me about companies that have good policies for this? (The more detail, the better.)\n\nRT for reach?",
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_1.jpg"
     },
     "site": "twitter"
   },
@@ -236,7 +247,8 @@
     },
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_1.jpg"
     },
     "site": "twitter"
   },
@@ -246,7 +258,8 @@
     "text": "What are some good low tech devices for intelligence expansion? Current list I have:\n\n* Pencil and paper\n* Cards/dice\n* A second person",
     "author": {
       "name": "David R. MacIver",
-      "screen_name": "DRMacIver"
+      "screen_name": "DRMacIver",
+      "avatar_path": "social_embeds/avatars/[twitter]_DRMacIver.jpg"
     },
     "site": "twitter"
   },
@@ -264,7 +277,8 @@
     },
     "author": {
       "name": "Overcast",
-      "screen_name": "OvercastFM"
+      "screen_name": "OvercastFM",
+      "avatar_path": "social_embeds/avatars/[twitter]_OvercastFM.jpg"
     },
     "site": "twitter"
   },
@@ -285,7 +299,8 @@
     "id": "644243079445221376",
     "author": {
       "name": "Cory Benfield",
-      "screen_name": "Lukasaoz"
+      "screen_name": "Lukasaoz",
+      "avatar_path": "social_embeds/avatars/[twitter]_Lukasaoz.jpg"
     },
     "site": "twitter"
   },
@@ -295,7 +310,8 @@
     "text": "If you have the spoons, tell me about the conference accessibility fails you've witnessed or experienced. Can cover disability, MH, and related concerns. (Name names if you want, but I'm primarily soliciting feedback to help others from making the same mistakes.)",
     "author": {
       "name": "Ada Powers",
-      "screen_name": "mspowahs"
+      "screen_name": "mspowahs",
+      "avatar_path": "social_embeds/avatars/[twitter]_mspowahs.jpg"
     },
     "site": "twitter"
   },
@@ -305,7 +321,8 @@
     "id": "1573017572022571009",
     "author": {
       "name": "Kate",
-      "screen_name": "thingskatedid"
+      "screen_name": "thingskatedid",
+      "avatar_path": "social_embeds/avatars/[twitter]_thingskatedid.jpg"
     },
     "site": "twitter"
   },
@@ -315,7 +332,8 @@
     "text": "I'm on my own personal quest to banish the word \"simply\" from all instructional content. Saying \"simply\" doesn't make it simple.",
     "author": {
       "name": "Keri Maijala",
-      "screen_name": "clamhead"
+      "screen_name": "clamhead",
+      "avatar_path": "social_embeds/avatars/[twitter]_clamhead.jpg"
     },
     "site": "twitter"
   },
@@ -342,7 +360,8 @@
     "id": "1674813732260655106",
     "author": {
       "name": "Terrible Maps",
-      "screen_name": "TerribleMaps"
+      "screen_name": "TerribleMaps",
+      "avatar_path": "social_embeds/avatars/[twitter]_TerribleMaps.jpg"
     },
     "site": "twitter"
   },
@@ -366,7 +385,8 @@
     },
     "author": {
       "name": "Ana Balica",
-      "screen_name": "anabalica"
+      "screen_name": "anabalica",
+      "avatar_path": "social_embeds/avatars/[twitter]_anabalica.jpg"
     },
     "site": "twitter"
   },
@@ -407,7 +427,8 @@
     "id": "1675112286103429123",
     "author": {
       "name": "Spy For Spy",
-      "screen_name": "SpyForSpyPlay"
+      "screen_name": "SpyForSpyPlay",
+      "avatar_path": "social_embeds/avatars/[twitter]_SpyForSpyPlay.jpg"
     },
     "site": "twitter"
   },
@@ -417,7 +438,8 @@
     "text": "Okay Twitter who wants to help me with some floor maths? \n\nI have boards in lengths of: 40, 50, 60, 70, 75, 90, 170, and 180. \n\nHow many combinations can you come up with to equal 360? (Can use multiple of the same length)",
     "author": {
       "name": "madeline odent",
-      "screen_name": "oldenoughtosay"
+      "screen_name": "oldenoughtosay",
+      "avatar_path": "social_embeds/avatars/[twitter]_oldenoughtosay.jpg"
     },
     "site": "twitter"
   },
@@ -427,34 +449,8 @@
     "id": "1588790271940395008",
     "author": {
       "name": "Kate",
-      "screen_name": "thingskatedid"
-    },
-    "site": "twitter"
-  },
-  "https://twitter.com/CambsCops/status/940152354627874818": {
-    "date_posted": "2017-12-11T09:32:43+00:00",
-    "id": "940152354627874818",
-    "text": "From this week our armed officers will be carrying out more visible and proactive patrols at key sites across the county. This is not as a result of any specific intelligence or threats, but is designed to help keep you as safe as possible. Read more here https://www.cambs.police.uk/news-and-appeals/Christmas-Action-Counters-Terrorism-Campaign",
-    "entities": {
-      "media": [
-        {
-          "filename": "DQwXlPKVAAAhdNN.jpg",
-          "type": "photo",
-          "url": "https://twitter.com/CambsCops/status/940152354627874818/photo/1"
-        }
-      ],
-      "urls": [
-        {
-          "url": "https://www.cambs.police.uk/news-and-appeals/Christmas-Action-Counters-Terrorism-Campaign",
-          "display_url": "cambs.police.uk/news-and-appea…"
-        }
-      ],
-      "hashtags": [],
-      "user_mentions": []
-    },
-    "author": {
-      "name": "Cambs police",
-      "screen_name": "CambsCops"
+      "screen_name": "thingskatedid",
+      "avatar_path": "social_embeds/avatars/[twitter]_thingskatedid.jpg"
     },
     "site": "twitter"
   },
@@ -477,7 +473,8 @@
     },
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_2.jpg"
     },
     "site": "twitter"
   },
@@ -487,7 +484,8 @@
     "text": "We must rather seek for what is profitable in Scripture, than for what ministereth to subtlety in discourse. Therefore we ought to read books which are devotional and simple, as well as those which are deep and difficult.",
     "author": {
       "name": "Thomas Kempis",
-      "screen_name": "KempisBot"
+      "screen_name": "KempisBot",
+      "avatar_path": "social_embeds/avatars/[twitter]_KempisBot.jpg"
     },
     "site": "twitter"
   },
@@ -511,7 +509,8 @@
     "text": "iPhone: ”I’m more powerful than the computers that put man on the Moon!”\n\nApollo Guidance Computer: ”So you keep saying, but remind me—of the two of us, who has actually put a man on the Moon?”\n\niPhone: …\n\nAGC: 😎",
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_4.jpg"
     }
   },
   "https://twitter.com/alexwlchan/status/1188721070234394626": {
@@ -520,7 +519,8 @@
     "text": "Today’s tiny automation win: if I’m looking at a tweet in my browser, I can type ”;twurl” and get a link and blockquote with the text of the tweet wherever I’m typing.\n\nAs a bonus, it automatically replaces t.co URLs with the original URLs.\n\n🐦 + 💻 + 🥳",
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_3.jpg"
     },
     "site": "twitter"
   },
@@ -538,7 +538,8 @@
     },
     "author": {
       "name": "Patrick 🏄🏻‍♂️",
-      "screen_name": "pomarawrites"
+      "screen_name": "pomarawrites",
+      "avatar_path": "social_embeds/avatars/[twitter]_pomarawrites.jpg"
     },
     "site": "twitter"
   },
@@ -572,7 +573,8 @@
     },
     "author": {
       "name": "Christopher Hilton",
-      "screen_name": "CHilton_BB"
+      "screen_name": "CHilton_BB",
+      "avatar_path": "social_embeds/avatars/[twitter]_CHilton_BB.jpg"
     },
     "site": "twitter"
   },
@@ -582,7 +584,8 @@
     "text": "I hate the new Google Maps so much. Get that stupid search box off my map.",
     "author": {
       "name": "Fraser Speirs",
-      "screen_name": "fraserspeirs"
+      "screen_name": "fraserspeirs",
+      "avatar_path": "social_embeds/avatars/[twitter]_fraserspeirs.jpg"
     },
     "site": "twitter"
   },
@@ -606,7 +609,8 @@
     },
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_1.jpg"
     },
     "site": "twitter"
   },
@@ -628,7 +632,8 @@
     },
     "author": {
       "name": "Julie Hubschman",
-      "screen_name": "juliehubs"
+      "screen_name": "juliehubs",
+      "avatar_path": "social_embeds/avatars/[twitter]_juliehubs.jpg"
     },
     "site": "twitter"
   },
@@ -649,7 +654,8 @@
     },
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_2.jpg"
     },
     "quoted_status": {
       "site": "twitter",
@@ -658,7 +664,8 @@
       "text": "If you use Pinboard and archive AO3 links, I'm recrawling a bunch that didn't get stored right. There was a nasty silent bug where a Ubuntu update made the crawler unable to speak the same dialect of SSL as AO3's server. This will also retroactively fix adult content warnings.",
       "author": {
         "name": "Pinboard",
-        "screen_name": "Pinboard"
+        "screen_name": "Pinboard",
+        "avatar_path": "social_embeds/avatars/[twitter]_Pinboard.jpg"
       }
     },
     "site": "twitter"
@@ -669,7 +676,8 @@
     "text": "what are the core primitives developers need for building and deploying modern applications? what platform services does the underlying infrastructure need to provide?\n\nwhat's essential and what's nice to have? what might an AWS alternative look like?",
     "author": {
       "name": "Grumble Bundle",
-      "screen_name": "monkchips"
+      "screen_name": "monkchips",
+      "avatar_path": "social_embeds/avatars/[twitter]_monkchips.jpg"
     },
     "site": "twitter"
   },
@@ -679,7 +687,8 @@
     "text": "I really like the idea of GitHub Actions, but every time I try to use it I feel like an idiot.\n\nI don’t know if it’s me or the UI, but I cannot understand what it’s doing, and things seem to be happening at random.\n\nIf something makes me feel stupid, I’m not going to use it.",
     "author": {
       "name": "Alex Chan",
-      "screen_name": "alexwlchan"
+      "screen_name": "alexwlchan",
+      "avatar_path": "social_embeds/avatars/[twitter]_alexwlchan_1.jpg"
     },
     "site": "twitter"
   },
@@ -689,7 +698,8 @@
     "text": "CHAPTER V: Of the reading of Holy Scriptures",
     "author": {
       "name": "Thomas Kempis",
-      "screen_name": "KempisBot"
+      "screen_name": "KempisBot",
+      "avatar_path": "social_embeds/avatars/[twitter]_KempisBot.jpg"
     },
     "site": "twitter"
   },
@@ -699,7 +709,8 @@
     "text": "All Scripture ought to be read in the spirit in which it was written.",
     "author": {
       "name": "Thomas Kempis",
-      "screen_name": "KempisBot"
+      "screen_name": "KempisBot",
+      "avatar_path": "social_embeds/avatars/[twitter]_KempisBot.jpg"
     },
     "site": "twitter"
   },
@@ -724,7 +735,8 @@
     },
     "author": {
       "name": "Stuart Lewis",
-      "screen_name": "stuartlewis"
+      "screen_name": "stuartlewis",
+      "avatar_path": "social_embeds/avatars/[twitter]_stuartlewis.jpg"
     },
     "site": "twitter"
   },
@@ -742,7 +754,8 @@
     },
     "author": {
       "name": "Ash Raj 📈",
-      "screen_name": "A5HRAJ"
+      "screen_name": "A5HRAJ",
+      "avatar_path": "social_embeds/avatars/[twitter]_A5HRAJ.jpg"
     },
     "site": "twitter"
   },
@@ -751,7 +764,8 @@
     "id": "3m62qe3jrac2e",
     "author": {
       "name": "madeline odent",
-      "handle": "oldenoughtosay.com"
+      "handle": "oldenoughtosay.com",
+      "avatar_path": "social_embeds/avatars/[bsky]_oldenoughtosay.jpg"
     },
     "text": "i need one of the city councillors following me to advise whether an oxen-driven cart would be chargeable under the congestion charge",
     "date_posted": "2025-11-20T12:10:00Z",
@@ -760,7 +774,8 @@
       "id": "3m62qckpquc2e",
       "author": {
         "name": "madeline odent",
-        "handle": "oldenoughtosay.com"
+        "handle": "oldenoughtosay.com",
+        "avatar_path": "social_embeds/avatars/[bsky]_oldenoughtosay.jpg"
       },
       "text": "i mean they are technically zero emissions i guess so you could probably make an argument for driving one down the cornmarket",
       "date_posted": "2025-11-20T12:09:00Z"
@@ -772,7 +787,8 @@
     "author": {
       "server": "toot.wales",
       "display_name": "Dion Williams",
-      "username": "dionrhys"
+      "username": "dionrhys",
+      "avatar_path": "social_embeds/avatars/[mastodon]_dionrhys.jpg"
     },
     "date_posted": "2026-05-14T18:05:15Z",
     "text": "@alex Nice! Long polling for messaging like this has been formalised as Server-side Events for what it's worth - https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events\n\nIt lets you send various messages (like \"reload me please\") from the server with a nice event-based client-side API. This is how esbuild's Live Reload functionality works (https://esbuild.github.io/api/#live-reload):\n\n```javascript\nnew EventSource('/esbuild').addEventListener('change', () => location.reload())\n```",

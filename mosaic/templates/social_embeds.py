@@ -19,7 +19,6 @@ with a template to render the post.
 """
 
 import base64
-import glob
 from io import BytesIO
 import json
 from pathlib import Path
@@ -131,32 +130,15 @@ def avatar_url(post_data: SocialEmbedData) -> str:
     them as a separate network request.
     """
     match post_data.site:
-        case "mastodon":
-            user_id = post_data.author.username
-            post_id = post_data.id
-        case "twitter":
-            user_id = post_data.author.screen_name
-            post_id = post_data.id
-        case "bluesky":
-            user_id = post_data.author.handle
-            post_id = post_data.id
+        case "bluesky" | "mastodon" | "twitter":
+            avatar_path = post_data.author.avatar_path
         case _:  # pragma: no cover
-            raise ValueError(f"Unrecognised site: {post_data.site}")
+            raise ValueError(f"cannot create avatar for: {post_data.site}")
 
-    avatar_id = f"{user_id}_{post_id}"
-
-    # TODO: Implement caching
-    # TODO: Allow choosing the source directory here
-    matching_avatars = glob.glob(f"social_embeds/avatars/{avatar_id}*")
-
-    if len(matching_avatars) != 1:  # pragma: no cover
-        raise RuntimeError(f"could not find avatar for {avatar_id}")
-
-    avatar_path = Path(matching_avatars[0])
     return create_base64_avatar(avatar_path, size=92)
 
 
-def create_base64_avatar(avatar_path: Path, *, size: int) -> str:
+def create_base64_avatar(avatar_path: str, *, size: int) -> str:
     """
     Convert a square avatar to a base64-encoded data URI at the given size.
     """
