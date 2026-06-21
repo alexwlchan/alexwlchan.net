@@ -812,5 +812,17 @@
         }
       ]
     }
+  },
+  "https://digipres.club/@misty/116772382932474870": {
+    "site": "mastodon",
+    "id": "116772382932474870",
+    "author": {
+      "server": "digipres.club",
+      "display_name": "Misty",
+      "username": "misty",
+      "avatar_path": "social_embeds/avatars/[mastodon]_misty.jpg"
+    },
+    "date_posted": "2026-06-18T17:52:39Z",
+    "text": "Finding myself asking if there's ever been a wonkier official browser API than canPlayType"
   }
 }
