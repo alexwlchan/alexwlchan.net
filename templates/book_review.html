@@ -110,7 +110,7 @@
 
         <dl class="book_metadata">
           {% for c in book.contributors %}
-          <dt>{{ c.role }}{% if ', ' in c.name %}s{% endif %}</dt>
+          <dt>{{ c.role }}{% if ', ' in c.name or ' and ' in c.name %}s{% endif %}</dt>
           <dd>{{ c.name }}</dd>
           {% endfor %}
 
