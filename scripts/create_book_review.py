@@ -8,6 +8,8 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+from urllib.parse import quote_plus
+import webbrowser
 
 from chives.fetch import download_image
 import yaml
@@ -67,6 +69,10 @@ if __name__ == "__main__":
     book_format = input("Book format (paperback, hardback, ebook): ")
 
     rating = int(input("Star rating: "))
+
+    cover_query = quote_plus(f"cover {title} {author}")
+    webbrowser.open(f"https://next.duckduckgo.com/?q={cover_query}")
+
     cover_url = input("Cover URL: ")
 
     try:
