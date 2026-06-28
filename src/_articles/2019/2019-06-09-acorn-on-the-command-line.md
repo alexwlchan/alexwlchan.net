@@ -144,7 +144,7 @@ The `return` statement means the script will exit once it's done the export.
 
 Stepping back, let's see what those nested loops look like put together:
 
-```applescript {"names":{"1":"originalPath","2":"exportPath","5":"theWindow","8":"theDocument","13":"thePath","26":"theDocument"}}
+```applescript {"names":{"1":"originalPath","2":"exportPath","5":"theWindow","8":"theDocument","12":"thePath","24":"theDocument"}}
 set originalPath to "/Users/alexwlchan/Desktop/chui.acorn"
 set exportPath to "/Users/alexwlchan/Desktop/chui.png"
 
@@ -260,7 +260,7 @@ This code is definitely fragile, but it works well enough for me in my limited t
 
 This is the final script, including a comment at the top explaining how to use it:
 
-```applescript {"names":{"2":"argv","8":"arg1","11":"arg2","14":"workingDir","17":"originalPath","19":"originalPath","23":"exportPath","25":"exportPath","30":"theWindow","33":"theDocument","38":"thePath","51":"theDocument"}}
+```applescript {"names":{"2":"argv","8":"arg1","11":"arg2","14":"workingDir","17":"originalPath","19":"originalPath","23":"exportPath","25":"exportPath","30":"theWindow","33":"theDocument","37":"thePath","49":"theDocument"}}
 #!/usr/bin/env osascript
 
 -- Convert an Acorn file to another format (for example, PNG or JPEG)

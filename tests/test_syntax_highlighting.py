@@ -650,3 +650,15 @@ def test_rust_std_str() -> None:
         names={1: "std", 2: "str", 3: "FromStr"},
     )
     assert '<span class="n">str</span>' in html
+
+
+def test_applescript_highlighting() -> None:
+    """
+    The name `missing value` is treated as a constant.
+    """
+    html = apply_syntax_highlighting(
+        'if desc is missing value then\n return ""else\n  return desc\nend if',
+        lang="applescript",
+    )
+
+    assert '<span class="kc">missing value</span>' in html

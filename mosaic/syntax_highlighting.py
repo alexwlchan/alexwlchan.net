@@ -249,6 +249,13 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="p">::</span><span class="n">str</span>',
         )
 
+    # AppleScript: `missing value` is a constant.
+    if lang == "applescript":
+        highlighted_code = highlighted_code.replace(
+            '<span class="no">missing value</span>',
+            '<span class="kc">missing value</span>',
+        )
+
     return highlighted_code
 
 
