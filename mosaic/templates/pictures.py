@@ -529,7 +529,9 @@ def article_card_image(context: Context, article: page_types.Article) -> str:
     #    However, we expand the default width to 370px to handle tag pages
     #    which only have a small number of cards.
     #
-    assert article.card_short_name is not None
+    assert article.card_short_name is not None, (
+        f"article has no associated card ({article})"
+    )
     assert article.card_path is not None
     html = render_picture(
         context,
