@@ -232,27 +232,42 @@ class GitFile(BaseModel):
         """
         Return a human-readable label describing the type of this file.
         """
-        match self.path.suffix:
-            case ".go":
-                return "Go"
-            case ".md":
-                return "Markdown"
-            case ".py":
-                return "Python"
-            case ".pyi":
-                return "Python type stub"
-            case ".rs":
-                return "Rust"
-            case ".toml":
-                return "TOML"
-            case ".yml":
-                return "YAML"
-            case ".sh":
-                if contents.startswith("#!/usr/bin/env bash\n"):
-                    return "Bash"
-
         if self.path.name.endswith("requirements.txt"):
             return "pip requirements file"
+
+        known_suffixes = {
+            ".css": "CSS",
+            ".fish": "Fish shell",
+            ".go": "Go",
+            ".html": "HTML",
+            ".json": "JSON",
+            ".md": "Markdown",
+            ".py": "Python",
+            ".pyi": "Python type stub",
+            ".rs": "Rust",
+            ".swift": "Swift",
+            ".toml": "TOML",
+            ".txt": "Plain text",
+            ".yml": "YAML",
+        }
+
+        try:
+            return known_suffixes[self.path.suffix]
+        except KeyError:
+            pass
+
+        known_shebangs = {
+            "#!/usr/bin/env bash\n": "Bash",
+            "#!/usr/bin/env osascript\n": "AppleScript",
+            "#!/usr/bin/env osascript -l JavaScript\n": "JXA (JavaScript for Automation)",  # noqa: E501
+            "#!/usr/bin/env python\n": "Python",
+            "#!/usr/bin/env python3\n": "Python",
+            "#!/usr/bin/env swift\n": "Swift",
+        }
+
+        for shebang, label in known_shebangs.items():
+            if contents.startswith(shebang):
+                return label
 
         if self.path.name.endswith("requirements.in"):
             return "pip-compile input file"
@@ -263,22 +278,39 @@ class GitFile(BaseModel):
         """
         Return a Pygments lexer shortname for this file.
         """
-        match self.path.suffix:
-            case ".go":
-                return "go"
-            case ".md":
-                return "markdown"
-            case ".py" | ".pyi":
-                return "python"
-            case ".rs":
-                return "rust"
-            case ".toml":
-                return "toml"
-            case ".yml":
-                return "yaml"
-            case ".sh":
-                if contents.startswith("#!/usr/bin/env bash\n"):
-                    return "bash"
+        known_lexers = {
+            ".css": "css",
+            ".fish": "fish",
+            ".go": "go",
+            ".html": "html",
+            ".json": "json",
+            ".md": "markdown",
+            ".py": "python",
+            ".pyi": "python",
+            ".rs": "rust",
+            ".swift": "swift",
+            ".toml": "toml",
+            ".txt": "text",
+            ".yml": "yaml",
+        }
+
+        try:
+            return known_lexers[self.path.suffix]
+        except KeyError:
+            pass
+
+        known_shebangs = {
+            "#!/usr/bin/env bash\n": "bash",
+            "#!/usr/bin/env osascript\n": "applescript",
+            "#!/usr/bin/env osascript -l JavaScript\n": "javascript",
+            "#!/usr/bin/env python\n": "python",
+            "#!/usr/bin/env python3\n": "python",
+            "#!/usr/bin/env swift\n": "swift",
+        }
+
+        for shebang, label in known_shebangs.items():
+            if contents.startswith(shebang):
+                return label
 
         return "text"
 
