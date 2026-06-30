@@ -33,7 +33,7 @@ if __name__ == "__main__":
             for p in pages
             if p.date is not None and p.date.year == year and p.date.month == month
         ],
-        key=lambda p: p.date,  # type: ignore
+        key=lambda p: p.date,
     )
 
     print("Articles:")
