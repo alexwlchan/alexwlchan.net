@@ -22,6 +22,3 @@ ruff
 
 # For building Caddyfiles from templates
 cogapp
-
-# For DNS tests
-dnspython

@@ -14,8 +14,6 @@ cogapp==3.6.0
     # via -r requirements.in
 coverage==7.13.5
     # via -r requirements.in
-dnspython==2.8.0
-    # via -r requirements.in
 execnet==2.1.2
     # via pytest-xdist
 greenlet==3.5.0

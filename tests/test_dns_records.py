@@ -3,8 +3,7 @@ Compare my current DNS records to a checked-in TOML file.
 """
 
 from pathlib import Path
-
-import dns.resolver
+import subprocess
 import tomllib
 
 
@@ -49,8 +48,10 @@ def get_dns_records(domain: str, record_type: str) -> set[str]:
     """
     Look up the DNS records for a single domain.
     """
-    answers = dns.resolver.resolve(domain, record_type)
-    return {rdata.to_text() for rdata in answers}
+    result = subprocess.check_output(["dig", "+short", domain, record_type], text=True)
+
+    records = {line.strip() for line in result.splitlines() if line.strip()}
+    return records
 
 
 def test_dns_records_match_expected() -> None:
