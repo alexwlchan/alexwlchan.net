@@ -13,7 +13,7 @@ cffi==2.0.0
 cogapp==3.6.0
     # via -r requirements.in
 coverage==7.13.5
-    # via -r requirements.in
+    # via pytest-cov
 execnet==2.1.2
     # via pytest-xdist
 greenlet==3.5.0
@@ -51,7 +51,9 @@ pillow==12.2.0
 playwright==1.59.0
     # via -r requirements.in
 pluggy==1.6.0
-    # via pytest
+    # via
+    #   pytest
+    #   pytest-cov
 pycparser==3.0
     # via cffi
 pydantic==2.13.3
@@ -67,7 +69,11 @@ pygments==2.20.0
     #   -r requirements.in
     #   pytest
 pytest==9.0.3
-    # via pytest-xdist
+    # via
+    #   pytest-cov
+    #   pytest-xdist
+pytest-cov==7.1.0
+    # via -r requirements.in
 pytest-xdist==3.8.0
     # via -r requirements.in
 pyyaml==6.0.3

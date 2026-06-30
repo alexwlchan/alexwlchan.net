@@ -11,6 +11,7 @@ skip_covered = true
 fail_under = 100
 
 [tool.pytest.ini_options]
+addopts = "-n auto"
 filterwarnings = ["error"]
 
 [tool.mypy]
