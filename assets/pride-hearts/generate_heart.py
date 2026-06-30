@@ -47,7 +47,7 @@ def create_heart(stripes, threshold=100, scale_factor=25):
 
     scaled_dimensions = tuple(dim * scale_factor for dim in dimensions)
 
-    im = Image.new("RGBA", size=scaled_dimensions)
+    im = Image.new("RGBA", size=scaled_dimensions)  # type: ignore
     draw = ImageDraw.Draw(im)
 
     for row_coords, row_color_hex in zip(get_heart_rows(heart_defn), row_colors):

@@ -19,6 +19,7 @@ mypy
 pytest-cov
 pytest-xdist
 ruff
+ty
 
 # For building Caddyfiles from templates
 cogapp

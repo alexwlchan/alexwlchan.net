@@ -4,7 +4,7 @@ import math
 import random
 import re
 
-import attr
+import attr  # type: ignore
 
 
 HEX_COLOR_RE = re.compile(r"^#?(?P<hex_str>[a-fA-F0-9]{3}|[a-fA-F0-9]{6})$")
@@ -35,7 +35,7 @@ class RGBColor(object):
         green = int(hex_value[2:4], 16)
         blue = int(hex_value[4:6], 16)
 
-        return cls(red, green, blue)
+        return cls(red, green, blue)  # type: ignore
 
 
 def euclidean_distance(c1, c2):

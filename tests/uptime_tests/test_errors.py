@@ -3,6 +3,7 @@ Test my error pages.
 """
 
 from ssl import SSLContext
+import urllib.error
 import urllib.request
 
 import pytest

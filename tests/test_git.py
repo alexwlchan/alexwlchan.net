@@ -515,13 +515,13 @@ def test_navigable_tree_from_paths() -> None:
                         folders=OrderedDict(
                             [
                                 (
-                                    "1",
+                                    Path("1"),
                                     NavigableTree(
                                         files=navigable_files("eins.txt", "uno.txt")
                                     ),
                                 ),
                                 (
-                                    "2",
+                                    Path("2"),
                                     NavigableTree(files=navigable_files("duo.txt")),
                                 ),
                             ]

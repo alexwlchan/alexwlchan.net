@@ -26,8 +26,6 @@ theta = 360 - 360 / number_of_sides
 
 r = circle_r * math.tan((180 - theta / 2) * math.pi / 180)
 
-import q; q.q(r)
-
 inner_L = (L - 2 * r) / 2
 
 side = int(math.ceil(2 * math.sqrt(2) * (inner_L + 5 * circle_r)))
