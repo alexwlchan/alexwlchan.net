@@ -18,6 +18,7 @@ review:
   format: paperback
   rating: 3
   summary: A sapphic romance about the difference between fantasy and reality, and not taking people at first impression.
+  from_the_library: true
 
 colours:
   css_light: '#b612b5'
