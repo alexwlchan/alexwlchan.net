@@ -68,6 +68,8 @@ if __name__ == "__main__":
 
     book_format = input("Book format (paperback, hardback, ebook): ")
 
+    is_library = input("Is this a library book (y/n): ") == "y"
+
     rating = int(input("Star rating: "))
 
     cover_query = quote_plus(f"cover {title} {author}")
@@ -94,6 +96,15 @@ if __name__ == "__main__":
     if isbn13:
         book["isbn13"] = isbn13
 
+    review = {
+        "date_read": date_read,
+        "format": book_format,
+        "rating": rating,
+        "summary": "TODO Write a summary",
+    }
+    if is_library:
+        review["from_the_library"] = True
+
     md_path = Path("src/book-reviews") / year / f"{slug}.md"
     md_path.parent.mkdir(exist_ok=True)
     with open(md_path, "x") as out_file:
@@ -104,18 +115,12 @@ if __name__ == "__main__":
             "\n"
             + yaml.dump({"book": book})
             + "\n"
-            + yaml.dump(
-                {
-                    "review": {
-                        "date_read": date_read,
-                        "format": book_format,
-                        "rating": rating,
-                        "summary": "TODO Write a summary",
-                    }
-                }
-            )
+            + yaml.dump({"review": review})
             + "\n"
-            + yaml.dump({"colours": {"css_light": css_light, "css_dark": css_dark}})
+            + yaml.dump(
+                {"colours": {"css_light": css_light, "css_dark": css_dark}},
+                sort_keys=False,
+            )
             + "\n---\n"
         )
 
