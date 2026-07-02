@@ -5,7 +5,7 @@ based on the tint colour.
 
 from collections.abc import Iterator
 import random
-from typing import cast, Literal, TypeAlias, TYPE_CHECKING
+from typing import cast, Literal, TypeAlias
 
 from PIL import Image, ImageDraw
 
@@ -16,9 +16,6 @@ from .colormath import (
     Lab_to_RGB,
     delta_e_cie2000,
 )
-
-if TYPE_CHECKING:
-    import PIL
 
 
 __all__ = ["draw_header_image"]
@@ -31,7 +28,7 @@ Coordinate = tuple[int, int]
 Square: TypeAlias = tuple[Coordinate, Coordinate, Coordinate, Coordinate]
 
 
-def draw_header_image(tint_colour: str) -> "PIL.Image.Image":
+def draw_header_image(tint_colour: str) -> "Image.Image":
     """
     Create a header image.
     """

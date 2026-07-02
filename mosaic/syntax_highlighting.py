@@ -21,7 +21,7 @@ from typing import Literal
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
-from pygments.formatters import HtmlFormatter
+from pygments.formatters import HtmlFormatter  # type: ignore
 
 
 __all__ = ["apply_syntax_highlighting"]
@@ -584,11 +584,11 @@ def format_with_pygments(src: str, lang: str) -> str:
     # unrelated changes to the regex that I should incorporate, assert the
     # current value of the regex first.
     if lang == "console":
-        assert lexer._ps1rgx == re.compile(  # type: ignore
+        assert lexer._ps1rgx == re.compile(
             r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
             r"?|\[\S+[@:][^\n]+\].+))\s*[$#%]\s*)(.*\n?)"
         ), "outdated console lexer regex"
-        lexer._ps1rgx = re.compile(  # type: ignore
+        lexer._ps1rgx = re.compile(
             r"^((?:(?:\[.*?\])|(?:\(\S+\))?(?:| |sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)"
             r"?|\[\S+[@:][^\n]+\].+))\s*[$]\s*)(.*\n?)"
         )

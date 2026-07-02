@@ -30,7 +30,7 @@ def create_base_css() -> tuple[str, str]:
     """
     css_path = CSS_DIR / "style.css"
 
-    css = lightningcss.bundle_css(str(css_path), minify=True)
+    css = lightningcss.bundle_css(str(css_path), minify=True)  # type: ignore
 
     # The lightningcss minifier collapses these text-decoration styles
     # together, which looks wrong in WebKit. Undo this minification.

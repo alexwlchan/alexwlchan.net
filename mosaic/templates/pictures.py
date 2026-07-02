@@ -378,6 +378,7 @@ def create_image_derivatives(
     # Choose what format we should use for this image, in order of preference.
     # If it's a screenshot or a book review preview, just use the default
     # format; we don't need anything else.
+    desired_formats: list[ImageFormat]
     if is_screenshot or dst_prefix.parts[0] == "b":
         desired_formats = [original_format]
     else:

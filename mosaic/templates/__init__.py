@@ -92,7 +92,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "get_topic_by_name": get_topic_by_name,
             "tree_icons": tree_icons,
         }
-    )
+    )  # type: ignore
 
     return env
 

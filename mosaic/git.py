@@ -12,7 +12,6 @@ import re
 import shutil
 import subprocess
 import tarfile
-from typing import Self
 import uuid
 
 from bs4 import BeautifulSoup
@@ -426,7 +425,7 @@ class GitTree(BaseModel):
         return p in self.files_by_path
 
     @classmethod
-    def from_repo(cls, repo: pygit2.Repository) -> Self:
+    def from_repo(cls, repo: pygit2.Repository) -> "GitTree":
         """
         Construct an instance of `GitTree` for the HEAD of a repository.
         """

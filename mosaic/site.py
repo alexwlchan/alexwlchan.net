@@ -142,7 +142,7 @@ class Site(BaseModel):
 
         return True
 
-    @register_task("read git repos")  # type: ignore
+    @register_task("read git repos")
     def read_git_repos(self) -> None:  # pragma: no cover
         """
         Read all the Git repositories from disk.
@@ -218,7 +218,7 @@ class Site(BaseModel):
 
         self.repos = repos
 
-    @register_task("read markdown files")  # type: ignore
+    @register_task("read markdown files")
     def read_markdown_files(self) -> None:  # pragma: no cover
         """
         Update the `all_pages` attribute with Markdown files from disk.
@@ -363,7 +363,7 @@ class Site(BaseModel):
 
         return self
 
-    @register_task("create tint colour assets")  # type: ignore
+    @register_task("create tint colour assets")
     def create_tint_colour_assets(self) -> None:
         """
         Create the tint colour assets.
@@ -392,7 +392,7 @@ class Site(BaseModel):
                 "all_topics": rebuild_topics_by_name(),
                 "elsewhere": elsewhere,
             }
-        )
+        )  # type: ignore
 
         return env
 
@@ -414,7 +414,7 @@ class Site(BaseModel):
         self.css_url = css_url
         return css_url
 
-    @register_task("write html files")  # type: ignore
+    @register_task("write html files")
     def write_html_files(self, env: Environment) -> None:
         """
         Write all the HTML files to the output directory.
@@ -458,7 +458,7 @@ class Site(BaseModel):
             cache_key = f"{label}_mtime"
             cache.set(cache_ns, cache_key, cur_value)
 
-    @register_task("copy static files")  # type: ignore
+    @register_task("copy static files")
     def copy_static_files(self) -> None:
         """
         Copy all the static files from the src to the dst directory.
@@ -505,7 +505,7 @@ class Site(BaseModel):
 
         assert all(os.path.exists(out_p) for _, out_p in static_files)
 
-    @register_task("generate rss feeds")  # type: ignore
+    @register_task("generate rss feeds")
     def generate_rss_feeds(self, env: Environment) -> None:
         """
         Generate the RSS feeds for the site.
@@ -549,7 +549,7 @@ class Site(BaseModel):
             for art in articles_that_year:
                 art.card_short_name = prefixes[slugs[art]]
 
-    @register_task("write git repos")  # type: ignore
+    @register_task("write git repos")
     def write_git_repos(self, env: Environment) -> None:  # pragma: no cover
         """
         Write the /projects/ folder for my Git repos.
@@ -559,7 +559,7 @@ class Site(BaseModel):
 
     written_man_pages: set[manpages.Command] = Field(default_factory=lambda: set())
 
-    @register_task("prepare man pages")  # type: ignore
+    @register_task("prepare man pages")
     def prepare_man_pages(self) -> None:  # pragma: no cover
         """
         Work out what man pages are required for this site, and add them
@@ -675,7 +675,7 @@ class Site(BaseModel):
             )
             cache.set(cache_ns, repo.name, repo.head)
 
-    @register_task("clean up leftover files")  # type: ignore
+    @register_task("clean up leftover files")
     def cleanup_leftover_files(self) -> None:
         """
         Clean up HTML files that weren't rewritten as part of this build.

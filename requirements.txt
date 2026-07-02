@@ -24,8 +24,6 @@ iniconfig==2.3.0
     # via pytest
 jinja2==3.1.6
     # via -r requirements.in
-librt==0.9.0
-    # via mypy
 lightningcss==0.3.1
     # via -r requirements.in
 lxml==6.1.0
@@ -38,14 +36,8 @@ minify-html==0.18.1
     # via -r requirements.in
 mistune==3.2.0
     # via -r requirements.in
-mypy==1.20.2
-    # via -r requirements.in
-mypy-extensions==1.1.0
-    # via mypy
 packaging==26.2
     # via pytest
-pathspec==1.1.1
-    # via mypy
 pillow==12.2.0
     # via -r requirements.in
 playwright==1.59.0
@@ -89,7 +81,6 @@ ty==0.0.52
 typing-extensions==4.15.0
     # via
     #   beautifulsoup4
-    #   mypy
     #   pydantic
     #   pydantic-core
     #   pyee

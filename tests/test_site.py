@@ -144,7 +144,7 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
     ]
 
     site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=all_pages)
-    env.globals.update({"site": site})
+    env.globals.update({"site": site})  # type: ignore
     site.generate_rss_feeds(env)
 
     assert (out_dir / "atom.xml").exists()
@@ -182,7 +182,7 @@ def test_writing_page_repeatedly(
 
     env = get_jinja_environment(src_dir, out_dir)
     site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=[a])
-    env.globals.update({"css_url": "/static/style.css", "site": site})
+    env.globals.update({"css_url": "/static/style.css", "site": site})  # type: ignore
 
     out_path1 = a.write(env, out_dir)
     out_body1 = a.render_body_html(env)
@@ -212,7 +212,7 @@ def test_writing_page_checks_for_deletion(
 
     env = get_jinja_environment(src_dir, out_dir)
     site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=[a])
-    env.globals.update({"css_url": "/static/style.css", "site": site})
+    env.globals.update({"css_url": "/static/style.css", "site": site})  # type: ignore
 
     out_path1 = a.write(env, out_dir)
     assert out_path1.exists()

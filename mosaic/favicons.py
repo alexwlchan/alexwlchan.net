@@ -3,15 +3,11 @@ Create favicons based on tint colours.
 """
 
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 from PIL import Image
 
-if TYPE_CHECKING:
-    import PIL
 
-
-def colourise_image(template: "PIL.Image.Image", tint_colour: str) -> "PIL.Image.Image":
+def colourise_image(template: "Image.Image", tint_colour: str) -> "Image.Image":
     """
     Apply a tint colour to a greyscale image with an alpha channel.
     """

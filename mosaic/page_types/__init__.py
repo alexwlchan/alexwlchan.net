@@ -5,6 +5,7 @@ Models for different types of page that appear on the site.
 import glob
 import os
 from pathlib import Path
+from typing import Any
 
 import yaml
 
@@ -56,7 +57,7 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
     ):
         front_matter["topics"] = [front_matter.pop("topic")]
 
-    kwargs = {
+    kwargs: dict[str, Any] = {
         "src_dir": src_dir,
         "md_path": md_path,
         "content": content,

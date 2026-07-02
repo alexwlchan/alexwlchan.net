@@ -107,7 +107,7 @@ def register(f: Callable[[str], str]) -> Callable[[str], str]:
 
     @functools.wraps(f)
     def wrapper(key: str) -> str:
-        namespace = f.__name__
+        namespace = f.__name__  # type: ignore
 
         if value := _cache.get(namespace, key):
             return value

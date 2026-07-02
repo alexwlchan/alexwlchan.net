@@ -18,7 +18,6 @@ then
 fi
 
 run_command 'ruff check --fix assets mosaic scripts tests'
-run_command 'ty check assets scripts'
-run_command 'mypy mosaic tests'
+run_command 'ty check assets mosaic scripts tests'
 run_command 'python3 scripts/build_site.py'
 run_command "python3 -m pytest --cov -q tests"

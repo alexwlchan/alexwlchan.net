@@ -468,7 +468,7 @@ def find_unique_prefixes(strings: set[str]) -> dict[str, str]:
     }
 
     # Invert the map, so now we know all the candidate prefixes for each word
-    candidate_prefixes = collections.defaultdict(list)
+    candidate_prefixes = collections.defaultdict(list[str])
 
     for prefix, words in unique_prefixes.items():
         candidate_prefixes[words[0]].append(prefix)
