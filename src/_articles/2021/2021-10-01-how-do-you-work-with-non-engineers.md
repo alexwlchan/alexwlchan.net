@@ -28,7 +28,7 @@ When you need to explain something, describe what they need to know to do their 
 For example, when I'm describing Amazon S3, I might call it a "distributed cloud object store" when chatting with another engineer, but a "place to put files" when talking to a librarian.
 The second explanation is accurate and makes sense, but it doesn't explain more than they need.
 
-(This doesn't mean dumbing a topic down down, or offering a patronising explanation.
+(This doesn't mean dumbing a topic down, or offering a patronising explanation.
 Remember: respect their competence and expertise.
 They're not unintelligent, they just care about a different level of detail to engineers.)
 

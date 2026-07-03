@@ -30,7 +30,7 @@ As we actually write the policy and have more conversations, I expect I'll have 
 
 ## Why have a policy?
 
-If you're trans, but you're not out at work, the prospect of coming out can be pretty scary -- especially if you don't how how your colleagues will react.
+If you're trans, but you're not out at work, the prospect of coming out can be pretty scary -- especially if you don't how your colleagues will react.
 Trans people come in for a lot of harassment and abuse, and given how much time we spend at work, it can get pretty unpleasant.
 
 I hope that having a policy that sets the tone for how trans people should be treated will make it easier for people to be themselves at work.

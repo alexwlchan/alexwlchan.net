@@ -297,7 +297,7 @@ Wellcome Collection is building on long tradition of libraries and archives, whi
 Long-term thinking is in their DNA.
 
 To give you one example: there's stuff in the archive that won't be made public until the turn of the century.
-Everybody who works there today will be long gone, but they assume that those records will exist in some shape or form form when that time comes, and they're planning for those files to eventually be opened.
+Everybody who works there today will be long gone, but they assume that those records will exist in some shape or form when that time comes, and they're planning for those files to eventually be opened.
 This is century-scale thinking.
 
 <figure>

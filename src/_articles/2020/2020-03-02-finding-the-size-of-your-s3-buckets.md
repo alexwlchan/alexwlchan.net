@@ -15,7 +15,7 @@ topic: AWS
 
 Whenever I look at [our AWS bill], one of the biggest costs is always S3 storage.
 That's not a surprise -- our account holds, among other things, two copies of Wellcome Collection's [entire digital archive], which is nearly 120TB and growing every day.
-If we ever got a bill and there *wasn't* a big number next to S3, that's a reason to to panic.
+If we ever got a bill and there *wasn't* a big number next to S3, that's a reason to panic.
 
 [our AWS bill]: /2019/aws-costs-graph/
 [entire digital archive]: /2020/archival-storage-service/

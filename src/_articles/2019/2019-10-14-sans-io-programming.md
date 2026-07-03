@@ -267,7 +267,7 @@ I hope you all accept these are legitimate problems, and these are things we hav
 But it's probably not a catastrophe.
 This is not a disaster.
 My computer is not going to crash tomorrow because I mixed my I/O and my business logic.
-That's why why this is often a thing that we don't think about, because we can do our jobs without it.
+That's why this is often a thing that we don't think about, because we can do our jobs without it.
 It slows us down, creates drag on development, adds some technical debt, but it's not the end of the world.
 We can get by without it.
 

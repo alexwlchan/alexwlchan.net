@@ -33,7 +33,7 @@ We've read several books for [Ace Book Club](/ace-book-club/) that try to bring 
 
 Somebody descrbied this book was "a collection of windows" into other ideas, which feels right.
 It touches on friendship, legal protections, race and culture, parenting, living arrangements, and more -- areas where aspec experiences collide with wider society.
-It never goes into depth on any one topic, but illustrates what  non-traditional relationships can look like with with real examples.
+It never goes into depth on any one topic, but illustrates what  non-traditional relationships can look like with real examples.
 
 Most ace/aro non-fiction feels niche and difficult to recommend if somebody's not interested in those specific queer experiences; I feel *Love Expanded* could appeal a wider audience.
 It uses aspec experiences are a lens to discuss human connection as a whole, rather than as an isolated subject.

@@ -507,7 +507,7 @@ When the function returns and we're back in the top-level, I can't get to any of
 If I try to use `first_name`, I get a `NameError`.
 This is the behaviour we're used to:
 
-But if I create a binding inside the function, and then return that, now I can can get to that variable in the top-level:
+But if I create a binding inside the function, and then return that, now I can get to that variable in the top-level:
 
 ```ruby {"names":{"1":"greet","2":"name","3":"first_name","4":"last_name","10":"b"}}
 def greet(name)

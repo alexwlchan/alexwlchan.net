@@ -457,7 +457,7 @@ Here's a set that probably covers 90%+ of attendees:
 *   [Kosher](https://en.wikipedia.org/wiki/Kosher)
 
 If you know you'll be providing food for these requirements, say so upfront.
-Ask for dietary requirements when people buy their ticket, so you you can make the right amount, or know if you've forgotten something.
+Ask for dietary requirements when people buy their ticket, so you can make the right amount, or know if you've forgotten something.
 
 Make sure food is clearly labelled, both by category and ingredients.
 

@@ -46,7 +46,7 @@ It's supported in all modern browsers.
 The optional `<summary>` element lets you customise the label that appears next to the disclosure triangle -- if you don't include it, your browser uses a default label.
 (In my browser, that's "Details".)
 
-People have found lots of of creative uses for &lt;details&gt; -- a native show/hide component that doesn't require JavaScript is extremely useful -- and one place I use it is to display a list of tags in [docstore](https://github.com/alexwlchan/docstore).
+People have found lots of creative uses for &lt;details&gt; -- a native show/hide component that doesn't require JavaScript is extremely useful -- and one place I use it is to display a list of tags in [docstore](https://github.com/alexwlchan/docstore).
 The list takes up a lot of space, so I don't want to show it unless I'm actively picking tags:
 
 {%

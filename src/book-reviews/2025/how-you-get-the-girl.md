@@ -34,7 +34,7 @@ Elle is a famous basketball player who Julie idolised as a teenager, and that ha
 Fortunately, I think the book swerves to avoid it.
 
 It actually sets up a really nice parallel arc for the two characters.
-Elle is proud and confident about being queer, but she struggles to be a a foster parent to her niece, Vanessa.
+Elle is proud and confident about being queer, but she struggles to be a foster parent to her niece, Vanessa.
 Julie is a capable high school coach who bonds well with her team, but feels unsure and uncertain about her queer identity.
 They both look up to the other in one regard, and in another regard are looked up to.
 

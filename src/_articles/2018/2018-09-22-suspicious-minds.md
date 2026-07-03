@@ -197,7 +197,7 @@ How do we go from the state of "somebody we just know" to "somebody we actually 
   alt="A blank slide."
 %}
 
-Because trust isn't something you can tell somebody to do, you can't ask for it, and as much as Facebook's marketing marketing team would love, you can't buy
+Because trust isn't something you can tell somebody to do, you can't ask for it, and as much as Facebook's marketing team would love, you can't buy
 it!
 
 That's not great, is it?
@@ -550,7 +550,7 @@ For me, honesty encompasses things like:
 
 *   And finally, **transparency**.
     It's really important to say bad things as well as good things.
-    That doesn't mean being being mean, but it does mean giving what we'd call an honest opinion.
+    That doesn't mean being mean, but it does mean giving what we'd call an honest opinion.
 
     Imagine, for example, you've got a friend who always tells you that you look lovely, no matter what you're wearing.
     And then you're trying out an outfit, maybe because you're about to go on stage for a big presentation.
@@ -769,7 +769,7 @@ Next, let's talk about reliability.
   alt="A screenshot of a ratings screen in the Uber app."
 %}
 
-Going going back to another of the examples from earlier.
+Going back to another of the examples from earlier.
 
 Perhaps you wouldn't feel safe riding in a stranger's car, but what if you had lots of people who told you "this person is really good at letting strangers ride in that car"?
 You might be more inclined to do so, and that's what rating systems do.
@@ -832,7 +832,7 @@ You all know if you've promised to do something, if something is slipping, if a 
 Again -- being really explicit about the tracking and keeping on top of
 meetings.
 
-There's a lot of value in some of some of the practices from agile in maintaining reliability in teams.
+There's a lot of value in some of the practices from agile in maintaining reliability in teams.
 
 
 
@@ -977,7 +977,7 @@ It was a huge loss of trust in VW -- a loss of honesty (because they were lying 
 But it's not like VW have now vanished off the face of the earth.
 People still buy Volkswagen cars.
 They still own them.
-They're still allowed to operate as a business, because there was a huge amount of trust inherent in the brand before they did this this bad thing.
+They're still allowed to operate as a business, because there was a huge amount of trust inherent in the brand before they did this bad thing.
 
 When you lose trust, it's possible to come back if you have some in reserve and you're careful about it.
 
@@ -993,7 +993,7 @@ I said earlier that to build trust, you can't just try harder.
 In the same way, if you want to rebuild trust or fix a mistake, you can't just try harder to be more trustworthy in future.
 It's important to take explicit steps towards that.
 
-First: **find the cause what what went wrong**.
+First: **find the cause -- what went wrong**.
 The first step of making any apology is knowing what you're apologizing for.
 
 The second is to **articulate the issue**.

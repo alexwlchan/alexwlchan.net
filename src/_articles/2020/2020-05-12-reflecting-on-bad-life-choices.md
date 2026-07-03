@@ -427,7 +427,7 @@ Now the loop would go as follows:
     Try grabbing the next line up.
 
 *   src: `(a, b, \n c, d) = Trues2()`.
-    This is a valid Python snippet, but running it in `exec()` is is a ValueError.
+    This is a valid Python snippet, but running it in `exec()` is a ValueError.
 
 *   src: `return result \n (a, b, \n c, d) = Trues2()`.
 

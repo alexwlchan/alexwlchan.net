@@ -138,7 +138,7 @@ How do we think about this?
 
 Because a fundamental truth is this: **if you allow user-to-user interactions, you have the possibility of harassment.**
 
-Ever since ever since we've had the means of communication -- whether it's talking, writing, sending images to each other -- people have been using it to send nasty messages to other people.
+Ever since we've had the means of communication -- whether it's talking, writing, sending images to each other -- people have been using it to send nasty messages to other people.
 Most people are very nice, but there are some bad people out there and we do have to think about them.
 
 
@@ -495,7 +495,7 @@ This is just [one example from a thread](https://fail-fandomanon.dreamwidth.org/
 Six thousand comments, and all of them civil, polite and well-mannered.
 
 How did this happen?
-It it just a nice corner of the Internet that was hidden away, protected from the world, that I've now exposed by putting its URL on a big screen?
+It's just a nice corner of the Internet that was hidden away, protected from the world, that I've now exposed by putting its URL on a big screen?
 No, it's because they had a really strong and active set of moderators people who were looking at the content, stamping down on bad behavior, stamping down on people making abusive comments.
 
 

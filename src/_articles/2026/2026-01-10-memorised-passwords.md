@@ -103,7 +103,7 @@ There are a couple of important passwords you might expect me to memorise, but I
 2.  **The master password for my password manager at work.**
     For similar reasons to work email, I'd rely on the IT team to regain access in an emergency.
 
-3.  **My banking app username or password password.**
+3.  **My banking app username or password.**
     Logging into my bank requires three values: my username, the full-length password, and the "memorable information".
     I've memorised the memorable information, but not the username or password.
     If I need emergency access to my bank account, I can visit a high street branch.

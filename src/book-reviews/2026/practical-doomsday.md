@@ -325,7 +325,7 @@ Then it compares different ways to mitigate financial risk:
 -   Bonds, although they perhaps have less value now than they did historically
 -   Currency spreading is possible, but you need to have a lot of money for it to make much of a difference, and it has less value if you live in a rich country whose currency is unlikely to collapse
 -   Stocks and index funds
-    They're not not as risky as gambling despite their reputation; invest for the long-term so you can weather any short-term problems in the market
+    They're not as risky as gambling despite their reputation; invest for the long-term so you can weather any short-term problems in the market
 -   Options: treat them like an insurance strategy, not a get rich quick scheme
 -   Physical goods to be sold in a disaster, like stockpiling soap.
     It's hard to predict what will be useful.

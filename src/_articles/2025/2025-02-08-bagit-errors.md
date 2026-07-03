@@ -284,7 +284,7 @@ Here’s an example of a `fetch.txt`:
 https://topekastar.com/~daria/article.txt  1841  data/article.txt
 ```
 
-This tells us that `data/article.txt` isn't included in this copy of the bag, but we we can download it from `https://topekastar.com/~daria/article.txt`.
+This tells us that `data/article.txt` isn't included in this copy of the bag, but we can download it from `https://topekastar.com/~daria/article.txt`.
 (The number 1841 is the size of the file in bytes. It's optional.)
 
 Using `fetch.txt` allows you to send a bag with “holes”, which saves disk space and network bandwidth, but at a cost -- we're now relying on the remote location to remain available.

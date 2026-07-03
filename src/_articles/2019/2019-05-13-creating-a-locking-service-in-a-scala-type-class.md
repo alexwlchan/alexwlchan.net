@@ -64,7 +64,7 @@ It was also closely tied to the DynamoDB APIs, so we couldn't easily extend or m
 We wanted to try writing a new locking service that wasn't tied to DynamoDB.
 We'd separate out the locking logic and the database backend, and write something that was easy to extend or modify.
 
-This is the API in the original service which were were trying to replicate:
+This is the API in the original service which were trying to replicate:
 
 ```scala {"names":{"1":"lockingService"}}
 lockingService.withLocks(Set("1", "2", "3")) {

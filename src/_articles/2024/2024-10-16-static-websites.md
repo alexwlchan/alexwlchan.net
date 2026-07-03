@@ -122,7 +122,7 @@ I always felt like I had to wrap my brain around the app's way of thinking -- ch
 **Once I had some programming experience, I tried writing my own tools to organise my files.**
 I made at least a dozen attempts at this, the last of which was [docstore].
 Building my own tool meant I got something that was a closer match to my mental model, but now I was on the hook for maintenance.
-Every time I upgraded Python or updated macOS, something would break and I'd have to dive into the the code to fix it.
+Every time I upgraded Python or updated macOS, something would break and I'd have to dive into the code to fix it.
 These tools never required a lot of ongoing work, but it was enough to be annoying.
 
 Every time I gave up on an app, I had another go at using plain files and folders.

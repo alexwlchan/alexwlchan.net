@@ -15,7 +15,7 @@ Lots of people replied to the thread to say, "I'm so glad I'm not the only perso
 This is mildly terrifying to me -- contracts often involve lots of money.
 There's no way I'd sign something without understanding what I'm committing myself to, but apparently not everyone feels the same.
 
-This rental extension turned out to be an example of why it's important to to read your contracts.
+This rental extension turned out to be an example of why it's important to read your contracts.
 Although we'd agreed some changes the standard contract, they were missing in the first version.
 If I hadn't read the contact carefully, I wouldn't have spotted the mistake until far too late -- and it's not the first time reading a contract has spotted something like that.
 

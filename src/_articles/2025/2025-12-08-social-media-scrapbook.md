@@ -404,7 +404,7 @@ The idea that each site gets its own bit of logic is what inspired me to conside
 
 ### Social media embeds on this site
 
-When I embed social media posts on this site, I don't use the native embeds offered by platforms, which pull in megabytes of of JavaScript and tracking.
+When I embed social media posts on this site, I don't use the native embeds offered by platforms, which pull in megabytes of JavaScript and tracking.
 Instead, I use [lightweight HTML snippets][good-embedded-toots] styled with my own CSS, an idea I first saw on Dr Drang's site [over thirteen years ago][good-embedded-tweets].
 
 The visual appearance of these snippets isn't a perfect match for the original site, but they're close enough to be usable.

@@ -24,7 +24,7 @@ This is a *sequential* programming pattern -- the tasks run one after another, w
 It keeps the code simple, and because it's only ever doing one task at a time, it's easy to follow the script as it's running.
 It performs task 1, then task 2, then task 3, and so on.
 
-This is fine when the tasks are few or fast, but if if I have lots of slow tasks, the overall script is very slow.
+This is fine when the tasks are few or fast, but if I have lots of slow tasks, the overall script is very slow.
 
 I've written a lot of scripts recently where the tasks are slow -- for example, making HTTP requests -- and I want to run more than one task at once.
 Each task spends a lot of time waiting for an external resource -- say, a response from a distant server -- and that time could be spent doing something more useful, like making the next request.

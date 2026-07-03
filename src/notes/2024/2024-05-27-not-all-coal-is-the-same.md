@@ -6,7 +6,7 @@ topic: The world around us
 ---
 I'd never really thought about it, but it turns out that not all coal is the same.
 This is particularly important for steam locomotives, because different coals may burn differently inside the engine.
-This has been hinted at at various issues of *The Cornishman* that I've read; this note is a place to gather the snippets I've seen.
+This has been hinted at in various issues of *The Cornishman* that I've read; this note is a place to gather the snippets I've seen.
 I'm sure I saw something in a previous issue about buying coal from Polish mines, but I've lost the quote.
 
 Pete Mason in "35006", winter 2023:

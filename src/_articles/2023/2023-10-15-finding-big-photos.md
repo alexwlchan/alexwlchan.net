@@ -99,7 +99,7 @@ $ swift get_photo_sizes.swift | head -n 5
  372.5 MB  IMG_3751.MOV
 ```
 
-In my library of 26k items, the script takes about about a minute or so to run.
+In my library of 26k items, the script takes about a minute or so to run.
 
 I went through the first 50 or so items, one-by-one.
 I moved about 30 videos out of my photos library and on to an external disk, and I deleted a few more – in total I recovered about 7GB of space.

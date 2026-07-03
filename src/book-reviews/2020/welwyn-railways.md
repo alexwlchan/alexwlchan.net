@@ -32,11 +32,11 @@ One quote right at the end I enjoyed:
 
 > No announcements have been made regarding any possible replcement of the Class 313 inner suburban be capable of coping with this traffic for several more years.
 
-In fact, the units remained in service for another another 33 years.
+In fact, the units remained in service for another 33 years.
 
 Then:
 
-> British Railways have recently announced that that the through Snowhill Tunnel is to be reopened and some trains from Bedford will then run via Kentish Town, Farringdon and Blackfriars to East Croydon.
+> British Railways have recently announced that the through Snowhill Tunnel is to be reopened and some trains from Bedford will then run via Kentish Town, Farringdon and Blackfriars to East Croydon.
 > Gauging tests have also been carried out as part of the feasibility study into reinstating services on the small radius curves from Kings Cross towards Farringdon.
 > Perhaps, therefore, Welwyn North passengers will be able one day to travel direct to Blackfriars, Elephant & Castle, Croydon, and beyond into the depths of Kent, Surrey and Sussex.
 

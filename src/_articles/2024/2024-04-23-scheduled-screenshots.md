@@ -220,7 +220,7 @@ The Wayback Machine shows you a working page, but it's a hallucination -- that's
 (The rounded corners are a dead giveaway -- I didn't add those until 2022.)
 
 I love the Wayback Machine and I think it's a great service, but you shouldn't rely on it to preserve your website.
-I'm glad these captures exist exist, but they're a bit shaky as a preservation record.
+I'm glad these captures exist, but they're a bit shaky as a preservation record.
 If there's a website you care about, make sure you have your own system that saves the stuff you think is important -- don’t just rely on the Wayback Machine.
 
 [from 2021]: https://web.archive.org/web/20210625222812/https://books.alexwlchan.net/

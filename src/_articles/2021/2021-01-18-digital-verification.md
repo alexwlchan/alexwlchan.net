@@ -21,7 +21,7 @@ is_featured: true
     picture
     filename="M0010702.jpg"
     width="750"
-    alt="A black and white etching of of three men wearing Victorian era clothing looking into a microscope with three tubes."
+    alt="A black and white etching of three men wearing Victorian era clothing looking into a microscope with three tubes."
   %}
   <figcaption>Every aspect of a file must be examined closely, to rule out the possibility of corruption or error. Used under CC BY, image from <a href="https://wellcomecollection.org/works/gjwa5nef">Wellcome Collection</a>.</figcaption>
 </figure>

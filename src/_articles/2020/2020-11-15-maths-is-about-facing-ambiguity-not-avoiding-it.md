@@ -30,7 +30,7 @@ When faced with an ambiguous problem, you can do one of two things:
 Both can be appropriate responses, depending on the context, and learning to choose between them (and how to go about them) is a skill.
 
 For example, when I'm writing software, there are often aspects of the design which haven't been explicitly defined by the person who wrote the spec.
-I have to decide how to how to approach those gaps in the spec, and how that affects the software I'm writing.
+I have to decide how to approach those gaps in the spec, and how that affects the software I'm writing.
 I might guess if it's a cosmetic detail, but ask for more information if it's something security-critical.
 
 There are lots of things that might affect whether I guess or ask for more detail, including:

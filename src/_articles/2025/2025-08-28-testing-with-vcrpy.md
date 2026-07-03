@@ -519,7 +519,7 @@ def test_flickr_api_without_boilerplate(flickr_api):
     assert '<user id="199258389@N04">' in resp.text
 ```
 
-When somebody reads this test, they don't need to think about the authentication or or mocking; they can just see the API call that we're making.
+When somebody reads this test, they don't need to think about the authentication or mocking; they can just see the API call that we're making.
 
 [pytest fixture]: https://docs.pytest.org/en/6.2.x/fixture.html
 [flickr-photos-api]: https://github.com/Flickr-Foundation/flickr-photos-api
