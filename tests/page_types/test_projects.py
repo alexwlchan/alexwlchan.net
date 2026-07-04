@@ -42,6 +42,19 @@ class TestProjectHomepage:
 
         assert p.write(env, out_dir) == out_dir / "projects/example-project/index.html"
 
+    def test_has_clone_url(
+        self, env: Environment, repo: GitRepository, out_dir: Path
+    ) -> None:
+        """
+        The page has the correct clone instructions.
+        """
+        repo.name = "example-project"
+
+        p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
+        html = p.render_full_html(env)
+
+        assert "git clone git://alexwlchan.net/projects/example-project.git" in html
+
 
 def test_log(env: Environment, repo: GitRepository, out_dir: Path) -> None:
     """
