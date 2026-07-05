@@ -26,7 +26,7 @@ That expression is surrounded by word boundary assertions `\b`, which check that
 
 The second regex finds repeated phrases:
 
-<pre class="wrap"><code><span cxswlass="c">\b([A-Za-z]+ [A-Za-z]+) \1\b</span>
+<pre class="wrap"><code><span class="c">\b([A-Za-z]+ [A-Za-z]+) \1\b</span>
 
 Follow the steps <strong>in the in the</strong> "How to" section
 Log <strong>in to in to</strong> your account
