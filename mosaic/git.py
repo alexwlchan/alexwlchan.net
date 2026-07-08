@@ -670,13 +670,17 @@ class GitRepository(BaseModel):
         """
         Write a tar.gz file with the current HEAD of the repo.
 
+        The tar.gz filename includes the first seven characters of the
+        commit ID, to distinguish archives created at different versions.
+        (For example, `chives-e644df5.tar.gz`.)
+
         Returns the path to the created archive.
         """
         repo = pygit2.Repository(self.repo_root)
 
         head = repo.head
         assert isinstance(head.target, pygit2.Oid)
-        archive_id = as_hex(head.target)
+        archive_id = as_hex(head.target)[:7]
 
         out_path = out_dir / f"{self.name}-{archive_id}.tar.gz"
 

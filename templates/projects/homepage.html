@@ -48,10 +48,29 @@
 
       nav {
         border-top: 0.5px solid var(--primary-color);
-      }
-
-      nav ul {
-        margin-bottom: 0;
+        
+        #actions {
+          margin-bottom: 0;
+        }
+        
+        ul {
+          margin-top: calc(1em - 4px);
+          margin-bottom: 0;
+        }
+        
+        /* Navigation links (Commits, Files, Releases, License) are in,
+         * colour, so they always stand out. */
+        a:visited {
+          color: var(--link-color);
+        }
+        
+        /* Links inside commands (clone/download) are black/white, so the
+         * whole code block looks uniform. */
+        #actions code {
+          a, a:visited {
+            color: var(--text-color);
+          }
+        }
       }
     }
 
@@ -76,6 +95,10 @@
         </p>
       </hgroup>
       <nav>
+        <p id="actions">
+          <code>$ git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/>$ curl -O <a href="{{ page.download_url | absolute_url }}">{{ page.download_url | absolute_url }}</a> # {{ page.download_size | naturalsize }}</code>
+        </p>
+        
         <ul class="dot_list">
           <li><a href="{{ page.url }}commits/">Commits</a></li>
           <li><a href="{{ page.url }}files/">Files</a></li>
@@ -83,47 +106,10 @@
           <li><a href="{{ page.url }}releases/">Releases</a></li>
           {% endif %}
           <li><a href="{{ page.url }}files/LICENSE">License</a></li>
-          <li><a href=# id="openClone">Clone</a></li>
-          <li><a href="{{ page.archive_url }}">Download</a></li>
           <li style="white-space: nowrap;">Last updated {{ timestamp(repo.last_updated) }}</li>
         </ul>
-        
-        <noscript>
-          <p>You can clone this repository with the following command:</p>
-          <pre class="wrap"><code>git clone git://alexwlchan.net/projects/{{ repo.name }}.git</code></pre>
-        </noscript>
-        
-        <dialog id="clone-info">
-          <p>You can clone this repository with the following command:</p>
-          <pre class="wrap"><code>git clone git://alexwlchan.net/projects/{{ repo.name }}.git</code></pre>
-          <button commandfor="clone-info" command="close">Close</button>
-        </dialog>
       </nav>
     </header>
-
-    <style>
-      dialog {
-        border-radius: var(--border-radius);
-        border: var(--border-width) var(--border-style) var(--primary-color);
-    
-        p:first-child {
-          margin-top: 0;
-        };
-      }
-    </style>
-
-    <script>
-      const modal = document.querySelector('dialog#clone-info');
-      const openBtn = document.querySelector('a#openClone');
-      const closeBtn = document.querySelector('dialog#clone-info button')
-  
-      openBtn.addEventListener('click', () => {
-        modal.showModal();
-      });
-      closeBtn.addEventListener('click', () => {
-        modal.close();
-      });
-    </script>
 
     {{ page.repo.readme_contents() }}
   </article>

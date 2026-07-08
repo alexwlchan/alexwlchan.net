@@ -40,7 +40,9 @@ class ProjectHomepage(BaseProjectPage):
 
     template_name: str = "projects/homepage.html"
 
-    archive_url: str
+    # The URL and size of the downloadable tar.gz file
+    download_url: str
+    download_size: int
 
     @model_validator(mode="after")
     def set_title(self) -> Self:

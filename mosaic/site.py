@@ -596,10 +596,16 @@ class Site(BaseModel):
         """
         Write the /projects/ folder data for a single Git repo.
         """
-        archive_path = repo.write_archive(out_dir=self.out_dir / "projects")
-        archive_url = "/" + str(archive_path.relative_to(self.out_dir))
+        download_path = repo.write_archive(out_dir=self.out_dir / "projects")
+        download_url = "/" + str(download_path.relative_to(self.out_dir))
 
-        self.all_pages.append(ProjectHomepage(repo=repo, archive_url=archive_url))
+        self.all_pages.append(
+            ProjectHomepage(
+                repo=repo,
+                download_url=download_url,
+                download_size=download_path.stat().st_size,
+            )
+        )
         self.all_pages.append(ProjectAllCommits(repo=repo))
         self.all_pages.append(ProjectTree(repo=repo))
 

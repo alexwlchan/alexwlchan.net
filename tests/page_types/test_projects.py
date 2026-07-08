@@ -34,7 +34,9 @@ class TestProjectHomepage:
         """
         repo.name = "example-project"
 
-        p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
+        p = ProjectHomepage(
+            repo=repo, download_url="/projects/example-123.tar.gz", download_size=456
+        )
 
         assert p.url == "/projects/example-project/"
         assert p.breadcrumb == [BreadcrumbEntry(label="projects", href="/projects/")]
@@ -50,7 +52,9 @@ class TestProjectHomepage:
         """
         repo.name = "example-project"
 
-        p = ProjectHomepage(repo=repo, archive_url="/projects/example-123.tar.gz")
+        p = ProjectHomepage(
+            repo=repo, download_url="/projects/example-123.tar.gz", download_size=456
+        )
         html = p.render_full_html(env)
 
         assert "git clone git://alexwlchan.net/projects/example-project.git" in html

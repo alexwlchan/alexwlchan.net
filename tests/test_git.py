@@ -47,10 +47,7 @@ class TestGitRepository:
         # I'm deliberately not using tarfile, so I check the archive with
         # a different tool than the one used to create it.
         archive_path = repo.write_archive(out_dir)
-        assert (
-            archive_path
-            == out_dir / "example-cb82565da2bff937855a0c53845e2dc98c58dfeb.tar.gz"
-        )
+        assert archive_path == out_dir / "example-cb82565.tar.gz"
         tar_output = subprocess.check_output(
             ["tar", "tvf", str(archive_path)], text=True
         )
