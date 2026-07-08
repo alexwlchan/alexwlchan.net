@@ -70,6 +70,16 @@
           a, a:visited {
             color: var(--text-color);
           }
+          
+          .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+              -webkit-user-select: none; /* Safari */
+               -khtml-user-select: none; /* Konqueror HTML */
+                 -moz-user-select: none; /* Firefox */
+                  -ms-user-select: none; /* Internet Explorer/Edge */
+                      user-select: none; /* Non-prefixed version, currently
+                                            supported by Chrome and Opera */
+          }
         }
       }
     }
@@ -96,7 +106,7 @@
       </hgroup>
       <nav>
         <p id="actions">
-          <code>$ git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/>$ curl -O <a href="{{ page.download_url | absolute_url }}">{{ page.download_url | absolute_url }}</a> # {{ page.download_size | naturalsize }}</code>
+          <code><span class="noselect">$ </span>git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/><span class="noselect">$ </span>curl -O <a href="{{ page.download_url | absolute_url }}">{{ page.download_url | absolute_url }}</a> # {{ page.download_size | naturalsize }}</code>
         </p>
         
         <ul class="dot_list">
