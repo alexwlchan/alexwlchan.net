@@ -127,7 +127,10 @@ def attribution_line(contributors: list[BookContributor]) -> str:
     if len(contributors) == 1 and contributors[0].role == "retold by":
         author = contributors[0]
         return f"retold by {author.name}"
-    elif len(contributors) == 1 and contributors[0].role == "editor":
+    if len(contributors) == 1 and contributors[0].role == "compiled by":
+        compiler = contributors[0]
+        return f"compiled by {compiler.name}"
+    if len(contributors) == 1 and contributors[0].role == "editor":
         editor = contributors[0]
         return f"edited by {editor.name}"
     elif (

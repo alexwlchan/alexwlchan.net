@@ -82,6 +82,13 @@ def test_book_review_properties(src_dir: Path) -> None:
             ],
             "retold by Mr Milkshake",
         ),
+        (
+            [
+                BookContributor(name="Mr Milkshake", role="compiled by"),
+                BookContributor(name="Anne Onymous", role="illustrator"),
+            ],
+            "compiled by Mr Milkshake",
+        ),
     ],
 )
 def test_attribution_line(
