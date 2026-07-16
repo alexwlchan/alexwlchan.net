@@ -3268,5 +3268,11 @@
   ],
   "/generative-art/": [
     "/art/generative-art/"
+  ],
+  "/projects/chives/": [
+    "/chives/"
+  ],
+  "/projects/javascript-data-files/": [
+    "/javascript-data-files/"
   ]
 }

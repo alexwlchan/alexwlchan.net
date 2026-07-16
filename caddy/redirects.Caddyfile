@@ -2082,4 +2082,8 @@ redir /digital-preservation/wellcome-collection/ /work/wellcome-collection/ perm
 redir /digital-preservation/wellcome-collection /work/wellcome-collection/ permanent
 redir /art/generative-art/ /generative-art/ permanent
 redir /art/generative-art /generative-art/ permanent
-#[[[end]]] (sum: k1UCkgtEx/)
+redir /chives/ /projects/chives/ permanent
+redir /chives /projects/chives/ permanent
+redir /javascript-data-files/ /projects/javascript-data-files/ permanent
+redir /javascript-data-files /projects/javascript-data-files/ permanent
+#[[[end]]] (sum: h8S8uMa5Yv)
