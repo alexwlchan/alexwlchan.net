@@ -10,11 +10,26 @@ import subprocess
 from typing import TypeAlias
 
 import certifi
+from chives.browser_fixtures import browser, page
 from jinja2 import Environment
 import pytest
 
 from mosaic.git import GitRepository
 from mosaic.site import Site
+
+
+__all__ = [
+    "browser",
+    "page",
+    "src_dir",
+    "out_dir",
+    "env",
+    "repo_root",
+    "GitFn",
+    "git",
+    "repo",
+    "ssl_context",
+]
 
 
 @pytest.fixture

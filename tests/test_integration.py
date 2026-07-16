@@ -9,53 +9,11 @@ the site in `_out`.
 from collections.abc import Iterator
 from collections import Counter
 
-from playwright.sync_api import Browser, Page, expect, sync_playwright
+from playwright.sync_api import Browser, Page, expect
 import pytest
 
 from mosaic import caddy
 from mosaic.git import git_root
-
-
-@pytest.fixture(scope="session")
-def browser() -> Iterator[Browser]:
-    """
-    Launch an instance of WebKit we can interact with in tests.
-    """
-    with sync_playwright() as p:
-        browser = p.webkit.launch()
-        yield browser
-        browser.close()
-
-
-@pytest.fixture(scope="function")
-def page(browser: Browser) -> Iterator[Page]:
-    """
-    Open a new page in the browser which we can interact with.
-
-    This fixture will check that the page loads with no errors or warnings.
-    """
-    p = browser.new_page()
-
-    # Capture anything that gets logged to the console.
-    console_messages = []
-    p.on("console", lambda msg: console_messages.append(msg))
-
-    # Capture any page errors
-    page_errors = []
-    p.on("pageerror", lambda err: page_errors.append(err))
-
-    yield p
-
-    # Check there weren't any console errors logged to the page.
-    console_errors = [
-        msg.text
-        for msg in console_messages
-        if msg.type == "error" or msg.type == "warning"
-    ]
-    assert console_errors == []
-
-    # Check there weren't any page errors
-    assert page_errors == []
 
 
 @pytest.fixture(scope="session")

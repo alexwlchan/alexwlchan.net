@@ -1,11 +1,10 @@
-alexwlchan-chives[fetch]
+alexwlchan-chives[browser_fixtures,fetch]>=46
 beautifulsoup4
 jinja2
 lightningcss
 lxml
 minify-html
 mistune
-playwright
 Pillow
 pydantic
 pygit2
