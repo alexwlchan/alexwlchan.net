@@ -337,12 +337,18 @@ NON_BREAKING_PHRASES = [
     "Silo 49",
     "System 1",
     "Touch ID",
+    "UTF-8",
+    "UTF-16",
+    "UTF-32",
     "VS Code",
     "Windows-1252",
     "z-axis",
 ]
 
 PROPER_NAME_RE = re.compile(r"(?P<initials>[A-Z]\.[A-Z]\.) (?P<surname>[A-Z])")
+
+# CODE_FLAG_RE matches <code> snippets that are short.
+CODE_FLAG_RE = re.compile(r"<code>(?P<contents>[^<]{1,15})</code>")
 
 
 def add_non_breaking_characters(text: str) -> str:
@@ -377,6 +383,14 @@ def add_non_breaking_characters(text: str) -> str:
 
         replacement = phrase.replace(" ", "&nbsp;").replace("-", "&#8209;")
         text = text.replace(phrase, replacement)
+
+    # Add a `nowrap` class to short <code> snippets which contain
+    # potential line-break characters, so they don't wrap.
+    for m in CODE_FLAG_RE.finditer(text):
+        if "-" in m.group(1) or " " in m.group(1):
+            text = text.replace(
+                m.group(0), "<code class=nowrap>" + m.group(1) + "</code>"
+            )
 
     return text
 

@@ -167,6 +167,24 @@ def test_block_elements_are_preserved(md: str) -> None:
             '<span class="visually-hidden">LaTeK</span>'
             '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>',
         ),
+        # Short <code> snippets get the `nowrap` class, but only if they
+        # contain a hyphen or space.
+        (
+            "The <code>--multiline</code> flag",
+            "The <code class=nowrap>--multiline</code> flag",
+        ),
+        (
+            "The <code>EF BB BF</code> byte order mark",
+            "The <code class=nowrap>EF BB BF</code> byte order mark",
+        ),
+        (
+            "The <code>U+FEFF</code> character",
+            "The <code>U+FEFF</code> character",
+        ),
+        (
+            "The <code>long, long text in a code</code> font",
+            "The <code>long, long text in a code</code> font",
+        ),
     ],
 )
 def test_cleanup_text(text: str, cleaned_text: str) -> None:

@@ -8,7 +8,6 @@ code {
   line-height: 88%;
 }
 
-
 pre {
   padding:
     calc(2 * var(--default-padding) / 3)
@@ -32,4 +31,14 @@ pre code {
  */
 pre.wrap {
   text-wrap: wrap;
+}
+
+/* By default <code> elements will break anywhere it's convenient,
+ * including on hyphens.
+ *
+ * My text cleanup tool adds the `nowrap` class to short <code> elements
+ * that contain hyphens, to prevent unwanted line breaks.
+ */
+code.nowrap {
+  text-wrap: nowrap;
 }
