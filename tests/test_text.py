@@ -171,11 +171,11 @@ def test_block_elements_are_preserved(md: str) -> None:
         # contain a hyphen or space.
         (
             "The <code>--multiline</code> flag",
-            "The <code class=nowrap>--multiline</code> flag",
+            'The <code class="nowrap">--multiline</code> flag',
         ),
         (
             "The <code>EF BB BF</code> byte order mark",
-            "The <code class=nowrap>EF BB BF</code> byte order mark",
+            'The <code class="nowrap">EF BB BF</code> byte order mark',
         ),
         (
             "The <code>U+FEFF</code> character",
@@ -184,6 +184,12 @@ def test_block_elements_are_preserved(md: str) -> None:
         (
             "The <code>long, long text in a code</code> font",
             "The <code>long, long text in a code</code> font",
+        ),
+        # Check for repetitions of the same <code> element
+        (
+            "The <code>a b</code> flag and the <code>a b</code> flag",
+            'The <code class="nowrap">a b</code> flag and the '
+            '<code class="nowrap">a b</code> flag',
         ),
     ],
 )

@@ -328,6 +328,7 @@ NON_BREAKING_PHRASES = [
     "Mac OS X",
     "Monki Gras",
     "MS Paint",
+    "New York",
     "Objective-C",
     "P-215",
     "PDF 1.6",
@@ -348,7 +349,22 @@ NON_BREAKING_PHRASES = [
 PROPER_NAME_RE = re.compile(r"(?P<initials>[A-Z]\.[A-Z]\.) (?P<surname>[A-Z])")
 
 # CODE_FLAG_RE matches <code> snippets that are short.
+#
+# The limit of 15 characters is arbitrary. In longer code snippets,
+# wrapping is preferable to avoid leaving excessive whitespace on
+# the previous line.
 CODE_FLAG_RE = re.compile(r"<code>(?P<contents>[^<]{1,15})</code>")
+
+
+def add_nowrap(match: re.Match[str]) -> str:
+    """
+    Add the `nowrap` class to a `<code>` element if it contains line
+    breaking characters.
+    """
+    contents = match.group("contents")
+    if "-" in contents or " " in contents:
+        return f'<code class="nowrap">{contents}</code>'
+    return match.group(0)
 
 
 def add_non_breaking_characters(text: str) -> str:
@@ -386,11 +402,7 @@ def add_non_breaking_characters(text: str) -> str:
 
     # Add a `nowrap` class to short <code> snippets which contain
     # potential line-break characters, so they don't wrap.
-    for m in CODE_FLAG_RE.finditer(text):
-        if "-" in m.group(1) or " " in m.group(1):
-            text = text.replace(
-                m.group(0), "<code class=nowrap>" + m.group(1) + "</code>"
-            )
+    text = CODE_FLAG_RE.sub(add_nowrap, text)
 
     return text
 
