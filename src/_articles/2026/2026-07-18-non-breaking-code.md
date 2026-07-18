@@ -2,6 +2,7 @@
 layout: article
 date: 2026-07-18 09:00:04 +01:00
 title: Preventing line breaks in `<code>` elements
+summary: To avoid awkward line breaks, I'm adding CSS to inline code snippets that contain hyphens or spaces.
 topic: Blogging about blogging
 ---
 One of my favourite tiny details in this website is [my non-breaking spaces][me-nbsp].
@@ -12,7 +13,7 @@ My website is viewed at lots of different sizes, and browsers choose where to in
 I add these [non-breaking characters][wiki-nbsp] so browsers know to avoid awkward line breaks.
 
 Previously I was only applying this detail to body text, but today I implemented something similar for `<code>` elements.
-  
+
 I used a lot of inline code snippets in [my last post][me-byte-order-marks], and while reviewing it I noticed that several of those snippets had unhelpful line breaks.
 For example, `(?-u:…)` was split into `(?-` and `u:…)`, while the flag `--multiline` was split with `-` on one line and `-multiline` on the other.
 These line breaks make the post harder to read, with no benefit.
