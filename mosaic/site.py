@@ -31,7 +31,7 @@ from .page_types import (
     ProjectCommit,
     ProjectReleases,
     ProjectHomepage,
-    ProjectAllCommits,
+    ProjectLog,
     ProjectSingleFile,
     ProjectTree,
     TopicPage,
@@ -606,7 +606,7 @@ class Site(BaseModel):
                 download_size=download_path.stat().st_size,
             )
         )
-        self.all_pages.append(ProjectAllCommits(repo=repo))
+        self.all_pages.append(ProjectLog(repo=repo))
         self.all_pages.append(ProjectTree(repo=repo))
 
         if repo.has_file("CHANGELOG.md"):

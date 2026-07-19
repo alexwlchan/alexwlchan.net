@@ -21,7 +21,7 @@ from .posts import Post
 from .projects import (
     ProjectCommit,
     ProjectHomepage,
-    ProjectAllCommits,
+    ProjectLog,
     ProjectReleases,
     ProjectSingleFile,
     ProjectTree,
@@ -131,7 +131,7 @@ __all__ = [
     "Post",
     "ProjectCommit",
     "ProjectHomepage",
-    "ProjectAllCommits",
+    "ProjectLog",
     "ProjectReleases",
     "ProjectSingleFile",
     "ProjectTree",

@@ -67,12 +67,12 @@ class ProjectHomepage(BaseProjectPage):
         return [BreadcrumbEntry(label="projects", href="/projects/")]
 
 
-class ProjectAllCommits(BaseProjectPage):
+class ProjectLog(BaseProjectPage):
     """
-    The list of commits for a project.
+    ProjectLog shows the log/history for a project, as a list of commits.
     """
 
-    template_name: str = "projects/all_commits.html"
+    template_name: str = "projects/log.html"
     title: str = "Commits"
 
     @property

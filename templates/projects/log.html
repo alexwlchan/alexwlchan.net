@@ -27,7 +27,7 @@
         <li>
           {{- "" -}}
           <a href="/projects/{{ page.slug }}/commits/{{ c.id }}/">
-            {{- c.summary | markdownify_oneline -}}
+            {{- c.summary | escape -}}
           </a><br/>
           <span class="meta">
           <code>{{ c.id[:7] }}</code>

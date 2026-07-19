@@ -56,13 +56,13 @@
       content: "▼";
     }
   </style>
-  
+
   {% set repo = page.repo %}
   {% set commit = page.commit %}
 
   <article>
     <hgroup>
-      <h2>{{ commit.summary | markdownify_oneline }}</h2>
+      <h2>{{ commit.summary | escape }}</h2>
     </hgroup>
 
     <dl class="commit_details">
@@ -90,7 +90,7 @@
           {% set additions = commit.stats.additions %}
           {% set deletions = commit.stats.deletions %}
           <summary><code>
-            {{- file_count }} file{% if file_count > 1 %}s{% endif %}          
+            {{- file_count }} file{% if file_count > 1 %}s{% endif %}
             {%- if additions -%}
               , {{ additions }} addition{% if additions > 1 %}s{% endif %}
             {%- endif %}
@@ -116,7 +116,11 @@
     {% for cf in commit.changed_files %}
     <section id="file{{ loop.index }}"></section>
     <p>
-      <code>{{ cf.old_path }}</code> ({{ cf.old_size }}) &rarr; <code>{{ cf.new_path }}</code> ({{ cf.new_size }})
+      {% if cf.old_path == cf.new_path %}
+        <code>{{ cf.new_path }}</code> ({{ cf.old_size }} &rarr; {{ cf.new_size }})
+      {% else %}
+        <code>{{ cf.old_path }}</code> ({{ cf.old_size }}) &rarr; <code>{{ cf.new_path }}</code> ({{ cf.new_size }})
+      {% endif %}
     </p>
 
     <pre class="lng-diff"><code>{% for line in cf.diff_text.splitlines() %}

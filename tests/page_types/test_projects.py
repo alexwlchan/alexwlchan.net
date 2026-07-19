@@ -13,7 +13,7 @@ from mosaic.page_types import (
     BreadcrumbEntry,
     ProjectCommit,
     ProjectHomepage,
-    ProjectAllCommits,
+    ProjectLog,
     ProjectSingleFile,
     ProjectTree,
 )
@@ -60,26 +60,49 @@ class TestProjectHomepage:
         assert "git clone git://alexwlchan.net/projects/example-project.git" in html
 
 
-def test_log(env: Environment, repo: GitRepository, out_dir: Path) -> None:
+class TestProjectLog:
     """
-    Tests for `ProjectAllCommits`.
+    Tests for `ProjectLog`.
     """
-    repo.name = "example-project"
 
-    p = ProjectAllCommits(repo=repo)
+    def test_log(self, env: Environment, repo: GitRepository, out_dir: Path) -> None:
+        """
+        Test a basic rendering of the page.
+        """
+        repo.name = "example-project"
 
-    assert p.url == "/projects/example-project/commits/"
-    assert p.breadcrumb == [
-        BreadcrumbEntry(label="projects", href="/projects/"),
-        BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
-    ]
+        p = ProjectLog(repo=repo)
 
-    assert (
-        p.write(env, out_dir) == out_dir / "projects/example-project/commits/index.html"
-    )
+        assert p.url == "/projects/example-project/commits/"
+        assert p.breadcrumb == [
+            BreadcrumbEntry(label="projects", href="/projects/"),
+            BreadcrumbEntry(label="example-project", href="/projects/example-project/"),
+        ]
+
+        assert (
+            p.write(env, out_dir)
+            == out_dir / "projects/example-project/commits/index.html"
+        )
+
+    def test_commit_summary_escaped(
+        self, env: Environment, repo_root: Path, git: GitFn
+    ) -> None:
+        """
+        Test that angle brackets are escaped in the commit message.
+        """
+        (repo_root / "chives-video.js").write_text("Hello world")
+        git("add", "chives-video.js")
+        git("commit", "-m", "add the file <chives-video> to the repo")
+
+        repo = GitRepository(name="example", description="example", repo_root=repo_root)
+
+        p = ProjectLog(repo=repo)
+
+        html = p.render_full_html(env)
+        assert "add the file &lt;chives-video> to the repo" in html
 
 
-class TestCommit:
+class TestProjectCommit:
     """
     Tests for `ProjectCommit`.
     """
@@ -108,6 +131,25 @@ class TestCommit:
             == out_dir / f"projects/example-project/commits/{commit_id}/index.html"
         )
 
+    def test_commit_summary_escaped(
+        self, env: Environment, repo_root: Path, git: GitFn
+    ) -> None:
+        """
+        Test that angle brackets are escaped in the commit summary.
+        """
+        (repo_root / "chives-video.js").write_text("Hello world")
+        git("add", "chives-video.js")
+        git("commit", "-m", "add the <chives-video> component")
+
+        repo = GitRepository(name="example", description="example", repo_root=repo_root)
+
+        commit = list(repo.commits.values())[0]
+
+        p = ProjectCommit(repo=repo, commit=commit)
+
+        html = p.render_full_html(env)
+        assert "<h2>add the &lt;chives-video> component</h2>" in html
+
     def test_commit_message_escaped(
         self, env: Environment, repo_root: Path, git: GitFn
     ) -> None:
@@ -129,7 +171,6 @@ class TestCommit:
         p = ProjectCommit(repo=repo, commit=commit)
 
         html = p.render_full_html(env)
-        print(html)
         assert "Signed-off-by: Alex Chan &lt;alex@alexwlchan.net>" in html
 
 
