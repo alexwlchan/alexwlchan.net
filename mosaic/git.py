@@ -273,6 +273,9 @@ class GitFile(BaseModel):
         if self.path.name.endswith("requirements.in"):
             return "pip-compile input file"
 
+        if self.path.suffix == ".plist" and contents.startswith("<?xml"):
+            return "XML property list"
+
         return None
 
     def lang(self, contents: str) -> str:
@@ -314,6 +317,9 @@ class GitFile(BaseModel):
         for shebang, label in known_shebangs.items():
             if contents.startswith(shebang):
                 return label
+
+        if self.path.suffix == ".plist" and contents.startswith("<?xml"):
+            return "xml"
 
         return "text"
 

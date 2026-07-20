@@ -612,49 +612,55 @@ class TestGitFile:
     """
 
     @pytest.mark.parametrize(
-        "path, label",
+        "path, label, contents",
         [
-            ("README.md", "Markdown"),
-            ("src/chives/media.py", "Python"),
-            ("tests/stubs/smartypants.pyi", "Python type stub"),
-            ("pyproject.toml", "TOML"),
-            ("cassette.yml", "YAML"),
-            ("requirements.txt", "pip requirements file"),
-            ("dev_requirements.txt", "pip requirements file"),
-            ("requirements.in", "pip-compile input file"),
-            ("dev_requirements.in", "pip-compile input file"),
-            ("unknown.bin", None),
-            ("create_thumbnail.rs", "Rust"),
-            ("q.go", "Go"),
+            ("README.md", "Markdown", "<empty>"),
+            ("src/chives/media.py", "Python", "<empty>"),
+            ("tests/stubs/smartypants.pyi", "Python type stub", "<empty>"),
+            ("pyproject.toml", "TOML", "<empty>"),
+            ("cassette.yml", "YAML", "<empty>"),
+            ("requirements.txt", "pip requirements file", "<empty>"),
+            ("dev_requirements.txt", "pip requirements file", "<empty>"),
+            ("requirements.in", "pip-compile input file", "<empty>"),
+            ("dev_requirements.in", "pip-compile input file", "<empty>"),
+            ("unknown.bin", None, "<empty>"),
+            ("create_thumbnail.rs", "Rust", "<empty>"),
+            ("q.go", "Go", "<empty>"),
+            (
+                "info.plist",
+                "XML property list",
+                '<?xml version="1.0" encoding="UTF-8"?>',
+            ),
         ],
     )
-    def test_label(self, path: str, label: str | None) -> None:
+    def test_label(self, path: str, label: str | None, contents: str) -> None:
         """
         Tests for `GitFile.label`.
         """
         f = GitFile(path=Path(path), blob_id="123", size=0, is_binary=False)
-        assert f.label(contents="<empty>") == label
+        assert f.label(contents=contents) == label
 
     @pytest.mark.parametrize(
-        "path, lang",
+        "path, lang, contents",
         [
-            ("README.md", "markdown"),
-            ("src/chives/media.py", "python"),
-            ("tests/stubs/smartypants.pyi", "python"),
-            ("pyproject.toml", "toml"),
-            ("cassette.yml", "yaml"),
-            ("requirements.txt", "text"),
-            ("unknown.bin", "text"),
-            ("create_thumbnail.rs", "rust"),
-            ("q.go", "go"),
+            ("README.md", "markdown", "<empty>"),
+            ("src/chives/media.py", "python", "<empty>"),
+            ("tests/stubs/smartypants.pyi", "python", "<empty>"),
+            ("pyproject.toml", "toml", "<empty>"),
+            ("cassette.yml", "yaml", "<empty>"),
+            ("requirements.txt", "text", "<empty>"),
+            ("unknown.bin", "text", "<empty>"),
+            ("create_thumbnail.rs", "rust", "<empty>"),
+            ("q.go", "go", "<empty>"),
+            ("info.plist", "xml", '<?xml version="1.0" encoding="UTF-8"?>'),
         ],
     )
-    def test_lang(self, path: str, lang: str) -> None:
+    def test_lang(self, path: str, lang: str, contents: str) -> None:
         """
         Tests for `GitFile.lang`.
         """
         f = GitFile(path=Path(path), blob_id="123", size=0, is_binary=False)
-        assert f.lang(contents="<empty>") == lang
+        assert f.lang(contents=contents) == lang
 
     def test_bash_script(self) -> None:
         """
