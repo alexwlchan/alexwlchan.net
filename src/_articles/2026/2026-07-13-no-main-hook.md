@@ -35,7 +35,7 @@ The [`git rev-parse command`][git-rev-parse-abbrev-ref] prints the short name of
 If I'm on a branch, it returns the branch name; if I'm in a detached HEAD state, it returns `HEAD`.
 
 If the hook detects that I'm on `main`, it exits with an error code.
-This aborts the commit and prevents it being saved, serving as a friendly reminder to create a feature branch first -- and leaving my local `main` completely clena.
+This aborts the commit and prevents it being saved, serving as a friendly reminder to create a feature branch first -- and leaving my local `main` completely clean.
 
 Ideally I'd always remember to branch when I start a new piece of work -- but since I don't, I'm happy to let the computer remember instead.
 
