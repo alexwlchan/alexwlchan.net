@@ -73,7 +73,9 @@ if __name__ == "__main__":
     rating = int(input("Star rating: "))
 
     cover_query = quote_plus(f"cover {title} {author}")
-    webbrowser.open(f"https://next.duckduckgo.com/?q={cover_query}")
+    webbrowser.open(
+        f"https://next.duckduckgo.com/?q={cover_query}&ia=images&iax=images"
+    )
 
     cover_url = input("Cover URL: ")
 
