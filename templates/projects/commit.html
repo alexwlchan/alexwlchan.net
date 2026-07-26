@@ -2,6 +2,12 @@
 
 {% block content %}
   <style>
+    /* Expand the width of these pages enough that I can fit ~90 characters
+     * of code on screen. */
+    :root {
+      --max-width: 850px;
+    }
+
     .commit_details {
       display: grid;
       grid-template-columns: auto 1fr;

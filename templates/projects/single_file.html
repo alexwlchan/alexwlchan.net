@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <style>
+    /* Expand the width of these pages enough that I can fit ~90 characters
+     * of code on screen. */
+    :root {
+      --max-width: 850px;
+    }
+  </style>
+
   <article>
     <h2>
       <code>{{ page.file.path }}</code>
     </h2>
-    
+
     <ul class="dot_list">
       <li title="{{ "{:,}".format(page.file.size) }} bytes">{{ page.file.size | naturalsize }}</li>
       {% set label = page.file.label(contents=page.file_contents) %}
@@ -14,7 +22,7 @@
       {% endif %}
       <li><a href="/projects/{{ page.slug }}/raw/{{ page.file.path }}">View raw</a></li>
     </ul>
-    
+
     {% if page.file.size == 0 %}
       <p>(File is empty)</p>
     {% else %}
@@ -32,14 +40,14 @@
   <script src="/static/line_highlighting.js"></script>
   <script>
     const h = new Highlighter(window.location.href);
-  
+
     window.addEventListener('DOMContentLoaded', () => {
       if (h.getLineToScrollTo() != null) {
         document
           .getElementById(h.getLineToScrollTo())
           .scrollIntoView();
       }
-      
+
       h.updateLineHighlighting();
     });
 
@@ -52,13 +60,13 @@
       if (event.target.tagName.toLowerCase() !== 'a') {
         return
       }
-    
+
       // Skip links that aren't for an #L fragment
       const href = event.target.getAttribute('href').replace(/^#/, '');
-      
+
       const { newURL, preventDefault, updateHighlighting } =
         h.handleClickEvent({ href, shiftKey: event.shiftKey });
-      
+
       if (newURL !== null) {
         window.history.replaceState(null, '', newURL);
       }
