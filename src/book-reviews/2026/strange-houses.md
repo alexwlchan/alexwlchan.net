@@ -4,10 +4,12 @@ date: 2026-08-01T12:46:01.831499+00:00
 
 book:
   contributors:
-  - name: Uketsu
+    - name: Uketsu
+    - name: Jim Rion
+      role: translator
   genres:
-  - fiction
-  - murder mystery
+    - fiction
+    - murder mystery
   isbn13: 978-1-80533-537-5
   publication_year: '2021'
   title: Strange Houses
