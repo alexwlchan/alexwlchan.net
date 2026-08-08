@@ -27,7 +27,7 @@ if __name__ == "__main__":
     except IndexError:
         year, month = datetime.now().year, datetime.now().month
 
-    matching_pages = sorted(
+    matching_pages = sorted(  # type: ignore
         [
             p
             for p in pages

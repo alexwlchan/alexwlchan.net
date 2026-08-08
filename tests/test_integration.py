@@ -9,7 +9,7 @@ the site in `_out`.
 from collections.abc import Iterator
 from collections import Counter
 
-from playwright.sync_api import Browser, Page, expect
+from playwright.sync_api import Browser, expect
 import pytest
 
 from mosaic import caddy
@@ -28,11 +28,12 @@ def base_url() -> Iterator[str]:
         yield url.rstrip("/")
 
 
-def test_git_file_not_found(base_url: str, page: Page) -> None:
+def test_git_file_not_found(browser: Browser, base_url: str) -> None:
     """
     If we look up a non-existent Git file, we get redirected to /files/
     and see an error about the missing file.
     """
+    page = browser.new_page()
     resp = page.goto(base_url + "/projects/chives/files/does/not/exist.txt")
 
     assert resp is not None
