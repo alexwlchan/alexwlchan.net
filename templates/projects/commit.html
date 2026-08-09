@@ -17,6 +17,10 @@
       padding-bottom: var(--default-padding);
       border-bottom: 0.5px solid var(--primary-color);
 
+      /* This ensures mobile Safari doesn't try to interfere the size of
+       * the text on small screens. */
+      -webkit-text-size-adjust: 100%;
+
       dt::after {
         content: ":";
         text-align: right;
@@ -32,6 +36,18 @@
         border:     none;
         padding: 0;
         margin:  0;
+      }
+
+      /* Allow text in the commit details to wrap to multiple lines
+       * if necessary */
+      code { text-wrap: wrap; }
+    }
+
+    /* On narrow screens, allow the list of changed files to span the
+     * whole width */
+    @media screen and (max-width: 500px) {
+      #changed_files, #changed_files + dd {
+        grid-column: 1 / span 2;
       }
     }
 
@@ -89,7 +105,7 @@
       <dt>message</dt>
       <dd><pre><code>{{ commit.message | escape }}</code></pre></dd>
 
-      <dt>changed files</dt>
+      <dt id="changed_files">changed files</dt>
       <dd>
         <details class="custom-details">
           {% set file_count = commit.changed_files|count %}
