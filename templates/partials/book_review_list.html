@@ -87,6 +87,9 @@
         {{- rev.review.summary | markdownify_oneline | smartify -}}
         {{ " " }}
       {%- endif -%}
+      {%- if rev.review.summary and rev.review.date_read and not rev.review.did_not_finish -%}
+      <br/>
+      {%- endif -%}
       {%- if rev.review.date_read -%}
         {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
         {{ "&nbsp;" }}
