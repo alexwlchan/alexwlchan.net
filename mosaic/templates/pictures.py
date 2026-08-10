@@ -128,9 +128,6 @@ class PictureExtension(KwargsExtensionBase):
         """
         Render the picture tag.
         """
-        if "dst_prefix" in kwargs:
-            kwargs["dst_prefix"] = Path(kwargs["dst_prefix"])
-
         html = render_picture(*args, **kwargs)
         assert_is_invariant_under_markdown(html)
 
@@ -149,7 +146,7 @@ def render_picture(
     parent: str | None = None,
     link_to: str | None = None,
     caller: Any | None = None,
-    dst_prefix: Path | None = None,
+    dst_prefix: str | Path | None = None,
     #
     # In the srcset and sizes attribute, should it be based on the width
     # of the output image or the pixel density?
@@ -162,6 +159,9 @@ def render_picture(
     """
     Create the HTML to display an image.
     """
+    if isinstance(dst_prefix, str):
+        dst_prefix = Path(dst_prefix)
+
     src_dir = context["src_dir"]
     out_dir = context["out_dir"]
 
