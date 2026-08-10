@@ -151,6 +151,10 @@ class Site(BaseModel):
             return
 
         repo_details = {
+            "add-cover-to-ao3-files": (
+                "Add auto-generated cover images to EPUB files downloaded from AO3 "
+                "(the Archive of Our Own)"
+            ),
             "blink-photo-reviewer": (
                 "Reviewing my photos from Photos.app with blink diffs and "
                 "keyboard shortcuts"

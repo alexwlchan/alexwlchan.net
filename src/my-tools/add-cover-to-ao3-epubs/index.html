@@ -162,10 +162,21 @@ async function getKeyFicInfo(zip) {
 
   console.debug(`Detected fandom in first HTML file: ${fandom}`);
 
-  return { title, author, fandom };
+  return { title: decodeXML(title), author, fandom };
 }
 
 
+
+/**
+ * Decode the XML entities in a string.
+ */
+function decodeXML(input) {
+  if (/&amp;|&quot;|&#39;|'&lt;|&gt;/.test(input)) {
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+  }
+  return input;
+}
 
 
 
@@ -533,7 +544,7 @@ function shuffle(array) {
 
   <style>
     :root {
-      --max-width: 47rem;
+      --max-width: 42rem;
       --padding:   1em;
     }
 
@@ -666,7 +677,7 @@ function shuffle(array) {
   <main>
     <h1>
       Add cover images to EPUBs from AO3
-      <span class="version">v1.0</span>
+      <span class="version">v1.0.1</span>
     </h1>
 
     <noscript>
@@ -674,7 +685,7 @@ function shuffle(array) {
     </noscript>
 
     <p>
-      <strong>Add auto-generated cover images to EPUB files downloaded from AO3 (the Archive of Our Own).</strong>
+      <strong>Add auto-generated cover images to EPUB files you download from AO3.</strong>
     </p>
 
     <p>
@@ -931,7 +942,7 @@ function shuffle(array) {
         Can you help?
       </dt>
       <dd>
-        Send me a copy of the file, or a link to the original fic on AO3, and the browser you were using when something broke.
+        Send me a copy of the file, or a link to the original fic, and the browser you were using when something broke.
       </dd>
 
       <dt>
