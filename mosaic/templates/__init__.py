@@ -28,7 +28,6 @@ from .rss_feed import fix_html_for_feed_readers, xml_escape
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
 from .table_of_contents import TableOfContentsExtension
-from .tree_icons import svg_data_uri
 from .updates import UpdateExtension
 
 
@@ -72,7 +71,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "naturalsize": naturalsize,
             "sample": random.sample,
             "smartify": smartify,
-            "svg_data_uri": svg_data_uri,
             "xml_escape": xml_escape,
         }
     )

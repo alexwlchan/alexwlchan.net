@@ -1,6 +1,31 @@
 """
-Create icons for the /files/ view in my Git repositories.
+tree_icons creates the icons for the tree view in my Git repos.
+
+In particular, it creates a series of parametric SVGs for open/closed folders
+and file icons, with customisable colour (for light/dark mode, hovered/not).
+
+Example: https://alexwlchan.net/projects/chives/files/
 """
+
+import functools
+from typing import Any, Callable
+
+
+def svg_data_uri(f: Callable[..., str]) -> Callable[..., str]:
+    """
+    Convert the output of a function that returns a raw SVG XML
+    to be a data URI that can be used in a CSS url().
+    """
+
+    @functools.wraps(f)
+    def wrapper(*args: Any, **kwargs: Any) -> str:
+        svg = f(*args, **kwargs)
+        minified_xml = " ".join([ln.strip() for ln in svg.strip().splitlines()])
+        text = minified_xml.replace("#", "%23").replace('"', "'")
+        return f"data:image/svg+xml;utf8,{text}"
+
+    return wrapper
+
 
 # Overall dimensions of the SVG
 icon_width = 20
@@ -41,6 +66,7 @@ file_y = (icon_height - file_height) / 2
 stroke_width = 2
 
 
+@svg_data_uri
 def closed_folder_icon(tint_colour: str) -> str:
     """
     Draw an SVG for the closed folder icon. This starts on the top-left of
@@ -76,6 +102,7 @@ def closed_folder_icon(tint_colour: str) -> str:
     '''
 
 
+@svg_data_uri
 def open_folder_icon(tint_colour: str, background_colour: str) -> str:
     """
     Draw an SVG for the open folder icon.
@@ -117,6 +144,7 @@ def open_folder_icon(tint_colour: str, background_colour: str) -> str:
     '''
 
 
+@svg_data_uri
 def file_icon(tint_colour: str, background_colour: str) -> str:
     """
     Draw an SVG for the file icon.
@@ -152,12 +180,3 @@ def file_icon(tint_colour: str, background_colour: str) -> str:
                "/>
         </svg>
     '''
-
-
-def svg_data_uri(svg: str) -> str:
-    """
-    Encode an SVG as a data URI to use in a CSS url().
-    """
-    minified_xml = " ".join([ln.strip() for ln in svg.strip().splitlines()])
-    text = minified_xml.replace("#", "%23").replace('"', "'")
-    return f"data:image/svg+xml;utf8,{text}"

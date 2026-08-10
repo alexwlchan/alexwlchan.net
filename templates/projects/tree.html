@@ -55,22 +55,22 @@
     
     /* Define all the icons */
     :root {
-      --closed-folder-icon:       url("{{ tree_icons.closed_folder_icon(text_light) | svg_data_uri }}");
-      --closed-folder-icon-hover: url("{{ tree_icons.closed_folder_icon(tint_light) | svg_data_uri }}");
-      --open-folder-icon:         url("{{ tree_icons.open_folder_icon(text_light, bg_light) | svg_data_uri }}");
-      --open-folder-icon-hover:   url("{{ tree_icons.open_folder_icon(tint_light, bg_light) | svg_data_uri }}");
-      --file-icon:                url("{{ tree_icons.file_icon(text_light, bg_light) | svg_data_uri }}");
-      --file-icon-hover:          url("{{ tree_icons.file_icon(tint_light, bg_light) | svg_data_uri }}");
+      --closed-folder-icon:       url("{{ tree_icons.closed_folder_icon(text_light) }}");
+      --closed-folder-icon-hover: url("{{ tree_icons.closed_folder_icon(tint_light) }}");
+      --open-folder-icon:         url("{{ tree_icons.open_folder_icon(text_light, bg_light) }}");
+      --open-folder-icon-hover:   url("{{ tree_icons.open_folder_icon(tint_light, bg_light) }}");
+      --file-icon:                url("{{ tree_icons.file_icon(text_light, bg_light) }}");
+      --file-icon-hover:          url("{{ tree_icons.file_icon(tint_light, bg_light) }}");
     }
     
     @media (prefers-color-scheme: dark) {
       :root {
-        --closed-folder-icon:       url("{{ tree_icons.closed_folder_icon(text_dark) | svg_data_uri }}");
-        --closed-folder-icon-hover: url("{{ tree_icons.closed_folder_icon(tint_dark) | svg_data_uri }}");
-        --open-folder-icon:         url("{{ tree_icons.open_folder_icon(text_dark, bg_dark) | svg_data_uri }}");
-        --open-folder-icon-hover:   url("{{ tree_icons.open_folder_icon(tint_dark, bg_dark) | svg_data_uri }}");
-        --file-icon:                url("{{ tree_icons.file_icon(text_dark, bg_dark) | svg_data_uri }}");
-        --file-icon-hover:          url("{{ tree_icons.file_icon(tint_dark, bg_dark) | svg_data_uri }}");
+        --closed-folder-icon:       url("{{ tree_icons.closed_folder_icon(text_dark) }}");
+        --closed-folder-icon-hover: url("{{ tree_icons.closed_folder_icon(tint_dark) }}");
+        --open-folder-icon:         url("{{ tree_icons.open_folder_icon(text_dark, bg_dark) }}");
+        --open-folder-icon-hover:   url("{{ tree_icons.open_folder_icon(tint_dark, bg_dark) }}");
+        --file-icon:                url("{{ tree_icons.file_icon(text_dark, bg_dark) }}");
+        --file-icon-hover:          url("{{ tree_icons.file_icon(tint_dark, bg_dark) }}");
       }
     }
         
