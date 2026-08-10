@@ -1,5 +1,5 @@
 <entry>
-  <title type="html">{{ post.title | markdownify_oneline | strip_html | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
+  <title type="html">{{ post.title | markdownify_oneline | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
   <link
     href="{% if post.link %}{{ post.link }}{% else %}{{ post.url | absolute_url }}{% endif %}"
     rel="alternate"
@@ -27,6 +27,6 @@
   {% endfor %}
 
   {% if post.summary %}
-    <summary type="html">{{ post.summary | strip_html | xml_escape }}</summary>
+    <summary type="html">{{ post.summary | xml_escape }}</summary>
   {% endif %}
 </entry>

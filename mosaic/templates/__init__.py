@@ -17,12 +17,7 @@ from mosaic import page_types
 from mosaic.css import get_inline_styles
 from mosaic.page_types import Post
 from mosaic.syntax_highlighting import apply_syntax_highlighting
-from mosaic.text import (
-    cleanup_text,
-    markdownify,
-    markdownify_oneline,
-    strip_html,
-)
+from mosaic.text import cleanup_text, markdownify, markdownify_oneline
 from mosaic.topics import get_topic_by_name
 
 from . import tree_icons
@@ -77,7 +72,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "naturalsize": naturalsize,
             "sample": random.sample,
             "smartify": smartify,
-            "strip_html": strip_html,
             "svg_data_uri": svg_data_uri,
             "xml_escape": xml_escape,
         }

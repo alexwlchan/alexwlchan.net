@@ -19,19 +19,6 @@ from mosaic import cache
 from .syntax_highlighting import apply_syntax_highlighting
 
 
-STRIP_HTML_RE = re.compile(r"<[^<]+?>")
-
-
-def strip_html(text: str) -> str:
-    """
-    Remove all the HTML tags from a string.
-
-    Note: this uses a regex which is probably not safe against untrusted
-    input, but should be fine for my site.
-    """
-    return STRIP_HTML_RE.sub("", text)
-
-
 def minify_html(html: str) -> str:
     """
     Minify an HTML string.

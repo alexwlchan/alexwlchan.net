@@ -200,20 +200,6 @@ def test_cleanup_text(text: str, cleaned_text: str) -> None:
     assert t.cleanup_text(text) == cleaned_text
 
 
-@pytest.mark.parametrize(
-    "html, cleaned_html",
-    [
-        ("Hello world!", "Hello world!"),
-        ("Hello <em>world</em>!", "Hello world!"),
-    ],
-)
-def test_strip_html(html: str, cleaned_html: str) -> None:
-    """
-    Tests for strip_html().
-    """
-    assert t.strip_html(html) == cleaned_html
-
-
 def test_find_unique_prefixes() -> None:
     """
     Test the example given for `find_unique_prefixes`.
