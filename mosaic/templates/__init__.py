@@ -74,7 +74,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "print": lambda p: print(repr(p)),
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
-            "minify_json": lambda js: json.dumps(json.loads(js), separators=(",", ":")),
             "naturalsize": naturalsize,
             "sample": random.sample,
             "smartify": smartify,
