@@ -677,7 +677,7 @@ function shuffle(array) {
   <main>
     <h1>
       Add cover images to EPUBs from AO3
-      <span class="version">v1.0.1</span>
+      <span class="version">v1.1.0</span>
     </h1>
 
     <noscript>
@@ -702,7 +702,8 @@ function shuffle(array) {
           name="filename"
           accept="application/epub+zip"
           required
-          onchange="createNewCoverImage()">
+          multiple
+          onchange="createNewCoverImages()">
       </p>
 
       <p id="instructions">&nbsp;</p>
@@ -720,14 +721,9 @@ function shuffle(array) {
           `<li><strong>Something went wrong:</strong> ${message}</li>`;
       }
 
-      function createNewCoverImage() {
-        const fileInput = document.querySelector('#epubFileInput');
-
-        // Get the epub file from the file input.
-        const file = fileInput.files[0];
+      function createSingleCoverImage(file) {
         console.debug(`Got file ${file.name}`);
 
-        // Find the `content
         JSZip.loadAsync(file)
           .then(async function(zip) {
             // Get the key information about this fic.
@@ -803,6 +799,15 @@ function shuffle(array) {
           .catch(function(error) {
             reportError(`Unable to read EPUB file: ${error}`);
           });
+      }
+
+      function createNewCoverImages() {
+        const fileInput = document.querySelector('#epubFileInput');
+
+        // Get the epub files from the file input.
+        for (var file of fileInput.files) {
+          createSingleCoverImage(file);
+        }
       }
 
       // When the window loads, add three randomly generated stories
