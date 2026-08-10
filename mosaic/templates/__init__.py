@@ -8,7 +8,7 @@ import itertools
 import json
 from pathlib import Path
 import random
-from typing import Literal, TypedDict, TypeVar
+from typing import Literal, TypedDict
 
 from chives.text import smartify
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -65,7 +65,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "absolute_url": absolute_url,
             "article_card_image": article_card_image,
             "cleanup_text": cleanup_text,
-            "escape_attribute_value": escape_attribute_value,
             "filter_for_topic": filter_for_topic,
             "fix_html_for_feed_readers": fix_html_for_feed_readers,
             "format_date": format_date,
@@ -112,31 +111,6 @@ def absolute_url(path: str) -> str:
         return "https://alexwlchan.net" + path
     else:
         return "https://alexwlchan.net/" + path
-
-
-T = TypeVar("T")
-
-
-def escape_attribute_value(value: T) -> T:
-    """
-    Escape an attribute value, especially in alt text.
-
-    Ensure characters that might be interpreted as HTML or Markdown
-    don't get included in their raw form.
-    """
-    if not isinstance(value, str):
-        return value
-
-    for old, new in [
-        ("<", "&lt;"),
-        (">", "&gt;"),
-        ("`", "&grave;"),
-        ("*", "&ast;"),
-        ("_", "&lowbar;"),
-    ]:
-        value = value.replace(old, new)  # type: ignore
-
-    return value
 
 
 def filter_for_topic(

@@ -15,7 +15,7 @@
     {% endfor %}
     {%- if extra_attributes is defined -%}
       {%- for name, value in extra_attributes.items() %}
-      {{ name }}="{{ value | escape_attribute_value }}"
+      {{ name }}="{{ value | escape }}"
       {%- endfor -%}
     {%- endif -%}
   >
@@ -47,7 +47,7 @@
       src="{{ default_image }}"
       {%- if extra_attributes is defined -%}
         {%- for name, value in extra_attributes.items() %}
-        {{ name }}="{{ value | escape_attribute_value }}"
+        {{ name }}="{{ value | escape }}"
         {%- endfor -%}
       {%- endif -%}
     >
