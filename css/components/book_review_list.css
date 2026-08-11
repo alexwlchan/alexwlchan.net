@@ -63,8 +63,8 @@
     margin-bottom: auto;
   }
 
-  /* star rating */
-  .sr {
+  /* star rating is the only span inside the review */
+  span {
     letter-spacing: 0.1em;
     white-space: nowrap;
   }

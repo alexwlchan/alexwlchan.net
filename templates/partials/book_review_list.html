@@ -89,7 +89,7 @@
       {%- endif -%}
       {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
       {{ "&nbsp;" }}
-      {{- timestamp(rev.review.date_read, date_format="%-d %B") -}}.
+      {{- rev.review.date_read.strftime("%-d %B") -}}.
       {{ " " }}
       {%- if not rev.review.did_not_finish -%}
         {{- star_rating(rev.review.rating) -}}
@@ -98,14 +98,14 @@
     {%- endset -%}
 
     {{- description
-        | replace('<p><span class="sr">★★☆☆☆</span></p>',
-                  '<p class="sr">★★☆☆☆</p>')
-        | replace('<p><span class="sr">★★★☆☆</span></p>',
-                  '<p class="sr">★★★☆☆</p>')
-        | replace('<p><span class="sr">★★★★☆</span></p>',
-                  '<p class="sr">★★★★☆</p>')
-        | replace('<p><span class="sr">★★★★★</span></p>',
-                  '<p class="sr">★★★★★</p>')
+        | replace('<p><span>★★☆☆☆</span></p>',
+                  '<p>★★☆☆☆</p>')
+        | replace('<p><span>★★★☆☆</span></p>',
+                  '<p>★★★☆☆</p>')
+        | replace('<p><span>★★★★☆</span></p>',
+                  '<p>★★★★☆</p>')
+        | replace('<p><span>★★★★★</span></p>',
+                  '<p>★★★★★</p>')
     -}}
   </li>
 {%- endfor -%}
