@@ -48,7 +48,7 @@
 {% set aspect_ratio = ar_parts[1].split('"')[0] %}
 {% set cover_image = ar_parts[0] + ar_parts[1].split('"', 1)[1] %}
 
-  <li{% if not rev.review.summary %} class=" ns"{% endif %} style="--c-lt: {{ rev.colours.css_light }}; --c-dk: {{ rev.colours.css_dark }}; --ar: {{ aspect_ratio }}">
+  <li style="--lt: {{ rev.colours.css_light }}; --dk: {{ rev.colours.css_dark }}; --ar: {{ aspect_ratio }}">
     {{- "" -}}
     <a href="{{ rev.url }}">
     {{- cover_image -}}
@@ -85,17 +85,12 @@
     <p>
       {%- if rev.review.summary -%}
         {{- rev.review.summary | markdownify_oneline | smartify -}}
-        {{ " " }}
+        <br/>
       {%- endif -%}
-      {%- if rev.review.summary and rev.review.date_read and not rev.review.did_not_finish -%}
-      <br/>
-      {%- endif -%}
-      {%- if rev.review.date_read -%}
-        {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
-        {{ "&nbsp;" }}
-        {{- timestamp(rev.review.date_read, date_format="%-d %B") -}}.
-        {{ " " }}
-      {%- endif -%}
+      {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
+      {{ "&nbsp;" }}
+      {{- timestamp(rev.review.date_read, date_format="%-d %B") -}}.
+      {{ " " }}
       {%- if not rev.review.did_not_finish -%}
         {{- star_rating(rev.review.rating) -}}
       {%- endif -%}

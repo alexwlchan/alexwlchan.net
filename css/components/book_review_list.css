@@ -10,57 +10,59 @@
   column-gap: var(--grid-gap);
   row-gap: 7px;
   margin-top: 1em;
-  
-  /* If there's no summary, tighten the gap between the title and rating */
-  &.ns {
+
+  /* The review entry only has a summary if there's a <br/> between the
+   * summary and the rating. If not, tighten the gap between the title
+   * and the rating. */
+  &:not(:has(br)) {
     row-gap: 3px;
   }
-  
+
   /* cover image */
   a:first-child {
     grid-row: 1 / span 2;
-    
+
     figure {
       height: 75px;
       margin: 0;
     }
-    
+
     &:hover img {
-      outline: 3px solid var(--c-lt);
+      outline: 3px solid var(--lt);
     }
   }
-  
+
   @media screen and (prefers-color-scheme: dark) {
     a:first-child:hover img {
-      outline: 3px solid var(--c-dk);
+      outline: 3px solid var(--dk);
     }
   }
-  
+
   img {
     aspect-ratio: var(--ar);
   }
-  
+
   p {
     margin: 0;
     grid-column: 2 / 2;
   }
-  
+
   /* book title */
   p:nth-child(2) {
     margin-top: auto;
-    
+
     a {
       font-style: italic;
     }
   }
-  
+
   /* summary */
   p:nth-child(3) {
     font-size: 85%;
     line-height: 1.45em;
     margin-bottom: auto;
   }
-  
+
   /* star rating */
   .sr {
     letter-spacing: 0.1em;
