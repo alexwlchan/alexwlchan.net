@@ -51,7 +51,7 @@
   <li style="--lt: {{ rev.colours.css_light }}; --dk: {{ rev.colours.css_dark }}; --ar: {{ aspect_ratio }}">
     {{- "" -}}
     <a href="{{ rev.url }}">
-    {{- cover_image -}}
+    {{- cover_image | trim -}}
     {{- "" -}}
     </a>
 
@@ -88,7 +88,7 @@
         <br/>
       {%- endif -%}
       {%- if rev.review.did_not_finish -%}Stopped{%- else -%}Read{%- endif -%}
-      {{ "&nbsp;" }}
+      {{ " " }}
       {{- rev.review.date_read.strftime("%-d %B") -}}.
       {{ " " }}
       {%- if not rev.review.did_not_finish -%}
