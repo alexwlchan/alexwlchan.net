@@ -75,27 +75,40 @@ if __name__ == "__main__":
         else:
             remaining_tally[p.date.year].append(count_words(p.content))
 
-    print("       articles   others    total")
-    print("====== ======== ======== ========")
+    print("           articles          others            total")
+    print("======  ===============  ===============  ================")
 
     for year in sorted(articles_tally):
+        articles_wc_year = sum(articles_tally[year])
+        remaining_wc_year = sum(remaining_tally[year])
+        total_wc_year = articles_wc_year + remaining_wc_year
+
+        articles_count_year = len(articles_tally[year])
+        remaining_count_year = len(remaining_tally[year])
+        total_count_year = articles_count_year + remaining_count_year
+
         print(
-            f"{year}\t"
-            f"{sum(articles_tally[year]):7,}\t "
-            f"{sum(remaining_tally[year]):7,}  "
-            f"{sum(articles_tally[year] + remaining_tally[year]):7,}"
+            f"{year}     "
+            f"{articles_wc_year:7,} / {articles_count_year:3}    "
+            f"{remaining_wc_year:7,} / {remaining_count_year:3}    "
+            f"{total_wc_year:7,} / {total_count_year:4}"
         )
 
-    articles_total = sum(sum(wc) for wc in articles_tally.values())
-    remaining_total = sum(sum(wc) for wc in remaining_tally.values())
+    articles_wc = sum(sum(wc) for wc in articles_tally.values())
+    remaining_wc = sum(sum(wc) for wc in remaining_tally.values())
+    total_wc = articles_wc + remaining_wc
 
-    print("====== ======== ======== ========")
+    articles_count = sum(len(wc) for wc in articles_tally.values())
+    remaining_count = sum(len(wc) for wc in remaining_tally.values())
+    total_count = articles_count + remaining_count
+
+    print("======  ===============  ===============  ================")
     print(
         coloured(
-            f"TOTAL\t"
-            f"{articles_total:7,}\t "
-            f"{remaining_total:7,}  "
-            f"{articles_total + remaining_total:7,}",
+            f"TOTAL    "
+            f"{articles_wc:7,} / {articles_count:3}    "
+            f"{remaining_wc:7,} / {remaining_count:3}    "
+            f"{total_wc:7,} / {total_count:4}",
             "blue",
         )
     )
