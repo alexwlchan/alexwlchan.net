@@ -2,11 +2,16 @@
 layout: article
 date: 2026-08-13 17:14:06 +01:00
 title: How Tailscale tracked down a 16-year-old SQLite bug
-summary: SQLite corruption? Sorted.
+summary: We had repeated database corruption until we fixed a rare SQLite corruption bug. What does it take to find such an error?
 topics:
   - SQLite
   - Tailscale
 link: https://tailscale.com/blog/sqlite-wal-reset-bug
+
+is_featured: true
+colours:
+  index_light: "#582009"
+  index_dark:  "#f0a47d"
 ---
 I wrote a post for the Tailscale blog about a long-running series of corruption incidents, and how they eventually led us to find an SQLite bug that predates my entire programming career.
 I'm incredibly proud of this, both the work and the blog post.
