@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from mosaic.models import BreadcrumbEntry
 from mosaic import page_types
 from mosaic.page_types.book_reviews import (
     BookContributor,
@@ -42,7 +43,7 @@ def test_book_review_properties(src_dir: Path) -> None:
     assert review.url == "/book-reviews/ship-happens/"
     assert review.cover_image == src_dir / "images/2001/ship-happens.jpg"
     assert review.breadcrumb == [
-        page_types.BreadcrumbEntry(label="books I've read", href="/book-reviews/")
+        BreadcrumbEntry(label="books I've read", href="/book-reviews/")
     ]
 
 

@@ -8,7 +8,8 @@ from typing import Self, TypedDict
 from pydantic import model_validator
 
 from mosaic.git import Commit, GitFile, GitRepository
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from mosaic.models import BreadcrumbEntry
+from ._base import BaseHtmlPage
 
 
 class BaseProjectPage(BaseHtmlPage):

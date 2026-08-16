@@ -9,8 +9,8 @@ from typing import TypeAlias
 from jinja2 import Environment
 
 from mosaic.git import GitFile, GitRepository
+from mosaic.models import BreadcrumbEntry
 from mosaic.page_types import (
-    BreadcrumbEntry,
     ProjectCommit,
     ProjectHomepage,
     ProjectLog,

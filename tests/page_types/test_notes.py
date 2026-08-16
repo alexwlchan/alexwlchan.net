@@ -7,7 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from mosaic.page_types import BreadcrumbEntry, Note
+from mosaic.models import BreadcrumbEntry
+from mosaic.page_types import Note
 
 
 def test_note_properties(src_dir: Path) -> None:

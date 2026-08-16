@@ -7,7 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from mosaic.page_types import Article, BreadcrumbEntry
+from mosaic.models import BreadcrumbEntry
+from mosaic.page_types import Article
 
 
 def test_article_properties(src_dir: Path) -> None:

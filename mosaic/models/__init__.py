@@ -2,6 +2,7 @@
 Data models and types.
 """
 
+from .breadcrumb import BreadcrumbEntry
 from .grouping import Groupable, group_items_for_layout
 from .social_embeds import (
     SocialEmbedData,
@@ -24,6 +25,7 @@ from .topics import (
 
 __all__ = [
     "BlueskyEmbed",
+    "BreadcrumbEntry",
     "Groupable",
     "HasTopics",
     "MastodonEmbed",

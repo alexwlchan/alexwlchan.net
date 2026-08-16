@@ -4,9 +4,9 @@ Models for a topic page.
 
 from pathlib import Path
 
-from mosaic.models import get_topic, Topic
+from mosaic.models import BreadcrumbEntry, Topic, get_topic
 
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from ._base import BaseHtmlPage
 
 
 class TopicPage(BaseHtmlPage):
@@ -40,7 +40,4 @@ class TopicPage(BaseHtmlPage):
         """
         The breadcrumb trail for this page.
         """
-        return [
-            BreadcrumbEntry(label=t.name, href=t.href)
-            for t in self.topic.breadcrumb[:-1]
-        ]
+        return self.topic.breadcrumb[:-1]

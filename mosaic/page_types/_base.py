@@ -11,6 +11,7 @@ from jinja2 import Environment
 from pydantic import BaseModel, ConfigDict
 
 from mosaic import cache
+from mosaic.models import BreadcrumbEntry
 from mosaic.tint_colours import TintColours
 from mosaic.text import markdownify, md5, minify_html
 
@@ -22,15 +23,6 @@ class PartOf(TypedDict):
 
     url: str
     label: str
-
-
-class BreadcrumbEntry(BaseModel):
-    """
-    A breadcrumb entry that helps you see this page in my broader site.
-    """
-
-    label: str
-    href: str
 
 
 class BaseHtmlPage(BaseModel, ABC):

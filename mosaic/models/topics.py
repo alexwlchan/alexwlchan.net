@@ -9,6 +9,8 @@ from typing import Any, Optional, TypeVar
 
 from pydantic import BaseModel, Field, field_validator
 
+from .breadcrumb import BreadcrumbEntry
+
 
 __all__ = [
     "Topic",
@@ -34,14 +36,16 @@ class Topic(BaseModel):
     children: list["Topic"] = Field(default_factory=lambda: list())
 
     @property
-    def breadcrumb(self) -> list["Topic"]:
+    def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         Return the ancestor hierarchy leading down to this topic.
         """
+        self_breadcrumb = BreadcrumbEntry(label=self.name, href=self.href)
+
         if self.parent is not None:
-            return self.parent.breadcrumb + [self]
+            return self.parent.breadcrumb + [self_breadcrumb]
         else:
-            return [self]
+            return [self_breadcrumb]
 
 
 _TOPICS_LOCK = Lock()

@@ -8,7 +8,7 @@ from typing import Literal, Self
 
 from pydantic import BaseModel, model_validator
 
-from ._base import BreadcrumbEntry
+from mosaic.models import BreadcrumbEntry
 from .posts import Post
 
 

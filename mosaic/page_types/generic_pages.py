@@ -4,7 +4,8 @@ Models for a generic page.
 
 from typing import Any
 
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from mosaic.models import BreadcrumbEntry
+from ._base import BaseHtmlPage
 
 
 class Page(BaseHtmlPage):

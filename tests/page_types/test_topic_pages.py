@@ -4,8 +4,8 @@ Tests for `mosaic.page_types.topic_pages`.
 
 from pathlib import Path
 
-
-from mosaic.page_types import BreadcrumbEntry, TopicPage
+from mosaic.models import BreadcrumbEntry
+from mosaic.page_types import TopicPage
 
 
 def test_topic_page_properties(src_dir: Path) -> None:

@@ -7,7 +7,8 @@ my clean-up logic doesn't delete any manpages.
 
 from pathlib import Path
 
-from ._base import BaseHtmlPage, BreadcrumbEntry
+from mosaic.models import BreadcrumbEntry
+from ._base import BaseHtmlPage
 
 
 class ManPage(BaseHtmlPage):

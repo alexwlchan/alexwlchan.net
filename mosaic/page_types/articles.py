@@ -7,8 +7,7 @@ from typing import Self
 
 from pydantic import model_validator
 
-
-from ._base import BreadcrumbEntry
+from mosaic.models import BreadcrumbEntry
 from .posts import Post
 
 
@@ -46,10 +45,7 @@ class Article(Post):
         The breadcrumb trail for this page.
         """
         if self.topics:
-            return [
-                BreadcrumbEntry(label=t.name, href=t.href)
-                for t in self.topics[0].breadcrumb
-            ]
+            return self.topics[0].breadcrumb
         else:
             return [BreadcrumbEntry(label="articles", href="/articles/")]
 

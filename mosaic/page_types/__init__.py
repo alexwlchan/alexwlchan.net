@@ -11,7 +11,7 @@ import yaml
 
 from mosaic.text import coloured
 
-from ._base import BreadcrumbEntry, BaseHtmlPage
+from ._base import BaseHtmlPage
 from .articles import Article
 from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
 from .generic_pages import Page
@@ -123,7 +123,6 @@ __all__ = [
     "BookContributor",
     "BookInfo",
     "BookReview",
-    "BreadcrumbEntry",
     "IndexInfo",
     "ManPage",
     "Note",
