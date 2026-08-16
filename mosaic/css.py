@@ -10,8 +10,8 @@ from typing import TypedDict
 from bs4 import BeautifulSoup
 import lightningcss
 
+from .cache import md5
 from .git import git_root
-from .text import md5
 
 
 __all__ = ["CSS_DIR", "create_base_css", "get_inline_styles"]

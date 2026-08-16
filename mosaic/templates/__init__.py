@@ -9,8 +9,12 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from mosaic.css import get_inline_styles
 from mosaic.models import filter_for_topic, get_topic, group_items_for_layout
-from mosaic.syntax_highlighting import apply_syntax_highlighting
-from mosaic.text import cleanup_text, markdownify, markdownify_oneline
+from mosaic.text import (
+    apply_syntax_highlighting,
+    cleanup_text,
+    markdownify,
+    markdownify_oneline,
+)
 
 from . import tree_icons
 from .downloads import DownloadExtension

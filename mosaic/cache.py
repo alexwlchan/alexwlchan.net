@@ -5,6 +5,7 @@ SQLite-based caching for common operations, to speed up the site build.
 from collections.abc import Callable
 from datetime import datetime, timezone
 import functools
+import hashlib
 from pathlib import Path
 import sqlite3
 import sys
@@ -117,6 +118,14 @@ def register(f: Callable[[str], str]) -> Callable[[str], str]:
         return value
 
     return wrapper
+
+
+@functools.cache
+def md5(s: str) -> str:
+    """
+    Return the hex-encoded MD5 hash of a string.
+    """
+    return hashlib.md5(s.encode("utf8")).hexdigest()
 
 
 if "pytest" in sys.modules:

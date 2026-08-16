@@ -47,7 +47,7 @@ I read this cover-to-cover but I'm unlikely to do so again; I made detailed note
 
 ## Notes and highlights
 
-{% set toc_entries = [
+{% set headings = [
     {
         "id": "part-i-thinking-about-risk",
         "label": "Part I: Thinking about Risk",
@@ -199,9 +199,9 @@ And a key mantra of the book:
 -   **We think more about rare threats than common ones.**
     We're more worried about terrorist attacks than falling a ladder.
     Familiar, established risks vs novelty and uncertainty.
-    
+
     > We instinctively zero in on dangers that are unusual or immediate, while paying much less attention to hazards that unfold more slowly or in a more familiar way.
-    
+
 -   **Focus on outcomes, not causes.**
     We want to find the cause of an incident, but there can be many contributing factors and it's difficult to enumerate or fully explain something.
 
@@ -242,7 +242,7 @@ home.
 **The trick isn't to avoid a fireball or fight the mob, but to be ready to shelter in place and/or evacuate quickly** (and know when to do so).
 
 What are the big disasters we should think about?
-  
+
 *   Natural and industrial disasters; social unrest
 *   Financial collapse is not uncommon, and the causes are poorly understood
 *   Pandemics; it's hard to know the correct course of actions even in hindsight
@@ -319,7 +319,7 @@ The chapter begins with a brief history of currency and coinage, which is mildly
 Then it compares different ways to mitigate financial risk:
 
 -   Physical cash.
-    It's useful for short-term outages and keeps your transactions private, but inflation and the risk of loss means you shouldn't keep too much on hand.   
+    It's useful for short-term outages and keeps your transactions private, but inflation and the risk of loss means you shouldn't keep too much on hand.
     [I got similar advice during COVID from somebody who'd lived in a former Soviet country. Cash is always useful, but you can't always assume ATMs will be working or well-stocked.]
 -   Diversified bank accounts
 -   Bonds, although they perhaps have less value now than they did historically
@@ -351,7 +351,7 @@ What's fun now that might be a marketable skill?
 
 -   Most people think they’re better drivers than the average, which is mathematically impossible.
     There are small things you can do to make yourself a safer driver:
-    
+
     *   Don't speed (the benefit of an extra 10mph on the motorway can be wiped out by stopping at one traffic light)
     *   **Take extra care at intersections and lane changes**
     *   Using a mobile phone is comparable to being drunk in terms of the effect it has on your driving
@@ -371,7 +371,7 @@ What's fun now that might be a marketable skill?
 -   House fires are rare compared to other risks, death even more so.
     Most people will be traumatised rather than killed.
     Focus on reducing your risk:
-    
+
     *   Good fire and smoke alarms
     *   Don't leave cardboard and plastic near heat
     *   Thin vegetation around your property if you live in a rural area
@@ -392,11 +392,11 @@ When you're a victim of a crime, you're at a disadvantage.
 
 -   House burglaries are scary: criminals often get in and out quickly, and will search common places for important info.
     Making your house look occupied can deter casual thieves -- leave lights on, or park a car outside.
-    
+
     Don't let post or newspapers pile up, which can advertise your absence.
     [How often does this happen in practice?]
     In the US you can ask USPS to hold your mail; in the UK the service you want is [Royal Mail Keepsafe][rm-keepsafe].
-    
+
 -   If you're in a violent crime, don't try to be John Wick.
     Criminals rely on your sense of compliance, giving you instructions while closing the gap.
     You can say something unexpected to widen the gap and escape, but it needs to be a rehearsed response!
@@ -443,7 +443,7 @@ Things to consider when writing your plan:
     That's okay, but look for common failures.
     For example, if you spend a lot of time at the office, a well-stocked backup bag kept at home is useless.
 -   Write a will, and leave instructions on where to find your assets.
-    
+
 ### Part III: The Essentials
 
 ### Chapter 14: The Discreet Charm of the Bulletproof Vest
@@ -550,7 +550,7 @@ How do you survive a few hours of days without power?
 -   Tools like a crowbar, chainsaw, and power pullers are useful in bigger incidents.
     Pay close attention to the safety information, especially if you don't use them often!
     For example, wood can be under a lot of tension when elastic, and can spring back unexpectedly when you cut through it.
-    
+
     > Many other power tools deserve deep reverence; for example, planers, jointers, miter saws, routers, and lathes are well-known for mangling the extremities of tens of thousands of people every year. Similarly, many gruesome injuries and deaths are attributed to outdoor equipment such as lawnmowers, snowblowers, wood chippers, and chainsaws. When operating such devices, always follow all the applicable safety tips. If the manual is too obtuse, look up reputable tutorials and accident reports on the internet. Perhaps the most general safety principle can be borrowed from the world of firearms: when working with tools that can maim in the blink of an eye, always make sure that at least two separate things need to go wrong before any serious harm can occur.
 
 -   In your car, it's helpful to have a spare tyre, puncture kit, road flares, chains, a battery kit maybe (but summer heat can damage the battery chemistry).
@@ -569,7 +569,7 @@ How do you survive a few hours of days without power?
 
 -   For winter, tight fitting base layers are better than loose top layers.
     You need to stay dry, so you want a good raincoat.
-    
+
 -   For summer, you want sunglasses, a hat with a brim, sunscreen, and water.
     If you need to avoid the sun by travelling at night, bring torches.
 
@@ -577,13 +577,13 @@ How do you survive a few hours of days without power?
     Living off the land is difficult and unlikely.
     If you can find water from a stream or a lake with water purification, that's a good bet.
     Bring a stove or fuel; a few bic lighters are fine for starting a fire, you don't need to learn complicated firelighting techniques.
-    
+
 -   People have lots of opinions on knives; the book argues a basic knife is fine.
     It's a versatile tool with many uses; remember it's a tool, not a weapon.
     Pay attention to local laws around carrying knives.
-    
+
     I skipped most of the discussion of US knife laws, but I was amused by this passage:
-    
+
     > Picking on California again: a folding knife of any length can be carried concealed (for example, inside your pocket), but any fixed-blade knife must always be in plain view. If you've ever purchased any pointy cutlery and carried it to the car in a shopping bag, you might be a violator of Penal Code 21310, eligible for up to a year in county jail.
 
 ### Chapter 21: Protection Against Pollutants and Disease
@@ -612,7 +612,7 @@ What happens when communications go down?
 
 -   Prefer satellite messengers to radios.
     They're cheaper, get better battery life, and are more consumer friendly.
-    
+
 -   Handheld radios don't make much sense; they won't be used for most official channels; they have limited range; they're more likely to be an apocalyptic Facebook or Nextdoor rumour mill.
     An AM/FM radio receiver will be more useful.
 
@@ -673,7 +673,7 @@ Guns!
 Considerations when selecting a gun:
 
 -   Capacity -- you won't be very accurate, so you want enough bullets to actually hit your target
--   Range -- it's way shorter than you think for any sort of accuracy; a handgun is maybe 10 yards max 
+-   Range -- it's way shorter than you think for any sort of accuracy; a handgun is maybe 10 yards max
 -   Recoil -- more portent cartridges may seem tempting, but if they’re harder for you to fire, you'll get less practice on the range and won't be able to use it safely
 -   Reliability -- are you practiced with what goes wrong?
     Are those skills muscle memory you can produce in an incident?

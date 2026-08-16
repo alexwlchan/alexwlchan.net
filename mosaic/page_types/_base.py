@@ -13,7 +13,7 @@ from pydantic import BaseModel, ConfigDict
 from mosaic import cache
 from mosaic.models import BreadcrumbEntry
 from mosaic.tint_colours import TintColours
-from mosaic.text import markdownify, md5, minify_html
+from mosaic.text import markdownify, minify_html
 
 
 class PartOf(TypedDict):
@@ -138,7 +138,7 @@ class BaseHtmlPage(BaseModel, ABC):
         of the shared template code.
         """
         cache_ns = "render_body_html"
-        cache_key = f"{self.url}:{md5(self.content)}"
+        cache_key = f"{self.url}:{cache.md5(self.content)}"
 
         if body := cache.get(cache_ns, cache_key):
             return body
@@ -175,7 +175,7 @@ class BaseHtmlPage(BaseModel, ABC):
         # has changed but the main template didn't; I'll see if that becomes
         # an issue in practice.
         cache_ns = "render_full_html"
-        cache_key = f"{self.url}:{md5(self.content)}"
+        cache_key = f"{self.url}:{cache.md5(self.content)}"
 
         # If we've cached this content and the file already exists, we don't
         # need to regenerate it.

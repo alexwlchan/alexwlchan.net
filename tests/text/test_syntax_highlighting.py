@@ -1,13 +1,13 @@
 """
-Tests for `mosaic.syntax_highlighting`.
+Tests for `mosaic.text.syntax_highlighting`.
 """
 
 from typing import Literal
 
 import pytest
 
-from mosaic.syntax_highlighting import apply_syntax_highlighting, parse_line_numbers
-from mosaic.text import markdownify
+from mosaic.text import apply_syntax_highlighting, markdownify
+from mosaic.text.syntax_highlighting import parse_line_numbers
 
 
 def test_syntax_highlighting() -> None:
