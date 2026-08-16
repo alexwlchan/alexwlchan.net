@@ -5,7 +5,6 @@ Code for dealing with HTML and XML templates.
 from collections.abc import Iterator
 from datetime import datetime
 import itertools
-import json
 from pathlib import Path
 from typing import Literal, TypedDict
 
@@ -63,7 +62,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "format_date": format_date,
             "get_inline_styles": get_inline_styles,
             "group_list_of_posts": group_list_of_posts,
-            "jsonify": json.dumps,
             "print": lambda p: print(repr(p)),
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
