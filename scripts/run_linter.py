@@ -8,6 +8,7 @@ from pathlib import Path
 import sys
 
 from bs4 import BeautifulSoup
+from chives.text import coloured
 from lxml import etree
 
 sys.path.append(str(Path(__file__).parent.parent))
@@ -21,7 +22,6 @@ from mosaic.linters import (
     check_redirects,
 )
 from mosaic.page_types import Post, read_markdown_files
-from mosaic.text import coloured
 
 
 def read_single_html_file(p: Path) -> BeautifulSoup:

@@ -7,11 +7,11 @@ import collections
 from pathlib import Path
 import sys
 
+from chives.text import coloured
 
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.page_types import Article, read_markdown_files
-from mosaic.text import coloured
 
 
 def count_words(content: str) -> int:

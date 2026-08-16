@@ -7,16 +7,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 import re
 import subprocess
-import sys
 from urllib.parse import quote_plus
 import webbrowser
 
 from chives.fetch import download_image
+from chives.text import coloured
 import yaml
-
-sys.path.append(str(Path(__file__).parent.parent))
-
-from mosaic.text import coloured
 
 
 def slugify(u: str) -> str:

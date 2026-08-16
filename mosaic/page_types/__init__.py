@@ -7,9 +7,8 @@ import os
 from pathlib import Path
 from typing import Any
 
+from chives.text import coloured
 import yaml
-
-from mosaic.text import coloured
 
 from ._base import BaseHtmlPage
 from .articles import Article
