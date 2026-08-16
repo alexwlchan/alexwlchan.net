@@ -20,6 +20,7 @@ import yaml
 from . import cache, manpages, page_types
 from .css import create_base_css
 from .git import GitRepository
+from .models import all_topics
 from .page_types import (
     Article,
     BaseHtmlPage,
@@ -41,7 +42,6 @@ from .page_types import (
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours
-from .topics import rebuild_topics_by_name
 
 
 def register_task(label: str) -> Any:
@@ -263,7 +263,7 @@ class Site(BaseModel):
                 if (
                     old_p.title != new_p.title
                     or old_p.summary != new_p.summary
-                    or old_p.topics != new_p.topics
+                    or getattr(old_p, "topics", []) != getattr(new_p, "topics", [])
                     or old_p.date != new_p.date
                 ) or isinstance(new_p, BookReview):
                     needs_new_index_pages = True
@@ -393,7 +393,7 @@ class Site(BaseModel):
             {
                 "css_url": css_url,
                 "site": self,
-                "all_topics": rebuild_topics_by_name(),
+                "all_topics": all_topics(),
                 "elsewhere": elsewhere,
             }
         )  # type: ignore

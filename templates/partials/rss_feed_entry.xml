@@ -23,7 +23,7 @@
   </content>
 
   {% for topic in post.topics %}
-    <category term="{{ topic | xml_escape }}" />
+    <category term="{{ topic.name | xml_escape }}" />
   {% endfor %}
 
   {% if post.summary %}

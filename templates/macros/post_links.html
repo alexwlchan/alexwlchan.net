@@ -11,7 +11,7 @@
         </a>
         <span class="meta">
         {% if p.topics %}{{- " · " -}}
-        {{ p.topics[0]|smartify }}{% endif %}
+        {{ p.topics[0].name|smartify }}{% endif %}
         {{- " · " -}}
         {%- with date = p.date -%}
         {%- with date_format = '%-d %b %Y' -%}

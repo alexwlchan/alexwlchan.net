@@ -64,7 +64,10 @@ def rebuild(site: Site, changeset: set[Path]) -> None:
 
     for p in changeset:
         if p == root / "topics.json":
-            has_changes = True
+            from mosaic.models import refresh_topics
+
+            refresh_topics()
+            continue
 
         if p.is_relative_to(root / "src"):
             has_src_changes = True

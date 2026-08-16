@@ -11,7 +11,7 @@ These entries cover the range of development work: from writing code to running 
 <p>
   Sub-topics:
   <ul class="dot_list">
-    {%- for c in get_topic_by_name(page.title).children | sort(attribute="name") -%}
+    {%- for c in page.topic.children | sort(attribute="name") -%}
     <li>
       <a href="{{ c.href }}">{{ c.name }}</a>
     </li>

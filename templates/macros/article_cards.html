@@ -7,7 +7,7 @@
   <ul>
   {% for article in articles %}
     {%- set article_meta -%}
-      {%- if article.topics -%}{{ article.topics[0] | smartify | cleanup_text }}{{- " · " -}}{%- endif -%}
+      {%- if article.topics -%}{{ article.topics[0].name | smartify | cleanup_text }}{{- " · " -}}{%- endif -%}
       {%- with date_format = '%-d %b %Y' -%}
       {%- with date = article.date -%}
         {%- include "partials/timestamp.html" -%}

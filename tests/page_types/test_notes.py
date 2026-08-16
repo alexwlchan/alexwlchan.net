@@ -61,5 +61,5 @@ def test_invalid_note_path(src_dir: Path, path: str) -> None:
             md_path=src_dir / path,
             src_dir=src_dir,
             date=datetime(2001, 1, 1),
-            topics=["Example topic"],
+            topics=["Python"],
         )

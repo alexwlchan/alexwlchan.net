@@ -7,7 +7,6 @@ from typing import Self
 
 from pydantic import model_validator
 
-from mosaic.topics import get_topic_by_name
 
 from ._base import BreadcrumbEntry
 from .posts import Post
@@ -49,7 +48,7 @@ class Article(Post):
         if self.topics:
             return [
                 BreadcrumbEntry(label=t.name, href=t.href)
-                for t in get_topic_by_name(self.topics[0]).breadcrumb
+                for t in self.topics[0].breadcrumb
             ]
         else:
             return [BreadcrumbEntry(label="articles", href="/articles/")]

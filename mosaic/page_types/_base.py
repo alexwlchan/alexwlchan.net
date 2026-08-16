@@ -8,12 +8,11 @@ from pathlib import Path
 from typing import TypedDict
 
 from jinja2 import Environment
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 from mosaic import cache
 from mosaic.tint_colours import TintColours
 from mosaic.text import markdownify, md5, minify_html
-from mosaic.topics import get_topic_by_name
 
 
 class PartOf(TypedDict):
@@ -34,7 +33,7 @@ class BreadcrumbEntry(BaseModel):
     href: str
 
 
-class BaseHtmlPage(ABC, BaseModel):
+class BaseHtmlPage(BaseModel, ABC):
     """
     BaseHtmlPage is the base class for all types of HTML page. It should
     never be constructed directly, but instead used to create pages
@@ -56,20 +55,6 @@ class BaseHtmlPage(ABC, BaseModel):
         """
         The breadcrumb trail for this page.
         """
-
-    def belongs_to_topic(self, topic_name: str) -> bool:
-        """
-        Check whether this post is part of a topic.
-        """
-        if not self.topics:
-            return False
-        elif topic_name in self.topics:
-            return True
-        else:
-            return any(
-                self.belongs_to_topic(topic_name=c.name)
-                for c in get_topic_by_name(topic_name).children
-            )
 
     # The name of the HTML file used as a template for this page.
     template_name: str
@@ -120,14 +105,6 @@ class BaseHtmlPage(ABC, BaseModel):
     card_attribution: str | None = None
 
     card_path: Path | None = None
-
-    # The single topic where this page is saved, which will be used
-    # to construct the breadcrumb.
-    topics: list[str] = Field(default_factory=lambda: list())
-
-    # A place for me to put topics that don't exist yet, but where
-    # this post might be filed in future.
-    hidden_topics: list[str] = Field(default_factory=lambda: list())
 
     def __repr__(self) -> str:  # pragma: no cover
         """

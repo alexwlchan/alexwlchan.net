@@ -10,6 +10,7 @@ from jinja2 import Environment
 import pydantic
 import pytest
 
+from mosaic.models import get_topic
 from mosaic.page_types import (
     Article,
     BaseHtmlPage,
@@ -56,16 +57,18 @@ def test_single_topic_can_be_str_or_list(src_dir: Path, topics_yml: str) -> None
     If there's only one topic, it can be expressed as a `topic` string
     or a one-item list `topics`.
     """
-    src_dir.mkdir()
-    md_path = src_dir / "example.md"
+    (src_dir / "notes/2001").mkdir(parents=True)
+    md_path = src_dir / "notes/2001/2001-02-03-example.md"
 
     md_path.write_text(
-        "---\nlayout: page\n"
+        "---\nlayout: note\n"
+        "date: 2001-02-03 04:05:06 +00:00\n"
         "title: Example\n" + topics_yml + "---\n" + "This is an example page"
     )
 
-    page = read_single_markdown_file(src_dir)
-    assert page.topics == ["Python"]
+    note = read_single_markdown_file(src_dir)
+    assert isinstance(note, Note)
+    assert note.topics == [get_topic("Python")]
 
 
 def test_read_article(src_dir: Path) -> None:
@@ -104,7 +107,7 @@ def test_read_note(src_dir: Path) -> None:
         "layout: note\n"
         "title: My first post\n"
         "date: 2001-02-03 04:05:06 +00:00\n"
-        "topic: My topic\n"
+        "topic: Python\n"
         "---\n"
         "This is my first note"
     )

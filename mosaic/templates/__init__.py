@@ -7,12 +7,10 @@ from pathlib import Path
 from chives.text import smartify
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from mosaic import page_types
 from mosaic.css import get_inline_styles
-from mosaic.models import group_items_for_layout
+from mosaic.models import filter_for_topic, get_topic, group_items_for_layout
 from mosaic.syntax_highlighting import apply_syntax_highlighting
 from mosaic.text import cleanup_text, markdownify, markdownify_oneline
-from mosaic.topics import get_topic_by_name
 
 from . import tree_icons
 from .downloads import DownloadExtension
@@ -68,18 +66,9 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "apply_syntax_highlighting": apply_syntax_highlighting,
             "src_dir": src_dir,
             "out_dir": out_dir,
-            "get_topic_by_name": get_topic_by_name,
+            "get_topic": get_topic,
             "tree_icons": tree_icons,
         }
     )  # type: ignore
 
     return env
-
-
-def filter_for_topic(
-    pages: list[page_types.BaseHtmlPage], topic_name: str
-) -> list[page_types.BaseHtmlPage]:
-    """
-    Return a list of pages that match a particular topic.
-    """
-    return [p for p in pages if p.belongs_to_topic(topic_name)]

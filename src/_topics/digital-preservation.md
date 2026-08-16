@@ -13,7 +13,7 @@ I formalised those ideas when I went to work for [Wellcome Collection](https://w
 Sub-topics:
 
 <ul>
-  {%- for c in get_topic_by_name(page.title).children | sort(attribute="name") -%}
+  {%- for c in page.topic.children | sort(attribute="name") -%}
   <li>
     <a href="{{ c.href }}">{{ c.name }}</a>
   </li>

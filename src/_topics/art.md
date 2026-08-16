@@ -8,7 +8,7 @@ These entries show off my more creative side: my illustrations, my cross-stitch,
 Sub-topics:
 
 <ul>
-  {%- for c in get_topic_by_name(page.title).children | sort(attribute="name") -%}
+  {%- for c in page.topic.children | sort(attribute="name") -%}
   <li>
     <a href="{{ c.href }}">{{ c.name }}</a>
   </li>

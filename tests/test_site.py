@@ -68,19 +68,19 @@ def test_page_properties(src_dir: Path) -> None:
         src_dir=src_dir,
         date=datetime(2007, 7, 7),
         md_path=src_dir / "notes/2007/2007-07-07-note.md",
-        topics=["Topic 7"],
+        topics=["SQLite"],
     )
     note8 = Note(
         src_dir=src_dir,
         date=datetime(2008, 8, 8),
         md_path=src_dir / "notes/2008/2008-08-08-note.md",
-        topics=["Topic 8"],
+        topics=["Docker"],
     )
     note9 = Note(
         src_dir=src_dir,
         date=datetime(2009, 9, 9),
         md_path=src_dir / "notes/2009/2009-09-09-note.md",
-        topics=["Topic 9"],
+        topics=["Python"],
     )
 
     make_topic = functools.partial(
@@ -137,7 +137,7 @@ def test_generate_rss_feeds(env: Environment, src_dir: Path, out_dir: Path) -> N
             src_dir=src_dir,
             md_path=src_dir / f"notes/{year}/{year}-02-02-note.md",
             date=datetime(year, 2, 2),
-            topics=["Topic 1", "Topic 2", "Topic 3"],
+            topics=["Python", "Ruby", "Go"],
             content=f"Note posted in {year}",
         )
         for year in range(2000, 2051)

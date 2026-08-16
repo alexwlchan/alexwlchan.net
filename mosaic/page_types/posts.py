@@ -7,11 +7,11 @@ from pathlib import Path
 import re
 
 
-from mosaic.models import Groupable
+from mosaic.models import Groupable, HasTopics
 from ._base import BaseHtmlPage
 
 
-class Post(Groupable, BaseHtmlPage):
+class Post(BaseHtmlPage, Groupable, HasTopics):
     """
     A post is a dated piece of writing, usually with original thought.
     """
