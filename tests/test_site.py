@@ -11,15 +11,17 @@ import time
 from jinja2 import Environment
 import pytest
 
-from mosaic.models import TintColours
+from mosaic.models import (
+    BookContributor,
+    BookInfo,
+    BookReview as ReviewInfo,
+    TintColours,
+)
 from mosaic.page_types import (
     Article,
     BaseHtmlPage,
-    BookContributor,
-    BookInfo,
     BookReview,
     Note,
-    ReviewInfo,
     TopicPage,
 )
 from mosaic.site import Site

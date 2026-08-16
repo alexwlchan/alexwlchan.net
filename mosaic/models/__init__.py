@@ -2,6 +2,7 @@
 Data models and types.
 """
 
+from .book_reviews import BookContributor, BookInfo, BookReview, book_attribution
 from .breadcrumb import BreadcrumbEntry
 from .grouping import Groupable, group_items_for_layout
 from .social_embeds import (
@@ -26,6 +27,9 @@ from .topics import (
 
 __all__ = [
     "BlueskyEmbed",
+    "BookContributor",
+    "BookInfo",
+    "BookReview",
     "BreadcrumbEntry",
     "Groupable",
     "HasTopics",
@@ -37,6 +41,7 @@ __all__ = [
     "TopicNotFoundError",
     "TwitterEmbed",
     "all_topics",
+    "book_attribution",
     "filter_for_topic",
     "get_default_tint_colours",
     "get_topic",

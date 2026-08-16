@@ -12,7 +12,7 @@ import yaml
 
 from ._base import BaseHtmlPage
 from .articles import Article
-from .book_reviews import BookContributor, BookReview, BookInfo, ReviewInfo
+from .book_reviews import BookReview
 from .generic_pages import Page
 from .manpages import ManPage
 from .notes import Note
@@ -119,8 +119,6 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
 __all__ = [
     "Article",
     "BaseHtmlPage",
-    "BookContributor",
-    "BookInfo",
     "BookReview",
     "IndexInfo",
     "ManPage",
@@ -133,7 +131,6 @@ __all__ = [
     "ProjectReleases",
     "ProjectSingleFile",
     "ProjectTree",
-    "ReviewInfo",
     "TopicPage",
     "read_markdown_files",
     "read_page_from_markdown",
