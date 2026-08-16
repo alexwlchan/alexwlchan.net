@@ -58,8 +58,8 @@ class Note(Post):
         expected_path = self.src_dir / "notes" / str(self.date.year) / expected_filename
 
         if self.md_path != expected_path:
-            raise ValueError(
-                f"wrong path: expected {expected_path!r}, got {self.md_path!r}"
-            )
+            want = expected_path.relative_to(self.src_dir)
+            got = self.md_path.relative_to(self.src_dir)
+            raise ValueError(f"wrong path: expected {want!r}, got {got!r}")
 
         return self
