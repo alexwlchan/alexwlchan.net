@@ -48,29 +48,29 @@
 
       nav {
         border-top: 0.5px solid var(--primary-color);
-        
+
         #actions {
           margin-bottom: 0;
         }
-        
+
         ul {
           margin-top: calc(1em - 4px);
           margin-bottom: 0;
         }
-        
+
         /* Navigation links (Commits, Files, Releases, License) are in,
          * colour, so they always stand out. */
         a:visited {
           color: var(--link-color);
         }
-        
+
         /* Links inside commands (clone/download) are black/white, so the
          * whole code block looks uniform. */
         #actions code {
           a, a:visited {
             color: var(--text-color);
           }
-          
+
           .noselect {
             -webkit-touch-callout: none; /* iOS Safari */
               -webkit-user-select: none; /* Safari */
@@ -93,7 +93,7 @@
       }
     }
   </style>
-  
+
   {% set repo = page.repo %}
 
   <article>
@@ -106,9 +106,9 @@
       </hgroup>
       <nav>
         <p id="actions">
-          <code><span class="noselect">$ </span>git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/><span class="noselect">$ </span>curl -O <a href="{{ page.download_url | absolute_url }}">{{ page.download_url | absolute_url }}</a> # {{ page.download_size | naturalsize }}</code>
+          <code><span class="noselect">$ </span>git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/><span class="noselect">$ </span>curl -O <a href="{{ page.download_url | absolute_url }}">{{ page.download_url | absolute_url }}</a> # {{ page.download_size | filesizeformat | replace("Byte", "byte") }}</code>
         </p>
-        
+
         <ul class="dot_list">
           <li><a href="{{ page.url }}commits/">Commits</a></li>
           <li><a href="{{ page.url }}files/">Files</a></li>
