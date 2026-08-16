@@ -20,7 +20,6 @@ import pygit2
 from pygit2.enums import SortMode
 
 from mosaic import cache
-from mosaic.text import markdownify
 
 
 __all__ = ["git_root", "GitRepository"]
@@ -564,6 +563,8 @@ class GitRepository(BaseModel):
         """
         Render a Markdown file as HTML to show on a page.
         """
+        from mosaic.text import markdownify
+
         html = markdownify(md)
 
         soup = BeautifulSoup(html, "html.parser")

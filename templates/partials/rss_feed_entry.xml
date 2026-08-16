@@ -1,32 +1,32 @@
 <entry>
-  <title type="html">{{ post.title | markdownify_oneline | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
+  <title type="html">{{ post.title | markdownify_oneline | escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
   <link
     href="{% if post.link %}{{ post.link }}{% else %}{{ post.absolute_url }}{% endif %}"
     rel="alternate"
     type="text/html"
-    title="{{ post.title | xml_escape }}"
+    title="{{ post.title | escape }}"
   />
   <published>{{ post.date.isoformat() }}</published>
   <updated>{{ (post.date_updated or post.date).isoformat() }}</updated>
 
-  <id>{{ post.absolute_url | xml_escape }}</id>
+  <id>{{ post.absolute_url | escape }}</id>
 
-  <content type="html" xml:base="{{ post.absolute_url | xml_escape }}">
+  <content type="html" xml:base="{{ post.absolute_url | escape }}">
     <![CDATA[
     {%- if post.template_name == "note.html" and post.summary -%}
       <p><strong>{{ post.summary | markdownify_oneline | fix_html_for_feed_readers }}</strong></p>
     {%- endif -%}
     {{- post.render_body_html(env) | cleanup_text | fix_html_for_feed_readers }}
 
-    <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.absolute_url | xml_escape }}">visit the original article</a>]</p>
+    <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.absolute_url | escape }}">visit the original article</a>]</p>
     ]]>
   </content>
 
   {% for topic in post.topics %}
-    <category term="{{ topic.name | xml_escape }}" />
+    <category term="{{ topic.name | escape }}" />
   {% endfor %}
 
   {% if post.summary %}
-    <summary type="html">{{ post.summary | xml_escape }}</summary>
+    <summary type="html">{{ post.summary | escape }}</summary>
   {% endif %}
 </entry>

@@ -13,6 +13,7 @@ from mosaic.models import filter_for_topic, get_topic, group_items_for_layout
 from mosaic.text import (
     apply_syntax_highlighting,
     cleanup_text,
+    fix_html_for_feed_readers,
     markdownify,
     markdownify_oneline,
 )
@@ -20,7 +21,6 @@ from mosaic.text import (
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .pictures import article_card_image, PictureExtension
-from .rss_feed import fix_html_for_feed_readers, xml_escape
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
 from .table_of_contents import TableOfContentsExtension
@@ -62,7 +62,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
             "smartify": smartify,
-            "xml_escape": xml_escape,
         }
     )
     env.globals.update(

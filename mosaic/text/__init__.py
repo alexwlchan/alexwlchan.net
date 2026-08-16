@@ -5,7 +5,7 @@ Utilities for dealing with text.
 import collections
 
 from .cleanup_text import cleanup_text
-from .html import minify_html, parse_html_headings
+from .html import fix_html_for_feed_readers, minify_html, parse_html_headings
 from .markdown import (
     assert_is_invariant_under_markdown,
     markdownify,
@@ -18,6 +18,7 @@ __all__ = [
     "assert_is_invariant_under_markdown",
     "cleanup_text",
     "find_unique_prefixes",
+    "fix_html_for_feed_readers",
     "markdownify",
     "markdownify_oneline",
     "minify_html",
