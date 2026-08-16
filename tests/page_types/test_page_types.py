@@ -342,18 +342,6 @@ def test_out_path() -> None:
     assert page.out_path(out_dir=Path("_out")) == Path("_out/contact/index.html")
 
 
-def test_sort_date() -> None:
-    """
-    The sort date is the date of the post, unless it's been updated,
-    in which case it's the date updated.
-    """
-    p = Page(date=datetime(2001, 1, 1))
-    assert p.sort_date == datetime(2001, 1, 1)
-
-    p.date_updated = datetime(2002, 2, 2)
-    assert p.sort_date == datetime(2002, 2, 2)
-
-
 class TestChooseSharingCard:
     """
     Tests for a sharing card for a post.

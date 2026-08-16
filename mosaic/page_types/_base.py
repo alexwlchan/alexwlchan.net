@@ -115,15 +115,6 @@ class BaseHtmlPage(BaseModel, ABC):
         assert self.url.startswith("/"), self.url
         return "https://alexwlchan.net" + self.url
 
-    @property
-    def sort_date(self) -> datetime:
-        """
-        Return the sort date for this item.
-        """
-        d = self.date_updated or self.date
-        assert d is not None
-        return d
-
     def out_path(self, out_dir: Path) -> Path:
         """
         Return the path where this HTML file should be written.
