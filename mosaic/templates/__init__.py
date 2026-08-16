@@ -7,7 +7,6 @@ from datetime import datetime
 import itertools
 import json
 from pathlib import Path
-import random
 from typing import Literal, TypedDict
 
 from chives.text import smartify
@@ -68,7 +67,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "print": lambda p: print(repr(p)),
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
-            "sample": random.sample,
             "smartify": smartify,
             "xml_escape": xml_escape,
         }

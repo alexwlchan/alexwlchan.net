@@ -10,7 +10,7 @@ topic: Generative art
     --nav-bg-image-light: url("/static/2025/truchet-header-light.svg");
     --nav-bg-image-dark:  url("/static/2025/truchet-header-dark.svg");
   }
-  
+
   /* These styles create a solid colour region behind the text, which gives
    * it a more consistent background than the header image. */
   @media (prefers-color-scheme: dark) {
@@ -68,19 +68,19 @@ One of the simplest Truchet tiles is a square made of two colours:
         <rect class="bg" width="100" height="100"/>
         <path class="fg" d="M 0 0 l 100 100 l -100 0 Z"/>
       </symbol>
-    
+
       <symbol id="truchetSquare90">
         <use href="#truchetSquare" transform="rotate(90 50 50)"/>
       </symbol>
-    
+
       <symbol id="truchetSquare180">
         <use href="#truchetSquare" transform="rotate(180 50 50)"/>
       </symbol>
-    
+
       <symbol id="truchetSquare270">
         <use href="#truchetSquare" transform="rotate(270 50 50)"/>
       </symbol>
-    
+
       <!--
         The base of the truchet tile is:
           - a white rectangle
@@ -94,7 +94,7 @@ One of the simplest Truchet tiles is a square made of two colours:
         <circle cx="2" cy="8" r="2"/>
         <circle cx="8" cy="8" r="2"/>
       </svg>
-    
+
       <svg id="base_foreground">
         <circle cx="2" cy="5" r="1"/>
         <circle cx="8" cy="5" r="1"/>
@@ -106,16 +106,16 @@ One of the simplest Truchet tiles is a square made of two colours:
         <use href="#base_background" class="bg"/>
         <use href="#base_foreground" class="fg"/>
       </symbol>
-    
+
       <symbol id="base-inverted">
         <use href="#base_background" class="fg"/>
         <use href="#base_foreground" class="bg"/>
       </symbol>
-    
+
       <!--
         Define some of the basic shapes that are used in the Carlson
         truchet tile set:
-      
+
         - a slash that goes from the top edge to the right edge
         - a wedge that goes from the top edge, to the right edge, to the centre
         - a horizontal bar that goes from the left edge to the right edge
@@ -135,21 +135,21 @@ One of the simplest Truchet tiles is a square made of two colours:
            l 0 2
            l -4 0"/>
       <rect id="bar" x="2" y="4" width="6" height="2"/>
-    
+
       <!--
         Define each of the Carlson tiles.
-      
+
         Each tile has a list of basic shapes that draw the tile, and a list
         of extra rotations.
       -->
       <symbol id="carlsonFour">
         <use href="#base"/>
       </symbol>
-    
+
       <symbol id="carlsonFour-inverted">
         <use href="#base-inverted"/>
       </symbol>
-    
+
       <symbol id="carlsonX">
         <use href="#base"/>
         <g class="fg">
@@ -159,7 +159,7 @@ One of the simplest Truchet tiles is a square made of two colours:
           <use href="#wedge" transform="rotate(270 5 5)"/>
         </g>
       </symbol>
-    
+
       <symbol id="carlsonX-inverted">
         <use href="#base-inverted"/>
         <g class="bg">
@@ -169,7 +169,7 @@ One of the simplest Truchet tiles is a square made of two colours:
           <use href="#wedge" transform="rotate(270 5 5)"/>
         </g>
       </symbol>
-    
+
       <symbol id="carlsonT">
         <use href="#base"/>
         <g class="fg">
@@ -177,9 +177,9 @@ One of the simplest Truchet tiles is a square made of two colours:
           <use href="#wedge" transform="rotate(90 5 5)"/>
         </g>
       </symbol>
-    
+
       <symbol id="carlsonT-inverted">
-        <use href="#base-inverted"/>  
+        <use href="#base-inverted"/>
         <g class="bg">
           <use href="#wedge"/>
           <use href="#wedge" transform="rotate(90 5 5)"/>
@@ -189,37 +189,37 @@ One of the simplest Truchet tiles is a square made of two colours:
       <symbol id="carlsonT-r90">
         <use href="#carlsonT" transform="rotate(90 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonT-r90-inverted">
         <use href="#carlsonT-inverted" transform="rotate(90 5 5)"/>
       </symbol>
-  
+
       <symbol id="carlsonT-r180">
         <use href="#carlsonT" transform="rotate(180 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonT-r180-inverted">
         <use href="#carlsonT-inverted" transform="rotate(180 5 5)"/>
       </symbol>
-  
+
       <symbol id="carlsonT-r270">
         <use href="#carlsonT" transform="rotate(270 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonT-r270-inverted">
         <use href="#carlsonT-inverted" transform="rotate(270 5 5)"/>
       </symbol>
 
       <symbol id="carlsonPlus">
-        <use href="#base"/>        
-        <g class="fg">        
+        <use href="#base"/>
+        <g class="fg">
           <use href="#bar"/>
-          <use href="#bar" transform="rotate(90 5 5)"/>        
+          <use href="#bar" transform="rotate(90 5 5)"/>
         </g>
       </symbol>
-    
+
       <symbol id="carlsonPlus-inverted">
-        <use href="#base-inverted"/>        
+        <use href="#base-inverted"/>
         <g class="bg">
           <use href="#bar"/>
           <use href="#bar" transform="rotate(90 5 5)"/>
@@ -233,19 +233,19 @@ One of the simplest Truchet tiles is a square made of two colours:
           <use href="#slash" transform="rotate(180 5 5)"/>
         </g>
       </symbol>
-      
+
       <symbol id="carlsonSlash-inverted">
         <use href="#base-inverted"/>
         <g class="bg">
           <use href="#slash"/>
-          <use href="#slash" transform="rotate(180 5 5)"/>        
+          <use href="#slash" transform="rotate(180 5 5)"/>
         </g>
       </symbol>
-  
+
       <symbol id="carlsonSlash-r90">
         <use href="#carlsonSlash" transform="rotate(90 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonSlash-r90-inverted">
         <use href="#carlsonSlash-inverted" transform="rotate(90 5 5)"/>
       </symbol>
@@ -259,11 +259,11 @@ One of the simplest Truchet tiles is a square made of two colours:
         <use href="#base-inverted"/>
         <use href="#bar" class="bg"/>
       </symbol>
-      
+
       <symbol id="carlsonMinus-r90">
         <use href="#carlsonMinus" transform="rotate(90 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonMinus-r90-inverted">
         <use href="#carlsonMinus-inverted" transform="rotate(90 5 5)"/>
       </symbol>
@@ -272,43 +272,43 @@ One of the simplest Truchet tiles is a square made of two colours:
         <use href="#base"/>
         <use href="#slash" class="fg"/>
       </symbol>
-      
+
       <symbol id="carlsonFrown-inverted">
         <use href="#base-inverted"/>
         <use href="#slash" class="bg"/>
       </symbol>
-      
+
       <symbol id="carlsonFrown-r90">
         <use href="#carlsonFrown" transform="rotate(90 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonFrown-r90-inverted">
         <use href="#carlsonFrown-inverted" transform="rotate(90 5 5)"/>
       </symbol>
-  
+
       <symbol id="carlsonFrown-r180">
         <use href="#carlsonFrown" transform="rotate(180 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonFrown-r180-inverted">
         <use href="#carlsonFrown-inverted" transform="rotate(180 5 5)"/>
       </symbol>
-  
+
       <symbol id="carlsonFrown-r270">
         <use href="#carlsonFrown" transform="rotate(270 5 5)"/>
       </symbol>
-    
+
       <symbol id="carlsonFrown-r270-inverted">
         <use href="#carlsonFrown-inverted" transform="rotate(270 5 5)"/>
       </symbol>
-  
+
       <style>
         :root {
           --background: var(--white);
           --foreground: var(--black);
           --border:     var(--black);
         }
-      
+
         @media (prefers-color-scheme: dark) {
           :root {
             --background: var(--black);
@@ -316,39 +316,39 @@ One of the simplest Truchet tiles is a square made of two colours:
             --border:     var(--white);
           }
         }
-      
+
         .bg {
           fill: var(--background);
         }
-  
+
         .fg {
           fill: var(--foreground);
         }
-      
+
         svg.border {
           border: 1px solid var(--border);
-        
+
           /* hack to fix subpixel rendering bug in WebKit */
           background: var(--foreground);
         }
-      
+
         .carlson_bg {
           fill: var(--block-border-color);
         }
-      
+
         .carlson_grid {
           fill: none;
           stroke: var(--red);
           stroke-width: 0.2px;
           stroke-dasharray: 0.25, 0.25;
         }
-      
+
         figure.columns_4 {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           grid-gap: 1em;
         }
-      
+
         @media screen and (max-width: 500px) {
           figure.columns_4 {
             grid-template-columns: repeat(2, 1fr);
@@ -358,8 +358,6 @@ One of the simplest Truchet tiles is a square made of two colours:
     </defs>
   </svg>
 </figure>
-
-AAA
 
 <figure style="width: 500px;" class="columns_4">
   {% set squares = ["#truchetSquare", "#truchetSquare90", "#truchetSquare180", "#truchetSquare270"] %}
@@ -377,7 +375,7 @@ These can be arranged in a regular pattern, but they also look nice when arrange
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1em;
-    
+
     figcaption {
       grid-column: 1 / span 2;
     }
@@ -385,7 +383,7 @@ These can be arranged in a regular pattern, but they also look nice when arrange
 </style>
 
 <figure style="width: 500px;" id="square_tiles_demo">
-  <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" class="border">  
+  <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" class="border">
     <use href="#truchetSquare"/>
     <use href="#truchetSquare" x="100"/>
     <use href="#truchetSquare" x="200"/>
@@ -403,23 +401,23 @@ These can be arranged in a regular pattern, but they also look nice when arrange
     <use href="#truchetSquare" x="200" y="300"/>
     <use href="#truchetSquare" x="300" y="300"/>
   </svg>
-  <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" id="randomSquares" class="border">  
-    <use href="{{ (squares | sample(1))[0] }}"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="100"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="200"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="300"/>
-    <use href="{{ (squares | sample(1))[0] }}"         y="100"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="100" y="100"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="200" y="100"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="300" y="100"/>
-    <use href="{{ (squares | sample(1))[0] }}"         y="200"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="100" y="200"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="200" y="200"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="300" y="200"/>
-    <use href="{{ (squares | sample(1))[0] }}"         y="300"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="100" y="300"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="200" y="300"/>
-    <use href="{{ (squares | sample(1))[0] }}" x="300" y="300"/>
+  <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" id="randomSquares" class="border">
+    <use href="{{ squares | random }}"/>
+    <use href="{{ squares | random }}" x="100"/>
+    <use href="{{ squares | random }}" x="200"/>
+    <use href="{{ squares | random }}" x="300"/>
+    <use href="{{ squares | random }}"         y="100"/>
+    <use href="{{ squares | random }}" x="100" y="100"/>
+    <use href="{{ squares | random }}" x="200" y="100"/>
+    <use href="{{ squares | random }}" x="300" y="100"/>
+    <use href="{{ squares | random }}"         y="200"/>
+    <use href="{{ squares | random }}" x="100" y="200"/>
+    <use href="{{ squares | random }}" x="200" y="200"/>
+    <use href="{{ squares | random }}" x="300" y="200"/>
+    <use href="{{ squares | random }}"         y="300"/>
+    <use href="{{ squares | random }}" x="100" y="300"/>
+    <use href="{{ squares | random }}" x="200" y="300"/>
+    <use href="{{ squares | random }}" x="300" y="300"/>
   </svg>
 </figure>
 
@@ -436,7 +434,7 @@ He defined fifteen tiles, which are seven distinct patterns and then various rot
     grid-gap: var(--grid-gap);
     width: 650px;
   }
-  
+
   @media screen and (max-width: 500px) {
     #carlsonTiles {
       grid-template-columns: repeat(3, 1fr);
@@ -534,34 +532,34 @@ Here's an example of a Carlson Truchet tiling:
     <line x1="30" y1="0" x2="30" y2="24" class="carlson_grid"/>
     <line x1="36" y1="0" x2="36" y2="24" class="carlson_grid"/>
     <line x1="42" y1="0" x2="42" y2="24" class="carlson_grid"/>
-    
+
     <line x1="0" y1="6" x2="48" y2="6" class="carlson_grid"/>
     <line x1="0" y1="12" x2="48" y2="12" class="carlson_grid"/>
     <line x1="0" y1="18" x2="48" y2="18" class="carlson_grid"/>
-    
+
     <line x1="21" y1="0" x2="21" y2="6" class="carlson_grid"/>
     <line x1="18" y1="3" x2="24" y2="3" class="carlson_grid"/>
-    
+
     <line x1="39" y1="6" x2="39" y2="12" class="carlson_grid"/>
     <line x1="36" y1="9" x2="42" y2="9" class="carlson_grid"/>
-    
+
     <line x1="37.5" y1="9" x2="37.5" y2="12" class="carlson_grid"/>
     <line x1="36" y1="10.5" x2="39" y2="10.5" class="carlson_grid"/>
-    
+
     <line x1="3" y1="18" x2="3" y2="24" class="carlson_grid"/>
     <line x1="0" y1="21" x2="6" y2="21" class="carlson_grid"/>
-    
+
     <line x1="1.5" y1="18" x2="1.5" y2="24" class="carlson_grid"/>
     <line x1="0" y1="19.5" x2="3" y2="19.5" class="carlson_grid"/>
     <line x1="0" y1="22.5" x2="6" y2="22.5" class="carlson_grid"/>
     <line x1="4.5" y1="21" x2="4.5" y2="24" class="carlson_grid"/>
-    
+
     <line x1="21" y1="18" x2="21" y2="24" class="carlson_grid"/>
     <line x1="18" y1="21" x2="24" y2="21" class="carlson_grid"/>
-    
+
     <line x1="19.5" y1="18" x2="19.5" y2="21" class="carlson_grid"/>
     <line x1="18" y1="19.5" x2="21" y2="19.5" class="carlson_grid"/>
-    
+
     <line x1="22.5" y1="21" x2="22.5" y2="24" class="carlson_grid"/>
     <line x1="21" y1="22.5" x2="24" y2="22.5" class="carlson_grid"/>
   </svg>
@@ -625,12 +623,12 @@ This diagram shows the two variables, plus two variables I compute in the templa
         .carlson_grid_blue {
           stroke: var(--green);
         }
-      
+
         path.dimensions {
           stroke: currentColor;
           stroke-width: 0.1px;
         }
-        
+
         .grid_thin {
           stroke-width: 0.15px;
         }
@@ -643,11 +641,11 @@ This diagram shows the two variables, plus two variables I compute in the templa
 
       <circle cx="3" cy="3" r="2" class="carlson_grid carlson_grid_blue"/>
       <circle cx="9" cy="6" r="1" class="carlson_grid carlson_grid_blue"/>
-    
+
       <circle cx="3" cy="3" r="0.25" class="blue"/>
       <circle cx="9" cy="6" r="0.25" class="blue"/>
     </g>
-    
+
     <text x="6.5" y="2" font-size="1px" dominant-baseline="middle" text-anchor="end">outer radius</text>
     <path class="dimensions"
       d="M 6.8 3
@@ -658,7 +656,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
          l -0.3 0
          l 0 2
          l -0.3 0"/>
-    
+
     <path class="dimensions"
       d="M 20.6 6
          l 0.6 0 l -0.3 0
@@ -669,7 +667,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
          l 0 1
          l -0.3 0"/>
     <text x="21.5" y="5.5" font-size="1px" dominant-baseline="middle" text-anchor="start">inner radius</text>
-    
+
     <path class="dimensions"
       d="M 11 12.6
          l 0 0.6 l 0 -0.3
@@ -680,7 +678,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
          l -6 0
          l 0 -0.3"/>
     <text x="14" y="14.2" font-size="1px" dominant-baseline="text-top" text-anchor="middle">tile size</text>
-  
+
     <path class="dimensions"
       d="M 9 14.8
          l 0 0.6 l 0 -0.3
@@ -821,7 +819,7 @@ function getTilePositions({
   subdivideChance,
 }) {
   let tiles = [];
-  
+
   // Draw layer 1 of tiles, which is a full-sized tile for
   // every row and column.
   for (i = 0; i < columns; i++) {
@@ -829,18 +827,18 @@ function getTilePositions({
       tiles.push({ x: i * tileSize, y: j * tileSize, layer: 1 });
     }
   }
-  
+
   // Now go through each layer up to maxLayers, and decide which
   // tiles from the previous layer to subdivide into four smaller tiles.
   for (layer = 2; layer <= maxLayers; layer++) {
     let previousLayer = tiles.filter(t => t.layer === layer - 1);
-    
+
     // The size of tiles halves with each layer.
     // On layer 2, the tiles are 1/2 the size of the top layer.
     // On layer 3, the tiles are 1/4 the size of the top layer.
     // And so on.
     let layerTileSize = tileSize * (0.5 ** (layer - 1));
-    
+
     previousLayer.forEach(tile => {
       if (Math.random() < subdivideChance) {
         tiles.push(
@@ -852,7 +850,7 @@ function getTilePositions({
       }
     })
   }
-  
+
   return tiles;
 }
 ```
@@ -870,11 +868,11 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
     let tileName = c.layer % 2 === 0
       ? tileTypes[Math.floor(Math.random() * tileTypes.length)] + "-inverted"
       : tileTypes[Math.floor(Math.random() * tileTypes.length)];
-      
+
     // The full-sized tiles are on layer 1, and every layer below
     // that halves the tile size.
     const scale = 0.5 ** (c.layer - 1);
-    
+
     // We don't want to draw a tile exactly at (x, y) because that
     // would include the wings -- we add negative padding to offset.
     //
@@ -903,7 +901,7 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
     subdivideChance,
   }) {
     let tiles = [];
-  
+
     // Draw layer 1 of tiles, which is a full-sized tile for
     // every row and column.
     for (i = 0; i < columns; i++) {
@@ -915,18 +913,18 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
         });
       }
     }
-  
+
     // Now go through each layer up to maxLayers, and decide which
     // tiles from the previous layer to subdivide into four smaller tiles.
     for (layer = 2; layer <= maxLayers; layer++) {
       let previousLayer = tiles.filter(t => t.layer === layer - 1);
-    
+
       // The size of tiles halves with each layer.
       // On layer 2, the tiles are 1/2 the size of the top layer.
       // On layer 3, the tiles are 1/4 the size of the top layer.
       // And so on.
       let layerTileSize = tileSize * (0.5 ** (layer - 1));
-    
+
       previousLayer.forEach(tile => {
         if (Math.random() < subdivideChance) {
           tiles.push(
@@ -938,7 +936,7 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
         }
       })
     }
-  
+
     return tiles;
   }
 
@@ -949,11 +947,11 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
       let tileName = c.layer % 2 === 0
         ? tileTypes[Math.floor(Math.random() * tileTypes.length)] + "-inverted"
         : tileTypes[Math.floor(Math.random() * tileTypes.length)];
-      
+
       // The full-sized tiles are on layer 1, and every layer below
       // that halves the tile size.
       const scale = 0.5 ** (c.layer - 1);
-    
+
       // We don't want to draw a tile exactly at (x, y) because that
       // would include the wings -- we add negative padding to offset.
       //
@@ -971,9 +969,9 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
           transform="translate(${adjustment} ${adjustment}) scale(${scale})"/>`;
     });
   }
-  
+
   var customColors = false;
-  
+
   function redrawRandomCarlson() {
     console.log('redrawRandomCarlson');
     const innerRadius = 1;
@@ -989,34 +987,34 @@ function drawTruchetTiles(svg, tileTypes, tilePositions, padding) {
       subdivideChance: 0.2,
     });
     drawTruchetTiles(svg, tileTypes, tilePositions, padding);
-    
+
     /* Select some random colours to show on the diagram */
     const rootStyles = getComputedStyle(document.documentElement);
     const colorVarNames = ["--white", "--black", "--red", "--green", "--blue", "--magenta", "--yellow"];
     const colors = colorVarNames.map(n => rootStyles.getPropertyValue(n));
-    
+
     if (!customColors) {
       /* Make sure we pick different foreground / background colours. */
       let foreground = colors[Math.floor(Math.random() * colors.length)];
-      
+
       let background = colors[Math.floor(Math.random() * colors.length)];
       while (foreground === background) {
         background = colors[Math.floor(Math.random() * colors.length)]
       }
-      
+
       const svg = document.querySelector("#randomCarlson");
-      
+
       svg.style.setProperty("--foreground", foreground);
       svg.style.setProperty("--background", background);
-      
+
       document.querySelector("#foreground").value = foreground;
       document.querySelector("#background").value = background;
     }
   }
-  
+
   document.addEventListener("DOMContentLoaded", redrawRandomCarlson);
 </script>
-  
+
 The padding was fiddly and took me a while to work out, but now it works fine.
 The tricky bits are another reason I like defining my SVGs parametrically -- it forces me to really understand what's going on, rather than tweaking values until I get something that looks correct.
 
@@ -1107,12 +1105,12 @@ Here's a drawing that uses this code to draw Carlson truchet tiles:
     function setDemoColours() {
       const foreground = document.querySelector("#foreground").value;
       const background = document.querySelector("#background").value;
-      
+
       const svg = document.querySelector("#randomCarlson");
-      
+
       svg.style.setProperty("--foreground", foreground);
       svg.style.setProperty("--background", background);
-      
+
       customColors = true;
     }
   </script>
