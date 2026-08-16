@@ -29,16 +29,17 @@ from jinja2.parser import Parser
 from jinja2.runtime import Context
 from PIL import Image
 
+from mosaic.models import (
+    SocialEmbedData,
+    parse_social_embed_data,
+    BlueskyEmbed,
+    MastodonEmbed,
+    TwitterEmbed,
+    MediaEntity,
+)
 from mosaic.text import assert_is_invariant_under_markdown
 
 from .pictures import render_picture
-from .social_embed_models import (
-    MastodonEmbed,
-    MediaEntity,
-    SocialEmbedData,
-    TwitterEmbed,
-    parse_social_embed_data,
-)
 
 
 with open("social_embeds/data.json") as in_file:
@@ -162,7 +163,7 @@ def create_base64_avatar(avatar_path: str, *, size: int) -> str:
             raise RuntimeError(f"unsupported avatar format: {im.format}")
 
 
-def render_bluesky_text(post_data: TwitterEmbed) -> str:
+def render_bluesky_text(post_data: BlueskyEmbed) -> str:
     """
     Render the text of a Bluesky post as HTML.
     """
