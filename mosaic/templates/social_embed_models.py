@@ -2,6 +2,7 @@
 Models for the social media embed data in `social_embeds.json`.
 """
 
+from datetime import datetime
 from typing import Any, Literal, Optional
 
 from pydantic import BaseModel
@@ -75,7 +76,7 @@ class BlueskyEmbed(BaseModel):
     site: Literal["bluesky"]
     id: str
     author: BlueskyUser
-    date_posted: str
+    date_posted: datetime
     text: str
     quoted_post: Optional["BlueskyEmbed"] = None
 
@@ -118,7 +119,7 @@ class MastodonEmbed(BaseModel):
     site: Literal["mastodon"]
     id: str
     author: MastodonUser
-    date_posted: str
+    date_posted: datetime
     text: str
     entities: MastodonEntities | None = None
 
@@ -140,7 +141,7 @@ class TwitterEmbed(BaseModel):
     site: Literal["twitter"]
     id: str
     author: TwitterUser
-    date_posted: str
+    date_posted: datetime
     text: str
     entities: Entities | None = None
     quoted_status: Optional["TwitterEmbed"] = None

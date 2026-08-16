@@ -1,3 +1,5 @@
+{% from "macros/timestamp.html" import timestamp %}
+
 <link href="css/components/embed_microblog.css" rel="stylesheet"/>
 <link href="css/components/embed_tweets.css" rel="stylesheet"/>
 
@@ -48,9 +50,7 @@
 
 <p class="timestamp">
   <a href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">
-    <time datetime="{{ post_data.date_posted | format_date("%Y-%m-%d") }}">
-      {{- post_data.date_posted | format_date("%-I:%M&nbsp;%p · %-d %b %Y") -}}
-    </time>
+    {{- timestamp(post_data.date_posted, date_format="%-I:%M&nbsp;%p · %-d %b %Y") -}}
   </a>
 </p>
 </blockquote>

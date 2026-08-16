@@ -3,7 +3,6 @@ Code for dealing with HTML and XML templates.
 """
 
 from collections.abc import Iterator
-from datetime import datetime
 import itertools
 from pathlib import Path
 from typing import Literal, TypedDict
@@ -59,7 +58,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "cleanup_text": cleanup_text,
             "filter_for_topic": filter_for_topic,
             "fix_html_for_feed_readers": fix_html_for_feed_readers,
-            "format_date": format_date,
             "get_inline_styles": get_inline_styles,
             "group_list_of_posts": group_list_of_posts,
             "print": lambda p: print(repr(p)),
@@ -80,13 +78,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
     )  # type: ignore
 
     return env
-
-
-def format_date(date_string: str, format: str) -> str:
-    """
-    Reformat an ISO-formatted date in the specified format.
-    """
-    return datetime.fromisoformat(date_string).strftime(format)
 
 
 def absolute_url(path: str) -> str:

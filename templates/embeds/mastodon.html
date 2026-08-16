@@ -1,3 +1,5 @@
+{% from "macros/timestamp.html" import timestamp %}
+
 <link href="css/components/embed_microblog.css" rel="stylesheet"/>
 <link href="css/components/embed_mastodon.css" rel="stylesheet"/>
 
@@ -28,9 +30,7 @@
 
 <p class="timestamp">
   <a href="https://{{ author.server }}/@{{ author.username }}/{{ post_data.id }}">
-    <time datetime="{{ post_data.date_posted | format_date("%Y-%m-%d") }}">
-      {{- post_data.date_posted | format_date("%d %b %Y at %H:%M") -}}
-    </time>
+    {{- timestamp(post_data.date_posted, date_format="%d %b %Y at %H:%M") -}}
   </a>
 </p>
 </blockquote>
