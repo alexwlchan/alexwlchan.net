@@ -2,9 +2,11 @@
 layout: page
 date_updated: 2018-03-13T08:20:56Z
 title: "A Plumber's Guide to Git: Conclusion"
-part_of:
-  url: /a-plumbers-guide-to-git/
-  label: "A Plumber's Guide to Git"
+breadcrumb:
+  - label: Git
+    href: /git/
+  - label: "A Plumber's Guide to Git"
+    href: /a-plumbers-guide-to-git/
 ---
 
 Well done for getting this far!

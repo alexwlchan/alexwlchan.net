@@ -2,9 +2,11 @@
 layout: page
 date_updated: 2018-03-13T08:20:41Z
 title: "Part 1: The Git object store"
-part_of:
-  url: /a-plumbers-guide-to-git/
-  label: "A Plumber's Guide to Git"
+breadcrumb:
+  - label: Git
+    href: /git/
+  - label: "A Plumber's Guide to Git"
+    href: /a-plumbers-guide-to-git/
 ---
 
 We'll start by working with single files.

@@ -5,7 +5,6 @@ The model for an HTML page which is going to be rendered in the site.
 from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
-from typing import TypedDict
 
 from jinja2 import Environment
 from pydantic import BaseModel, ConfigDict
@@ -13,15 +12,6 @@ from pydantic import BaseModel, ConfigDict
 from mosaic import cache
 from mosaic.models import BreadcrumbEntry, TintColours
 from mosaic.text import markdownify, minify_html
-
-
-class PartOf(TypedDict):
-    """
-    Which section this page is part of.
-    """
-
-    url: str
-    label: str
 
 
 class BaseHtmlPage(BaseModel, ABC):
@@ -87,9 +77,6 @@ class BaseHtmlPage(BaseModel, ABC):
 
     # Tint colours for this page.
     colours: TintColours | None = None
-
-    # Which section is this page part of?
-    part_of: PartOf | None = None
 
     # Attribution information about the photo used for the card.
     # TODO(2026-01-20): Actually use this information.

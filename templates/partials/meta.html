@@ -15,7 +15,6 @@
 {%- if
       page.date or
       (page.topics is defined and page.topics|count > 1) or
-      page.part_of or
       page.date_updated or
       page.link -%}
 <ul class="dot_list meta">
@@ -35,10 +34,6 @@
     <li>Also filed in {% for t in page.topics[1:] -%}
       <a href="{{ t.href }}">{{ t.name }}</a>{% if not loop.last %}, {% endif -%}
     {%- endfor -%}</li>
-  {%- endif -%}
-
-  {%- if page.part_of -%}
-  <li>Part of <a href="{{ page.part_of.url }}">{{ page.part_of.label|markdownify_oneline }}</a></li>
   {%- endif -%}
 
   {%- if page.link -%}

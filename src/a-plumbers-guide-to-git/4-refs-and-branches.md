@@ -2,9 +2,11 @@
 layout: page
 date_updated: 2018-03-13T08:20:53Z
 title: "Part 4: Refs and branches"
-part_of:
-  url: /a-plumbers-guide-to-git/
-  label: "A Plumber's Guide to Git"
+breadcrumb:
+  - label: Git
+    href: /git/
+  - label: "A Plumber's Guide to Git"
+    href: /a-plumbers-guide-to-git/
 ---
 
 At the end of part 3, we've seen how to take snapshots of the repo with trees, attach context with commits, and construct commits into a sequence -- but passing around commit hashes is unwieldy.
