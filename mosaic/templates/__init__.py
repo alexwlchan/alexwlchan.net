@@ -53,7 +53,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
 
     env.filters.update(
         {
-            "absolute_url": absolute_url,
             "article_card_image": article_card_image,
             "cleanup_text": cleanup_text,
             "filter_for_topic": filter_for_topic,
@@ -78,16 +77,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
     )  # type: ignore
 
     return env
-
-
-def absolute_url(path: str) -> str:
-    """
-    Return the absolute URL for this path.
-    """
-    if path.startswith("/"):
-        return "https://alexwlchan.net" + path
-    else:
-        return "https://alexwlchan.net/" + path
 
 
 def filter_for_topic(

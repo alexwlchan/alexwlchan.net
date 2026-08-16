@@ -7,7 +7,7 @@
 {% if page.canonical_url is defined and page.canonical_url %}
 <link rel="canonical" href="{{ page.canonical_url }}">
 {% else %}
-<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="canonical" href="{{ page.absolute_url }}">
 {% endif %}
 
 {% set safe_title = page.title | markdownify_oneline | striptags %}

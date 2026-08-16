@@ -2,10 +2,10 @@
 
 {% block content %}
   <link href="https://alexwlchan.net/atom.xml" rel="self" type="application/atom+xml" />
-  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" />
-  <id>{{ '/' | absolute_url | xml_escape }}</id>
+  <link href="https://alexwlchan.net/" rel="alternate" type="text/html" />
+  <id>https://alexwlchan.net/</id>
   <title type="html">alexwlchan</title>
-  <subtitle>{{ "Alex Chan’s personal website"| xml_escape }}</subtitle>
+  <subtitle>Alex Chan’s personal website</subtitle>
 
   {% for post in articles[:25] %}
     {% include "partials/rss_feed_entry.xml" %}

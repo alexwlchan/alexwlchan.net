@@ -139,6 +139,14 @@ class BaseHtmlPage(ABC, BaseModel):
             return f"<{type(self).__name__} url={self.url!r}>"
 
     @property
+    def absolute_url(self) -> str:
+        """
+        Returns the absolute URL to this page.
+        """
+        assert self.url.startswith("/"), self.url
+        return "https://alexwlchan.net" + self.url
+
+    @property
     def sort_date(self) -> datetime:
         """
         Return the sort date for this item.

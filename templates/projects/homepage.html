@@ -106,7 +106,7 @@
       </hgroup>
       <nav>
         <p id="actions">
-          <code><span class="noselect">$ </span>git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/><span class="noselect">$ </span>curl -O <a href="{{ page.download_url | absolute_url }}">{{ page.download_url | absolute_url }}</a> # {{ page.download_size | filesizeformat | replace("Byte", "byte") }}</code>
+          <code><span class="noselect">$ </span>git clone git://alexwlchan.net/projects/{{ repo.name }}.git<br/><span class="noselect">$ </span>curl -O <a href="{{ page.download_url }}">https://alexwlchan.net{{ page.download_url }}</a> # {{ page.download_size | filesizeformat | replace("Byte", "byte") }}</code>
         </p>
 
         <ul class="dot_list">

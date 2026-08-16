@@ -10,22 +10,7 @@ from jinja2 import Environment
 import pytest
 
 from mosaic.page_types import BaseHtmlPage, BreadcrumbEntry, Page, Post
-from mosaic.templates import (
-    absolute_url,
-    filter_for_topic,
-    group_list_of_posts,
-)
-
-
-@pytest.mark.parametrize(
-    "path, url",
-    [("/", "https://alexwlchan.net/"), ("example", "https://alexwlchan.net/example")],
-)
-def test_absolute_url(path: str, url: str) -> None:
-    """
-    Tests for `absolute_url`.
-    """
-    assert absolute_url(path) == url
+from mosaic.templates import filter_for_topic, group_list_of_posts
 
 
 def test_filter_for_topic() -> None:
