@@ -4,11 +4,6 @@ Print the size of the rendered HTML files.
 """
 
 from pathlib import Path
-import sys
-
-sys.path.append(str(Path(__file__).parent.parent))
-
-from mosaic.fs import find_paths_under
 
 
 def pprint_filesize(path: Path) -> str:
@@ -39,9 +34,7 @@ if __name__ == "__main__":
     )
 
     sizes = [
-        p.stat().st_size
-        for p in find_paths_under(out_dir, suffix=".html")
-        if "files" not in p.parts
+        p.stat().st_size for p in out_dir.rglob("*.html") if "files" not in p.parts
     ]
     average = round(sum(sizes) / len(sizes))
     print("Global average:\t\t\t", pprint_size(average))

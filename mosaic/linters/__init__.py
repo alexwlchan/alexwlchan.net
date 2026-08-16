@@ -12,7 +12,6 @@ from urllib.parse import unquote, urlsplit
 from bs4 import BeautifulSoup, Tag
 
 from mosaic.caddy import parse_caddy_redirects
-from mosaic.fs import find_paths_under
 
 from .html import (
     check_all_ids_are_unique,
@@ -143,7 +142,7 @@ def check_all_urls_are_hackable(redir_path: Path, out_dir: Path) -> list[str]:
     redirect_urls = {r.source for r in parse_caddy_redirects(redir_path)}
     html_urls = set()
 
-    for p in find_paths_under(out_dir, suffix=".html"):
+    for p in out_dir.rglob("*.html"):
         relative_path = p.relative_to(out_dir)
 
         # The /files/ directory is just a grab bag of HTML files, and

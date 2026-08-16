@@ -12,7 +12,6 @@ from lxml import etree
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from mosaic.fs import find_paths_under
 from mosaic.linters import (
     check_all_urls_are_hackable,
     check_images_have_alt_text,
@@ -61,10 +60,10 @@ if __name__ == "__main__":
     all_pages = read_markdown_files(src_dir)
     all_errors: dict[str | Path, list[str]] = collections.defaultdict(list)
 
-    html_paths = list(find_paths_under(out_dir, suffix=".html"))
-
     print("parsing html...")
-    html_files = {p: (p.read_text(), read_single_html_file(p)) for p in html_paths}
+    html_files = {
+        p: (p.read_text(), read_single_html_file(p)) for p in out_dir.rglob("*.html")
+    }
 
     print("linting html...")
     for p, (html_str, soup) in html_files.items():
@@ -123,7 +122,7 @@ if __name__ == "__main__":
     # Check that every image card has a corresponding post.
     known_slugs = {post.slug for post in all_pages if isinstance(post, Post)}
 
-    for p in find_paths_under(src_dir / "images/cards"):
+    for p in (src_dir / "images/cards").rglob("."):
         if p.stem not in known_slugs:
             all_errors[p].append("no corresponding article/note")
 
