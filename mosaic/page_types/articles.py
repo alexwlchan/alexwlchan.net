@@ -18,9 +18,6 @@ class Article(Post):
 
     template_name: str = "article.html"
 
-    # What order is this in the list of all articles?
-    order: int = -1
-
     # The short filename for this card, used on /articles/ to reduce page
     # weight. For example, "dominant-colours" might become "do".
     card_short_name: str | None = None

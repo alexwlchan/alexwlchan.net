@@ -539,11 +539,6 @@ class Site(BaseModel):
         """
         Set the `order` and `card_short_name` properties for articles.
         """
-        # Ordering: add a numeric "order" attribute to every article,
-        # which is used for sorting on /articles/.
-        for order, art in enumerate(reversed(self.articles), start=1):
-            art.order = order
-
         # These filenames are repeated many times on the global articles page,
         # so they should be as short as possible.
         #
