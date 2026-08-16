@@ -196,6 +196,19 @@ class Commit(BaseModel):
 
         return Stats(additions=additions, deletions=deletions)
 
+    @property
+    def author_is_me(self) -> bool:
+        """
+        Return whether I wrote this commit.
+        """
+        return self.author in {
+            "Alex Chan <a.chan@wellcome.ac.uk>",
+            "Alex Chan <alex@alexwlchan.net>",
+            "Alex Chan <alexc@tailscale.com>",
+            "Azure Pipelines on behalf of Alex Chan <azurepipelines_git@alexwlchan.fastmail.co.uk>",  # noqa: E501
+            "GitHub Actions on behalf of Alex Chan <githubactions@alexwlchan.net>",
+        }
+
 
 def display_author(name: str, email: str) -> str:
     """
@@ -206,6 +219,11 @@ def display_author(name: str, email: str) -> str:
         and "dependabot[bot]@users.noreply.github.com" in email
     ):
         return "dependabot <https://github.com/dependabot>"
+    elif (
+        name == "github-actions[bot]"
+        and "github-actions[bot]@users.noreply.github.com>" in email
+    ):  # pragma: no cover
+        return "github-actions[bot]"
     else:
         return f"{name} <{email}>"
 

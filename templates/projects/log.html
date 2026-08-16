@@ -4,6 +4,16 @@
   <style>
     .commits li {
       margin-bottom: 6px;
+
+      /* Copy the `.meta` styles to the only <span> inside the <li> */
+      span {
+        font-size:   calc(var(--font-size)   * var(--meta-scaling-factor));
+        line-height: calc(var(--line-height) * var(--meta-scaling-factor) * 1.15);
+        color: var(--accent-grey);
+
+        /* Force the <span> onto a new line */
+        display: block;
+      }
     }
 
     hgroup {
@@ -26,25 +36,23 @@
       {%- for c in month_commits -%}
         <li>
           {{- "" -}}
-          <a href="/projects/{{ page.slug }}/commits/{{ c.id }}/">
+          <a href="{{ c.id }}/">
             {{- c.summary | escape -}}
-          </a><br/>
-          <span class="meta">
+          </a>
+          {{- "" -}}
+          <span>
+          {{- "" -}}
           <code>{{ c.id[:7] }}</code>
           {{- " · " -}}
-          {%- with date = c.date -%}
-          {%- with date_format = '%-d %B' -%}
-            {%- include "partials/timestamp.html" -%}
-          {%- endwith -%}
-          {%- endwith -%}
-          {%- if c.author != "Alex Chan <alex@alexwlchan.net>" -%}
+          {{- c.date.strftime('%-d %B') -}}
+          {%- if not c.author_is_me -%}
             {{- " · " -}}
             {{ c.author | escape }}
           {%- endif -%}
           {% if c.stats %}
             {{- " · " -}}
             {{ c.stats }}
-          {% endif %}
+          {%- endif -%}
           </span>
         </li>
       {%- endfor -%}
