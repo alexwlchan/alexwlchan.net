@@ -1,5 +1,6 @@
 """
-Code for dealing with tint colours.
+Models for tint colours on a page. A page can declare light/dark modes
+to use for its CSS or index page cards.
 """
 
 from pathlib import Path
@@ -8,12 +9,8 @@ from typing import Self
 
 from pydantic import BaseModel, field_validator, model_validator
 
-from .colormath import get_contrast_ratio
-from .css import CSS_DIR
-from .images import create_favicon, create_header_image
 
-
-__all__ = ["get_default_tint_colours", "TintColours"]
+__all__ = ["TintColours", "get_default_tint_colours"]
 
 
 class TintColours(BaseModel):
@@ -23,8 +20,8 @@ class TintColours(BaseModel):
 
     css_light: str | None
     css_dark: str | None
-    index_light: str
-    index_dark: str
+    index_light: str | None
+    index_dark: str | None
 
     def __init__(
         self,
@@ -113,27 +110,12 @@ class TintColours(BaseModel):
 
         return self
 
-    def create_assets(self, out_dir: Path) -> None:
-        """
-        Create all of the assets based on this tint colour.
-        """
-        favicon_dir = out_dir / "f"
-        headers_dir = out_dir / "h"
 
-        if self.css_light is not None:
-            create_favicon(favicon_dir, tint_colour=self.css_light)
-            create_header_image(headers_dir, tint_colour=self.css_light)
-
-        if self.css_dark is not None:
-            create_favicon(favicon_dir, tint_colour=self.css_dark)
-            create_header_image(headers_dir, tint_colour=self.css_dark)
-
-
-def get_default_tint_colours() -> TintColours:
+def get_default_tint_colours(variables_path: Path) -> TintColours:
     """
     Return the default tint colours used by pages that don't set their own.
     """
-    variables_css = (CSS_DIR / "base/variables.css").read_text()
+    variables_css = variables_path.read_text()
 
     m = re.search(
         "--default-primary-color-light:[ ]+(?P<colour>#[0-9a-f]{6});", variables_css
@@ -148,3 +130,26 @@ def get_default_tint_colours() -> TintColours:
     css_dark = m.group("colour")
 
     return TintColours(css_light=css_light, css_dark=css_dark)
+
+
+def get_relative_luminance(hex_colour: str) -> float:
+    """
+    Get the relative luminance of a hexadecimal colour.
+    """
+    r = int(hex_colour[1:3], 16) / 255
+    g = int(hex_colour[3:5], 16) / 255
+    b = int(hex_colour[5:7], 16) / 255
+    rgb = [r, g, b]
+
+    # sRGB gamma correction
+    r, g, b = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in rgb]
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def get_contrast_ratio(colour1: str, colour2: str) -> float:
+    """
+    Return the WCAG contrast ratio of two colours as hex strings.
+    """
+    l1 = get_relative_luminance(colour1)
+    l2 = get_relative_luminance(colour2)
+    return (max(l1, l2) + 0.05) / (min(l1, l2) + 0.05)

@@ -12,6 +12,7 @@ from .social_embeds import (
     MediaEntity,
     parse_social_embed_data,
 )
+from .tint_colours import get_default_tint_colours, TintColours
 from .topics import (
     Topic,
     TopicNotFoundError,
@@ -31,11 +32,13 @@ __all__ = [
     "MastodonEmbed",
     "MediaEntity",
     "SocialEmbedData",
+    "TintColours",
     "Topic",
     "TopicNotFoundError",
     "TwitterEmbed",
     "all_topics",
     "filter_for_topic",
+    "get_default_tint_colours",
     "get_topic",
     "group_items_for_layout",
     "parse_social_embed_data",

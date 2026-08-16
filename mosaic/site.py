@@ -18,9 +18,10 @@ from pydantic import BaseModel, Field
 import yaml
 
 from . import cache, manpages, page_types
-from .css import create_base_css
+from .css import create_base_css, CSS_DIR
 from .git import GitRepository
-from .models import all_topics
+from .images import create_favicon, create_header_image
+from .models import all_topics, get_default_tint_colours
 from .page_types import (
     Article,
     BaseHtmlPage,
@@ -41,7 +42,6 @@ from .page_types import (
 )
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
-from .tint_colours import get_default_tint_colours
 
 
 def register_task(label: str) -> Any:
@@ -372,12 +372,24 @@ class Site(BaseModel):
         """
         Create the tint colour assets.
         """
-        tint_colours = [get_default_tint_colours()] + [
+        default_colours = get_default_tint_colours(
+            variables_path=CSS_DIR / "base/variables.css"
+        )
+        tint_colours = [default_colours] + [
             p.colours for p in self.all_pages if p.colours is not None
         ]
 
         for tc in tint_colours:
-            tc.create_assets(self.out_dir)
+            favicon_dir = self.out_dir / "f"
+            headers_dir = self.out_dir / "h"
+
+            if light_tint := tc.css_light:
+                create_favicon(favicon_dir, light_tint)
+                create_header_image(headers_dir, light_tint)
+
+            if dark_tint := tc.css_dark:
+                create_favicon(favicon_dir, dark_tint)
+                create_header_image(headers_dir, dark_tint)
 
     def get_jinja_environment(self, css_url: str) -> Environment:
         """

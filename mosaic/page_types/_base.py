@@ -11,8 +11,7 @@ from jinja2 import Environment
 from pydantic import BaseModel, ConfigDict
 
 from mosaic import cache
-from mosaic.models import BreadcrumbEntry
-from mosaic.tint_colours import TintColours
+from mosaic.models import BreadcrumbEntry, TintColours
 from mosaic.text import markdownify, minify_html
 
 

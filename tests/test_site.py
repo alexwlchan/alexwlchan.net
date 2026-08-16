@@ -11,6 +11,7 @@ import time
 from jinja2 import Environment
 import pytest
 
+from mosaic.models import TintColours
 from mosaic.page_types import (
     Article,
     BaseHtmlPage,
@@ -23,7 +24,6 @@ from mosaic.page_types import (
 )
 from mosaic.site import Site
 from mosaic.templates import get_jinja_environment
-from mosaic.tint_colours import TintColours
 
 
 def test_page_properties(src_dir: Path) -> None:
@@ -336,6 +336,29 @@ class TestSite:
             "d01c11.ico",
             "ff4a4a.ico",
         ]:
+            assert (favicons_dir / name).exists()
+
+    def test_pages_without_tint_colours(
+        self, src_dir: Path, out_dir: Path, pages: list[BaseHtmlPage]
+    ) -> None:
+        """
+        If a page doesn't have tint colours, it just gets the default
+        tint colour assets.
+        """
+        pages[0].colours = TintColours()
+        pages[1].colours = TintColours()
+
+        site = Site(src_dir=src_dir, out_dir=out_dir, all_pages=pages)
+        site.create_tint_colour_assets()
+
+        headers_dir = out_dir / "h"
+        assert set(headers_dir.iterdir()) == {
+            headers_dir / "d01c11.png",
+            headers_dir / "ff4a4a.png",
+        }
+
+        favicons_dir = out_dir / "f"
+        for name in ["d01c11.ico", "ff4a4a.ico"]:
             assert (favicons_dir / name).exists()
 
     def test_write_html_files(
