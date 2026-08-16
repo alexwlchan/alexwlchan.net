@@ -31,12 +31,10 @@ class MediaEntity(BaseModel):
     A media entity on a microblog post.
     """
 
+    type: Literal["photo"]
     filename: str
     url: str
-    type: Literal["photo"]
-
-    # TODO: This should just be `alt_text` or similar
-    ext_alt_text: str | None = None
+    alt_text: str | None = None
 
 
 class UrlEntity(BaseModel):

@@ -114,7 +114,7 @@ def tweet_image(context: Context, media: MediaEntity) -> str:
         context,
         filename=media.filename,
         parent="/images/social_embeds/twitter",
-        alt=media.ext_alt_text or "",
+        alt=media.alt_text or "",
         width=585,
         link_to=media.url,
     )
