@@ -1,13 +1,23 @@
 """
-Conversion between color spaces.
+Code for dealing with RGB and CIELAB colours.
+
+This is based on Greg Taylor's colormath module [1]. I copied out the
+parts that were relevant to me, then added type hints and more tests.
+
+[1]: https://github.com/gtaylor/python-colormath
 """
 
+from dataclasses import dataclass
 import math
 
-from .color_objects import XYZColor, RGBColor, LabColor
 
-
-__all__ = ["RGB_to_Lab", "Lab_to_RGB"]
+__all__ = [
+    "LabColor",
+    "RGBColor",
+    "RGB_to_Lab",
+    "Lab_to_RGB",
+    "delta_e_cie2000",
+]
 
 
 # Not sure what these are, they are used in Lab and Luv calculations.
@@ -17,6 +27,74 @@ CIE_K = 24389.0 / 27.0
 CIE_KE = CIE_E * CIE_K
 
 ILLUMINANT_2_65 = {"X": 0.95047, "Y": 1.00000, "Z": 1.08883}
+
+
+@dataclass
+class LabColor:
+    """
+    Represents a CIE Lab color. For more information on CIE Lab,
+    see `Lab color space <http://en.wikipedia.org/wiki/Lab_color_space>`_ on
+    Wikipedia.
+    """
+
+    lab_l: float
+    lab_a: float
+    lab_b: float
+
+    def get_value_tuple(self) -> tuple[float, float, float]:
+        """
+        Return a tuple of the color's values (in order).
+        """
+        return (self.lab_l, self.lab_a, self.lab_b)
+
+
+@dataclass
+class XYZColor:
+    """
+    Represents an XYZ color.
+    """
+
+    xyz_x: float
+    xyz_y: float
+    xyz_z: float
+
+    def get_value_tuple(self) -> tuple[float, float, float]:
+        """
+        Return a tuple of the color's values (in order).
+        """
+        return (self.xyz_x, self.xyz_y, self.xyz_z)
+
+
+@dataclass
+class RGBColor:
+    """
+    Represents an sRGB color.
+    """
+
+    rgb_r: float
+    rgb_g: float
+    rgb_b: float
+
+    def get_value_tuple(self) -> tuple[float, float, float]:
+        """
+        Return a tuple of the color's values (in order).
+        """
+        return (self.rgb_r, self.rgb_g, self.rgb_b)
+
+    @classmethod
+    def new_from_rgb_hex(cls, hex_str: str) -> "RGBColor":
+        """
+        Convert an RGB hex string like #RRGGBB and assigns the values to
+        this RGBColor object.
+        """
+        colorstring = hex_str.strip()
+        if colorstring and colorstring[0] == "#":
+            colorstring = colorstring[1:]
+        if len(colorstring) != 6:
+            raise ValueError("input #%s is not in #RRGGBB format" % colorstring)
+        rs, gs, bs = colorstring[:2], colorstring[2:4], colorstring[4:]
+        r, g, b = [int(n, 16) / 255.0 for n in (rs, gs, bs)]
+        return cls(r, g, b)
 
 
 def Lab_to_XYZ(lab: LabColor) -> XYZColor:
@@ -166,3 +244,73 @@ def Lab_to_RGB(lab: LabColor) -> RGBColor:
     xyz = Lab_to_XYZ(lab)
     rgb = XYZ_to_RGB(xyz)
     return rgb
+
+
+def delta_e_cie2000(colour1: LabColor, colour2: LabColor) -> float:
+    """
+    Calculate the Delta E (CIE2000) of two colours.
+    """
+    # Weighting factors
+    Kl = Kc = Kh = 1
+
+    L1, a1, b1 = colour1.lab_l, colour1.lab_a, colour1.lab_b
+    L2, a2, b2 = colour2.lab_l, colour2.lab_a, colour2.lab_b
+
+    avg_Lp = (L1 + L2) / 2
+
+    C1 = math.sqrt(a1**2 + b1**2)
+    C2 = math.sqrt(a2**2 + b2**2)
+    avg_C = (C1 + C2) / 2
+
+    C7 = avg_C**7
+    G = 0.5 * (1 - math.sqrt(C7 / (C7 + 25**7)))
+
+    a1p = (1.0 + G) * a1
+    a2p = (1.0 + G) * a2
+
+    C1p = math.sqrt(a1p**2 + b1**2)
+    C2p = math.sqrt(a2p**2 + b2**2)
+    avg_C1p_C2p = (C1p + C2p) / 2
+
+    h1p = math.degrees(math.atan2(b1, a1p)) % 360
+    h2p = math.degrees(math.atan2(b2, a2p)) % 360
+
+    if abs(h1p - h2p) > 180:
+        avg_Hp = (h1p + h2p + 360) / 2
+    else:
+        avg_Hp = (h1p + h2p) / 2
+
+    T = (
+        1
+        - 0.17 * math.cos(math.radians(avg_Hp - 30))
+        + 0.24 * math.cos(math.radians(2 * avg_Hp))
+        + 0.32 * math.cos(math.radians(3 * avg_Hp + 6))
+        - 0.2 * math.cos(math.radians(4 * avg_Hp - 63))
+    )
+
+    diff_h = h2p - h1p
+    if abs(diff_h) <= 180:
+        delta_hp_raw = diff_h
+    else:
+        delta_hp_raw = diff_h + (360 if h2p <= h1p else -360)
+
+    delta_Lp = L2 - L1
+    delta_Cp = C2p - C1p
+    delta_Hp = 2 * math.sqrt(C2p * C1p) * math.sin(math.radians(delta_hp_raw) / 2)
+
+    S_L = 1 + ((0.015 * (avg_Lp - 50) ** 2) / math.sqrt(20 + (avg_Lp - 50) ** 2))
+    S_C = 1 + 0.045 * avg_C1p_C2p
+    S_H = 1 + 0.015 * avg_C1p_C2p * T
+
+    delta_ro = 30 * math.exp(-(((avg_Hp - 275) / 25) ** 2))
+    C7p = avg_C1p_C2p**7
+    R_C = 2 * math.sqrt(C7p / (C7p + 25**7))
+    R_T = -math.sin(2 * math.radians(delta_ro)) * R_C
+
+    dist_l = delta_Lp / (S_L * Kl)
+    dist_c = delta_Cp / (S_C * Kc)
+    dist_h = delta_Hp / (S_H * Kh)
+
+    total_de = math.sqrt(dist_l**2 + dist_c**2 + dist_h**2 + R_T * dist_c * dist_h)
+
+    return total_de

@@ -10,13 +10,7 @@ from typing import cast, Literal, TypeAlias
 
 from PIL import Image, ImageDraw
 
-from mosaic.colormath import (
-    LabColor,
-    RGBColor,
-    RGB_to_Lab,
-    Lab_to_RGB,
-    delta_e_cie2000,
-)
+from .colours import LabColor, RGBColor, RGB_to_Lab, Lab_to_RGB, delta_e_cie2000
 
 
 __all__ = ["create_header_image"]
