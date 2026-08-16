@@ -10,8 +10,7 @@ from pydantic import BaseModel, field_validator, model_validator
 
 from .colormath import get_contrast_ratio
 from .css import CSS_DIR
-from .favicons import create_favicon
-from .header_images import draw_header_image
+from .images import create_favicon, create_header_image
 
 
 __all__ = ["get_default_tint_colours", "TintColours"]
@@ -118,36 +117,16 @@ class TintColours(BaseModel):
         """
         Create all of the assets based on this tint colour.
         """
-        self._create_header_image(out_dir, tint_colour=self.css_light)
-        self._create_header_image(out_dir, tint_colour=self.css_dark)
-        self._create_favicon(out_dir, tint_colour=self.css_light)
-        self._create_favicon(out_dir, tint_colour=self.css_dark)
+        favicon_dir = out_dir / "f"
+        headers_dir = out_dir / "h"
 
-    def _create_favicon(self, out_dir: Path, tint_colour: str | None) -> None:
-        """
-        Create the favicon for this tint colour.
-        """
-        if tint_colour is None:
-            return
+        if self.css_light is not None:
+            create_favicon(favicon_dir, tint_colour=self.css_light)
+            create_header_image(headers_dir, tint_colour=self.css_light)
 
-        create_favicon(favicon_dir=out_dir / "f", tint_colour=tint_colour)
-
-    def _create_header_image(self, out_dir: Path, tint_colour: str | None) -> None:
-        """
-        Create the header image for this tint colour.
-        """
-        if tint_colour is None:
-            return
-
-        hex_string = tint_colour.strip("#")
-        out_path = out_dir / "h" / f"{hex_string}.png"
-        out_path.parent.mkdir(exist_ok=True, parents=True)
-
-        if out_path.exists():
-            return
-
-        im = draw_header_image(tint_colour)
-        im.save(out_path)
+        if self.css_dark is not None:
+            create_favicon(favicon_dir, tint_colour=self.css_dark)
+            create_header_image(headers_dir, tint_colour=self.css_dark)
 
 
 def get_default_tint_colours() -> TintColours:

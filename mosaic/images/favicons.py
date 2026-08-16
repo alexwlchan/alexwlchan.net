@@ -7,6 +7,9 @@ from pathlib import Path
 from PIL import Image
 
 
+__all__ = ["create_favicon"]
+
+
 def colourise_image(template: "Image.Image", tint_colour: str) -> "Image.Image":
     """
     Apply a tint colour to a greyscale image with an alpha channel.

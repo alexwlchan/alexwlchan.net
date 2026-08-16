@@ -4,12 +4,13 @@ based on the tint colour.
 """
 
 from collections.abc import Iterator
+from pathlib import Path
 import random
 from typing import cast, Literal, TypeAlias
 
 from PIL import Image, ImageDraw
 
-from .colormath import (
+from mosaic.colormath import (
     LabColor,
     RGBColor,
     RGB_to_Lab,
@@ -18,7 +19,7 @@ from .colormath import (
 )
 
 
-__all__ = ["draw_header_image"]
+__all__ = ["create_header_image"]
 
 
 # An x-y Cartesian coordinate
@@ -28,10 +29,18 @@ Coordinate = tuple[int, int]
 Square: TypeAlias = tuple[Coordinate, Coordinate, Coordinate, Coordinate]
 
 
-def draw_header_image(tint_colour: str) -> "Image.Image":
+def create_header_image(headers_dir: Path, tint_colour: str) -> Path:
     """
     Create a header image.
     """
+    hex_string = tint_colour.strip("#")
+    out_path = headers_dir / f"{hex_string}.png"
+
+    if out_path.exists():
+        return out_path
+
+    out_path.parent.mkdir(exist_ok=True, parents=True)
+
     im = Image.new(mode="RGB", size=(2500, 250))
     draw = ImageDraw.Draw(im)
 
@@ -41,7 +50,9 @@ def draw_header_image(tint_colour: str) -> "Image.Image":
     for sq, col in zip(squares, colours):
         draw.polygon(sq, fill=col)
 
-    return im
+    im.save(out_path)
+
+    return out_path
 
 
 def generate_unit_squares(image_width: int, image_height: int) -> Iterator[Square]:

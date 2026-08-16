@@ -22,17 +22,12 @@ References:
 
 """
 
-import os
-import shutil
-import re
-from typing import Any, Literal
+from typing import Any
 
-from bs4 import BeautifulSoup, Comment
-from chives.text import smartify
 from jinja2 import pass_context
 from jinja2.runtime import Context
 
-from mosaic import cache
+from mosaic.images import render_inline_svg
 from mosaic.text import assert_is_invariant_under_markdown
 
 from .jinja_extensions import KwargsExtensionBase
@@ -46,110 +41,32 @@ class InlineSvgExtension(KwargsExtensionBase):
     tags = {"inline_svg"}
 
     @pass_context
-    def render_html(self, *args: Any, **kwargs: Any) -> str:
+    def render_html(self, context: Context, *args: Any, **kwargs: Any) -> str:
         """
         Render the inline_svg tag.
         """
-        return render_inline_svg(*args, **kwargs)
+        assert not args, "only pass keyword arguments"
 
+        # Discard the caller argument sent by Jinja2, which I don't use.
+        kwargs.pop("caller")
 
-def render_inline_svg(
-    context: Context,
-    filename: str,
-    alt: str | None = None,
-    link_to: Literal["original"] | None = None,
-    **kwargs: Any,
-) -> str:
-    """
-    Create the HTML to render an inline SVG.
-    """
-    src_dir = context["src_dir"]
-    out_dir = context["out_dir"]
-    images_dir = src_dir / "images"
+        # Work out where this inline SVG will be saved. Look in the per-date
+        # folder if this is a dated post, or the images dir if not.
+        src_dir = context["src_dir"]
+        out_dir = context["out_dir"]
+        images_dir = src_dir / "images"
 
-    # Discard the caller argument sent by Jinja2, which I don't use.
-    kwargs.pop("caller")
+        filename = kwargs.pop("filename")
+        if context["page"].date:
+            src_path = images_dir / str(context["page"].date.year) / filename
+        else:
+            src_path = images_dir / filename
 
-    # 1. Verify the file extension
-    if not filename.endswith(".svg"):
-        raise ValueError(
-            f"You can only use {{% inline_svg %}} with SVG images; got {filename!r}"
+        html = render_inline_svg(
+            src_dir=src_dir,
+            src_path=src_path,
+            out_dir=out_dir,
+            **kwargs,
         )
-
-    # 2. Read and parse the SVG
-    if context["page"].date:
-        src_path = images_dir / str(context["page"].date.year) / filename
-    else:
-        src_path = images_dir / filename
-
-    soup = BeautifulSoup(src_path.read_text(), "xml")
-    svg_tag = soup.find("svg")
-    if svg_tag is None:
-        raise ValueError(f"No <svg> tag found in {src_path!r}")
-
-    # Record that this is an inline SVG.
-    cache.set("is_inline_svg", key=os.path.relpath(src_path, start=src_dir))
-
-    # 3. Add the accessibility role. See "Accessible SVGs" §2.
-    svg_tag["role"] = "img"
-
-    # 4. If alt text, add a <title> element.
-    # TODO: Are there any cases where I wouldn't have alt text?
-    if alt is not None:
-        svg_id = f"svg_{src_path.stem}"
-
-        # Create a new <title> tag
-        title_tag = soup.new_tag("title")
-        title_tag["id"] = svg_id
-        title_tag.string = smartify(alt)
-
-        # Insert the <title> at the beginning of the SVG
-        svg_tag.insert(0, title_tag)
-        svg_tag["aria-labelledby"] = svg_id
-
-    # 5. Add extra attributes
-    if kwargs:
-        for k, v in kwargs.items():
-            if k == "class":
-                existing_classes = svg_tag.get("class", "")
-                assert isinstance(existing_classes, str)
-                svg_tag["class"] = " ".join([existing_classes, v]).strip()
-            else:
-                svg_tag[k] = v
-
-    # 6. Remove comments, including any whitespace that was immediately
-    # before or after.
-    for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
-        for sibling in (comment.previous_sibling, comment.next_sibling):
-            if sibling and isinstance(sibling, str) and not sibling.strip():
-                sibling.extract()
-            else:  # pragma: no cover
-                pass
-
-        comment.extract()
-
-    # 7. Minify style tags. This isn't a full minification; just removing
-    # enough that the Markdown renderer doesn't interpret this as a
-    # code block halfway through.
-    for style in soup.find_all("style"):
-        style.string.replace_with(  # type: ignore
-            "\n".join([ln.lstrip() for ln in style.text.splitlines() if ln.lstrip()])
-        )
-
-    # 8. Minify/Clean XML declaration
-    # We convert to string and strip the <?xml ... ?> header
-    xml_output = str(soup)
-    xml_output = re.sub(r"<\?xml.*?\?>", "", xml_output).strip()
-
-    # 9. Wrap in link if necessary.
-    if link_to == "original":
-        dst_path = out_dir / "images" / str(context["page"].date.year) / filename
-        dst_path.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(src_path, dst_path)
-        href = "/" + str(dst_path.relative_to(out_dir))
-        html = f'<a href="{href}">{xml_output}</a>'
-    else:
-        html = xml_output
-
-    assert_is_invariant_under_markdown(html)
-    return html
+        assert_is_invariant_under_markdown(html)
+        return html
