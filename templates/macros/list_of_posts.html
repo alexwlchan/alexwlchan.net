@@ -3,11 +3,11 @@
 
   * featured articles (shown as cards)
   * everything else (shown as links)
-  
+
   I want to maintain loose chronological order, but it's not strict.
-  
+
   The idea is the page goes
-  
+
     [card][card]
     - link
     - link
@@ -18,7 +18,7 @@
     - link
     - link
     [card][card]
-  
+
 #}
 
 {% from "macros/article_cards.html" import article_cards %}
@@ -28,16 +28,16 @@
 <link href="css/components/list_of_posts.css" rel="stylesheet"/>
 
 <div id="list_of_posts">
-  {%- for group in posts|group_list_of_posts -%}
-    {%- if group.type == 'featured' -%}
-      {{- article_cards(articles=group.posts) -}}
+  {%- for group in posts|group_items_for_layout -%}
+    {%- if group.type == 'cards' -%}
+      {{- article_cards(articles=group.entries) -}}
     {%- else -%}
-      <section class="links">{{- post_links(posts=group.posts) -}}</section>
+      <section class="links">{{- post_links(posts=group.entries) -}}</section>
     {%- endif -%}
   {%- endfor -%}
 </div>
 
-<script>  
+<script>
   function arrangeCards() {
     console.debug("Calling arrangeCards()");
 
@@ -129,7 +129,7 @@
    document.querySelector('#list_of_posts').replaceWith(container);
    document.querySelector('#list_of_posts').setAttribute("data-card-count", Math.min(allFeaturedPosts.length, cardCount));
   }
-  
+
   /* Given a list of <li> elements for article cards, create a new <section>
    * element that contains those cards.
    *
@@ -139,7 +139,7 @@
     // If the last thing we added to the container was a list of cards,
     // continue appending to that list; otherwise, create a new list.
     const lastChild = container.lastChild;
-    
+
     var ul;
     if (lastChild !== null && lastChild.classList.contains("acards")) {
       ul = lastChild.querySelector("ul");
@@ -147,14 +147,14 @@
       const section = document.createElement("section");
       section.classList.add("acards");
       container.appendChild(section)
-    
+
       ul = document.createElement("ul");
       section.appendChild(ul);
     }
-    
+
     posts.forEach(p => ul.appendChild(p.elem));
   }
-  
+
   /* Given a list of <li> elements for post links, create a new <section>
    * element that contains those cards.
    *
@@ -164,7 +164,7 @@
     // If the last thing we added to the container was a list of posts,
     // continue appending to that list; otherwise, create a new list.
     const lastChild = container.lastChild;
-    
+
     var ul;
     if (lastChild !== null && lastChild.classList.contains("plinks")) {
       ul = lastChild.querySelector("ul");
@@ -172,11 +172,11 @@
       const section = document.createElement("section");
       section.classList.add("plinks");
       container.appendChild(section)
-    
+
       ul = document.createElement("ul");
       section.appendChild(ul);
     }
-    
+
     posts.forEach(p => ul.appendChild(p.elem));
   }
 

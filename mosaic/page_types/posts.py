@@ -7,10 +7,11 @@ from pathlib import Path
 import re
 
 
+from mosaic.models import Groupable
 from ._base import BaseHtmlPage
 
 
-class Post(BaseHtmlPage):
+class Post(Groupable, BaseHtmlPage):
     """
     A post is a dated piece of writing, usually with original thought.
     """
@@ -21,11 +22,9 @@ class Post(BaseHtmlPage):
     src_dir: Path
     date: datetime
 
-    # Whether this post should be featured in the site-wide indexes
-    is_featured: bool = False
-
-    # Whether this post should be excluded from the site-wide indexes
+    # Set defaults for properties inherited from Groupable.
     is_excluded: bool = False
+    is_featured: bool = False
 
     @property
     def slug(self) -> str:

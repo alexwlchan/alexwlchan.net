@@ -2,17 +2,14 @@
 Code for dealing with HTML and XML templates.
 """
 
-from collections.abc import Iterator
-import itertools
 from pathlib import Path
-from typing import Literal, TypedDict
 
 from chives.text import smartify
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from mosaic import page_types
 from mosaic.css import get_inline_styles
-from mosaic.page_types import Post
+from mosaic.models import group_items_for_layout
 from mosaic.syntax_highlighting import apply_syntax_highlighting
 from mosaic.text import cleanup_text, markdownify, markdownify_oneline
 from mosaic.topics import get_topic_by_name
@@ -58,7 +55,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "filter_for_topic": filter_for_topic,
             "fix_html_for_feed_readers": fix_html_for_feed_readers,
             "get_inline_styles": get_inline_styles,
-            "group_list_of_posts": group_list_of_posts,
+            "group_items_for_layout": group_items_for_layout,
             "print": lambda p: print(repr(p)),
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
@@ -86,51 +83,3 @@ def filter_for_topic(
     Return a list of pages that match a particular topic.
     """
     return [p for p in pages if p.belongs_to_topic(topic_name)]
-
-
-PostGroup = TypedDict(
-    "PostGroup", {"type": Literal["featured", "remaining"], "posts": list[Post]}
-)
-
-
-def group_list_of_posts(posts: list[Post]) -> Iterator[PostGroup]:
-    """
-    Group a list of posts for display on a page.
-
-    Always start with featured articles, then put at least 3 other posts
-    between a run of featured articles.
-    """
-    result: list[PostGroup] = []
-    featured_posts: list[Post] = []
-    remaining_posts: list[Post] = []
-
-    for p in posts:
-        if p.is_excluded:  # pragma: no cover
-            continue
-
-        if p.is_featured:
-            featured_posts.append(p)
-        else:
-            remaining_posts.append(p)
-
-        if len(featured_posts) != 2:
-            continue
-
-        result.append({"type": "featured", "posts": featured_posts})
-        featured_posts = []
-
-        if len(remaining_posts) >= 3:
-            result.append({"type": "remaining", "posts": remaining_posts})
-            remaining_posts = []
-
-    if featured_posts:
-        result.append({"type": "featured", "posts": featured_posts})
-
-    if remaining_posts:
-        result.append({"type": "remaining", "posts": remaining_posts})
-
-    for group_type, groups in itertools.groupby(result, key=lambda pg: pg["type"]):
-        yield {
-            "type": group_type,
-            "posts": list(itertools.chain(*(g["posts"] for g in groups))),
-        }
