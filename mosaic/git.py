@@ -19,10 +19,13 @@ from pydantic import BaseModel
 import pygit2
 from pygit2.enums import SortMode
 
-from mosaic import cache
+from mosaic.cache import get_cache
 
 
 __all__ = ["git_root", "GitRepository"]
+
+
+_CACHE = get_cache(".cache/git.db")
 
 
 def as_hex(oid: pygit2.Oid) -> str:
@@ -146,7 +149,7 @@ class Commit(BaseModel):
         # Use the commit ID as the key; the odds of a commit ID collision
         # among my projects is essentially nil.
         cache_ns = "get_git_commit"
-        if commit_json := cache.get(cache_ns, commit_id):
+        if commit_json := _CACHE.get(cache_ns, commit_id):
             return Commit.model_validate_json(commit_json)
 
         parent = commit.parents[0] if commit.parents else None
@@ -181,7 +184,7 @@ class Commit(BaseModel):
             changed_files=changed_files,
         )
 
-        cache.set(cache_ns, commit_id, commit_data.model_dump_json())
+        _CACHE.set(cache_ns, commit_id, commit_data.model_dump_json())
 
         return commit_data
 
@@ -466,14 +469,14 @@ class GitTree(BaseModel):
         # among my projects is essentially nil.
         tree_id = as_hex(commit.tree.id)
         cache_ns = "get_git_tree"
-        if tree_json := cache.get(cache_ns, tree_id):
+        if tree_json := _CACHE.get(cache_ns, tree_id):
             tree_data = GitTree.model_validate_json(tree_json)
             return tree_data
 
         files = list_files_for_tree(commit.tree)
         tree_data = GitTree(files_by_path={f.path: f for f in files})
 
-        cache.set(cache_ns, tree_id, tree_data.model_dump_json())
+        _CACHE.set(cache_ns, tree_id, tree_data.model_dump_json())
 
         return tree_data
 
