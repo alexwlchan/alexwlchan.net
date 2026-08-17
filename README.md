@@ -1,7 +1,5 @@
 # alexwlchan.net
 
-[![build_site](https://github.com/alexwlchan/alexwlchan.net/actions/workflows/build_site.yml/badge.svg)](https://github.com/alexwlchan/alexwlchan.net/actions/workflows/build_site.yml)
-
 This repo has the code for my personal site, [alexwlchan.net][root], which is a static site built with my own Python scripts.
 
 <img src="homepage.png" alt="Screenshot of the front page of my website">

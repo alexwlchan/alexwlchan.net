@@ -5,7 +5,9 @@ _site
 .hypothesis
 _out
 
-.mosaic_cache.db*
+# Ignore cProfile files
+*.prof
+
 # Ignore cache files
 .cache
 

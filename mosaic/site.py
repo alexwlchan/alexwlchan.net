@@ -10,6 +10,7 @@ import itertools
 import os
 from pathlib import Path
 import shutil
+import sys
 import time
 from typing import Any, Self
 
@@ -155,6 +156,10 @@ class Site(BaseModel):
                 "Add auto-generated cover images to EPUB files downloaded from AO3 "
                 "(the Archive of Our Own)"
             ),
+            "alexwlchan.net": (
+                "The source code for this website, which is built using a "
+                "custom static site generator written in Python."
+            ),
             "blink-photo-reviewer": (
                 "Reviewing my photos from Photos.app with blink diffs and "
                 "keyboard shortcuts"
@@ -205,6 +210,11 @@ class Site(BaseModel):
                 "in my preferred format"
             ),
         }
+
+        # Doing anything with the alexwlchan.net repo is slow, so skip it
+        # during tests.
+        if "pytest" in sys.modules:
+            del repo_details["alexwlchan.net"]
 
         repos = []
 
@@ -607,14 +617,22 @@ class Site(BaseModel):
         """
         Write the /projects/ folder data for a single Git repo.
         """
-        download_path = repo.write_archive(out_dir=self.out_dir / "projects")
-        download_url = "/" + str(download_path.relative_to(self.out_dir))
+        # A zip download for the alexwlchan.net repo is ~1.6GB, so I don't
+        # want to serve it out of my Linode (at least, not for now).
+        #
+        # Instead, the download link is served from a GitHub mirror.
+        download_url: str | None = None
+        download_size = 0
+        if repo.name != "alexwlchan.net":
+            download_path = repo.write_archive(out_dir=self.out_dir / "projects")
+            download_url = "/" + str(download_path.relative_to(self.out_dir))
+            download_size = download_path.stat().st_size
 
         self.all_pages.append(
             ProjectHomepage(
                 repo=repo,
                 download_url=download_url,
-                download_size=download_path.stat().st_size,
+                download_size=download_size,
             )
         )
         self.all_pages.append(ProjectLog(repo=repo))
