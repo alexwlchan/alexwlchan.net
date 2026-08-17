@@ -619,16 +619,9 @@ class Site(BaseModel):
         """
         Write the /projects/ folder data for a single Git repo.
         """
-        # A zip download for the alexwlchan.net repo is ~1.6GB, so I don't
-        # want to serve it out of my Linode (at least, not for now).
-        #
-        # Instead, the download link is served from a GitHub mirror.
-        download_url: str | None = None
-        download_size = 0
-        if repo.name != "alexwlchan.net":
-            download_path = repo.write_archive(out_dir=self.out_dir / "projects")
-            download_url = "/" + str(download_path.relative_to(self.out_dir))
-            download_size = download_path.stat().st_size
+        download_path = repo.write_archive(out_dir=self.out_dir / "projects")
+        download_url = "/" + str(download_path.relative_to(self.out_dir))
+        download_size = download_path.stat().st_size
 
         self.all_pages.append(
             ProjectHomepage(

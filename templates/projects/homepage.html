@@ -108,24 +108,15 @@
         <p id="actions">
           <code><span class="noselect">$ </span>git clone
           {{- " " -}}
-          {%- if repo.name == "alexwlchan.net" -%}
-            https://github.com/<wbr>alexwlchan/<wbr>alexwlchan.net.git
-          {%- else -%}
-            git://alexwlchan.net/<wbr>projects/<wbr>{{ repo.name }}.git
-          {%- endif -%}
+          git://alexwlchan.net/<wbr>projects/<wbr>{{ repo.name }}.git
           {{- "" -}}
           <br/>
           {{- "" -}}
           <span class="noselect">$ </span>
           {{- "" -}}
           {{- " " -}}
-          {%- if repo.name == "alexwlchan.net" -%}
-            curl -OL
-            <a href="https://github.com/alexwlchan/alexwlchan.net/archive/refs/heads/main.zip">https://github.com/<wbr>alexwlchan/<wbr>alexwlchan.net/<wbr>archive/<wbr>refs/<wbr>heads/<wbr>main.zip</a></code>
-          {%- else -%}
-            curl -O
-            <a href="{{ page.download_url }}">https://alexwlchan.net{{ page.download_url | replace("/", "/<wbr>") }}</a> # {{ page.download_size | filesizeformat | replace("Byte", "byte") }}
-          {%- endif -%}
+          curl -O
+          <a href="{{ page.download_url }}">https://alexwlchan.net{{ page.download_url | replace("/", "/<wbr>") }}</a> # {{ page.download_size | filesizeformat | replace("Byte", "byte") }}
           </code>
         </p>
 

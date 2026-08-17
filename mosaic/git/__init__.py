@@ -488,21 +488,19 @@ class GitRepository(BaseModel):
 
         Any existing clone in this folder will be replaced.
         """
-        # The .git folder for the alexwlchan.net repo is ~3GB, so I don't
-        # want to serve it out of my Linode (at least, not for now).
-        #
-        # Instead, the clone link is served from a GitHub mirror.
-        if self.name == "alexwlchan.net":  # pragma: no cover
-            return
-
         assert out_dir.name == f"{self.name}.git"
 
         # Garbage collect the existing repo, which will clear up orphaned
         # objects and create packfiles which can be served more efficiently
         # than tiny per-object files.
-        subprocess.check_call(
-            ["git", "gc", "--aggressive"], cwd=self.repo_root, stderr=subprocess.DEVNULL
-        )
+        if self.name != "alexwlchan.net":
+            subprocess.check_call(
+                ["git", "gc", "--aggressive"],
+                cwd=self.repo_root,
+                stderr=subprocess.DEVNULL,
+            )
+        else:  # pragma: no cover
+            pass
 
         # Clear the existing folder
         try:
