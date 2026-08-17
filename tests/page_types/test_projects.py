@@ -55,7 +55,7 @@ class TestProjectHomepage:
         p = ProjectHomepage(
             repo=repo, download_url="/projects/example-123.tar.gz", download_size=456
         )
-        html = p.render_full_html(env)
+        html = p.render_full_html(env).replace("<wbr>", "")
 
         assert "git clone git://alexwlchan.net/projects/example-project.git" in html
 
