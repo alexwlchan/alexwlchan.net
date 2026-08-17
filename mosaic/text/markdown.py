@@ -158,6 +158,9 @@ def markdownify(text: str) -> str:
     """
     Format text using Markdown.
     """
+    if text == "" or text == "\n":
+        return ""
+
     cache_ns = "markdownify"
     cache_key = cache.md5(text)
 

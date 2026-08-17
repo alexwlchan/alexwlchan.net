@@ -10,6 +10,8 @@ from mosaic import text as t
 @pytest.mark.parametrize(
     "md, expected",
     [
+        ("", ""),
+        ("\n", ""),
         (
             "This is some text.\n\nThis is *emphasised* text.",
             "<p>This is some text.</p>\n<p>This is <em>emphasised</em> text.</p>",
