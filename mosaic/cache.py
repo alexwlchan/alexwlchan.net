@@ -30,6 +30,8 @@ class SQLiteCache:
             database.parent.mkdir(parents=True, exist_ok=True)
 
         self.conn = sqlite3.connect(database)
+        self.conn.execute("PRAGMA journal_mode = WAL;")
+        self.conn.execute("PRAGMA synchronous = NORMAL;")
 
         cursor = self.conn.cursor()
         cursor.execute(
