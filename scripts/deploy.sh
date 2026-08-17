@@ -26,4 +26,4 @@ run_command 'rsync \
 run_command 'ssh linode-vps "sudo systemctl restart alexwlchan-caddy"'
 
 run_command 'pwd'
-run_command 'git push --mirror github'
+run_command 'pwd && git push --mirror github --force'
