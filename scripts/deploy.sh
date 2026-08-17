@@ -10,6 +10,8 @@ run_command() {
     bash -c "$@"
 }
 
+run_command 'rm .cache/mosaic.db'
+
 run_command 'python3 scripts/build_site.py --profile'
 run_command 'rsync --compress --recursive --delete --verbose --checksum \
   --exclude=.DS_Store \
