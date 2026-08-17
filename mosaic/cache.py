@@ -28,6 +28,9 @@ class SQLiteCache:
         """
         Create the initial SQLite connection.
         """
+        if database != ":memory:":
+            database.parent.mkdir(parents=True, exist_ok=True)
+
         self.conn = sqlite3.connect(database)
 
         cursor = self.conn.cursor()

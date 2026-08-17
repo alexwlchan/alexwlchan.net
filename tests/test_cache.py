@@ -3,6 +3,7 @@ Tests for `mosaic.cache`.
 """
 
 from collections.abc import Iterator
+from pathlib import Path
 
 import pytest
 
@@ -34,6 +35,18 @@ def test_basic_cache(cache: SQLiteCache) -> None:
     assert cache.contains(namespace="fibonacci", key="10")
     assert cache.get(namespace="fibonacci", key="11") is None
     assert not cache.contains(namespace="fibonacci", key="11")
+
+
+def test_cache_creates_parent_directory(tmp_path: Path) -> None:
+    """
+    The cache creates its parent directory if it doesn't exist.
+    """
+    c = SQLiteCache(tmp_path / ".cache/example.db")
+
+    assert c.get(namespace="fibonacci", key="10") is None
+    assert not c.contains(namespace="fibonacci", key="10")
+
+    c.close()
 
 
 def test_purge(cache: SQLiteCache) -> None:
