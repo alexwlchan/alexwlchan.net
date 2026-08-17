@@ -13,7 +13,7 @@ run_command() {
 run_command 'rm .cache/mosaic.db'
 
 run_command 'python3 scripts/build_site.py --profile'
-run_command 'rsync --compress --recursive --delete --verbose --checksum \
+run_command 'rsync --compress --recursive --delete --verbose \
   --exclude=.DS_Store \
   --exclude=my-tools/library-lookup/ \
   _out/ linode-vps:sites/alexwlchan.net/_out/'
@@ -21,7 +21,7 @@ run_command 'rsync --compress --recursive --delete --verbose --checksum \
 run_command 'ssh linode-vps "mkdir -p sites/alexwlchan.net"'
 run_command 'rsync Caddyfile linode-vps:sites/alexwlchan.net/Caddyfile'
 run_command 'rsync \
-  --compress --recursive --delete --verbose --checksum \
+  --compress --recursive --delete --verbose \
   --include="*.Caddyfile" \
   --exclude="*" \
   caddy/ linode-vps:sites/alexwlchan.net/caddy'
