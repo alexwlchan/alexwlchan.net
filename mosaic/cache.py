@@ -11,10 +11,8 @@ import sqlite3
 import sys
 from typing import cast, Literal
 
-from .git import git_root
 
-
-__all__ = ["SQLiteCache", "register"]
+__all__ = ["SQLiteCache", "register", "get_cache", "md5"]
 
 
 class SQLiteCache:
@@ -131,10 +129,18 @@ def md5(s: str) -> str:
     return hashlib.md5(s.encode("utf8")).hexdigest()
 
 
-if "pytest" in sys.modules:
-    _cache = SQLiteCache(database=":memory:")
-else:  # pragma: no cover
-    _cache = SQLiteCache(database=git_root() / ".mosaic_cache.db")
+def get_cache(database: str | Path) -> SQLiteCache:
+    """
+    Return a named cache instance saved to disk, which gets replaced
+    by an in-memory database during tests.
+    """
+    if "pytest" in sys.modules or database == ":memory:":
+        return SQLiteCache(database=":memory:")
+    else:  # pragma: no cover
+        return SQLiteCache(database=Path(database))
+
+
+_cache = get_cache(".cache/mosaic.db")
 
 set = _cache.set
 contains = _cache.contains

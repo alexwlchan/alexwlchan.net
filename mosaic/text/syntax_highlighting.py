@@ -15,16 +15,29 @@ In Python-Markdown, those curly braces are used for extra attributes
 instead.
 """
 
+import json
+from pathlib import Path
 import re
 import textwrap
 from typing import Literal
 
-from pygments import highlight
+import pygments
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter  # type: ignore
 
+from mosaic.cache import get_cache, md5
+
 
 __all__ = ["apply_syntax_highlighting"]
+
+
+# Get the hash of this file.
+#
+# We cache syntax highlighting output, and we use this hash to determine
+# when to invalidate the cache and start again.
+_FILE_HASH = md5(Path(__file__).read_text())
+
+_CACHE = get_cache(".cache/syntax_highlighting.db")
 
 
 def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
@@ -276,6 +289,8 @@ def apply_syntax_highlighting(
     """
     Apply syntax highlighting rules to a block of code.
 
+    Results are cached to avoid unnecessary work.
+
     Arguments:
         src: The raw source code to highlight.
         lang: The Pygments lexer shortname (e.g. `python`, `js`).
@@ -296,6 +311,50 @@ def apply_syntax_highlighting(
         caption: A caption to display below the code block.
             You must enable `line_numbers` to use this option.
 
+    """
+    # The namespace changes whenever we change this file or upgrade to
+    # a newer version of Pygments.
+    cache_ns = ":".join([_FILE_HASH, pygments.__version__])
+
+    # The key changes whenever any of the arguments changes.
+    cache_key = ":".join(
+        [
+            lang,
+            md5(src),
+            json.dumps(names),
+            "1" if debug else "0",
+            "1" if wrap else "0",
+            str(line_numbers),
+            "1" if link_line_numbers else "0",
+            caption,
+        ]
+    )
+
+    if html := _CACHE.get(cache_ns, cache_key):
+        return html
+
+    html = _apply_syntax_highlighting(
+        src, lang, names, debug, wrap, line_numbers, link_line_numbers, caption
+    )
+    _CACHE.set(cache_ns, cache_key, html)
+    return html
+
+
+def _apply_syntax_highlighting(
+    src: str,
+    lang: str,
+    names: dict[int, str] | Literal["all"] | None = None,
+    debug: bool = False,
+    wrap: bool = False,
+    line_numbers: str | Literal[True] = "",
+    link_line_numbers: bool = False,
+    caption: str = "",
+) -> str:
+    """
+    Apply syntax highlighting rules to a block of code.
+
+    This function does not cache its result; it always re-runs the
+    syntax highlighting calculation.
     """
     if lang == "caddy":
         html = format_caddy(src)
@@ -593,7 +652,7 @@ def format_with_pygments(src: str, lang: str) -> str:
             r"?|\[\S+[@:][^\n]+\].+))\s*[$]\s*)(.*\n?)"
         )
 
-    return highlight(src, lexer, formatter)
+    return pygments.highlight(src, lexer, formatter)
 
 
 # Matches a line which only contains whitespace and a closing brace
