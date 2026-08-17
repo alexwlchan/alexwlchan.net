@@ -25,4 +25,5 @@ run_command 'rsync \
   caddy/ linode-vps:sites/alexwlchan.net/caddy'
 run_command 'ssh linode-vps "sudo systemctl restart alexwlchan-caddy"'
 
+run_command 'pwd'
 run_command 'git push --mirror github'
