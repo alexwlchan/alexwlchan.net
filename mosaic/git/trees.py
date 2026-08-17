@@ -143,11 +143,11 @@ class GitTree(BaseModel):
     files_by_path: dict[Path, GitFile]
 
     @property
-    def files(self) -> Iterable[GitFile]:
+    def files(self) -> list[GitFile]:
         """
         Return all the files in this repo.
         """
-        return self.files_by_path.values()
+        return list(self.files_by_path.values())
 
     def has_file(self, p: Path) -> bool:
         """

@@ -467,10 +467,12 @@ class Site(BaseModel):
                     print(f"detected changes to {label}...")
                 bust_cache = True
 
+        # If we're busting the cache, bust the entire cache -- this is
+        # more efficient than busting every page individually.
         if bust_cache:  # pragma: no cover
             cache.purge(namespace=cache_ns)
-            for pg in self.all_pages:
-                pg.clear_cache()
+            cache.purge(namespace="render_body_html")
+            cache.purge(namespace="render_full_html")
 
         for pg in self.all_pages:
             try:
@@ -653,17 +655,20 @@ class Site(BaseModel):
         # want to avoid it if we can.
         #
         # TODO: Clear out stale entries from the `raw` directory
+        cache_ns = "git.write_raw_file"
+        mtime = (
+            f"{mosaic_mtime}"
+            f":{get_latest_mtime('css')}"
+            f":{get_latest_mtime('templates/projects')}"
+        )
+
+        needs_regenerating = []
+
         for f in repo.tree.files:
             raw_path = self.out_dir / "projects" / repo.name / "raw" / f.path
             stub_page = ProjectSingleFile(repo=repo, file=f, file_contents="")
             html_path = stub_page.out_path(self.out_dir)
 
-            cache_ns = "git.write_raw_file"
-            mtime = (
-                f"{mosaic_mtime}"
-                f":{get_latest_mtime('css')}"
-                f":{get_latest_mtime('templates/projects')}"
-            )
             cache_id = f"{raw_path}:{f.blob_id}"
 
             if (
@@ -675,8 +680,18 @@ class Site(BaseModel):
                     self.written_html_paths.add(str(html_path))
                 continue
             else:
-                stub_page.clear_cache()
+                needs_regenerating.append((f, cache_id))
 
+        # If every page needs regenerating, purge the entire cache in
+        # a single operation; this is faster than purging individual pages.
+        if len(needs_regenerating) == len(repo.tree.files):
+            cache.purge(namespace="render_body_html", prefix=f"/projects/{repo.name}/")
+            cache.purge(namespace="render_full_html", prefix=f"/projects/{repo.name}/")
+        else:
+            for f, _ in needs_regenerating:
+                ProjectSingleFile(repo=repo, file=f, file_contents="").clear_cache()
+
+        for f, cache_id in needs_regenerating:
             file_data = repo.get_blob_data(f.blob_id)
 
             raw_path.parent.mkdir(exist_ok=True, parents=True)
