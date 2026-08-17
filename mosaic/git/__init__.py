@@ -3,8 +3,6 @@ Functions for interacting with Git.
 """
 
 from collections import OrderedDict
-from collections.abc import Iterable
-import codecs
 from datetime import datetime, timezone
 import os
 from pathlib import Path
@@ -15,24 +13,28 @@ import tarfile
 import uuid
 
 from bs4 import BeautifulSoup
-from pydantic import BaseModel, TypeAdapter
+from pydantic import BaseModel
 import pygit2
 from pygit2.enums import SortMode
 
 from mosaic.cache import get_cache
 
+from .files import GitFile
+from .ids import as_hex
+from .trees import GitTree, NavigableFile, NavigableTree
 
-__all__ = ["git_root", "GitRepository"]
+
+__all__ = [
+    "git_root",
+    "GitFile",
+    "GitRepository",
+    "GitTree",
+    "NavigableFile",
+    "NavigableTree",
+]
 
 
 _CACHE = get_cache(".cache/git.db")
-
-
-def as_hex(oid: pygit2.Oid) -> str:
-    """
-    Convert a Git object ID to a human-readable hex string.
-    """
-    return codecs.encode(oid.raw, "hex").decode("ascii")
 
 
 def git_root() -> Path:
@@ -228,272 +230,6 @@ def display_author(name: str, email: str) -> str:
         return "github-actions[bot]"
     else:
         return f"{name} <{email}>"
-
-
-class GitFile(BaseModel):
-    """
-    GitFile describes a single file inside a Git repository.
-    """
-
-    # Path of this file within the working directory
-    path: Path
-
-    # The ID of the blob object with the contents of this file
-    blob_id: str
-
-    # The size of the file in bytes
-    size: int
-
-    # Whether this is a binary file
-    is_binary: bool
-
-    def label(self, contents: str) -> str | None:
-        """
-        Return a human-readable label describing the type of this file.
-        """
-        if self.path.name.endswith("requirements.txt"):
-            return "pip requirements file"
-
-        known_suffixes = {
-            ".css": "CSS",
-            ".fish": "Fish shell",
-            ".go": "Go",
-            ".html": "HTML",
-            ".js": "JavaScript",
-            ".json": "JSON",
-            ".md": "Markdown",
-            ".py": "Python",
-            ".pyi": "Python type stub",
-            ".rs": "Rust",
-            ".svg": "SVG",
-            ".swift": "Swift",
-            ".toml": "TOML",
-            ".txt": "Plain text",
-            ".yml": "YAML",
-        }
-
-        try:
-            return known_suffixes[self.path.suffix]
-        except KeyError:
-            pass
-
-        known_shebangs = {
-            "#!/usr/bin/env bash\n": "Bash",
-            "#!/usr/bin/env osascript\n": "AppleScript",
-            "#!/usr/bin/env osascript -l JavaScript\n": "JXA (JavaScript for Automation)",  # noqa: E501
-            "#!/usr/bin/env python\n": "Python",
-            "#!/usr/bin/env python3\n": "Python",
-            "#!/usr/bin/env swift\n": "Swift",
-        }
-
-        for shebang, label in known_shebangs.items():
-            if contents.startswith(shebang):
-                return label
-
-        if self.path.name.endswith("requirements.in"):
-            return "pip-compile input file"
-
-        if self.path.suffix == ".plist" and contents.startswith("<?xml"):
-            return "XML property list"
-
-        return None
-
-    def lang(self, contents: str) -> str:
-        """
-        Return a Pygments lexer shortname for this file.
-        """
-        known_lexers = {
-            ".css": "css",
-            ".fish": "fish",
-            ".go": "go",
-            ".html": "html",
-            ".js": "javascript",
-            ".json": "json",
-            ".md": "markdown",
-            ".py": "python",
-            ".pyi": "python",
-            ".rs": "rust",
-            ".svg": "xml",
-            ".swift": "swift",
-            ".toml": "toml",
-            ".txt": "text",
-            ".yml": "yaml",
-        }
-
-        try:
-            return known_lexers[self.path.suffix]
-        except KeyError:
-            pass
-
-        known_shebangs = {
-            "#!/usr/bin/env bash\n": "bash",
-            "#!/usr/bin/env osascript\n": "applescript",
-            "#!/usr/bin/env osascript -l JavaScript\n": "javascript",
-            "#!/usr/bin/env python\n": "python",
-            "#!/usr/bin/env python3\n": "python",
-            "#!/usr/bin/env swift\n": "swift",
-        }
-
-        for shebang, label in known_shebangs.items():
-            if contents.startswith(shebang):
-                return label
-
-        if self.path.suffix == ".plist" and contents.startswith("<?xml"):
-            return "xml"
-
-        return "text"
-
-
-git_file_adapter = TypeAdapter(list[GitFile])
-
-
-def list_files_for_tree(tree: pygit2.Tree, parent: Path = Path("")) -> list[GitFile]:
-    """
-    Read a list of files for a tree.
-    """
-    # Look in the cache to see if we already have data about this
-    # tree; this is often faster than reading the data from Git.
-    # By caching individual Git trees, we don't have to re-parse
-    # the entire tree when a single file changes.
-    #
-    # Use the tree ID as the key; the odds of a tree ID collision
-    # among my projects is essentially nil.
-    cache_ns = "list_files_for_tree"
-    tree_id = as_hex(tree.id)
-    cache_key = f"{tree_id}:{parent}"
-
-    if json_str := _CACHE.get(cache_ns, cache_key):
-        return git_file_adapter.validate_json(json_str)
-
-    # If this tree isn't in the cache, go ahead and read the tree
-    # from source.
-    result: list[GitFile] = []
-
-    for obj in tree:
-        name = obj.name
-        assert isinstance(name, str), name
-        path = parent / name
-
-        if isinstance(obj, pygit2.Blob):
-            result.append(
-                GitFile(
-                    path=path,
-                    blob_id=as_hex(obj.id),
-                    size=obj.size,
-                    is_binary=obj.is_binary,
-                )
-            )
-        elif isinstance(obj, pygit2.Tree):
-            result.extend(list_files_for_tree(obj, parent=path))
-        else:  # pragma: no cover
-            raise TypeError(f"found non-blob/tree in tree: {obj!r}")
-
-    _CACHE.set(cache_ns, cache_key, git_file_adapter.dump_json(result).decode("utf8"))
-
-    return result
-
-
-class NavigableFile(BaseModel):
-    """
-    NavigableFile is a single file in a navigable tree.
-    """
-
-    name: str
-    is_binary: bool = False
-
-
-class NavigableTree(BaseModel):
-    """
-    NavigableTree is enough information to construct the browsable view
-    of the entire tree in /files/.
-    """
-
-    folders: OrderedDict[Path, "NavigableTree"] = OrderedDict()
-    files: list[NavigableFile] = []
-
-    @classmethod
-    def from_files(cls, files: Iterable[GitFile]) -> "NavigableTree":
-        """
-        Construct a NavigableTree from a list of paths.
-        """
-        root = NavigableTree()
-
-        for f in sorted(files, key=lambda f: f.path):
-            p = f.path
-            current = root
-
-            # Iterate through the parts of the folder path, and drill
-            # down into the correct level of the NavigableTree.
-            for part in p.parent.parts:
-                part_path = Path(part)
-                if part_path not in current.folders:
-                    current.folders[part_path] = NavigableTree()
-                current = current.folders[part_path]
-
-            current.files.append(NavigableFile(name=p.name, is_binary=f.is_binary))
-
-        root._compress()
-        return root
-
-    def _compress(self) -> None:
-        """
-        Recursively collapse folder segments that only contain a single
-        subfolder and no files.
-        """
-        for path_part, child_tree in list(self.folders.items()):
-            # Recursively compress the child first, so we go bottom-up
-            # through the tree.
-            child_tree._compress()
-
-            # If the child tree only has a single folder, collapse the
-            # path parts together.
-            if len(child_tree.folders) == 1 and not child_tree.files:
-                sub_path, sub_node = child_tree.folders.popitem()
-                del self.folders[path_part]
-                self.folders[path_part / sub_path] = sub_node
-
-        self.folders = OrderedDict(sorted(self.folders.items()))
-
-
-class GitTree(BaseModel):
-    """
-    GitTree describes all the files in the HEAD of the repo.
-    """
-
-    files_by_path: dict[Path, GitFile]
-
-    @property
-    def files(self) -> Iterable[GitFile]:
-        """
-        Return a list of files in this repo.
-        """
-        return self.files_by_path.values()
-
-    def has_file(self, p: Path) -> bool:
-        """
-        Return True if the repo has a file with this path, False otherwise.
-        """
-        return p in self.files_by_path
-
-    @classmethod
-    def from_repo(cls, repo: pygit2.Repository) -> "GitTree":
-        """
-        Construct an instance of `GitTree` for the HEAD of a repository.
-        """
-        commit = repo.get(repo.head.target)
-        assert isinstance(commit, pygit2.Commit)
-
-        files = list_files_for_tree(commit.tree)
-        tree_data = GitTree(files_by_path={f.path: f for f in files})
-
-        return tree_data
-
-    @property
-    def navigable_tree(self) -> NavigableTree:
-        """
-        Construct a navigable tree for the /files/ page.
-        """
-        return NavigableTree.from_files(self.files)
 
 
 class GitRepository(BaseModel):
