@@ -15,7 +15,7 @@ import tarfile
 import uuid
 
 from bs4 import BeautifulSoup
-from pydantic import BaseModel
+from pydantic import BaseModel, TypeAdapter
 import pygit2
 from pygit2.enums import SortMode
 
@@ -344,10 +344,29 @@ class GitFile(BaseModel):
         return "text"
 
 
+git_file_adapter = TypeAdapter(list[GitFile])
+
+
 def list_files_for_tree(tree: pygit2.Tree, parent: Path = Path("")) -> list[GitFile]:
     """
     Read a list of files for a tree.
     """
+    # Look in the cache to see if we already have data about this
+    # tree; this is often faster than reading the data from Git.
+    # By caching individual Git trees, we don't have to re-parse
+    # the entire tree when a single file changes.
+    #
+    # Use the tree ID as the key; the odds of a tree ID collision
+    # among my projects is essentially nil.
+    cache_ns = "list_files_for_tree"
+    tree_id = as_hex(tree.id)
+    cache_key = f"{tree_id}:{parent}"
+
+    if json_str := _CACHE.get(cache_ns, cache_key):
+        return git_file_adapter.validate_json(json_str)
+
+    # If this tree isn't in the cache, go ahead and read the tree
+    # from source.
     result: list[GitFile] = []
 
     for obj in tree:
@@ -368,6 +387,8 @@ def list_files_for_tree(tree: pygit2.Tree, parent: Path = Path("")) -> list[GitF
             result.extend(list_files_for_tree(obj, parent=path))
         else:  # pragma: no cover
             raise TypeError(f"found non-blob/tree in tree: {obj!r}")
+
+    _CACHE.set(cache_ns, cache_key, git_file_adapter.dump_json(result).decode("utf8"))
 
     return result
 
@@ -462,21 +483,8 @@ class GitTree(BaseModel):
         commit = repo.get(repo.head.target)
         assert isinstance(commit, pygit2.Commit)
 
-        # Look in the cache to see if we already have data about this
-        # tree; this is often faster than reading the data from Git.
-        #
-        # Use the tree ID as the key; the odds of a tree ID collision
-        # among my projects is essentially nil.
-        tree_id = as_hex(commit.tree.id)
-        cache_ns = "get_git_tree"
-        if tree_json := _CACHE.get(cache_ns, tree_id):
-            tree_data = GitTree.model_validate_json(tree_json)
-            return tree_data
-
         files = list_files_for_tree(commit.tree)
         tree_data = GitTree(files_by_path={f.path: f for f in files})
-
-        _CACHE.set(cache_ns, tree_id, tree_data.model_dump_json())
 
         return tree_data
 
