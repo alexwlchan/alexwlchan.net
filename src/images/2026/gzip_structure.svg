@@ -1,0 +1,323 @@
+<!--[[[cog
+import cog
+
+outer_padding = 2
+inner_padding = 10
+heading_height = inner_padding * 1.65 * 2
+block_y = outer_padding
+
+block_width  = 120
+block_height = inner_padding * 1.75 * 2
+
+WIDTH = 500
+HEIGHT = 500
+
+blocks = [
+  ("header", 1),
+  ("data", 1.75),
+  ("trailer", 1),
+  ("header", 1),
+  ("data", 2.5),
+  ("trailer", 1),
+  ("header", 1),
+  ("data", 1.75),
+  ("trailer", 1),
+]
+
+labels = {
+  "member 1": (0, 3),
+  "member 2": (4, 6),
+  "member 3": (7, 9),
+}
+
+wrapper_height = (
+  (len(blocks) + 1) * inner_padding +
+  (block_height * sum(v for _, v in blocks))
+)
+
+arrow_offset = inner_padding * 2
+
+arrow_x = outer_padding + inner_padding * 2 + block_width + arrow_offset
+arrow_width = 7
+
+WIDTH = arrow_x + 110
+HEIGHT = wrapper_height + outer_padding * 2
+
+cog.outl(
+  f'<svg viewBox="0 0 {WIDTH} {HEIGHT}" '
+  f'width="{WIDTH}" '
+  'xmlns="http://www.w3.org/2000/svg" '
+  'xmlns:xlink="http://www.w3.org/1999/xlink">')
+
+cog.outl('''
+  <defs>
+    <style>
+      text {
+        dominant-baseline: middle;
+        text-anchor: middle;
+        fill: var(--body-text);
+      }
+
+      text.arrow_bar {
+        text-anchor: start;
+      }
+
+      rect.wrapper {
+        rx:     var(--border-radius);
+        fill:   var(--background-color);
+        stroke: var(--body-text);
+      }
+
+      rect.header, rect.trailer { --tint-colour: var(--green); }
+
+      rect.header, rect.trailer {
+        fill:   var(--tint-colour);
+        fill-opacity: 0.25;
+        stroke: var(--tint-colour);
+        stroke-width: 2px;
+      }
+
+      @media screen and (prefers-color-scheme: dark) {
+        rect.header, rect.trailer {
+          fill-opacity: 1;
+        }
+
+        text.header, text.trailer {
+          fill: var(--black);
+        }
+      }
+
+      path.arrow_bar {
+        stroke: var(--body-text);
+        fill:   none;
+      }
+    </style>
+  </defs>
+''')
+
+cog.outl(f'''
+  <rect
+    width="{block_width + inner_padding * 2}"
+    height="{wrapper_height}"
+    x="{outer_padding}" y="{block_y}"
+    class="wrapper"/>
+''')
+
+y = block_y + inner_padding
+
+for block_label, size in blocks:
+    cog.outl(f'''
+      <rect
+        width="{block_width}"
+        height="{block_height * size}"
+        x="{outer_padding + inner_padding}"
+        y="{y}" class="{block_label}"/>
+      <text x="{outer_padding + inner_padding + block_width / 2}" y="{y + block_height / 2 * 1.1 * size}" class="{block_label}">{block_label}</text>
+    ''')
+    y += block_height * size + inner_padding
+
+for label, (start, end) in labels.items():
+    if start == 0:
+        y_start = (
+          block_y + inner_padding * (start + 1) +
+          sum(v for _, v in blocks[:start]) * block_height
+        )
+    else:
+        y_start = (
+          block_y + inner_padding * (start) +
+          sum(v for _, v in blocks[:start - 1]) * block_height
+        )
+
+    y_end   = (
+      block_y + inner_padding * (end) +
+      sum(v for _, v in blocks[:end]) * block_height
+    )
+    cog.outl(f'''
+      <path d="
+        M {arrow_x} {y_start}
+        h {arrow_width * 2}
+        h {-arrow_width}
+        V {y_end}
+        h {-arrow_width}
+        h {2 * arrow_width}
+        h {-arrow_width}
+        "
+        class="arrow_bar"/>
+      <text x="{arrow_x + arrow_width * 2.5}" y="{(y_start + y_end) / 2}" class="arrow_bar">
+        {label}
+      </text>
+    ''')
+
+]]]-->
+<svg viewBox="0 0 272 524.0" width="272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <style>
+      text {
+        dominant-baseline: middle;
+        text-anchor: middle;
+        fill: var(--body-text);
+      }
+
+      text.arrow_bar {
+        text-anchor: start;
+      }
+
+      rect.wrapper {
+        rx:     var(--border-radius);
+        fill:   var(--background-color);
+        stroke: var(--body-text);
+      }
+
+      rect.header, rect.trailer { --tint-colour: var(--green); }
+
+      rect.header, rect.trailer {
+        fill:   var(--tint-colour);
+        fill-opacity: 0.25;
+        stroke: var(--tint-colour);
+        stroke-width: 2px;
+      }
+
+      @media screen and (prefers-color-scheme: dark) {
+        rect.header, rect.trailer {
+          fill-opacity: 1;
+        }
+
+        text.header, text.trailer {
+          fill: var(--black);
+        }
+      }
+
+      path.arrow_bar {
+        stroke: var(--body-text);
+        fill:   none;
+      }
+    </style>
+  </defs>
+
+
+  <rect
+    width="140"
+    height="520.0"
+    x="2" y="2"
+    class="wrapper"/>
+
+
+      <rect
+        width="120"
+        height="35.0"
+        x="12"
+        y="12" class="header"/>
+      <text x="72.0" y="31.25" class="header">header</text>
+    
+
+      <rect
+        width="120"
+        height="61.25"
+        x="12"
+        y="57.0" class="data"/>
+      <text x="72.0" y="90.6875" class="data">data</text>
+    
+
+      <rect
+        width="120"
+        height="35.0"
+        x="12"
+        y="128.25" class="trailer"/>
+      <text x="72.0" y="147.5" class="trailer">trailer</text>
+    
+
+      <rect
+        width="120"
+        height="35.0"
+        x="12"
+        y="173.25" class="header"/>
+      <text x="72.0" y="192.5" class="header">header</text>
+    
+
+      <rect
+        width="120"
+        height="87.5"
+        x="12"
+        y="218.25" class="data"/>
+      <text x="72.0" y="266.375" class="data">data</text>
+    
+
+      <rect
+        width="120"
+        height="35.0"
+        x="12"
+        y="315.75" class="trailer"/>
+      <text x="72.0" y="335.0" class="trailer">trailer</text>
+    
+
+      <rect
+        width="120"
+        height="35.0"
+        x="12"
+        y="360.75" class="header"/>
+      <text x="72.0" y="380.0" class="header">header</text>
+    
+
+      <rect
+        width="120"
+        height="61.25"
+        x="12"
+        y="405.75" class="data"/>
+      <text x="72.0" y="439.4375" class="data">data</text>
+    
+
+      <rect
+        width="120"
+        height="35.0"
+        x="12"
+        y="477.0" class="trailer"/>
+      <text x="72.0" y="496.25" class="trailer">trailer</text>
+    
+
+      <path d="
+        M 162 12.0
+        h 14
+        h -7
+        V 163.25
+        h -7
+        h 14
+        h -7
+        "
+        class="arrow_bar"/>
+      <text x="179.5" y="87.625" class="arrow_bar">
+        member 1
+      </text>
+    
+
+      <path d="
+        M 162 173.25
+        h 14
+        h -7
+        V 350.75
+        h -7
+        h 14
+        h -7
+        "
+        class="arrow_bar"/>
+      <text x="179.5" y="262.0" class="arrow_bar">
+        member 2
+      </text>
+    
+
+      <path d="
+        M 162 360.75
+        h 14
+        h -7
+        V 512.0
+        h -7
+        h 14
+        h -7
+        "
+        class="arrow_bar"/>
+      <text x="179.5" y="436.375" class="arrow_bar">
+        member 3
+      </text>
+    
+<!-- [[[end]]] -->
+</svg>
