@@ -68,3 +68,36 @@ def find_manpage_urls(text: str) -> Iterator[Command]:
     """
     for m in MANPAGE_URL_RE.finditer(text):
         yield Command(m.group("section"), m.group("command_name"))
+
+
+if __name__ == "__main__":  # pragma: no cover
+    # Add a command-line interface to create manpages with my HTML formatting,
+    # for example:
+    #
+    #     $ python3 mosaic/manpages.py tar 1
+    #
+    from pathlib import Path
+    import sys
+
+    sys.path.append(str(Path(__file__).parent.parent))
+
+    from mosaic.page_types import ManPage
+    from mosaic.templates import get_jinja_environment
+
+    try:
+        name = sys.argv[1]
+        section = sys.argv[2]
+    except IndexError:
+        sys.exit(f"Usage: {__file__} NAME SECTION")
+
+    content = get_manpage_contents(name=name, section=section)
+    page = ManPage(command_name=name, section=section, content=content)
+
+    env = get_jinja_environment(src_dir=Path("src"), out_dir=Path("_out"))
+
+    html = page.render_full_html(env)
+
+    out_path = f"{name}-{section}.html"
+    with open(out_path, "w") as f:
+        f.write(html)
+    print(out_path)
