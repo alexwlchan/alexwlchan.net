@@ -3,6 +3,7 @@ Tests for `mosaic.page_types`.
 """
 
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 from typing import TypedDict
 
@@ -304,6 +305,22 @@ def test_writes_page(
     assert p == out_dir / out_path
     assert p.exists()
     assert page.title in p.read_text()
+
+
+def test_writes_are_idempotent(env: Environment, out_dir: Path) -> None:
+    """
+    Check that a file is only written when the page contents changes.
+
+    Writing the same page repeatedly won't rewrite the file.
+    """
+    page = PAGE_EXAMPLES[0]["page"]
+
+    p1 = page.write(env, out_dir)
+    os.utime(p1, (1, 1))
+
+    p2 = page.write(env, out_dir)
+    assert p1 == p2
+    assert p2.stat().st_mtime == 1.0
 
 
 @pytest.mark.parametrize(

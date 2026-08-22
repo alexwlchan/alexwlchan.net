@@ -159,10 +159,15 @@ class BaseHtmlPage(BaseModel, ABC):
         if cache.contains(cache_ns, cache_key) and out_path.exists():
             return out_path
 
-        html = self.render_full_html(env)
+        html = self.render_full_html(env).encode("utf8")
 
         out_path.parent.mkdir(exist_ok=True, parents=True)
-        out_path.write_text(html)
+        if (
+            not out_path.exists()
+            or out_path.stat().st_size != len(html)
+            or out_path.read_bytes() != html
+        ):
+            out_path.write_bytes(html)
 
         cache.set(cache_ns, cache_key)
 
