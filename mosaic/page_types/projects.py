@@ -42,7 +42,9 @@ class ProjectHomepage(BaseProjectPage):
     template_name: str = "projects/homepage.html"
 
     # The URL and size of the downloadable tar.gz file.
-    download_url: str
+    #
+    # This is None if there is no download for this project.
+    download_url: str | None
     download_size: int
 
     @model_validator(mode="after")
