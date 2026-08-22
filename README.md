@@ -21,7 +21,7 @@ You need Git and Python installed.
 To run a local copy of the site:
 
 ```console
-$ git clone git@github.com:alexwlchan/alexwlchan.net.git
+$ git clone git://alexwlchan.net/projects/alexwlchan.net.git
 $ uv venv .venv
 $ uv pip sync requirements.txt
 $ python3 scripts/serve_site.py
